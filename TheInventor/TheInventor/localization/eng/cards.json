@@ -1,4 +1,8 @@
 {
   "THEINVENTOR-SCRAP_BUMP.description": "[gold]Upgrade[/gold] {IfUpgraded:show:two cards|a card} in [gold]Hand[/gold].",
-  "THEINVENTOR-SCRAP_BUMP.title": "Scrap Bump"
+  "THEINVENTOR-SCRAP_BUMP.title": "Scrap Bump",
+  "THEINVENTOR-STRIKE_INVENTOR.description": "Deal {Damage:diff()} damage.",
+  "THEINVENTOR-STRIKE_INVENTOR.title": "Strike",
+  "THEINVENTOR-DEFEND_INVENTOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "THEINVENTOR-DEFEND_INVENTOR.title": "Defend"
 }
