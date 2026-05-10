@@ -1,0 +1,4 @@
+{
+  "THEINVENTOR-SCRAP_BUMP.description": "[gold]Upgrade[/gold] {IfUpgraded:show:two cards|a card} in [gold]Hand[/gold].",
+  "THEINVENTOR-SCRAP_BUMP.title": "Scrap Bump"
+}

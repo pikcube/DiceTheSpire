@@ -1,0 +1,16 @@
+{
+  "THETHIEF-THE_THIEF.aromaPrinciple": "Lore",
+  "THETHIEF-THE_THIEF.banter.alive.endTurnPing": "Co-op hurry up end turn ping message",
+  "THETHIEF-THE_THIEF.banter.dead.endTurnPing": "...",
+  "THETHIEF-THE_THIEF.cardsModifierDescription": "Thief cards will now appear in rewards and shops.",
+  "THETHIEF-THE_THIEF.cardsModifierTitle": "Thief Cards",
+  "THETHIEF-THE_THIEF.description": "Character Selection\nScreen Description",
+  "THETHIEF-THE_THIEF.eventDeathPrevention": "Co-op survival line",
+  "THETHIEF-THE_THIEF.goldMonologue": "Line spoken when obtaining a large amount of gold",
+  "THETHIEF-THE_THIEF.possessiveAdjective": "his",
+  "THETHIEF-THE_THIEF.pronounObject": "him",
+  "THETHIEF-THE_THIEF.pronounPossessive": "his",
+  "THETHIEF-THE_THIEF.pronounSubject": "he",
+  "THETHIEF-THE_THIEF.title": "The Thief",
+  "THETHIEF-THE_THIEF.titleObject": "The Thief"
+}
