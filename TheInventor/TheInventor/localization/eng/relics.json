@@ -1,3 +1,14 @@
 {
-  
+  "THEINVENTOR-MANUAL.description": "At the start of each turn, gain {Energy:energyIcons()} and draw [blue]1[/blue] [red]less card[/red].",
+  "THEINVENTOR-MANUAL.flavor": "\"Chapter 11: Maintaining a Spire's Heart...\"",
+  "THEINVENTOR-MANUAL.title": "The Manual",
+  "THEINVENTOR-BLUEPRINT.description": "At the start of each turn, gain {Energy:energyIcons()} and draw [blue]1[/blue] [red]less card[/red].",
+  "THEINVENTOR-BLUEPRINT.flavor": "\"I wonder if the rotating stage works similarly to this...\"",
+  "THEINVENTOR-BLUEPRINT.title": "The Blueprints",
+  "THEINVENTOR-GADGET.description": "{GadgetName.StringValue}: {GadgetDescription.StringValue}.",
+  "THEINVENTOR-GADGET.flavor": "\"This will do for now...\"",
+  "THEINVENTOR-GADGET.title": "Gadget",
+  "THEINVENTOR-SOUPY_GADGET.description": "{GadgetName.StringValue}: {GadgetDescription.StringValue}.",
+  "THEINVENTOR-SOUPY_GADGET.flavor": "\"Too many ideas, not enough time...\"",
+  "THEINVENTOR-SOUPY_GADGET.title": "SoupyGadget"
 }

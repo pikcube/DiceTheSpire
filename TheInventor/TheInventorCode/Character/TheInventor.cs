@@ -3,38 +3,35 @@ using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Relics;
+using TheInventor.TheInventorCode.Cards;
 using TheInventor.TheInventorCode.Extensions;
+using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Character
 {
-    public class TheInventor() : PlaceholderCharacterModel()
+    public class TheInventor : PlaceholderCharacterModel
     {
         public const string CharacterId = "TheInventor";
 
         public static readonly Color Color = new("ffffff");
 
         public override Color NameColor => Color;
-        public override CharacterGender Gender => CharacterGender.Neutral;
+        public override CharacterGender Gender => CharacterGender.Feminine;
         public override int StartingHp => 70;
 
         public override IEnumerable<CardModel> StartingDeck => [
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>()
+            ModelDb.Card<StrikeInventor>(),
+            ModelDb.Card<StrikeInventor>(),
+            ModelDb.Card<StrikeInventor>(),
+            ModelDb.Card<DefendInventor>(),
+            ModelDb.Card<DefendInventor>(),
+            ModelDb.Card<DefendInventor>()
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics =>
         [
-            ModelDb.Relic<BurningBlood>()
+            ModelDb.Relic<Manual>(),
+            ModelDb.Relic<Gadget>()
         ];
 
         public override CardPoolModel CardPool => ModelDb.CardPool<TheInventorCardPool>();
@@ -49,7 +46,7 @@ namespace TheInventor.TheInventorCode.Character
         {
             get
             {
-                var icon = NodeFactory<Control>.CreateFromResource(CustomIconTexturePath);
+                Control icon = NodeFactory<Control>.CreateFromResource(CustomIconTexturePath);
                 icon.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
                 return icon;
             }

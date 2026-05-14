@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfteibpax2mrc"
-path="res://.godot/imported/relic.png-ebceb19d9b2dc6883128bd5a616167d5.ctex"
+uid="uid://bayhnwg8i8x5t"
+path="res://.godot/imported/gadget.png-88e56e381c986f915b884be92ff3c085.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/relics/big/relic.png"
-dest_files=["res://.godot/imported/relic.png-ebceb19d9b2dc6883128bd5a616167d5.ctex"]
+source_file="res://TheInventor/images/relics/big/gadget.png"
+dest_files=["res://.godot/imported/gadget.png-88e56e381c986f915b884be92ff3c085.ctex"]
 
 [params]
 
