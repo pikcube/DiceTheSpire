@@ -5,7 +5,9 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
+using TheThief.TheThiefCode.Cards;
 using TheThief.TheThiefCode.Extensions;
+using TheThief.TheThiefCode.Relics;
 
 namespace TheThief.TheThiefCode.Character
 {
@@ -20,21 +22,19 @@ namespace TheThief.TheThiefCode.Character
         public override int StartingHp => 70;
 
         public override IEnumerable<CardModel> StartingDeck => [
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>()
+            ModelDb.Card<StrikeThief>(),
+            ModelDb.Card<StrikeThief>(),
+            ModelDb.Card<StrikeThief>(),
+            ModelDb.Card<StrikeThief>(),
+            ModelDb.Card<DefendThief>(),
+            ModelDb.Card<DefendThief>(),
+            ModelDb.Card<DefendThief>(),
+            ModelDb.Card<DefendThief>(),
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics =>
         [
-            ModelDb.Relic<BurningBlood>()
+            ModelDb.Relic<StickyFingers>()
         ];
 
         public override CardPoolModel CardPool => ModelDb.CardPool<TheThiefCardPool>();
