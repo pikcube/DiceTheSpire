@@ -16,13 +16,21 @@ public class StickyFingers : TheThiefRelic
         CardCreationOptions creationOptions)
     {
         if (this.Owner != player || creationOptions.Source != CardCreationSource.Encounter)
+        {
             return false;
+        }
 
         IEnumerable<CardModel> cardModels = creationOptions.GetPossibleCards(player).Where<CardModel>((Func<CardModel, bool>)(c => c.Pool.DeckEntryCardColor != player.Character.NameColor)).Where<CardModel>((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common && options.TrueForAll((Predicate<CardCreationResult>)(o => o.originalCard.Id != c.Id))));
         if (!cardModels.Any<CardModel>())
+        {
             cardModels = creationOptions.GetPossibleCards(player).Where<CardModel>((Func<CardModel, bool>)(c => c.Pool.DeckEntryCardColor != player.Character.NameColor)).Where<CardModel>((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common));
+        }
+
         if (!cardModels.Any<CardModel>())
+        {
             return false;
+        }
+
         CardModel card = CardFactory.CreateForReward(this.Owner, 1, new CardCreationOptions(cardModels, CardCreationSource.Other, creationOptions.RarityOdds).WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications)).FirstOrDefault<CardCreationResult>()?.Card;
         if (card != null)
         {
