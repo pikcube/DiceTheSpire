@@ -22,6 +22,6 @@ public class DefendThief() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, T
 
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Block.UpgradeValueBy(3M);
+        DynamicVars.Block.UpgradeValueBy(3M);
     }
 }

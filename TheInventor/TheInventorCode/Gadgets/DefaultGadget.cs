@@ -1,6 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Localization.DynamicVars;
-
-namespace TheInventor.TheInventorCode.Gadgets;
+﻿namespace TheInventor.TheInventorCode.Gadgets;
 
 public class DefaultGadget() : AbstractGadget("default")
 {

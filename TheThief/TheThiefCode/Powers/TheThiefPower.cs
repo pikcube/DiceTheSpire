@@ -1,6 +1,5 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using Godot;
 using TheThief.TheThiefCode.Extensions;
 
 namespace TheThief.TheThiefCode.Powers

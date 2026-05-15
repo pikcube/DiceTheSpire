@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
-using static BaseLib.Utils.BetaMainCompatibility;
 
 namespace TheThief.TheThiefCode.Relics;
 
@@ -15,27 +14,27 @@ public class StickyFingers : TheThiefRelic
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
         CardCreationOptions creationOptions)
     {
-        if (this.Owner != player || creationOptions.Source != CardCreationSource.Encounter)
+        if (Owner != player || creationOptions.Source != CardCreationSource.Encounter)
         {
             return false;
         }
 
-        IEnumerable<CardModel> cardModels = creationOptions.GetPossibleCards(player).Where<CardModel>((Func<CardModel, bool>)(c => c.Pool.DeckEntryCardColor != player.Character.NameColor)).Where<CardModel>((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common && options.TrueForAll((Predicate<CardCreationResult>)(o => o.originalCard.Id != c.Id))));
-        if (!cardModels.Any<CardModel>())
+        IEnumerable<CardModel> cardModels = creationOptions.GetPossibleCards(player).Where(c => c.Pool.DeckEntryCardColor != player.Character.NameColor).Where((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common && options.TrueForAll((Predicate<CardCreationResult>)(o => o.originalCard.Id != c.Id))));
+        if (!cardModels.Any())
         {
-            cardModels = creationOptions.GetPossibleCards(player).Where<CardModel>((Func<CardModel, bool>)(c => c.Pool.DeckEntryCardColor != player.Character.NameColor)).Where<CardModel>((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common));
+            cardModels = creationOptions.GetPossibleCards(player).Where(c => c.Pool.DeckEntryCardColor != player.Character.NameColor).Where((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common));
         }
 
-        if (!cardModels.Any<CardModel>())
+        if (!cardModels.Any())
         {
             return false;
         }
 
-        CardModel card = CardFactory.CreateForReward(this.Owner, 1, new CardCreationOptions(cardModels, CardCreationSource.Other, creationOptions.RarityOdds).WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications)).FirstOrDefault<CardCreationResult>()?.Card;
+        CardModel card = CardFactory.CreateForReward(Owner, 1, new CardCreationOptions(cardModels, CardCreationSource.Other, creationOptions.RarityOdds).WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications)).FirstOrDefault()?.Card;
         if (card != null)
         {
-            CardCreationResult cardCreationResult = new CardCreationResult(card);
-            cardCreationResult.ModifyCard(card, (RelicModel)this);
+            CardCreationResult cardCreationResult = new(card);
+            cardCreationResult.ModifyCard(card, this);
             options.Add(cardCreationResult);
         }
         return card != null;
