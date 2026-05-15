@@ -28,6 +28,6 @@ public class Bonk() : AbstractGadget("Gadget.Bonk")
             .TakeRandom(1, player.RunState.Rng.CombatTargets)
             .Single();
 
-        await CreatureCmd.Damage(choiceContext, target, 5, ValueProp.Unpowered, null, null);
+        await CreatureCmd.Damage(choiceContext, target, 5, DamageProps.nonCardUnpowered, null, null);
     }
 }

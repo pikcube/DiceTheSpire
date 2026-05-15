@@ -33,12 +33,12 @@ public class Gadget : TheInventorRelic
 
     public override RelicModel? GetUpgradeReplacement()
     {
-        return ModelDb.Relic<SoupyGadget>();
+        return ModelDb.Relic<Gadget>();
     }
 
     public static Dictionary<string, AbstractGadget> AllGadgets { get; } = [];
     
-    public override RelicRarity Rarity => RelicRarity.Event;
+    public override RelicRarity Rarity => RelicRarity.Starter;
 
     [SavedProperty] 
     public string GadgetId { get; set; } = "Gadget.HeatRay";
@@ -47,16 +47,12 @@ public class Gadget : TheInventorRelic
     {
         get
         {
-            if (field?.GadgetId != GadgetId)
+            if (field?.GadgetId != GadgetId || field.Parent != this)
             {
                 field = AllGadgets[GadgetId].GetMutable(this);
             }
             return field;
         }
+        private set;
     }
-}
-
-public class SoupyGadget : TheInventorRelic
-{
-    public override RelicRarity Rarity => RelicRarity.Ancient;
 }
