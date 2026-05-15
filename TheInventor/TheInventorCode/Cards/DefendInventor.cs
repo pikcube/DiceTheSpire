@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
+using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards;
@@ -17,11 +18,18 @@ public class DefendInventor() : TheInventorCard(1, CardType.Skill, CardRarity.Ba
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        await base.OnPlay(choiceContext, cardPlay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 
     protected override void OnUpgrade()
     {
+        base.OnUpgrade();
         AddKeyword(ScrapKeyword.Scrap);
+    }
+
+    public override Task<string> OnScrapAsync()
+    {
+        return Task.FromResult(nameof(Shield));
     }
 }

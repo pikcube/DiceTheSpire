@@ -17,10 +17,8 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
     }
     public override bool ShouldReceiveCombatHooks => true;
     public string GadgetId { get; }
-
-    public abstract StringVar GadgetName { get; }
-    public abstract StringVar GadgetDescription { get; }
-
+    public abstract string GadgetText { get; }
+    public virtual string GadgetSuffix => "\n\n";
     public AbstractGadget GetMutable(Gadget gadget)
     {
         AbstractGadget newGadget = (AbstractGadget)MutableClone();

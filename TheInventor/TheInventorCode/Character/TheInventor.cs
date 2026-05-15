@@ -1,8 +1,14 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Godot;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.DevConsole.ConsoleCommands;
 using MegaCrit.Sts2.Core.Entities.Characters;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
+using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Relics;
@@ -12,6 +18,7 @@ namespace TheInventor.TheInventorCode.Character
     public class TheInventor : PlaceholderCharacterModel
     {
         public const string CharacterId = "TheInventor";
+        public static bool HideGadget { get; set; }
 
         public static readonly Color Color = new("ffffff");
 
@@ -28,11 +35,7 @@ namespace TheInventor.TheInventorCode.Character
             ModelDb.Card<DefendInventor>()
         ];
 
-        public override IReadOnlyList<RelicModel> StartingRelics =>
-        [
-            ModelDb.Relic<Manual>(),
-            ModelDb.Relic<Gadget>()
-        ];
+        public override IReadOnlyList<RelicModel> StartingRelics => [ModelDb.Relic<Manual>(), ModelDb.Relic<Gadget>()];
 
         public override CardPoolModel CardPool => ModelDb.CardPool<TheInventorCardPool>();
         public override RelicPoolModel RelicPool => ModelDb.RelicPool<TheInventorRelicPool>();

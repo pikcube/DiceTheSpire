@@ -10,13 +10,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class Bonk() : AbstractGadget("Gadget.Bonk")
+public class Bonk() : AbstractGadget(nameof(Bonk))
 {
-    public override StringVar GadgetName => new(nameof(GadgetName), "Bonk");
-
-    public override StringVar GadgetDescription => new(nameof(GadgetDescription),
-        "At the start of each turn, deal [blue]5[/blue] damage to a random enemy");
-
+    public override string GadgetText => $"Bonk: At the start of each turn, deal [blue]5[/blue] damage to a random enemy.";
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player.Creature.CombatState is null)
