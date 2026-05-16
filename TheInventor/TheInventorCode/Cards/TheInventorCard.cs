@@ -2,8 +2,12 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using TheInventor.TheInventorCode.Character;
 using TheInventor.TheInventorCode.Extensions;
+using TheInventor.TheInventorCode.Gadgets;
+using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Cards
 {
@@ -24,6 +28,15 @@ namespace TheInventor.TheInventorCode.Cards
         public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
         public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
 
-        public abstract Task<string> OnScrapAsync();
+        protected virtual IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
+
+        protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [..ExtraInventorHoverTips, GetGadgetHoverTip()];
+
+        protected IHoverTip GetGadgetHoverTip()
+        {
+            AbstractGadget gadget = Gadget.AllGadgets[OnScrap()];
+            return new HoverTip(gadget.Title, gadget.Description);
+        }
+        public abstract string OnScrap();
     }
 }

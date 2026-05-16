@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -38,8 +39,8 @@ public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common,
         DynamicVars.Cards.UpgradeValueBy(1);
     }
 
-    public override Task<string> OnScrapAsync()
+    public override string OnScrap()
     {
-        return Task.FromResult(nameof(AutoBump));
+        return nameof(AutoBump);
     }
 }

@@ -7,8 +7,6 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 public class AutoBump() : AbstractGadget(nameof(AutoBump))
 {
-    public override string GadgetText => "Auto Bump: At the start of each turn, upgrade a card for the rest of combat.";
-
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player)

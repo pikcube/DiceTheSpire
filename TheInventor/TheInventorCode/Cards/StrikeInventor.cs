@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
@@ -35,8 +36,8 @@ public class StrikeInventor() : TheInventorCard(1, CardType.Attack, CardRarity.B
         AddKeyword(ScrapKeyword.Scrap);
     }
 
-    public override Task<string> OnScrapAsync()
+    public override string OnScrap()
     {
-        return Task.FromResult(nameof(Bonk));
+        return nameof(Bonk);
     }
 }

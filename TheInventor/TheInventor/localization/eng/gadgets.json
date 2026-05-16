@@ -1,0 +1,14 @@
+﻿{
+  "THEINVENTOR-AUTO_BUMP.title": "Auto Bump",
+  "THEINVENTOR-AUTO_BUMP.description": "At the start of each turn, upgrade a card for the rest of combat.",
+  "THEINVENTOR-BONK.title": "Bonk",
+  "THEINVENTOR-BONK.description": "At the start of each turn, deal [blue]5[/blue] damage to a random enemy.",
+  "THEINVENTOR-BROKEN_GADGET.title": "Broken Gadget",
+  "THEINVENTOR-BROKEN_GADGET.description": "Does nothing.",
+  "THEINVENTOR-DEFAULT_GADGET.title": "",
+  "THEINVENTOR-DEFAULT_GADGET.description": "",
+  "THEINVENTOR-HEAT_RAY.title": "Heat Ray",
+  "THEINVENTOR-HEAT_RAY.description": "Whenever you play a card, all enemies take [blue]5[/blue] damage.",
+  "THEINVENTOR-SHIELD.title": "Shield",
+  "THEINVENTOR-SHIELD.description": "At the start of each turn, gain [blue]5[/blue] [gold]block[/gold]."
+}

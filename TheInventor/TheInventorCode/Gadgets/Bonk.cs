@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
@@ -7,19 +8,19 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
+[UsedImplicitly]
 public class Bonk() : AbstractGadget(nameof(Bonk))
 {
-    public override string GadgetText => "Bonk: At the start of each turn, deal [blue]5[/blue] damage to a random enemy.";
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player.Creature.CombatState is null)
+        Creature? target = player.Creature.CombatState?.Enemies
+            .TakeRandom(1, player.RunState.Rng.CombatTargets)
+            .SingleOrDefault();
+
+        if (target is null)
         {
             return;
         }
-
-        Creature target = player.Creature.CombatState.Creatures
-            .TakeRandom(1, player.RunState.Rng.CombatTargets)
-            .Single();
 
         await CreatureCmd.Damage(choiceContext, target, 5, DamageProps.nonCardUnpowered, null, null);
     }

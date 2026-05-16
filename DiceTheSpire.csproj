@@ -37,7 +37,7 @@
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
         <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
-        <PackageReference Include="Pikcube.Common" Version="0.1.48" />
+        <PackageReference Include="Pikcube.Common" Version="0.1.49" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
         <AdditionalFiles Include="DiceTheSpire/localization/**/*.json" /> <!-- Used by analyzer -->
@@ -94,9 +94,9 @@
     </Target>
     <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
 		<Message Text="Exporting Godot .pck to mods folder for The Inventor" Importance="high" />
-		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheInventor/TheInventor.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheInventor"/>
+		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheInventor/TheInventor.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheInventor" />
 		<Message Text="Exporting Godot .pck to mods folder for The Thief" Importance="high" />
-		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheThief/TheThief.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheThief"/>
+		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheThief/TheThief.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheThief" />
 		<Message Text="Exporting Godot .pck to mods folder for Dice the Spire" Importance="high" />
         <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" />
     </Target>

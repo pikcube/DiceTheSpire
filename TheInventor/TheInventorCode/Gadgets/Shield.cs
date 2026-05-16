@@ -8,8 +8,6 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 public class Shield() : AbstractGadget(nameof(Shield))
 {
-    public override string GadgetText => "Shield: At the start of each turn, gain [blue]5[/blue] [gold]block[/gold].";
-
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player)

@@ -47,7 +47,7 @@ public class Gadget : TheInventorRelic
         set
         {
             field = value;
-            GadgetText = $"{LinkedGadget.GadgetText}{LinkedGadget.GadgetSuffix}";
+            GadgetText = $"{LinkedGadget.GadgetText}";
         }
     } = "default";
 
@@ -129,7 +129,7 @@ public class Gadget : TheInventorRelic
             return;
         }
 
-        GadgetId = await scrapCard.OnScrapAsync();
+        GadgetId = scrapCard.OnScrap();
     }
 
     private IEnumerable<TheInventorCard> ShuffleForScrap(List<TheInventorCard> scrapCards)

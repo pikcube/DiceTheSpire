@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -12,10 +13,9 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 //Starting Gadget.
 //Probably shouldn't give this to the player after the first combat unless they scrap something insanely strong since this gadget is busted.
+[UsedImplicitly]
 public class HeatRay() : AbstractGadget(nameof(HeatRay))
 {
-    public override string GadgetText => "Heat Ray: Whenever you play a card, all enemies take [blue]5[/blue] damage.";
-
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Parent?.Owner)
