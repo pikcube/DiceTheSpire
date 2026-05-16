@@ -3,7 +3,7 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Character;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
@@ -35,7 +35,7 @@ namespace TheInventor.TheInventorCode.Cards
         protected IHoverTip GetGadgetHoverTip()
         {
             AbstractGadget gadget = Gadget.AllGadgets[OnScrap()];
-            return new HoverTip(gadget.Title, gadget.Description);
+            return new HoverTip(gadget.Title, gadget.Description, ModelDb.Relic<Gadget>().Icon);
         }
         public abstract string OnScrap();
     }
