@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
-using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
@@ -25,6 +24,7 @@ public class StickyFingers : TheThiefRelic
             .Where(c => 
                 player.UnlockState.Cards.Contains(c) &&
                 c.Pool.DeckEntryCardColor != player.Character.NameColor && 
+                !c.Pool.IsColorless &&
                 c.Rarity == CardRarity.Common && 
                 options.TrueForAll(o => o.originalCard.Id != c.Id)
                 );
