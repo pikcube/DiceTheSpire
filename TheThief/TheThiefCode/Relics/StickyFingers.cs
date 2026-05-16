@@ -1,9 +1,11 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
+using Pikcube.Common.Extensions;
 
 namespace TheThief.TheThiefCode.Relics;
 
@@ -19,35 +21,32 @@ public class StickyFingers : TheThiefRelic
             return false;
         }
 
-        IEnumerable<CardModel> cardModels = creationOptions.GetPossibleCards(player).Where(c => c.Pool.DeckEntryCardColor != player.Character.NameColor).Where((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common && options.TrueForAll((Predicate<CardCreationResult>)(o => o.originalCard.Id != c.Id))));
-        if (!cardModels.Any())
-        {
-            cardModels = creationOptions.GetPossibleCards(player).Where(c => c.Pool.DeckEntryCardColor != player.Character.NameColor).Where((Func<CardModel, bool>)(c => c.Rarity == CardRarity.Common));
-        }
+        IEnumerable<CardModel> cardModels = ModelDb.AllCards
+            .Where(c => 
+                player.UnlockState.Cards.Contains(c) &&
+                c.Pool.DeckEntryCardColor != player.Character.NameColor && 
+                c.Rarity == CardRarity.Common && 
+                options.TrueForAll(o => o.originalCard.Id != c.Id)
+                );
 
-        if (!cardModels.Any())
+        cardModels = Owner.RunState.Players.Count > 1 
+            ? cardModels.Where(c => c.MultiplayerConstraint != CardMultiplayerConstraint.SingleplayerOnly) 
+            : cardModels.Where(c => c.MultiplayerConstraint != CardMultiplayerConstraint.MultiplayerOnly);
+
+
+        CardModel? card = cardModels.TakeRandom(1, Owner.PlayerRng.Rewards).SingleOrDefault()?.CreateNewInstance(Owner);
+
+        if (card == null)
         {
             return false;
         }
 
-        CardModel card = CardFactory.CreateForReward(Owner, 1, new CardCreationOptions(cardModels, CardCreationSource.Other, creationOptions.RarityOdds).WithFlags(CardCreationFlags.NoModifyHooks | CardCreationFlags.NoCardPoolModifications)).FirstOrDefault()?.Card;
-        if (card != null)
-        {
-            CardCreationResult cardCreationResult = new(card);
-            cardCreationResult.ModifyCard(card, this);
-            options.Add(cardCreationResult);
-        }
-        return card != null;
+        CardCreationResult cardCreationResult = new(card);
+        cardCreationResult.ModifyCard(card, this);
+        options.Add(cardCreationResult);
+        return true;
     }
-    /*
-    public override CardCreationOptions ModifyCardRewardCreationOptions(Player player, CardCreationOptions options)
-    {
-        if (this.Owner != player || options.Flags.HasFlag((Enum) CardCreationFlags.NoCardPoolModifications) || !options.Flags.HasFlag((Enum) CardCreationFlags.IsCardReward) || options.CustomCardPool != null || options.CardPools.All<CardPoolModel>((Func<CardPoolModel, bool>)(p => p.IsColorless)))
-            return options;
-        IEnumerable<CardPoolModel> pools = player.UnlockState.CharacterCardPools.Union<CardPoolModel>((IEnumerable<CardPoolModel>)options.CardPools);
-        return options.WithCardPools(pools, options.CardPoolFilter);
-    }
-    */
+
     public override RelicModel GetUpgradeReplacement()
     {
         return ModelDb.Relic<StickyHand>();
