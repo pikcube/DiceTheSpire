@@ -29,6 +29,7 @@ namespace TheInventor.TheInventorCode.Character
             DefendInventor.CreateWithoutOwner(),
             DefendInventor.CreateWithoutOwner(),
             Spanner.CreateWithoutOwner(),
+            Capacitor.CreateWithoutOwner()
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics => HideGadget
