@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
@@ -21,6 +22,8 @@ public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancie
             await card.BlinkAsync(choiceContext);
         }
         await CardCmd.DiscardAndDraw(choiceContext, [], DynamicVars.Cards.IntValue);
+
+        
     }
 
     public override string OnScrap()
