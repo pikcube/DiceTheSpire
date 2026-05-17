@@ -49,7 +49,7 @@ public class Gadget : TheInventorRelic
             field = value;
             GadgetText = $"{LinkedGadget.GadgetText}";
         }
-    } = "default";
+    } = nameof(DefaultGadget);
 
     public AbstractGadget LinkedGadget
     {

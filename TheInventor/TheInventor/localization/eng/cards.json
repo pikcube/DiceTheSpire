@@ -9,5 +9,7 @@
   "THEINVENTOR-SPANNER.title": "Spanner",
   "THEINVENTOR-STEEL_WRENCH.description": "[gold]Discard[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]6[/blue] cards|[blue]4[/blue] cards}.",
   "THEINVENTOR-STEEL_WRENCH.title": "Steel Wrench",
-  "THEINVENTOR-STEEL_WRENCH.prompt": "Choose Cards to Discard"
+  "THEINVENTOR-STEEL_WRENCH.prompt": "Choose Cards to Discard",
+  "THEINVENTOR-CAPACITOR.description": "At the end of your turn, deal [blue]{IfUpgraded:show:5|7}[/blue] damage and apply [blue]{IfUpgraded:show:2|3}[/blue] [gold]Vulnerable[/gold] to all enemies.",
+  "THEINVENTOR-CAPACITOR.title": "Capacitor"
 }
