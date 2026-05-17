@@ -28,6 +28,8 @@ namespace TheThief.TheThiefCode.Character
             ModelDb.Card<DefendThief>(),
             ModelDb.Card<DefendThief>(),
             ModelDb.Card<DefendThief>(),
+            ModelDb.Card<Peashooter>(),
+            ModelDb.Card<Lockpick>()
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics =>

@@ -1,6 +1,12 @@
 {
-  "THETHIEF-DEFEND_THIEF.description": "",
-  "THETHIEF-DEFEND_THIEF.title": "DefendThief",
-  "THETHIEF-STRIKE_THIEF.description": "",
-  "THETHIEF-STRIKE_THIEF.title": "StrikeThief"
+  "THETHIEF-DEFEND_THIEF.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "THETHIEF-DEFEND_THIEF.title": "Defend",
+  "THETHIEF-STRIKE_THIEF.description": "Deal {Damage:diff()} damage.",
+  "THETHIEF-STRIKE_THIEF.title": "Strike",
+  "THETHIEF-DAGGER.description": "Deal {Damage:diff()} damage. Return this card to your [gold]hand[/gold].",
+  "THETHIEF-DAGGER.title": "Dagger",
+  "THETHIEF-LOCKPICK.description": "Draw {IfUpgraded:show:[blue]2[/blue] cards|a card}. Create a [gold]Splinter[/gold] in hand.",
+  "THETHIEF-LOCKPICK.title": "Lockpick",
+  "THETHIEF-PEASHOOTER.description": "Deal {Damage:diff()} damage. Return this card to your [gold]hand[/gold].",
+  "THETHIEF-PEASHOOTER.title": "Peashooter"
 }
