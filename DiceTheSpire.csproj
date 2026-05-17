@@ -44,15 +44,18 @@
     </ItemGroup>
 
     <ItemGroup>
+        <AdditionalFiles Remove="DiceTheSpireCore\**" />
         <AdditionalFiles Remove="TheInventor\**" />
         <AdditionalFiles Remove="TheThief\**" />
         <Compile Remove="DiceTheSpire/**" />
+        <Compile Remove="DiceTheSpireCore\**" />
         <Compile Remove="materials/**" />
         <Compile Remove="shaders/**" />
         <Compile Remove="images/**" />
         <Compile Remove="TheInventor\**" />
         <Compile Remove="TheThief\**" />
         <EmbeddedResource Remove="DiceTheSpire/**" />
+        <EmbeddedResource Remove="DiceTheSpireCore\**" />
         <EmbeddedResource Remove="materials/**" />
         <EmbeddedResource Remove="shaders/**" />
         <EmbeddedResource Remove="images/**" />
@@ -69,6 +72,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="DiceTheSpireCore\DiceTheSpireCore.csproj" />
       <ProjectReference Include="TheInventor\TheInventor.csproj" />
       <ProjectReference Include="TheThief\TheThief.csproj" />
     </ItemGroup>
@@ -93,6 +97,8 @@
 
     </Target>
     <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
+	    <Message Text="Exporting Godot .pck to mods folder for Dice the Sprie Core" Importance="high" />
+	    <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)DiceTheSpireCore/DiceTheSpireCore.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./DiceTheSpireCore" />
 		<Message Text="Exporting Godot .pck to mods folder for The Inventor" Importance="high" />
 		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheInventor/TheInventor.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheInventor" />
 		<Message Text="Exporting Godot .pck to mods folder for The Thief" Importance="high" />

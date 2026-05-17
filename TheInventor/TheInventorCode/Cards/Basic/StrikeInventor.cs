@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Keywords;
 
-namespace TheInventor.TheInventorCode.Cards;
+namespace TheInventor.TheInventorCode.Cards.Basic;
 
 
 [UsedImplicitly]

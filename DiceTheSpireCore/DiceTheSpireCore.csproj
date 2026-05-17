@@ -8,7 +8,7 @@
         <DefaultItemExcludes>packages/**</DefaultItemExcludes>
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
         <PathMap>$(AppOutputBase)=.\</PathMap>
-		<LangVersion>14</LangVersion>
+	    <LangVersion>14</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -34,21 +34,20 @@
 
     <ItemGroup>
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" PrivateAssets="All" />
-        <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
         <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
         <PackageReference Include="Pikcube.Common" Version="0.1.49" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
-        <AdditionalFiles Include="TheInventor/localization/**/*.json" /> <!-- Used by analyzer -->
+        <AdditionalFiles Include="DiceTheSpireCore/localization/**/*.json" /> <!-- Used by analyzer -->
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Remove="TheInventor/**" />
+        <Compile Remove="DiceTheSpireCore/**" />
         <Compile Remove="materials/**" />
         <Compile Remove="shaders/**" />
         <Compile Remove="images/**" />
-        <EmbeddedResource Remove="TheInventor/**" />
+        <EmbeddedResource Remove="DiceTheSpireCore/**" />
         <EmbeddedResource Remove="materials/**" />
         <EmbeddedResource Remove="shaders/**" />
         <EmbeddedResource Remove="images/**" />
@@ -57,26 +56,15 @@
     <ItemGroup>
         <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props" />
         <None Include=".gitignore" />
-        <None Include="Notes.md" />
-        <None Include="TheInventor.json" />
+        <None Include="DiceTheSpireCore.json" />
         <None Include="project.godot" />
-        <None Include="TheInventor/**" />
+        <None Include="DiceTheSpireCore/**" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="TheInventor\localization\eng\gadgets.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="TheInventorCode\Cards\Rare\" />
-      <Folder Include="TheInventorCode\Cards\Uncommon\" />
-      <Folder Include="TheInventor\images\card_portraits\big\" />
-      <Folder Include="TheInventor\images\powers\big\" />
-      <Folder Include="TheInventor\images\relics\big\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\DiceTheSpireCore\DiceTheSpireCore.csproj" />
+      <Folder Include="DiceTheSpireCore\images\card_portraits\big\" />
+      <Folder Include="DiceTheSpireCore\images\powers\big\" />
+      <Folder Include="DiceTheSpireCore\images\relics\big\" />
     </ItemGroup>
     
     <Target Name="CheckDependencyPaths">
@@ -86,7 +74,6 @@
     <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
         <Message Text="Copying .dll and manifest to mods folder." Importance="high" />
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
-        <Copy SourceFiles="$(TargetPath)/../$(MSBuildProjectName).pdb" DestinationFiles="$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pdb" />
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
     </Target>
 
@@ -94,7 +81,7 @@
         <Message Text="Copying quick .pck to mods folder." Importance="high" />
         <Copy SourceFiles="$(PckPackerOutputPath)" DestinationFolder="$(ModsPath)/$(MSBuildProjectName)" />
     </Target>
-    
+
     <Target Name="NeedGodotForPublish" BeforeTargets="Publish">
         <Error Text=" Godot path must be set up before publishing; Godot not found at path '$(GodotPath)'. Check Directory.Build.props file." Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')" />
     </Target>

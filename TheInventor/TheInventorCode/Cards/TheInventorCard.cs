@@ -30,12 +30,16 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected virtual IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
 
-        protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [..ExtraInventorHoverTips, GetGadgetHoverTip()];
+        protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [..ExtraInventorHoverTips, ..GetGadgetHoverTip()];
 
-        protected IHoverTip GetGadgetHoverTip()
+        protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {
             AbstractGadget gadget = Gadget.AllGadgets[OnScrap()];
-            return new HoverTip(gadget.Title, gadget.Description, ModelDb.Relic<Gadget>().Icon);
+            if (gadget is DefaultGadget)
+            {
+                return [];
+            }
+            return [new HoverTip(gadget.Title, gadget.Description, ModelDb.Relic<Gadget>().Icon)];
         }
         public abstract string OnScrap();
     }

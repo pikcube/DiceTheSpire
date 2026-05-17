@@ -82,7 +82,7 @@ public class Gadget : TheInventorRelic
 
     public override async Task AfterCombatVictory(CombatRoom room)
     {
-        List<TheInventorCard> cards = [.. Owner.Deck.Cards.OfType<TheInventorCard>().Where(c => c.IsRemovable)];
+        List<TheInventorCard> cards = [.. Owner.Deck.Cards.OfType<TheInventorCard>().Where(c => c.IsRemovable && c.OnScrap() != nameof(DefaultGadget))];
         List<TheInventorCard> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
         List<TheInventorCard> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
 

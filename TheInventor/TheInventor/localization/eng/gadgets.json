@@ -1,6 +1,8 @@
 ﻿{
   "THEINVENTOR-AUTO_BUMP.title": "Auto Bump",
   "THEINVENTOR-AUTO_BUMP.description": "At the start of each turn, upgrade a card for the rest of combat.",
+  "THEINVENTOR-BATTLE_WRENCH.title": "Battle Wrench",
+  "THEINVENTOR-BATTLE_WRENCH.description": "At the start of each turn, draw 2 cards.",
   "THEINVENTOR-BONK.title": "Bonk",
   "THEINVENTOR-BONK.description": "At the start of each turn, deal [blue]5[/blue] damage to a random enemy.",
   "THEINVENTOR-BROKEN_GADGET.title": "Broken Gadget",

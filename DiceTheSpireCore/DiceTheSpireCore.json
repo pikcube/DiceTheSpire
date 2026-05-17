@@ -1,6 +1,6 @@
 {
-  "id": "TheInventor",
-  "name": "TheInventor",
+  "id": "DiceTheSpireCore",
+  "name": "DiceTheSpireCore",
   "author": "Pikcube",
   "description": "Slay the Spire 2 character mod created from a template for use with BaseLib",
   "version": "v0.0.0",
@@ -14,10 +14,6 @@
     {
       "id": "Pikcube.Common",
       "min_version": "v0.1.49"
-    },
-    {
-      "id": "DiceTheSpireCore",
-      "min_version": "v0.0.0"
     }
   ],
   "affects_gameplay": true

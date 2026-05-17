@@ -1,8 +1,13 @@
 {
-  "THEINVENTOR-SCRAP_BUMP.description": "[gold]Upgrade[/gold] {IfUpgraded:show:two cards|a card} in [gold]Hand[/gold].",
+  "THEINVENTOR-SCRAP_BUMP.description": "[gold]Upgrade[/gold] {IfUpgraded:show:[blue]2[/blue] cards|a card} in [gold]Hand[/gold].",
   "THEINVENTOR-SCRAP_BUMP.title": "Scrap Bump",
   "THEINVENTOR-STRIKE_INVENTOR.description": "Deal {Damage:diff()} damage.",
   "THEINVENTOR-STRIKE_INVENTOR.title": "Strike",
   "THEINVENTOR-DEFEND_INVENTOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "THEINVENTOR-DEFEND_INVENTOR.title": "Defend"
+  "THEINVENTOR-DEFEND_INVENTOR.title": "Defend",
+  "THEINVENTOR-SPANNER.description": "[gold]Discard[/gold] [blue]2[/blue] random cards, draw {IfUpgraded:show:[blue]2[/blue] cards|a card}.",
+  "THEINVENTOR-SPANNER.title": "Spanner",
+  "THEINVENTOR-STEEL_WRENCH.description": "[gold]Discard[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]6[/blue] cards|[blue]4[/blue] cards}.",
+  "THEINVENTOR-STEEL_WRENCH.title": "Steel Wrench",
+  "THEINVENTOR-STEEL_WRENCH.prompt": "Choose Cards to Discard"
 }

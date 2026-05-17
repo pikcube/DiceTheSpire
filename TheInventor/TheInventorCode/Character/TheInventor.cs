@@ -3,7 +3,8 @@ using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using TheInventor.TheInventorCode.Cards;
+using Pikcube.Common.Extensions;
+using TheInventor.TheInventorCode.Cards.Basic;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Relics;
 
@@ -21,12 +22,13 @@ namespace TheInventor.TheInventorCode.Character
         public override int StartingHp => 70;
 
         public override IEnumerable<CardModel> StartingDeck => [
-            ModelDb.Card<StrikeInventor>(),
-            ModelDb.Card<StrikeInventor>(),
-            ModelDb.Card<StrikeInventor>(),
-            ModelDb.Card<DefendInventor>(),
-            ModelDb.Card<DefendInventor>(),
-            ModelDb.Card<DefendInventor>()
+            StrikeInventor.CreateWithoutOwner(),
+            StrikeInventor.CreateWithoutOwner(),
+            StrikeInventor.CreateWithoutOwner(),
+            DefendInventor.CreateWithoutOwner(),
+            DefendInventor.CreateWithoutOwner(),
+            DefendInventor.CreateWithoutOwner(),
+            Spanner.CreateWithoutOwner(),
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics => HideGadget

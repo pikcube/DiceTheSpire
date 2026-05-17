@@ -22,6 +22,10 @@
     {
       "id": "TheThief",
       "min_version": "v0.0.0"
+    },
+    {
+      "id": "DiceTheSpireCore",
+      "min_version": "v0.0.0"
     }
   ],
   "affects_gameplay": true
