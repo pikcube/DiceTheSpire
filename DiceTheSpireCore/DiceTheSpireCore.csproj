@@ -36,7 +36,7 @@
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" PrivateAssets="All" />
         <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
-        <PackageReference Include="Pikcube.Common" Version="0.1.49" />
+        <PackageReference Include="Pikcube.Common" Version="0.1.50" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
         <AdditionalFiles Include="DiceTheSpireCore/localization/**/*.json" /> <!-- Used by analyzer -->
@@ -59,6 +59,10 @@
         <None Include="DiceTheSpireCore.json" />
         <None Include="project.godot" />
         <None Include="DiceTheSpireCore/**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Remove="DiceTheSpireCore\localization\eng\card_selection.json" />
     </ItemGroup>
 
     <ItemGroup>

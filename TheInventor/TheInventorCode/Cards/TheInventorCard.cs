@@ -30,7 +30,7 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected virtual IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
 
-        protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [..ExtraInventorHoverTips, ..GetGadgetHoverTip()];
+        protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [.. GetGadgetHoverTip(), ..ExtraInventorHoverTips];
 
         protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {

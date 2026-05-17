@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class ShortCircuit() : AbstractGadget(nameof(Shortcut))
+public class ShortCircuit() : AbstractGadget(nameof(ShortCircuit))
 {
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
