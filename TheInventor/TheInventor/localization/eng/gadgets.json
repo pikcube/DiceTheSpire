@@ -16,5 +16,7 @@
   "THEINVENTOR-SHORT_CIRCUIT.title": "Short Circuit",
   "THEINVENTOR-SHORT_CIRCUIT.description": "At the start of combat, apply [blue]Vulnerable[/blue] to all enemies [blue]5[/blue] times.",
   "THEINVENTOR-CRACK.title": "Crack",
-  "THEINVENTOR-CRACK.description": "The first time an enemy loses HP each turn, ALL enemies lose that much HP."
+  "THEINVENTOR-CRACK.description": "The first time an enemy loses HP each turn, ALL enemies lose that much HP.",
+  "THEINVENTOR-DIG.title": "Dig",
+  "THEINVENTOR-DIG.description": "Obtain a random relic when resting at rest sites."
 }
