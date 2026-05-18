@@ -28,6 +28,6 @@ public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancie
 
     public override string OnScrap()
     {
-        return nameof(DefaultGadget);
+        return nameof(BattleWrench);
     }
 }

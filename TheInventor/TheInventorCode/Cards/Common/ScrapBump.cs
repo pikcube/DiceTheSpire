@@ -1,10 +1,14 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Keywords;
 
@@ -18,24 +22,23 @@ public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common,
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => IsUpgraded ? [HoverTipFactory.Static(BetterStaticHoverTips.Bump)] : [];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await base.OnPlay(choiceContext, cardPlay);
+        LocString locString = IsUpgraded ? 
+            new LocString("card_selection", "TO_BUMP") : 
+            new LocString("gameplay_ui", "CHOOSE_CARD_UPGRADE_HEADER");
+        CardSelectorPrefs cardSelectorPrefs = new(locString, 1);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner,
-            new CardSelectorPrefs(new LocString("gameplay_ui", "CHOOSE_CARD_UPGRADE_HEADER"), DynamicVars.Cards.IntValue),
-            model => model.IsUpgradable, this);
+            cardSelectorPrefs,
+            model => IsUpgraded || model.IsUpgradable, this);
 
         foreach (CardModel card in result)
         {
-            CardCmd.Upgrade(card);
+            await card.BumpAsync();
         }
-    }
-
-    protected override void OnUpgrade()
-    {
-        DynamicVars.Cards.UpgradeValueBy(1);
     }
 
     public override string OnScrap()

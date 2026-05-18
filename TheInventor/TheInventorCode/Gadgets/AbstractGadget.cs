@@ -8,7 +8,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 [CustomLocTable("gadgets.json")]
 public abstract class AbstractGadget : AbstractModel, ICustomModel
-{
+{ 
     public Gadget? Parent { get; set; }
     protected AbstractGadget(string gadgetId)
     {

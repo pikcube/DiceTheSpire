@@ -1,5 +1,5 @@
 {
-  "THEINVENTOR-SCRAP_BUMP.description": "[gold]Upgrade[/gold] {IfUpgraded:show:[blue]2[/blue] cards|a card} in [gold]Hand[/gold].",
+  "THEINVENTOR-SCRAP_BUMP.description": "[gold]{IfUpgraded:show:Bump|Upgrade}[/gold] a card in hand.",
   "THEINVENTOR-SCRAP_BUMP.title": "Scrap Bump",
   "THEINVENTOR-STRIKE_INVENTOR.description": "Deal {Damage:diff()} damage.",
   "THEINVENTOR-STRIKE_INVENTOR.title": "Strike",
@@ -10,5 +10,9 @@
   "THEINVENTOR-STEEL_WRENCH.description": "[gold]Discard[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]6[/blue] cards|[blue]4[/blue] cards}.",
   "THEINVENTOR-STEEL_WRENCH.title": "Steel Wrench",
   "THEINVENTOR-CAPACITOR.description": "At the end of your turn, deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to all enemies.",
-  "THEINVENTOR-CAPACITOR.title": "Capacitor"
+  "THEINVENTOR-CAPACITOR.title": "Capacitor",
+  "THEINVENTOR-HAMMER.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "THEINVENTOR-HAMMER.title": "Hammer",
+  "THEINVENTOR-WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.{IfUpgraded:show:\nDraw a card.|}",
+  "THEINVENTOR-WHIP.title": "Whip"
 }
