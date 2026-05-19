@@ -16,5 +16,7 @@
   "THEINVENTOR-WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.{IfUpgraded:show:\nDraw a card.|}",
   "THEINVENTOR-WHIP.title": "Whip",
   "THEINVENTOR-SHOVEL.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
-  "THEINVENTOR-SHOVEL.title": "Shovel"
+  "THEINVENTOR-SHOVEL.title": "Shovel",
+  "THEINVENTOR-SNOWFLAKE.description": "Gain {Block:diff()} [gold]Block[/gold].\nLose 1 {DexterityPower:diff()} this turn.",
+  "THEINVENTOR-SNOWFLAKE.title": "Snowflake"
 }
