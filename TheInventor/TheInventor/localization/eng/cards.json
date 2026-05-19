@@ -7,7 +7,7 @@
   "THEINVENTOR-DEFEND_INVENTOR.title": "Defend",
   "THEINVENTOR-SPANNER.description": "[gold]Blink[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]2[/blue] cards|a card}.",
   "THEINVENTOR-SPANNER.title": "Spanner",
-  "THEINVENTOR-STEEL_WRENCH.description": "[gold]Discard[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]6[/blue] cards|[blue]4[/blue] cards}.",
+  "THEINVENTOR-STEEL_WRENCH.description": "[gold]Blink[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]6[/blue] cards|[blue]4[/blue] cards}.",
   "THEINVENTOR-STEEL_WRENCH.title": "Steel Wrench",
   "THEINVENTOR-CAPACITOR.description": "At the end of your turn, deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to all enemies.",
   "THEINVENTOR-CAPACITOR.title": "Capacitor",
