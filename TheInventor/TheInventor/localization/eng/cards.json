@@ -5,7 +5,7 @@
   "THEINVENTOR-STRIKE_INVENTOR.title": "Strike",
   "THEINVENTOR-DEFEND_INVENTOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "THEINVENTOR-DEFEND_INVENTOR.title": "Defend",
-  "THEINVENTOR-SPANNER.description": "[gold]Blink[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]2[/blue] cards|a card}.",
+  "THEINVENTOR-SPANNER.description": "[gold]Blink[/gold] [blue]2[/blue] cards.\nAdd [blue]{IfUpgraded:show:3|2}[/blue] random cards from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
   "THEINVENTOR-SPANNER.title": "Spanner",
   "THEINVENTOR-STEEL_WRENCH.description": "[gold]Blink[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]6[/blue] cards|[blue]4[/blue] cards}.",
   "THEINVENTOR-STEEL_WRENCH.title": "Steel Wrench",
@@ -17,6 +17,10 @@
   "THEINVENTOR-WHIP.title": "Whip",
   "THEINVENTOR-SHOVEL.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
   "THEINVENTOR-SHOVEL.title": "Shovel",
-  "THEINVENTOR-SNOWFLAKE.description": "Gain {Block:diff()} [gold]Block[/gold].\nLose 1 {DexterityPower:diff()} this turn.",
-  "THEINVENTOR-SNOWFLAKE.title": "Snowflake"
+  "THEINVENTOR-SNOWFLAKE.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {FreezePower:diff()} [gold]Freeze[/gold].",
+  "THEINVENTOR-SNOWFLAKE.title": "Snowflake",
+  "THEINVENTOR-LAMENT.description": "Deal 10 Damage to ALL enemies.\nPermanently increase this card's damage by 2 when this attack breaks an enemies's block.",
+  "THEINVENTOR-LAMENT.title": "Lament",
+  "THEINVENTOR-BLAST_CHILLER.description": "At the end of your turn, deal damage to ALL enemies equal to your currrent [gold]Block[/gold].",
+  "THEINVENTOR-BLAST_CHILLER.title": "Blast Chiller"
 }

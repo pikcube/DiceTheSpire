@@ -13,7 +13,7 @@ public class ShortCircuit() : AbstractGadget(nameof(ShortCircuit))
 {
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player != Parent?.Owner || player.Creature.CombatState?.RoundNumber != 1)
+        if (player != Parent?.Owner || player.Creature.CombatState is null)
         {
             return;
         }
@@ -25,5 +25,7 @@ public class ShortCircuit() : AbstractGadget(nameof(ShortCircuit))
                 await PowerCmd.Apply<VulnerablePower>(choiceContext, c, 1, null, null);
             }
         }
+
+        BreakMe();
     }
 }

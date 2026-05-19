@@ -1,5 +1,5 @@
 {
-  "THEINVENTOR-FREEZE_POWER.description": "",
-  "THEINVENTOR-FREEZE_POWER.smartDescription": "",
-  "THEINVENTOR-FREEZE_POWER.title": "FreezePower"
+  "THEINVENTOR-FREEZE_POWER.description": "Decreases the [gold]Block[/gold] of your next Block Card this turn.",
+  "THEINVENTOR-FREEZE_POWER.smartDescription": "Decreases the [gold]Block[/gold] of your next Block Card by [blue]{Amount:abs()}[/blue] this turn.",
+  "THEINVENTOR-FREEZE_POWER.title": "Freeze"
 }

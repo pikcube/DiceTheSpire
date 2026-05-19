@@ -18,7 +18,7 @@ namespace TheInventor.TheInventorCode.Cards.Basic;
 
 public class Spanner() : TheInventorCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self), ITranscendenceCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
@@ -28,7 +28,9 @@ public class Spanner() : TheInventorCard(1, CardType.Skill, CardRarity.Basic, Ta
         CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 2, 2);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
-        await CardPileCmd.Draw(choiceContext, 1, Owner);
+        IEnumerable<CardModel> toRetrive = PileType.Discard.GetPile(Owner).Cards
+            .TakeRandom(DynamicVars.Cards.IntValue, Owner.RunState.Rng.CombatCardSelection);
+        await CardPileCmd.Add(toRetrive, PileType.Hand, CardPilePosition.Bottom, this);
     }
 
     public override string OnScrap()

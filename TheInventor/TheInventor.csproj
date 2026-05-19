@@ -68,8 +68,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="TheInventorCode\Cards\Rare\" />
-      <Folder Include="TheInventorCode\Cards\Uncommon\" />
       <Folder Include="TheInventor\images\card_portraits\big\" />
       <Folder Include="TheInventor\images\powers\big\" />
       <Folder Include="TheInventor\images\relics\big\" />

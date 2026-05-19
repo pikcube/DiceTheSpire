@@ -42,4 +42,10 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
         newGadget.Parent = gadget;
         return newGadget;
     }
+
+    public void BreakMe()
+    {
+        AssertMutable();
+        Parent?.GadgetId = nameof(BrokenGadget);
+    }
 }
