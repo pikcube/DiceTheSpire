@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
+using Pikcube.Common.Extensions;
 
 namespace TheThief.TheThiefCode.Cards;
 
@@ -17,8 +18,14 @@ public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, Targ
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        IEnumerable<CardModel> cardModels = await CardPileCmd.Draw(choiceContext, this.DynamicVars.Cards.BaseValue, this.Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard <Splinter>(Owner), PileType.Hand, this.Owner);
+        //CombatState might be null according to type annotations, so I added a null check
+        if (CombatState is null)
+        {
+            return;
+        }
+
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Splinter>(Owner), PileType.Hand, Owner);
         await Cmd.Wait(0.5f);
     }
 

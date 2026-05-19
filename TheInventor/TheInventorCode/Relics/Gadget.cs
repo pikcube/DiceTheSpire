@@ -1,7 +1,6 @@
 ﻿using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -116,7 +115,7 @@ public class Gadget : TheInventorRelic
             }
         }
 
-        CardModel? choice = await CardSelectCmd.FromChooseACardScreen(new HookPlayerChoiceContext(Owner, Owner.NetId, GameActionType.Any), cards, Owner);
+        CardModel? choice = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), options, Owner);
 
         if (choice is not null)
         {

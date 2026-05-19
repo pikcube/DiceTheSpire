@@ -1,6 +1,6 @@
 ﻿{
   "THEINVENTOR-AUTO_BUMP.title": "Auto Bump",
-  "THEINVENTOR-AUTO_BUMP.description": "At the start of each turn, upgrade a card for the rest of combat.",
+  "THEINVENTOR-AUTO_BUMP.description": "At the start of each turn, upgrade a card.",
   "THEINVENTOR-BATTLE_WRENCH.title": "Battle Wrench",
   "THEINVENTOR-BATTLE_WRENCH.description": "At the start of each turn, draw 2 cards.",
   "THEINVENTOR-BONK.title": "Bonk",
@@ -14,5 +14,9 @@
   "THEINVENTOR-SHIELD.title": "Shield",
   "THEINVENTOR-SHIELD.description": "At the start of each turn, gain [blue]5[/blue] [gold]block[/gold].",
   "THEINVENTOR-SHORT_CIRCUIT.title": "Short Circuit",
-  "THEINVENTOR-SHORT_CIRCUIT.description": "At the start of combat, apply [blue]Vulnerable[/blue] to all enemies [blue]5[/blue] times."
+  "THEINVENTOR-SHORT_CIRCUIT.description": "At the start of combat, apply [blue]Vulnerable[/blue] to all enemies [blue]5[/blue] times.",
+  "THEINVENTOR-CRACK.title": "Crack",
+  "THEINVENTOR-CRACK.description": "The first time an enemy loses HP each turn, ALL enemies lose that much HP.",
+  "THEINVENTOR-DIG.title": "Dig",
+  "THEINVENTOR-DIG.description": "Obtain a random relic when resting at rest sites."
 }

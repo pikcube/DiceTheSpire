@@ -1,3 +1,4 @@
 {
-  
+  "DICETHESPIRECORE-BUMP.description": "Upgrade the card if possible, otherwise create an unupgraded copy.",
+  "DICETHESPIRECORE-BUMP.title": "Bump"
 }

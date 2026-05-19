@@ -1,4 +1,5 @@
 ﻿using Godot;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -7,7 +8,8 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class ShortCircuit() : AbstractGadget(nameof(Shortcut))
+[UsedImplicitly]
+public class ShortCircuit() : AbstractGadget(nameof(ShortCircuit))
 {
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
