@@ -17,7 +17,7 @@ public class Splinter() : DiceTheSpireCoreCard(-1, CardType.Status, CardRarity.S
 
     public async Task OnDiscardAsync(PlayerChoiceContext choiceContext)
     {
-        await CardCmd.Exhaust(choiceContext, this, false, false);
+        await CardCmd.Exhaust(choiceContext, this, false, true);
     }
 
 }

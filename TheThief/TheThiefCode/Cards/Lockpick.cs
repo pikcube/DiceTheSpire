@@ -18,7 +18,7 @@ public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, Targ
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         IEnumerable<CardModel> cardModels = await CardPileCmd.Draw(choiceContext, this.DynamicVars.Cards.BaseValue, this.Owner);
-        CardPileAddResult combat = await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard <Splinter>(Owner), PileType.Hand, this.Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard <Splinter>(Owner), PileType.Hand, this.Owner);
         await Cmd.Wait(0.5f);
     }
 
