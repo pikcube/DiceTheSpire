@@ -22,5 +22,11 @@
   "THEINVENTOR-LAMENT.description": "Deal {Damage:diff()} damage.\nThe enemy can't gain block this turn.",
   "THEINVENTOR-LAMENT.title": "Lament",
   "THEINVENTOR-BLAST_CHILLER.description": "At the end of your turn, deal damage to ALL enemies equal to your currrent [gold]Block[/gold].",
-  "THEINVENTOR-BLAST_CHILLER.title": "Blast Chiller"
+  "THEINVENTOR-BLAST_CHILLER.title": "Blast Chiller",
+  "THEINVENTOR-CHAINSAW.description": "Deal {Damage:diff()} damage to ALL enemies.\nDeals double damage to [gold]Minions[/gold].",
+  "THEINVENTOR-CHAINSAW.title": "Chainsaw",
+  "THEINVENTOR-ROTTEN_EGG.description": "Permanently add [gold]Scrap[/gold] to this card.\n{IfUpgraded:show:Keep going...|Contains a terrible gadget.}",
+  "THEINVENTOR-ROTTEN_EGG.title": "Rotten Egg",
+  "THEINVENTOR-SPOOKY_NOISES.description": "Draw {Cards:diff()} cards.\nGain {StartledPower:diff()} [gold]Startled[/gold].",
+  "THEINVENTOR-SPOOKY_NOISES.title": "Spooky Noises"
 }

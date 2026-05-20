@@ -32,10 +32,7 @@ public class Spanner() : TheInventorCard(1, CardType.Skill, CardRarity.Basic, Ta
         await CardPileCmd.Add(toRetrive, PileType.Hand, CardPilePosition.Bottom, this);
     }
 
-    public override string OnScrap()
-    {
-        return nameof(BattleWrench);
-    }
+    public override string GetScrapId => nameof(BattleWrench);
 
     protected override void OnUpgrade()
     {

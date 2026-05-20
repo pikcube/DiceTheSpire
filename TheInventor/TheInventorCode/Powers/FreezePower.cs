@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -11,25 +12,21 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheInventor.TheInventorCode.Powers;
 
 
+[UsedImplicitly]
 public class FreezePower : TheInventorPower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.None;
 
-    public override decimal ModifyBlockAdditive(Creature target, decimal block, ValueProp props, CardModel? cardSource,
+    public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props, CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (Owner != target || block == 0)
-        {
-            return 0;
-        }
-
-        return -block;
+        return target == Owner ? 0 : 1;
     }
 
     public override Task AfterModifyingBlockAmount(decimal modifiedAmount, CardModel? cardSource, CardPlay? cardPlay)
     {
-        return Hook.AfterBlockBroken(CombatState, Owner);
+        return Owner.Block == 0 ? Hook.AfterBlockBroken(CombatState, Owner) : Task.CompletedTask;
     }
 
     public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)

@@ -67,7 +67,6 @@
 
     <ItemGroup>
       <Folder Include="DiceTheSpireCore\images\card_portraits\big\" />
-      <Folder Include="DiceTheSpireCore\images\powers\big\" />
       <Folder Include="DiceTheSpireCore\images\relics\big\" />
     </ItemGroup>
     

@@ -34,8 +34,5 @@ public class Whip() : TheInventorCard(2, CardType.Attack, CardRarity.Common, Tar
         }
     }
 
-    public override string OnScrap()
-    {
-        return nameof(Crack);
-    }
+    public override string GetScrapId => nameof(Crack);
 }

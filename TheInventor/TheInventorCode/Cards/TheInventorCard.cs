@@ -34,13 +34,23 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {
-            AbstractGadget gadget = Gadget.AllGadgets[OnScrap()];
+            AbstractGadget gadget = Gadget.AllGadgets[GetScrapId];
             if (gadget is DefaultGadget)
             {
                 return [];
             }
             return [new HoverTip(gadget.Title, gadget.Description, ModelDb.Relic<Gadget>().Icon)];
         }
-        public abstract string OnScrap();
+        public abstract string GetScrapId { get; }
+
+        public virtual Task OnScrapAsync(AbstractGadget linkedGadget)
+        {
+            return Task.CompletedTask;
+        }
+
+        public virtual Task OnSkippedAsync()
+        {
+            return Task.CompletedTask;
+        }
     }
 }

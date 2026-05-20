@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -82,7 +83,7 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
 
     public override async Task AfterCombatVictory(CombatRoom room)
     {
-        List<TheInventorCard> cards = [.. Owner.Deck.Cards.OfType<TheInventorCard>().Where(c => c.IsRemovable && c.OnScrap() != nameof(DefaultGadget))];
+        List<TheInventorCard> cards = [.. Owner.Deck.Cards.OfType<TheInventorCard>().Where(c => c.IsRemovable && c.GetScrapId != nameof(DefaultGadget))];
         List<TheInventorCard> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
         List<TheInventorCard> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
 
@@ -129,7 +130,12 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
             return;
         }
 
-        GadgetId = scrapCard.OnScrap();
+        GadgetId = scrapCard.GetScrapId;
+        await scrapCard.OnScrapAsync(LinkedGadget);
+        foreach (TheInventorCard c in options.OfType<TheInventorCard>().Where(c => c != scrapCard))
+        {
+            await c.OnSkippedAsync();
+        }
     }
 
     private IEnumerable<TheInventorCard> ShuffleForScrap(List<TheInventorCard> scrapCards)

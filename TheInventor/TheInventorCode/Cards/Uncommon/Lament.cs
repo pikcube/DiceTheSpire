@@ -32,8 +32,6 @@ public class Lament() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon,
         DynamicVars.Damage.UpgradeValueBy(4);
     }
 
-    public override string OnScrap()
-    {
-        return nameof(WallOfIce);
-    }
+    public override string GetScrapId => nameof(WallOfIce);
+    
 }

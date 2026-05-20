@@ -1,5 +1,5 @@
 {
-  "THEINVENTOR-FREEZE_POWER.description": "Reduce all [gold]Block[/gold] Gain to 0 this turn.",
-  "THEINVENTOR-FREEZE_POWER.smartDescription": "Reduce all [gold]Block[/gold] Gain to 0 this turn.",
+  "THEINVENTOR-FREEZE_POWER.description": "Prevents additional [gold]Block[/gold] gain this turn.",
+  "THEINVENTOR-FREEZE_POWER.smartDescription": "Prevents additional [gold]Block[/gold] gain this turn.",
   "THEINVENTOR-FREEZE_POWER.title": "Freeze"
 }

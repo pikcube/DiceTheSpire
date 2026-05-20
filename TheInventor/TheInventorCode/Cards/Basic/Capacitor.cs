@@ -19,7 +19,7 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic
 
     public override bool HasTurnEndInHandEffect => true;
 
-    public override string OnScrap() => nameof(ShortCircuit);
+    public override string GetScrapId => nameof(ShortCircuit);
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {

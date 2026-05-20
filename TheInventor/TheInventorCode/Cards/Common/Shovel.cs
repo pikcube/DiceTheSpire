@@ -33,8 +33,5 @@ public class Shovel() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
         DynamicVars.Weak.UpgradeValueBy(1);
     }
 
-    public override string OnScrap()
-    {
-        return nameof(Dig);
-    }
+    public override string GetScrapId => nameof(Dig);
 }

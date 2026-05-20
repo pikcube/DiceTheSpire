@@ -12,10 +12,7 @@ namespace TheInventor.TheInventorCode.Cards.Common;
 
 public class Snowflake() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    public override string OnScrap()
-    {
-        return nameof(WallOfIce);
-    }
+    public override string GetScrapId => nameof(WallOfIce);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, BlockProps.card), new PowerVar<FreezePower>(1)];
 

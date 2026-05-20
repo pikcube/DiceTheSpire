@@ -35,8 +35,5 @@ public class StrikeInventor() : TheInventorCard(1, CardType.Attack, CardRarity.B
         AddKeyword(ScrapKeyword.Scrap);
     }
 
-    public override string OnScrap()
-    {
-        return nameof(Bonk);
-    }
+    public override string GetScrapId => nameof(Bonk);
 }

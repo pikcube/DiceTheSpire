@@ -39,8 +39,5 @@ public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common,
         }
     }
 
-    public override string OnScrap()
-    {
-        return nameof(AutoBump);
-    }
+    public override string GetScrapId => nameof(AutoBump);
 }

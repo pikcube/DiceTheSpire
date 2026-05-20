@@ -26,10 +26,8 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
         await DiceyHooks.OnTurnEndInHand(this, RunState, CombatState);
     }
 
-    public override string OnScrap()
-    {
-        return nameof(DefaultGadget);
-    }
+    public override string GetScrapId => nameof(DefaultGadget);
+
 
     protected override void OnUpgrade()
     {

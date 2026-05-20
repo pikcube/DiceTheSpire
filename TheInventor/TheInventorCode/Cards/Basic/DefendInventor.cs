@@ -27,8 +27,5 @@ public class DefendInventor() : TheInventorCard(1, CardType.Skill, CardRarity.Ba
         AddKeyword(ScrapKeyword.Scrap);
     }
 
-    public override string OnScrap()
-    {
-        return nameof(Shield);
-    }
+    public override string GetScrapId => nameof(Shield);
 }
