@@ -18,8 +18,6 @@ public class Whip() : TheInventorCard(2, CardType.Attack, CardRarity.Common, Tar
         {
             return;
         }
-
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
         
         await base.OnPlay(choiceContext, cardPlay);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)

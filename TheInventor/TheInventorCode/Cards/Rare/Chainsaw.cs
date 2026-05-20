@@ -23,15 +23,13 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
             return;
         }
 
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
         foreach (Creature c in CombatState.Enemies)
         {
             if (c.HasPower<MinionPower>())
             {
                 await DamageCmd.Attack(DynamicVars.Damage.BaseValue * 2)
                     .FromCard(this)
-                    .Targeting(cardPlay.Target)
+                    .Targeting(c)
                     .WithHitFx("vfx/vfx_attack_slash")
                     .Execute(choiceContext);
             }
@@ -39,7 +37,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
             {
                 await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
                     .FromCard(this)
-                    .Targeting(cardPlay.Target)
+                    .Targeting(c)
                     .WithHitFx("vfx/vfx_attack_slash")
                     .Execute(choiceContext);
             }
