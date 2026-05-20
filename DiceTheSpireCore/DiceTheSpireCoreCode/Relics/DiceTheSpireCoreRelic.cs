@@ -1,7 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using Godot;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Relics
 {

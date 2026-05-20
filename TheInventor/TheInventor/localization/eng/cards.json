@@ -17,9 +17,9 @@
   "THEINVENTOR-WHIP.title": "Whip",
   "THEINVENTOR-SHOVEL.description": "Deal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
   "THEINVENTOR-SHOVEL.title": "Shovel",
-  "THEINVENTOR-SNOWFLAKE.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {FreezePower:diff()} [gold]Freeze[/gold].",
+  "THEINVENTOR-SNOWFLAKE.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Freeze[/gold] yourself.",
   "THEINVENTOR-SNOWFLAKE.title": "Snowflake",
-  "THEINVENTOR-LAMENT.description": "Deal 10 Damage to ALL enemies.\nPermanently increase this card's damage by 2 when this attack breaks an enemies's block.",
+  "THEINVENTOR-LAMENT.description": "Deal {Damage:diff()} damage.\nThe enemy can't gain block this turn.",
   "THEINVENTOR-LAMENT.title": "Lament",
   "THEINVENTOR-BLAST_CHILLER.description": "At the end of your turn, deal damage to ALL enemies equal to your currrent [gold]Block[/gold].",
   "THEINVENTOR-BLAST_CHILLER.title": "Blast Chiller"

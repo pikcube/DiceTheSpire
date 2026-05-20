@@ -4,12 +4,9 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
-using TheInventor.TheInventorCode.Cards.Common;
 
 namespace TheInventor.TheInventorCode.Powers;
 
@@ -17,25 +14,26 @@ namespace TheInventor.TheInventorCode.Powers;
 public class FreezePower : TheInventorPower
 {
     public override PowerType Type => PowerType.Debuff;
-    public override PowerStackType StackType => PowerStackType.Counter;
+    public override PowerStackType StackType => PowerStackType.None;
 
-    public override decimal ModifyBlockAdditive(Creature target, decimal block, ValueProp props, CardModel? cardSource, CardPlay? cardPlay)
+    public override decimal ModifyBlockAdditive(Creature target, decimal block, ValueProp props, CardModel? cardSource,
+        CardPlay? cardPlay)
     {
-        if (Owner != target || !props.IsPoweredCardOrMonsterMoveBlock())
+        if (Owner != target || block == 0)
         {
             return 0;
         }
 
-        return -Amount;
+        return -block;
     }
 
     public override Task AfterModifyingBlockAmount(decimal modifiedAmount, CardModel? cardSource, CardPlay? cardPlay)
     {
-        return PowerCmd.Remove(this);
+        return Hook.AfterBlockBroken(CombatState, Owner);
     }
 
     public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
-        return PowerCmd.Remove(this);
+        return Owner.Side == side ? PowerCmd.Remove(this) : Task.CompletedTask;
     }
 }

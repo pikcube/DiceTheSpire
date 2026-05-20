@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -16,7 +17,7 @@ using TheInventor.TheInventorCode.Keywords;
 namespace TheInventor.TheInventorCode.Relics;
 
 [UsedImplicitly]
-public class Gadget : TheInventorRelic
+public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
 {
     static Gadget()
     {
@@ -159,6 +160,19 @@ public class Gadget : TheInventorRelic
         }
 
         PlayedThisCombat[cardPlay.Card] = deckVersion;
+        return Task.CompletedTask;
+    }
+
+    public Task AfterTurnEndInHandEffectAsync(CardModel card)
+    {
+        if (card.Owner != Owner || PlayedThisCombat.ContainsKey(card) ||
+            card.DeckVersion is not TheInventorCard deckVersion)
+        {
+            return Task.CompletedTask;
+        }
+
+        PlayedThisCombat[card] = deckVersion;
+
         return Task.CompletedTask;
     }
 }
