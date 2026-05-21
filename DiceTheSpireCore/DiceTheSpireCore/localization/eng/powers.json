@@ -1,5 +1,5 @@
 {
-  "DICETHESPIRECORE-STARTLED_POWER.description": "Ends your turn after playing another card.",
+  "DICETHESPIRECORE-STARTLED_POWER.description": "You can only play X more cards this turn.",
   "DICETHESPIRECORE-STARTLED_POWER.smartDescription": "You can only play {Amount:diff()} more cards this turn.",
   "DICETHESPIRECORE-STARTLED_POWER.title": "Startled"
 }
