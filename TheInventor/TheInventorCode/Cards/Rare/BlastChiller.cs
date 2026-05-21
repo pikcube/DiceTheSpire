@@ -31,7 +31,7 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
         return Keywords.Contains(CardKeyword.Retain) ? PileType.Hand : PileType.Discard;
     }
 
-    public override string GetScrapId => nameof(DefaultGadget);
+    public override string GetScrapId => nameof(WallOfIce);
 
 
     protected override void OnUpgrade()

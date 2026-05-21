@@ -68,7 +68,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="TheInventor\images\card_portraits\big\" />
       <Folder Include="TheInventor\images\powers\big\" />
       <Folder Include="TheInventor\images\relics\big\" />
     </ItemGroup>
