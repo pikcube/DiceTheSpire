@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -6,9 +7,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
+[UsedImplicitly]
 public class WallOfIce() : AbstractGadget(nameof(WallOfIce))
 {
-    public bool IsCharged { get; set; }= false;
+    public bool IsCharged { get; set; }
 
     public override Task BeforeCombatStart()
     {

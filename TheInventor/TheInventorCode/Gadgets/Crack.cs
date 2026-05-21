@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
@@ -9,9 +10,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
+[UsedImplicitly]
 public class Crack() : AbstractGadget(nameof(Crack))
 {
-    public bool IsReady { get; set; } = false;
+    public bool IsReady { get; set; }
 
     public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
     {

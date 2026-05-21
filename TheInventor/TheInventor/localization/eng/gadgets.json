@@ -26,5 +26,9 @@
   "THEINVENTOR-ROTTEN_GADGET.title": "Rotten Gadget",
   "THEINVENTOR-ROTTEN_GADGET.description": "Upgrade Rotten Egg and return it to your deck.",
   "THEINVENTOR-CURSED_GADGET.title": "Cursed Gadget",
-  "THEINVENTOR-CURSED_GADGET.description": "At the start of each turn, [gold]Curse[/gold] yourself."
+  "THEINVENTOR-CURSED_GADGET.description": "At the start of each turn, [gold]Curse[/gold] yourself.",
+  "THEINVENTOR-BURROWER.title": "Burrower",
+  "THEINVENTOR-BURROWER.description": "At the start of combat, apply [blue]Weak[/blue] to all enemies [blue]5[/blue] times.",
+  "THEINVENTOR-MAGIC_DICE.title": "Magic Dice",
+  "THEINVENTOR-MAGIC_DICE.description": "At the start of each turn, gain {Energy:energyIcons()}."
 }

@@ -1,5 +1,4 @@
-﻿using BaseLib.Abstracts;
-using DiceTheSpireCore.DiceTheSpireCoreCode;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,6 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using Pikcube.Common.Extensions;
@@ -65,7 +65,7 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
         }
     }
 
-    public override RelicModel? GetUpgradeReplacement()
+    public override RelicModel GetUpgradeReplacement()
     {
         return ModelDb.Relic<Gadget>();
     }
@@ -84,9 +84,13 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
 
     public override async Task AfterCombatVictory(CombatRoom room)
     {
-        List<TheInventorCard> cards = [.. Owner.Deck.Cards.OfType<TheInventorCard>().Where(c => c.IsRemovable && c.GetScrapId != nameof(DefaultGadget))];
-        List<TheInventorCard> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
-        List<TheInventorCard> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
+        List<CardModel> cards = [.. Owner.Deck.Cards.Where(c => c is 
+        {
+            IsRemovable: true,
+            Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event
+        })];
+        List<CardModel> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
+        List<CardModel> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
 
         cards.Clear();
         cards.AddRange(ShuffleForScrap(scrapCards));
@@ -94,28 +98,12 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
 
         CardModel[] options = [.. cards.Take(3)];
 
-        if (options.Length < 3)
+        if (options.Length == 0)
         {
-            List<CardModel> lastResort =
-            [
-                ..Owner.Deck.Cards.Where(c =>
-                    c is not TheInventorCard && 
-                    c.Rarity is CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Event && 
-                    c.IsRemovable)
-            ];
-
-            Owner.PlayerRng.Rewards.Shuffle(lastResort);
-
-            options = [.. options, .. lastResort];
-            options = [.. options.Take(3)];
-
-            if (options.Length == 0)
-            {
-                //Well shit, the player's deck is literally empty except for Eternal cards.
-                //Hope they aren't totally boned right now.
-                GadgetId = nameof(BrokenGadget);
-                return;
-            }
+            //Well shit, the player's deck is literally empty except for Eternal cards.
+            //Hope they aren't totally boned right now.
+            GadgetId = nameof(BrokenGadget);
+            return;
         }
 
         CardModel? choice = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), options, Owner);
@@ -125,27 +113,66 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
             await CardPileCmd.RemoveFromDeck(choice, false);
         }
 
-        if (choice is not TheInventorCard scrapCard)
+        if (choice is TheInventorCard scrapCard)
         {
-            GadgetId = nameof(BrokenGadget);
-            return;
+            GadgetId = scrapCard.GetScrapId;
+            await scrapCard.OnScrapAsync(LinkedGadget);
+        }
+        else
+        {
+            GadgetId = GetDefaultGadget(choice);
         }
 
-        GadgetId = scrapCard.GetScrapId;
-        await scrapCard.OnScrapAsync(LinkedGadget);
-        foreach (TheInventorCard c in options.OfType<TheInventorCard>().Where(c => c != scrapCard))
+        foreach (TheInventorCard c in options.OfType<TheInventorCard>().Where(c => c != choice))
         {
             await c.OnSkippedAsync();
         }
     }
 
-    private IEnumerable<TheInventorCard> ShuffleForScrap(List<TheInventorCard> scrapCards)
+    private static string GetDefaultGadget(CardModel? choice)
+    {
+        if (choice is null)
+        {
+            return nameof(BrokenGadget);
+        }
+        
+        DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
+        {
+            PowerVar<VulnerablePower> => 10,
+            PowerVar<WeakPower> => 20,
+            EnergyVar => 30,
+            CardsVar => 40,
+            DamageVar or CalculatedDamageVar => 50,
+            BlockVar or CalculatedBlockVar => 60,
+            _ => 100,
+        }).FirstOrDefault();
+
+        return bestVar switch
+        {
+            PowerVar<VulnerablePower> => nameof(ShortCircuit),
+            PowerVar<WeakPower> => nameof(Burrower),
+            EnergyVar => nameof(MagicDice),
+            CardsVar => nameof(BattleWrench),
+            DamageVar or CalculatedDamageVar => choice.TargetType == TargetType.AllEnemies ? nameof(Crack) : nameof(Bonk),
+            BlockVar or CalculatedBlockVar => choice.Rarity is CardRarity.Basic or CardRarity.Common ? nameof(Shield) : nameof(WallOfIce),
+            _ => choice.Type switch
+            {
+                CardType.Attack => nameof(Bonk),
+                CardType.Skill => nameof(Shield),
+                CardType.Power => nameof(BattleWrench),
+                CardType.Status or CardType.Curse or CardType.Quest => nameof(CursedGadget),
+                _ => nameof(BrokenGadget)
+            }
+        };
+    }
+
+    private IEnumerable<CardModel> ShuffleForScrap(List<CardModel> scrapCards)
     {
         Owner.PlayerRng.Rewards.Shuffle(scrapCards);
         return scrapCards.OrderByDescending(c => PlayedThisCombat.ContainsValue(c));
     }
 
-    private Dictionary<CardModel, TheInventorCard> PlayedThisCombat { get; set; } = [];
+    private Dictionary<CardModel, CardModel> PlayedThisCombat { get; set; } = [];
 
     protected override void AfterCloned()
     {

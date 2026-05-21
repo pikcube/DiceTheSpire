@@ -19,7 +19,7 @@
   "THEINVENTOR-SHOVEL.title": "Shovel",
   "THEINVENTOR-SNOWFLAKE.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Freeze[/gold] yourself.",
   "THEINVENTOR-SNOWFLAKE.title": "Snowflake",
-  "THEINVENTOR-LAMENT.description": "Deal {Damage:diff()} damage.\nThe enemy can't gain block this turn.",
+  "THEINVENTOR-LAMENT.description": "Deal {Damage:diff()} damage.\n[gold]Freeze[/gold] the enemy.",
   "THEINVENTOR-LAMENT.title": "Lament",
   "THEINVENTOR-BLAST_CHILLER.description": "At the end of your turn, deal damage to ALL enemies equal to your currrent [gold]Block[/gold].",
   "THEINVENTOR-BLAST_CHILLER.title": "Blast Chiller",
@@ -32,5 +32,7 @@
   "THEINVENTOR-SCREWDRIVER.description": "Deal {Damage:diff()} damage.\nReactivate your Gadget.",
   "THEINVENTOR-SCREWDRIVER.title": "Screwdriver",
   "THEINVENTOR-SNEEZE.description": "Whenever you [gold]Blink[/gold] a card, gain {Block:diff()} [gold]Block[/gold].",
-  "THEINVENTOR-SNEEZE.title": "Sneeze"
+  "THEINVENTOR-SNEEZE.title": "Sneeze",
+  "THEINVENTOR-VISE_GRIP.description": "[gold]Blink[/gold] your hand.\nGain {Energy:energyIcons()} per card [gold]Blinked[/gold].\nDraw X{IfUpgraded:show:+1} cards.",
+  "THEINVENTOR-VISE_GRIP.title": "Vise Grip"
 }
