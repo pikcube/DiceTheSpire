@@ -24,4 +24,9 @@ public class Bonk() : AbstractGadget(nameof(Bonk))
 
         await CreatureCmd.Damage(choiceContext, target, 5, DamageProps.nonCardUnpowered, null, null);
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        return AfterPlayerTurnStart(choiceContext, player);
+    }
 }

@@ -1,5 +1,7 @@
 ﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
@@ -14,5 +16,15 @@ public class BattleWrench() : AbstractGadget(nameof(BattleWrench))
         }
 
         return count;
+    }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player == Parent?.Owner)
+        {
+            return CardPileCmd.Draw(choiceContext, 2, player);
+        }
+
+        return Task.CompletedTask;
     }
 }

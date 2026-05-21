@@ -23,4 +23,9 @@ public class AutoBump() : AbstractGadget(nameof(AutoBump))
 
         CardCmd.Upgrade(card);
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        return AfterPlayerTurnStartLate(choiceContext, player);
+    }
 }

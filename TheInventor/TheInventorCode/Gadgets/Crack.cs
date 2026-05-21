@@ -39,4 +39,10 @@ public class Crack() : AbstractGadget(nameof(Crack))
         await CreatureCmd.Damage(choiceContext, combatState.Enemies, new DamageVar(-delta, DamageProps.nonCardHpLoss),
             null, null);
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        IsReady = true;
+        return Task.CompletedTask;
+    }
 }

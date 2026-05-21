@@ -17,4 +17,9 @@ public class Shield() : AbstractGadget(nameof(Shield))
 
         await CreatureCmd.GainBlock(player.Creature, new BlockVar(5, BlockProps.nonCardUnpowered), null);
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        return AfterPlayerTurnStart(choiceContext, player);
+    }
 }

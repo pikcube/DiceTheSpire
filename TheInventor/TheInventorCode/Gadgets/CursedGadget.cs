@@ -16,4 +16,9 @@ public class CursedGadget() : AbstractGadget(nameof(CursedGadget))
             await PowerCmd.Apply<CursedPower>(choiceContext, player.Creature, 1, null, null);
         }
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        return AfterPlayerTurnStartEarly(choiceContext, player);
+    }
 }

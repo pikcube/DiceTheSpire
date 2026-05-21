@@ -1,4 +1,6 @@
 ﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Utility;
@@ -42,6 +44,8 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
         newGadget.Parent = gadget;
         return newGadget;
     }
+
+    public virtual Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 
     public void BreakMe()
     {

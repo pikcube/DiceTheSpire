@@ -7,9 +7,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 public class WallOfIce() : AbstractGadget(nameof(WallOfIce))
-{ 
+{
+    public bool IsCharged { get; set; }= false;
+
     public override Task BeforeCombatStart()
     {
+        IsCharged = true;
         return Task.CompletedTask;
     }
 
@@ -20,19 +23,28 @@ public class WallOfIce() : AbstractGadget(nameof(WallOfIce))
             return Task.CompletedTask;
         }
 
-        BreakMe();
-
+        IsCharged = false;
         return Task.CompletedTask;
     }
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource)
     {
-        if (Parent?.Owner.Creature != target)
+        if (Parent?.Owner.Creature != target || !IsCharged)
         {
             return 1;
         }
 
         return 0.5M;
+    }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player == Parent?.Owner)
+        {
+            IsCharged = true;
+        }
+
+        return Task.CompletedTask;
     }
 }

@@ -28,5 +28,9 @@
   "THEINVENTOR-ROTTEN_EGG.description": "Permanently add [gold]Scrap[/gold] to this card.\n{IfUpgraded:show:Keep going...|Contains a terrible gadget.}",
   "THEINVENTOR-ROTTEN_EGG.title": "Rotten Egg",
   "THEINVENTOR-SPOOKY_NOISES.description": "Draw {Cards:diff()} cards.\nGain {StartledPower:diff()} [gold]Startled[/gold].",
-  "THEINVENTOR-SPOOKY_NOISES.title": "Spooky Noises"
+  "THEINVENTOR-SPOOKY_NOISES.title": "Spooky Noises",
+  "THEINVENTOR-SCREWDRIVER.description": "Deal {Damage:diff()} damage.\nReactivate your Gadget.",
+  "THEINVENTOR-SCREWDRIVER.title": "Screwdriver",
+  "THEINVENTOR-SNEEZE.description": "Whenever you [gold]Blink[/gold] a card, gain {Block:diff()} [gold]Block[/gold].",
+  "THEINVENTOR-SNEEZE.title": "Sneeze"
 }

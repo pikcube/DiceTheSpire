@@ -3,6 +3,7 @@ using DiceTheSpireCore.DiceTheSpireCoreCode;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -180,5 +181,11 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
         PlayedThisCombat[card] = deckVersion;
 
         return Task.CompletedTask;
+    }
+
+    public static Task RechargeAsync(PlayerChoiceContext context, Player owner)
+    {
+        Gadget? gadget = owner.Relics.OfType<Gadget>().FirstOrDefault();
+        return gadget?.LinkedGadget.OnRechargeAsync(context, owner) ?? Task.CompletedTask;
     }
 }
