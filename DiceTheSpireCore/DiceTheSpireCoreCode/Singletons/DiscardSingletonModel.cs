@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Singletons;
 
-public class DiscardSingletonModel() : CustomSingletonModel(true, false)
+public class DiscardSingletonModel() : CustomSingletonModel(HookType.Combat)
 {
     public override async Task AfterCardDiscarded(PlayerChoiceContext choiceContext, CardModel card)
     {

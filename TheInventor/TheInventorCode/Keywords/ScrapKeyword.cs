@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 namespace TheInventor.TheInventorCode.Keywords;
 
 [UsedImplicitly]
-public class ScrapKeyword() : CustomSingletonModel(false, false)
+public class ScrapKeyword() : CustomSingletonModel(HookType.None)
 {
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword Scrap = 0;
