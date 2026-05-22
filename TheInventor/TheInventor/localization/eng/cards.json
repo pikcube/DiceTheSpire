@@ -36,5 +36,7 @@
   "THEINVENTOR-VISE_GRIP.description": "[gold]Blink[/gold] your hand.\nGain {Energy:energyIcons()} per card [gold]Blinked[/gold].\nDraw X{IfUpgraded:show:+1} cards.",
   "THEINVENTOR-VISE_GRIP.title": "Vise Grip",
   "THEINVENTOR-FOCUS_FORM.description": "At the start of each turn, draw {Cards:diff()} cards.",
-  "THEINVENTOR-FOCUS_FORM.title": "Focus Form"
+  "THEINVENTOR-FOCUS_FORM.title": "Focus Form",
+  "THEINVENTOR-ELASTIC_HEART.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Unplayable[/gold] card held in [gold]Hand[/gold].",
+  "THEINVENTOR-ELASTIC_HEART.title": "Elastic Heart"
 }

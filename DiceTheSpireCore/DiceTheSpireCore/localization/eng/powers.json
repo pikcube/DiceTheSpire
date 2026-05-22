@@ -7,5 +7,8 @@
   "DICETHESPIRECORE-FREEZE_POWER.title": "Freeze",
   "DICETHESPIRECORE-SNEEZE_POWER.description": "Whenever you [gold]Blink[/gold] a card, gain [gold]Block[/gold].",
   "DICETHESPIRECORE-SNEEZE_POWER.smartDescription": "Whenever you [gold]Blink[/gold] a card, gain {Amount:diff()} [gold]Block[/gold].",
-  "DICETHESPIRECORE-SNEEZE_POWER.title": "Sneeze"
+  "DICETHESPIRECORE-SNEEZE_POWER.title": "Sneeze",
+  "DICETHESPIRECORE-ELASTIC_HEART_POWER.description": "At the end of your turn, gain [gold]Block[/gold] for each [gold]Unplayable[/gold] card in [gold]Hand[/gold].",
+  "DICETHESPIRECORE-ELASTIC_HEART_POWER.smartDescription": "At the end of your turn, gain {Amount:diff()} [gold]Block[/gold] for each [gold]Unplayable[/gold] card in [gold]Hand[/gold].",
+  "DICETHESPIRECORE-ELASTIC_HEART_POWER.title": "Elastic Heart"
 }
