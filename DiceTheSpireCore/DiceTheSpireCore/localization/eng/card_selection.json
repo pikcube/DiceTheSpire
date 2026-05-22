@@ -8,5 +8,6 @@
   //"TO_UPGRADE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Upgrade[/gold].",
   //"VIEW_UPGRADES": "View Upgrades"
   "TO_BLINK": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Blink[/gold].",
-  "TO_BUMP": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Bump[/gold]."
+  "TO_BUMP": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Bump[/gold].",
+  "TO_DUPE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Duplicate[/gold]."
 }

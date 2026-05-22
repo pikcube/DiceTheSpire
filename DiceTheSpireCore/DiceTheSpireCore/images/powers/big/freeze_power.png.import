@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccoq6ncb6k2xr"
-path="res://.godot/imported/freeze_power.png-8cf2e362916f0c1c857cb5a9c7549861.ctex"
+uid="uid://dirc4sb56gojc"
+path="res://.godot/imported/freeze_power.png-268558e0105cf1a9c56f5c9f2b91ed9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/powers/big/freeze_power.png"
-dest_files=["res://.godot/imported/freeze_power.png-8cf2e362916f0c1c857cb5a9c7549861.ctex"]
+source_file="res://DiceTheSpireCore/images/powers/big/freeze_power.png"
+dest_files=["res://.godot/imported/freeze_power.png-268558e0105cf1a9c56f5c9f2b91ed9d.ctex"]
 
 [params]
 

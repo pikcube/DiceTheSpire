@@ -9,17 +9,15 @@ using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheInventor.TheInventorCode.Powers;
-
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
 [UsedImplicitly]
-public class FreezePower : TheInventorPower
+public class FreezePower : DiceTheSpireCorePower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.None;
 
-    public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props, CardModel? cardSource,
-        CardPlay? cardPlay)
+    public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props, CardModel? cardSource, CardPlay? cardPlay)
     {
         return target == Owner ? 0 : 1;
     }

@@ -1,11 +1,11 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
@@ -20,13 +20,12 @@ public class Lament() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon,
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await base.OnPlay(choiceContext, cardPlay);
+        await PowerCmd.Apply<FreezePower>(choiceContext, cardPlay.Target, 1, Owner.Creature, cardPlay.Card);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.heavyBluntPath)
             .Execute(choiceContext);
-
-        await PowerCmd.Apply<FreezePower>(choiceContext, cardPlay.Target,1, Owner.Creature, cardPlay.Card);
     }
 
     protected override void OnUpgrade()

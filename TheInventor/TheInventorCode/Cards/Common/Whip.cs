@@ -23,7 +23,7 @@ public class Whip() : TheInventorCard(2, CardType.Attack, CardRarity.Common, Tar
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
             .TargetingAllOpponents(CombatState)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         if (IsUpgraded)

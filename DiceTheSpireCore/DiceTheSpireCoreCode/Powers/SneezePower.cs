@@ -1,15 +1,13 @@
-﻿using JetBrains.Annotations;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Utility;
 
-namespace TheInventor.TheInventorCode.Powers;
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
-[UsedImplicitly]
-public class SneezePower : TheInventorPower, IOnBlinkListener
+public class SneezePower : DiceTheSpireCorePower, IOnBlinkListener
 {
     public override PowerType Type => PowerType.Buff;
 

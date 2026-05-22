@@ -16,7 +16,7 @@ public class Peashooter() : TheThiefCard(1, CardType.Attack, CardRarity.Basic, T
 
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+            .WithHitFx(VfxCmd.slashPath).Execute(choiceContext);
     }
 
     protected override PileType GetResultPileTypeForCardPlay()

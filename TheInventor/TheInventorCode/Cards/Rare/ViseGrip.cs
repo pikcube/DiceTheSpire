@@ -16,12 +16,12 @@ public class ViseGrip() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, T
 
     protected override bool HasEnergyCostX => true;
 
-    public override string GetScrapId => nameof(BattleWrench);
+    public override string GetScrapId => nameof(Replicate);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         int drawNum = cardPlay.Card.ResolveEnergyXValue();
-        if (IsUpgradable)
+        if (IsUpgraded)
         {
             ++drawNum;
         }

@@ -30,5 +30,11 @@
   "THEINVENTOR-BURROWER.title": "Burrower",
   "THEINVENTOR-BURROWER.description": "At the start of combat, apply [blue]Weak[/blue] to all enemies [blue]5[/blue] times.",
   "THEINVENTOR-MAGIC_DICE.title": "Magic Dice",
-  "THEINVENTOR-MAGIC_DICE.description": "At the start of each turn, gain {Energy:energyIcons()}."
+  "THEINVENTOR-MAGIC_DICE.description": "At the start of each turn, gain {Energy:energyIcons()}.",
+  "THEINVENTOR-LARGE_TOOLBOX.title": "Large Toolbox",
+  "THEINVENTOR-LARGE_TOOLBOX.description": "At the start of combat, add 3 Colorless cards to your [gold]Hand[/gold].",
+  "THEINVENTOR-REPLICATE.title": "Replicate",
+  "THEINVENTOR-REPLICATE.description": "At the start of each turn, duplicate a card.",
+  "THEINVENTOR-EFFICIENCY.title": "Efficiency",
+  "THEINVENTOR-EFFICIENCY.description": "The first card you play each turn is returned to your hand."
 }

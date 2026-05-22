@@ -1,5 +1,11 @@
 {
   "DICETHESPIRECORE-STARTLED_POWER.description": "You can only play X more cards this turn.",
   "DICETHESPIRECORE-STARTLED_POWER.smartDescription": "You can only play {Amount:diff()} more cards this turn.",
-  "DICETHESPIRECORE-STARTLED_POWER.title": "Startled"
+  "DICETHESPIRECORE-STARTLED_POWER.title": "Startled",
+  "DICETHESPIRECORE-FREEZE_POWER.description": "Prevents additional [gold]Block[/gold] gain this turn.",
+  "DICETHESPIRECORE-FREEZE_POWER.smartDescription": "Prevents additional [gold]Block[/gold] gain this turn.",
+  "DICETHESPIRECORE-FREEZE_POWER.title": "Freeze",
+  "DICETHESPIRECORE-SNEEZE_POWER.description": "Whenever you [gold]Blink[/gold] a card, gain [gold]Block[/gold].",
+  "DICETHESPIRECORE-SNEEZE_POWER.smartDescription": "Whenever you [gold]Blink[/gold] a card, gain {Amount:diff()} [gold]Block[/gold].",
+  "DICETHESPIRECORE-SNEEZE_POWER.title": "Sneeze"
 }

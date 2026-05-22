@@ -22,7 +22,7 @@ public class Screwdriver() : TheInventorCard(1, CardType.Attack, CardRarity.Unco
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         await Gadget.RechargeAsync(choiceContext, Owner);
@@ -33,5 +33,5 @@ public class Screwdriver() : TheInventorCard(1, CardType.Attack, CardRarity.Unco
         RemoveKeyword(BlinkModel.Blink);
     }
 
-    public override string GetScrapId => nameof(DefaultGadget);
+    public override string GetScrapId => nameof(LargeToolbox);
 }

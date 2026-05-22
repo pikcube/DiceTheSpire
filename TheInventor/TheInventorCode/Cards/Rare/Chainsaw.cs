@@ -29,7 +29,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
                 await DamageCmd.Attack(DynamicVars.Damage.BaseValue * 2)
                     .FromCard(this)
                     .Targeting(c)
-                    .WithHitFx("vfx/vfx_attack_slash")
+                    .WithHitFx(VfxCmd.slashPath)
                     .Execute(choiceContext);
             }
             else
@@ -37,7 +37,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
                 await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
                     .FromCard(this)
                     .Targeting(c)
-                    .WithHitFx("vfx/vfx_attack_slash")
+                    .WithHitFx(VfxCmd.slashPath)
                     .Execute(choiceContext);
             }
         }

@@ -1,8 +1,3 @@
 {
-  "THEINVENTOR-FREEZE_POWER.description": "Prevents additional [gold]Block[/gold] gain this turn.",
-  "THEINVENTOR-FREEZE_POWER.smartDescription": "Prevents additional [gold]Block[/gold] gain this turn.",
-  "THEINVENTOR-FREEZE_POWER.title": "Freeze",
-  "THEINVENTOR-SNEEZE_POWER.description": "Whenever you [gold]Blink[/gold] a card, gain [gold]Block[/gold].",
-  "THEINVENTOR-SNEEZE_POWER.smartDescription": "Whenever you [gold]Blink[/gold] a card, gain {Amount:diff()} [gold]Block[/gold].",
-  "THEINVENTOR-SNEEZE_POWER.title": "Sneeze"
+
 }

@@ -8,9 +8,11 @@ using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Ancient;
 
-public class RottenEgg() : TheInventorCard(1, CardType.Power, CardRarity.Ancient, TargetType.Self), ITomeCard
+public class RottenEgg() : TheInventorCard(0, CardType.Power, CardRarity.Ancient, TargetType.Self), ITomeCard
 {
     public override int MaxUpgradeLevel => 5;
+
+    protected override bool HasEnergyCostX => IsUpgradable;
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
