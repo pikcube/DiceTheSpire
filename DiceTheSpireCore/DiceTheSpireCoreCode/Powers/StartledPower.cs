@@ -47,7 +47,7 @@ public class StartledPower : DiceTheSpireCorePower
         return Task.CompletedTask;
     }
 
-    public override Task BeforeTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         IsTurnEnding = true;
         return PowerCmd.Remove(this);

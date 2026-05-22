@@ -15,7 +15,9 @@ public class Crack() : AbstractGadget(nameof(Crack))
 {
     public bool IsReady { get; set; }
 
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, ICombatState combatState)
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
         if (side == CombatSide.Player)
         {

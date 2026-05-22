@@ -29,7 +29,8 @@ public class FreezePower : TheInventorPower
         return Owner.Block == 0 ? Hook.AfterBlockBroken(CombatState, Owner) : Task.CompletedTask;
     }
 
-    public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
         return Owner.Side == side ? PowerCmd.Remove(this) : Task.CompletedTask;
     }
