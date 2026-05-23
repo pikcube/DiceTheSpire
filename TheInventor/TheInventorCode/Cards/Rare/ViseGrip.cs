@@ -27,7 +27,7 @@ public class ViseGrip() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, T
         }
         IReadOnlyList<CardModel> cardsInHand = PileType.Hand.GetPile(Owner).Cards;
         int energyGain = cardsInHand.Count;
-        foreach (CardModel card in cardsInHand)
+        foreach (CardModel card in cardsInHand.ToArray())
         {
             await BlinkModel.BlinkCardAsync(choiceContext, card);
         }

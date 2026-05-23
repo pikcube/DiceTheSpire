@@ -9,7 +9,7 @@ using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Screwdriver() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyAlly)
+public class Screwdriver() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
