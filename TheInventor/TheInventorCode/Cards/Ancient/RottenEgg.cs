@@ -12,7 +12,7 @@ public class RottenEgg() : TheInventorCard(0, CardType.Power, CardRarity.Ancient
 {
     public override int MaxUpgradeLevel => 5;
 
-    protected override bool HasEnergyCostX => IsUpgradable;
+    protected override bool HasEnergyCostX => !IsUpgradable;
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
