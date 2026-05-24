@@ -1,7 +1,9 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Relics;
@@ -18,6 +20,18 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
         Gadget.AllGadgets[GadgetId] = this;
     }
     public override bool ShouldReceiveCombatHooks => true;
+
+    protected virtual IEnumerable<DynamicVar> CanonicalVars => [];
+
+    public DynamicVarSet DynamicVars
+    {
+        get
+        {
+            field ??= new DynamicVarSet(CanonicalVars).WithOwnerInitialized(this);
+            return field;
+        }
+    }
+
     public string GadgetId { get; }
     public string GadgetText => string.Join(": ", GadgetLocStrings);
     public virtual IEnumerable<string> GadgetLocStrings => [Title.GetRawText(), $"{Description.GetRawText()}\n\n"];
@@ -26,7 +40,7 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
     {
         get
         {
-            field ??= new LocString("gadgets", Id.Entry + ".title");
+            field ??= new LocString("gadgets", Id.Entry + ".title").WithDynamicVars(DynamicVars);
             return field;
         }
     }
@@ -34,7 +48,7 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
     {
         get
         {
-            field ??= new LocString("gadgets", Id.Entry + ".description");
+            field ??= new LocString("gadgets", Id.Entry + ".description").WithDynamicVars(DynamicVars);
             return field;
         }
     }

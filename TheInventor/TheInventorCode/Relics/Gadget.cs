@@ -135,6 +135,11 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
         {
             return nameof(BrokenGadget);
         }
+
+        if (choice.Type is CardType.Curse or CardType.Status or CardType.Quest)
+        {
+            return nameof(CursedGadget);
+        }
         
         DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
         {

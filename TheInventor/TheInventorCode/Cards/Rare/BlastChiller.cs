@@ -26,11 +26,6 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
         await DiceyHooks.OnTurnEndInHand(this, RunState, CombatState);
     }
 
-    protected override PileType GetResultPileTypeForOnTurnEndInHandEffect()
-    {
-        return Keywords.Contains(CardKeyword.Retain) ? PileType.Hand : PileType.Discard;
-    }
-
     public override string GetScrapId => nameof(WallOfIce);
 
 
