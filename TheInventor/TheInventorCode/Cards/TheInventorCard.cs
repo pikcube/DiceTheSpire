@@ -52,5 +52,11 @@ namespace TheInventor.TheInventorCode.Cards
         {
             return Task.CompletedTask;
         }
+
+        public virtual bool ModifyScrap(Gadget gadget, AbstractGadget linkedGadget)
+        {
+            return false;
+        }
+
     }
 }

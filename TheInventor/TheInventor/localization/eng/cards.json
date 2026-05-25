@@ -44,5 +44,7 @@
   "THEINVENTOR-THIS_IS_FINE.description": "At the end of your turn, play the top {IfUpgraded:show:2 cards|card} of your draw pile.",
   "THEINVENTOR-THIS_IS_FINE.title": "This Is Fine",
   "THEINVENTOR-SCRAP_BOOK.description": "When this card is [gold]Blinked[/gold], gain {Energy:energyIcons()}.",
-  "THEINVENTOR-SCRAP_BOOK.title": "Scrap Book"
+  "THEINVENTOR-SCRAP_BOOK.title": "Scrap Book",
+  "THEINVENTOR-EMPTY_SLOT.description": "Add a random card into your hand. It's free to play this turn.",
+  "THEINVENTOR-EMPTY_SLOT.title": "Empty Slot"
 }

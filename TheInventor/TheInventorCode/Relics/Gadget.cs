@@ -115,8 +115,11 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
 
         if (choice is TheInventorCard scrapCard)
         {
-            GadgetId = scrapCard.GetScrapId;
-            await scrapCard.OnScrapAsync(LinkedGadget);
+            if (!scrapCard.ModifyScrap(this, LinkedGadget))
+            {
+                GadgetId = scrapCard.GetScrapId;
+                await scrapCard.OnScrapAsync(LinkedGadget);
+            }
         }
         else
         {
