@@ -1,3 +1,24 @@
 {
-  
+  "THETHIEF-DEFEND_THIEF.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "THETHIEF-DEFEND_THIEF.title": "Defend",
+  "THETHIEF-STRIKE_THIEF.description": "Deal {Damage:diff()} damage.",
+  "THETHIEF-STRIKE_THIEF.title": "Strike",
+  "THETHIEF-DAGGER.description": "Deal {Damage:diff()} damage. Return this card to your [gold]hand[/gold].",
+  "THETHIEF-DAGGER.title": "Dagger",
+  "THETHIEF-LOCKPICK.description": "Draw {IfUpgraded:show:[blue]2[/blue] cards|a card}. Create a [gold]Splinter[/gold].",
+  "THETHIEF-LOCKPICK.title": "Lockpick",
+  "THETHIEF-PEASHOOTER.description": "Deal {Damage:diff()} damage. Return this card to your [gold]hand[/gold].",
+  "THETHIEF-PEASHOOTER.title": "Peashooter",
+  "THETHIEF-SINGULARITY.description": "Transform a card in hand into {IfUpgraded:show:an upgraded|a} [gold]Collapse[/gold].",
+  "THETHIEF-SINGULARITY.title": "Singularity",
+  "THETHIEF-COLLAPSE.description": "Deal {Damage:diff()} damage.",
+  "THETHIEF-COLLAPSE.title": "Collapse",
+  "THETHIEF-CHISEL.description": "Decrease the cost of a card in hand by 1 this turn. Create a [gold]Splinter[/gold].",
+  "THETHIEF-CHISEL.title": "Chisel",
+  "THETHIEF-DETONATOR.description": "Deal damage equal to the amount of poison on the enemy.",
+  "THETHIEF-DETONATOR.title": "Detonator",
+  "THETHIEF-POISON_NEEDLE.description": "Apply {IfUpgraded:show:[blue]3[/blue]|[blue]4[/blue]} [gold]poison[/gold] to an enemy X times.",
+  "THETHIEF-POISON_NEEDLE.title": "Poison Needle",
+  "THETHIEF-BLENDER.description": "[gold]Exhaust[/gold] a card. Create [gold]Splinters[/gold] equal to that card's cost {IfUpgraded:show:plus 1}",
+  "THETHIEF-BLENDER.title": "Blender"
 }
