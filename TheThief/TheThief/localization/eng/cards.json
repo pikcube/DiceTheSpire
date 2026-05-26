@@ -14,5 +14,11 @@
   "THETHIEF-COLLAPSE.description": "Deal {Damage:diff()} damage.",
   "THETHIEF-COLLAPSE.title": "Collapse",
   "THETHIEF-CHISEL.description": "Decrease the cost of a card in hand by 1 this turn. Create a [gold]Splinter[/gold].",
-  "THETHIEF-CHISEL.title": "Chisel"
+  "THETHIEF-CHISEL.title": "Chisel",
+  "THETHIEF-DETONATOR.description": "Deal damage equal to the amount of poison on the enemy.",
+  "THETHIEF-DETONATOR.title": "Detonator",
+  "THETHIEF-POISON_NEEDLE.description": "Apply {IfUpgraded:show:[blue]3[/blue]|[blue]4[/blue]} [gold]poison[/gold] to an enemy X times.",
+  "THETHIEF-POISON_NEEDLE.title": "Poison Needle",
+  "THETHIEF-BLENDER.description": "[gold]Exhaust[/gold] a card. Create [gold]Splinters[/gold] equal to that card's cost {IfUpgraded:show:plus 1}",
+  "THETHIEF-BLENDER.title": "Blender"
 }

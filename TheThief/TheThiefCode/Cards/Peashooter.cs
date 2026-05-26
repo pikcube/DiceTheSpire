@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheThief.TheThiefCode.Cards;
 
-  //does not currently countdown
+  //todo: make countdown
 public class Peashooter() : TheThiefCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Move)];
@@ -16,7 +16,7 @@ public class Peashooter() : TheThiefCard(1, CardType.Attack, CardRarity.Basic, T
 
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
-            .WithHitFx(VfxCmd.slashPath).Execute(choiceContext);
+            .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override PileType GetResultPileTypeForCardPlay()

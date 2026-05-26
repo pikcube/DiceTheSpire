@@ -9,13 +9,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 
 [Pool(typeof(StatusCardPool))]
-public class Splinter() : DiceTheSpireCoreCard(-1, CardType.Status, CardRarity.Status, TargetType.None), IOnDiscardListener
+public class Splinter() : DiceTheSpireCoreCard(1, CardType.Status, CardRarity.Status, TargetType.None)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Unplayable];
-
-    public async Task OnDiscardAsync(PlayerChoiceContext choiceContext)
-    {
-        await CardCmd.Exhaust(choiceContext, this, false, true);
-    }
-
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust, CardKeyword.Sly];
 }
