@@ -23,6 +23,17 @@ public class LightningRod() : TheInventorCard(3, CardType.Attack, CardRarity.Unc
         return Task.CompletedTask;
     }
 
+    public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
+        Creature? dealer, CardModel? cardSource)
+    {
+        if (target == Owner.Creature)
+        {
+            DynamicVars.Damage.UpgradeValueBy(result.TotalDamage);
+        }
+
+        return Task.CompletedTask;
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
@@ -33,17 +44,6 @@ public class LightningRod() : TheInventorCard(3, CardType.Attack, CardRarity.Unc
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-    }
-
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
-        Creature? dealer, CardModel? cardSource)
-    {
-        if (target != Owner.Creature)
-        {
-            return;
-        }
-
-        DynamicVars.Damage.UpgradeValueBy(result.TotalDamage);
     }
 
 
