@@ -4,12 +4,15 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
+using TheInventor.TheInventorCode.Keywords;
 
-namespace TheInventor.TheInventorCode.Cards.Basic;
+namespace TheInventor.TheInventorCode.Cards.Common;
 
-public class DefendInventor() : TheInventorCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class ScrapDefend() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, BlockProps.card)];

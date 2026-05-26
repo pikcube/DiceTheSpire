@@ -38,5 +38,9 @@
   "THEINVENTOR-EFFICIENCY.title": "Efficiency",
   "THEINVENTOR-EFFICIENCY.description": "The first card you play each turn is returned to your hand.",
   "THEINVENTOR-PERSISTENCE_OF_MEMORY.title": "Persistence Of Memory",
-  "THEINVENTOR-PERSISTENCE_OF_MEMORY.description": "Keep your current gadget an additional combat."
+  "THEINVENTOR-PERSISTENCE_OF_MEMORY.description": "Keep your current gadget an additional combat.",
+  "THEINVENTOR-HOOK.title": "Hook",
+  "THEINVENTOR-HOOK.description": "At the start of each turn, add a card from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
+  "THEINVENTOR-PROTECTION.title": "Protection",
+  "THEINVENTOR-PROTECTION.description": "At the start of each turn, gain 2 [gold]Reduce[/gold]."
 }

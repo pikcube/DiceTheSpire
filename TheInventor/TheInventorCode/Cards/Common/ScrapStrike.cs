@@ -1,18 +1,18 @@
-﻿using JetBrains.Annotations;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
+using TheInventor.TheInventorCode.Keywords;
 
-namespace TheInventor.TheInventorCode.Cards.Basic;
+namespace TheInventor.TheInventorCode.Cards.Common;
 
-
-[UsedImplicitly]
-public class StrikeInventor() : TheInventorCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6M, DamageProps.card)];
 

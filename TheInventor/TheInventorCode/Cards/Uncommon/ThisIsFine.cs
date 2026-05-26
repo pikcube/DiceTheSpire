@@ -14,6 +14,7 @@ public class ThisIsFine() : TheInventorCard(-1, CardType.Skill, CardRarity.Uncom
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
         await CardPileCmd.AutoPlayFromDrawPile(choiceContext, Owner, IsUpgraded ? 2 : 1, CardPilePosition.Top, false);
+
     }
 
     public override string GetScrapId => nameof(MagicDice);

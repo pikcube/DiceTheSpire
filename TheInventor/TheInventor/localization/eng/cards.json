@@ -46,5 +46,21 @@
   "THEINVENTOR-SCRAP_BOOK.description": "When this card is [gold]Blinked[/gold], gain {Energy:energyIcons()}.",
   "THEINVENTOR-SCRAP_BOOK.title": "Scrap Book",
   "THEINVENTOR-EMPTY_SLOT.description": "Add a random card into your hand. It's free to play this turn.",
-  "THEINVENTOR-EMPTY_SLOT.title": "Empty Slot"
+  "THEINVENTOR-EMPTY_SLOT.title": "Empty Slot",
+  "THEINVENTOR-CROSSBOW.description": "Deal {Damage:diff()} damage.\n[gold]Blink[/gold] a card of your [gold]Draw Pile[/gold].",
+  "THEINVENTOR-CROSSBOW.title": "Crossbow",
+  "THEINVENTOR-CHANGE_MACHINE.description": "[gold]Blink[/gold] a card.\nPut a card from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
+  "THEINVENTOR-CHANGE_MACHINE.selectionScreenPrompt": "Choose a card to put back in your Hand.",
+  "THEINVENTOR-CHANGE_MACHINE.title": "Change Machine",
+  "THEINVENTOR-MIDNIGHT_CHARM.description": "Put two cards from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].\n[gold]Bump[/gold] them.",
+  "THEINVENTOR-MIDNIGHT_CHARM.title": "Midnight Charm",
+  "THEINVENTOR-MIDNIGHT_CHARM.selectionScreenPrompt": "Choose two cards to put back in your Hand.",
+  "THEINVENTOR-SCRAP_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "THEINVENTOR-SCRAP_DEFEND.title": "Scrap Defend",
+  "THEINVENTOR-SCRAP_STRIKE.description": "Deal {Damage:diff()} damage.",
+  "THEINVENTOR-SCRAP_STRIKE.title": "Scrap Strike",
+  "THEINVENTOR-LEATHER_ARMOR.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold].",
+  "THEINVENTOR-LEATHER_ARMOR.title": "Leather Armor",
+  "THEINVENTOR-HI_VIS_JACKET.description": "Gain {Block:diff()} [gold]Block[/gold] X times.\nGain {ReducePower:diff()} [gold]Reduce[/gold].",
+  "THEINVENTOR-HI_VIS_JACKET.title": "Hi Vis Jacket"
 }
