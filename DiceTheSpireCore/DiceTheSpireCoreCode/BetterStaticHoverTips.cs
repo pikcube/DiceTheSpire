@@ -5,5 +5,6 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode;
 
 public static class BetterStaticHoverTips
 {
-    [CustomEnum] public static StaticHoverTip Bump = 0;
+    [CustomEnum] 
+    public static StaticHoverTip Bump = 0;
 }

@@ -11,7 +11,7 @@ using TheInventor.TheInventorCode.Gadgets;
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class Sneeze() : TheInventorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class Sneeze() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3, BlockProps.nonCardUnpowered)];
 

@@ -2,12 +2,11 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Rare, TargetType.None)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
@@ -22,15 +21,25 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
 
         int damage = Owner.Creature.Block;
 
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, damage, DamageProps.card, Owner.Creature, this);
+        if (IsUpgraded)
+        {
+            await DamageCmd.Attack(damage)
+                .FromCard(this)
+                .TargetingAllOpponents(CombatState)
+                .WithHitFx(VfxCmd.slashPath)
+                .Execute(choiceContext);
+        }
+        else
+        {
+            await DamageCmd.Attack(damage)
+                .FromCard(this)
+                .WithHitCount(1)
+                .TargetingRandomOpponents(CombatState)
+                .WithHitFx(VfxCmd.slashPath)
+                .Execute(choiceContext);
+        }
         await DiceyHooks.OnTurnEndInHand(this, RunState, CombatState);
     }
 
     public override string GetScrapId => nameof(WallOfIce);
-
-
-    protected override void OnUpgrade()
-    {
-        AddKeyword(CardKeyword.Retain);
-    }
 }

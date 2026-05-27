@@ -12,7 +12,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class ElasticHeart() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4, BlockProps.nonCardUnpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3, BlockProps.nonCardUnpowered)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Unplayable)];

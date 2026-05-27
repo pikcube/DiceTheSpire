@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models.CardPools;
 
-
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 
 [Pool(typeof(StatusCardPool))]
