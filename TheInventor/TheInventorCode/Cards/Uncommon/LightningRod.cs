@@ -9,7 +9,7 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class LightningRod() : TheInventorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class LightningRod() : TheInventorCard(4, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Crack);
 

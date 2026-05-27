@@ -13,6 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
 { 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(26, DamageProps.card)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<MinionPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -22,7 +23,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
             return;
         }
 
-        foreach (Creature c in CombatState.Enemies)
+        foreach (Creature c in CombatState.Enemies.ToArray())
         {
             if (c.HasPower<MinionPower>())
             {
@@ -45,7 +46,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 
     public override string GetScrapId => nameof(DialUpSounds);

@@ -15,12 +15,13 @@ public class ReducePower : DiceTheSpireCorePower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyHpLostAfterOsty(Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
+    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
+        CardModel? cardSource)
     {
-        return target != Owner ? amount : Math.Max(0M, amount - Amount);
+        return target != Owner ? 0 : -Amount;
     }
 
-    public override Task AfterModifyingHpLostAfterOsty()
+    public override Task AfterModifyingDamageAmount(CardModel? cardSource)
     {
         Flash();
         return Task.CompletedTask;

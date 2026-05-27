@@ -11,7 +11,7 @@
   "DICETHESPIRECORE-ELASTIC_HEART_POWER.description": "At the end of your turn, gain [gold]Block[/gold] for each [gold]Unplayable[/gold] card in [gold]Hand[/gold].",
   "DICETHESPIRECORE-ELASTIC_HEART_POWER.smartDescription": "At the end of your turn, gain {Amount:diff()} [gold]Block[/gold] for each [gold]Unplayable[/gold] card in [gold]Hand[/gold].",
   "DICETHESPIRECORE-ELASTIC_HEART_POWER.title": "Elastic Heart",
-  "DICETHESPIRECORE-REDUCE_POWER.description": "Whenever you would lose HP this turn, lose [blue]1[/blue] less per Reduce.",
-  "DICETHESPIRECORE-REDUCE_POWER.smartDescription": "Whenever you would lose HP this turn, lose {Amount:diff()} less.",
-  "DICETHESPIRECORE-REDUCE_POWER.title": "Reduce Power"
+  "DICETHESPIRECORE-REDUCE_POWER.description": "Whenever you would take damage this turn, take [blue]1[/blue] less per Reduce.",
+  "DICETHESPIRECORE-REDUCE_POWER.smartDescription": "Whenever you would take damage this turn, take {Amount:diff()} less.",
+  "DICETHESPIRECORE-REDUCE_POWER.title": "Reduce"
 }
