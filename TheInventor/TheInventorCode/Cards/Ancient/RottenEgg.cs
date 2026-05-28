@@ -34,7 +34,7 @@ public class RottenEgg() : TheInventorCard(0, CardType.Power, CardRarity.Ancient
             return;
         }
 
-        RottenEgg newEgg = RottenEgg.CreateInstance(Owner);
+        RottenEgg newEgg = RottenEgg.Create(Owner);
         newEgg.UpgradeInternal();
         for (int n = 0; n < CurrentUpgradeLevel; ++n)
         {

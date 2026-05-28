@@ -33,5 +33,6 @@ public class Hammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
         DynamicVars.Vulnerable.UpgradeValueBy(1);
     }
 
+    //Character specific BS, please ignore
     public override string GetScrapId => nameof(ShortCircuit);
 }

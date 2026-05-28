@@ -39,5 +39,5 @@ public class Spanner() : TheInventorCard(1, CardType.Skill, CardRarity.Basic, Ta
         DynamicVars.Cards.UpgradeValueBy(1);
     }
 
-    public CardModel GetTranscendenceTransformedCard() => SteelWrench.CreateWithoutOwner();
+    public CardModel GetTranscendenceTransformedCard() => SteelWrench.Create();
 }

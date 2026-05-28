@@ -9,8 +9,10 @@
   "THEINVENTOR-SPANNER.title": "Spanner",
   "THEINVENTOR-STEEL_WRENCH.description": "[gold]Blink[/gold] [blue]2[/blue] cards, draw {IfUpgraded:show:[blue]6[/blue] cards|[blue]4[/blue] cards}.",
   "THEINVENTOR-STEEL_WRENCH.title": "Steel Wrench",
-  "THEINVENTOR-CAPACITOR.jinxDescription": "apply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
-  "THEINVENTOR-CAPACITOR.description": "At the end of your turn, if this card is held in hand, deal {Damage:diff()} damage to All enemies.\nNext turn, apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to All enemies.",
+  "THEINVENTOR-BUZZER.jinxDescription": "apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies.",
+  "THEINVENTOR-BUZZER.description": "At the end of your turn, if this card is held in hand, apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies at the start of next turn.",
+  "THEINVENTOR-BUZZER.title": "Buzzer",
+  "THEINVENTOR-CAPACITOR.description": "At the end of your turn, deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to All enemies.",
   "THEINVENTOR-CAPACITOR.title": "Capacitor",
   "THEINVENTOR-HAMMER.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "THEINVENTOR-HAMMER.title": "Hammer",
@@ -66,7 +68,7 @@
   "THEINVENTOR-HI_VIS_JACKET.title": "Hi Vis Jacket",
   "THEINVENTOR-LIGHTNING_ROD.description": "Deal damage equal to the total amount of damage taken this combat.{InCombat:\n(Deals {Damage:diff()} damage)|}",
   "THEINVENTOR-LIGHTNING_ROD.title": "Lightning Rod",
-  "THEINVENTOR-UNCLE.jinxDescription": "ALL enemies lose {Damage:diff()} HP.",
+  "THEINVENTOR-UNCLE.jinxDescription": "ALL enemies lose [blue]{Damage:diff()}[/blue] HP.",
   "THEINVENTOR-UNCLE.description": "In {Delay:diff()} turns, ALL enemies lose {Damage:diff()} HP.",
   "THEINVENTOR-UNCLE.title": "Uncle"
 }
