@@ -22,14 +22,14 @@ namespace TheInventor.TheInventorCode.Character
         public override int StartingHp => 70;
 
         public override IEnumerable<CardModel> StartingDeck => [
-            StrikeInventor.CreateWithoutOwner(),
-            StrikeInventor.CreateWithoutOwner(),
-            StrikeInventor.CreateWithoutOwner(),
-            DefendInventor.CreateWithoutOwner(),
-            DefendInventor.CreateWithoutOwner(),
-            DefendInventor.CreateWithoutOwner(),
-            Spanner.CreateWithoutOwner(),
-            Capacitor.CreateWithoutOwner()
+            StrikeInventor.Create(),
+            StrikeInventor.Create(),
+            StrikeInventor.Create(),
+            DefendInventor.Create(),
+            DefendInventor.Create(),
+            DefendInventor.Create(),
+            Spanner.Create(),
+            Buzzer.Create()
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics => HideGadget

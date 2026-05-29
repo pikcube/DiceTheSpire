@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Basic;
 
@@ -32,7 +31,7 @@ public class StrikeInventor() : TheInventorCard(1, CardType.Attack, CardRarity.B
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        AddKeyword(ScrapKeyword.Scrap);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 
     public override string GetScrapId => nameof(Bonk);

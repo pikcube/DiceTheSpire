@@ -8,12 +8,12 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Basic;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic, TargetType.AllEnemies)
+public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new PowerVar<VulnerablePower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new PowerVar<VulnerablePower>(1)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
 
@@ -31,11 +31,11 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic
         await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner.Creature, this);
         await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState.Enemies, DynamicVars.Vulnerable.IntValue, Owner.Creature, this);
         await DiceyHooks.OnTurnEndInHand(this, RunState, CombatState);
+
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.Vulnerable.UpgradeValueBy(1);
     }
 }

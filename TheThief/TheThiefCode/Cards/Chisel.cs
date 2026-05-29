@@ -32,6 +32,6 @@ public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Tar
 
     protected override void OnUpgrade()
     {
-        this.EnergyCost.UpgradeBy(-1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

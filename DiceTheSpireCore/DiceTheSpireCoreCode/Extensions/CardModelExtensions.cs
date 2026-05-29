@@ -15,12 +15,10 @@ public static class CardModelExtensions
                 CardCmd.Upgrade(instance);
                 return Task.CompletedTask;
             }
-            else
-            {
-                CardModel newCard = instance.CreateClone();
-                newCard.DowngradeInternal();
-                return CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Hand, instance.Owner);
-            }
+
+            CardModel newCard = instance.CreateClone();
+            newCard.DowngradeInternal();
+            return CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Hand, instance.Owner);
         }
     }
 }

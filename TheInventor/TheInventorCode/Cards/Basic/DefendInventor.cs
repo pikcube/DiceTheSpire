@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Basic;
 
@@ -24,7 +23,7 @@ public class DefendInventor() : TheInventorCard(1, CardType.Skill, CardRarity.Ba
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        AddKeyword(ScrapKeyword.Scrap);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 
     public override string GetScrapId => nameof(Shield);

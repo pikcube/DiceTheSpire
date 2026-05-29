@@ -11,7 +11,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class EmptySlot() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(DefaultGadget);
+    public override string GetScrapId => nameof(PersistenceOfMemory);
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
 

@@ -11,7 +11,7 @@ namespace TheInventor.TheInventorCode.Cards.Common;
 
 public class Shovel() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card), new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new PowerVar<WeakPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
