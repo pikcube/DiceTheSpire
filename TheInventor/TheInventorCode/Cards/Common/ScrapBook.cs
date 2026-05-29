@@ -15,7 +15,7 @@ public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Common,
 {
     public override string GetScrapId => nameof(MagicDice);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink, ScrapKeyword.Scrap];
 
     protected override void OnUpgrade()

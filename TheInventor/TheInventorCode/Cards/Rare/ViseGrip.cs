@@ -12,7 +12,7 @@ public class ViseGrip() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, T
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override bool HasEnergyCostX => true;
 
@@ -21,10 +21,6 @@ public class ViseGrip() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, T
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         int drawNum = cardPlay.Card.ResolveEnergyXValue();
-        if (IsUpgraded)
-        {
-            ++drawNum;
-        }
         IReadOnlyList<CardModel> cardsInHand = PileType.Hand.GetPile(Owner).Cards;
         int energyGain = cardsInHand.Count;
         foreach (CardModel card in cardsInHand.ToArray())
@@ -34,5 +30,11 @@ public class ViseGrip() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, T
 
         await CardPileCmd.Draw(choiceContext, drawNum, Owner);
         await PlayerCmd.GainEnergy(energyGain, Owner);
+    }
+
+    protected override void OnUpgrade()
+    {
+        RemoveKeyword(CardKeyword.Exhaust);
+        AddKeyword(BlinkModel.Blink);
     }
 }

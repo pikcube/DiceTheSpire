@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Keywords;
@@ -89,6 +90,7 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
             IsRemovable: true,
             Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event
         })];
+
         List<CardModel> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
         List<CardModel> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
 

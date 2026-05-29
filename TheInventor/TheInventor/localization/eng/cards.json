@@ -36,7 +36,7 @@
   "THEINVENTOR-SCREWDRIVER.title": "Screwdriver",
   "THEINVENTOR-SNEEZE.description": "Whenever you [gold]Blink[/gold] a card, gain {Block:diff()} [gold]Block[/gold].",
   "THEINVENTOR-SNEEZE.title": "Sneeze",
-  "THEINVENTOR-VISE_GRIP.description": "[gold]Blink[/gold] your hand.\nGain {Energy:energyIcons()} per card [gold]Blinked[/gold].\nDraw X{IfUpgraded:show:+1} cards.",
+  "THEINVENTOR-VISE_GRIP.description": "[gold]Blink[/gold] your hand.\nGain {Energy:energyIcons()} per card [gold]Blinked[/gold].\nDraw X cards.",
   "THEINVENTOR-VISE_GRIP.title": "Vise Grip",
   "THEINVENTOR-FOCUS.description": "At the start of each turn, draw {Cards:diff()} cards.",
   "THEINVENTOR-FOCUS.title": "Focus",

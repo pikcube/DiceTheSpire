@@ -13,7 +13,7 @@ public class MagicDice() : AbstractGadget(nameof(MagicDice))
     {
         if (player == Parent?.Owner)
         {
-            return amount + 1;
+            return amount + DynamicVars.Energy.IntValue;
         }
 
         return amount;

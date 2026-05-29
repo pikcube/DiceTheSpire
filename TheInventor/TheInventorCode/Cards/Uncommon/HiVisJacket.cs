@@ -17,19 +17,6 @@ public class HiVisJacket() : TheInventorCard(-1, CardType.Skill, CardRarity.Unco
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, BlockProps.card)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ReducePower>()];
-
-    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
-    {
-        if (card != this)
-        {
-            return;
-        }
-
-        await PowerCmd.Apply<ReducePower>(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().IntValue,
-            Owner.Creature, this);
-    }
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         int xValue = cardPlay.Card.ResolveEnergyXValue();

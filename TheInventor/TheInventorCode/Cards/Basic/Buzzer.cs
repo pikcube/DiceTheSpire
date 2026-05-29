@@ -39,4 +39,9 @@ public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Basic, Ta
     {
         await PowerCmd.Apply<VulnerablePower>(choiceContext, target, DynamicVars.Power<VulnerablePower>().IntValue, Owner.Creature, this);
     }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Vulnerable.UpgradeValueBy(1);
+    }
 }
