@@ -80,6 +80,10 @@
       <ProjectReference Include="TheThief\TheThief.csproj" />
       <ProjectReference Include="TheWarrior\TheWarrior.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="DiceTheSpireCode\Patches\" />
+    </ItemGroup>
     
     <Target Name="CheckDependencyPaths">
         <Error Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
