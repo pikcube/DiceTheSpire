@@ -1,9 +1,7 @@
 ﻿namespace DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 
-public abstract class ICountdown
+public interface ICountdown
 {
-    public int CurrentCountdown;
-    public int MaxCountdown;
-
-
+    public int MaxCount { get; set; }
+    public int CurrentCount { get; set; }
 }
