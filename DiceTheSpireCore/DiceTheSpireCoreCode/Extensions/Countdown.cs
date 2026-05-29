@@ -1,5 +1,4 @@
-﻿using System.Net;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 
@@ -21,9 +20,9 @@ public static class Countdown
             }
         }
 
-        public void UpgradeCountdown(int UpgradeBy)
+        public void UpgradeCountdown(int upgradeBy)
         {
-            card.MaxCount += UpgradeBy;
+            card.MaxCount += upgradeBy;
         }
     }
 }

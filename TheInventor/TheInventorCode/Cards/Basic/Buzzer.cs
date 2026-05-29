@@ -27,17 +27,16 @@ public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Basic, Ta
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        if (CombatState is null)
-        {
-            return;
-        }
-
-        await JinxCmd.JinxAsync(choiceContext, CombatState.Enemies, 1, true, JinxDesc, StartOfNextTurnAsync, Owner.Creature, this);
+        await JinxCmd.JinxAsync(choiceContext, Owner.Creature, 1, false, JinxDesc, StartOfNextTurnAsync, Owner.Creature, this);
     }
 
     private async Task StartOfNextTurnAsync(PlayerChoiceContext choiceContext, Creature target)
     {
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, target, DynamicVars.Power<VulnerablePower>().IntValue, Owner.Creature, this);
+        if (CombatState is null)
+        {
+            return;
+        }
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState.Enemies, DynamicVars.Power<VulnerablePower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

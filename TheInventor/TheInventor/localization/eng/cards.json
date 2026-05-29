@@ -70,5 +70,7 @@
   "THEINVENTOR-LIGHTNING_ROD.title": "Lightning Rod",
   "THEINVENTOR-UNCLE.jinxDescription": "ALL enemies lose [blue]{Damage:diff()}[/blue] HP.",
   "THEINVENTOR-UNCLE.description": "In {Delay:diff()} turns, ALL enemies lose {Damage:diff()} HP.",
-  "THEINVENTOR-UNCLE.title": "Uncle"
+  "THEINVENTOR-UNCLE.title": "Uncle",
+  "THEINVENTOR-ELECTROMAGNET.description": "Deal {Damage:diff()} damage.\nWhenever you [gold]Blink[/gold] a card, increase this by {ExtraDamage:diff()} for the rest of combat.",
+  "THEINVENTOR-ELECTROMAGNET.title": "Electromagnet"
 }

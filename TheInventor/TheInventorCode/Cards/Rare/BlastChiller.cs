@@ -15,7 +15,7 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CalculationBaseVar(0), 
         new ExtraDamageVar(1), 
-        new CalculatedDamageVar(DamageProps.card).WithMultiplier((model, creature) => model.Owner.Creature.Block)
+        new CalculatedDamageVar(DamageProps.card).WithMultiplier((model, _) => model.Owner.Creature.Block)
     ];
 
     public override bool HasTurnEndInHandEffect => true;

@@ -16,7 +16,7 @@ public class Uncle() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, T
     public override string GetScrapId => nameof(Crack);
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new IntVar("Delay", 4), new DamageVar(60, DamageProps.nonCardHpLoss)];
+        [new IntVar("Delay", 5), new DamageVar(60, DamageProps.nonCardHpLoss)];
     public LocString JinxDescription => new("cards", Id.Entry + ".jinxDescription");
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -36,6 +36,6 @@ public class Uncle() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, T
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(15);
+        DynamicVars["Delay"].UpgradeValueBy(-1);
     }
 }

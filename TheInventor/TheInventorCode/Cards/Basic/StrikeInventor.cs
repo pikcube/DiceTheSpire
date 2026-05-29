@@ -20,7 +20,6 @@ public class StrikeInventor() : TheInventorCard(1, CardType.Attack, CardRarity.B
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await base.OnPlay(choiceContext, cardPlay);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
             .Targeting(cardPlay.Target)

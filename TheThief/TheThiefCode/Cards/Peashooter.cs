@@ -1,6 +1,4 @@
-﻿using System.Dynamic;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -42,7 +40,7 @@ public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Basic, T
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Move)];
 
-
+    Task ICountdown.OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) => OnPlay(choiceContext, cardPlay);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
