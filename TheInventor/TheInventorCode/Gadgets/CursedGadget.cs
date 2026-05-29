@@ -9,6 +9,8 @@ namespace TheInventor.TheInventorCode.Gadgets;
 [UsedImplicitly]
 public class CursedGadget() : GadgetModel(nameof(CursedGadget))
 {
+    public override bool IsAllowedAsTempGadget => false;
+
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner == player)
