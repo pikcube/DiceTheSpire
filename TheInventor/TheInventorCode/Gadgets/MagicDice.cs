@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class MagicDice() : AbstractGadget(nameof(MagicDice))
+public class MagicDice() : GadgetModel(nameof(MagicDice))
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 

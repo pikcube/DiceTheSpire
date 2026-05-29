@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class AutoBump() : AbstractGadget(nameof(AutoBump))
+public class AutoBump() : GadgetModel(nameof(AutoBump))
 {
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
     {
@@ -14,7 +14,7 @@ public class AutoBump() : AbstractGadget(nameof(AutoBump))
             return;
         }
 
-        CardModel? card = await CardSelectCmd.FromHandForUpgrade(choiceContext, player, Parent);
+        CardModel? card = await CardSelectCmd.FromHandForUpgrade(choiceContext, player, Parent.AsModel());
 
         if (card == null)
         {

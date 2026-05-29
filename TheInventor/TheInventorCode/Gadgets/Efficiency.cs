@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class Efficiency() : AbstractGadget(nameof(Efficiency))
+public class Efficiency() : GadgetModel(nameof(Efficiency))
 {
     public bool IsReady { get; set; }
 

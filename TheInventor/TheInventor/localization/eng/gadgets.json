@@ -42,5 +42,7 @@
   "THEINVENTOR-HOOK.title": "Hook",
   "THEINVENTOR-HOOK.description": "At the start of each turn, add a card from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
   "THEINVENTOR-PROTECTION.title": "Protection",
-  "THEINVENTOR-PROTECTION.description": "At the start of each turn, gain 2 [gold]Reduce[/gold]."
+  "THEINVENTOR-PROTECTION.description": "At the start of each turn, gain 2 [gold]Reduce[/gold].",
+  "THEINVENTOR-BURST_OF_KNOWLEDGE.title": "Burst Of Knowledge",
+  "THEINVENTOR-BURST_OF_KNOWLEDGE.description": "Obtain three card rewards."
 }

@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class LargeToolbox() : AbstractGadget(nameof(LargeToolbox))
+public class LargeToolbox() : GadgetModel(nameof(LargeToolbox))
 {
     public bool IsReady { get; set; }
 

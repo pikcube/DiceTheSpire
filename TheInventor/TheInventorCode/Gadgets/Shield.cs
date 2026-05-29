@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class Shield() : AbstractGadget(nameof(Shield))
+public class Shield() : GadgetModel(nameof(Shield))
 {
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {

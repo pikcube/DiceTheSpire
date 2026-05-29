@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class Replicate() : AbstractGadget(nameof(Replicate))
+public class Replicate() : GadgetModel(nameof(Replicate))
 {
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {

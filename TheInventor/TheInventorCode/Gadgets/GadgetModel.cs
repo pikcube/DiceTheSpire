@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using BaseLib.Utils;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,19 +7,20 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Utility;
+using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-[CustomLocTable("gadgets.json")]
-public abstract class AbstractGadget : AbstractModel, ICustomModel
+public abstract class GadgetModel : AbstractModel, ICustomModel
 { 
-    public Gadget? Parent { get; set; }
-    protected AbstractGadget(string gadgetId)
+    protected GadgetModel(string gadgetId)
     {
         GadgetId = gadgetId;
         Gadget.AllGadgets[GadgetId] = this;
     }
+
+    public IGadgetParent? Parent { get; set; }
     public override bool ShouldReceiveCombatHooks => true;
 
     protected virtual IEnumerable<DynamicVar> CanonicalVars => [];
@@ -34,7 +36,7 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
 
     public string GadgetId { get; }
     public string GadgetText => string.Join(": ", GadgetLocStrings);
-    public virtual IEnumerable<string> GadgetLocStrings => [Title.GetRawText(), $"{Description.GetRawText()}\n\n"];
+    public virtual IEnumerable<string> GadgetLocStrings => [Title.GetRawText(), $"{Description.GetRawText()}"];
 
     public LocString Title
     {
@@ -52,11 +54,14 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
             return field;
         }
     }
-    public AbstractGadget GetMutable(Gadget gadget)
+
+    public virtual bool IsAllowedAsTempGadget => true;
+
+    public GadgetModel GetMutable(IGadgetParent gadget)
     {
-        AbstractGadget newGadget = (AbstractGadget)MutableClone();
-        newGadget.Parent = gadget;
-        return newGadget;
+        GadgetModel newGadgetModel = (GadgetModel)MutableClone();
+        newGadgetModel.Parent = gadget;
+        return newGadgetModel;
     }
 
     public virtual Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
@@ -64,6 +69,14 @@ public abstract class AbstractGadget : AbstractModel, ICustomModel
     public void BreakMe()
     {
         AssertMutable();
-        Parent?.GadgetId = nameof(BrokenGadget);
+        if (IsAllowedAsTempGadget)
+        {
+            Parent?.GadgetId = nameof(BrokenGadget);
+        }
+        else
+        {
+            throw new InvalidProgramException("Breakable Gadgets cannot be temporary");
+        }
+        
     }
 }

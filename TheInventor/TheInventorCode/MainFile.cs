@@ -1,3 +1,4 @@
+using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
@@ -19,6 +20,8 @@ namespace TheInventor.TheInventorCode
             Harmony harmony = new(ModId);
 
             harmony.PatchAll();
+
+            CustomLocTableManager.Register("gadgets.json");
         }
     }
 }

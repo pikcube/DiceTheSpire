@@ -34,16 +34,16 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {
-            AbstractGadget gadget = Gadget.AllGadgets[GetScrapId];
-            if (gadget is DefaultGadget)
+            GadgetModel gadgetModel = Gadget.AllGadgets[GetScrapId];
+            if (gadgetModel is DefaultGadget)
             {
                 return [];
             }
-            return [new HoverTip(gadget.Title, gadget.Description, ModelDb.Relic<Gadget>().Icon)];
+            return [new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Relic<Gadget>().Icon)];
         }
         public abstract string GetScrapId { get; }
 
-        public virtual Task OnScrapAsync(AbstractGadget linkedGadget)
+        public virtual Task OnScrapAsync(GadgetModel linkedGadgetModel)
         {
             return Task.CompletedTask;
         }
@@ -53,7 +53,7 @@ namespace TheInventor.TheInventorCode.Cards
             return Task.CompletedTask;
         }
 
-        public virtual bool ModifyScrap(Gadget gadget, AbstractGadget linkedGadget)
+        public virtual bool ModifyScrap(Gadget gadget, GadgetModel linkedGadgetModel)
         {
             return false;
         }

@@ -1,5 +1,6 @@
 ﻿namespace TheInventor.TheInventorCode.Gadgets;
 
-public class PersistenceOfMemory() : AbstractGadget(nameof(PersistenceOfMemory))
+public class PersistenceOfMemory() : GadgetModel(nameof(PersistenceOfMemory))
 {
+    public override bool IsAllowedAsTempGadget => false;
 }

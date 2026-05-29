@@ -3,7 +3,7 @@
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class RottenGadget() : AbstractGadget(nameof(RottenGadget))
+public class RottenGadget() : GadgetModel(nameof(RottenGadget))
 {
-    
+    public override bool IsAllowedAsTempGadget => false;
 }

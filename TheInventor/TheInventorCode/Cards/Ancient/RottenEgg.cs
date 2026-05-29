@@ -27,7 +27,7 @@ public class RottenEgg() : TheInventorCard(0, CardType.Power, CardRarity.Ancient
 
     public override string GetScrapId => IsUpgradable ? nameof(RottenGadget) : nameof(CursedGadget);
 
-    public override async Task OnScrapAsync(AbstractGadget linkedGadget)
+    public override async Task OnScrapAsync(GadgetModel linkedGadgetModel)
     {
         if (CurrentUpgradeLevel == 6)
         {
@@ -42,6 +42,6 @@ public class RottenEgg() : TheInventorCard(0, CardType.Power, CardRarity.Ancient
         }
         newEgg.FinalizeUpgradeInternal();
         CardCmd.PreviewCardPileAdd(await CardPileCmd.Add(newEgg, PileType.Deck));
-        linkedGadget.BreakMe();
+        linkedGadgetModel.BreakMe();
     }
 }

@@ -14,7 +14,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 //Starting Gadget.
 //Probably shouldn't give this to the player after the first combat unless they scrap something insanely strong since this gadget is busted.
 [UsedImplicitly]
-public class HeatRay() : AbstractGadget(nameof(HeatRay))
+public class HeatRay() : GadgetModel(nameof(HeatRay))
 {
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

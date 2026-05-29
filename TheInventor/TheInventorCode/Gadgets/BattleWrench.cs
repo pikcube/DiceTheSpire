@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class BattleWrench() : AbstractGadget(nameof(BattleWrench))
+public class BattleWrench() : GadgetModel(nameof(BattleWrench))
 {
     public override decimal ModifyHandDrawLate(Player player, decimal count)
     {

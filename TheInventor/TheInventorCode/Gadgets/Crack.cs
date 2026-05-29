@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class Crack() : AbstractGadget(nameof(Crack))
+public class Crack() : GadgetModel(nameof(Crack))
 {
     public bool IsReady { get; set; }
 

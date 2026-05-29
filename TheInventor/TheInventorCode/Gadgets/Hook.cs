@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class Hook() : AbstractGadget(nameof(Hook))
+public class Hook() : GadgetModel(nameof(Hook))
 {
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
     {

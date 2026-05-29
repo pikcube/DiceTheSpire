@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class Bonk() : AbstractGadget(nameof(Bonk))
+public class Bonk() : GadgetModel(nameof(Bonk))
 {
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {

@@ -6,8 +6,10 @@ using MegaCrit.Sts2.Core.Rewards;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class Dig() : AbstractGadget(nameof(Dig))
+public class Dig() : GadgetModel(nameof(Dig))
 {
+    public override bool IsAllowedAsTempGadget => false;
+
     public override bool TryModifyRestSiteHealRewards(Player player, List<Reward> rewards, bool isMimicked)
     {
         if (Parent?.Owner != player)

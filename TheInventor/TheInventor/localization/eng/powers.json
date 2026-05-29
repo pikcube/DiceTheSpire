@@ -1,5 +1,8 @@
 {
   "THEINVENTOR-FOCUS_POWER.description": "At the start of your turn, draw [blue]1[/blue] additional card.",
   "THEINVENTOR-FOCUS_POWER.smartDescription": "At the start of your turn, draw [blue]{Amount}[/blue] additional {Amount:plural:card|cards}.",
-  "THEINVENTOR-FOCUS_POWER.title": "Focus"
+  "THEINVENTOR-FOCUS_POWER.title": "Focus",
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.description": "Gain a Gadget for the rest of combat.",
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget Power"
 }

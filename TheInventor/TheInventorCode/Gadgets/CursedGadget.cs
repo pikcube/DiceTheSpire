@@ -7,7 +7,7 @@ using Pikcube.Common.Powers;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class CursedGadget() : AbstractGadget(nameof(CursedGadget))
+public class CursedGadget() : GadgetModel(nameof(CursedGadget))
 {
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {

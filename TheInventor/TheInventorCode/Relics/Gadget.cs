@@ -4,33 +4,39 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
+using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
 using TheInventor.TheInventorCode.Gadgets;
+using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Relics;
 
 [UsedImplicitly]
-public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
+public class Gadget : TheInventorRelic, IOnTurnEndInHandListener, IGadgetParent, IRunInitializedListener
 {
     static Gadget()
     {
         ModHelper.SubscribeForCombatStateHooks("TheInventor.Gadgets", state => state.Players
             .SelectMany(p => p.Relics.OfType<Gadget>())
-            .Select(g => g.LinkedGadget));
+            .Select(g => g.LinkedGadgetModel));
         ModHelper.SubscribeForRunStateHooks("TheInventor.Gadgets", state => state.Players
             .SelectMany(p => p.Relics.OfType<Gadget>())
-            .Select(g => g.LinkedGadget));
+            .Select(g => g.LinkedGadgetModel));
     }
-    public static Dictionary<string, AbstractGadget> AllGadgets { get; } = [];
+    public static Dictionary<string, GadgetModel> AllGadgets { get; } = [];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];
 
@@ -49,11 +55,13 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
         set
         {
             field = value;
-            GadgetText = $"{LinkedGadget.GadgetText}";
+            GadgetText = $"{LinkedGadgetModel.GadgetText}";
         }
     } = nameof(DefaultGadget);
 
-    public AbstractGadget LinkedGadget
+    public AbstractModel AsModel() => this;
+
+    public GadgetModel LinkedGadgetModel
     {
         get
         {
@@ -107,7 +115,11 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
             return;
         }
 
+        BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
+
         CardModel? choice = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), options, Owner);
+
+        BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
 
         if (choice is not null)
         {
@@ -116,10 +128,10 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
 
         if (choice is TheInventorCard scrapCard)
         {
-            if (!scrapCard.ModifyScrap(this, LinkedGadget))
+            if (!scrapCard.ModifyScrap(this, LinkedGadgetModel))
             {
                 GadgetId = scrapCard.GetScrapId;
-                await scrapCard.OnScrapAsync(LinkedGadget);
+                await scrapCard.OnScrapAsync(LinkedGadgetModel);
             }
         }
         else
@@ -131,6 +143,11 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
         {
             await c.OnSkippedAsync();
         }
+    }
+
+    private void BetterHooksOnModifyCardSelectionScreenTitle(NChooseACardSelectionScreen sender, ModifyCardSelectionScreenTitleArgs e)
+    {
+        e.NewText = "Scrap a Card";
     }
 
     private static string GetDefaultGadget(CardModel? choice)
@@ -219,9 +236,22 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener
         return Task.CompletedTask;
     }
 
-    public static Task RechargeAsync(PlayerChoiceContext context, Player owner)
+    public static async Task RechargeAsync(PlayerChoiceContext context, Player owner)
     {
-        Gadget? gadget = owner.Relics.OfType<Gadget>().FirstOrDefault();
-        return gadget?.LinkedGadget.OnRechargeAsync(context, owner) ?? Task.CompletedTask;
+        foreach (IGadgetParent parent in owner.RunState.IterateHookListeners(owner.Creature.CombatState)
+                     .OfType<IGadgetParent>().Where(gp => gp.Owner == owner))
+        {
+            await parent.LinkedGadgetModel.OnRechargeAsync(context, owner);
+        }
+    }
+
+    public static string GetRandomCombatGadgetId(Rng rng)
+    {
+        return AllGadgets.Where(g => g.Value.IsAllowedAsTempGadget).TakeRandom(1, rng).Single().Key;
+    }
+
+    public void AfterRunInitialized(RunState runState)
+    {
+        BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
     }
 }

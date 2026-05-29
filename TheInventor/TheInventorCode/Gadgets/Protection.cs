@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class Protection() : AbstractGadget(nameof(Protection))
+public class Protection() : GadgetModel(nameof(Protection))
 {
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {

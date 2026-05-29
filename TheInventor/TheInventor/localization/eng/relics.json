@@ -5,7 +5,7 @@
   "THEINVENTOR-BLUEPRINT.description": "At the start of each turn, gain {Energy:energyIcons()} and draw [blue]1[/blue] [red]less card[/red].",
   "THEINVENTOR-BLUEPRINT.flavor": "\"I wonder if the rotating stage works similarly to this...\"",
   "THEINVENTOR-BLUEPRINT.title": "The Blueprints",
-  "THEINVENTOR-GADGET.description": "{GadgetText.StringValue}At the end of combat, scrap a card to change what this relic does.",
+  "THEINVENTOR-GADGET.description": "{GadgetText.StringValue}\n\nAt the end of combat, scrap a card to change what this relic does.",
   "THEINVENTOR-GADGET.flavor": "\"This will do for now...\"",
   "THEINVENTOR-GADGET.title": "Gadget",
   "THEINVENTOR-SOUPY_GADGET.description": "{GadgetName.StringValue}: {GadgetDescription.StringValue}.",

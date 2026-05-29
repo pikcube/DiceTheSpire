@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheThief.TheThiefCode.Cards;
 
   //todo: make countdown
-public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ICountdown
+public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {
@@ -39,6 +40,7 @@ public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Basic, T
     } = 2;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Move)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
 
     Task ICountdown.OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay) => OnPlay(choiceContext, cardPlay);
 

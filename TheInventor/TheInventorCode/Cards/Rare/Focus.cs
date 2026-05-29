@@ -9,10 +9,9 @@ using TheInventor.TheInventorCode.Powers;
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
   
-public class Focus() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Focus() : TheInventorCard(4, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
 
     public override string GetScrapId => nameof(BattleWrench);
 
@@ -23,6 +22,6 @@ public class Focus() : TheInventorCard(3, CardType.Power, CardRarity.Rare, Targe
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(ScrapKeyword.Scrap);
+        EnergyCost.UpgradeBy(-1);
     }
 }

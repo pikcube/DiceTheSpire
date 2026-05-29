@@ -1,2 +1,4 @@
 {
+  "DICETHESPIRECORE-COUNTDOWN.description": "Countdown cards require discarding a certain number of cards to be played.\nThe value persists between turns.",
+  "DICETHESPIRECORE-COUNTDOWN.title": "Countdown"
 }

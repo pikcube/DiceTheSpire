@@ -38,7 +38,7 @@ public class EmptySlot() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
         EnergyCost.UpgradeBy(-1);
     }
 
-    public override bool ModifyScrap(Gadget gadget, AbstractGadget linkedGadget)
+    public override bool ModifyScrap(Gadget gadget, GadgetModel linkedGadgetModel)
     {
         return true;
     }

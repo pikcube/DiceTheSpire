@@ -72,5 +72,7 @@
   "THEINVENTOR-UNCLE.description": "In {Delay:diff()} turns, ALL enemies lose {Damage:diff()} HP.",
   "THEINVENTOR-UNCLE.title": "Uncle",
   "THEINVENTOR-ELECTROMAGNET.description": "Deal {Damage:diff()} damage.\nWhenever you [gold]Blink[/gold] a card, increase this by {ExtraDamage:diff()} for the rest of combat.",
-  "THEINVENTOR-ELECTROMAGNET.title": "Electromagnet"
+  "THEINVENTOR-ELECTROMAGNET.title": "Electromagnet",
+  "THEINVENTOR-ENCYCLOPEDIC_FORM.description": "Get a temporary [gold]Gadget[/gold].",
+  "THEINVENTOR-ENCYCLOPEDIC_FORM.title": "Encyclopedic Form"
 }

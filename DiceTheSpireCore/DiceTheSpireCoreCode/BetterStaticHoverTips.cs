@@ -7,4 +7,5 @@ public static class BetterStaticHoverTips
 {
     [CustomEnum] 
     public static StaticHoverTip Bump = 0;
+
 }

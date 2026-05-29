@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class DialUpSounds() : AbstractGadget(nameof(DialUpSounds))
+public class DialUpSounds() : GadgetModel(nameof(DialUpSounds))
 {
     public override Task AfterCreatureAddedToCombat(Creature creature)
     {

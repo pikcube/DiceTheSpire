@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class WallOfIce() : AbstractGadget(nameof(WallOfIce))
+public class WallOfIce() : GadgetModel(nameof(WallOfIce))
 {
     public bool IsCharged { get; set; }
 

@@ -8,8 +8,10 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace TheInventor.TheInventorCode.Gadgets;
 
 [UsedImplicitly]
-public class ShortCircuit() : AbstractGadget(nameof(ShortCircuit))
+public class ShortCircuit() : GadgetModel(nameof(ShortCircuit))
 {
+    public override bool IsAllowedAsTempGadget => false;
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != Parent?.Owner || player.Creature.CombatState is null)

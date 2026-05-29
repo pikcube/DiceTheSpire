@@ -6,8 +6,10 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class Burrower() : AbstractGadget(nameof(Burrower))
+public class Burrower() : GadgetModel(nameof(Burrower))
 {
+    public override bool IsAllowedAsTempGadget => false;
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != Parent?.Owner || player.Creature.CombatState is null)

@@ -1,5 +1,6 @@
 ﻿namespace TheInventor.TheInventorCode.Gadgets;
 
-public class BrokenGadget() : AbstractGadget(nameof(BrokenGadget))
+public class BrokenGadget() : GadgetModel(nameof(BrokenGadget))
 {
+    public override bool IsAllowedAsTempGadget => false;
 }
