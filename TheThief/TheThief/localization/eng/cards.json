@@ -21,6 +21,8 @@
   "THETHIEF-POISON_NEEDLE.title": "Poison Needle",
   "THETHIEF-BLENDER.description": "[gold]Exhaust[/gold] a card. Create [gold]Pip[/gold] equal to that card's cost {IfUpgraded:show:plus 1}",
   "THETHIEF-BLENDER.title": "Blender",
-  "THETHIEF-TOXIC_CLAW.description": "Deal {Damage:diff()} damage. Apply {PoisonPower:diff()} [gold]poison[/gold]. When Drawn, add a copy of this card to your [gold]hand[/gold].",
-  "THETHIEF-TOXIC_CLAW.title": "Toxic Claw"
+  "THETHIEF-TOXIC_CLAW.description": "Deal {Damage:diff()} damage. Apply {PoisonPower:diff()} [gold]poison[/gold]. When drawn, add a copy of this card to your [gold]hand[/gold].",
+  "THETHIEF-TOXIC_CLAW.title": "Toxic Claw",
+  "THETHIEF-CLOAK.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Gain {ReducePower:diff()} [gold]reduce[/gold]",
+  "THETHIEF-CLOAK.title": "Cloak"
 }
