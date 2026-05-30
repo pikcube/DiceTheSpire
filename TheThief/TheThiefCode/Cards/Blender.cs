@@ -10,7 +10,7 @@ namespace TheThief.TheThiefCode.Cards;
 
 public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust), HoverTipFactory.FromCard<Splinter>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust), HoverTipFactory.FromCard<Pip>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -38,10 +38,10 @@ public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, Ta
             }
         }
 
-        List<Splinter> list = new List<Splinter>();
+        List<Pip> list = new List<Pip>();
         for (int i = 0; i < cost; i++)
         {
-            list.Add(new Splinter());
+            list.Add(new Pip());
         }
 
         await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Hand, Owner);

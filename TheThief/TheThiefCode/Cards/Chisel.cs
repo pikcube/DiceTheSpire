@@ -11,7 +11,7 @@ namespace TheThief.TheThiefCode.Cards;
   
 public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Splinter>())];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Pip>())];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,7 +27,7 @@ public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Tar
         }
         original.EnergyCost.AddThisTurnOrUntilPlayed(-1);
 
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Splinter>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Pip>(Owner), PileType.Hand, Owner);
     }
 
     protected override void OnUpgrade()

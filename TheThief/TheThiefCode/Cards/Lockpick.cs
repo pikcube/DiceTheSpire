@@ -12,7 +12,7 @@ public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, Targ
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Splinter>())];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Pip>())];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -23,7 +23,7 @@ public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, Targ
         }
 
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Splinter>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Pip>(Owner), PileType.Hand, Owner);
         await Cmd.Wait(0.5f);
     }
 
