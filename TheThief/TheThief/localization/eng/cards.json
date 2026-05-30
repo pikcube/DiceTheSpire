@@ -7,7 +7,7 @@
   "THETHIEF-DAGGER.title": "Dagger",
   "THETHIEF-LOCKPICK.description": "Draw {IfUpgraded:show:[blue]2[/blue] cards|a card}. Create a [gold]Pip[/gold].",
   "THETHIEF-LOCKPICK.title": "Lockpick",
-  "THETHIEF-PEASHOOTER.description": "Count: {CurrentCount:diff()} \n Deal {Damage:diff()} damage and return this card to your [gold]hand[/gold].",
+  "THETHIEF-PEASHOOTER.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Deal {Damage:diff()} damage and return this card to your [gold]hand[/gold].",
   "THETHIEF-PEASHOOTER.title": "Peashooter",
   "THETHIEF-SINGULARITY.description": "Transform a card in hand into {IfUpgraded:show:an upgraded|a} [gold]Collapse[/gold].",
   "THETHIEF-SINGULARITY.title": "Singularity",
@@ -17,8 +17,10 @@
   "THETHIEF-CHISEL.title": "Chisel",
   "THETHIEF-DETONATOR.description": "Deal damage equal to the amount of poison on the enemy.",
   "THETHIEF-DETONATOR.title": "Detonator",
-  "THETHIEF-POISON_NEEDLE.description": "Apply {IfUpgraded:show:[blue]3[/blue]|[blue]4[/blue]} [gold]poison[/gold] to an enemy X times.",
+  "THETHIEF-POISON_NEEDLE.description": "Apply {PoisonPower:diff()} [gold]poison[/gold] to an enemy X times.",
   "THETHIEF-POISON_NEEDLE.title": "Poison Needle",
   "THETHIEF-BLENDER.description": "[gold]Exhaust[/gold] a card. Create [gold]Pip[/gold] equal to that card's cost {IfUpgraded:show:plus 1}",
   "THETHIEF-BLENDER.title": "Blender",
+  "THETHIEF-TOXIC_CLAW.description": "Deal {Damage:diff()} damage. Apply {PoisonPower:diff()} [gold]poison[/gold]. When Drawn, add a copy of this card to your [gold]hand[/gold].",
+  "THETHIEF-TOXIC_CLAW.title": "Toxic Claw"
 }
