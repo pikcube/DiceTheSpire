@@ -1,11 +1,17 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using TheWarrior.TheWarriorCode.Extensions;
 
 namespace TheWarrior.TheWarriorCode.Cards;
 
-public abstract class DontCrash(CardType type, CardRarity rarity) : TheWarriorCard(0, type, rarity, TargetType.None)
+public abstract class DontCrash(CardType type, CardRarity rarity) : TheWarriorCard(0, type, rarity, TargetType.None), ILocalizationProvider
 {
+    public override string CustomPortraitPath => "defaultRock.png".BigCardImagePath();
+
+    public override string PortraitPath => "defaultRock.png".CardImagePath();
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -17,6 +23,8 @@ public abstract class DontCrash(CardType type, CardRarity rarity) : TheWarriorCa
             await CardPileCmd.RemoveFromDeck(DeckVersion);
         }
     }
+
+    public override List<(string, string)>? Localization => new CardLoc("Don't Crash", "You're Welcome.");
 }
 
 

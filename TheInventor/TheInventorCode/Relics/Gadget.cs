@@ -1,7 +1,8 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
@@ -25,7 +26,7 @@ using TheInventor.TheInventorCode.Keywords;
 namespace TheInventor.TheInventorCode.Relics;
 
 [UsedImplicitly]
-public class Gadget : TheInventorRelic, IOnTurnEndInHandListener, IGadgetParent, IRunInitializedListener
+public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
 {
     static Gadget()
     {
@@ -95,7 +96,7 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener, IGadgetParent,
         List<CardModel> cards = [.. Owner.Deck.Cards.Where(c => c is 
         {
             IsRemovable: true,
-            Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event
+            Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
         })];
 
         List<CardModel> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
@@ -150,7 +151,7 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener, IGadgetParent,
         e.NewText = "Scrap a Card";
     }
 
-    private static string GetDefaultGadget(CardModel? choice)
+    public static string GetDefaultGadget(CardModel? choice)
     {
         if (choice is null)
         {
@@ -214,7 +215,7 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener, IGadgetParent,
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner || PlayedThisCombat.ContainsKey(cardPlay.Card) || cardPlay.Card.DeckVersion is not TheInventorCard deckVersion)
+        if (cardPlay.Card.Owner != Owner || PlayedThisCombat.ContainsKey(cardPlay.Card) || cardPlay.Card.DeckVersion is not CardModel deckVersion)
         {
             return Task.CompletedTask;
         }
@@ -223,15 +224,19 @@ public class Gadget : TheInventorRelic, IOnTurnEndInHandListener, IGadgetParent,
         return Task.CompletedTask;
     }
 
-    public Task AfterTurnEndInHandEffectAsync(CardModel card)
+    public override Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (card.Owner != Owner || PlayedThisCombat.ContainsKey(card) ||
-            card.DeckVersion is not TheInventorCard deckVersion)
+        foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards)
         {
-            return Task.CompletedTask;
-        }
+            if (card.Owner != Owner || PlayedThisCombat.ContainsKey(card) ||
+                card.DeckVersion is not { } deckVersion)
+            {
+                continue;
+            }
 
-        PlayedThisCombat[card] = deckVersion;
+            PlayedThisCombat[card] = deckVersion;
+        }
 
         return Task.CompletedTask;
     }

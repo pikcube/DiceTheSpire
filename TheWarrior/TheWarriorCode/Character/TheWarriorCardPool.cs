@@ -28,7 +28,7 @@ namespace TheWarrior.TheWarriorCode.Character
         }*/
 
         //Color of small card icons
-        public override Color DeckEntryCardColor => new("ffffff");
+        public override Color DeckEntryCardColor => new("5DB0EC");
 
         public override bool IsColorless => false;
     }
