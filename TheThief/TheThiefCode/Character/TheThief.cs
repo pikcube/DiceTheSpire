@@ -13,7 +13,7 @@ namespace TheThief.TheThiefCode.Character
     {
         public const string CharacterId = "TheThief";
 
-        public static readonly Color Color = new("ffffff");
+        public static readonly Color Color = new("1e6331");
 
         public override Color NameColor => Color;
         public override CharacterGender Gender => CharacterGender.Masculine;

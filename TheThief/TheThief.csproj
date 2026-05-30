@@ -62,7 +62,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="TheThief\images\card_portraits\big\" />
       <Folder Include="TheThief\images\powers\big\" />
       <Folder Include="TheThief\images\relics\big\" />
     </ItemGroup>
