@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
@@ -11,18 +12,36 @@ namespace TheInventor.TheInventorCode.Cards.Ancient;
 
 public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(4)];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await base.OnPlay(choiceContext, cardPlay);
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 2, 2);
-        IEnumerable<CardModel> cards = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
+        int handSize = PileType.Hand.GetPile(Owner).Cards.Count;
+
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 0, handSize);
+        CardModel[] cards = [..await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
             await card.BlinkAsync(choiceContext);
         }
-        await CardCmd.DiscardAndDraw(choiceContext, [], DynamicVars.Cards.IntValue);
 
-        
+        if (cards.Length == 0)
+        {
+            return;
+        }
+
+        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_PULL"), cards.Length);
+        IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, prefs);
+
+        foreach (CardModel result in results)
+        {
+            await CardPileCmd.Add(result, PileType.Hand);
+        }
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Cards.UpgradeValueBy(2);
     }
 
     public override string GetScrapId => nameof(BattleWrench);
