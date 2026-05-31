@@ -22,11 +22,16 @@ public class SledgeHammer() : TheInventorCard(1, CardType.Attack, CardRarity.Com
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        //ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+        if (CombatState is null)
+        {
+            return;
+        }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
-            .Targeting(cardPlay.Target)
+            .TargetingAllOpponents(CombatState)
             .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
