@@ -13,5 +13,8 @@
   "DICETHESPIRECORE-ELASTIC_HEART_POWER.title": "Elastic Heart",
   "DICETHESPIRECORE-REDUCE_POWER.description": "Whenever you would take damage this turn, take [blue]1[/blue] less per Reduce.",
   "DICETHESPIRECORE-REDUCE_POWER.smartDescription": "Whenever you would take damage this turn, take {Amount} less.",
-  "DICETHESPIRECORE-REDUCE_POWER.title": "Reduce"
+  "DICETHESPIRECORE-REDUCE_POWER.title": "Reduce",
+  "DICETHESPIRECORE-DRAINING_POWER.description": "At the end of your turn, deal damage to all enemies. [gold]Heal[/gold] for the total unblocked damage.",
+  "DICETHESPIRECORE-DRAINING_POWER.smartDescription": "At the end of your turn, deal {Amount} damage to all enemies. [gold]Heal[/gold] for the total unblocked damage.",
+  "DICETHESPIRECORE-DRAINING_POWER.title": "Draining"
 }
