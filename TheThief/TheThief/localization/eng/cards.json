@@ -13,7 +13,7 @@
   "THETHIEF-SINGULARITY.title": "Singularity",
   "THETHIEF-COLLAPSE.description": "Deal {Damage:diff()} damage.",
   "THETHIEF-COLLAPSE.title": "Collapse",
-  "THETHIEF-CHISEL.description": "Decrease the cost of a card in hand by 1 this turn. Create a [gold]Pip[/gold].",
+  "THETHIEF-CHISEL.description": "Decrease the cost of a card in hand by 1 this turn (to a minimum of 1). Create a [gold]Pip[/gold].",
   "THETHIEF-CHISEL.title": "Chisel",
   "THETHIEF-DETONATOR.description": "Deal damage equal to the amount of poison on the enemy.",
   "THETHIEF-DETONATOR.title": "Detonator",

@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace TheThief.TheThiefCode.Cards;
 
   
-public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Pip>())];
 
@@ -25,7 +25,10 @@ public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Tar
         {
             return;
         }
-        original.EnergyCost.AddThisTurnOrUntilPlayed(-1);
+        if (original.EnergyCost.Canonical > 1)
+        {
+            original.EnergyCost.AddThisTurnOrUntilPlayed(-1);
+        }
 
         await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Pip>(Owner), PileType.Hand, Owner);
     }
