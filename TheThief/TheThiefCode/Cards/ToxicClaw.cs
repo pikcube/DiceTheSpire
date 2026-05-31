@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -10,6 +11,17 @@ namespace TheThief.TheThiefCode.Cards;
 
 public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
+    private Decimal _extraDamageFromClawPlays;
+    private Decimal ExtraDamageFromClawPlays
+    {
+        get => this._extraDamageFromClawPlays;
+        set
+        {
+            this.AssertMutable();
+            this._extraDamageFromClawPlays = value;
+        }
+    }
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -32,9 +44,31 @@ public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon,
         }
     }
 
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card is Claw && cardPlay.Card.Owner == Owner)
+        {
+            BuffFromClawPlay(cardPlay.Card.DynamicVars["Increase"].BaseValue);
+        }
+    }
+
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.Poison.UpgradeValueBy(1);
+    }
+
+    protected override void AfterDowngraded()
+    {
+        base.AfterDowngraded();
+        DamageVar damage = this.DynamicVars.Damage;
+        damage.BaseValue = damage.BaseValue + this.ExtraDamageFromClawPlays;
+    }
+
+    private void BuffFromClawPlay(Decimal extraDamage)
+    {
+        DamageVar damage = DynamicVars.Damage;
+        damage.BaseValue = damage.BaseValue + extraDamage;
+        ExtraDamageFromClawPlays += extraDamage;
     }
 }
