@@ -26,5 +26,7 @@
   "THETHIEF-CLOAK.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Gain {ReducePower:diff()} [gold]reduce[/gold]",
   "THETHIEF-CLOAK.title": "Cloak",
   "THETHIEF-DEXTERITY_CHARM.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Gain {DexterityPower:diff()} [gold]Dexterity[/gold].",
-  "THETHIEF-DEXTERITY_CHARM.title": "Dexterity Charm"
+  "THETHIEF-DEXTERITY_CHARM.title": "Dexterity Charm",
+  "THETHIEF-BOUNCE.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n The first card you play each turn is returned to your [gold]hand[/gold].",
+  "THETHIEF-BOUNCE.title": "Bounce"
 }
