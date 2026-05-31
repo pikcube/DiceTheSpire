@@ -17,7 +17,7 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
 {
     public int BlinkedThisCombat { get; set; }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(4, Bonus, 3), new ExtraDamageVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(4, Bonus, 2)];
 
     public override Task BeforeCombatStart()
     {
@@ -27,12 +27,7 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
 
     private static decimal Bonus(CardModel arg1, Creature? arg2)
     {
-        if (arg1 is not Electromagnet e)
-        {
-            return 1;
-        }
-
-        return e.BlinkedThisCombat;
+        return arg1 is not Electromagnet e ? 1 : e.BlinkedThisCombat;
     }
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
@@ -62,7 +57,7 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.CalculationBase.UpgradeValueBy(3);
         DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }
