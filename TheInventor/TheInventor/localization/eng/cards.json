@@ -82,5 +82,15 @@
   "THEINVENTOR-WHISPER.description": "At the end of your turn, if this card is held in hand, apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
   "THEINVENTOR-WHISPER.title": "Whisper",
   "THEINVENTOR-BEFUDDLE.description": "Exchange your [gold]Discard[/gold] pile with your [gold]Draw[/gold] pile.",
-  "THEINVENTOR-BEFUDDLE.title": "Befuddle"
+  "THEINVENTOR-BEFUDDLE.title": "Befuddle",
+  "THEINVENTOR-DOUBLE_EDGE.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
+  "THEINVENTOR-DOUBLE_EDGE.title": "Double Edge",
+  "THEINVENTOR-BIG_STICK.description": "Deal {Damage:diff()} damage.\nGain {ThornsPower:diff()} [gold]Thorns[/gold].",
+  "THEINVENTOR-BIG_STICK.title": "Big Stick",
+  "THEINVENTOR-SIX_SHOOTER.description": "Deal {Damage:diff()} damage {Hits:diff()} times.\nLose {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
+  "THEINVENTOR-SIX_SHOOTER.title": "Six Shooter",
+  "THEINVENTOR-SLEDGE_HAMMER.description": "Deal {Damage:diff()} damage to ALL enemies.\nGain {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "THEINVENTOR-SLEDGE_HAMMER.title": "Sledge Hammer",
+  "THEINVENTOR-SCISSORS.description": "[gold]Exhaust[/gold] a card.\nDraw cards equal to its cost.",
+  "THEINVENTOR-SCISSORS.title": "Scissors"
 }

@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,16 +13,17 @@ using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Powers;
 
+[UsedImplicitly]
 public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
 {
     static TemporaryGadgetPower()
     {
-        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
+        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", state => [.. state.Players
             .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
-            .Select(g => g.LinkedGadgetModel).ToArray());
-        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
+            .Select(g => g.LinkedGadgetModel)]);
+        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", state => [.. state.Players
             .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
-            .Select(g => g.LinkedGadgetModel).ToArray());
+            .Select(g => g.LinkedGadgetModel)]);
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];

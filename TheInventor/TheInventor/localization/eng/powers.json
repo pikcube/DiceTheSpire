@@ -4,5 +4,8 @@
   "THEINVENTOR-FOCUS_POWER.title": "Focus",
   "THEINVENTOR-TEMPORARY_GADGET_POWER.description": "Gain a Gadget for the rest of combat.",
   "THEINVENTOR-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
-  "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget Power"
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget Power",
+  "THEINVENTOR-DOUBLE_EDGE_POWER.description": "Whenever you apply a debuff to yourself, also apply it to all enemies.",
+  "THEINVENTOR-DOUBLE_EDGE_POWER.smartDescription": "Whenever you apply a debuff to yourself, also apply it to all enemies.",
+  "THEINVENTOR-DOUBLE_EDGE_POWER.title": "Double Edge"
 }
