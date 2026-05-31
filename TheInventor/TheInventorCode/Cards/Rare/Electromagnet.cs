@@ -1,5 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Cards.Variables;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -13,14 +15,33 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IOnBlinkListener
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.card), new ExtraDamageVar(2)];
+    public int BlinkedThisCombat { get; set; }
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(4, Bonus, 3), new ExtraDamageVar(2)];
+
+    public override Task BeforeCombatStart()
+    {
+        BlinkedThisCombat = 0;
+        return Task.CompletedTask;
+    }
+
+    private static decimal Bonus(CardModel arg1, Creature? arg2)
+    {
+        if (arg1 is not Electromagnet e)
+        {
+            return 1;
+        }
+
+        return e.BlinkedThisCombat;
+    }
+
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage)
             .FromCard(this)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
@@ -35,7 +56,7 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
             return Task.CompletedTask;
         }
 
-        DynamicVars.Damage.UpgradeValueBy(DynamicVars.ExtraDamage.IntValue);
+        ++BlinkedThisCombat;
         return Task.CompletedTask;
     }
 

@@ -9,7 +9,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class DoubleEdge() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(DefaultGadget);
+    public override string GetScrapId => nameof(MagicDice);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
