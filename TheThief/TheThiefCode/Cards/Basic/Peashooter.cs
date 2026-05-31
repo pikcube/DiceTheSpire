@@ -1,16 +1,16 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
+using TheThief.TheThiefCode.Cards.Uncommon;
 
-namespace TheThief.TheThiefCode.Cards;
+namespace TheThief.TheThiefCode.Cards.Basic;
 
-  
-public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
+public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {
@@ -21,10 +21,9 @@ public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Unco
             field = value;
             CurrentCount += changeBy;
         }
-    } = 4;
+    } = 2;
 
-    public int CurrentCount
-    {
+    public int CurrentCount {
         get => DynamicVars[nameof(CurrentCount)].IntValue;
         set
         {
@@ -41,21 +40,24 @@ public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Unco
         }
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<DexterityPower>(3M), new IntVar("CurrentCount", 4)];
-
-    protected override void OnUpgrade()
-    {
-        this.UpgradeCountdown(-1);
-    }
-
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, this);
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await CardPileCmd.Add(this, PileType.Hand);
     }
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(2M);
     }
 }

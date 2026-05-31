@@ -1,34 +1,40 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace TheThief.TheThiefCode.Cards;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
-public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+  
+public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
-
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Pip>())];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        //CombatState might be null according to type annotations, so I added a null check
         if (CombatState is null)
         {
             return;
         }
+        CardSelectorPrefs prefs = new(CardSelectorPrefs.EnchantSelectionPrompt, 1);
+        CardModel? original = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
+        if (original == null)
+        {
+            return;
+        }
+        if (original.EnergyCost.Canonical > 1)
+        {
+            original.EnergyCost.AddThisTurnOrUntilPlayed(-1);
+        }
 
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Pip>(Owner), PileType.Hand, Owner);
-        await Cmd.Wait(0.5f);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 
-namespace TheThief.TheThiefCode.Cards;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
 public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {

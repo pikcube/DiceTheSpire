@@ -1,19 +1,17 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using TheThief.TheThiefCode.Powers;
 
-namespace TheThief.TheThiefCode.Cards;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
-public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
+  
+public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -24,7 +22,7 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
             field = value;
             CurrentCount += changeBy;
         }
-    } = 2;
+    } = 6;
 
     public int CurrentCount
     {
@@ -44,15 +42,12 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
         }
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 2), new PowerVar<ReducePower>(2M)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("CurrentCount", 6), new PowerVar<BouncePower>(1M)];
 
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<ReducePower>(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<BouncePower>(choiceContext, Owner.Creature, DynamicVars.Power<BouncePower>().BaseValue, Owner.Creature, this);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -62,6 +57,6 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<ReducePower>().UpgradeValueBy(1);
+        this.UpgradeCountdown(-2);
     }
 }

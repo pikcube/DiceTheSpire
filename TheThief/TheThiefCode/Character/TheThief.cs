@@ -3,7 +3,7 @@ using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using TheThief.TheThiefCode.Cards;
+using TheThief.TheThiefCode.Cards.Basic;
 using TheThief.TheThiefCode.Extensions;
 using TheThief.TheThiefCode.Relics;
 

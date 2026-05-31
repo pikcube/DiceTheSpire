@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheThief.TheThiefCode.Cards;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
 [Pool(typeof(TokenCardPool))]
 public class Collapse() : TheThiefCard(1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)

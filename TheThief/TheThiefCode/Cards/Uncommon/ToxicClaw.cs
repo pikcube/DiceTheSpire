@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheThief.TheThiefCode.Cards;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
 public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
