@@ -24,5 +24,7 @@
   "THETHIEF-TOXIC_CLAW.description": "Deal {Damage:diff()} damage. Apply {PoisonPower:diff()} [gold]poison[/gold]. When drawn, add a copy of this card to your [gold]hand[/gold].",
   "THETHIEF-TOXIC_CLAW.title": "Toxic Claw",
   "THETHIEF-CLOAK.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Gain {ReducePower:diff()} [gold]reduce[/gold]",
-  "THETHIEF-CLOAK.title": "Cloak"
+  "THETHIEF-CLOAK.title": "Cloak",
+  "THETHIEF-DEXTERITY_CHARM.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Gain {DexterityPower:diff()} [gold]Dexterity[/gold].",
+  "THETHIEF-DEXTERITY_CHARM.title": "Dexterity Charm"
 }

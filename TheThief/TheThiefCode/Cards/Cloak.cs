@@ -44,7 +44,7 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
         }
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 2), new PowerVar<ReducePower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 2), new PowerVar<ReducePower>(2M)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
 

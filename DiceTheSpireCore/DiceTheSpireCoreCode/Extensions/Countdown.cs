@@ -38,8 +38,8 @@ public static class Countdown
             CardModel[] cardsDiscarded =
             [
                 ..await CardSelectCmd.FromHandForDiscard(choiceContext, card.Owner,
-                    new CardSelectorPrefs(CardSelectorPrefs.DiscardSelectionPrompt, 0, card.CurrentCount),
-                    null, (AbstractModel)card)
+                    new CardSelectorPrefs(CardSelectorPrefs.DiscardSelectionPrompt,
+                        0, card.CurrentCount), null, (AbstractModel)card)
             ];
             await CardCmd.Discard(choiceContext, cardsDiscarded);
             card.DecrementCount(cardsDiscarded.Length);
