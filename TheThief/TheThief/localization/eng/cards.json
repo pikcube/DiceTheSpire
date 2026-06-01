@@ -28,5 +28,7 @@
   "THETHIEF-DEXTERITY_CHARM.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Gain {DexterityPower:diff()} [gold]Dexterity[/gold].",
   "THETHIEF-DEXTERITY_CHARM.title": "Dexterity Charm",
   "THETHIEF-BOUNCE.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n The first card you play each turn is returned to your [gold]hand[/gold].",
-  "THETHIEF-BOUNCE.title": "Bounce"
+  "THETHIEF-BOUNCE.title": "Bounce",
+  "THETHIEF-ROSEWOOD_SPEAR.description": "Deal {Damage:diff()} damage. \n Gain {ThornsPower} [gold]Thorns[/gold] this turn.",
+  "THETHIEF-ROSEWOOD_SPEAR.title": "Rosewood Spear"
 }
