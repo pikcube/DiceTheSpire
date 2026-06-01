@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -16,6 +17,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 [UsedImplicitly]
 public class HeatRay() : GadgetModel(nameof(HeatRay))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Parent?.Owner)

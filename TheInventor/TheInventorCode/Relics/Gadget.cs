@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -32,10 +33,14 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     {
         ModHelper.SubscribeForCombatStateHooks("TheInventor.Gadgets", state => state.Players
             .SelectMany(p => p.Relics.OfType<Gadget>())
-            .Select(g => g.LinkedGadgetModel));
+            .Select(g => g.LinkedGadgetModel)
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)
+            .ToArray());
         ModHelper.SubscribeForRunStateHooks("TheInventor.Gadgets", state => state.Players
             .SelectMany(p => p.Relics.OfType<Gadget>())
-            .Select(g => g.LinkedGadgetModel));
+            .Select(g => g.LinkedGadgetModel)
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)
+            .ToArray());
     }
     public static Dictionary<string, GadgetModel> AllGadgets { get; } = [];
 

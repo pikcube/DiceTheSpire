@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -10,6 +11,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 [UsedImplicitly]
 public class ShortCircuit() : GadgetModel(nameof(ShortCircuit))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public override bool IsAllowedAsTempGadget => false;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)

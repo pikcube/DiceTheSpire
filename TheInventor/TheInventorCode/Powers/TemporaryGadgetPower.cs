@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -18,12 +19,18 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
 {
     static TemporaryGadgetPower()
     {
-        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", state => [.. state.Players
+        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
             .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
-            .Select(g => g.LinkedGadgetModel)]);
-        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", state => [.. state.Players
+            .Select(g => g.LinkedGadgetModel)
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)
+            .ToArray()
+        );
+        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
             .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
-            .Select(g => g.LinkedGadgetModel)]);
+            .Select(g => g.LinkedGadgetModel)
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)
+            .ToArray()
+        );
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];

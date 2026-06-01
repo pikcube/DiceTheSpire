@@ -6,7 +6,7 @@ using TheWarrior.TheWarriorCode.Extensions;
 
 namespace TheWarrior.TheWarriorCode.Cards;
 
-public abstract class DontCrash(CardType type, CardRarity rarity) : TheWarriorCard(0, type, rarity, TargetType.None), ILocalizationProvider
+public abstract class DontCrash(CardType type, CardRarity rarity) : TheWarriorCard(0, type, rarity, TargetType.None)
 {
     public override string CustomPortraitPath => "defaultRock.png".BigCardImagePath();
 

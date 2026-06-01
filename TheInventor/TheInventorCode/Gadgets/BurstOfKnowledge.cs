@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Players;
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
@@ -7,6 +8,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 public class BurstOfKnowledge() : GadgetModel(nameof(BurstOfKnowledge))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Run;
     public override bool IsAllowedAsTempGadget => false;
 
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
