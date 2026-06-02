@@ -5,7 +5,10 @@
   "THETHIEF-ROSEWOOD_SPEAR_POWER.description": "",
   "THETHIEF-ROSEWOOD_SPEAR_POWER.smartDescription": "",
   "THETHIEF-ROSEWOOD_SPEAR_POWER.title": "RosewoodSpearPower",
-  "THETHIEF-SNAKE_EYES_POWER.description": "The Next 2 times you play a 1-cost card this turn, gain {Energy:energyIcons()}.",
+  "THETHIEF-SNAKE_EYES_POWER.description": "The next 2 times you play a 1-cost card this turn, gain {Energy:energyIcons()}.",
   "THETHIEF-SNAKE_EYES_POWER.smartDescription": "The Next {Amount} times you play a 1-cost card this turn, gain {Energy:energyIcons()}.",
-  "THETHIEF-SNAKE_EYES_POWER.title": "SnakeEyesPower"
+  "THETHIEF-SNAKE_EYES_POWER.title": "SnakeEyesPower",
+  "THETHIEF-HOOKSHOT_POWER.description": "The next card you play returns to your [gold]hand[/gold].",
+  "THETHIEF-HOOKSHOT_POWER.smartDescription": "The next card you play returns to your [gold]hand[/gold].",
+  "THETHIEF-HOOKSHOT_POWER.title": "HookshotPower"
 }

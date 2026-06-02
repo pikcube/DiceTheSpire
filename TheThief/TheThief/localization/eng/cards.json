@@ -36,5 +36,9 @@
   "THETHIEF-CROWBAR.description": "Reduce all [gold]Countdowns[/gold] in [gold]hand[/gold] by {IfUpgraded:show:X+1|X}.",
   "THETHIEF-CROWBAR.title": "Crowbar",
   "THETHIEF-BLIGHT.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Double an enemy's [gold]poison[/gold].",
-  "THETHIEF-BLIGHT.title": "Blight"
+  "THETHIEF-BLIGHT.title": "Blight",
+  "THETHIEF-HACKSAW.description": "",
+  "THETHIEF-HACKSAW.title": "Hacksaw",
+  "THETHIEF-HOOKSHOT.description": "Deal {Damage:diff()} damage. \n Put the next card you play back into your [gold]hand[/gold].",
+  "THETHIEF-HOOKSHOT.title": "Hookshot"
 }
