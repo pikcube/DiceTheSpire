@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards.Basic;
+using TheInventor.TheInventorCode.Cards.Common;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Relics;
 

@@ -7,5 +7,9 @@
   "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget Power",
   "THEINVENTOR-DOUBLE_EDGE_POWER.description": "Whenever you apply a debuff to yourself, also apply it to all enemies.",
   "THEINVENTOR-DOUBLE_EDGE_POWER.smartDescription": "Whenever you apply a debuff to yourself, also apply it to all enemies.",
-  "THEINVENTOR-DOUBLE_EDGE_POWER.title": "Double Edge"
+  "THEINVENTOR-DOUBLE_EDGE_POWER.title": "Double Edge",
+  "THEINVENTOR-EXHAUSTION_POWER.description": "Whenever you play a card this turn, this creature takes damage.",
+  "THEINVENTOR-EXHAUSTION_POWER.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, {IsSelfInflicted:show:you take|{OwnerName} takes} {Amount} damage.",
+  "THEINVENTOR-EXHAUSTION_POWER.smartDescription": "Whenever you play a card this turn, {IsSelfInflicted:you take|{OwnerName} takes} {Amount} damage.",
+  "THEINVENTOR-EXHAUSTION_POWER.title": "Exhaustion"
 }

@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+﻿using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,7 +11,8 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
+
+public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new PowerVar<VulnerablePower>(2)];
@@ -30,8 +32,6 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Uncom
 
         await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner.Creature, this);
         await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState.Enemies, DynamicVars.Vulnerable.IntValue, Owner.Creature, this);
-        await DiceyHooks.OnTurnEndInHand(this, RunState, CombatState);
-
     }
 
     protected override void OnUpgrade()

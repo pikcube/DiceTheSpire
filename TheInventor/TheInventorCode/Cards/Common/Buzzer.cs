@@ -10,10 +10,10 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using Pikcube.Common.Commands;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Basic;
+namespace TheInventor.TheInventorCode.Cards.Common;
 
 
-public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Basic, TargetType.AllEnemies)
+public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
 {
     public override string GetScrapId => nameof(ShortCircuit);
 

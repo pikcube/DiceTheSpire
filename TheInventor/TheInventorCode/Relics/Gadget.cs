@@ -264,4 +264,13 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     {
         BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
     }
+
+    public static void RandomizeAllGadgets(PlayerChoiceContext choiceContext, Player owner)
+    {
+        foreach (IGadgetParent parent in owner.RunState.IterateHookListeners(owner.Creature.CombatState)
+                     .OfType<IGadgetParent>().ToArray())
+        {
+            parent.GadgetId = GetRandomCombatGadgetId(owner.RunState.Rng.CombatOrbGeneration);
+        }
+    }
 }
