@@ -15,11 +15,10 @@ public class BouncePower : TheThiefPower
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
         ResourceInfo resources, PileType pileType, CardPilePosition position)
     {
-        if (card.Owner.Creature != this.Owner ||
-            CombatManager.Instance.History.CardPlaysStarted.Count<CardPlayStartedEntry>(
-                (Func<CardPlayStartedEntry, bool>)(e =>
-                    e.Actor == this.Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(this.CombatState))) >=
-            this.Amount || pileType != PileType.Discard)
+        if (card.Owner.Creature != Owner ||
+            CombatManager.Instance.History.CardPlaysStarted.Count(e =>
+                    e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState)) >=
+            Amount || pileType != PileType.Discard)
         {
             return (pileType, position);
         }

@@ -220,12 +220,12 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner || PlayedThisCombat.ContainsKey(cardPlay.Card) || cardPlay.Card.DeckVersion is not CardModel deckVersion)
+        if (cardPlay.Card.Owner != Owner || PlayedThisCombat.ContainsKey(cardPlay.Card) || cardPlay.Card.DeckVersion is null)
         {
             return Task.CompletedTask;
         }
 
-        PlayedThisCombat[cardPlay.Card] = deckVersion;
+        PlayedThisCombat[cardPlay.Card] = cardPlay.Card.DeckVersion;
         return Task.CompletedTask;
     }
 

@@ -24,7 +24,7 @@ public abstract class DontCrash(CardType type, CardRarity rarity) : TheWarriorCa
         }
     }
 
-    public override List<(string, string)>? Localization => new CardLoc("Don't Crash", "You're Welcome.");
+    public override List<(string, string)> Localization => new CardLoc("Don't Crash", "You're Welcome.");
 }
 
 
