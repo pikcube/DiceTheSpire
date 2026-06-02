@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -7,6 +8,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 public class AutoBump() : GadgetModel(nameof(AutoBump))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player)

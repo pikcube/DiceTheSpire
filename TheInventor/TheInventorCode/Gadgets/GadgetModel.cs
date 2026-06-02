@@ -54,6 +54,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     }
 
     public virtual bool IsAllowedAsTempGadget => true;
+    public abstract CustomSingletonModel.HookType HookType { get; }
 
     public GadgetModel GetMutable(IGadgetParent gadget)
     {

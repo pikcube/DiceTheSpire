@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -7,6 +8,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 public class Efficiency() : GadgetModel(nameof(Efficiency))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public bool IsReady { get; set; }
 
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)

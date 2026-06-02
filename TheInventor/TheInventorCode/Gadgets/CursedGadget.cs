@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -9,6 +10,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 [UsedImplicitly]
 public class CursedGadget() : GadgetModel(nameof(CursedGadget))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public override bool IsAllowedAsTempGadget => false;
 
     public override async Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)

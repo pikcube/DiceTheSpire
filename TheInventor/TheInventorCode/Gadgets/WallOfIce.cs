@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,6 +11,8 @@ namespace TheInventor.TheInventorCode.Gadgets;
 [UsedImplicitly]
 public class WallOfIce() : GadgetModel(nameof(WallOfIce))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+
     public bool IsCharged { get; set; }
 
     public override Task BeforeCombatStart()
@@ -37,7 +40,7 @@ public class WallOfIce() : GadgetModel(nameof(WallOfIce))
             return 1;
         }
 
-        return 0.5M;
+        return 0.25M;
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

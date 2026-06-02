@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Factories;
@@ -10,6 +11,8 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 public class LargeToolbox() : GadgetModel(nameof(LargeToolbox))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+
     public bool IsReady { get; set; }
 
     public override Task BeforeCombatStart()

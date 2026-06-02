@@ -52,7 +52,7 @@ public static class Countdown
         }
         else if (cardPlay.Card.Type == CardType.Power)
         {
-            await CardPileCmd.Add(cardPlay.Card, PileType.Discard, CardPilePosition.Bottom);
+            await CardPileCmd.Add(cardPlay.Card, PileType.Discard);
         }
     }
 }

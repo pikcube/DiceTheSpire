@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -13,6 +14,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 [UsedImplicitly]
 public class Crack() : GadgetModel(nameof(Crack))
 {
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public bool IsReady { get; set; }
 
     public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
