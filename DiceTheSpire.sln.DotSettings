@@ -82,4 +82,5 @@ public class $CLASS$() : BaseLib.Abstracts.CustomRelicModel {
     public override MegaCrit.Sts2.Core.Entities.Relics.RelicRarity Rarity =&gt; MegaCrit.Sts2.Core.Entities.Relics.RelicRarity.$RARITY$;
     
     $END$
-}</s:String></wpf:ResourceDictionary>
+}</s:String>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=Hookshot/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>
