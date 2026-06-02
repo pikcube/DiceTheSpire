@@ -16,5 +16,8 @@
   "DICETHESPIRECORE-REDUCE_POWER.title": "Reduce",
   "DICETHESPIRECORE-DRAINING_POWER.description": "At the end of your turn, deal damage to all enemies. [gold]Heal[/gold] for the total unblocked damage.",
   "DICETHESPIRECORE-DRAINING_POWER.smartDescription": "At the end of your turn, deal {Amount} damage to all enemies. [gold]Heal[/gold] for the total unblocked damage.",
-  "DICETHESPIRECORE-DRAINING_POWER.title": "Draining"
+  "DICETHESPIRECORE-DRAINING_POWER.title": "Draining",
+  "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.description": "When attacked, deal damage back.",
+  "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.smartDescription": "When attacked, deal {Amount} damage back.",
+  "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.title": "TemporaryThornsPower"
 }

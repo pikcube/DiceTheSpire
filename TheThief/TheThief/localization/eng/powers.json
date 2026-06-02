@@ -1,5 +1,8 @@
 {
   "THETHIEF-BOUNCE_POWER.description": "The first card you play each turn is returned to your [hand]hand[/gold].",
   "THETHIEF-BOUNCE_POWER.smartDescription": "The first {Amount:plural:card you play each turn is|[blue]{}[/blue] cards you play each turn are} returned to your [gold]hand[/gold].",
-  "THETHIEF-BOUNCE_POWER.title": "BouncePower"
+  "THETHIEF-BOUNCE_POWER.title": "BouncePower",
+  "THETHIEF-ROSEWOOD_SPEAR_POWER.description": "",
+  "THETHIEF-ROSEWOOD_SPEAR_POWER.smartDescription": "",
+  "THETHIEF-ROSEWOOD_SPEAR_POWER.title": "RosewoodSpearPower"
 }

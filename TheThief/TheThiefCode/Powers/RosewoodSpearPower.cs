@@ -1,0 +1,10 @@
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using MegaCrit.Sts2.Core.Models;
+using TheThief.TheThiefCode.Cards.Common;
+
+namespace TheThief.TheThiefCode.Powers;
+
+public class RosewoodSpearPower : TemporaryThornsPower
+{
+    public override AbstractModel OriginModel => (AbstractModel)ModelDb.Card<RosewoodSpear>();
+}
