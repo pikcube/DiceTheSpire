@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using TheThief.TheThiefCode.Cards.Uncommon;
 using TheThief.TheThiefCode.Powers;
 
 namespace TheThief.TheThiefCode.Cards.Common;

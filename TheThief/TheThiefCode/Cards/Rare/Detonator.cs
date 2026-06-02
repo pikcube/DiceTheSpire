@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.Powers;
-using TheThief.TheThiefCode.Cards.Uncommon;
 
 namespace TheThief.TheThiefCode.Cards.Rare;
 

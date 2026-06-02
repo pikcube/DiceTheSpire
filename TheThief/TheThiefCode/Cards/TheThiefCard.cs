@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using TheThief.TheThiefCode.Character;
 using TheThief.TheThiefCode.Extensions;
 
-namespace TheThief.TheThiefCode.Cards.Uncommon
+namespace TheThief.TheThiefCode.Cards
 {
     [Pool(typeof(TheThiefCardPool))]
     public abstract class TheThiefCard(int cost, CardType type, CardRarity rarity, TargetType target) :
