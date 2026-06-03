@@ -10,5 +10,6 @@
   "TO_BLINK": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Blink[/gold].",
   "TO_BUMP": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Bump[/gold].",
   "TO_DUPE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Duplicate[/gold].",
-  "TO_PULL": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to put back in your Hand."
+  "TO_PULL": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to put back in your Hand.",
+  "TO_MODIFY_COST": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to modify {Amount:plural:its|their} cost."
 }
