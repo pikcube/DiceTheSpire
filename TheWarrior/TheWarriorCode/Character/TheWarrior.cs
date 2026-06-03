@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
+using TheWarrior.TheWarriorCode.Cards.Basic;
 using TheWarrior.TheWarriorCode.Extensions;
 
 namespace TheWarrior.TheWarriorCode.Character
@@ -19,16 +20,16 @@ namespace TheWarrior.TheWarriorCode.Character
         public override int StartingHp => 70;
 
         public override IEnumerable<CardModel> StartingDeck => [
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<StrikeIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>(),
-            ModelDb.Card<DefendIronclad>()
+            ModelDb.Card<StrikeWarrior>(),
+            ModelDb.Card<StrikeWarrior>(),
+            ModelDb.Card<StrikeWarrior>(),
+            ModelDb.Card<StrikeWarrior>(),
+            ModelDb.Card<StrikeWarrior>(),
+            ModelDb.Card<DefendWarrior>(),
+            ModelDb.Card<DefendWarrior>(),
+            ModelDb.Card<DefendWarrior>(),
+            ModelDb.Card<DefendWarrior>(),
+            ModelDb.Card<BattleRoll>()
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics =>

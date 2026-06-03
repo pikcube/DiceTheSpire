@@ -1,3 +1,8 @@
 {
-
+  "THEWARRIOR-STRIKE_WARRIOR.description": "Deal {Damage:diff()} damage.",
+  "THEWARRIOR-STRIKE_WARRIOR.title": "Strike",
+  "THEWARRIOR-DEFEND_WARRIOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "THEWARRIOR-DEFEND_WARRIOR.title": "Defend",
+  "THEWARRIOR-BATTLE_ROLL.description": "[gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-BATTLE_ROLL.title": "Battle Roll"
 }
