@@ -102,6 +102,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="TheWarriorCode\Keywords\" />
       <Folder Include="TheWarrior\images\card_portraits\big\" />
       <Folder Include="TheWarrior\images\powers\big\" />
       <Folder Include="TheWarrior\images\relics\big\" />
