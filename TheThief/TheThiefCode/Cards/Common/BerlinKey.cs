@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using TheThief.TheThiefCode.Cards.Token;
@@ -19,7 +20,7 @@ public class BerlinKey() : TheThiefCard(1, CardType.Skill, CardRarity.Common, Ta
         {
             return;
         }
-        CardSelectorPrefs prefs = new(CardSelectorPrefs.EnchantSelectionPrompt, 1);
+        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_DUPE"), 1);
         CardModel? original = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
         if (original == null)
         {
