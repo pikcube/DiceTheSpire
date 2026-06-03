@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
@@ -31,20 +32,30 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
 {
     static Gadget()
     {
-        ModHelper.SubscribeForCombatStateHooks("TheInventor.Gadgets", state => state.Players
-            .SelectMany(p => p.Relics.OfType<Gadget>())
-            .Select(g => g.LinkedGadgetModel)
-            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)
-            .ToArray());
-        ModHelper.SubscribeForRunStateHooks("TheInventor.Gadgets", state => state.Players
-            .SelectMany(p => p.Relics.OfType<Gadget>())
-            .Select(g => g.LinkedGadgetModel)
-            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)
-            .ToArray());
+        ModHelper.SubscribeForCombatStateHooks("TheInventor.Gadgets", GetCombatHooks);
+        ModHelper.SubscribeForRunStateHooks("TheInventor.Gadgets", GetRunHooks);
     }
+
+    private static AbstractModel[] GetRunHooks(IRunState state)
+    {
+        return [.. state.Players.SelectMany(p => p.Relics.OfType<Gadget>())
+            .Select(g => g.LinkedGadgetModel)
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)];
+    }
+
+    private static AbstractModel[] GetCombatHooks(ICombatState state)
+    {
+        return [.. state.Players.SelectMany(p => p.Relics.OfType<Gadget>())
+            .Select(g => g.LinkedGadgetModel)
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)];
+    }
+
     public static Dictionary<string, GadgetModel> AllGadgets { get; } = [];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.Static(InventorStaticHoverTips.Scrap)];
 
     private string GadgetText
     {
@@ -265,7 +276,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
     }
 
-    public static void RandomizeAllGadgets(PlayerChoiceContext choiceContext, Player owner)
+    public static void RandomizeAllGadgets(Player owner)
     {
         foreach (IGadgetParent parent in owner.RunState.IterateHookListeners(owner.Creature.CombatState)
                      .OfType<IGadgetParent>().ToArray())

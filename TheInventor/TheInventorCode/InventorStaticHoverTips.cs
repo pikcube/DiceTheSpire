@@ -6,5 +6,5 @@ namespace TheInventor.TheInventorCode;
 public static class InventorStaticHoverTips
 {
     [CustomEnum] 
-    public static StaticHoverTip Scrap;
+    public static StaticHoverTip Scrap = 0;
 }
