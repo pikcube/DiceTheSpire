@@ -63,7 +63,7 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
     {
 
         TemporaryThornsPower power = this;
-        if (!participants.Contains<Creature>(power.Owner) || side != power.Owner.Side)
+        if (!participants.Contains(power.Owner) || side != power.Owner.Side)
         {
             return;
         }

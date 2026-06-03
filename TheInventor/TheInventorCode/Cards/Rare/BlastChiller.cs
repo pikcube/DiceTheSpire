@@ -44,7 +44,6 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
                 .WithHitFx(VfxCmd.slashPath)
                 .Execute(choiceContext);
         }
-        await DiceyHooks.OnTurnEndInHand(this, RunState, CombatState);
     }
 
     public override string GetScrapId => nameof(WallOfIce);

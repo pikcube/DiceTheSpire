@@ -1,5 +1,4 @@
-﻿using BaseLib.Abstracts;
-using BaseLib.Extensions;
+﻿using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -11,8 +10,7 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
-
-public class SledgeHammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     public override string GetScrapId => nameof(ShortCircuit);
 
