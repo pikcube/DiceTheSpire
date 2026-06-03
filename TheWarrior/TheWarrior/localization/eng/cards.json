@@ -4,5 +4,7 @@
   "THEWARRIOR-DEFEND_WARRIOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "THEWARRIOR-DEFEND_WARRIOR.title": "Defend",
   "THEWARRIOR-BATTLE_ROLL.description": "[gold]Rummage[/gold] {Cards:diff()} cards.",
-  "THEWARRIOR-BATTLE_ROLL.title": "Battle Roll"
+  "THEWARRIOR-BATTLE_ROLL.title": "Battle Roll",
+  "THEWARRIOR-SLINGSHOT.description": "[gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-SLINGSHOT.title": "Slingshot"
 }
