@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Basic;
 
-public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
