@@ -40,4 +40,6 @@ public class HeatRay() : GadgetModel(nameof(HeatRay))
             await CreatureCmd.Damage(choiceContext, creature, 5, DamageProps.nonCardUnpowered, null, null);
         }
     }
+
+    public override bool IsAllowedAsTempGadget => false;
 }
