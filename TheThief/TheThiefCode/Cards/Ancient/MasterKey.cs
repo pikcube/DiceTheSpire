@@ -52,7 +52,7 @@ public class MasterKey() : TheThiefCard(-1, CardType.Skill, CardRarity.Ancient, 
             return;
         }
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-        await Pip.CreateInHand(Owner, (int)DynamicVars["PipCount"].BaseValue, CombatState);
+        await Pip.CreateInHandAsync(Owner, (int)DynamicVars["PipCount"].BaseValue, CombatState);
         await Cmd.Wait(0.1f);
     }
 

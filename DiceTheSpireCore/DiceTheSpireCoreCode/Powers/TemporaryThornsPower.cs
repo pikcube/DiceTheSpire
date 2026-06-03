@@ -34,7 +34,7 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
         }
         else
         {
-            await PowerCmd.Apply<ThornsPower>((PlayerChoiceContext)new ThrowingPlayerChoiceContext(), target,  amount, applier, cardSource, true);
+            await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), target,  amount, applier, cardSource, true);
         }
     }
 
