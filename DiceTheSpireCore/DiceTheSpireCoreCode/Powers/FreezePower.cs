@@ -15,7 +15,7 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 public class FreezePower : DiceTheSpireCorePower
 {
     public override PowerType Type => PowerType.Debuff;
-    public override PowerStackType StackType => PowerStackType.None;
+    public override PowerStackType StackType => PowerStackType.Single;
 
     public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props, CardModel? cardSource, CardPlay? cardPlay)
     {

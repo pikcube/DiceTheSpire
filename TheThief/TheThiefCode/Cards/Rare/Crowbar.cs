@@ -1,5 +1,4 @@
-﻿using BaseLib.Patches.Content;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using MegaCrit.Sts2.Core.Entities.Cards;

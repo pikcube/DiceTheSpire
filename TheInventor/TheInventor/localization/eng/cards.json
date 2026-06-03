@@ -102,5 +102,7 @@
   "THEINVENTOR-ELECTRIC_WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.\nGain {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "THEINVENTOR-ELECTRIC_WHIP.title": "Electric Whip",
   "THEINVENTOR-REMOTE_CONTROL.description": "Deal {Damage:diff()} damage.\nRandomize your [gold]Gadget[/gold].",
-  "THEINVENTOR-REMOTE_CONTROL.title": "Remote Control"
+  "THEINVENTOR-REMOTE_CONTROL.title": "Remote Control",
+  "THEINVENTOR-TRANSFORMER.description": "Deal {Damage:diff()} damage.\nAt the end of combat, permanently increase this card's damage by {Increase:diff()}.",
+  "THEINVENTOR-TRANSFORMER.title": "Transformer"
 }

@@ -14,11 +14,11 @@ public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon,
     private Decimal _extraDamageFromClawPlays;
     private Decimal ExtraDamageFromClawPlays
     {
-        get => this._extraDamageFromClawPlays;
+        get => _extraDamageFromClawPlays;
         set
         {
-            this.AssertMutable();
-            this._extraDamageFromClawPlays = value;
+            AssertMutable();
+            _extraDamageFromClawPlays = value;
         }
     }
 
@@ -61,8 +61,8 @@ public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon,
     protected override void AfterDowngraded()
     {
         base.AfterDowngraded();
-        DamageVar damage = this.DynamicVars.Damage;
-        damage.BaseValue = damage.BaseValue + this.ExtraDamageFromClawPlays;
+        DamageVar damage = DynamicVars.Damage;
+        damage.BaseValue = damage.BaseValue + ExtraDamageFromClawPlays;
     }
 
     private void BuffFromClawPlay(Decimal extraDamage)

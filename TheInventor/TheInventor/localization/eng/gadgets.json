@@ -48,5 +48,7 @@
   "THEINVENTOR-BLOOD_SIP.title": "Blood Sip",
   "THEINVENTOR-BLOOD_SIP.description": "At the start of combat, heal [blue]6[/blue] [gold]HP[/gold]",
   "THEINVENTOR-NEEDLE.title": "Needle",
-  "THEINVENTOR-NEEDLE.description": "At the start of each turn, gain [blue]1[/blue] [gold]Thorn[/gold]."
+  "THEINVENTOR-NEEDLE.description": "At the start of each turn, gain [blue]1[/blue] [gold]Thorns[/gold].",
+  "THEINVENTOR-OVERLOAD.title": "Overload",
+  "THEINVENTOR-OVERLOAD.description": "At the start of each turn, double EVERYONE's powers."
 }

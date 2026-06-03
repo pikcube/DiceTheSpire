@@ -145,7 +145,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
             GadgetId = GetDefaultGadget(choice);
         }
 
-        foreach (TheInventorCard c in options.OfType<TheInventorCard>().Where(c => c != choice))
+        foreach (TheInventorCard c in Owner.Deck.Cards.OfType<TheInventorCard>().Where(c => c != choice))
         {
             await c.OnSkippedAsync();
         }

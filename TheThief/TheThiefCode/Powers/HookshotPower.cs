@@ -1,5 +1,4 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -18,7 +17,7 @@ public class HookshotPower : TheThiefPower
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
         ResourceInfo resources, PileType pileType, CardPilePosition position)
     {
-        if (card.Owner.Creature != this.Owner || pileType != PileType.Discard)
+        if (card.Owner.Creature != Owner || pileType != PileType.Discard)
         {
             return (pileType, position);
         }
@@ -27,7 +26,7 @@ public class HookshotPower : TheThiefPower
 
     public override async Task AfterModifyingCardPlayResultPileOrPosition(CardModel card, PileType pileType, CardPilePosition position)
     {
-        this.Flash();
+        Flash();
         await PowerCmd.Decrement(this);
     }
 

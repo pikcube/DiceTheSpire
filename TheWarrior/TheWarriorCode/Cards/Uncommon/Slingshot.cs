@@ -5,10 +5,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.Cards;
-using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Basic;
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
 public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
@@ -16,7 +14,7 @@ public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, this.DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
@@ -31,6 +29,6 @@ public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon
         await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
     }
 
-    protected override void OnUpgrade() => this.DynamicVars.Cards.UpgradeValueBy(3);
+    protected override void OnUpgrade() => DynamicVars.Cards.UpgradeValueBy(3);
 
 }

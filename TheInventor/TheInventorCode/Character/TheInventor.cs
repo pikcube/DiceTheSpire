@@ -16,7 +16,7 @@ namespace TheInventor.TheInventorCode.Character
         public const string CharacterId = "TheInventor";
         public static bool HideGadget { get; set; }
 
-        public static readonly Color Color = new("ffffff");
+        public static readonly Color Color = new("FFB458");
 
         public override Color NameColor => Color;
         public override CharacterGender Gender => CharacterGender.Feminine;
