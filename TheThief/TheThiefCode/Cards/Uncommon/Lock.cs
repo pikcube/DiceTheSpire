@@ -11,7 +11,6 @@ public class Lock() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Targe
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-    public override bool CanBeGeneratedInCombat => false;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -22,7 +21,7 @@ public class Lock() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Targe
 
         CardModel? card = CardFactory.GetDistinctForCombat(Owner,
             Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
-                .Where(c => c.EnergyCost.Canonical == 1 && c.CanBeGeneratedInCombat), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
+                .Where(c => c.EnergyCost.Canonical == 1 && c.CanBeGeneratedInCombat && c is not Lock), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
         if (card == null)
         {
             return;
