@@ -10,10 +10,10 @@ using Pikcube.Common.Powers;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
 
-namespace TheInventor.TheInventorCode.Cards.Uncommon;
+namespace TheInventor.TheInventorCode.Cards.Rare;
 
 
-public class BrokenMirror() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class BrokenMirror() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override string GetScrapId => nameof(InfinityMirror);
 
@@ -23,6 +23,7 @@ public class BrokenMirror() : TheInventorCard(1, CardType.Skill, CardRarity.Unco
     {
         await BrokenMirrorPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
         await JinxCmd.JinxAsync(choiceContext, Owner.Creature, 1, false, Description, StartOfTurnAsync, Owner.Creature, this);
+        EnergyCost.AddThisCombat(1);
     }
 
     private async Task StartOfTurnAsync(PlayerChoiceContext choiceContext, Creature target)
