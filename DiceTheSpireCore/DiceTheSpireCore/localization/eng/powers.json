@@ -19,5 +19,8 @@
   "DICETHESPIRECORE-DRAINING_POWER.title": "Draining",
   "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.description": "When attacked, deal damage back.",
   "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.smartDescription": "When attacked, deal {Amount} damage back.",
-  "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.title": "Temporary Thorns"
+  "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.title": "Temporary Thorns",
+  "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.description": "[gold]Negates[/gold] debuffs you apply to yourself this turn.",
+  "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.smartDescription": "[gold]Negates[/gold] debuffs you apply to yourself {Amount:plural:this turn|for [blue]{Amount}[/blue] turns.}.",
+  "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.title": "Safety Goggles"
 }

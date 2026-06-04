@@ -32,6 +32,7 @@ public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, Ta
         {
             cost += 1;
         }
+        await card.ExhaustAsync(choiceContext);
 
         //You wrote a function for this, you should use it
         //List<Pip> list = [];
@@ -41,8 +42,6 @@ public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, Ta
         //}
 
         //await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Hand, Owner);
-        
-        await card.ExhaustAsync(choiceContext);
         await Pip.CreateInHandAsync(Owner, cost, CombatState);
     }
 }
