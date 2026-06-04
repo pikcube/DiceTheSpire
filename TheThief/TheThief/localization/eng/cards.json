@@ -5,11 +5,11 @@
   "THETHIEF-STRIKE_THIEF.title": "Strike",
   "THETHIEF-DAGGER.description": "Deal {Damage:diff()} damage. \n Return this card to your [gold]hand[/gold].",
   "THETHIEF-DAGGER.title": "Dagger",
-  "THETHIEF-LOCKPICK.description": "Draw {IfUpgraded:show:2 cards|a card}. \n Create a [gold]Pip[/gold].",
+  "THETHIEF-LOCKPICK.description": "Draw {Cards:plural:a card|{diff} cards}. \n Create a [gold]Pip[/gold].",
   "THETHIEF-LOCKPICK.title": "Lockpick",
   "THETHIEF-PEASHOOTER.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Deal {Damage:diff()} damage. \n Return this card to your [gold]Hand[/gold].",
   "THETHIEF-PEASHOOTER.title": "Peashooter",
-  "THETHIEF-SINGULARITY.description": "Choose a card in your [gold]Hand[/gold] to transform into [gold]Collapse{IfUpgraded:show:+|}[/gold].",
+  "THETHIEF-SINGULARITY.description": "Choose a card in your [gold]Hand[/gold] to transform into [gold]{IfUpgraded:show:Collapse+|Collapse}[/gold].",
   "THETHIEF-SINGULARITY.title": "Singularity",
   "THETHIEF-COLLAPSE.description": "Deal {Damage:diff()} damage.",
   "THETHIEF-COLLAPSE.title": "Collapse",
@@ -48,5 +48,7 @@
   "THETHIEF-RAW_AMBITION.description": "Every {Cards:diff()} 1-cost cards you play, gain {Energy:energyIcons()}.",
   "THETHIEF-RAW_AMBITION.title": "Raw Ambition",
   "THETHIEF-LUCKY_DRAW.description": "When you play a 1-cost card, draw {Cards:plural:a card|{diff} cards}.",
-  "THETHIEF-LUCKY_DRAW.title": "Lucky Draw"
+  "THETHIEF-LUCKY_DRAW.title": "Lucky Draw",
+  "THETHIEF-UNLUCKY_ROLL.description": "Deal {Damage:diff()} damage. \n Draw {Cards:diff()} cards. \n Discard any cards drawn this way that do not cost 1 {Energy:energyIcons()}.",
+  "THETHIEF-UNLUCKY_ROLL.title": "Unlucky Roll"
 }
