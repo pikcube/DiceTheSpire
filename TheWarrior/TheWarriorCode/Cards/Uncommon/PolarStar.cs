@@ -35,6 +35,22 @@ public class PolarStar() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
         }
     }
 
+    protected override bool IsPlayable => (CombatState?.RoundNumber % 2 == 0);
+
+    //protected override bool IsPlayable
+    //{
+    //    get
+    //    {
+    //        if (CombatState is null)
+    //        {
+    //            return true;
+    //        }
+    //        return (CombatState.RoundNumber % 2 == 0);
+    //    }
+    //}
+
+    protected override bool ShouldGlowGoldInternal => this.IsPlayable;
+
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
