@@ -1,14 +1,17 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
+using TheThief.TheThiefCode.Cards.Ancient;
 
 namespace TheThief.TheThiefCode.Cards.Basic;
 
-public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self), ITranscendenceCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
 
@@ -31,4 +34,6 @@ public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, Targ
     {
         DynamicVars.Cards.UpgradeValueBy(1);
     }
+
+    public CardModel GetTranscendenceTransformedCard() => MasterKey.Create();
 }
