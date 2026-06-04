@@ -1,10 +1,7 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
@@ -24,10 +21,7 @@ public class PolarStar() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
             return;
         }
 
-        if (
-           (CombatState.RoundNumber % 2 == 0 && IsUpgraded == false) ||
-           (CombatState.RoundNumber % 2 != 0 && IsUpgraded == true)
-           )
+        if (IsPlayable)
         {
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
            .WithHitCount(DynamicVars.Repeat.IntValue)
@@ -38,10 +32,13 @@ public class PolarStar() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
         }
     }
 
-    protected override bool IsPlayable => (
-    (CombatState?.RoundNumber % 2 == 0 && IsUpgraded == false) ||
-    (CombatState?.RoundNumber % 2 != 0 && IsUpgraded == true)
-    );
+    //We want the left hand side to be true when downgraded and false when upgraded, so this check ends up just being an exclusive or
+    /* Original Code
+     * (CombatState.RoundNumber % 2 == 0 && !IsUpgraded) ||
+     * (CombatState.RoundNumber % 2 != 0 && IsUpgraded)
+     */
+    protected override bool IsPlayable => CombatState?.RoundNumber % 2 == 0 != IsUpgraded;
+
 
     //protected override bool IsPlayable
     //{

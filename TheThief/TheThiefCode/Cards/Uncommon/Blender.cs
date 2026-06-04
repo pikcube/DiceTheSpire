@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 
 namespace TheThief.TheThiefCode.Cards.Uncommon;
 
@@ -14,36 +15,34 @@ public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner.PlayerCombatState is null)
+        if (Owner.PlayerCombatState is null || CombatState is null)
         {
             return;
         }
-        CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
+        CardSelectorPrefs prefs = new(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
         CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
-        int cost = 0;
-        if (card is not null)
+        if (card is null)
         {
-            if (card.EnergyCost.CostsX)
-            {
-                cost = Owner.PlayerCombatState.Energy;
-            }
-            else
-            {
-                cost = card.EnergyCost.Canonical;
-            }
-
-            if (IsUpgraded)
-            {
-                cost += 1;
-            }
+            return;
         }
 
-        List<Pip> list = new List<Pip>();
-        for (int i = 0; i < cost; i++)
+        int cost = card.EnergyCost.CostsX ? Owner.PlayerCombatState.Energy : card.EnergyCost.Canonical;
+
+        if (IsUpgraded)
         {
-            list.Add(new Pip());
+            cost += 1;
         }
 
-        await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Hand, Owner);
+        //You wrote a function for this, you should use it
+        //List<Pip> list = [];
+        //for (int i = 0; i < cost; i++)
+        //{
+        //    list.Add(new Pip());
+        //}
+
+        //await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Hand, Owner);
+        
+        await card.ExhaustAsync(choiceContext);
+        await Pip.CreateInHandAsync(Owner, cost, CombatState);
     }
 }

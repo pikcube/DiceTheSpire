@@ -8,7 +8,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using TheWarrior.TheWarriorCode.Cards;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
@@ -23,7 +22,7 @@ public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Targe
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await base.OnPlay(choiceContext, cardPlay);
-        LocString locString = new LocString("card_selection", "TO_BUMP");
+        LocString locString = new("card_selection", "TO_BUMP");
         CardSelectorPrefs cardSelectorPrefs = new(locString, this.DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
 
