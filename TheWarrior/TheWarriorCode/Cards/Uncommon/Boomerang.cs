@@ -9,12 +9,12 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
-namespace TheWarrior.TheWarriorCode.Cards.Common;
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
 
-public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14M, DamageProps.card), new IntVar("Recoil", 8), new RepeatVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new IntVar("Recoil", 8), new RepeatVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
