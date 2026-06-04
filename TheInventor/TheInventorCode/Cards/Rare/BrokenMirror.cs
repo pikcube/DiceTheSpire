@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Commands;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 using Pikcube.Common.Powers;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
@@ -19,7 +20,7 @@ public class BrokenMirror() : TheInventorCard(1, CardType.Skill, CardRarity.Rare
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<CursedPower>(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<CursedPower>()];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<CursedPower>(), HoverTipFactory.FromKeyword(EntranceModel.Entrance)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

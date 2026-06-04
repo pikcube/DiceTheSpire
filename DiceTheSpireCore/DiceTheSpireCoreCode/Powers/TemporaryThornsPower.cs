@@ -17,8 +17,6 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
     public PowerModel InternallyAppliedPower => ModelDb.Power<ThornsPower>();
 
     private bool _shouldIgnoreNextInstance;
-    protected virtual bool IsPositive => true;
-    private int Sign => !IsPositive ? -1 : 1;
 
     public override async Task BeforeApplied(
         Creature target,

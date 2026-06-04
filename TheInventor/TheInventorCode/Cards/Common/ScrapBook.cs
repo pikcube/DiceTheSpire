@@ -27,7 +27,7 @@ public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Common,
     {
         if (card == this)
         {
-            await PlayerCmd.GainEnergy(4, Owner);
+            await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
         }
     }
 }

@@ -1,3 +1,4 @@
+using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
@@ -19,6 +20,12 @@ namespace DiceTheSpire.DiceTheSpireCode
             Harmony harmony = new(ModId);
 
             harmony.PatchAll();
+
+            CustomCharacterUtils.TryOrderCustomCharacters<
+                TheWarrior.TheWarriorCode.Character.TheWarrior,
+                TheThief.TheThiefCode.Character.TheThief,
+                TheInventor.TheInventorCode.Character.TheInventor
+            >();
         }
     }
 }
