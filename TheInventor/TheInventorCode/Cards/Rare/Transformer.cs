@@ -13,7 +13,7 @@ public class Transformer() : TheInventorCard(2, CardType.Attack, CardRarity.Rare
 {
     public override string GetScrapId => nameof(Overload);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(CurrentDamage, DamageProps.card), new IntVar("Increase", 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(CurrentDamage, DamageProps.card), new IntVar("Increase", 3)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
 

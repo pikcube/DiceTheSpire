@@ -4,12 +4,15 @@
   "THEINVENTOR-FOCUS_POWER.title": "Focus",
   "THEINVENTOR-TEMPORARY_GADGET_POWER.description": "Gain a Gadget for the rest of combat.",
   "THEINVENTOR-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
-  "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget Power",
-  "THEINVENTOR-DOUBLE_EDGE_POWER.description": "Whenever you apply a debuff to yourself, also apply it to all enemies.",
-  "THEINVENTOR-DOUBLE_EDGE_POWER.smartDescription": "Whenever you apply a debuff to yourself, also apply it to all enemies.",
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
+  "THEINVENTOR-DOUBLE_EDGE_POWER.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to all enemies.",
+  "THEINVENTOR-DOUBLE_EDGE_POWER.smartDescription": "Whenever you apply a stackable debuff to yourself, also apply it to all enemies.",
   "THEINVENTOR-DOUBLE_EDGE_POWER.title": "Double Edge",
   "THEINVENTOR-EXHAUSTION_POWER.description": "Whenever you play a card this turn, this creature takes damage.",
   "THEINVENTOR-EXHAUSTION_POWER.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, {IsSelfInflicted:show:you take|{OwnerName} takes} {Amount} damage.",
   "THEINVENTOR-EXHAUSTION_POWER.smartDescription": "Whenever you play a card this turn, {IsSelfInflicted:you take|{OwnerName} takes} {Amount} damage.",
-  "THEINVENTOR-EXHAUSTION_POWER.title": "Exhaustion"
+  "THEINVENTOR-EXHAUSTION_POWER.title": "Exhaustion",
+  "THEINVENTOR-BROKEN_MIRROR_POWER.description": "Gain [blue]1[/blue] [gold]Energy[/gold] at the start of each turn.",
+  "THEINVENTOR-BROKEN_MIRROR_POWER.smartDescription": "Gain {Amount:energyIcons()} at the start of each turn.",
+  "THEINVENTOR-BROKEN_MIRROR_POWER.title": "Broken Mirror"
 }

@@ -81,7 +81,7 @@
   "THEINVENTOR-WHISPER.title": "Whisper",
   "THEINVENTOR-BEFUDDLE.description": "Exchange your [gold]Discard[/gold] pile with your [gold]Draw[/gold] pile.",
   "THEINVENTOR-BEFUDDLE.title": "Befuddle",
-  "THEINVENTOR-DOUBLE_EDGE.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
+  "THEINVENTOR-DOUBLE_EDGE.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
   "THEINVENTOR-DOUBLE_EDGE.title": "Double Edge",
   "THEINVENTOR-BIG_STICK.description": "Deal {Damage:diff()} damage.\nGain {ThornsPower:diff()} [gold]Thorns[/gold].",
   "THEINVENTOR-BIG_STICK.title": "Big Stick",
@@ -104,5 +104,7 @@
   "THEINVENTOR-REMOTE_CONTROL.description": "Deal {Damage:diff()} damage.\nRandomize your [gold]Gadget[/gold].",
   "THEINVENTOR-REMOTE_CONTROL.title": "Remote Control",
   "THEINVENTOR-TRANSFORMER.description": "Deal {Damage:diff()} damage.\nAt the end of combat, permanently increase this card's damage by {Increase:diff()}.",
-  "THEINVENTOR-TRANSFORMER.title": "Transformer"
+  "THEINVENTOR-TRANSFORMER.title": "Transformer",
+  "THEINVENTOR-BROKEN_MIRROR.description": "Gain {Energy:energyIcons()} at the start of each turn.\nAt the start of your next turn, [gold]Curse[/gold] yourself.",
+  "THEINVENTOR-BROKEN_MIRROR.title": "Broken Mirror"
 }

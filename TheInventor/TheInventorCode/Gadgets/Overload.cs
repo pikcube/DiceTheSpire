@@ -25,24 +25,14 @@ public class Overload() : GadgetModel(nameof(Overload))
         {
             PowerModel[] powers = [..creature.Powers
                 .Where(p =>
-                    IsInstanceTypeCorrect(p) &&
                     p.StackType == PowerStackType.Counter
                 )
             ];
 
             foreach (PowerModel power in powers)
             {
-                PowerModel newPower = ModelDb.GetById<PowerModel>(power.Id);
-                await PowerCmd.Apply(choiceContext, newPower, power.Owner, power.Amount, Parent.Owner.Creature, null);
+                await PowerCmd.ModifyAmount(choiceContext, power, power.Amount, null, null);
             }
         }
     }
-
-    private bool IsInstanceTypeCorrect(PowerModel p) => p.InstanceType switch
-    {
-        PowerInstanceType.None => true, 
-        PowerInstanceType.Instanced => false,
-        PowerInstanceType.InstancedPerApplier => p.Applier is not null && p.Applier == Parent?.Owner.Creature,
-        _ => false
-    };
 }
