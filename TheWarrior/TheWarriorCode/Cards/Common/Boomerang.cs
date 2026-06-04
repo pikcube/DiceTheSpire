@@ -12,9 +12,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 
-public class Boomerang() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new RepeatVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14M, DamageProps.card), new IntVar("Recoil", 8), new RepeatVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -31,7 +31,7 @@ public class Boomerang() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
        .WithHitFx(VfxCmd.slashPath)
        .Execute(choiceContext);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars["Recoil"].IntValue)
         .FromCard(this)
         .Targeting(Owner.Creature)
         .WithValueProp(DynamicVars.Damage.Props)
@@ -40,7 +40,8 @@ public class Boomerang() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
     }
     protected override void OnUpgrade()
     {
-        this.DynamicVars.Damage.UpgradeValueBy(3);
+        //this.DynamicVars.Damage.UpgradeValueBy(2);
+        this.DynamicVars["Recoil"].UpgradeValueBy(-3);
     }
 
 }
