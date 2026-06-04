@@ -14,6 +14,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 
 
+ 
 public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];

@@ -11,6 +11,6 @@
   "THEWARRIOR-BOOMERANG.title": "Boomerang",
   "THEWARRIOR-POLAR_STAR.description": "Deal {Damage:diff()} damage {Repeat:diff()} times. Can only be used on {IfUpgraded:odd|even} turns",
   "THEWARRIOR-POLAR_STAR.title": "PolarStar",
-  "THEINVENTOR-SCRAP_BUMP.description": "[gold]Bump[/gold] {Cards:diff()} {IfUpgraded:cards|card} in hand.",
-  "THEINVENTOR-SCRAP_BUMP.title": "Scrap Bump"
+  "THEWARRIOR-BUMP.description": "[gold]Bump[/gold] {Cards:diff()} {IfUpgraded:cards|card} in hand.",
+  "THEWARRIOR-BUMP.title": "Scrap Bump"
 }
