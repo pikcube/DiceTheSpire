@@ -105,6 +105,6 @@
   "THEINVENTOR-REMOTE_CONTROL.title": "Remote Control",
   "THEINVENTOR-TRANSFORMER.description": "Deal {Damage:diff()} damage.\nAt the end of combat, permanently increase this card's damage by {Increase:diff()}.",
   "THEINVENTOR-TRANSFORMER.title": "Transformer",
-  "THEINVENTOR-BROKEN_MIRROR.description": "Gain {Energy:energyIcons()} at the start of each turn.\nAt the start of your next turn, [gold]Curse[/gold] yourself.",
+  "THEINVENTOR-BROKEN_MIRROR.description": "Gain an extra [gold]Energy[/gold] each turn.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
   "THEINVENTOR-BROKEN_MIRROR.title": "Broken Mirror"
 }
