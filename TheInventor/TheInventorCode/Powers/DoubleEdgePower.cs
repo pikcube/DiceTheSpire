@@ -17,7 +17,7 @@ public class DoubleEdgePower : TheInventorPower
         Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner || power.Owner != Owner || power.Type != PowerType.Debuff)
+        if (applier != Owner || power.Owner != Owner || power.Type != PowerType.Debuff || power.StackType != PowerStackType.Counter)
         {
             return;
         }
