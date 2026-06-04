@@ -6,5 +6,5 @@ namespace TheThief.TheThiefCode.Powers;
 
 public class RosewoodSpearPower : TemporaryThornsPower
 {
-    public override AbstractModel OriginModel => (AbstractModel)ModelDb.Card<RosewoodSpear>();
+    public override AbstractModel OriginModel => ModelDb.Card<RosewoodSpear>();
 }

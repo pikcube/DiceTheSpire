@@ -72,9 +72,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
         {
             throw new InvalidProgramException("Breakable Gadgets cannot be temporary");
         }
-        else
-        {
-            Parent?.GadgetId = nameof(BrokenGadget);
-        }
+
+        Parent?.GadgetId = nameof(BrokenGadget);
     }
 }

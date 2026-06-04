@@ -4,9 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
@@ -20,7 +18,7 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
 
     private bool _shouldIgnoreNextInstance;
     protected virtual bool IsPositive => true;
-    private int Sign => !this.IsPositive ? -1 : 1;
+    private int Sign => !IsPositive ? -1 : 1;
 
     public override async Task BeforeApplied(
         Creature target,
@@ -28,13 +26,13 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
         Creature? applier,
         CardModel? cardSource)
     {
-        if (this._shouldIgnoreNextInstance)
+        if (_shouldIgnoreNextInstance)
         {
-            this._shouldIgnoreNextInstance = false;
+            _shouldIgnoreNextInstance = false;
         }
         else
         {
-            await PowerCmd.Apply<ThornsPower>((PlayerChoiceContext)new ThrowingPlayerChoiceContext(), target,  amount, applier, cardSource, true);
+            await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), target,  amount, applier, cardSource, true);
         }
     }
 
@@ -72,5 +70,5 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
         await PowerCmd.Apply<ThornsPower>(choiceContext, power.Owner, -power.Amount, power.Owner, null);
     }
 
-    public void IgnoreNextInstance() => this._shouldIgnoreNextInstance = true;
+    public void IgnoreNextInstance() => _shouldIgnoreNextInstance = true;
 }

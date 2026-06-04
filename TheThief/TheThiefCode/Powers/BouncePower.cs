@@ -1,5 +1,4 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
@@ -27,7 +26,7 @@ public class BouncePower : TheThiefPower
 
     public override Task AfterModifyingCardPlayResultPileOrPosition(CardModel card, PileType pileType, CardPilePosition position)
     {
-        this.Flash();
+        Flash();
         return Task.CompletedTask;
     }
 }

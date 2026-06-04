@@ -24,7 +24,7 @@ public class BigStick() : TheInventorCard(1, CardType.Attack, CardRarity.Common,
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<ThornsPower>(choiceContext, cardPlay.Target, DynamicVars.Power<ThornsPower>().IntValue,
+        await PowerCmd.Apply<ThornsPower>(choiceContext, Owner.Creature, DynamicVars.Power<ThornsPower>().IntValue,
             Owner.Creature, cardPlay.Card);
     }
 

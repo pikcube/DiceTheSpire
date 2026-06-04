@@ -11,7 +11,7 @@ namespace TheThief.TheThiefCode.Cards.Common;
 public class Singularity() : TheThiefCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Collapse>(this.IsUpgraded)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Collapse>(IsUpgraded)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
