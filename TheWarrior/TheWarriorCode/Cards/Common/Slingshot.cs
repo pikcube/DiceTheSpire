@@ -5,8 +5,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+using MegaCrit.Sts2.Core.ValueProps;
+namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {

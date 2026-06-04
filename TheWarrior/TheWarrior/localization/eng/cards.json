@@ -6,5 +6,7 @@
   "THEWARRIOR-COMBAT_ROLL.description": "[gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-COMBAT_ROLL.title": "Combat Roll",
   "THEWARRIOR-SLINGSHOT.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
-  "THEWARRIOR-SLINGSHOT.title": "Slingshot"
+  "THEWARRIOR-SLINGSHOT.title": "Slingshot",
+  "THEWARRIOR-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies twice. Then take {Damage:diff()} damage.",
+  "THEWARRIOR-BOOMERANG.title": "Boomerang"
 }
