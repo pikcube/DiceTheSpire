@@ -7,6 +7,8 @@
   "THEWARRIOR-COMBAT_ROLL.title": "Combat Roll",
   "THEWARRIOR-SLINGSHOT.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-SLINGSHOT.title": "Slingshot",
-  "THEWARRIOR-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies twice. Then take {Recoil:diff()} damage.",
-  "THEWARRIOR-BOOMERANG.title": "Boomerang"
+  "THEWARRIOR-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times. Then take {Recoil:diff()} damage.",
+  "THEWARRIOR-BOOMERANG.title": "Boomerang",
+  "THEWARRIOR-POLAR_STAR.description": "Deal {Damage:diff()} damage {Repeat:diff()} times. Can only be used on even turns",
+  "THEWARRIOR-POLAR_STAR.title": "PolarStar"
 }
