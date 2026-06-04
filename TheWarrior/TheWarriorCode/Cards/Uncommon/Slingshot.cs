@@ -10,11 +10,20 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Basic;
 
-public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(5M, DamageProps.card)];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+       .FromCard(this)
+       .Targeting(cardPlay.Target)
+       .WithHitFx(VfxCmd.slashPath)
+       .Execute(choiceContext);
 
         CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, this.DynamicVars.Cards.IntValue);
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
@@ -27,10 +36,16 @@ public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, 
         {
             return;
         }
+   
 
-        await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
+    await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
     }
 
-    protected override void OnUpgrade() => this.DynamicVars.Cards.UpgradeValueBy(3);
+    protected override void OnUpgrade()
+    {
+        base.OnUpgrade();
+        this.DynamicVars.Cards.UpgradeValueBy(1);
+        this.DynamicVars.Damage.UpgradeValueBy(3);
+    }
 
 }

@@ -10,7 +10,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Basic;
 
-public class BattleRoll() : TheWarriorCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
+
+public class CombatRoll() : TheWarriorCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
