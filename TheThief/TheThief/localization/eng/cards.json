@@ -50,5 +50,7 @@
   "THETHIEF-LUCKY_DRAW.description": "When you play a 1-cost card, draw {Cards:plural:a card|{diff} cards}.",
   "THETHIEF-LUCKY_DRAW.title": "Lucky Draw",
   "THETHIEF-UNLUCKY_ROLL.description": "Deal {Damage:diff()} damage. \n Draw {Cards:diff()} cards. \n Discard any cards drawn this way that do not cost 1 {Energy:energyIcons()}.",
-  "THETHIEF-UNLUCKY_ROLL.title": "Unlucky Roll"
+  "THETHIEF-UNLUCKY_ROLL.title": "Unlucky Roll",
+  "THETHIEF-LOCK.description": "Add a random 1-cost card to your [gold]Hand[/gold]. {IfUpgraded:show:\n Gain {Energy:energyIcons()}|}",
+  "THETHIEF-LOCK.title": "Lock"
 }
