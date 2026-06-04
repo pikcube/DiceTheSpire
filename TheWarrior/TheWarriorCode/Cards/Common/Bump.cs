@@ -24,7 +24,7 @@ public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Targe
     {
         await base.OnPlay(choiceContext, cardPlay);
         LocString locString = new LocString("card_selection", "TO_BUMP");
-        CardSelectorPrefs cardSelectorPrefs = new(locString, 2);
+        CardSelectorPrefs cardSelectorPrefs = new(locString, this.DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
 
         foreach (CardModel card in result)
