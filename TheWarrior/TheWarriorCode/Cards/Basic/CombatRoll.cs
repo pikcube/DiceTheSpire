@@ -6,11 +6,12 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+namespace TheWarrior.TheWarriorCode.Cards.Basic;
 
-public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+
+public class CombatRoll() : TheWarriorCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
@@ -29,6 +30,6 @@ public class Slingshot() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon
         await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
     }
 
-    protected override void OnUpgrade() => DynamicVars.Cards.UpgradeValueBy(3);
+    protected override void OnUpgrade() => DynamicVars.Cards.UpgradeValueBy(1);
 
 }

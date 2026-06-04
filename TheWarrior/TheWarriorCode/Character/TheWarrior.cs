@@ -28,7 +28,7 @@ namespace TheWarrior.TheWarriorCode.Character
             ModelDb.Card<DefendWarrior>(),
             ModelDb.Card<DefendWarrior>(),
             ModelDb.Card<DefendWarrior>(),
-            ModelDb.Card<BattleRoll>()
+            ModelDb.Card<CombatRoll>()
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics =>
