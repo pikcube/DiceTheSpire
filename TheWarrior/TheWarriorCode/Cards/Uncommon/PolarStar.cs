@@ -24,7 +24,10 @@ public class PolarStar() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
             return;
         }
 
-        if (CombatState.RoundNumber % 2 == 0)
+        if (
+           (CombatState.RoundNumber % 2 == 0 && IsUpgraded == false) ||
+           (CombatState.RoundNumber % 2 != 0 && IsUpgraded == true)
+           )
         {
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
            .WithHitCount(DynamicVars.Repeat.IntValue)
@@ -35,7 +38,10 @@ public class PolarStar() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
         }
     }
 
-    protected override bool IsPlayable => (CombatState?.RoundNumber % 2 == 0);
+    protected override bool IsPlayable => (
+    (CombatState?.RoundNumber % 2 == 0 && IsUpgraded == false) ||
+    (CombatState?.RoundNumber % 2 != 0 && IsUpgraded == true)
+    );
 
     //protected override bool IsPlayable
     //{
