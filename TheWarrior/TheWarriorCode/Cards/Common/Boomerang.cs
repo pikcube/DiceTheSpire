@@ -32,7 +32,6 @@ public class Boomerang() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
        .Execute(choiceContext);
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-        .WithHitCount(DynamicVars.Repeat.IntValue)
         .FromCard(this)
         .Targeting(Owner.Creature)
         .WithValueProp(DynamicVars.Damage.Props)
