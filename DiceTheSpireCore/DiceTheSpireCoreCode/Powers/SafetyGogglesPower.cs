@@ -16,7 +16,7 @@ public class SafetyGogglesPower : DiceTheSpireCorePower
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier,
         out decimal modifiedAmount)
     {
-        if (applier != Owner || canonicalPower.Type != PowerType.Debuff)
+        if (target != Owner || applier != Owner || canonicalPower.Type != PowerType.Debuff)
         {
             modifiedAmount = amount;
             return false;
