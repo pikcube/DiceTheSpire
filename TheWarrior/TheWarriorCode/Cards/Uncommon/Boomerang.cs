@@ -19,19 +19,19 @@ public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-       .WithHitCount(DynamicVars.Repeat.IntValue)
-       .FromCard(this)
-       .TargetingAllOpponents(CombatState)
-       .WithValueProp(DynamicVars.Damage.Props)
-       .WithHitFx(VfxCmd.slashPath)
-       .Execute(choiceContext);
+            .WithHitCount(DynamicVars.Repeat.IntValue)
+            .FromCard(this)
+            .TargetingAllOpponents(CombatState)
+            .WithValueProp(DynamicVars.Damage.Props)
+            .WithHitFx(VfxCmd.slashPath)
+            .Execute(choiceContext);
 
         await DamageCmd.Attack(DynamicVars["Recoil"].IntValue)
-        .FromCard(this)
-        .Targeting(Owner.Creature)
-        .WithValueProp(DynamicVars.Damage.Props)
-        .WithHitFx(VfxCmd.slashPath)
-        .Execute(choiceContext);
+            .FromCard(this)
+            .Targeting(Owner.Creature)
+            .WithValueProp(DynamicVars.Damage.Props)
+            .WithHitFx(VfxCmd.slashPath)
+            .Execute(choiceContext);
     }
     protected override void OnUpgrade()
     {

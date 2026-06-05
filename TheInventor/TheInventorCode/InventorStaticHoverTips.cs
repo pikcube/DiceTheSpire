@@ -7,4 +7,7 @@ public static class InventorStaticHoverTips
 {
     [CustomEnum] 
     public static StaticHoverTip Scrap = 0;
+
+    [CustomEnum] 
+    public static StaticHoverTip Held = 0;
 }

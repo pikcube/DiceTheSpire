@@ -1,5 +1,7 @@
 {
 
   "THEINVENTOR-SCRAP.description": "Choose one of three cards to remove from your [gold]Deck[/gold]. Favors cards you played in the most recent combat.",
-  "THEINVENTOR-SCRAP.title": "Scrap"
+  "THEINVENTOR-SCRAP.title": "Scrap",
+  "THEINVENTOR-HELD.description": "This card does something if it is held in hand at the end of your turn.",
+  "THEINVENTOR-HELD.title": "Held"
 }

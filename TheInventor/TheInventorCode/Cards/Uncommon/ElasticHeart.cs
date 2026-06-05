@@ -21,7 +21,7 @@ public class ElasticHeart() : TheInventorCard(2, CardType.Power, CardRarity.Unco
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        return PowerCmd.Apply<ElasticHeartPower>(choiceContext, Owner.Creature, DynamicVars.Block.IntValue, 
+        return PowerCmd.Apply<ElasticHeartPower>(choiceContext, Owner.Creature, DynamicVars.Block.IntValue,
             Owner.Creature, this);
     }
 

@@ -1,5 +1,4 @@
 ﻿using BaseLib.Abstracts;
-using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -9,11 +8,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-[UsedImplicitly]
-public class Bonk() : GadgetModel(nameof(Bonk))
+public class Catapult() : GadgetModel(nameof(Catapult))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
-
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player)
@@ -30,7 +27,7 @@ public class Bonk() : GadgetModel(nameof(Bonk))
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, target, 5, DamageProps.nonCardUnpowered, null, null);
+        await CreatureCmd.Damage(choiceContext, target, 15, DamageProps.nonCardUnpowered, null, null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

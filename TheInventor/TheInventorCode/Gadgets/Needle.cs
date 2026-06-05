@@ -12,7 +12,7 @@ public class Needle() : GadgetModel(nameof(Needle))
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (Parent?.Owner is null)
+        if (Parent?.Owner != player)
         {
             return;
         }

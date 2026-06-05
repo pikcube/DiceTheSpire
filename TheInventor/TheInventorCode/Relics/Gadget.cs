@@ -72,7 +72,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         set
         {
             field = value;
-            GadgetText = $"{LinkedGadgetModel.GadgetText}";
+            GadgetText = LinkedGadgetModel.GadgetText;
         }
     } = nameof(DefaultGadget);
 
