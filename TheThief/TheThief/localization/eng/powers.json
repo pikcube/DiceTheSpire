@@ -16,5 +16,8 @@
   "THETHIEF-ROSEWOOD_SPEAR_POWER.title": "Rosewood Spear",
   "THETHIEF-SNAKE_EYES_POWER.description": "The next 2 times you play a 1-cost card this turn, gain {Energy:energyIcons()}.",
   "THETHIEF-SNAKE_EYES_POWER.smartDescription": "The Next {Amount} times you play a 1-cost card this turn, gain {Energy:energyIcons()}.",
-  "THETHIEF-SNAKE_EYES_POWER.title": "Snake Eyes"
+  "THETHIEF-SNAKE_EYES_POWER.title": "Snake Eyes",
+  "THETHIEF-OVERWHELM_POWER.description": "When you play an attack, gain 1 [gold]Strength[/gold] this turn.",
+  "THETHIEF-OVERWHELM_POWER.smartDescription": "When you play an attack, gain {Amount} [gold]Strength[/gold] this turn.",
+  "THETHIEF-OVERWHELM_POWER.title": "Overwhelm"
 }
