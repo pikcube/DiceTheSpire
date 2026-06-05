@@ -2,6 +2,6 @@
 
   "THEINVENTOR-SCRAP.description": "Choose one of three cards to remove from your [gold]Deck[/gold]. Favors cards you played in the most recent combat.",
   "THEINVENTOR-SCRAP.title": "Scrap",
-  "THEINVENTOR-HELD.description": "This card does something if it is held in hand at the end of your turn.",
+  "THEINVENTOR-HELD.description": "At the end of your turn, if this card is held in hand, this card triggers an effect.",
   "THEINVENTOR-HELD.title": "Held"
 }
