@@ -51,6 +51,7 @@ public class PolarStar() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
     //        return (CombatState.RoundNumber % 2 == 0);
     //    }
     //}
+    //
 
     protected override bool ShouldGlowGoldInternal => this.IsPlayable;
 
