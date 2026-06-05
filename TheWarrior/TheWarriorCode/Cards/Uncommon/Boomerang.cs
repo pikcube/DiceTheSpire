@@ -36,7 +36,7 @@ public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
     protected override void OnUpgrade()
     {
         //this.DynamicVars.Damage.UpgradeValueBy(2);
-        this.DynamicVars["Recoil"].UpgradeValueBy(-3);
+        DynamicVars["Recoil"].UpgradeValueBy(-3);
     }
 
 }

@@ -52,12 +52,12 @@ public class PolarStar() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
     //    }
     //}
 
-    protected override bool ShouldGlowGoldInternal => this.IsPlayable;
+    protected override bool ShouldGlowGoldInternal => IsPlayable;
 
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        this.DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 
 }
