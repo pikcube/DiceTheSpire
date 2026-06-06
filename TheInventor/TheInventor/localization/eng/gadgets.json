@@ -52,5 +52,9 @@
   "THEINVENTOR-OVERLOAD.title": "Overload",
   "THEINVENTOR-OVERLOAD.description": "At the start of each turn, double EVERYONE's powers.",
   "THEINVENTOR-INFINITY_MIRROR.title": "Infinity Mirror",
-  "THEINVENTOR-INFINITY_MIRROR.description": "At the start of each turn, increase the amount of [gold]Energy[/gold] you gain each turn by 1."
+  "THEINVENTOR-INFINITY_MIRROR.description": "At the start of each turn, increase the amount of [gold]Energy[/gold] you gain each turn by 1.",
+  "THEINVENTOR-CATAPULT.title": "Catapult",
+  "THEINVENTOR-CATAPULT.description": "At the start of each turn, deal [blue]15[/blue] damage to a random enemy.",
+  "THEINVENTOR-POISON_ARROW.title": "Poison Arrow",
+  "THEINVENTOR-POISON_ARROW.description": "At the start of each turn, apply [blue]3[/blue] [gold]Poison[/gold] to ALL enemies."
 }

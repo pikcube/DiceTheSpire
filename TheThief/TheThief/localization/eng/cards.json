@@ -52,5 +52,7 @@
   "THETHIEF-UNLUCKY_ROLL.description": "Deal {Damage:diff()} damage. \n Draw {Cards:diff()} cards. \n Discard any cards drawn this way that do not cost 1 {Energy:energyIcons()}.",
   "THETHIEF-UNLUCKY_ROLL.title": "Unlucky Roll",
   "THETHIEF-LOCK.description": "Add a random 1-cost card to your [gold]Hand[/gold]. {IfUpgraded:show:\n Gain {Energy:energyIcons()}|}",
-  "THETHIEF-LOCK.title": "Lock"
+  "THETHIEF-LOCK.title": "Lock",
+  "THETHIEF-OVERWHELM.description": "When you play an attack, gain {TemporaryStrengthPower:diff()} [gold]Strength[/gold] this turn.",
+  "THETHIEF-OVERWHELM.title": "Overwhelm"
 }

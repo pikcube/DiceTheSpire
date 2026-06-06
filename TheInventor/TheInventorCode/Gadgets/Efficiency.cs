@@ -20,6 +20,11 @@ public class Efficiency() : GadgetModel(nameof(Efficiency))
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
         ResourceInfo resources, PileType pileType, CardPilePosition position)
     {
+        if (Parent?.Owner != card.Owner)
+        {
+            return (pileType, position);
+        }
+
         if (!IsReady || isAutoPlay)
         {
             return (pileType, position);

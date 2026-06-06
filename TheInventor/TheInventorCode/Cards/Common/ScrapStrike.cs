@@ -14,7 +14,7 @@ public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Comm
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6M, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -23,7 +23,7 @@ public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Targe
     {
         await base.OnPlay(choiceContext, cardPlay);
         LocString locString = new("card_selection", "TO_BUMP");
-        CardSelectorPrefs cardSelectorPrefs = new(locString, this.DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(locString, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
 
         foreach (CardModel card in result)
@@ -35,7 +35,7 @@ public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Targe
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        this.DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 
 }

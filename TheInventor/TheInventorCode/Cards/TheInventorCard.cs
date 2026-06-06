@@ -30,7 +30,15 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected virtual IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
 
-        protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [.. GetGadgetHoverTip(), ..ExtraInventorHoverTips];
+        protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [.. GetGadgetHoverTip() , .. GetHeldHoverTip(), ..ExtraInventorHoverTips];
+
+        private IEnumerable<IHoverTip> GetHeldHoverTip()
+        {
+            if (HasTurnEndInHandEffect)
+            {
+                yield return HoverTipFactory.Static(InventorStaticHoverTips.Held);
+            }
+        }
 
         protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {

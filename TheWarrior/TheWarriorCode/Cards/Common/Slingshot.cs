@@ -23,7 +23,7 @@ public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
        .WithHitFx(VfxCmd.slashPath)
        .Execute(choiceContext);
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, this.DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
@@ -42,8 +42,8 @@ public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        this.DynamicVars.Cards.UpgradeValueBy(1);
-        this.DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 
 }

@@ -48,6 +48,11 @@ public class Crack() : GadgetModel(nameof(Crack))
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
+        if (Parent?.Owner != player)
+        {
+            return Task.CompletedTask;
+        }
+
         IsReady = true;
         return Task.CompletedTask;
     }

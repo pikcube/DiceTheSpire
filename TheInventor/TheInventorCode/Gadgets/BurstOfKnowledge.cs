@@ -13,6 +13,11 @@ public class BurstOfKnowledge() : GadgetModel(nameof(BurstOfKnowledge))
 
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
+        if (Parent?.Owner != player)
+        {
+            return false;
+        }
+
         if (Parent?.Owner.RunState.CurrentRoom == null)
         {
             return false;
