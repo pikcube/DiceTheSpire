@@ -12,6 +12,8 @@ namespace TheWarrior.TheWarriorCode.Cards.Basic;
 [UsedImplicitly]
 public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
+    public override bool GainsBlock => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars
     {
         get
