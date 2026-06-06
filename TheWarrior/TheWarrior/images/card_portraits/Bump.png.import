@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0rq0s1nev88q"
-path="res://.godot/imported/Polar_Star.png-84b56a8b22367efa94bfda7a0218ea54.ctex"
+uid="uid://dybom4vl2x3r3"
+path="res://.godot/imported/Bump.png-b995897b4d1ae20774f527f6ca96843d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Polar_Star.png"
-dest_files=["res://.godot/imported/Polar_Star.png-84b56a8b22367efa94bfda7a0218ea54.ctex"]
+source_file="res://TheWarrior/images/card_portraits/Bump.png"
+dest_files=["res://.godot/imported/Bump.png-b995897b4d1ae20774f527f6ca96843d.ctex"]
 
 [params]
 
