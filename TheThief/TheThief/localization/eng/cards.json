@@ -53,8 +53,8 @@
   "THETHIEF-UNLUCKY_ROLL.title": "Unlucky Roll",
   "THETHIEF-LOCK.description": "Add a random 1-cost card to your [gold]Hand[/gold]. {IfUpgraded:show:\n Gain {Energy:energyIcons()}|}",
   "THETHIEF-LOCK.title": "Lock",
-  "THETHIEF-OVERWHELM.description": "When you play an attack, gain {TemporaryStrengthPower:diff()} [gold]Strength[/gold] this turn.",
+  "THETHIEF-OVERWHELM.description": "When you play an attack, gain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "THETHIEF-OVERWHELM.title": "Overwhelm",
-  "THETHIEF-SECRET_WEAPON.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n When you gain a temporary buff, {SecretWeaponPower:diff()} stack is permanent.",
+  "THETHIEF-SECRET_WEAPON.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n When you would lose a temporary buff, keep {SecretWeaponPower:diff()} of it.",
   "THETHIEF-SECRET_WEAPON.title": "Secret Weapon"
 }

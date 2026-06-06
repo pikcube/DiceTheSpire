@@ -2,40 +2,25 @@
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Utility;
 
 namespace TheThief.TheThiefCode.Powers;
 
-public class SecretWeaponPower : TheThiefPower
+public class SecretWeaponPower : TheThiefPower, IAfterPowerRemovedListener
 {
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    private decimal _amountToApply;
-
-    public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier,
-        out decimal modifiedAmount)
+    public async Task AfterPowerRemovedAsync(PowerModel powerModel, Creature? oldOwner)
     {
-        if (target != Owner || canonicalPower.Type != PowerType.Buff || canonicalPower is not ITemporaryPower)
-        {
-            modifiedAmount = amount;
-            return false;
-        }
-
-        modifiedAmount = Math.Max(amount - this.Amount, 0);
-        _amountToApply = Math.Min(Amount, amount);
-        return true;
-    }
-
-    public override async Task AfterModifyingPowerAmountReceived(PowerModel power)
-    {
-        if (power is not ITemporaryPower tempPower)
+        if (oldOwner != Owner || powerModel.Type != PowerType.Buff ||
+            powerModel is not ITemporaryPower tempPower)
         {
             return;
         }
-        await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), tempPower.InternallyAppliedPower, Owner, _amountToApply, power.Applier, null, true);
-    }
+        await PowerCmd.Apply(new ThrowingPlayerChoiceContext(), tempPower.InternallyAppliedPower, Owner, Math.Min(Amount, powerModel.Amount), Owner, null);
 
+    }
 }

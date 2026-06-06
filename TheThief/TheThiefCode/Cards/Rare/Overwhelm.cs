@@ -9,7 +9,7 @@ namespace TheThief.TheThiefCode.Cards.Rare;
 
 public class Overwhelm() : TheThiefCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<TemporaryStrengthPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -17,7 +17,7 @@ public class Overwhelm() : TheThiefCard(2, CardType.Power, CardRarity.Rare, Targ
         {
             return;
         }
-        await PowerCmd.Apply<OverwhelmPower>(choiceContext, Owner.Creature, DynamicVars["TemporaryStrengthPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<OverwhelmPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
