@@ -181,19 +181,21 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         
         DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
         {
-            PowerVar<PoisonPower> => 9,
-            PowerVar<VulnerablePower> => 10,
-            PowerVar<WeakPower> => 20,
-            EnergyVar => 30,
-            CardsVar => 40,
-            DamageVar or CalculatedDamageVar => 50,
-            BlockVar or CalculatedBlockVar => 60,
+            PowerVar<PoisonPower> => 10,
+            PowerVar<VigorPower> => 20,
+            PowerVar<VulnerablePower> => 30,
+            PowerVar<WeakPower> => 40,
+            EnergyVar => 50,
+            CardsVar => 60,
+            DamageVar or CalculatedDamageVar => 70,
+            BlockVar or CalculatedBlockVar => 80,
             _ => 100,
         }).FirstOrDefault();
 
         return bestVar switch
         {
             PowerVar<PoisonPower> => nameof(PoisonArrow),
+            PowerVar<VigorPower> => nameof(PowerUp),
             PowerVar<VulnerablePower> => nameof(ShortCircuit),
             PowerVar<WeakPower> => nameof(Burrower),
             EnergyVar => nameof(MagicDice),

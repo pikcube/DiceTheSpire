@@ -30,7 +30,7 @@ namespace TheInventor.TheInventorCode.Character
             DefendInventor.Create(),
             DefendInventor.Create(),
             Spanner.Create(),
-            Buzzer.Create()
+            Capacitor.Create()
         ];
 
         public override IReadOnlyList<RelicModel> StartingRelics => HideGadget

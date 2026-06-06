@@ -8,7 +8,7 @@ using Pikcube.Common.Extensions;
 namespace TheInventor.TheInventorCode.Powers;
 
 
-public class DoubleEdgePower : TheInventorPower
+public class ResonancePower : TheInventorPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;

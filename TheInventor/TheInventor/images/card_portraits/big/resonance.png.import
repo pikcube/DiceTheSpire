@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi3tbrcfosj5u"
-path="res://.godot/imported/polar_star.png-1395f1d21a367b639d271e09fb711342.ctex"
+uid="uid://bkgl2gmstw8b2"
+path="res://.godot/imported/resonance.png-65d9ef56287a4152b92a35676a997f79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/polar_star.png"
-dest_files=["res://.godot/imported/polar_star.png-1395f1d21a367b639d271e09fb711342.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/resonance.png"
+dest_files=["res://.godot/imported/resonance.png-65d9ef56287a4152b92a35676a997f79.ctex"]
 
 [params]
 

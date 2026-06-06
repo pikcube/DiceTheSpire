@@ -4,13 +4,16 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
+using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
 
-public class Whip() : TheInventorCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class DoubleEdge() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
+    public override string GetScrapId => nameof(PowerUp);
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, DamageProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -18,19 +21,22 @@ public class Whip() : TheInventorCard(2, CardType.Attack, CardRarity.Common, Tar
         {
             return;
         }
-        
-        await base.OnPlay(choiceContext, cardPlay);
+
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this)
+            .Targeting(Owner.Creature)
+            .WithHitFx(VfxCmd.slashPath)
+            .Execute(choiceContext);
+
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
             .TargetingAllOpponents(CombatState)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-
-        if (IsUpgraded)
-        {
-            await CardPileCmd.Draw(choiceContext, Owner);
-        }
     }
 
-    public override string GetScrapId => nameof(Crack);
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(6);
+    }
 }

@@ -81,8 +81,6 @@
   "THEINVENTOR-WHISPER.title": "Whisper",
   "THEINVENTOR-BEFUDDLE.description": "Exchange your [gold]Discard[/gold] pile with your [gold]Draw[/gold] pile.",
   "THEINVENTOR-BEFUDDLE.title": "Befuddle",
-  "THEINVENTOR-DOUBLE_EDGE.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
-  "THEINVENTOR-DOUBLE_EDGE.title": "Double Edge",
   "THEINVENTOR-BIG_STICK.description": "Deal {Damage:diff()} damage.\nGain {ThornsPower:diff()} [gold]Thorns[/gold].",
   "THEINVENTOR-BIG_STICK.title": "Big Stick",
   "THEINVENTOR-SIX_SHOOTER.description": "Deal {Damage:diff()} damage {Hits:diff()} times.\nLose {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
@@ -110,5 +108,11 @@
   "THEINVENTOR-SAFETY_GOGGLES.description": "[gold]Negate[/gold] debuffs you apply to yourself {IfUpgraded:show:for 2 turns|this turn}.",
   "THEINVENTOR-SAFETY_GOGGLES.title": "Safety Goggles",
   "THEINVENTOR-SCORPION.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\n[gold]Held[/gold]: Decrease this card's cost by 1.",
-  "THEINVENTOR-SCORPION.title": "Scorpion"
+  "THEINVENTOR-SCORPION.title": "Scorpion",
+  "THEINVENTOR-DOUBLE_EDGE.description": "Deal {Damage:diff()} damage to yourself and ALL enemies.",
+  "THEINVENTOR-DOUBLE_EDGE.title": "Double Edge",
+  "THEINVENTOR-RESONANCE.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
+  "THEINVENTOR-RESONANCE.title": "Resonance",
+  "THEINVENTOR-PUPPY_PAWS.description": "Next turn, gain {Energy:energyIcons()}.",
+  "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws"
 }
