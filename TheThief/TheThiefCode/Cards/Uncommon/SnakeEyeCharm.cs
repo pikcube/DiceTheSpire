@@ -7,9 +7,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using TheThief.TheThiefCode.Powers;
 
-namespace TheThief.TheThiefCode.Cards.Rare;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
-public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, TargetType.Self), ICountdown
+public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -39,8 +39,7 @@ public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare,
             }
         }
     }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new PowerVar<SnakeEyesPower>(2M), new EnergyVar(1)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new EnergyVar(2)];
 
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -48,7 +47,8 @@ public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare,
         {
             return;
         }
-        await PowerCmd.Apply<SnakeEyesPower>(choiceContext, Owner.Creature, DynamicVars["SnakeEyesPower"].BaseValue, Owner.Creature, this);
+
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

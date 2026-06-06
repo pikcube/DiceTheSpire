@@ -31,7 +31,7 @@
   "THETHIEF-BOUNCE.title": "Bounce",
   "THETHIEF-ROSEWOOD_SPEAR.description": "Deal {Damage:diff()} damage. \n Gain {ThornsPower:diff()} [gold]Thorns[/gold] this turn.",
   "THETHIEF-ROSEWOOD_SPEAR.title": "Rosewood Spear",
-  "THETHIEF-SNAKE_EYE_CHARM.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n The next {SnakeEyesPower:diff()} times you play a 1 cost card, gain {Energy:energyIcons()}",
+  "THETHIEF-SNAKE_EYE_CHARM.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Gain  {Energy:energyIcons()}",
   "THETHIEF-SNAKE_EYE_CHARM.title": "Snake Eye Charm",
   "THETHIEF-CROWBAR.description": "Reduce all [gold]Countdowns[/gold] in [gold]Hand[/gold] by {IfUpgraded:show:X+1|X}.",
   "THETHIEF-CROWBAR.title": "Crowbar",
