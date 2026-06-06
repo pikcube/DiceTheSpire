@@ -9,7 +9,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
 public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new IntVar("Recoil", 8), new RepeatVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12M, DamageProps.card), new IntVar("Recoil", 8), new RepeatVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

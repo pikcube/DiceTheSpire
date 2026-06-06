@@ -12,7 +12,8 @@ using MegaCrit.Sts2.Core.TestSupport;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare
 {
-    public class DiscoBall() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+
+public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
 
         private int _testEnergyCostOverride = -1;
@@ -53,7 +54,8 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
 
         protected override void OnUpgrade()
         {
-            RemoveKeyword(CardKeyword.Exhaust);
+            //RemoveKeyword(CardKeyword.Exhaust);
+            DynamicVars.Cards.UpgradeValueBy(2);
         }
     }
 }

@@ -8,9 +8,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
-public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Slingshot() : TheWarriorCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(5M, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(5M, DamageProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -43,7 +43,7 @@ public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
     {
         base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(1);
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 
 }

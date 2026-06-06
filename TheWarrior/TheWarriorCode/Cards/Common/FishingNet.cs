@@ -16,9 +16,9 @@ public class FishingNet() : TheWarriorCard(2, CardType.Skill, CardRarity.Common,
 {
     public override bool GainsBlock => true;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
+    //protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, BlockProps.card), new CardsVar(2), new PowerVar<WeakPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, BlockProps.card), new CardsVar(1), new PowerVar<WeakPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -30,26 +30,26 @@ public class FishingNet() : TheWarriorCard(2, CardType.Skill, CardRarity.Common,
         await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, DynamicVars.Weak.IntValue,
             Owner.Creature, cardPlay.Card);
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);
-        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-        foreach (CardModel card in cards)
-        {
-            await CardCmd.Discard(choiceContext, card);
-        }
+        //CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);
+        //CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        //foreach (CardModel card in cards)
+        //{
+        //    await CardCmd.Discard(choiceContext, card);
+        //}
 
-        if (cards.Length == 0)
-        {
-            return;
-        }
+        //if (cards.Length == 0)
+        //{
+        //    return;
+        //}
 
-        await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(3);
-        DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Weak.UpgradeValueBy(1);
 
     }
 
