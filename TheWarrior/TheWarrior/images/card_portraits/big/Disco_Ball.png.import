@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dur7n51ocmu22"
-path="res://.godot/imported/Disco_Ball.png-24332c4298902978e3b20ec1944d4061.ctex"
+uid="uid://wwwp81kpgwot"
+path="res://.godot/imported/disco_ball.png-cdcdabf9548785bfd9ea1c9de0db3977.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Disco_Ball.png"
-dest_files=["res://.godot/imported/Disco_Ball.png-24332c4298902978e3b20ec1944d4061.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/disco_ball.png"
+dest_files=["res://.godot/imported/disco_ball.png-cdcdabf9548785bfd9ea1c9de0db3977.ctex"]
 
 [params]
 

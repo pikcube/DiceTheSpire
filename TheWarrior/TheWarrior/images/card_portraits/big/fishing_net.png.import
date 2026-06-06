@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj57naugvaock"
-path="res://.godot/imported/Fishing Net.png-f52596daa5b99f3a106d7798e43c9360.ctex"
+uid="uid://cvuhtk3mxuvvo"
+path="res://.godot/imported/fishing_net.png-6a3acb9190a7c63178a87af323d95ef4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Fishing Net.png"
-dest_files=["res://.godot/imported/Fishing Net.png-f52596daa5b99f3a106d7798e43c9360.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/fishing_net.png"
+dest_files=["res://.godot/imported/fishing_net.png-6a3acb9190a7c63178a87af323d95ef4.ctex"]
 
 [params]
 

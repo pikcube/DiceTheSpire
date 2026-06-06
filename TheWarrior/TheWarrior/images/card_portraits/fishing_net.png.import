@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwpewtw588avj"
-path="res://.godot/imported/Boxing Gloves.png-a905d24e65e176f1e63321c2109d362e.ctex"
+uid="uid://c5yc27ac6egwn"
+path="res://.godot/imported/fishing_net.png-6ebe85ce75934d8d584952f954cc107a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Boxing Gloves.png"
-dest_files=["res://.godot/imported/Boxing Gloves.png-a905d24e65e176f1e63321c2109d362e.ctex"]
+source_file="res://TheWarrior/images/card_portraits/fishing_net.png"
+dest_files=["res://.godot/imported/fishing_net.png-6ebe85ce75934d8d584952f954cc107a.ctex"]
 
 [params]
 

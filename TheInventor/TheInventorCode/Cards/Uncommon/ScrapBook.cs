@@ -8,10 +8,10 @@ using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Keywords;
 
-namespace TheInventor.TheInventorCode.Cards.Common;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Common, TargetType.Self), IOnBlinkListener
+public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IOnBlinkListener
 {
     public override string GetScrapId => nameof(MagicDice);
 

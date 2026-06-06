@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi3tbrcfosj5u"
-path="res://.godot/imported/polar_star.png-1395f1d21a367b639d271e09fb711342.ctex"
+uid="uid://bjpfg78jrbey6"
+path="res://.godot/imported/defend_warrior.png-780b1f247bcf2f2c99fdd4906c56682b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/polar_star.png"
-dest_files=["res://.godot/imported/polar_star.png-1395f1d21a367b639d271e09fb711342.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/defend_warrior.png"
+dest_files=["res://.godot/imported/defend_warrior.png-780b1f247bcf2f2c99fdd4906c56682b.ctex"]
 
 [params]
 
