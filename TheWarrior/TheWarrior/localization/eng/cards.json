@@ -14,5 +14,7 @@
   "THEWARRIOR-BUMP.description": "[gold]Bump[/gold] {Cards:diff()} {IfUpgraded:cards|card} in hand.",
   "THEWARRIOR-BUMP.title": "Bump",
   "THEWARRIOR-DISCO_BALL.description": "Draw {Cards:diff()} cards. Then [gold]Reroll[/gold] all cards in hand.",
-  "THEWARRIOR-DISCO_BALL.title": "Disco Ball"
+  "THEWARRIOR-DISCO_BALL.title": "Disco Ball",
+  "THEWARRIOR-BOXING_GLOVES.description": "Deal {Damage:diff()}. Then gain {Block:diff()} [gold]Block[/gold] for each energy spent on this card.",
+  "THEWARRIOR-BOXING_GLOVES.title": "Boxing Gloves"
 }
