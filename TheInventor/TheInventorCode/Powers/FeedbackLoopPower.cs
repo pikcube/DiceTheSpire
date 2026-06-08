@@ -12,7 +12,7 @@ public class FeedbackLoopPower : TheInventorPower, IOnBlinkListener
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    private int CardsBlinkedThisTurn { get; set; } = 0;
+    private int CardsBlinkedThisTurn { get; set; }
 
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
