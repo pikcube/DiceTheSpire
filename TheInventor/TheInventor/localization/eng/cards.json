@@ -73,7 +73,7 @@
   "THEINVENTOR-ELECTROMAGNET.title": "Electromagnet",
   "THEINVENTOR-ENCYCLOPEDIC_FORM.description": "Get a temporary [gold]Gadget[/gold].",
   "THEINVENTOR-ENCYCLOPEDIC_FORM.title": "Encyclopedic Form",
-  "THEINVENTOR-MOSQUITO_BITE.description": "Gain {DrainingPower:diff()} [gold]Draining[/gold].",
+  "THEINVENTOR-MOSQUITO_BITE.description": "Deal {Damage:diff()} damage.\nHeal {Heal:diff()} HP.",
   "THEINVENTOR-MOSQUITO_BITE.title": "Mosquito Bite",
   "THEINVENTOR-KNITTING_NEEDLE.description": "[gold]Held[/gold]: Gain {ThornsPower:diff()} [gold]Thorns[/gold].",
   "THEINVENTOR-KNITTING_NEEDLE.title": "Knitting Needle",
@@ -114,5 +114,7 @@
   "THEINVENTOR-RESONANCE.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
   "THEINVENTOR-RESONANCE.title": "Resonance",
   "THEINVENTOR-PUPPY_PAWS.description": "Next turn, gain {Energy:energyIcons()}.",
-  "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws"
+  "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws",
+  "THEINVENTOR-KEYBLADE.description": "Deal {Damage:diff()} damage.\nLook at the top {Cards:diff()} cards of your [gold]Draw Pile[/gold].\n[gold]Blink[/gold] any of them.",
+  "THEINVENTOR-KEYBLADE.title": "Keyblade"
 }

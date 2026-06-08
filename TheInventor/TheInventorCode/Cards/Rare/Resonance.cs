@@ -4,10 +4,10 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
 
-namespace TheInventor.TheInventorCode.Cards.Uncommon;
+namespace TheInventor.TheInventorCode.Cards.Rare;
 
 
-public class Resonance() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class Resonance() : TheInventorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     public override string GetScrapId => nameof(MagicDice);
 
