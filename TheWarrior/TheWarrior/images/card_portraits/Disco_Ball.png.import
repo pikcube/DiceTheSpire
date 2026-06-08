@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2odvnpxp47eo"
-path="res://.godot/imported/Disco_Ball.png-c3650f801ea0f43ea3cf159e45a533bc.ctex"
+path="res://.godot/imported/disco_ball.png-61723d1450b43e809a86dc305a03e6d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/Disco_Ball.png"
-dest_files=["res://.godot/imported/Disco_Ball.png-c3650f801ea0f43ea3cf159e45a533bc.ctex"]
+source_file="res://TheWarrior/images/card_portraits/disco_ball.png"
+dest_files=["res://.godot/imported/disco_ball.png-61723d1450b43e809a86dc305a03e6d0.ctex"]
 
 [params]
 

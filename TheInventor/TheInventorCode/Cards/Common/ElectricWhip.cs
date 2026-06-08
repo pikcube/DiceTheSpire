@@ -35,12 +35,12 @@ public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Com
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<ShockPower>(choiceContext, Owner.Creature, DynamicVars.Vulnerable.IntValue,
+        await PowerCmd.Apply<ShockPower>(choiceContext, Owner.Creature, DynamicVars.Power<ShockPower>().IntValue,
             Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Vulnerable.UpgradeValueBy(-1);
+        DynamicVars.Power<ShockPower>().UpgradeValueBy(-1);
     }
 }
