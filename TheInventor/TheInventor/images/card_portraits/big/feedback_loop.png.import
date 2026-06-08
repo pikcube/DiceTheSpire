@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfq1e7vk1ec3y"
-path="res://.godot/imported/Boomerang.png-3a9dc1a409bce951c8310780e093cc75.ctex"
+uid="uid://5rmuc7vcnroh"
+path="res://.godot/imported/feedback_loop.png-523f41750617b10984cb23202f4fa1fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Boomerang.png"
-dest_files=["res://.godot/imported/Boomerang.png-3a9dc1a409bce951c8310780e093cc75.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/feedback_loop.png"
+dest_files=["res://.godot/imported/feedback_loop.png-523f41750617b10984cb23202f4fa1fc.ctex"]
 
 [params]
 

@@ -22,5 +22,8 @@
   "DICETHESPIRECORE-TEMPORARY_THORNS_POWER.title": "Temporary Thorns",
   "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.description": "[gold]Negates[/gold] debuffs you apply to yourself this turn.",
   "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.smartDescription": "[gold]Negates[/gold] debuffs you apply to yourself {Amount:plural:this turn|for [blue]{Amount}[/blue] turns.}.",
-  "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.title": "Safety Goggles"
+  "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.title": "Safety Goggles",
+  "DICETHESPIRECORE-SHOCK_POWER.description": "{Amount:plural:A random card|{Amount} random cards} in your hand is [gold]Unplayable[/gold] this turn.",
+  "DICETHESPIRECORE-SHOCK_POWER.smartDescription": "{Amount:plural:A random card|{Amount} random cards} in your hand is [gold]Unplayable[/gold] this turn.",
+  "DICETHESPIRECORE-SHOCK_POWER.title": "Shock"
 }

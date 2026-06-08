@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cex7igpmmr4b5"
-path="res://.godot/imported/Slingshot.png-18e4940e300a6f71ffeb26dd6182e87a.ctex"
+uid="uid://bi3tbrcfosj5u"
+path="res://.godot/imported/polar_star.png-1395f1d21a367b639d271e09fb711342.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/Slingshot.png"
-dest_files=["res://.godot/imported/Slingshot.png-18e4940e300a6f71ffeb26dd6182e87a.ctex"]
+source_file="res://TheWarrior/images/card_portraits/polar_star.png"
+dest_files=["res://.godot/imported/polar_star.png-1395f1d21a367b639d271e09fb711342.ctex"]
 
 [params]
 

@@ -1,10 +1,10 @@
 ﻿using BaseLib.Extensions;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
@@ -28,7 +28,7 @@ public class Whisper() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, 
             return;
         }
 
-        await PowerCmd.Apply<WeakPower>(choiceContext, CombatState.Enemies, DynamicVars.Power<WeakPower>().IntValue, Owner.Creature, this);
+        await WeakPower.ApplyAsync(choiceContext, CombatState.Enemies, DynamicVars.Power<WeakPower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

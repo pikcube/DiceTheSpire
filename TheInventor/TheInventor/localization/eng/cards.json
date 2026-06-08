@@ -73,7 +73,7 @@
   "THEINVENTOR-ELECTROMAGNET.title": "Electromagnet",
   "THEINVENTOR-ENCYCLOPEDIC_FORM.description": "Get a temporary [gold]Gadget[/gold].",
   "THEINVENTOR-ENCYCLOPEDIC_FORM.title": "Encyclopedic Form",
-  "THEINVENTOR-MOSQUITO_BITE.description": "Gain {DrainingPower:diff()} [gold]Draining[/gold].",
+  "THEINVENTOR-MOSQUITO_BITE.description": "Deal {Damage:diff()} damage.\nHeal {Heal:diff()} HP.",
   "THEINVENTOR-MOSQUITO_BITE.title": "Mosquito Bite",
   "THEINVENTOR-KNITTING_NEEDLE.description": "[gold]Held[/gold]: Gain {ThornsPower:diff()} [gold]Thorns[/gold].",
   "THEINVENTOR-KNITTING_NEEDLE.title": "Knitting Needle",
@@ -97,7 +97,7 @@
   "THEINVENTOR-SNOWFLAKE.title": "Snowflake",
   "THEINVENTOR-SPARK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to all enemies.",
   "THEINVENTOR-SPARK.title": "Spark",
-  "THEINVENTOR-ELECTRIC_WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.\nGain {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "THEINVENTOR-ELECTRIC_WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.\n[gold]Shock[/gold] {ShockPower:diff()} cards.",
   "THEINVENTOR-ELECTRIC_WHIP.title": "Electric Whip",
   "THEINVENTOR-REMOTE_CONTROL.description": "Deal {Damage:diff()} damage.\nRandomize your [gold]Gadget[/gold].",
   "THEINVENTOR-REMOTE_CONTROL.title": "Remote Control",
@@ -114,5 +114,9 @@
   "THEINVENTOR-RESONANCE.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
   "THEINVENTOR-RESONANCE.title": "Resonance",
   "THEINVENTOR-PUPPY_PAWS.description": "Next turn, gain {Energy:energyIcons()}.",
-  "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws"
+  "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws",
+  "THEINVENTOR-KEYBLADE.description": "Deal {Damage:diff()} damage.\nLook at the top {Cards:diff()} cards of your [gold]Draw Pile[/gold].\n[gold]Blink[/gold] any of them.",
+  "THEINVENTOR-KEYBLADE.title": "Keyblade",
+  "THEINVENTOR-FEEDBACK_LOOP.description": "The first {Cards:plural:time|{Amount} times} you [gold]Blink[/gold] a card each turn, draw a card.",
+  "THEINVENTOR-FEEDBACK_LOOP.title": "Feedback Loop"
 }

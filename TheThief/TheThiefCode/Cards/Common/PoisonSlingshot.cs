@@ -4,10 +4,11 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 
-namespace TheThief.TheThiefCode.Cards.Uncommon;
+namespace TheThief.TheThiefCode.Cards.Common;
 
-public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICountdown
+public class PoisonSlingshot() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {
@@ -18,7 +19,7 @@ public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncom
             field = value;
             CurrentCount += changeBy;
         }
-    } = 3;
+    } = 2;
 
     public int CurrentCount
     {
@@ -37,16 +38,15 @@ public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncom
             }
         }
     }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new EnergyVar(2)];
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(6), new IntVar(nameof(CurrentCount), 2)];
 
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState is null)
-        {
-            return;
-        }
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
+        await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue, Owner.Creature,
+            this);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -56,6 +56,6 @@ public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncom
 
     protected override void OnUpgrade()
     {
-        this.UpgradeCountdown(-1);
+        DynamicVars.Poison.UpgradeValueBy(2);
     }
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceofgkt7ndeqk"
-path="res://.godot/imported/Slingshot.png-8f859a2edbe947356d60cf769185de78.ctex"
+uid="uid://fagtsprdlduc"
+path="res://.godot/imported/poison_slingshot.png-6579b829ac4dad5c6c4018429f746f2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Slingshot.png"
-dest_files=["res://.godot/imported/Slingshot.png-8f859a2edbe947356d60cf769185de78.ctex"]
+source_file="res://TheThief/images/card_portraits/big/poison_slingshot.png"
+dest_files=["res://.godot/imported/poison_slingshot.png-6579b829ac4dad5c6c4018429f746f2b.ctex"]
 
 [params]
 

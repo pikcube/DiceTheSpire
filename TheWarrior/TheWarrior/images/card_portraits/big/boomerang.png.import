@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crfkepaxn0ilj"
-path="res://.godot/imported/Polar_Star.png-84b56a8b22367efa94bfda7a0218ea54.ctex"
+uid="uid://bfq1e7vk1ec3y"
+path="res://.godot/imported/boomerang.png-6212026175d8778394730d018de5b68c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Polar_Star.png"
-dest_files=["res://.godot/imported/Polar_Star.png-84b56a8b22367efa94bfda7a0218ea54.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/boomerang.png"
+dest_files=["res://.godot/imported/boomerang.png-6212026175d8778394730d018de5b68c.ctex"]
 
 [params]
 

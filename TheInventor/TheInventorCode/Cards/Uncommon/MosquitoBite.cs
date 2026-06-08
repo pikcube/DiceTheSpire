@@ -4,17 +4,17 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
-namespace TheInventor.TheInventorCode.Cards.Common;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+
+public class MosquitoBite() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card), new HealVar(2)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
+    public override bool CanBeGeneratedInCombat => false;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card)];
+    public override string GetScrapId => nameof(BloodSip);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -25,13 +25,13 @@ public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Comm
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
+
+        await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.IntValue);
     }
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(1);
+        DynamicVars.Heal.UpgradeValueBy(1);
     }
-
-    public override string GetScrapId => nameof(Bonk);
 }

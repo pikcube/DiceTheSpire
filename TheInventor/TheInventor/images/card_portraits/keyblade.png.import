@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2odvnpxp47eo"
-path="res://.godot/imported/Disco_Ball.png-c3650f801ea0f43ea3cf159e45a533bc.ctex"
+uid="uid://vhfyqjw1sckw"
+path="res://.godot/imported/keyblade.png-cf3ac85dabb4d0b3dfaff9d924f586b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/Disco_Ball.png"
-dest_files=["res://.godot/imported/Disco_Ball.png-c3650f801ea0f43ea3cf159e45a533bc.ctex"]
+source_file="res://TheInventor/images/card_portraits/keyblade.png"
+dest_files=["res://.godot/imported/keyblade.png-cf3ac85dabb4d0b3dfaff9d924f586b0.ctex"]
 
 [params]
 

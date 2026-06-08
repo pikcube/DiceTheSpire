@@ -1,0 +1,87 @@
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using Pikcube.Common.Extensions;
+using Pikcube.Common.Utility;
+
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+
+public class ShockPower : DiceTheSpireCorePower
+{
+    public override PowerType Type => PowerType.Debuff;
+
+    public override PowerStackType StackType => PowerStackType.Counter;
+
+    private int StacksToResolve { get; set; }
+
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount,
+        Creature? applier,
+        CardModel? cardSource)
+    {
+        if (power != this)
+        {
+            return;
+        }
+
+        if (Owner.Player is null)
+        {
+            await VulnerablePower.ApplyAsync(choiceContext, Owner, amount, applier, cardSource, true);
+            await PowerCmd.Remove(this);
+            return;
+        }
+
+        if (CombatState.CurrentSide != CombatSide.Player)
+        {
+            StacksToResolve += (int)amount;
+            return;
+        }
+
+        await ShockAsync(choiceContext, amount);
+    }
+
+    private async Task ShockAsync(PlayerChoiceContext choiceContext, decimal amount)
+    {
+        if (Owner.Player is null)
+        {
+            await VulnerablePower.ApplyAsync(choiceContext, Owner, amount, Applier, null, true);
+            await PowerCmd.Remove(this);
+            return;
+        }
+
+        IEnumerable<CardModel> cards = PileType.Hand.GetPile(Owner.Player).Cards
+            .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
+            .TakeRandom((int)amount, CombatState.RunState.Rng.CombatCardSelection);
+
+        foreach (CardModel card in cards)
+        {
+            card.AddTempKeyword(CardKeyword.Unplayable, this);
+        }
+    }
+
+    public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player.Creature != Owner)
+        {
+            return;
+        }
+        await ShockAsync(choiceContext, StacksToResolve);
+        StacksToResolve = 0;
+    }
+
+    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (side == CombatSide.Player)
+        {
+            await PowerCmd.Remove(this);
+            TempKeywordManager.DestroyKeywordsEarly(this);
+        }
+    }
+}
