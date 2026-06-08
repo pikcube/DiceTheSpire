@@ -19,7 +19,7 @@ public class ShockPower : DiceTheSpireCorePower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    private int StacksToResolve { get; set; } = 0;
+    private int StacksToResolve { get; set; }
 
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount,
         Creature? applier,

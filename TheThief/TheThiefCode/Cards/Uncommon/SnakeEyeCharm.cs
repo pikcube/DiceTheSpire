@@ -1,11 +1,9 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using TheThief.TheThiefCode.Powers;
 
 namespace TheThief.TheThiefCode.Cards.Uncommon;
 

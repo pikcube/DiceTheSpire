@@ -3,10 +3,9 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Basic;
+namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 
 [UsedImplicitly]
@@ -14,13 +13,7 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
 {
     public override bool GainsBlock => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars
-    {
-        get
-        {
-            return [new DamageVar(4M, DamageProps.card), new BlockVar((5), BlockProps.card)];
-        }
-    }
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.card), new BlockVar(5, BlockProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
