@@ -97,7 +97,7 @@
   "THEINVENTOR-SNOWFLAKE.title": "Snowflake",
   "THEINVENTOR-SPARK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to all enemies.",
   "THEINVENTOR-SPARK.title": "Spark",
-  "THEINVENTOR-ELECTRIC_WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.\nGain {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "THEINVENTOR-ELECTRIC_WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.\n[gold]Shock[/gold] {ShockPower:diff()} cards.",
   "THEINVENTOR-ELECTRIC_WHIP.title": "Electric Whip",
   "THEINVENTOR-REMOTE_CONTROL.description": "Deal {Damage:diff()} damage.\nRandomize your [gold]Gadget[/gold].",
   "THEINVENTOR-REMOTE_CONTROL.title": "Remote Control",

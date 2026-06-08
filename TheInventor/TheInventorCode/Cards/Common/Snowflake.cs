@@ -17,7 +17,7 @@ public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BlockNextTurnPower>(7)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<BlockNextTurnPower>()];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<BlockNextTurnPower>(DynamicVars.Block.IntValue)];
 
     public override bool HasTurnEndInHandEffect => true;
 
