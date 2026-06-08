@@ -1,0 +1,10 @@
+﻿using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using TheThief.TheThiefCode.Cards.Rare;
+
+namespace TheThief.TheThiefCode.Powers;
+
+public class OverwhelmStrengthPower : TemporaryStrengthPower
+{
+    public override AbstractModel OriginModel => ModelDb.Card<Overwhelm>();
+}

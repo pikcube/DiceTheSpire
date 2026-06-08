@@ -14,11 +14,9 @@ public class OverwhelmPower : TheThiefPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.Type != CardType.Attack)
+        if (cardPlay.Card.Owner == Owner.Player && cardPlay.Card.Type == CardType.Attack)
         {
-            return;
+            await PowerCmd.Apply<OverwhelmStrengthPower>(choiceContext, Owner, Amount, cardPlay.Card.Owner.Creature, cardPlay.Card);
         }
-
-        await PowerCmd.Apply<TemporaryStrengthPower>(choiceContext, Owner, Amount, cardPlay.Card.Owner.Creature, cardPlay.Card);
     }
 }
