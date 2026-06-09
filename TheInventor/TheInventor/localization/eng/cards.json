@@ -117,6 +117,6 @@
   "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws",
   "THEINVENTOR-KEYBLADE.description": "Deal {Damage:diff()} damage.\nLook at the top {Cards:diff()} cards of your [gold]Draw Pile[/gold].\n[gold]Blink[/gold] any of them.",
   "THEINVENTOR-KEYBLADE.title": "Keyblade",
-  "THEINVENTOR-FEEDBACK_LOOP.description": "The first {Cards:plural:time|{Amount} times} you [gold]Blink[/gold] a card each turn, draw a card.",
+  "THEINVENTOR-FEEDBACK_LOOP.description": "The first {Cards:plural:time|{Cards:diff()} times} you [gold]Blink[/gold] a card each turn, draw a card.",
   "THEINVENTOR-FEEDBACK_LOOP.title": "Feedback Loop"
 }

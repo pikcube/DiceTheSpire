@@ -26,13 +26,4 @@ public class ReducePower : DiceTheSpireCorePower
         Flash();
         return Task.CompletedTask;
     }
-
-    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
-        ICombatState combatState)
-    {
-        if (Owner.Side == side)
-        {
-            await PowerCmd.Remove(this);
-        }
-    }
 }

@@ -17,15 +17,15 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(4, Bonus, 3)];
 
+    private static decimal Bonus(CardModel arg1, Creature? arg2)
+    {
+        return arg1 is not Electromagnet e ? 1 : e.BlinkedThisCombat;
+    }   
+
     public override Task BeforeCombatStart()
     {
         BlinkedThisCombat = 0;
         return Task.CompletedTask;
-    }
-
-    private static decimal Bonus(CardModel arg1, Creature? arg2)
-    {
-        return arg1 is not Electromagnet e ? 1 : e.BlinkedThisCombat;
     }
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];

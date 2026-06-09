@@ -12,11 +12,11 @@ public class MagicDice() : GadgetModel(nameof(MagicDice))
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
-    public override decimal ModifyEnergyGain(Player player, decimal amount)
+    public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player == Parent?.Owner)
         {
-            return amount + DynamicVars.Energy.IntValue;
+            return amount + DynamicVars.Energy.EnchantedValue;
         }
 
         return amount;

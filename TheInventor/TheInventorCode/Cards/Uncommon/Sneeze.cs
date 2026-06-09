@@ -19,7 +19,7 @@ public class Sneeze() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<SneezePower>(choiceContext, Owner.Creature, DynamicVars.Block.IntValue, Owner.Creature, this);
+        await PowerCmd.Apply<SneezePower>(choiceContext, Owner.Creature, DynamicVars.Block.EnchantedValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
