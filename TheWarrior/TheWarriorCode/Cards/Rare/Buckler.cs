@@ -4,9 +4,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+namespace TheWarrior.TheWarriorCode.Cards.Rare
 {
-    public class Buckler() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public class Buckler() : TheWarriorCard(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
         public override bool GainsBlock => true;
 

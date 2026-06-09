@@ -20,5 +20,7 @@
   "THEWARRIOR-FISHING_NET.description": "Gain {Block:diff()} [gold]Block[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold].\nDraw {Cards:diff()} card.",
   "THEWARRIOR-FISHING_NET.title": "Fishing Net",
   "THEWARRIOR-BUCKLER.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "THEWARRIOR-BUCKLER.title": "Buckler"
+  "THEWARRIOR-BUCKLER.title": "Buckler",
+  "THEWARRIOR-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:\nGain 1 [gold]Dexterity[/gold].|}",
+  "THEWARRIOR-TARGET_SHIELD.title": "Target Shield"
 }     
