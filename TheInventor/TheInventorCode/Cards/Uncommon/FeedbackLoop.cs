@@ -20,6 +20,6 @@ public class FeedbackLoop() : TheInventorCard(2, CardType.Power, CardRarity.Unco
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(2);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

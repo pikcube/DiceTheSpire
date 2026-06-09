@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqhl0coqxs1o3"
-path="res://.godot/imported/Target Shield.png-e99b542c98ef658ad57fb9199f7c147a.ctex"
+uid="uid://cieca02a65u2l"
+path="res://.godot/imported/target_shield.png-cffc10e0916ed06ea0d72e3fc232db78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/Target Shield.png"
-dest_files=["res://.godot/imported/Target Shield.png-e99b542c98ef658ad57fb9199f7c147a.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/target_shield.png"
+dest_files=["res://.godot/imported/target_shield.png-cffc10e0916ed06ea0d72e3fc232db78.ctex"]
 
 [params]
 

@@ -7,10 +7,10 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Common;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class LeatherArmor() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class LeatherArmor() : TheInventorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         //new BlockVar(4, BlockProps.card), 

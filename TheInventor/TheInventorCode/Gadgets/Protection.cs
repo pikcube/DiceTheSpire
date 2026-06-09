@@ -18,10 +18,13 @@ public class Protection() : GadgetModel(nameof(Protection))
         }
 
         await PowerCmd.Apply<ReducePower>(choiceContext, player.Creature, 2, player.Creature, null);
+        BreakMe();
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
         return AfterPlayerTurnStart(choiceContext, player);
     }
+
+    public override bool IsAllowedAsTempGadget => false;
 }

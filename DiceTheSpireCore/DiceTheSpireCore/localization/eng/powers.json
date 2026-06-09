@@ -11,8 +11,8 @@
   "DICETHESPIRECORE-ELASTIC_HEART_POWER.description": "At the end of your turn, gain [gold]Block[/gold] for each [gold]Unplayable[/gold] card in [gold]Hand[/gold].",
   "DICETHESPIRECORE-ELASTIC_HEART_POWER.smartDescription": "At the end of your turn, gain {Amount} [gold]Block[/gold] for each [gold]Unplayable[/gold] card in [gold]Hand[/gold].",
   "DICETHESPIRECORE-ELASTIC_HEART_POWER.title": "Elastic Heart",
-  "DICETHESPIRECORE-REDUCE_POWER.description": "Whenever you would take damage this turn, take [blue]1[/blue] less per Reduce.",
-  "DICETHESPIRECORE-REDUCE_POWER.smartDescription": "Whenever you would take damage this turn, take {Amount} less.",
+  "DICETHESPIRECORE-REDUCE_POWER.description": "Whenever you would take damage, take [blue]1[/blue] less per Reduce.",
+  "DICETHESPIRECORE-REDUCE_POWER.smartDescription": "Whenever you would take damage, take {Amount} less.",
   "DICETHESPIRECORE-REDUCE_POWER.title": "Reduce",
   "DICETHESPIRECORE-DRAINING_POWER.description": "At the end of your turn, deal damage to all enemies. [gold]Heal[/gold] for the total unblocked damage.",
   "DICETHESPIRECORE-DRAINING_POWER.smartDescription": "At the end of your turn, deal {Amount} damage to all enemies. [gold]Heal[/gold] for the total unblocked damage.",
@@ -23,9 +23,9 @@
   "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.description": "[gold]Negates[/gold] debuffs you apply to yourself this turn.",
   "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.smartDescription": "[gold]Negates[/gold] debuffs you apply to yourself {Amount:plural:this turn|for [blue]{Amount}[/blue] turns.}.",
   "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.title": "Safety Goggles",
-  "DICETHESPIRECORE-SHOCK_POWER.description": "{Amount:plural:A random card|{Amount} random cards} in your hand is [gold]Unplayable[/gold] this turn.",
-  "DICETHESPIRECORE-SHOCK_POWER.smartDescription": "{Amount:plural:A random card|{Amount} random cards} in your hand is [gold]Unplayable[/gold] this turn.",
-  "DICETHESPIRECORE-SHOCK_POWER.title": "Shock",
+  "DICETHESPIRECORE-SHOCK_POWER.description": "{Amount:plural:A random card|{Amount} random cards} in your hand {Amount:plural:is|are} [gold]Unplayable[/gold] this turn.",
+  "DICETHESPIRECORE-SHOCK_POWER.smartDescription": "{Amount:plural:A random card|{Amount} random cards} in your hand {Amount:plural:is|are} [gold]Unplayable[/gold] this turn.",
+  "DICETHESPIRECORE-SHOCK_POWER.title": "Shock"
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.description": "Gain {Amount} [gold]Dexterity[/gold] at the start of your turn.",
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Dexterity[/gold] at the start of your turn.",
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.title": "Target Shield"

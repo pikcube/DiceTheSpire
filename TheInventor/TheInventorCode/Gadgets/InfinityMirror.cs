@@ -9,7 +9,7 @@ public class InfinityMirror() : GadgetModel(nameof(InfinityMirror))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
-    public override decimal ModifyEnergyGain(Player player, decimal amount)
+    public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         if (player != Parent?.Owner || player.Creature.CombatState is null)
         {

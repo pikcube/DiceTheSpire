@@ -25,7 +25,7 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        int xValue = EnergyCost.Canonical;
+        int xValue = EnergyCost.GetAmountToSpend();
 
         for (int n = 0; n < xValue; ++n)
         {

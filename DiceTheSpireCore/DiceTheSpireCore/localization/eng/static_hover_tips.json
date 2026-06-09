@@ -4,5 +4,7 @@
   "DICETHESPIRECORE-RUMMAGE.description": "Discard a chosen number of cards.\nDraw that many.",
   "DICETHESPIRECORE-RUMMAGE.title": "Rummage",
   "DICETHESPIRECORE-REROLL.description": "Randomize the cost of a card between 0 and 3 this turn.\nSome exceptions apply",
-  "DICETHESPIRECORE-REROLL.title": "Reroll"
+  "DICETHESPIRECORE-REROLL.title": "Reroll",
+  "DICETHESPIRECORE-NUDGE.description": "Downgrade the card if possible, otherwise [gold]Exhaust[/gold] the card.",
+  "DICETHESPIRECORE-NUDGE.title": "Nudge"
 }

@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
@@ -26,6 +27,7 @@ public class Scissors() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, Ta
             {
                 await CardPileCmd.Draw(choiceContext, cost, Owner);
             }
+            await card.ExhaustAsync(choiceContext);
         }
     }
 
