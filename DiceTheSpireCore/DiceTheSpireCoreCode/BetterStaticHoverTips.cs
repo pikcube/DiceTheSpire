@@ -13,4 +13,6 @@ public static class BetterStaticHoverTips
 
     [CustomEnum]
     public static StaticHoverTip Reroll = 0;
+    [CustomEnum]
+    public static StaticHoverTip Nudge = 0;
 }

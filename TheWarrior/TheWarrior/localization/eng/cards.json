@@ -9,9 +9,9 @@
   "THEWARRIOR-SLINGSHOT.title": "Slingshot",
   "THEWARRIOR-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times. Then take {Recoil:diff()} damage.",
   "THEWARRIOR-BOOMERANG.title": "Boomerang",
-  "THEWARRIOR-POLAR_STAR.description": "Deal {Damage:diff()} damage {Repeat:diff()} times. Can only be used on {IfUpgraded:ODD|EVEN} turns",
+  "THEWARRIOR-POLAR_STAR.description": "Deal {Damage:diff()} damage {Repeat:diff()} times. Can only be used on {IfUpgraded:show:ODD|EVEN} turns",
   "THEWARRIOR-POLAR_STAR.title": "PolarStar",
-  "THEWARRIOR-BUMP.description": "[gold]Bump[/gold] {Cards:diff()} {IfUpgraded:cards|card} in hand.",
+  "THEWARRIOR-BUMP.description": "[gold]Bump[/gold] {Cards:diff()} {IfUpgraded:show:cards|card} in hand.",
   "THEWARRIOR-BUMP.title": "Bump",
   "THEWARRIOR-DISCO_BALL.description": "Draw {Cards:diff()} cards. Then [gold]Reroll[/gold] all cards in hand.",
   "THEWARRIOR-DISCO_BALL.title": "Disco Ball",
@@ -21,6 +21,8 @@
   "THEWARRIOR-FISHING_NET.title": "Fishing Net",
   "THEWARRIOR-BUCKLER.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "THEWARRIOR-BUCKLER.title": "Buckler",
-  "THEWARRIOR-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:\nGain 1 [gold]Dexterity[/gold].|}",
-  "THEWARRIOR-TARGET_SHIELD.title": "Target Shield"
+  "THEWARRIOR-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:show:\nGain 1 [gold]Dexterity[/gold].|}",
+  "THEWARRIOR-TARGET_SHIELD.title": "Target Shield",
+  "THEWARRIOR-NUDGE.description": "[gold]Nudge[/gold] {Cards:diff()} {IfUpgraded:show:cards|card} in hand.\nGain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].",
+  "THEWARRIOR-NUDGE.title": "Nudge"
 }     

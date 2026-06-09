@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qnxo4u2twki8"
-path="res://.godot/imported/Buckler.png-e36242328cc3c25f795b13eba420113b.ctex"
+path="res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/Buckler.png"
-dest_files=["res://.godot/imported/Buckler.png-e36242328cc3c25f795b13eba420113b.ctex"]
+source_file="res://TheWarrior/images/card_portraits/buckler.png"
+dest_files=["res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"]
 
 [params]
 
