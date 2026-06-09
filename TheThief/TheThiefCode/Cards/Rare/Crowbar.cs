@@ -29,7 +29,7 @@ namespace TheThief.TheThiefCode.Cards.Rare;
           {
               if (card is ICountdown countdown)
               { 
-                  countdown.DecrementCount(xvalue);
+                  await countdown.DecrementCountAsync(xvalue);
               }
           }
       }

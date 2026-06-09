@@ -17,7 +17,7 @@ public static class Countdown
             card.CurrentCount = card.MaxCount;
         }
 
-        public async Task DecrementCount(int decrementBy = 1)
+        public async Task DecrementCountAsync(int decrementBy = 1)
         {
             for (int i = decrementBy; (i > 0 && card.CurrentCount >  0); --i)
             {
@@ -43,7 +43,7 @@ public static class Countdown
                         0, card.CurrentCount), null, (AbstractModel)card)
             ];
             await CardCmd.Discard(choiceContext, cardsDiscarded);
-            await card.DecrementCount(cardsDiscarded.Length);
+            await card.DecrementCountAsync(cardsDiscarded.Length);
         }
 
         if (card.CurrentCount == 0)

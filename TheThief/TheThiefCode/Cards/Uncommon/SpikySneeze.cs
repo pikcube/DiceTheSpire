@@ -19,7 +19,7 @@ public class SpikySneeze() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommo
         CardModel? card = Owner.RunState.Rng.CombatCardSelection.NextItem(PileType.Hand.GetPile(Owner).Cards.Where(c => c is ICountdown));
         if (card is ICountdown countdownCard)
         {
-            await countdownCard.DecrementCount(2);
+            await countdownCard.DecrementCountAsync(2);
         }
 
     }
