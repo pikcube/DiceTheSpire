@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qnxo4u2twki8"
-path="res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"
+uid="uid://8h4a3goai538"
+path="res://.godot/imported/crystal_sword.png-7d6e04446b804851aac874b563f4fcc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/buckler.png"
-dest_files=["res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"]
+source_file="res://TheWarrior/images/card_portraits/crystal_sword.png"
+dest_files=["res://.godot/imported/crystal_sword.png-7d6e04446b804851aac874b563f4fcc4.ctex"]
 
 [params]
 

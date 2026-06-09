@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qnxo4u2twki8"
-path="res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"
+uid="uid://bx5yw436vjuy0"
+path="res://.godot/imported/spiked_shield.png-a50e383b04394f1f68bb1e711e88aa33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/buckler.png"
-dest_files=["res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/spiked_shield.png"
+dest_files=["res://.godot/imported/spiked_shield.png-a50e383b04394f1f68bb1e711e88aa33.ctex"]
 
 [params]
 
