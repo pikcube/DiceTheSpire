@@ -60,5 +60,7 @@
   "THETHIEF-POISON_SLINGSHOT.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Apply {PoisonPower:diff()} [gold]Poison[/gold].",
   "THETHIEF-POISON_SLINGSHOT.title": "Poison Slingshot",
   "THETHIEF-WRECKING_BALL.description": "Whenever a card [gold]Counts Down[/gold], deal {Damage:diff()} damage to all enemies.",
-  "THETHIEF-WRECKING_BALL.title": "Wrecking Ball"
+  "THETHIEF-WRECKING_BALL.title": "Wrecking Ball",
+  "THETHIEF-SPIKY_SNEEZE.description": "Deal {Damage:diff()} damage. Reduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] by {CountdownVar:diff()}.",
+  "THETHIEF-SPIKY_SNEEZE.title": "Spiky Sneeze"
 }
