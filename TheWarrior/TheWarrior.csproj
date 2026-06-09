@@ -80,7 +80,7 @@
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.2.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
-        <PackageReference Include="Pikcube.Common" Version="0.2.4" />
+        <PackageReference Include="Pikcube.Common" Version="0.2.6" />
         <AdditionalFiles Include="TheWarrior/localization/**/*.json" />
     </ItemGroup>
 

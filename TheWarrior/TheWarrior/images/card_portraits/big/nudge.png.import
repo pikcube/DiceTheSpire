@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qnxo4u2twki8"
-path="res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"
+uid="uid://d2qv01yw5h6by"
+path="res://.godot/imported/nudge.png-3f8fa6be1723d38c9938d6e2094b2b2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/buckler.png"
-dest_files=["res://.godot/imported/buckler.png-55d3dde80cfe12d71a13b180ea60d83b.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/nudge.png"
+dest_files=["res://.godot/imported/nudge.png-3f8fa6be1723d38c9938d6e2094b2b2f.ctex"]
 
 [params]
 
