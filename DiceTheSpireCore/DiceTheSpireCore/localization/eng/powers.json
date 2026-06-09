@@ -25,7 +25,7 @@
   "DICETHESPIRECORE-SAFETY_GOGGLES_POWER.title": "Safety Goggles",
   "DICETHESPIRECORE-SHOCK_POWER.description": "{Amount:plural:A random card|{Amount} random cards} in your hand {Amount:plural:is|are} [gold]Unplayable[/gold] this turn.",
   "DICETHESPIRECORE-SHOCK_POWER.smartDescription": "{Amount:plural:A random card|{Amount} random cards} in your hand {Amount:plural:is|are} [gold]Unplayable[/gold] this turn.",
-  "DICETHESPIRECORE-SHOCK_POWER.title": "Shock"
+  "DICETHESPIRECORE-SHOCK_POWER.title": "Shock",
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.description": "Gain {Amount} [gold]Dexterity[/gold] at the start of your turn.",
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Dexterity[/gold] at the start of your turn.",
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.title": "Target Shield"
