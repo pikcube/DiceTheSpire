@@ -26,5 +26,7 @@
   "THEWARRIOR-NUDGE.description": "[gold]Nudge[/gold] {Cards:diff()} {IfUpgraded:show:cards|card} in hand.\nGain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].",
   "THEWARRIOR-NUDGE.title": "Nudge",
   "THEWARRIOR-CRYSTAL_SWORD.description": "Deal damage equal to the energy cost of your deck.\n(Currently {CalculatedDamage:diff()})",
-  "THEWARRIOR-CRYSTAL_SWORD.title": "Crystal Sword"
+  "THEWARRIOR-CRYSTAL_SWORD.title": "Crystal Sword",
+  "THEWARRIOR-SPIKED_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold]. Gain {ThornsPower:diff()} [gold]Thorns[/gold] if played on an {IfUpgraded:show:ODD|EVEN} turn.",
+  "THEWARRIOR-SPIKED_SHIELD.title": "Spiked Shield"
 }     
