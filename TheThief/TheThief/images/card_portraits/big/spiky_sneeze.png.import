@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv5ovpr26r6pe"
-path="res://.godot/imported/Buckler.png-43451c2531911bdf48b7310f0248cc12.ctex"
+uid="uid://bauruvv4lydvs"
+path="res://.godot/imported/spiky_sneeze.png-14cef8b86bae95afdcd67aafa1cddf7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Buckler.png"
-dest_files=["res://.godot/imported/Buckler.png-43451c2531911bdf48b7310f0248cc12.ctex"]
+source_file="res://TheThief/images/card_portraits/big/spiky_sneeze.png"
+dest_files=["res://.godot/imported/spiky_sneeze.png-14cef8b86bae95afdcd67aafa1cddf7a.ctex"]
 
 [params]
 

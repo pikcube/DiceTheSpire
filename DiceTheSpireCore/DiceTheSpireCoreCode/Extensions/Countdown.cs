@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 
@@ -16,12 +17,12 @@ public static class Countdown
             card.CurrentCount = card.MaxCount;
         }
 
-        public void DecrementCount(int decrementBy = 1)
+        public async Task DecrementCountAsync(int decrementBy = 1)
         {
-            card.CurrentCount -= decrementBy;
-            if (card.CurrentCount < 0)
+            for (int i = decrementBy; (i > 0 && card.CurrentCount >  0); --i)
             {
-                card.CurrentCount = 0;
+                --card.CurrentCount;
+                await DiceyHooks.OnAfterCardCountsDownAsync((RunState)card.Owner.RunState, (CardModel)card);
             }
         }
 
@@ -42,7 +43,7 @@ public static class Countdown
                         0, card.CurrentCount), null, (AbstractModel)card)
             ];
             await CardCmd.Discard(choiceContext, cardsDiscarded);
-            card.DecrementCount(cardsDiscarded.Length);
+            await card.DecrementCountAsync(cardsDiscarded.Length);
         }
 
         if (card.CurrentCount == 0)

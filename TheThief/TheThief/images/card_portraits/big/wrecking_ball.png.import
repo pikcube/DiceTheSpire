@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv5ovpr26r6pe"
-path="res://.godot/imported/Buckler.png-43451c2531911bdf48b7310f0248cc12.ctex"
+uid="uid://cwuo3jd8uctak"
+path="res://.godot/imported/wrecking_ball.png-a533394f84683dfe07d6a192327cffdd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Buckler.png"
-dest_files=["res://.godot/imported/Buckler.png-43451c2531911bdf48b7310f0248cc12.ctex"]
+source_file="res://TheThief/images/card_portraits/big/wrecking_ball.png"
+dest_files=["res://.godot/imported/wrecking_ball.png-a533394f84683dfe07d6a192327cffdd.ctex"]
 
 [params]
 
