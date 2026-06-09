@@ -7,7 +7,7 @@ using Pikcube.Common.Utility;
 
 namespace TheThief.TheThiefCode.Powers;
 
-public class SecretWeaponPower : TheThiefPower, IAfterPowerRemovedListener
+public class StolenWeaponPower : TheThiefPower, IAfterPowerRemovedListener
 {
     public override PowerType Type => PowerType.Buff;
 

@@ -17,7 +17,7 @@
   "THETHIEF-OVERWHELM_POWER.description": "When you play an attack, gain 1 [gold]Strength[/gold] this turn.",
   "THETHIEF-OVERWHELM_POWER.smartDescription": "When you play an attack, gain {Amount} [gold]Strength[/gold] this turn.",
   "THETHIEF-OVERWHELM_POWER.title": "Overwhelm",
-  "THETHIEF-SECRET_WEAPON_POWER.description": "When you would lose a temporary buff, keep 1 of it.",
-  "THETHIEF-SECRET_WEAPON_POWER.smartDescription": "When you would lose a temporary buff, keep {Amount:plural:{}|up to {}} of it.",
-  "THETHIEF-SECRET_WEAPON_POWER.title": "Secret Weapon"
+  "THETHIEF-STOLEN_WEAPON_POWER.description": "When you would lose a temporary buff, keep 1 of it.",
+  "THETHIEF-STOLEN_WEAPON_POWER.smartDescription": "When you would lose a temporary buff, keep {Amount:plural:{}|up to {}} of it.",
+  "THETHIEF-STOLEN_WEAPON_POWER.title": "Stolen Weapon"
 }

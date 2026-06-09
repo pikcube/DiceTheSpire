@@ -8,7 +8,7 @@ using TheThief.TheThiefCode.Powers;
 
 namespace TheThief.TheThiefCode.Cards.Rare;
 
-public class SecretWeapon() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
+public class StolenWeapon() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -38,11 +38,11 @@ public class SecretWeapon() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, 
             }
         }
     }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SecretWeaponPower>(1), new IntVar(nameof(CurrentCount),3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StolenWeaponPower>(1), new IntVar(nameof(CurrentCount),3)];
 
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<SecretWeaponPower>(choiceContext, Owner.Creature, DynamicVars["SecretWeaponPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<StolenWeaponPower>(choiceContext, Owner.Creature, DynamicVars["StolenWeaponPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b31wxha4b1fbn"
-path="res://.godot/imported/secret_weapon.png-95096e28fe8dd96ae82995727381fde5.ctex"
+uid="uid://dbhabggsxmcw4"
+path="res://.godot/imported/stolen_weapon.png-cf9c87421070b50d018b9df7979b5701.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheThief/images/card_portraits/big/secret_weapon.png"
-dest_files=["res://.godot/imported/secret_weapon.png-95096e28fe8dd96ae82995727381fde5.ctex"]
+source_file="res://TheThief/images/card_portraits/big/stolen_weapon.png"
+dest_files=["res://.godot/imported/stolen_weapon.png-cf9c87421070b50d018b9df7979b5701.ctex"]
 
 [params]
 
