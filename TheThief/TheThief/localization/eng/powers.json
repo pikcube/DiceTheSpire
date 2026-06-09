@@ -19,5 +19,8 @@
   "THETHIEF-OVERWHELM_POWER.title": "Overwhelm",
   "THETHIEF-STOLEN_WEAPON_POWER.description": "When you would lose a temporary buff, keep 1 of it.",
   "THETHIEF-STOLEN_WEAPON_POWER.smartDescription": "When you would lose a temporary buff, keep {Amount:plural:{}|up to {}} of it.",
-  "THETHIEF-STOLEN_WEAPON_POWER.title": "Stolen Weapon"
+  "THETHIEF-STOLEN_WEAPON_POWER.title": "Stolen Weapon",
+  "THETHIEF-WRECKING_BALL_POWER.description": "Whenever a card Counts Down, all enemies lose health",
+  "THETHIEF-WRECKING_BALL_POWER.smartDescription": "Whenever a card [gold]Counts Down[/gold], all enemies lose {Amount} health.",
+  "THETHIEF-WRECKING_BALL_POWER.title": "Wrecking Ball"
 }
