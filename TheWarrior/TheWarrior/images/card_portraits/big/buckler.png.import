@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Buckler.png"
+source_file="res://TheWarrior/images/card_portraits/big/buckler.png"
 dest_files=["res://.godot/imported/Buckler.png-43451c2531911bdf48b7310f0248cc12.ctex"]
 
 [params]
