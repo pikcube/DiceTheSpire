@@ -39,7 +39,6 @@ public class Nudge() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Targ
                     await card.NudgeAsync(choiceContext);
             }
         }
-
         protected override void OnUpgrade()
         {
             base.OnUpgrade();

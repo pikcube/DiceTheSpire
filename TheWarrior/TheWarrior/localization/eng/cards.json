@@ -24,5 +24,7 @@
   "THEWARRIOR-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:show:\nGain 1 [gold]Dexterity[/gold].|}",
   "THEWARRIOR-TARGET_SHIELD.title": "Target Shield",
   "THEWARRIOR-NUDGE.description": "[gold]Nudge[/gold] {Cards:diff()} {IfUpgraded:show:cards|card} in hand.\nGain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].",
-  "THEWARRIOR-NUDGE.title": "Nudge"
+  "THEWARRIOR-NUDGE.title": "Nudge",
+  "THEWARRIOR-CRYSTAL_SWORD.description": "Deal damage equal to the energy cost of your deck.\n(Currently {CalculatedDamage:diff()})",
+  "THEWARRIOR-CRYSTAL_SWORD.title": "Crystal Sword"
 }     
