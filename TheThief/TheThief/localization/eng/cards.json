@@ -62,5 +62,7 @@
   "THETHIEF-WRECKING_BALL.description": "Whenever a card [gold]Counts Down[/gold], deal {Damage:diff()} damage to all enemies.",
   "THETHIEF-WRECKING_BALL.title": "Wrecking Ball",
   "THETHIEF-SPIKY_SNEEZE.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Deal {Damage:diff()} damage. Reduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] by {CountdownVar:diff()}.",
-  "THETHIEF-SPIKY_SNEEZE.title": "Spiky Sneeze"
+  "THETHIEF-SPIKY_SNEEZE.title": "Spiky Sneeze",
+  "THETHIEF-POISON_CLOUD.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold] to all enemies.",
+  "THETHIEF-POISON_CLOUD.title": "Poison Cloud"
 }
