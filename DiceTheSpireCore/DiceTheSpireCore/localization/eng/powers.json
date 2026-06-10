@@ -28,5 +28,8 @@
   "DICETHESPIRECORE-SHOCK_POWER.title": "Shock",
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.description": "Gain {Amount} [gold]Dexterity[/gold] at the start of your turn.",
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Dexterity[/gold] at the start of your turn.",
-  "DICETHESPIRECORE-TARGET_SHIELD_POWER.title": "Target Shield"
+  "DICETHESPIRECORE-TARGET_SHIELD_POWER.title": "Target Shield",
+  "DICETHESPIRECORE-LAST_STAND_POWER.description": "You cannot die for the next {Amount} turns.\nThen die.",
+  "DICETHESPIRECORE-LAST_STAND_POWER.smartDescription": "You cannot die for the next {Amount} turns.\nThen die.",
+  "DICETHESPIRECORE-LAST_STAND_POWER.title": "Last Stand Power"
 }
