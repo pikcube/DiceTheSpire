@@ -5,15 +5,12 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace TheWarrior.TheWarriorCode.Cards.Rare
+namespace TheWarrior.TheWarriorCode.Cards.Common
 {
 
-    public class CrystalSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class BatteringRam() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
-
         protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus, 1)];
-
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,CardKeyword.Ethereal];
 
         private static decimal Bonus(CardModel card, Creature? arg2)
         {
@@ -23,15 +20,8 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
                 return 0;
             }
 
-            int damage = 0;
+            int damage = card.Owner.Creature.Block * 2;
 
-            List<CardModel> AllCards = [.. card.Owner.PlayerCombatState.AllCards];
-            foreach (CardModel c in AllCards)
-            {
-                int xValue = c.EnergyCost.GetAmountToSpend();
-
-                damage += xValue;
-            }
             return damage;
         }
 
@@ -47,12 +37,13 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
                 .Targeting(cardPlay.Target)
                 .WithHitFx(VfxCmd.slashPath)
                 .Execute(choiceContext);
+
+            await CreatureCmd.LoseBlock(Owner.Creature, Owner.Creature.Block);
         }
 
         protected override void OnUpgrade()
         {
-            RemoveKeyword(CardKeyword.Ethereal);
+            EnergyCost.UpgradeBy(-1);
         }
-
     }
 }

@@ -14,7 +14,7 @@ using TheInventor.TheInventorCode.Gadgets;
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class Crossbow() : TheInventorCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Crossbow() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Hook);
 

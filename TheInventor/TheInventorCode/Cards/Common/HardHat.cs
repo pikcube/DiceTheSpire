@@ -10,30 +10,23 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
-public class Keyblade() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
-{
-    public override string GetScrapId => nameof(Hook);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new CardsVar(3)];
+public class HardHat() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+{
+    public override string GetScrapId => nameof(Protection);
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(4, BlockProps.card)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, DynamicVars.Cards)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        await Owner.InspectAsync(choiceContext, DynamicVars.Cards.IntValue, () => CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay));
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
-            .Targeting(cardPlay.Target)
-            .WithHitFx(VfxCmd.slashPath)
-            .Execute(choiceContext);
-
-        await Owner.InspectAsync(choiceContext, DynamicVars.Cards.IntValue);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.Cards.UpgradeValueBy(2);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }
