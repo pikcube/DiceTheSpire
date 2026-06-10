@@ -64,5 +64,7 @@
   "THETHIEF-SPIKY_SNEEZE.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Deal {Damage:diff()} damage. Reduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] by {CountdownVar:diff()}.",
   "THETHIEF-SPIKY_SNEEZE.title": "Spiky Sneeze",
   "THETHIEF-POISON_CLOUD.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold] to all enemies.",
-  "THETHIEF-POISON_CLOUD.title": "Poison Cloud"
+  "THETHIEF-POISON_CLOUD.title": "Poison Cloud",
+  "THETHIEF-POISON_PARADISE.description": "Gain {Block:diff()} [gold]Block[/gold]. \nWhenever you are attacked this turn, apply {PoisonPower:diff()} [gold]Poison[/gold] to the attacker.",
+  "THETHIEF-POISON_PARADISE.title": "Poison Paradise"
 }
