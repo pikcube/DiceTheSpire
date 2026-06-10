@@ -10,7 +10,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
 
 public class BatteringRam() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus, 1)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];
 
         private static decimal Bonus(CardModel card, Creature? arg2)
         {

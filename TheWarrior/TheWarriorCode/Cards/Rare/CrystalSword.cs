@@ -11,7 +11,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
     public class CrystalSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus, 1)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];
 
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,CardKeyword.Ethereal];
 
@@ -25,8 +25,8 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
 
             int damage = 0;
 
-            List<CardModel> AllCards = [.. card.Owner.PlayerCombatState.AllCards];
-            foreach (CardModel c in AllCards)
+            List<CardModel> allCards = [.. card.Owner.PlayerCombatState.AllCards];
+            foreach (CardModel c in allCards)
             {
                 int xValue = c.EnergyCost.GetAmountToSpend();
 

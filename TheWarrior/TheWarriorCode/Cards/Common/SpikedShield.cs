@@ -23,7 +23,6 @@ public class SpikedShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Commo
 
         if (CombatState?.RoundNumber % 2 == 0 != IsUpgraded)
         {
-            SpikedShield cardSource = this;
             await PowerCmd.Apply<ThornsPower>(choiceContext, Owner.Creature, DynamicVars.Power<ThornsPower>().IntValue, Owner.Creature, this);
         }
 
@@ -44,7 +43,7 @@ public class SpikedShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Commo
     //}
     //
 
-    protected override bool ShouldGlowGoldInternal => (CombatState?.RoundNumber % 2 == 0 != IsUpgraded);
+    protected override bool ShouldGlowGoldInternal => CombatState?.RoundNumber % 2 == 0 != IsUpgraded;
 
     protected override void OnUpgrade()
     {
