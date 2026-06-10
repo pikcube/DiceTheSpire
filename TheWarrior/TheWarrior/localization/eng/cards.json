@@ -28,5 +28,7 @@
   "THEWARRIOR-CRYSTAL_SWORD.description": "Deal damage equal to the energy cost of your deck.\n(Currently {CalculatedDamage:diff()})",
   "THEWARRIOR-CRYSTAL_SWORD.title": "Crystal Sword",
   "THEWARRIOR-SPIKED_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold]. Gain {ThornsPower:diff()} [gold]Thorns[/gold] if played on an {IfUpgraded:show:ODD|EVEN} turn.",
-  "THEWARRIOR-SPIKED_SHIELD.title": "Spiked Shield"
+  "THEWARRIOR-SPIKED_SHIELD.title": "Spiked Shield",
+  "THEWARRIOR-BATTERING_RAM.description": "Deal damage equal to twice your [gold]Block[/gold]. Lose ALL [gold]Block[/gold].\n(Currently {CalculatedDamage:diff()})",
+  "THEWARRIOR-BATTERING_RAM.title": "Battering Ram"
 }     
