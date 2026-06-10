@@ -17,5 +17,8 @@
   "THEINVENTOR-BROKEN_MIRROR_POWER.title": "Broken Mirror",
   "THEINVENTOR-FEEDBACK_LOOP_POWER.description": "The first time you [gold]Blink[/gold] a card each turn, gain {Energy:energyIcons()} [gold]Energy[/gold].",
   "THEINVENTOR-FEEDBACK_LOOP_POWER.smartDescription": "The first {Amount:plural:time|{Amount} times} you [gold]Blink[/gold] a card each turn, draw a card.",
-  "THEINVENTOR-FEEDBACK_LOOP_POWER.title": "Feedback Loop"
+  "THEINVENTOR-FEEDBACK_LOOP_POWER.title": "Feedback Loop",
+  "THEINVENTOR-LIGHTER_POWER.description": "Deal [blue]50%[/blue] additional damage.",
+  "THEINVENTOR-LIGHTER_POWER.smartDescription": "Deal [blue]{Amount}%[/blue] additional damage.",
+  "THEINVENTOR-LIGHTER_POWER.title": "Lighter"
 }

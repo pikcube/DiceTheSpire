@@ -120,5 +120,7 @@
   "THEINVENTOR-FEEDBACK_LOOP.description": "The first {Cards:plural:time|{Cards:diff()} times} you [gold]Blink[/gold] a card each turn, draw a card.",
   "THEINVENTOR-FEEDBACK_LOOP.title": "Feedback Loop",
   "THEINVENTOR-HARD_HAT.description": "[gold]Inspect[/gold] {Cards:diff()}.\nGain {Block:diff()} [gold]Block[/gold] per card [gold]Blinked[/gold] this way.",
-  "THEINVENTOR-HARD_HAT.title": "Hard Hat"
+  "THEINVENTOR-HARD_HAT.title": "Hard Hat",
+  "THEINVENTOR-LIGHTER.description": "Lose {StrengthPower:diff()} [gold]Strength[/gold]. Your attacks deal 50% additional damage.",
+  "THEINVENTOR-LIGHTER.title": "Lighter"
 }
