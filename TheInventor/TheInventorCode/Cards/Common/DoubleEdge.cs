@@ -36,6 +36,6 @@ public class DoubleEdge() : TheInventorCard(1, CardType.Attack, CardRarity.Commo
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
+        AddKeyword(CardKeyword.Retain);
     }
 }

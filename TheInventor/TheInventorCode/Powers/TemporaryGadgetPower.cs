@@ -52,6 +52,8 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
     } = nameof(DefaultGadget);
 
     Player IGadgetParent.Owner => Owner.Player ?? throw new InvalidOperationException();
+    void IGadgetParent.Flash() => Flash();
+
     public AbstractModel AsModel() => this;
 
     public GadgetModel LinkedGadgetModel

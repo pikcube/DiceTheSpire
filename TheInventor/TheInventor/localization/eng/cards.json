@@ -111,16 +111,18 @@
   "THEINVENTOR-SCORPION.title": "Scorpion",
   "THEINVENTOR-DOUBLE_EDGE.description": "Deal {Damage:diff()} damage to yourself and ALL enemies.",
   "THEINVENTOR-DOUBLE_EDGE.title": "Double Edge",
-  "THEINVENTOR-RESONANCE.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to ALL enemies.",
+  "THEINVENTOR-RESONANCE.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, apply a debuff to all enemies.",
   "THEINVENTOR-RESONANCE.title": "Resonance",
-  "THEINVENTOR-PUPPY_PAWS.description": "Next turn, gain {Energy:energyIcons()}.",
+  "THEINVENTOR-PUPPY_PAWS.description": "Gain {Block:diff()} [gold]Block[/gold].\nNext turn, gain {Energy:energyIcons()}.",
   "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws",
   "THEINVENTOR-KEYBLADE.description": "Deal {Damage:diff()} damage.\n[gold]Inspect[/gold] {Cards:diff()}.",
   "THEINVENTOR-KEYBLADE.title": "Keyblade",
   "THEINVENTOR-FEEDBACK_LOOP.description": "The first {Cards:plural:time|{Cards:diff()} times} you [gold]Blink[/gold] a card each turn, draw a card.",
   "THEINVENTOR-FEEDBACK_LOOP.title": "Feedback Loop",
-  "THEINVENTOR-HARD_HAT.description": "[gold]Inspect[/gold] {Cards:diff()}.\nGain {Block:diff()} [gold]Block[/gold] per card [gold]Blinked[/gold] this way.",
+  "THEINVENTOR-HARD_HAT.description": "Gain {Block:diff()} [gold]Block[/gold]\n[gold]Inspect[/gold] {Cards:diff()}.",
   "THEINVENTOR-HARD_HAT.title": "Hard Hat",
   "THEINVENTOR-LIGHTER.description": "Lose {StrengthPower:diff()} [gold]Strength[/gold]. Your attacks deal 50% additional damage.",
-  "THEINVENTOR-LIGHTER.title": "Lighter"
+  "THEINVENTOR-LIGHTER.title": "Lighter",
+  "THEINVENTOR-SAW_WAVE.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, gain {SawWavePower:diff()} [gold]Dexterity[/gold].",
+  "THEINVENTOR-SAW_WAVE.title": "Saw Wave"
 }

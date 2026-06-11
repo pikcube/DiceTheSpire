@@ -2,16 +2,17 @@
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
 
-public class PuppyPaws() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class PuppyPaws() : TheInventorCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override string GetScrapId => nameof(MagicDice);
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(11, BlockProps.card), new EnergyVar(2)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 

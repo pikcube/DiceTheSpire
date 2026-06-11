@@ -1,0 +1,37 @@
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using TheInventor.TheInventorCode.Utilities;
+
+namespace TheInventor.TheInventorCode.Gadgets;
+
+public class Stardust() : GadgetModel(nameof(Stardust))
+{
+    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (Parent?.Owner != player || player.Creature.CombatState is null)
+        {
+            return;
+        }
+
+        Creature? target = player.Creature.CombatState.Enemies.TakeRandom(1, player.RunState.Rng.CombatTargets).SingleOrDefault();
+
+        if (target is null)
+        {
+            return;
+        }
+
+        Parent.Flash();
+
+        await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, target, player.Creature, null);
+    }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        return AfterPlayerTurnStart(choiceContext, player);
+    }
+}

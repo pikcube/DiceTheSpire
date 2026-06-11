@@ -5,8 +5,8 @@
   "THEINVENTOR-TEMPORARY_GADGET_POWER.description": "Gain a Gadget for the rest of combat.",
   "THEINVENTOR-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
   "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
-  "THEINVENTOR-RESONANCE_POWER.description": "Whenever you apply a stackable [gold]Debuff[/gold] to yourself, also apply it to all enemies.",
-  "THEINVENTOR-RESONANCE_POWER.smartDescription": "Whenever you apply a stackable debuff to yourself, also apply it to all enemies.",
+  "THEINVENTOR-RESONANCE_POWER.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, apply a debuff to all enemies.",
+  "THEINVENTOR-RESONANCE_POWER.smartDescription": "Whenever you apply a [gold]Debuff[/gold] to yourself, apply a debuff to all enemies..",
   "THEINVENTOR-RESONANCE_POWER.title": "Double Edge",
   "THEINVENTOR-EXHAUSTION_POWER.description": "Whenever you play a card this turn, this creature takes damage.",
   "THEINVENTOR-EXHAUSTION_POWER.remoteDescription": "Whenever [gold]{ApplierName}[/gold] plays a card, {IsSelfInflicted:show:you take|{OwnerName} takes} {Amount} damage.",
@@ -20,5 +20,8 @@
   "THEINVENTOR-FEEDBACK_LOOP_POWER.title": "Feedback Loop",
   "THEINVENTOR-LIGHTER_POWER.description": "Deal [blue]50%[/blue] additional damage.",
   "THEINVENTOR-LIGHTER_POWER.smartDescription": "Deal [blue]{Amount}%[/blue] additional damage.",
-  "THEINVENTOR-LIGHTER_POWER.title": "Lighter"
+  "THEINVENTOR-LIGHTER_POWER.title": "Lighter",
+  "THEINVENTOR-SAW_WAVE_POWER.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, gain 1 [gold]Dexterity[/gold].",
+  "THEINVENTOR-SAW_WAVE_POWER.smartDescription": "Whenever you apply a [gold]Debuff[/gold] to yourself, gain {Amount} [gold]Dexterity[/gold].",
+  "THEINVENTOR-SAW_WAVE_POWER.title": "Saw Wave"
 }

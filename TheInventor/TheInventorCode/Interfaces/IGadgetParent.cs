@@ -10,4 +10,5 @@ public interface IGadgetParent
     public Player Owner { get; }
     public GadgetModel LinkedGadgetModel { get; }
     public AbstractModel AsModel();
+    public void Flash();
 }
