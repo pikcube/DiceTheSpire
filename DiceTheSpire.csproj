@@ -73,8 +73,13 @@
         <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props" />
         <None Include=".gitignore" />
         <None Include="DiceTheSpire.json" />
+        <None Include="FastPackAll.exe" />
         <None Include="project.godot" />
         <None Include="DiceTheSpire/**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="oldPackInstructions.txt" />
     </ItemGroup>
 
     <ItemGroup>
@@ -119,15 +124,6 @@
 
     </Target>
     <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
-	    <Message Text="Exporting Godot .pck to mods folder for Dice the Sprie Core" Importance="high" />
-	    <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)DiceTheSpireCore/DiceTheSpireCore.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./DiceTheSpireCore" />
-		<Message Text="Exporting Godot .pck to mods folder for The Inventor" Importance="high" />
-		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheInventor/TheInventor.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheInventor" />
-		<Message Text="Exporting Godot .pck to mods folder for The Thief" Importance="high" />
-		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheThief/TheThief.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheThief" />
-	    <Message Text="Exporting Godot .pck to mods folder for The Warrior" Importance="high" />
-	    <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)TheWarrior/TheWarrior.pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" WorkingDirectory="./TheWarrior" />
-		<Message Text="Exporting Godot .pck to mods folder for Dice the Spire" Importance="high" />
-        <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" />
+	    <Exec Command="FastPackAll.exe -godot &quot;$(GodotPath)&quot; -mods &quot;$(ModsPath)&quot;" />
     </Target>
 </Project>
