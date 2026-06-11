@@ -55,7 +55,7 @@
   "THETHIEF-LOCK.title": "Lock",
   "THETHIEF-OVERWHELM.description": "When you play an attack, gain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "THETHIEF-OVERWHELM.title": "Overwhelm",
-  "THETHIEF-STOLEN_WEAPON.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n When you would lose a temporary buff, keep {StolenWeaponPower:diff()} of it.",
+  "THETHIEF-STOLEN_WEAPON.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n When you would lose [gold]Strength[/gold], lose {StolenWeaponPower:diff()} less.",
   "THETHIEF-STOLEN_WEAPON.title": "Stolen Weapon",
   "THETHIEF-POISON_SLINGSHOT.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Apply {PoisonPower:diff()} [gold]Poison[/gold].",
   "THETHIEF-POISON_SLINGSHOT.title": "Poison Slingshot",
