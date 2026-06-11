@@ -68,5 +68,7 @@
   "THETHIEF-POISON_PARADISE.description": "Gain {Block:diff()} [gold]Block[/gold]. \nWhenever you are attacked this turn, apply {PoisonPower:diff()} [gold]Poison[/gold] to the attacker.",
   "THETHIEF-POISON_PARADISE.title": "Poison Paradise",
   "THETHIEF-POISON_CROWN.description": "Whenever you create a [gold]Pip[/gold], apply {PoisonPower:diff()} [gold]Poison[/gold] to all enemies.",
-  "THETHIEF-POISON_CROWN.title": "Poison Crown"
+  "THETHIEF-POISON_CROWN.title": "Poison Crown",
+  "THETHIEF-RAT.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Apply {PoisonPower:diff()} [gold]Poison[/gold]. \n Draw {Cards:plural:{diff} card|{diff} cards}.",
+  "THETHIEF-RAT.title": "Rat"
 }
