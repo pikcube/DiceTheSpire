@@ -27,4 +27,6 @@ public class InfinityMirror() : GadgetModel(nameof(InfinityMirror))
         }
         await PlayerCmd.GainEnergy(player.Creature.CombatState.RoundNumber, player);
     }
+
+    public override bool IsAllowedAsTempGadget => false;
 }

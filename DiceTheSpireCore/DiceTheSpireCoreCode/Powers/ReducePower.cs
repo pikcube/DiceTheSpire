@@ -15,7 +15,7 @@ public class ReducePower : DiceTheSpireCorePower
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource)
     {
-        return target != Owner ? 0 : -Amount;
+        return target != Owner || props.HasFlag(ValueProp.Unblockable) ? 0 : -Amount;
     }
 
     public override Task AfterModifyingDamageAmount(CardModel? cardSource)

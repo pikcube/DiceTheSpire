@@ -32,7 +32,7 @@
   "THEINVENTOR-SPOOKY_NOISES.title": "Spooky Noises",
   "THEINVENTOR-SCREWDRIVER.description": "Deal {Damage:diff()} damage.\nReactivate your [gold]Gadget[/gold].",
   "THEINVENTOR-SCREWDRIVER.title": "Screwdriver",
-  "THEINVENTOR-SNEEZE.description": "Whenever you [gold]Blink[/gold] a card, gain {Block:diff()} [gold]Block[/gold].",
+  "THEINVENTOR-SNEEZE.description": "Whenever you [gold]Blink[/gold] a card, gain {SneezePower:diff()} [gold]Block[/gold].",
   "THEINVENTOR-SNEEZE.title": "Sneeze",
   "THEINVENTOR-VISE_GRIP.description": "[gold]Blink[/gold] your hand.\nGain {Energy:energyIcons()} per card [gold]Blinked[/gold].\nDraw X cards.",
   "THEINVENTOR-VISE_GRIP.title": "Vise Grip",
@@ -124,5 +124,7 @@
   "THEINVENTOR-LIGHTER.description": "Lose {StrengthPower:diff()} [gold]Strength[/gold]. Your attacks deal 50% additional damage.",
   "THEINVENTOR-LIGHTER.title": "Lighter",
   "THEINVENTOR-SAW_WAVE.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, gain {SawWavePower:diff()} [gold]Dexterity[/gold].",
-  "THEINVENTOR-SAW_WAVE.title": "Saw Wave"
+  "THEINVENTOR-SAW_WAVE.title": "Saw Wave",
+  "THEINVENTOR-SPIKE.description": "Whenever you add an [gold]Unplayable[/gold] card to your hand, deal 5 damage to ALL enemies.",
+  "THEINVENTOR-SPIKE.title": "Spike"
 }
