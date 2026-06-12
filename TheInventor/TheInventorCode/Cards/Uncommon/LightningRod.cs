@@ -36,12 +36,14 @@ public class LightningRod() : TheInventorCard(4, CardType.Attack, CardRarity.Unc
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
+        if (CombatState is null)
+        {
+            return;
+        }
         await base.OnPlay(choiceContext, cardPlay);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
-            .Targeting(cardPlay.Target)
+            .TargetingAllOpponents(CombatState)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
     }
