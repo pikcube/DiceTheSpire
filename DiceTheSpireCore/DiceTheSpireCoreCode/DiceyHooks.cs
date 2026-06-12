@@ -1,6 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Models;
-
 using RunState = MegaCrit.Sts2.Core.Runs.RunState;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode;

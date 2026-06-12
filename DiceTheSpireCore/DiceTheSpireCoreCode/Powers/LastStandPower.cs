@@ -12,7 +12,7 @@ public class LastStandPower : DiceTheSpireCorePower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override bool ShouldDie(Creature creature) => creature != this.Owner;
+    public override bool ShouldDie(Creature creature) => creature != Owner;
 
     public override async Task AfterPreventingDeath(Creature creature)
     {

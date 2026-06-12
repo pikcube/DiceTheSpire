@@ -1,5 +1,4 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
 using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,11 +9,9 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 {
@@ -40,7 +37,7 @@ public class Candle() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, T
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            NCombatRoom.Instance?.PlaySplashVfx(Owner.Creature, new Godot.Color("6ec46f"));
+            NCombatRoom.Instance?.PlaySplashVfx(Owner.Creature, new Color("6ec46f"));
 
             for (int n = 0; n < DynamicVars.Repeat.IntValue; ++n)
             {
@@ -61,8 +58,8 @@ public class Candle() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, T
             {
                 return;
             }
-            Candle candle = this;
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat((CardModel)CombatState.CreateCard<Burn>(Owner), PileType.Draw, Owner));
+
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Burn>(Owner), PileType.Draw, Owner));
             await Cmd.Wait(0.5f);
         }
 

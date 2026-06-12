@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,7 +9,6 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
-
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare
 {
@@ -35,7 +35,7 @@ public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, Ta
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            NCombatRoom.Instance?.PlaySplashVfx(Owner.Creature, new Godot.Color("6ec46f"));
+            NCombatRoom.Instance?.PlaySplashVfx(Owner.Creature, new Color("6ec46f"));
             await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
             foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX))
             {

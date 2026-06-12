@@ -4,7 +4,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-
 namespace TheWarrior.TheWarriorCode.Cards.Rare
 {
 public class LastStand() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
