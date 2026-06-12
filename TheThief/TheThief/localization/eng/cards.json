@@ -70,5 +70,7 @@
   "THETHIEF-POISON_CROWN.description": "Whenever you create a [gold]Pip[/gold], apply {PoisonPower:diff()} [gold]Poison[/gold] to all enemies.",
   "THETHIEF-POISON_CROWN.title": "Poison Crown",
   "THETHIEF-RAT.description": "[gold]Count:[/gold] {CurrentCount:diff()} \n Apply {PoisonPower:diff()} [gold]Poison[/gold]. \n Draw {Cards:plural:{diff} card|{diff} cards}.",
-  "THETHIEF-RAT.title": "Rat"
+  "THETHIEF-RAT.title": "Rat",
+  "THETHIEF-TOXIC_OOZE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times. \n Each time this deals unblocked damage, apply {PoisonPower:diff()} [gold]Poison[/gold].",
+  "THETHIEF-TOXIC_OOZE.title": "Toxic Ooze"
 }
