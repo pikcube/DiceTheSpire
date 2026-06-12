@@ -18,6 +18,9 @@ namespace TheInventor.TheInventorCode.Character
         public static readonly Color Color = new("FFB458");
 
         public override Color NameColor => Color;
+
+        public override Color EnergyLabelOutlineColor => Color;
+        public override Color MapDrawingColor => Color;
         public override CharacterGender Gender => CharacterGender.Feminine;
         public override int StartingHp => 60;
         public override IEnumerable<CardModel> StartingDeck => [
