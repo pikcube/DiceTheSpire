@@ -54,9 +54,9 @@ namespace TheThief.TheThiefCode.Character
                 return icon;
             }
         }
-        public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
-        public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
-        public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
-        public override string CustomMapMarkerPath => "map_marker_char_name.png".CharacterUiPath();
+        public override string CustomIconTexturePath => "character_icon_the_thief.png".CharacterUiPath();
+        public override string CustomCharacterSelectIconPath => "char_select_thief.png".CharacterUiPath();
+        public override string CustomCharacterSelectLockedIconPath => "char_select_unknown.png".CharacterUiPath();
+        public override string CustomMapMarkerPath => "map_marker_the_thief.png".CharacterUiPath();
     }
 }

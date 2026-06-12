@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dllxj7u6rq423"
-path="res://.godot/imported/map_marker_char_name.png-b7dd0e6625c7d8df92bf51813ceb361c.ctex"
+uid="uid://vump571t3d1g"
+path="res://.godot/imported/character_icon_the_thief.png-a101c88b803183ab8d90426b4acb13f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheThief/images/charui/map_marker_char_name.png"
-dest_files=["res://.godot/imported/map_marker_char_name.png-b7dd0e6625c7d8df92bf51813ceb361c.ctex"]
+source_file="res://TheThief/images/charui/character_icon_the_thief.png"
+dest_files=["res://.godot/imported/character_icon_the_thief.png-a101c88b803183ab8d90426b4acb13f7.ctex"]
 
 [params]
 

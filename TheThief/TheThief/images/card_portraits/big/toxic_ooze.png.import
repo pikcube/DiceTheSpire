@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://care2s0hwb5bi"
-path="res://.godot/imported/char_select_char_name.png-52d874f0581872cb008f9b1b8f08b54e.ctex"
+uid="uid://busjwdg75uhhs"
+path="res://.godot/imported/toxic_ooze.png-e0a3cb689716d21e5f9974bbb2073ebf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheThief/images/charui/char_select_char_name.png"
-dest_files=["res://.godot/imported/char_select_char_name.png-52d874f0581872cb008f9b1b8f08b54e.ctex"]
+source_file="res://TheThief/images/card_portraits/big/toxic_ooze.png"
+dest_files=["res://.godot/imported/toxic_ooze.png-e0a3cb689716d21e5f9974bbb2073ebf.ctex"]
 
 [params]
 

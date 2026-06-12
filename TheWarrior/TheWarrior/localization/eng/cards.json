@@ -32,5 +32,7 @@
   "THEWARRIOR-BATTERING_RAM.description": "Deal damage equal to twice your [gold]Block[/gold]. Lose ALL [gold]Block[/gold].\n(Currently {CalculatedDamage:diff()})",
   "THEWARRIOR-BATTERING_RAM.title": "Battering Ram",
   "THEWARRIOR-LAST_STAND.description": "Survive 3 more turns...",
-  "THEWARRIOR-LAST_STAND.title": "Last Stand"
+  "THEWARRIOR-LAST_STAND.title": "Last Stand",
+  "THEWARRIOR-CANDLE.description": "[gold]Reroll[/gold] {Cards:diff()} card {Repeat:diff()} times. Add a [gold]Burn+[/gold] to your draw pile.",
+  "THEWARRIOR-CANDLE.title": "Candle"
 }     

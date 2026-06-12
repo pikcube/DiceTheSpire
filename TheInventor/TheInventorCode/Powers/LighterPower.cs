@@ -14,7 +14,7 @@ public class LighterPower : TheInventorPower
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource)
     {
-        if (dealer == Owner)
+        if (dealer == Owner && props.IsPoweredAttack())
         {
             return 1 + Amount/100m;
         }
