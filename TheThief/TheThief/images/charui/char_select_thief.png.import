@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjx5x4alww62n"
-path="res://.godot/imported/char_select_char_name_locked.png-01bb936036689e4277ccb9289648886b.ctex"
+uid="uid://k1rtc7fta8s0"
+path="res://.godot/imported/char_select_thief.png-a22bfc2957b45057743b5fc8334336db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheThief/images/charui/char_select_char_name_locked.png"
-dest_files=["res://.godot/imported/char_select_char_name_locked.png-01bb936036689e4277ccb9289648886b.ctex"]
+source_file="res://TheThief/images/charui/char_select_thief.png"
+dest_files=["res://.godot/imported/char_select_thief.png-a22bfc2957b45057743b5fc8334336db.ctex"]
 
 [params]
 
