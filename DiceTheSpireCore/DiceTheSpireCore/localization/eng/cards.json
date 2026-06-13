@@ -1,4 +1,4 @@
 {
-  "DICETHESPIRECORE-PIP.description": "",
+  "DICETHESPIRECORE-PIP.description": "{PipDescription.StringValue}",
   "DICETHESPIRECORE-PIP.title": "Pip"
 }

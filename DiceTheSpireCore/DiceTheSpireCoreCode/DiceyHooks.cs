@@ -1,4 +1,6 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using RunState = MegaCrit.Sts2.Core.Runs.RunState;
 
@@ -16,6 +18,22 @@ public static class DiceyHooks
         foreach (IAfterCardCountsDownListener listener in runState.IterateHookListeners(countdownCard.Owner.Creature.CombatState).OfType<IAfterCardCountsDownListener>())
         {
             await listener.AfterCardCountsDownAsync(runState, countdownCard);
+        }
+    }
+
+
+    public delegate void ModifyPipOnPlayHandler(PlayerChoiceContext choiceContext, CardPlay cardPlay);
+
+    public static event ModifyPipOnPlayHandler? ModifyPipOnPlay;
+
+    internal static async Task OnModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        ModifyPipOnPlay?.Invoke(choiceContext, cardPlay);
+        foreach (IModifyPipOnPlayListener listener in cardPlay.Card.Owner.RunState
+                     .IterateHookListeners(cardPlay.Card.Owner.Creature
+                     .CombatState).OfType<IModifyPipOnPlayListener>().Where(l => l.Owner == cardPlay.Card.Owner))
+        {
+            await listener.ModifyPipOnPlayAsync(choiceContext, cardPlay);
         }
     }
 }
