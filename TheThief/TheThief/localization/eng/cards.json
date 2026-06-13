@@ -67,7 +67,7 @@
   "THETHIEF-SMOG_CLOUD.title": "Smog Cloud",
   "THETHIEF-POISON_PARADISE.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you are attacked this turn, apply {PoisonPower:diff()} [gold]Poison[/gold] to the attacker.",
   "THETHIEF-POISON_PARADISE.title": "Poison Paradise",
-  "THETHIEF-POISON_CROWN.description": "Whenever you create a [gold]Pip[/gold], apply {PoisonPower:diff()} [gold]Poison[/gold] to all enemies.",
+  "THETHIEF-POISON_CROWN.description": "[gold]Pips[/gold] now apply {PoisonPower:diff()} [gold]Poison[/gold] to all enemies.",
   "THETHIEF-POISON_CROWN.title": "Poison Crown",
   "THETHIEF-RAT.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nApply {PoisonPower:diff()} [gold]Poison[/gold].\nDraw {Cards:plural:a card|{} cards}.",
   "THETHIEF-RAT.title": "Rat",
