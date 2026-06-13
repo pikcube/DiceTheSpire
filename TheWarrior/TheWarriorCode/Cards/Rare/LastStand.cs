@@ -9,6 +9,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
 public class LastStand() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<LastStandPower>(3M)];
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
@@ -17,7 +18,7 @@ public class LastStand() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, Ta
 
         protected override void OnUpgrade()
         {
-            AddKeyword(CardKeyword.Innate);
+            RemoveKeyword(CardKeyword.Ethereal);
         }
     }
 

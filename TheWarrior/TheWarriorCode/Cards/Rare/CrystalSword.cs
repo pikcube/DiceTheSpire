@@ -51,7 +51,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
 
         protected override void OnUpgrade()
         {
-            RemoveKeyword(CardKeyword.Ethereal);
+            RemoveKeyword(CardKeyword.Exhaust);
         }
 
     }
