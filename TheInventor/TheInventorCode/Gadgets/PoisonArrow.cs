@@ -17,7 +17,7 @@ public class PoisonArrow() : GadgetModel(nameof(PoisonArrow))
             return Task.CompletedTask;
         }
 
-        return PoisonPower.ApplyAsync(choiceContext, Parent.Owner.Creature.CombatState.Enemies, 3, Parent?.Owner.Creature, null);
+        return PoisonPower.ApplyAsync(choiceContext, Parent.Owner.Creature.CombatState.Enemies, 3 * GetPower(player), Parent?.Owner.Creature, null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

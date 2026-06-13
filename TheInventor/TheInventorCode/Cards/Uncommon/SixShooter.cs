@@ -1,37 +1,34 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Screwdriver() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class SixShooter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, DamageProps.card), new("Hits", 6)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await base.OnPlay(choiceContext, cardPlay);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .WithHitCount(DynamicVars["Hits"].IntValue)
             .FromCard(this)
             .Targeting(cardPlay.Target)
+            .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-
-        await Gadget.RechargeAsync(choiceContext, Owner);
     }
+
+    public override string GetScrapId => nameof(Crack);
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(BlinkModel.Blink);
+        EnergyCost.UpgradeBy(-1);
     }
-
-    public override string GetScrapId => nameof(LargeToolbox);
 }

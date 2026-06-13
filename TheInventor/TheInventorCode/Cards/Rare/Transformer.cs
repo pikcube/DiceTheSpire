@@ -5,17 +5,16 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class Transformer() : TheInventorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Overload);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(CurrentDamage, DamageProps.card), new IntVar("Increase", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(CurrentDamage, DamageProps.card), new BlockVar(CurrentBlock, BlockProps.card), new IntVar("Increase", 2)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     [SavedProperty]
     public int CurrentDamage
@@ -27,7 +26,18 @@ public class Transformer() : TheInventorCard(2, CardType.Attack, CardRarity.Rare
             field = value;
             DynamicVars.Damage.BaseValue = field;
         }
-    } = 2;
+    } = 1;
+
+    public int CurrentBlock
+    {
+        get;
+        set
+        {
+            AssertMutable();
+            field = value;
+            DynamicVars.Block.BaseValue = field;
+        }
+    } = 1;
 
     [SavedProperty]
     public int IncreasedDamage
@@ -38,6 +48,7 @@ public class Transformer() : TheInventorCard(2, CardType.Attack, CardRarity.Rare
             AssertMutable();
             field = value;
             UpdateDamage();
+            UpdateBlock();
         }
     }
 
@@ -50,6 +61,8 @@ public class Transformer() : TheInventorCard(2, CardType.Attack, CardRarity.Rare
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
+
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 
     public override Task OnSkippedAsync()
@@ -71,7 +84,9 @@ public class Transformer() : TheInventorCard(2, CardType.Attack, CardRarity.Rare
     protected override void AfterDowngraded()
     {
         UpdateDamage();
+        UpdateBlock();
     }
 
-    private void UpdateDamage() => CurrentDamage = 2 + IncreasedDamage;
+    private void UpdateDamage() => CurrentDamage = 1 + IncreasedDamage;
+    private void UpdateBlock() => CurrentBlock = 1 + IncreasedDamage;
 }

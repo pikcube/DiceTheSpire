@@ -261,15 +261,6 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         return Task.CompletedTask;
     }
 
-    public static async Task RechargeAsync(PlayerChoiceContext context, Player owner)
-    {
-        foreach (IGadgetParent parent in owner.RunState.IterateHookListeners(owner.Creature.CombatState)
-                     .OfType<IGadgetParent>().Where(gp => gp.Owner == owner))
-        {
-            await parent.LinkedGadgetModel.OnRechargeAsync(context, owner);
-        }
-    }
-
     public static string GetRandomCombatGadgetId(Rng rng)
     {
         return AllGadgets.Where(g => g.Value.IsAllowedAsTempGadget).TakeRandom(1, rng).Single().Key;

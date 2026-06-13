@@ -23,7 +23,7 @@ public class BurstOfKnowledge() : GadgetModel(nameof(BurstOfKnowledge))
             return false;
         }
 
-        for (int n = 0; n < 3; ++n)
+        for (int n = 0; n < 2 * GetPower(player); ++n)
         {
             rewards.Add(new CardReward(CardCreationOptions.ForRoom(Parent.Owner, Parent.Owner.RunState.CurrentRoom.RoomType), 3, Parent.Owner));
         }

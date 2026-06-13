@@ -16,14 +16,17 @@ public class AutoBump() : GadgetModel(nameof(AutoBump))
             return;
         }
 
-        CardModel? card = await CardSelectCmd.FromHandForUpgrade(choiceContext, player, Parent.AsModel());
-
-        if (card == null)
+        for (int n = 0; n < GetPower(player); ++n)
         {
-            return;
-        }
+            CardModel? card = await CardSelectCmd.FromHandForUpgrade(choiceContext, player, Parent.AsModel());
 
-        CardCmd.Upgrade(card);
+            if (card == null)
+            {
+                return;
+            }
+
+            CardCmd.Upgrade(card);
+        }
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

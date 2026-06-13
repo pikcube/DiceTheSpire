@@ -17,7 +17,7 @@ public class CursedGadget() : GadgetModel(nameof(CursedGadget))
     {
         if (Parent?.Owner == player)
         {
-            await PowerCmd.Apply<CursedPower>(choiceContext, player.Creature, 1, null, null);
+            await PowerCmd.Apply<CursedPower>(choiceContext, player.Creature, 1 * GetPower(player), null, null);
         }
     }
 

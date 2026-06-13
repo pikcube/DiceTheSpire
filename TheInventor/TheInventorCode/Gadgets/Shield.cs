@@ -17,7 +17,7 @@ public class Shield() : GadgetModel(nameof(Shield))
             return;
         }
 
-        await CreatureCmd.GainBlock(player.Creature, new BlockVar(5, BlockProps.nonCardUnpowered), null);
+        await CreatureCmd.GainBlock(player.Creature, new BlockVar(5 * GetPower(player), BlockProps.nonCardUnpowered), null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

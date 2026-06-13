@@ -19,7 +19,7 @@ public class Burrower() : GadgetModel(nameof(Burrower))
             return;
         }
 
-        for (int n = 0; n < 5; ++n)
+        for (int n = 0; n < 5 * GetPower(player); ++n)
         {
             foreach (Creature c in player.Creature.CombatState.Enemies)
             {

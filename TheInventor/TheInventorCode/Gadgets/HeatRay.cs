@@ -37,7 +37,7 @@ public class HeatRay() : GadgetModel(nameof(HeatRay))
             
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NFireBurstVfx.Create(creature, 0.75f));
             SfxCmd.Play("event:/sfx/characters/attack_fire");
-            await CreatureCmd.Damage(choiceContext, creature, 5, DamageProps.nonCardUnpowered, null, null);
+            await CreatureCmd.Damage(choiceContext, creature, 5 * GetPower(Parent.Owner), DamageProps.nonCardUnpowered, null, null);
         }
     }
 

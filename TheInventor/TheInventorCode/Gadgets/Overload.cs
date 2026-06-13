@@ -31,7 +31,7 @@ public class Overload() : GadgetModel(nameof(Overload))
 
             foreach (PowerModel power in powers)
             {
-                await PowerCmd.ModifyAmount(choiceContext, power, power.Amount, null, null);
+                await PowerCmd.ModifyAmount(choiceContext, power, power.Amount * GetPower(player), null, null);
             }
         }
     }

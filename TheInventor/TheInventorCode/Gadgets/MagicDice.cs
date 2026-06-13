@@ -16,7 +16,7 @@ public class MagicDice() : GadgetModel(nameof(MagicDice))
     {
         if (player == Parent?.Owner)
         {
-            return amount + DynamicVars.Energy.EnchantedValue;
+            return amount + DynamicVars.Energy.EnchantedValue * GetPower(player);
         }
 
         return amount;
@@ -24,6 +24,6 @@ public class MagicDice() : GadgetModel(nameof(MagicDice))
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
-        return Parent?.Owner == player ? PlayerCmd.GainEnergy(1, player) : Task.CompletedTask;
+        return Parent?.Owner == player ? PlayerCmd.GainEnergy(GetPower(player), player) : Task.CompletedTask;
     }
 }

@@ -27,7 +27,7 @@ public class Catapult() : GadgetModel(nameof(Catapult))
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, target, 15, DamageProps.nonCardUnpowered, null, null);
+        await CreatureCmd.Damage(choiceContext, target, 15 * GetPower(player), DamageProps.nonCardUnpowered, null, null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

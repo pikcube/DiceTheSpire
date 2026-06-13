@@ -24,7 +24,7 @@ public class Replicate() : GadgetModel(nameof(Replicate))
             return;
         }
 
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_DUPE"), 1, 1);
+        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_DUPE"), 1 * GetPower(player), 1 * GetPower(player));
         CardModel? result = (await CardSelectCmd.FromHand(choiceContext, player, prefs, null, this)).SingleOrDefault();
         if (result is null)
         {
