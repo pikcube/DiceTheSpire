@@ -3,6 +3,7 @@ using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
@@ -42,6 +43,8 @@ public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Unco
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new PowerVar<DexterityPower>(3M), new IntVar("CurrentCount", 4)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DexterityPower>()];
 
     protected override void OnUpgrade()
     {
