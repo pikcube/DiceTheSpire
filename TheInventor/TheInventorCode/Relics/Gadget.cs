@@ -282,17 +282,23 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
 
     public static async Task RandomizeAllGadgetsAsync(PlayerChoiceContext choiceContext, Player owner, CardModel? cardSource)
     {
-        IGadgetParent[] gadgetParents = [.. owner.RunState.IterateHookListeners(owner.Creature.CombatState).OfType<IGadgetParent>()];
+        List<IGadgetParent> gadgetParents = GetGadgetParents(owner);
+
+        if (gadgetParents.Count == 0)
+        {
+            TemporaryGadgetPower? temp = await TemporaryGadgetPower.ApplyAsync(choiceContext, owner.Creature, 1, owner.Creature, cardSource);
+            if (temp is not null)
+            {
+                gadgetParents.Add(temp);
+            }
+        }
 
         foreach (IGadgetParent parent in gadgetParents)
         {
             parent.GadgetId = GetRandomCombatGadgetId(owner.RunState.Rng.CombatOrbGeneration);
             await parent.AfterRandomizedAsync();
         }
-
-        if (gadgetParents.Length == 0)
-        {
-            await TemporaryGadgetPower.ApplyAsync(choiceContext, owner.Creature, 1, owner.Creature, cardSource);
-        }
     }
+
+    public static List<IGadgetParent> GetGadgetParents(Player owner) => [.. owner.RunState.IterateHookListeners(owner.Creature.CombatState).OfType<IGadgetParent>()];
 }

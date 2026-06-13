@@ -21,6 +21,8 @@ public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.
         {
             return;
         }
+
+        await power.RandomizeThis();
         await power.LinkedGadgetModel.OnRechargeAsync(choiceContext, Owner);
     }
 
