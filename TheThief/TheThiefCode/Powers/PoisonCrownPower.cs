@@ -19,7 +19,7 @@ public class PoisonCrownPower : TheThiefPower, IModifyPipOnPlayListener
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    Player IModifyPipOnPlayListener.Owner => Owner.Player?? throw new InvalidOperationException();
+    Player IModifyPipOnPlayListener.Owner => Owner.Player ?? throw new InvalidOperationException();
 
     public LocString PipDescription
     {

@@ -23,6 +23,7 @@
   "THETHIEF-WRECKING_BALL_POWER.description": "Whenever a card Counts Down, all enemies lose health",
   "THETHIEF-WRECKING_BALL_POWER.smartDescription": "Whenever a card [gold]Counts Down[/gold], all enemies lose {Amount} health.",
   "THETHIEF-WRECKING_BALL_POWER.title": "Wrecking Ball",
+  "THETHIEF-WRECKING_BALL_POWER.pipDescription": "Deal {Amount} damage to all enemies.",
   "THETHIEF-POISON_PARADISE_POWER.description": "Whenever you are attacked, apply [gold]Poison[/gold] to the attacker.",
   "THETHIEF-POISON_PARADISE_POWER.smartDescription": "Whenever you are attacked, apply {Amount} [gold]Poison[/gold] to the attacker.",
   "THETHIEF-POISON_PARADISE_POWER.title": "Poison Paradise",
