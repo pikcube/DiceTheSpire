@@ -19,7 +19,10 @@ public class Dig() : GadgetModel(nameof(Dig))
             return false;
         }
 
-        rewards.Add(new RelicReward(RelicFactory.PullNextRelicFromFront(Parent.Owner).ToMutable(), Parent.Owner));
+        for (int n = 0; n < GetPower(player); ++n)
+        {
+            rewards.Add(new RelicReward(RelicFactory.PullNextRelicFromFront(Parent.Owner).ToMutable(), Parent.Owner));
+        }
 
         return true;
     }

@@ -42,7 +42,7 @@ public class Crack() : GadgetModel(nameof(Crack))
 
         HookPlayerChoiceContext choiceContext = new(owner, owner.NetId, GameActionType.Combat);
 
-        await CreatureCmd.Damage(choiceContext, combatState.Enemies, new DamageVar(-delta, DamageProps.nonCardHpLoss),
+        await CreatureCmd.Damage(choiceContext, combatState.Enemies, new DamageVar(-delta * GetPower(owner), DamageProps.nonCardHpLoss),
             null, null);
     }
 

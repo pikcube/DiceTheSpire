@@ -16,7 +16,7 @@ public class InfinityMirror() : GadgetModel(nameof(InfinityMirror))
             return amount;
         }
 
-        return amount + player.Creature.CombatState.RoundNumber;
+        return amount + player.Creature.CombatState.RoundNumber * GetPower(player);
     }
 
     public override async Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
@@ -25,7 +25,7 @@ public class InfinityMirror() : GadgetModel(nameof(InfinityMirror))
         {
             return;
         }
-        await PlayerCmd.GainEnergy(player.Creature.CombatState.RoundNumber, player);
+        await PlayerCmd.GainEnergy(player.Creature.CombatState.RoundNumber * GetPower(player), player);
     }
 
     public override bool IsAllowedAsTempGadget => false;

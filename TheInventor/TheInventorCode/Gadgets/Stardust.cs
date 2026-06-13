@@ -27,7 +27,10 @@ public class Stardust() : GadgetModel(nameof(Stardust))
 
         Parent.Flash();
 
-        await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, target, player.Creature, null);
+        for (int n = 0; n < GetPower(player); ++n)
+        {
+            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, target, player.Creature, null);
+        }
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

@@ -14,7 +14,7 @@ public class BattleWrench() : GadgetModel(nameof(BattleWrench))
     {
         if (player == Parent?.Owner)
         {
-            return count + 2;
+            return count + 2 * GetPower(player);
         }
 
         return count;

@@ -30,7 +30,7 @@
   "THEINVENTOR-ROTTEN_EGG.title": "Rotten Egg",
   "THEINVENTOR-SPOOKY_NOISES.description": "Draw {Cards:diff()} cards.\nGain {StartledPower:diff()} [gold]Startled[/gold].",
   "THEINVENTOR-SPOOKY_NOISES.title": "Spooky Noises",
-  "THEINVENTOR-SCREWDRIVER.description": "Deal {Damage:diff()} damage.\nReactivate your [gold]Gadget[/gold].",
+  "THEINVENTOR-SCREWDRIVER.description": "Double the power of all [gold]Gadgets[/gold] for the rest of combat.",
   "THEINVENTOR-SCREWDRIVER.title": "Screwdriver",
   "THEINVENTOR-SNEEZE.description": "Whenever you [gold]Blink[/gold] a card, gain {SneezePower:diff()} [gold]Block[/gold].",
   "THEINVENTOR-SNEEZE.title": "Sneeze",
@@ -38,7 +38,7 @@
   "THEINVENTOR-VISE_GRIP.title": "Vise Grip",
   "THEINVENTOR-FOCUS.description": "At the start of each turn, draw {Cards:diff()} cards.",
   "THEINVENTOR-FOCUS.title": "Focus",
-  "THEINVENTOR-ELASTIC_HEART.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Unplayable[/gold] card held in [gold]Hand[/gold].",
+  "THEINVENTOR-ELASTIC_HEART.description": "At the end of your turn, gain {ElasticHeartPower:diff()} [gold]Block[/gold] for each [gold]Unplayable[/gold] card held in [gold]Hand[/gold].",
   "THEINVENTOR-ELASTIC_HEART.title": "Elastic Heart",
   "THEINVENTOR-ICICLE.description": "Gain {Block:diff()} [gold]Block[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold] to all enemies.",
   "THEINVENTOR-ICICLE.title": "Icicle",
@@ -125,6 +125,8 @@
   "THEINVENTOR-LIGHTER.title": "Lighter",
   "THEINVENTOR-SAW_WAVE.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, gain {SawWavePower:diff()} [gold]Dexterity[/gold].",
   "THEINVENTOR-SAW_WAVE.title": "Saw Wave",
-  "THEINVENTOR-SPIKE.description": "Whenever you add an [gold]Unplayable[/gold] card to your hand, deal 5 damage to ALL enemies.",
-  "THEINVENTOR-SPIKE.title": "Spike"
+  "THEINVENTOR-SPIKE.description": "Whenever you add an [gold]Unplayable[/gold] card to your hand, deal {SpikePower:diff()} damage to ALL enemies.",
+  "THEINVENTOR-SPIKE.title": "Spike",
+  "THEINVENTOR-GADGET_CARD.description": "{GadgetDescription.StringValue}",
+  "THEINVENTOR-GADGET_CARD.title": "{GadgetTitle.StringValue}"
 }

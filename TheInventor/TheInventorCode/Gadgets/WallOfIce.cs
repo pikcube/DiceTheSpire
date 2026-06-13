@@ -1,8 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -13,43 +11,20 @@ public class WallOfIce() : GadgetModel(nameof(WallOfIce))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
-    public bool IsCharged { get; set; }
-
-    public override Task BeforeCombatStart()
-    {
-        IsCharged = true;
-        return Task.CompletedTask;
-    }
-
-    public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (Parent?.Owner != player || player.Creature.CombatState is null || player.Creature.CombatState.RoundNumber <= 1)
-        {
-            return Task.CompletedTask;
-        }
-
-        IsCharged = false;
-        return Task.CompletedTask;
-    }
-
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource)
     {
-        if (Parent?.Owner.Creature != target || !IsCharged)
+        if (Parent is null || Parent.Owner.Creature != target)
         {
             return 1;
         }
 
-        return 0.25M;
-    }
-
-    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (player == Parent?.Owner)
+        decimal val = 1;
+        for (int n = 0; n < GetPower(Parent.Owner); ++n)
         {
-            IsCharged = true;
+            val *= 0.75M;
         }
 
-        return Task.CompletedTask;
+        return val;
     }
 }

@@ -30,7 +30,7 @@ public class Bonk() : GadgetModel(nameof(Bonk))
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, target, 5, DamageProps.nonCardUnpowered, null, null);
+        await CreatureCmd.Damage(choiceContext, target, 5 * GetPower(player), DamageProps.nonCardUnpowered, null, null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

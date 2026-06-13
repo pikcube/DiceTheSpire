@@ -42,7 +42,7 @@ public class LargeToolbox() : GadgetModel(nameof(LargeToolbox))
         IEnumerable<CardModel> validColorlessCards = ModelDb.CardPool<ColorlessCardPool>()
             .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
 
-        IEnumerable<CardModel> toolBoxCards = CardFactory.GetDistinctForCombat(player, validColorlessCards, 3, player.RunState.Rng.CombatCardGeneration);
+        IEnumerable<CardModel> toolBoxCards = CardFactory.GetDistinctForCombat(player, validColorlessCards, 3 * GetPower(player), player.RunState.Rng.CombatCardGeneration);
 
         foreach (CardModel card in toolBoxCards)
         {

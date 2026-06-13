@@ -1,11 +1,14 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 using TheInventor.TheInventorCode.Interfaces;
+using TheInventor.TheInventorCode.Powers;
 using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Gadgets;
@@ -64,6 +67,16 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     }
 
     public virtual Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
+
+    protected static int GetPower(Player player)
+    {
+        decimal power = player.RunState
+            .IterateHookListeners(player.Creature.CombatState)
+            .OfType<IGadgetPowerListener>()
+            .Aggregate<IGadgetPowerListener, decimal>(1, (current, listener) => current * listener.ModifyGadgetPowerMultiplicative(player));
+
+        return (int)Math.Round(power);
+    }
 
     public void BreakMe()
     {
