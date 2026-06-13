@@ -26,7 +26,7 @@ public class RemoteControl() : TheInventorCard(1, CardType.Attack, CardRarity.Co
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        Gadget.RandomizeAllGadgets(Owner);
+        await Gadget.RandomizeAllGadgetsAsync(choiceContext, Owner, cardPlay.Card);
     }
 
     protected override void OnUpgrade()

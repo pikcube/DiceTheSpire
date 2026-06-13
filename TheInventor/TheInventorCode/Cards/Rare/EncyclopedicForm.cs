@@ -16,7 +16,12 @@ public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<TemporaryGadgetPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        TemporaryGadgetPower? power = await PowerCmd.Apply<TemporaryGadgetPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        if (power is null)
+        {
+            return;
+        }
+        await power.LinkedGadgetModel.OnRechargeAsync(choiceContext, Owner);
     }
 
     protected override void OnUpgrade()
