@@ -11,4 +11,5 @@ public interface IGadgetParent
     public GadgetModel LinkedGadgetModel { get; }
     public AbstractModel AsModel();
     public void Flash();
+    public Task AfterRandomizedAsync();
 }

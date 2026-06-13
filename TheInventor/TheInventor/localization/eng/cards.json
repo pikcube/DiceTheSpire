@@ -22,7 +22,7 @@
   "THEINVENTOR-SHOVEL.title": "Shovel",
   "THEINVENTOR-LAMENT.description": "Deal {Damage:diff()} damage.\n[gold]Freeze[/gold] the enemy.",
   "THEINVENTOR-LAMENT.title": "Lament",
-  "THEINVENTOR-BLAST_CHILLER.description": "[gold]Held[/gold]: Deal damage to {IfUpgraded:show:ALL enemies|a random enemy} equal to your currrent [gold]Block[/gold].",
+  "THEINVENTOR-BLAST_CHILLER.description": "[gold]Held[/gold]: Deal damage to {IfUpgraded:show:ALL enemies|a random enemy} equal to your current [gold]Block[/gold].",
   "THEINVENTOR-BLAST_CHILLER.title": "Blast Chiller",
   "THEINVENTOR-CHAINSAW.description": "Deal {Damage:diff()} damage to ALL enemies.\nDeals double damage to [gold]Minions[/gold].",
   "THEINVENTOR-CHAINSAW.title": "Chainsaw",

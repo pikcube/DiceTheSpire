@@ -1,22 +1,15 @@
-﻿using System.Data;
-using BaseLib.Abstracts;
-using Godot;
+﻿using BaseLib.Abstracts;
 using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes;
-using MegaCrit.Sts2.Core.Nodes.Cards;
-using MegaCrit.Sts2.Core.Nodes.Vfx.Cards;
-using MegaCrit.Sts2.Core.Saves;
-using MegaCrit.Sts2.Core.Settings;
+using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Gadgets;
@@ -30,18 +23,22 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
 {
     static TemporaryGadgetPower()
     {
-        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
-            .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
+        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", CombatStateHooks);
+        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", RunStateHooks);
+    }
+
+    private static GadgetModel[] RunStateHooks(RunState state)
+    {
+        return [.. state.Players.SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
             .Select(g => g.LinkedGadgetModel)
-            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)
-            .ToArray()
-        );
-        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
-            .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)];
+    }
+
+    private static GadgetModel[] CombatStateHooks(CombatState state)
+    {
+        return [.. state.Players.SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
             .Select(g => g.LinkedGadgetModel)
-            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)
-            .ToArray()
-        );
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)];
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];
@@ -88,38 +85,24 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
         if (Owner.Player is null)
         {
             await PowerCmd.Remove(this);
-            return;
         }
-
-        GadgetId = Gadget.GetRandomCombatGadgetId(Owner.Player.RunState.Rng.CombatOrbGeneration);
-
-        BlockingPlayerChoiceContext context = new();
-
-        GadgetCard gadgetCard = GadgetCard.Create();
-        gadgetCard.SetVars(LinkedGadgetModel);
-
-        ShowAndDestoryCard(gadgetCard, 0.5f);
-
-
-        await LinkedGadgetModel.OnRechargeAsync(context, Owner.Player);
     }
 
-    private static void ShowAndDestoryCard(GadgetCard card, float delayTimeBasedOnIndex)
+    public async Task RandomizeThis()
     {
-        Control cardPreviewContainer = NRun.Instance?.GlobalUi.CardPreviewContainer ?? throw new NoNullAllowedException();
-        NCard nCard = NCard.Create(card) ?? throw new NoNullAllowedException();
-        cardPreviewContainer.AddChildSafely(nCard);
-        nCard.UpdateVisuals(PileType.Exhaust, CardPreviewMode.Normal);
-        Tween tween = nCard.CreateTween();
-        tween.TweenProperty(nCard, (NodePath)"scale", Vector2.One, 0.25)
-            .From(Vector2.Zero)
-            .SetEase(Tween.EaseType.Out)
-            .SetTrans(Tween.TransitionType.Cubic);
-        tween.TweenInterval(delayTimeBasedOnIndex);
-        tween.TweenCallback(Callable.From((Action)(() => { NRun.Instance.GlobalUi.AddChildSafely(NExhaustVfx.Create(nCard)!); })));
-        tween.TweenProperty(nCard, (NodePath)"modulate", StsColors.exhaustGray,
-            SaveManager.Instance.PrefsSave.FastMode == FastModeType.Fast ? 0.20000000298023224 : 0.30000001192092896);
-        tween.TweenCallback(Callable.From(nCard.QueueFree));
-        tween.TweenCallback(Callable.From(card.ResetVars));
+        if (Owner.Player is null)
+        {
+            await PowerCmd.Remove(this);
+            return;
+        }
+        GadgetId = Gadget.GetRandomCombatGadgetId(Owner.Player.RunState.Rng.CombatOrbGeneration);
+        await AfterRandomizedAsync();
+    }
+
+    public async Task AfterRandomizedAsync()
+    {
+        GadgetCard gadgetCard = GadgetCard.Create();
+        gadgetCard.SetVars(LinkedGadgetModel);
+        await gadgetCard.ShowAndDestoryCardAsync(0.5f);
     }
 }

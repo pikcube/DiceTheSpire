@@ -1,7 +1,10 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
@@ -18,14 +21,15 @@ public class AutoBump() : GadgetModel(nameof(AutoBump))
 
         for (int n = 0; n < GetPower(player); ++n)
         {
-            CardModel? card = await CardSelectCmd.FromHandForUpgrade(choiceContext, player, Parent.AsModel());
+            LocString locString = new("card_selection", "TO_BUMP");
+            CardSelectorPrefs cardSelectorPrefs = new(locString, 1);
+            IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Parent.Owner,
+                cardSelectorPrefs, null, this);
 
-            if (card == null)
+            foreach (CardModel card in result)
             {
-                return;
+                await card.BumpAsync();
             }
-
-            CardCmd.Upgrade(card);
         }
     }
 
