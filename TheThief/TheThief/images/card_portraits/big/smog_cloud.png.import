@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wi8nq633oij"
-path="res://.godot/imported/poison_cloud.png-fce333f27cd33afe4d3020fbcb19754e.ctex"
+uid="uid://bbo65mwlh13f1"
+path="res://.godot/imported/smog_cloud.png-0b18c59e2235fa48a6dc6f42e78baca5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheThief/images/card_portraits/big/poison_cloud.png"
-dest_files=["res://.godot/imported/poison_cloud.png-fce333f27cd33afe4d3020fbcb19754e.ctex"]
+source_file="res://TheThief/images/card_portraits/big/smog_cloud.png"
+dest_files=["res://.godot/imported/smog_cloud.png-0b18c59e2235fa48a6dc6f42e78baca5.ctex"]
 
 [params]
 
