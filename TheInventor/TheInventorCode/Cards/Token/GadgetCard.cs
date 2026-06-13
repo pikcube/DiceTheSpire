@@ -13,7 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Token;
 public class GadgetCard : CustomCardModel
 {
 
-    public GadgetCard() : base(-1, CardType.Status, CardRarity.Token, TargetType.Self)
+    public GadgetCard() : base(-1, CardType.Status, CardRarity.Token, TargetType.Self, false)
     {
         TitleLocString.Add(DynamicVars["GadgetTitle"]);
     }

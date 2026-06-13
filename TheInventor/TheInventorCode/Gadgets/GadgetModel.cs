@@ -1,12 +1,10 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Runs;
 using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Powers;
 using TheInventor.TheInventorCode.Relics;
@@ -37,7 +35,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
 
     public string GadgetId { get; }
     public string GadgetText => string.Join(": ", GadgetLocStrings);
-    public virtual IEnumerable<string> GadgetLocStrings => [Title.GetRawText(), $"{Description.GetRawText()}"];
+    public virtual IEnumerable<string> GadgetLocStrings => [Title.GetFormattedText(), $"{Description.GetFormattedText()}"];
 
     public LocString Title
     {

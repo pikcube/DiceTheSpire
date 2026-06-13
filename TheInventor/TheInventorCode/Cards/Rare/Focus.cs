@@ -8,7 +8,7 @@ using TheInventor.TheInventorCode.Powers;
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
   
-public class Focus() : TheInventorCard(4, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Focus() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
