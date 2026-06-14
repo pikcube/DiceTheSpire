@@ -24,7 +24,10 @@
   "THEINVENTOR-SAW_WAVE_POWER.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, gain 1 [gold]Dexterity[/gold].",
   "THEINVENTOR-SAW_WAVE_POWER.smartDescription": "Whenever you apply a [gold]Debuff[/gold] to yourself, gain {Amount} [gold]Dexterity[/gold].",
   "THEINVENTOR-SAW_WAVE_POWER.title": "Saw Wave",
-  "THEINVENTOR-SPIKE_POWER.description": "Whenever you add an [gold]Unplayable[/gold] card to your hand, deal [blue]5[/blue] damage to ALL enemies.",
+  "THEINVENTOR-SPIKE_POWER.description": "Whenever you add an [gold]Unplayable[/gold] card to your hand, deal [blue]3[/blue] damage to ALL enemies.",
   "THEINVENTOR-SPIKE_POWER.smartDescription": "Whenever you add an [gold]Unplayable[/gold] card to your hand, deal [blue]{Amount}[/blue] damage to ALL enemies.",
-  "THEINVENTOR-SPIKE_POWER.title": "Spike"
+  "THEINVENTOR-SPIKE_POWER.title": "Spike",
+  "THEINVENTOR-SCREWDRIVER_POWER.description": "Double the power of all [gold]Gadgets[/gold] for the rest of combat.",
+  "THEINVENTOR-SCREWDRIVER_POWER.smartDescription": "Double the power of all [gold]Gadgets[/gold] for the rest of combat.",
+  "THEINVENTOR-SCREWDRIVER_POWER.title": "Screwdriver"
 }

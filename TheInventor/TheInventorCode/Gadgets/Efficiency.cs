@@ -9,11 +9,11 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class Efficiency() : GadgetModel(nameof(Efficiency))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
-    public bool IsReady { get; set; }
+    public int Count { get; set; }
 
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        IsReady = true;
+        Count = 0;
         return Task.CompletedTask;
     }
 
@@ -25,18 +25,19 @@ public class Efficiency() : GadgetModel(nameof(Efficiency))
             return (pileType, position);
         }
 
-        if (!IsReady || isAutoPlay)
+        if (Count < GetPower(card.Owner) || isAutoPlay)
         {
             return (pileType, position);
         }
 
-        IsReady = false;
+        ++Count;
+
         return (PileType.Hand, CardPilePosition.Top);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
-        IsReady = true;
+        Count -= GetPower(player);
         return Task.CompletedTask;
     }
 }

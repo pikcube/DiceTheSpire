@@ -23,10 +23,12 @@
   "THETHIEF-WRECKING_BALL_POWER.description": "Whenever a card Counts Down, all enemies lose health",
   "THETHIEF-WRECKING_BALL_POWER.smartDescription": "Whenever a card [gold]Counts Down[/gold], all enemies lose {Amount} health.",
   "THETHIEF-WRECKING_BALL_POWER.title": "Wrecking Ball",
+  "THETHIEF-WRECKING_BALL_POWER.pipDescription": "Deal {Amount} damage to all enemies.",
   "THETHIEF-POISON_PARADISE_POWER.description": "Whenever you are attacked, apply [gold]Poison[/gold] to the attacker.",
   "THETHIEF-POISON_PARADISE_POWER.smartDescription": "Whenever you are attacked, apply {Amount} [gold]Poison[/gold] to the attacker.",
   "THETHIEF-POISON_PARADISE_POWER.title": "Poison Paradise",
-  "THETHIEF-POISON_CROWN_POWER.description": "Whenever you create a [gold]Pip[/gold], apply [gold]Poison[/gold] to all enemies.",
-  "THETHIEF-POISON_CROWN_POWER.smartDescription": "Whenever you create a [gold]Pip[/gold], apply {Amount} [gold]Poison[/gold] to all enemies.",
-  "THETHIEF-POISON_CROWN_POWER.title": "Poison Crown"
+  "THETHIEF-POISON_CROWN_POWER.description": "[gold]Pips[/gold], now apply [gold]Poison[/gold] to all enemies.",
+  "THETHIEF-POISON_CROWN_POWER.smartDescription": "[gold]Pips[/gold] now apply {Amount} [gold]Poison[/gold] to all enemies.",
+  "THETHIEF-POISON_CROWN_POWER.title": "Poison Crown",
+  "THETHIEF-POISON_CROWN_POWER.pipDescription": "Apply {Amount} [gold]Poison[/gold] to all enemies."
 }

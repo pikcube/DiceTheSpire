@@ -21,9 +21,11 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
+using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Keywords;
+using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Relics;
 
@@ -77,6 +79,13 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     } = nameof(DefaultGadget);
 
     public AbstractModel AsModel() => this;
+    public async Task AfterRandomizedAsync()
+    {
+        Flash([Owner.Creature]);
+        GadgetCard gadgetCard = GadgetCard.Create();
+        gadgetCard.SetVars(LinkedGadgetModel);
+        await gadgetCard.ShowAndDestoryCardAsync(0.5f);
+    }
 
     public GadgetModel LinkedGadgetModel
     {
@@ -261,15 +270,6 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         return Task.CompletedTask;
     }
 
-    public static async Task RechargeAsync(PlayerChoiceContext context, Player owner)
-    {
-        foreach (IGadgetParent parent in owner.RunState.IterateHookListeners(owner.Creature.CombatState)
-                     .OfType<IGadgetParent>().Where(gp => gp.Owner == owner))
-        {
-            await parent.LinkedGadgetModel.OnRechargeAsync(context, owner);
-        }
-    }
-
     public static string GetRandomCombatGadgetId(Rng rng)
     {
         return AllGadgets.Where(g => g.Value.IsAllowedAsTempGadget).TakeRandom(1, rng).Single().Key;
@@ -280,12 +280,25 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
     }
 
-    public static void RandomizeAllGadgets(Player owner)
+    public static async Task RandomizeAllGadgetsAsync(PlayerChoiceContext choiceContext, Player owner, CardModel? cardSource)
     {
-        foreach (IGadgetParent parent in owner.RunState.IterateHookListeners(owner.Creature.CombatState)
-                     .OfType<IGadgetParent>().ToArray())
+        List<IGadgetParent> gadgetParents = GetGadgetParents(owner);
+
+        if (gadgetParents.Count == 0)
+        {
+            TemporaryGadgetPower? temp = await TemporaryGadgetPower.ApplyAsync(choiceContext, owner.Creature, 1, owner.Creature, cardSource);
+            if (temp is not null)
+            {
+                gadgetParents.Add(temp);
+            }
+        }
+
+        foreach (IGadgetParent parent in gadgetParents)
         {
             parent.GadgetId = GetRandomCombatGadgetId(owner.RunState.Rng.CombatOrbGeneration);
+            await parent.AfterRandomizedAsync();
         }
     }
+
+    public static List<IGadgetParent> GetGadgetParents(Player owner) => [.. owner.RunState.IterateHookListeners(owner.Creature.CombatState).OfType<IGadgetParent>()];
 }

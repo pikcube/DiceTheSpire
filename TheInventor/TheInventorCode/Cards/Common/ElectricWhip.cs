@@ -14,7 +14,7 @@ public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Com
 {
     public override string GetScrapId => nameof(ShortCircuit);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, DamageProps.card), new PowerVar<ShockPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), new PowerVar<ShockPower>(2)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(DynamicVars.Power<ShockPower>().IntValue)];
 

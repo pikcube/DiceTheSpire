@@ -3,6 +3,7 @@ using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
@@ -40,6 +41,7 @@ public class Rat() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, Targe
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new PowerVar<PoisonPower>(5), new IntVar("CurrentCount", 2)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

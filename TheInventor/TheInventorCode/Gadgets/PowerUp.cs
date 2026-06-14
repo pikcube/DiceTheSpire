@@ -19,7 +19,7 @@ public class PowerUp() : GadgetModel(nameof(PowerUp))
             return;
         }
 
-        await VigorPower.ApplyAsync(choiceContext, player.Creature, 6, player.Creature, null);
+        await VigorPower.ApplyAsync(choiceContext, player.Creature, 6 * GetPower(player), player.Creature, null);
     }
 
 

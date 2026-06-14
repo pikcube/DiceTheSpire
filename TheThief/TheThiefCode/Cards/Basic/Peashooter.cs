@@ -48,7 +48,6 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Basic, 
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

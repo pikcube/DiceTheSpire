@@ -1,25 +1,54 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TheThief.TheThiefCode.Powers;
 
-public class PoisonCrownPower : TheThiefPower
+public class PoisonCrownPower : TheThiefPower, IModifyPipOnPlayListener
 {
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
+    Player IModifyPipOnPlayListener.Owner => Owner.Player ?? throw new InvalidOperationException();
+
+    public LocString PipDescription
     {
-        if (creator is null || creator != Owner.Player || card is not Pip)
+        get
+        {
+            LocString l = new LocString("powers", Id.Entry + ".pipDescription").WithDynamicVars(DynamicVars); 
+            l.Add("Amount", Amount);
+            return l;
+        }
+    }
+
+    public IEnumerable<IHoverTip> PipHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
+
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
+        CardModel? cardSource)
+    {
+        if (power != this)
         {
             return;
         }
-        await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), CombatState.Enemies, Amount, Owner, null);
+
+        if (Owner.Player is null)
+        {
+            await PowerCmd.Remove(this);
+        }
+    }
+
+    public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        await PowerCmd.Apply<PoisonPower>(choiceContext, CombatState.Enemies, Amount, Owner, cardPlay.Card);
     }
 }

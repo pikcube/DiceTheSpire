@@ -13,7 +13,7 @@ public class BloodSip() : GadgetModel(nameof(BloodSip))
             return;
         }
 
-        await CreatureCmd.Heal(Parent.Owner.Creature, 6);
+        await CreatureCmd.Heal(Parent.Owner.Creature, 6 * GetPower(Parent.Owner));
         BreakMe();
     }
 

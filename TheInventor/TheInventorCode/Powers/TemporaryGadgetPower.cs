@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -8,6 +9,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
+using Pikcube.Common.Extensions;
+using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Relics;
@@ -19,18 +23,22 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
 {
     static TemporaryGadgetPower()
     {
-        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
-            .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
+        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", CombatStateHooks);
+        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", RunStateHooks);
+    }
+
+    private static GadgetModel[] RunStateHooks(RunState state)
+    {
+        return [.. state.Players.SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
             .Select(g => g.LinkedGadgetModel)
-            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)
-            .ToArray()
-        );
-        ModHelper.SubscribeForRunStateHooks("TheInventor.TemporaryGadgetPower", state => state.Players
-            .SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)];
+    }
+
+    private static GadgetModel[] CombatStateHooks(CombatState state)
+    {
+        return [.. state.Players.SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
             .Select(g => g.LinkedGadgetModel)
-            .Where(g => g.HookType == CustomSingletonModel.HookType.Run)
-            .ToArray()
-        );
+            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)];
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];
@@ -77,10 +85,24 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
         if (Owner.Player is null)
         {
             await PowerCmd.Remove(this);
+        }
+    }
+
+    public async Task RandomizeThis()
+    {
+        if (Owner.Player is null)
+        {
+            await PowerCmd.Remove(this);
             return;
         }
-
         GadgetId = Gadget.GetRandomCombatGadgetId(Owner.Player.RunState.Rng.CombatOrbGeneration);
-        await LinkedGadgetModel.OnRechargeAsync(new BlockingPlayerChoiceContext(), Owner.Player);
+        await AfterRandomizedAsync();
+    }
+
+    public async Task AfterRandomizedAsync()
+    {
+        GadgetCard gadgetCard = GadgetCard.Create();
+        gadgetCard.SetVars(LinkedGadgetModel);
+        await gadgetCard.ShowAndDestoryCardAsync(0.5f);
     }
 }
