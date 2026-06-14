@@ -62,8 +62,10 @@
   "THEINVENTOR-SCRAP_STRIKE.title": "Scrap Strike",
   "THEINVENTOR-LEATHER_ARMOR.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold].",
   "THEINVENTOR-LEATHER_ARMOR.title": "Leather Armor",
-  "THEINVENTOR-HI_VIS_JACKET.description": "Gain {Block:diff()} [gold]Block[/gold] X times.",
+  "THEINVENTOR-HI_VIS_JACKET.description": "At the start of each turn, [gold]Inspect[/gold] {HiVisJacketPower:diff()} cards.",
   "THEINVENTOR-HI_VIS_JACKET.title": "Hi Vis Jacket",
+  "THEINVENTOR-TOWER_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold] X times.",
+  "THEINVENTOR-TOWER_SHIELD.title": "Tower Shield",
   "THEINVENTOR-LIGHTNING_ROD.description": "Deal damage to ALL enemies equal to the total amount of damage taken this combat.{InCombat:\n(Deals {Damage:diff()} damage)|}",
   "THEINVENTOR-LIGHTNING_ROD.title": "Lightning Rod",
   "THEINVENTOR-UNCLE.jinxDescription": "ALL enemies lose [blue]{Damage:diff()}[/blue] HP.",
@@ -130,5 +132,13 @@
   "THEINVENTOR-GADGET_CARD.description": "{GadgetDescription.StringValue}",
   "THEINVENTOR-GADGET_CARD.title": "{GadgetTitle.StringValue}",
   "THEINVENTOR-SPANNERSWORD.description": "Deal {Damage:diff()} damage.\n[gold]Blink[/gold] {Cards:plural:a card|{Cards:diff()} cards}.\nAdd {Cards:plural:a random card|{Cards:diff()} random cards} from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
-  "THEINVENTOR-SPANNERSWORD.title": "Spannersword"
+  "THEINVENTOR-SPANNERSWORD.title": "Spannersword",
+  "THEINVENTOR-BEE_STING.description": "At the start of each turn, gain {Energy:energyIcons()} and [gold]Shock[/gold] a card.",
+  "THEINVENTOR-BEE_STING.title": "Bee Sting",
+  "THEINVENTOR-ROCK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to a random enemy.",
+  "THEINVENTOR-ROCK.title": "Rock",
+  "THEINVENTOR-AVALANCHE.description": "At the start of each turn, add {IfUpgraded:show:two [gold]Rocks[/gold]|a [gold]Rock[/gold]} to your hand.",
+  "THEINVENTOR-AVALANCHE.title": "Avalanche",
+  "THEINVENTOR-CALCULATOR.description": "The first {Cards:plural:time|two times} you [gold]Inspect[/gold] each turn, gain {Energy:energyIcons()}.",
+  "THEINVENTOR-CALCULATOR.title": "Calculator"
 }

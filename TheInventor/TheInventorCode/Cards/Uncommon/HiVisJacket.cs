@@ -1,33 +1,34 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.ValueProps;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
+using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class HiVisJacket() : TheInventorCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class HiVisJacket() : TheInventorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override bool HasEnergyCostX => true;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<HiVisJacketPower>(3)];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, BlockProps.card)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
+    [
+        HoverTipFactory.Static(BetterStaticHoverTips.Inspect,
+            new CardsVar(DynamicVars.Power<HiVisJacketPower>().IntValue))
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        int xValue = cardPlay.Card.ResolveEnergyXValue();
-
-        for (int n = 0; n < xValue; ++n)
-        {
-            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-        }
+        await HiVisJacketPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<HiVisJacketPower>().EnchantedValue, Owner.Creature, this);
     }
 
-    public override string GetScrapId => nameof(Protection);
+    public override string GetScrapId => nameof(Hook);
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(2);
-        //DynamicVars.Power<ReducePower>().UpgradeValueBy(1);
+        DynamicVars.Power<HiVisJacketPower>().UpgradeValueBy(1);
     }
 }

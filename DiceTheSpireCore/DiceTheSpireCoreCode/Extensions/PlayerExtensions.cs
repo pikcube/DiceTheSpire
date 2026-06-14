@@ -13,13 +13,13 @@ public static class PlayerExtensions
 {
     extension(Player instance)
     {
-        public async Task<CardModel[]> InspectAsync(PlayerChoiceContext choiceContext, int cards, Func<Task>? onBlinkFunc = null)
+        public async Task InspectAsync(PlayerChoiceContext choiceContext, int cards, Func<Task>? onBlinkFunc = null)
         {
             CardModel[] topCards = [.. PileType.Draw.GetPile(instance).Cards.Take(cards)];
 
             if (topCards.Length == 0)
             {
-                return [];
+                return;
             }
 
             CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BLINK"), 0, topCards.Length);
@@ -35,7 +35,15 @@ public static class PlayerExtensions
                 }
             }
 
-            return selectedCards;
+            foreach (IOnInspectListener listener in instance.RunState.IterateHookListeners(instance.Creature.CombatState).OfType<IOnInspectListener>())
+            {
+                await listener.OnInspectAsync(choiceContext, cards, selectedCards, instance);
+            }
         }
     }
+}
+
+public interface IOnInspectListener
+{
+    public Task OnInspectAsync(PlayerChoiceContext choiceContext, int cards, CardModel[] selectedCards, Player inspector);
 }
