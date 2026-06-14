@@ -10,8 +10,6 @@ public class BrokenMirrorPower : TheInventorPower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
-
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
         return player == Owner.Player ? amount + Amount : amount;

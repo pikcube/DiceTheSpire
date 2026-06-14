@@ -11,7 +11,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class SpikedShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6M, BlockProps.card), new PowerVar<ThornsPower>(2M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6M, BlockProps.card), new PowerVar<ThornsPower>(1M)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -48,7 +48,7 @@ public class SpikedShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Commo
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Block.UpgradeValueBy(2);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 
 }
