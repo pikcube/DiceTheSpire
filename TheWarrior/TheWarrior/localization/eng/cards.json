@@ -36,5 +36,8 @@
   "THEWARRIOR-CANDLE.description": "Select up to {Cards:diff()} cards to [gold]Reroll[/gold]. Repeat {Repeat:diff()} times.\nAdd a [gold]Burn+[/gold] to your draw pile.",
   "THEWARRIOR-CANDLE.title": "Candle",
   "THEWARRIOR-MATCHSTICK.description": "Draw {Cards:diff()} cards.\nGain {Energy:energyIcons()}.",
-  "THEWARRIOR-MATCHSTICK.title": "Matchstick"
+  "THEWARRIOR-MATCHSTICK.title": "Matchstick",
+  "THEWARRIOR-IRON_SHIELD.description": "Gain block equal to the energy cost\nof your hand {IfUpgraded:show:+ 6|+ 3}.\n(Currently {CalculatedBlock:diff()})",
+  "THEWARRIOR-IRON_SHIELD.title": "Iron Shield"
+
 }     
