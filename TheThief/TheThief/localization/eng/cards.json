@@ -72,5 +72,7 @@
   "THETHIEF-RAT.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nApply {PoisonPower:diff()} [gold]Poison[/gold].\nDraw {Cards:plural:a card|{} cards}.",
   "THETHIEF-RAT.title": "Rat",
   "THETHIEF-TOXIC_OOZE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nEach time this deals unblocked damage, apply {PoisonPower:diff()} [gold]Poison[/gold].",
-  "THETHIEF-TOXIC_OOZE.title": "Toxic Ooze"
+  "THETHIEF-TOXIC_OOZE.title": "Toxic Ooze",
+  "THETHIEF-LEAKY_PIPE.description": "Whenever you apply [gold]Poison[/gold] to an enemy, it loses {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
+  "THETHIEF-LEAKY_PIPE.title": "Leaky Pipe"
 }
