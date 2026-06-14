@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfrlxpqc13qp"
-path="res://.godot/imported/raw_ambition.png-f5efc11e246b0f70f4c5f894592609b7.ctex"
+uid="uid://c7yomtk7vgx26"
+path="res://.godot/imported/ambitious_form.png-7075f8f56d11aeb1ba4cfdc26a87f1a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheThief/images/card_portraits/big/raw_ambition.png"
-dest_files=["res://.godot/imported/raw_ambition.png-f5efc11e246b0f70f4c5f894592609b7.ctex"]
+source_file="res://TheThief/images/card_portraits/big/ambitious_form.png"
+dest_files=["res://.godot/imported/ambitious_form.png-7075f8f56d11aeb1ba4cfdc26a87f1a6.ctex"]
 
 [params]
 
