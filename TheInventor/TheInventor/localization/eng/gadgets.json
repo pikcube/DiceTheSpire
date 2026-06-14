@@ -57,7 +57,7 @@
   "THEINVENTOR-CATAPULT.description": "At the start of each turn, deal [blue]15[/blue] damage to a random enemy.",
   "THEINVENTOR-POISON_ARROW.title": "Poison Arrow",
   "THEINVENTOR-POISON_ARROW.description": "At the start of each turn, apply [blue]3[/blue] [gold]Poison[/gold] to ALL enemies.",
-  "THEINVENTOR-POWER_UP.title": "Powewr Up",
+  "THEINVENTOR-POWER_UP.title": "Power Up",
   "THEINVENTOR-POWER_UP.description": "At the start of each turn, gain [blue]6[/blue] [gold]Vigor[/gold].",
   "THEINVENTOR-STARDUST.title": "Stardust",
   "THEINVENTOR-STARDUST.description": "At the start of each turn, apply a random debuff to a random enemy."

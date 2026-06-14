@@ -6,11 +6,12 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using Pikcube.Common.Extensions;
 
 namespace TheThief.TheThiefCode.Cards.Uncommon;
 
   
-public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
+public class DexterityCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -54,6 +55,7 @@ public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Unco
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, this);
+        await this.ExhaustAsync(choiceContext);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
