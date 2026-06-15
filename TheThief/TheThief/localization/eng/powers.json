@@ -33,5 +33,8 @@
   "THETHIEF-POISON_CROWN_POWER.pipDescription": "Apply {Amount} [gold]Poison[/gold] to all enemies.",
   "THETHIEF-LEAKY_PIPE_POWER.description": "Whenever you apply [gold]Poison[/gold] to an enemy, it loses 1 [gold]Strength[/gold] this turn.",
   "THETHIEF-LEAKY_PIPE_POWER.smartDescription": "Whenever you apply [gold]Poison[/gold] to an enemy, it loses {Amount} [gold]Strength[/gold] this turn.",
-  "THETHIEF-LEAKY_PIPE_POWER.title": "Leaky Pipe"
+  "THETHIEF-LEAKY_PIPE_POWER.title": "Leaky Pipe",
+  "THETHIEF-PIP_NEXT_TURN_POWER.description": "At the start of next turn, add a [gold]Pip[/gold] to your [gold]Hand[/gold].",
+  "THETHIEF-PIP_NEXT_TURN_POWER.smartDescription": "At the start of next turn, add {Amount:plural:a [gold]Pip[/gold]|{} [gold]Pips[/gold]} to your [gold]Hand[/gold].",
+  "THETHIEF-PIP_NEXT_TURN_POWER.title": "Pip Next Turn"
 }
