@@ -42,7 +42,7 @@ public class Pip : DiceTheSpireCoreCard
         UpdatePips();
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("PipDescription", "")];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("PipDescription")];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Sly, CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => MutableHoverTips;

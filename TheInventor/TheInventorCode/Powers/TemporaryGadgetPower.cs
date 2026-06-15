@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
-using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
@@ -100,8 +99,6 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
 
     public async Task AfterRandomizedAsync()
     {
-        GadgetCard gadgetCard = GadgetCard.Create();
-        gadgetCard.SetVars(LinkedGadgetModel);
-        await gadgetCard.ShowAndDestoryCardAsync(0.5f);
+        await GadgetCard.ShowAsync(LinkedGadgetModel);
     }
 }

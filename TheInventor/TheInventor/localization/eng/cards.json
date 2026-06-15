@@ -87,7 +87,7 @@
   "THEINVENTOR-BIG_STICK.title": "Big Stick",
   "THEINVENTOR-SIX_SHOOTER.description": "Deal {Damage:diff()} damage {Hits:diff()} times.",
   "THEINVENTOR-SIX_SHOOTER.title": "Six Shooter",
-  "THEINVENTOR-SLEDGE_HAMMER.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to All enemies.",
+  "THEINVENTOR-SLEDGE_HAMMER.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage and apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies.",
   "THEINVENTOR-SLEDGE_HAMMER.title": "Sledge Hammer",
   "THEINVENTOR-SCISSORS.description": "[gold]Exhaust[/gold] a card.\nDraw cards equal to its cost.",
   "THEINVENTOR-SCISSORS.title": "Scissors",
@@ -97,7 +97,7 @@
   "THEINVENTOR-STAFF.title": "Staff",
   "THEINVENTOR-SNOWFLAKE.description": "[gold]Held[/gold]: Gain {BlockNextTurnPower:diff()} [gold]Block[/gold] next turn.",
   "THEINVENTOR-SNOWFLAKE.title": "Snowflake",
-  "THEINVENTOR-SPARK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to all enemies.",
+  "THEINVENTOR-SPARK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to ALL enemies.",
   "THEINVENTOR-SPARK.title": "Spark",
   "THEINVENTOR-ELECTRIC_WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.\n[gold]Shock[/gold] {ShockPower:diff()} cards.",
   "THEINVENTOR-ELECTRIC_WHIP.title": "Electric Whip",
@@ -140,5 +140,7 @@
   "THEINVENTOR-AVALANCHE.description": "At the start of each turn, add {IfUpgraded:show:two [gold]Rocks[/gold]|a [gold]Rock[/gold]} to your hand.",
   "THEINVENTOR-AVALANCHE.title": "Avalanche",
   "THEINVENTOR-CALCULATOR.description": "The first {Cards:plural:time|two times} you [gold]Inspect[/gold] each turn, gain {Energy:energyIcons()}.",
-  "THEINVENTOR-CALCULATOR.title": "Calculator"
+  "THEINVENTOR-CALCULATOR.title": "Calculator",
+  "THEINVENTOR-FLAMETHROWER.description": "Deal {Damage:diff()} damage to ALL enemies.",
+  "THEINVENTOR-FLAMETHROWER.title": "Flamethrower"
 }

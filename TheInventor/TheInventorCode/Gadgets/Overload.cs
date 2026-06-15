@@ -14,7 +14,7 @@ public class Overload() : GadgetModel(nameof(Overload))
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
 
-    private int Count { get; set; } = 0;
+    private int Count { get; set; }
     public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         Count = 0;

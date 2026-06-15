@@ -5,5 +5,5 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 
 public interface IAfterCardCountsDownListener
 {
-    public Task AfterCardCountsDownAsync(RunState runState, CardModel countdownCard);
+    public Task AfterCardCountsDownAsync(IRunState runState, CardModel countdownCard);
 }
