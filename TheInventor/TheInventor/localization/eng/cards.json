@@ -142,5 +142,7 @@
   "THEINVENTOR-CALCULATOR.description": "The first {Cards:plural:time|two times} you [gold]Inspect[/gold] each turn, gain {Energy:energyIcons()}.",
   "THEINVENTOR-CALCULATOR.title": "Calculator",
   "THEINVENTOR-FLAMETHROWER.description": "Deal {Damage:diff()} damage to ALL enemies.",
-  "THEINVENTOR-FLAMETHROWER.title": "Flamethrower"
+  "THEINVENTOR-FLAMETHROWER.title": "Flamethrower",
+  "THEINVENTOR-GIANT_SPATULA.description": "Flip over your draw pile.",
+  "THEINVENTOR-GIANT_SPATULA.title": "Giant Spatula"
 }
