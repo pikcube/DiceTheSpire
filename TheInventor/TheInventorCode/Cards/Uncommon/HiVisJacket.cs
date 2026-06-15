@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
 
@@ -17,7 +18,8 @@ public class HiVisJacket() : TheInventorCard(1, CardType.Power, CardRarity.Uncom
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [
         HoverTipFactory.Static(BetterStaticHoverTips.Inspect,
-            new CardsVar(DynamicVars.Power<HiVisJacketPower>().IntValue))
+            new CardsVar(DynamicVars.Power<HiVisJacketPower>().IntValue)), 
+        HoverTipFactory.FromKeyword(BlinkModel.Blink)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

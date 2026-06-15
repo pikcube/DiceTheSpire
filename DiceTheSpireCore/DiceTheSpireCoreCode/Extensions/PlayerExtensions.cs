@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 
@@ -13,7 +13,7 @@ public static class PlayerExtensions
 {
     extension(Player instance)
     {
-        public async Task InspectAsync(PlayerChoiceContext choiceContext, int cards, Func<Task>? onBlinkFunc = null)
+        public async Task InspectAsync(PlayerChoiceContext choiceContext, int cards)
         {
             CardModel[] topCards = [.. PileType.Draw.GetPile(instance).Cards.Take(cards)];
 
@@ -26,14 +26,8 @@ public static class PlayerExtensions
 
             CardModel[] selectedCards = [.. await CardSelectCmd.FromSimpleGrid(choiceContext, topCards, instance, prefs)];
 
-            foreach (CardModel card in selectedCards)
-            {
-                await card.BlinkAsync(choiceContext);
-                if (onBlinkFunc is not null)
-                {
-                    await onBlinkFunc();
-                }
-            }
+            await BlinkModel.BlinkCardsAsync(choiceContext, selectedCards);
+
 
             foreach (IOnInspectListener listener in instance.RunState.IterateHookListeners(instance.Creature.CombatState).OfType<IOnInspectListener>())
             {

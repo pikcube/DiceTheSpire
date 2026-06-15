@@ -1,21 +1,22 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using RunState = MegaCrit.Sts2.Core.Runs.RunState;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode;
 
 public static class DiceyHooks
 {
-    public delegate void AfterCardCountsDownHandler(RunState runState, CardModel countdownCard);
+    public delegate void AfterCardCountsDownHandler(IRunState runState, CardModel countdownCard);
 
     public static event AfterCardCountsDownHandler? AfterCardCountsDown;
 
-    internal static async Task OnAfterCardCountsDownAsync(RunState runState, CardModel countdownCard)
+    internal static async Task OnAfterCardCountsDownAsync(IRunState runState, ICombatState? combatState, CardModel countdownCard)
     {
         AfterCardCountsDown?.Invoke(runState, countdownCard);
-        foreach (IAfterCardCountsDownListener listener in runState.IterateHookListeners(countdownCard.Owner.Creature.CombatState).OfType<IAfterCardCountsDownListener>())
+        foreach (IAfterCardCountsDownListener listener in runState.IterateHookListeners(combatState).OfType<IAfterCardCountsDownListener>())
         {
             await listener.AfterCardCountsDownAsync(runState, countdownCard);
         }
