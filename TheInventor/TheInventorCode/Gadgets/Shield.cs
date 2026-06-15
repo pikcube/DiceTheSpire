@@ -10,6 +10,8 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class Shield() : GadgetModel(nameof(Shield))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 5;
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player)
@@ -17,7 +19,7 @@ public class Shield() : GadgetModel(nameof(Shield))
             return;
         }
 
-        await CreatureCmd.GainBlock(player.Creature, new BlockVar(5 * GetPower(player), BlockProps.nonCardUnpowered), null);
+        await CreatureCmd.GainBlock(player.Creature, new BlockVar(Power, BlockProps.nonCardUnpowered), null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

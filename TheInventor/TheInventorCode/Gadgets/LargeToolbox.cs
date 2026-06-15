@@ -12,6 +12,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class LargeToolbox() : GadgetModel(nameof(LargeToolbox))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 3;
 
     public bool IsReady { get; set; }
 
@@ -37,12 +38,12 @@ public class LargeToolbox() : GadgetModel(nameof(LargeToolbox))
         return EmptyTheToolboxAsync(player);
     }
 
-    private static async Task EmptyTheToolboxAsync(Player player)
+    private async Task EmptyTheToolboxAsync(Player player)
     {
         IEnumerable<CardModel> validColorlessCards = ModelDb.CardPool<ColorlessCardPool>()
             .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
 
-        IEnumerable<CardModel> toolBoxCards = CardFactory.GetDistinctForCombat(player, validColorlessCards, 3 * GetPower(player), player.RunState.Rng.CombatCardGeneration);
+        IEnumerable<CardModel> toolBoxCards = CardFactory.GetDistinctForCombat(player, validColorlessCards, Power, player.RunState.Rng.CombatCardGeneration);
 
         foreach (CardModel card in toolBoxCards)
         {

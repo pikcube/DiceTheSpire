@@ -37,20 +37,26 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     public string GadgetText => string.Join(": ", GadgetLocStrings);
     public virtual IEnumerable<string> GadgetLocStrings => [Title.GetFormattedText(), $"{Description.GetFormattedText()}"];
 
+    public virtual decimal PowerBase => 1;
+    public decimal PowerLevel => Parent?.Owner is null ? 1 : GetPower(Parent.Owner);
+    public int Power => (int)Math.Round(PowerBase * PowerLevel);
+
     public LocString Title
     {
         get
         {
-            field ??= new LocString("gadgets", Id.Entry + ".title").WithDynamicVars(DynamicVars);
-            return field;
+            LocString title = new LocString("gadgets", Id.Entry + ".title").WithDynamicVars(DynamicVars);
+            title.Add(nameof(Power), Power);
+            return title;
         }
     }
     public LocString Description
     {
         get
         {
-            field ??= new LocString("gadgets", Id.Entry + ".description").WithDynamicVars(DynamicVars);
-            return field;
+            LocString description = new LocString("gadgets", Id.Entry + ".description").WithDynamicVars(DynamicVars);
+            description.Add(nameof(Power), Power);
+            return description;
         }
     }
 
@@ -66,14 +72,14 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
 
     public virtual Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 
-    protected static int GetPower(Player player)
+    protected static decimal GetPower(Player player)
     {
         decimal power = player.RunState
             .IterateHookListeners(player.Creature.CombatState)
             .OfType<IGadgetPowerListener>()
             .Aggregate<IGadgetPowerListener, decimal>(1, (current, listener) => current * listener.ModifyGadgetPowerMultiplicative(player));
 
-        return (int)Math.Round(power);
+        return power;
     }
 
     public void BreakMe()

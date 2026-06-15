@@ -11,6 +11,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 
 public class AutoBump() : GadgetModel(nameof(AutoBump))
 {
+    public override decimal PowerBase => 1;
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
     {
@@ -19,17 +20,14 @@ public class AutoBump() : GadgetModel(nameof(AutoBump))
             return;
         }
 
-        for (int n = 0; n < GetPower(player); ++n)
-        {
-            LocString locString = new("card_selection", "TO_BUMP");
-            CardSelectorPrefs cardSelectorPrefs = new(locString, 1);
-            IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Parent.Owner,
-                cardSelectorPrefs, null, this);
+        LocString locString = new("card_selection", "TO_BUMP");
+        CardSelectorPrefs cardSelectorPrefs = new(locString, Power);
+        IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Parent.Owner,
+            cardSelectorPrefs, null, this);
 
-            foreach (CardModel card in result)
-            {
-                await card.BumpAsync();
-            }
+        foreach (CardModel card in result)
+        {
+            await card.BumpAsync();
         }
     }
 

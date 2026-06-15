@@ -74,6 +74,11 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
         }
     }
 
+    public void Update()
+    {
+        GadgetText = $"{LinkedGadgetModel.GadgetText}";
+    }
+
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;

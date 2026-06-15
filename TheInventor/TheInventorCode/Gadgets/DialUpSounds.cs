@@ -20,7 +20,7 @@ public class DialUpSounds() : GadgetModel(nameof(DialUpSounds))
     {
         if (Parent?.Owner.Creature is not null)
         {
-            await BufferPower.ApplyAsync(new BlockingPlayerChoiceContext(), Parent.Owner.Creature, GetPower(Parent.Owner), Parent.Owner.Creature,
+            await BufferPower.ApplyAsync(new BlockingPlayerChoiceContext(), Parent.Owner.Creature, Power, Parent.Owner.Creature,
                 null);
         }
 

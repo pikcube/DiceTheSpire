@@ -25,7 +25,7 @@ public class Overload() : GadgetModel(nameof(Overload))
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (Parent is null || Count > GetPower(Parent.Owner) || cardPlay is null || cardPlay.Card.Owner != Parent.Owner)
+        if (Parent is null || Count > Power || cardPlay is null || cardPlay.Card.Owner != Parent.Owner)
         {
             return 1;
         }
@@ -37,7 +37,7 @@ public class Overload() : GadgetModel(nameof(Overload))
         Creature? dealer,
         CardModel? cardSource)
     {
-        if (Parent is null || Count > GetPower(Parent.Owner) || cardSource is null || cardSource.Owner != Parent.Owner)
+        if (Parent is null || Count > Power || cardSource is null || cardSource.Owner != Parent.Owner)
         {
             return 1;
         }

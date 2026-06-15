@@ -10,6 +10,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class WallOfIce() : GadgetModel(nameof(WallOfIce))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 25;
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource)
@@ -20,10 +21,7 @@ public class WallOfIce() : GadgetModel(nameof(WallOfIce))
         }
 
         decimal val = 1;
-        for (int n = 0; n < GetPower(Parent.Owner); ++n)
-        {
-            val *= 0.75M;
-        }
+        val *= (100M - Power) / 100M;
 
         return val;
     }

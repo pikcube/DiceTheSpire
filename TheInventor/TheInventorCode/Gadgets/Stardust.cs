@@ -27,7 +27,7 @@ public class Stardust() : GadgetModel(nameof(Stardust))
 
         Parent.Flash();
 
-        for (int n = 0; n < GetPower(player); ++n)
+        for (int n = 0; n < Power; ++n)
         {
             await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, target, player.Creature, null);
         }

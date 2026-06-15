@@ -10,6 +10,8 @@ public class PoisonArrow() : GadgetModel(nameof(PoisonArrow))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
+    public override decimal PowerBase => 3;
+
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player || Parent?.Owner.Creature.CombatState is null)
@@ -17,7 +19,7 @@ public class PoisonArrow() : GadgetModel(nameof(PoisonArrow))
             return Task.CompletedTask;
         }
 
-        return PoisonPower.ApplyAsync(choiceContext, Parent.Owner.Creature.CombatState.Enemies, 3 * GetPower(player), Parent?.Owner.Creature, null);
+        return PoisonPower.ApplyAsync(choiceContext, Parent.Owner.Creature.CombatState.Enemies, Power, Parent?.Owner.Creature, null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

@@ -12,4 +12,5 @@ public interface IGadgetParent
     public AbstractModel AsModel();
     public void Flash();
     public Task AfterRandomizedAsync();
+    public void Update();
 }

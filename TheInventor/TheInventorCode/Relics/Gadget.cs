@@ -85,6 +85,11 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         await GadgetCard.ShowAsync(LinkedGadgetModel);
     }
 
+    public void Update()
+    {
+        GadgetText = $"{LinkedGadgetModel.GadgetText}";
+    }
+
     public GadgetModel LinkedGadgetModel
     {
         get
