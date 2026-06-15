@@ -43,6 +43,9 @@ public class GadgetCard : CustomCardModel
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
 
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false;
+
     public void SetVars(GadgetModel linkedGadgetModel)
     {
         StringVar title = (StringVar)DynamicVars["GadgetTitle"];

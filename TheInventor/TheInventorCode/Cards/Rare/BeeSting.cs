@@ -1,6 +1,7 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
@@ -13,6 +14,7 @@ public class BeeSting() : TheInventorCard(1, CardType.Power, CardRarity.Rare, Ta
     public override string GetScrapId => nameof(MagicDice);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<ShockPower>(2)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

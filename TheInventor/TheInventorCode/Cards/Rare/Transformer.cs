@@ -63,14 +63,11 @@ public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare
             .Execute(choiceContext);
 
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+        if (DeckVersion is Transformer t)
+        {
+            t.BuffDamage();
+        }
     }
-
-    public override Task OnSkippedAsync()
-    {
-        BuffDamage();
-        return Task.CompletedTask;
-    }
-
     private void BuffDamage()
     {
         IncreasedDamage += DynamicVars["Increase"].IntValue;

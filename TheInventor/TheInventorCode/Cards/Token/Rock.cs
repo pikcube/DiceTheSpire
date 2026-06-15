@@ -9,13 +9,15 @@ namespace TheInventor.TheInventorCode.Cards.Token;
 
 public class Rock() : TheInventorCard(-1, CardType.Attack, CardRarity.Token, TargetType.RandomEnemy)
 {
-    public override string GetScrapId => nameof(Bonk);
+    public override string GetScrapId => nameof(DefaultGadget);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Ethereal];
 
     public override bool HasTurnEndInHandEffect => true;
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false;
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {

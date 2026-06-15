@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
 
@@ -15,7 +16,7 @@ public class Calculator() : TheInventorCard(2, CardType.Power, CardRarity.Uncomm
     public override string GetScrapId => nameof(BattleWrench);
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
-        [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, new CardsVar(3))];
+        [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, new CardsVar(3)), HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new EnergyVar(1)];
 
