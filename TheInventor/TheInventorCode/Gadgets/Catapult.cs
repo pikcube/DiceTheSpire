@@ -11,6 +11,8 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class Catapult() : GadgetModel(nameof(Catapult))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 15;
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player)
@@ -27,7 +29,7 @@ public class Catapult() : GadgetModel(nameof(Catapult))
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, target, 15 * GetPower(player), DamageProps.nonCardUnpowered, null, null);
+        await CreatureCmd.Damage(choiceContext, target, Power, DamageProps.nonCardUnpowered, null, null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

@@ -9,12 +9,13 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class Blowtorch() : GadgetModel(nameof(Blowtorch))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 5;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner == player && player.Creature.CombatState is not null)
         {
-            await CreatureCmd.Damage(choiceContext, player.Creature.CombatState.Enemies, 5 * GetPower(player),
+            await CreatureCmd.Damage(choiceContext, player.Creature.CombatState.Enemies, Power,
                 DamageProps.nonCardUnpowered, player.Creature, null);
         }
     }

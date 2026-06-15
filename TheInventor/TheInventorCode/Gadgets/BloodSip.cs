@@ -6,6 +6,8 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class BloodSip() : GadgetModel(nameof(BloodSip))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 6;
+
     public override async Task BeforeCombatStart()
     {
         if (Parent?.Owner is null)
@@ -13,7 +15,7 @@ public class BloodSip() : GadgetModel(nameof(BloodSip))
             return;
         }
 
-        await CreatureCmd.Heal(Parent.Owner.Creature, 6 * GetPower(Parent.Owner));
+        await CreatureCmd.Heal(Parent.Owner.Creature, Power);
         BreakMe();
     }
 

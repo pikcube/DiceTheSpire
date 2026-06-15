@@ -14,6 +14,8 @@ public class ShortCircuit() : GadgetModel(nameof(ShortCircuit))
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public override bool IsAllowedAsTempGadget => false;
 
+    public override decimal PowerBase => 5;
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (player != Parent?.Owner || player.Creature.CombatState is null)
@@ -21,7 +23,7 @@ public class ShortCircuit() : GadgetModel(nameof(ShortCircuit))
             return;
         }
 
-        for (int n = 0; n < 5 * GetPower(player); ++n)
+        for (int n = 0; n < Power; ++n)
         {
             foreach (Creature c in player.Creature.CombatState.Enemies)
             {

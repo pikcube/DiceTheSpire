@@ -41,5 +41,8 @@
   "THEINVENTOR-AVALANCHE_POWER.title": "Avalanche",
   "THEINVENTOR-CALCULATOR_POWER.description": "The first time you [gold]Inspect[/gold] each turn, gain {energyPrefix:energyIcons(1)}.",
   "THEINVENTOR-CALCULATOR_POWER.smartDescription": "The first {Amount:plural:time|{Amount} times} you [gold]Inspect[/gold] each turn, gain {energyPrefix:energyIcons(1)}.",
-  "THEINVENTOR-CALCULATOR_POWER.title": "Calculator"
+  "THEINVENTOR-CALCULATOR_POWER.title": "Calculator",
+  "THEINVENTOR-FLIPPED_DRAW_PILE_POWER.description": "Reveals the top card of your draw pile.",
+  "THEINVENTOR-FLIPPED_DRAW_PILE_POWER.smartDescription": "You can see the top card of your draw pile.",
+  "THEINVENTOR-FLIPPED_DRAW_PILE_POWER.title": "Flipped Draw Pile"
 }

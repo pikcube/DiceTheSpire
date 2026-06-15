@@ -10,11 +10,13 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class BattleWrench() : GadgetModel(nameof(BattleWrench))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 2;
+
     public override decimal ModifyHandDrawLate(Player player, decimal count)
     {
         if (player == Parent?.Owner)
         {
-            return count + 2 * GetPower(player);
+            return count + Power;
         }
 
         return count;
@@ -24,7 +26,7 @@ public class BattleWrench() : GadgetModel(nameof(BattleWrench))
     {
         if (player == Parent?.Owner)
         {
-            return CardPileCmd.Draw(choiceContext, 2, player);
+            return CardPileCmd.Draw(choiceContext, Power, player);
         }
 
         return Task.CompletedTask;

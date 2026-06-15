@@ -25,7 +25,7 @@ public class Hook() : GadgetModel(nameof(Hook))
             return;
         }
 
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_PULL"), 1 * GetPower(player));
+        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_PULL"), Power);
         CardModel? card = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Parent.Owner), Parent.Owner, prefs)).FirstOrDefault();
         if (card == null)
         {
