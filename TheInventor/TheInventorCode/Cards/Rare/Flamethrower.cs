@@ -15,7 +15,7 @@ public class Flamethrower() : TheInventorCard(4, CardType.Attack, CardRarity.Rar
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(44, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(36, DamageProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
