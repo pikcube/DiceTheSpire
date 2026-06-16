@@ -70,3 +70,6 @@
 
 //  "THEWARRIOR-IRON_SHIELD.description": "Gain block equal to the energy cost\nof your hand {IfUpgraded:show:+ 6|+ 3}.\n(Currently {CalculatedBlock:diff()})",
 //  "THEWARRIOR-IRON_SHIELD.title": "Iron Shield"
+
+
+//MIGHT BE MOVED TO A POWER, IDK

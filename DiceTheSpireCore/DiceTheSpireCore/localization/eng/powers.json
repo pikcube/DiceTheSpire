@@ -31,5 +31,8 @@
   "DICETHESPIRECORE-TARGET_SHIELD_POWER.title": "Target Shield",
   "DICETHESPIRECORE-LAST_STAND_POWER.description": "You cannot die for the next {Amount} turns.\nThen die.",
   "DICETHESPIRECORE-LAST_STAND_POWER.smartDescription": "You cannot die for the next {Amount} turns.\nThen die.",
-  "DICETHESPIRECORE-LAST_STAND_POWER.title": "Last Stand Power"
+  "DICETHESPIRECORE-LAST_STAND_POWER.title": "Last Stand",
+  "DICETHESPIRECORE-PRACTICE_ROLL_POWER.description": "Add {Amount} [gold]Roll Again[/gold] to your hand at the start of your turn.",
+  "DICETHESPIRECORE-PRACTICE_ROLL_POWER.smartDescription": "Add {Amount} [gold]Roll Again[/gold] to your hand at the start of your turn.",
+  "DICETHESPIRECORE-PRACTICE_ROLL_POWER.title": "Practice Roll"
 }

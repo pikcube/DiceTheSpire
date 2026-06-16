@@ -41,7 +41,7 @@
   "THEWARRIOR-IRON_SHIELD.title": "Iron Shield",
   "THEWARRIOR-SWORD.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-SWORD.title": "Sword",
-  "THEWARRIOR-ROLL_AGAIN.description": "Select {Cards:diff()} card in hand to [gold]Reroll[/gold].",
-  "THEWARRIOR-ROLL_AGAIN.title": "Roll Again"
+  "THEWARRIOR-PRACTICE_ROLL.description": "Add a copy of [gold]Roll Again[/gold] to your hand at the start of your turn.",
+  "THEWARRIOR-PRACTICE_ROLL.title": "Practice Roll"
 
 }     

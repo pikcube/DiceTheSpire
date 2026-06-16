@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+﻿using BaseLib.Utils;
+using DiceTheSpireCore.DiceTheSpireCoreCode;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -9,16 +10,17 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
-{
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 
 
-public class RollAgain() : TheWarriorCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+    [Pool(typeof(TokenCardPool))]
+    public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
 
         private int _testEnergyCostOverride = -1;
@@ -66,6 +68,6 @@ public class RollAgain() : TheWarriorCard(0, CardType.Skill, CardRarity.Token, T
             RemoveKeyword(CardKeyword.Ethereal);
             AddKeyword(CardKeyword.Retain);
         }
+    
     }
-}
 
