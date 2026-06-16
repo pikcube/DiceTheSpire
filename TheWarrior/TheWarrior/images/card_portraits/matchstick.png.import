@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drjm2t5efvgwy"
-path="res://.godot/imported/macthstick.png-8b744983ba2e115c564e589907caac06.ctex"
+uid="uid://btukyohdqdgg4"
+path="res://.godot/imported/matchstick.png-0e756e9be695b091953c8916351863d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/macthstick.png"
-dest_files=["res://.godot/imported/macthstick.png-8b744983ba2e115c564e589907caac06.ctex"]
+source_file="res://TheWarrior/images/card_portraits/matchstick.png"
+dest_files=["res://.godot/imported/matchstick.png-0e756e9be695b091953c8916351863d5.ctex"]
 
 [params]
 

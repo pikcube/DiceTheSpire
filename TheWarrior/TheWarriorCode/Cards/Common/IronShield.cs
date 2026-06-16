@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace TheWarrior.TheWarriorCode.Cards.Common
 {
     using BaseLib.Extensions;
+    using MegaCrit.Sts2.Core.CardSelection;
     using MegaCrit.Sts2.Core.Commands;
     using MegaCrit.Sts2.Core.Entities.Cards;
     using MegaCrit.Sts2.Core.Entities.Creatures;
     using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+    using MegaCrit.Sts2.Core.Localization;
     using MegaCrit.Sts2.Core.Localization.DynamicVars;
     using MegaCrit.Sts2.Core.Models;
     using MegaCrit.Sts2.Core.Nodes.Cards;
@@ -19,51 +21,39 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
     namespace TheWarrior.TheWarriorCode.Cards.Rare
     {
 
-        public class IronShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+        public class IronShield() : TheWarriorCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
         {
-
-            protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedBlock(0, Bonus)];
-
-            public override bool GainsBlock => true;
-
-            private static decimal Bonus(CardModel card, Creature? arg2)
-            {
-
-                if (card.Owner.PlayerCombatState is null)
-                {
-                    return 0;
-                }
-
-                int block = 3;
-
-                if (card.IsUpgraded)
-                {
-                    block += 3;
-                }
-
-                List<CardModel> handCards = [.. card.Owner.PlayerCombatState.Hand.Cards];
-                foreach (CardModel c in handCards)
-                {
-                    int xValue = c.EnergyCost.GetAmountToSpend();
-
-                    block += xValue;
-                }
-                return block;
-            }
-
+            protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new BlockVar(11, BlockProps.card)];
 
             protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
             {
                 await base.OnPlay(choiceContext, cardPlay);
+                await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
-                await CreatureCmd.GainBlock(Owner.Creature, new BlockVar(DynamicVars.CalculatedBlock.IntValue, BlockProps.card), cardPlay);
+                CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);
+                CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+                foreach (CardModel card in cards)
+                {
+                    await CardCmd.Discard(choiceContext, card);
+                }
+
+                if (cards.Length == 0)
+                {
+                    return;
+                }
+
+
+                await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
             }
 
             protected override void OnUpgrade()
             {
-
+                base.OnUpgrade();
+                DynamicVars.Cards.UpgradeValueBy(1);
+                DynamicVars.Block.UpgradeValueBy(3);
             }
 
         }
+
     }
 }

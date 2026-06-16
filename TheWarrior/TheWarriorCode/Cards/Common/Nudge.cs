@@ -15,7 +15,8 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
 
 public class Nudge() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(8, BlockProps.card)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(8, BlockProps.card)];
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -37,7 +38,8 @@ public class Nudge() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Targ
         protected override void OnUpgrade()
         {
             base.OnUpgrade();
-            DynamicVars.Cards.UpgradeValueBy(1);
+            //DynamicVars.Cards.UpgradeValueBy(1);
+            RemoveKeyword(CardKeyword.Exhaust);
         }
 
     }
