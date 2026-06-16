@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+﻿namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 {
     using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
     using MegaCrit.Sts2.Core.Commands;
@@ -23,7 +17,6 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
             //    [HoverTipFactory.FromPower(DexterityPower)];
             protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
             {
-                PracticeRoll cardSource = this;
                 await PowerCmd.Apply<PracticeRollPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
             }
             protected override void OnUpgrade()

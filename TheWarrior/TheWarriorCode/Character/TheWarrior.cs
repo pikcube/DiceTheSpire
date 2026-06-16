@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
@@ -12,9 +13,11 @@ namespace TheWarrior.TheWarriorCode.Character
     {
         public const string CharacterId = "TheWarrior";
 
-        public static readonly Color Color = new("ffffff");
+        public static readonly Color Color = new("7BC8FF");
 
         public override Color NameColor => Color;
+        public override Color EnergyLabelOutlineColor => Color;
+        public override Color MapDrawingColor => Color;
         public override CharacterGender Gender => CharacterGender.Neutral;
         public override int StartingHp => 70;
 
@@ -24,7 +27,6 @@ namespace TheWarrior.TheWarriorCode.Character
             ModelDb.Card<StrikeWarrior>(),
             ModelDb.Card<StrikeWarrior>(),
             ModelDb.Card<Sword>(),
-            ModelDb.Card<DefendWarrior>(),
             ModelDb.Card<DefendWarrior>(),
             ModelDb.Card<DefendWarrior>(),
             ModelDb.Card<DefendWarrior>(),
@@ -45,9 +47,20 @@ namespace TheWarrior.TheWarriorCode.Character
             override all the other methods that define those assets. 
             These are just some of the simplest assets, given some placeholders to differentiate your character with. 
             You don't have to, but you're suggested to rename these images. */
-        public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
-        public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
-        public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
-        public override string CustomMapMarkerPath => "map_marker_char_name.png".CharacterUiPath();
+
+        public override Control CustomIcon
+        {
+            get
+            {
+                Control icon = NodeFactory<Control>.CreateFromResource(CustomIconTexturePath);
+                icon.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
+                return icon;
+            }
+        }
+
+        public override string CustomIconTexturePath => "character_icon_the_warrior.png".CharacterUiPath();
+        public override string CustomCharacterSelectIconPath => "char_select_warrior.png".CharacterUiPath();
+        public override string CustomCharacterSelectLockedIconPath => "char_select_unknown.png".CharacterUiPath();
+        public override string CustomMapMarkerPath => "map_marker_the_warrior.png".CharacterUiPath();
     }
 }

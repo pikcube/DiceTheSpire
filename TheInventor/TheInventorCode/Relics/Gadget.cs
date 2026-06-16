@@ -228,7 +228,8 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     private IEnumerable<CardModel> ShuffleForScrap(List<CardModel> scrapCards)
     {
         Owner.PlayerRng.Rewards.Shuffle(scrapCards);
-        return scrapCards.OrderByDescending(c => PlayedThisCombat.ContainsValue(c));
+        //return scrapCards.OrderByDescending(c => PlayedThisCombat.ContainsValue(c));
+        return scrapCards;
     }
 
     private Dictionary<CardModel, CardModel> PlayedThisCombat { get; set; } = [];
