@@ -1,30 +1,22 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class MidnightCharm() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
-{ 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
+public class MidnightCharm() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+{
+    public override string GetScrapId => nameof(BattleWrench);
 
-    public override string GetScrapId => nameof(AutoBump);
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardSelectorPrefs prefs = new(SelectionScreenPrompt, 2);
-        CardModel[] cards = [..await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, prefs)];
-        foreach (CardModel card in cards)
-        {
-            await CardPileCmd.Add(card, PileType.Hand);
-            await card.BumpAsync();
-        }
+        await ModelDb.Singleton<BlinkedModel>().AfterAutoPostPlayPhaseEntered(choiceContext, Owner);
     }
 
     protected override void OnUpgrade()

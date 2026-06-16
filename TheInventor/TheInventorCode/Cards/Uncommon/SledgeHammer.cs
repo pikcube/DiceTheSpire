@@ -23,7 +23,7 @@ public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Un
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        if (RunState is null || CombatState is null)
+        if (CombatState is null)
         {
             return;
         }

@@ -3,6 +3,7 @@ using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards.Basic;
 using TheInventor.TheInventorCode.Extensions;
@@ -55,6 +56,12 @@ namespace TheInventor.TheInventorCode.Character
                 return icon;
             }
         }
+
+        public override NCreatureVisuals CreateCustomVisuals()
+        {
+            return NodeFactory<NCreatureVisuals>.CreateFromResource("res://TheInventor/images/inventor.png");
+        }
+
         public override string CustomIconTexturePath => "character_icon_the_inventor.png".CharacterUiPath();
         public override string CustomCharacterSelectIconPath => "charselect_inventor.png".CharacterUiPath();
         public override string CustomCharacterSelectLockedIconPath => "charselect_unknown.png".CharacterUiPath();

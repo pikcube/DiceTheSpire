@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
@@ -194,6 +193,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
         {
             PowerVar<PoisonPower> => 10,
+            PowerVar<ThornsPower> => 15,
             PowerVar<VigorPower> => 20,
             PowerVar<VulnerablePower> => 30,
             PowerVar<WeakPower> => 40,
@@ -208,6 +208,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         {
             PowerVar<PoisonPower> => nameof(PoisonArrow),
             PowerVar<VigorPower> => nameof(PowerUp),
+            PowerVar<ThornsPower> => nameof(Needle),
             PowerVar<VulnerablePower> => nameof(ShortCircuit),
             PowerVar<WeakPower> => nameof(Burrower),
             EnergyVar => nameof(MagicDice),
@@ -228,11 +229,12 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     private IEnumerable<CardModel> ShuffleForScrap(List<CardModel> scrapCards)
     {
         Owner.PlayerRng.Rewards.Shuffle(scrapCards);
-        return scrapCards.OrderByDescending(c => PlayedThisCombat.ContainsValue(c));
+        //return scrapCards.OrderByDescending(c => PlayedThisCombat.ContainsValue(c));
+        return scrapCards;
     }
 
-    private Dictionary<CardModel, CardModel> PlayedThisCombat { get; set; } = [];
-
+    //private Dictionary<CardModel, CardModel> PlayedThisCombat { get; set; } = [];
+    /*
     protected override void AfterCloned()
     {
         base.AfterCloned();
@@ -275,6 +277,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
 
         return Task.CompletedTask;
     }
+    */
 
     public static string GetRandomCombatGadgetId(Rng rng)
     {

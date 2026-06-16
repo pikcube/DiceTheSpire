@@ -16,6 +16,9 @@ public class Scorpion() : TheInventorCard(7, CardType.Skill, CardRarity.Rare, Ta
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(99)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
+    public override bool CanBeGeneratedInCombat => false;
+    public override bool CanBeGeneratedByModifiers => false;
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);

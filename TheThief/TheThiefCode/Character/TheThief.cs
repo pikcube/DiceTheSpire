@@ -52,7 +52,7 @@ namespace TheThief.TheThiefCode.Character
         {
             get
             {
-                var icon = NodeFactory<Control>.CreateFromResource(CustomIconTexturePath);
+                Control icon = NodeFactory<Control>.CreateFromResource(CustomIconTexturePath);
                 icon.SetAnchorsAndOffsetsPreset(Control.LayoutPreset.FullRect);
                 return icon;
             }

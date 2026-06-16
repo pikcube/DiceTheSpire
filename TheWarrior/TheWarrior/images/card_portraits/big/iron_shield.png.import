@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1cfji3sl4f6f"
-path="res://.godot/imported/macthstick.png-ae75d5f6e881962337f15bde686c93eb.ctex"
+uid="uid://f3g4dtsajw3w"
+path="res://.godot/imported/iron_shield.png-91889de01fe6d09317bdfcfe655a03c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/macthstick.png"
-dest_files=["res://.godot/imported/macthstick.png-ae75d5f6e881962337f15bde686c93eb.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/iron_shield.png"
+dest_files=["res://.godot/imported/iron_shield.png-91889de01fe6d09317bdfcfe655a03c9.ctex"]
 
 [params]
 

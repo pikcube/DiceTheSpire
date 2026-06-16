@@ -10,28 +10,28 @@ public static class CardModelExtensions
 {
     extension<T>(T instance) where T : CardModel
     {
-        public Task BumpAsync()
+        public async Task BumpAsync()
         {
             if (instance.IsUpgradable)
             {
                 CardCmd.Upgrade(instance);
-                return Task.CompletedTask;
+                return;
             }
 
             CardModel newCard = instance.CreateClone();
             newCard.DowngradeInternal();
-            return CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Hand, instance.Owner);
+            await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Hand, instance.Owner);
         }
 
-        public Task NudgeAsync(PlayerChoiceContext choiceContext)
+        public async Task NudgeAsync(PlayerChoiceContext choiceContext)
         {
-            if (instance.CurrentUpgradeLevel > 0)
+            if (instance.CurrentUpgradeLevel <= 0)
             {
-                CardCmd.Downgrade(instance);
-                return Task.CompletedTask;
+                await instance.ExhaustAsync(choiceContext);
+                return;
             }
 
-            return instance.ExhaustAsync(choiceContext);
+            CardCmd.Downgrade(instance);
         }
     }
 }
