@@ -10,6 +10,8 @@ public class Protection() : GadgetModel(nameof(Protection))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
+    public override decimal PowerBase => 2;
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Parent?.Owner != player)

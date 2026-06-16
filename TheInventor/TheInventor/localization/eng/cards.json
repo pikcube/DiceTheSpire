@@ -105,7 +105,7 @@
   "THEINVENTOR-REMOTE_CONTROL.title": "Remote Control",
   "THEINVENTOR-TRANSFORMER.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nPermanently increase this card's [gold]Block[/gold] and damage by {Increase:diff()}.",
   "THEINVENTOR-TRANSFORMER.title": "Transformer",
-  "THEINVENTOR-BROKEN_MIRROR.description": "Gain [gold]Energy[/gold] at the start of each turn.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
+  "THEINVENTOR-BROKEN_MIRROR.description": "At the start of each turn, gain {Energy:energyIcons()}.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
   "THEINVENTOR-BROKEN_MIRROR.title": "Broken Mirror",
   "THEINVENTOR-SAFETY_GOGGLES.description": "[gold]Negate[/gold] debuffs you apply to yourself {IfUpgraded:show:for 2 turns|this turn}.",
   "THEINVENTOR-SAFETY_GOGGLES.title": "Safety Goggles",

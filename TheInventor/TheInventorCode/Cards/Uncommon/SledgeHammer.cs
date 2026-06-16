@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -23,7 +24,7 @@ public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Un
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        if (RunState is null || CombatState is null)
+        if (CombatState is null)
         {
             return;
         }
