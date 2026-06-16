@@ -18,6 +18,9 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class HeatRay() : GadgetModel(nameof(HeatRay))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+
+    public override decimal PowerBase => 5;
+
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Parent?.Owner)
@@ -37,7 +40,7 @@ public class HeatRay() : GadgetModel(nameof(HeatRay))
             
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NFireBurstVfx.Create(creature, 0.75f));
             SfxCmd.Play("event:/sfx/characters/attack_fire");
-            await CreatureCmd.Damage(choiceContext, creature, 5 * GetPower(Parent.Owner), DamageProps.nonCardUnpowered, null, null);
+            await CreatureCmd.Damage(choiceContext, creature, Power, DamageProps.nonCardUnpowered, null, null);
         }
     }
 

@@ -6,10 +6,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Relics;
 
-namespace TheInventor.TheInventorCode.Cards.Common;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class RemoteControl() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class RemoteControl() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Efficiency);
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card)];

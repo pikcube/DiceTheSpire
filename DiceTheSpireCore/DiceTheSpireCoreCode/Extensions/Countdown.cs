@@ -22,7 +22,7 @@ public static class Countdown
             for (int i = decrementBy; i > 0 && card.CurrentCount >  0; --i)
             {
                 --card.CurrentCount;
-                await DiceyHooks.OnAfterCardCountsDownAsync((RunState)card.Owner.RunState, (CardModel)card);
+                await DiceyHooks.OnAfterCardCountsDownAsync((RunState)card.Owner.RunState, card.Owner.Creature.CombatState, (CardModel)card);
             }
         }
 

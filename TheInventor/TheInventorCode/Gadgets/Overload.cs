@@ -1,10 +1,11 @@
 ﻿using BaseLib.Abstracts;
-using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
@@ -12,27 +13,47 @@ public class Overload() : GadgetModel(nameof(Overload))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+
+    private int Count { get; set; }
+    public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (player != Parent?.Owner || player.Creature.CombatState is null)
-        {
-            return;
-        }
-
-        Creature[] creatures = [.. player.Creature.CombatState.Creatures];
-
-        foreach (Creature creature in creatures)
-        {
-            PowerModel[] powers = [..creature.Powers
-                .Where(p =>
-                    p.StackType == PowerStackType.Counter
-                )
-            ];
-
-            foreach (PowerModel power in powers)
-            {
-                await PowerCmd.ModifyAmount(choiceContext, power, power.Amount * GetPower(player), null, null);
-            }
-        }
+        Count = 0;
+        return Task.CompletedTask;
     }
+
+    public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props,
+        CardModel? cardSource,
+        CardPlay? cardPlay)
+    {
+        if (Parent is null || Count > Power || cardPlay is null || cardPlay.Card.Owner != Parent.Owner)
+        {
+            return 1;
+        }
+
+        return 2;
+    }
+
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource)
+    {
+        if (Parent is null || Count > Power || cardSource is null || cardSource.Owner != Parent.Owner)
+        {
+            return 1;
+        }
+
+        return 2;
+    }
+
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner == Parent?.Owner)
+        {
+            ++Count;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public override bool IsAllowedAsTempGadget => false;
 }

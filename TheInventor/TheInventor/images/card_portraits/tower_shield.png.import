@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfrlxpqc13qp"
-path="res://.godot/imported/raw_ambition.png-f5efc11e246b0f70f4c5f894592609b7.ctex"
+uid="uid://d3y36h57dgecv"
+path="res://.godot/imported/tower_shield.png-6552356f8b9ab80ca7993515084822e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheThief/images/card_portraits/big/raw_ambition.png"
-dest_files=["res://.godot/imported/raw_ambition.png-f5efc11e246b0f70f4c5f894592609b7.ctex"]
+source_file="res://TheInventor/images/card_portraits/tower_shield.png"
+dest_files=["res://.godot/imported/tower_shield.png-6552356f8b9ab80ca7993515084822e6.ctex"]
 
 [params]
 

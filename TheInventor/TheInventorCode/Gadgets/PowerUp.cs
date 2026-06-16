@@ -11,6 +11,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class PowerUp() : GadgetModel(nameof(PowerUp))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 6;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
@@ -19,7 +20,7 @@ public class PowerUp() : GadgetModel(nameof(PowerUp))
             return;
         }
 
-        await VigorPower.ApplyAsync(choiceContext, player.Creature, 6 * GetPower(player), player.Creature, null);
+        await VigorPower.ApplyAsync(choiceContext, player.Creature, Power, player.Creature, null);
     }
 
 

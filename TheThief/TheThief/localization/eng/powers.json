@@ -8,9 +8,9 @@
   "THETHIEF-LUCKY_DRAW_POWER.description": "When you play a 1-cost card, draw a card.",
   "THETHIEF-LUCKY_DRAW_POWER.smartDescription": "When you play a 1-cost card, draw {Amount:plural:a card|{} cards}.",
   "THETHIEF-LUCKY_DRAW_POWER.title": "Lucky Draw",
-  "THETHIEF-RAW_AMBITION_POWER.description": "Every [blue]3[/blue] 1-cost cards you play, gain an energy.",
-  "THETHIEF-RAW_AMBITION_POWER.smartDescription": "Every 3 1-cost cards you play, gain {Amount:energyIcons()}.",
-  "THETHIEF-RAW_AMBITION_POWER.title": "Raw Ambition",
+  "THETHIEF-AMBITIOUS_FORM_POWER.description": "Every [blue]3[/blue] 1-cost cards you play, gain an energy.",
+  "THETHIEF-AMBITIOUS_FORM_POWER.smartDescription": "Every {Amount} 1-cost cards you play, gain {Energy:energyIcons()}.",
+  "THETHIEF-AMBITIOUS_FORM_POWER.title": "Ambitious Form",
   "THETHIEF-ROSEWOOD_SPEAR_POWER.description": "Gain [gold]Thorns[/gold] this turn.",
   "THETHIEF-ROSEWOOD_SPEAR_POWER.smartDescription": "Gain {Amount} [gold]Thorns[/gold] this turn.",
   "THETHIEF-ROSEWOOD_SPEAR_POWER.title": "Rosewood Spear",
@@ -30,5 +30,11 @@
   "THETHIEF-POISON_CROWN_POWER.description": "[gold]Pips[/gold], now apply [gold]Poison[/gold] to all enemies.",
   "THETHIEF-POISON_CROWN_POWER.smartDescription": "[gold]Pips[/gold] now apply {Amount} [gold]Poison[/gold] to all enemies.",
   "THETHIEF-POISON_CROWN_POWER.title": "Poison Crown",
-  "THETHIEF-POISON_CROWN_POWER.pipDescription": "Apply {Amount} [gold]Poison[/gold] to all enemies."
+  "THETHIEF-POISON_CROWN_POWER.pipDescription": "Apply {Amount} [gold]Poison[/gold] to all enemies.",
+  "THETHIEF-LEAKY_PIPE_POWER.description": "Whenever you apply [gold]Poison[/gold] to an enemy, it loses 1 [gold]Strength[/gold] this turn.",
+  "THETHIEF-LEAKY_PIPE_POWER.smartDescription": "Whenever you apply [gold]Poison[/gold] to an enemy, it loses {Amount} [gold]Strength[/gold] this turn.",
+  "THETHIEF-LEAKY_PIPE_POWER.title": "Leaky Pipe",
+  "THETHIEF-PIP_NEXT_TURN_POWER.description": "At the start of next turn, add a [gold]Pip[/gold] to your [gold]Hand[/gold].",
+  "THETHIEF-PIP_NEXT_TURN_POWER.smartDescription": "At the start of next turn, add {Amount:plural:a [gold]Pip[/gold]|{} [gold]Pips[/gold]} to your [gold]Hand[/gold].",
+  "THETHIEF-PIP_NEXT_TURN_POWER.title": "Pip Next Turn"
 }

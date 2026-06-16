@@ -82,9 +82,12 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     public async Task AfterRandomizedAsync()
     {
         Flash([Owner.Creature]);
-        GadgetCard gadgetCard = GadgetCard.Create();
-        gadgetCard.SetVars(LinkedGadgetModel);
-        await gadgetCard.ShowAndDestoryCardAsync(0.5f);
+        await GadgetCard.ShowAsync(LinkedGadgetModel);
+    }
+
+    public void Update()
+    {
+        GadgetText = $"{LinkedGadgetModel.GadgetText}";
     }
 
     public GadgetModel LinkedGadgetModel
@@ -236,10 +239,13 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         PlayedThisCombat = [];
     }
 
-    public override Task BeforeCombatStart()
+    public override async Task BeforeCombatStart()
     {
         PlayedThisCombat.Clear();
-        return Task.CompletedTask;
+
+        Flash([Owner.Creature]);
+        
+        await GadgetCard.ShowAsync(LinkedGadgetModel);
     }
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

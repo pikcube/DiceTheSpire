@@ -17,7 +17,7 @@ public class Protection() : GadgetModel(nameof(Protection))
             return;
         }
 
-        await PowerCmd.Apply<ReducePower>(choiceContext, player.Creature, 2 * GetPower(player), player.Creature, null);
+        await PowerCmd.Apply<ReducePower>(choiceContext, player.Creature, Power, player.Creature, null);
         BreakMe();
     }
 

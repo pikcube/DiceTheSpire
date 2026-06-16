@@ -8,7 +8,7 @@ namespace TheThief.TheThiefCode.Cards.Uncommon;
 
 public class Dagger() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6M, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, ValueProp.Move)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,5 +27,6 @@ public class Dagger() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, Ta
     protected override void OnUpgrade()
     {
         AddKeyword(CardKeyword.Retain);
+        DynamicVars.Damage.UpgradeValueBy(1);
     }
 }

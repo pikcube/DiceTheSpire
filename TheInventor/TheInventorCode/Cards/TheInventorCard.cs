@@ -42,12 +42,18 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {
+            if (!InventorDebugConfig.ShowGadgetTips)
+            {
+                yield break;
+            }
+
             GadgetModel gadgetModel = Gadget.AllGadgets[GetScrapId];
             if (gadgetModel is DefaultGadget)
             {
-                return [];
+                yield break;
             }
-            return [new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Relic<Gadget>().Icon)];
+
+            yield return new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Relic<Gadget>().Icon);
         }
         public abstract string GetScrapId { get; }
 

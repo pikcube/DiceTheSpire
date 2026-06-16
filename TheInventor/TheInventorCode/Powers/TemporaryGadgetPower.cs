@@ -5,12 +5,10 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
-using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
@@ -76,6 +74,11 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
         }
     }
 
+    public void Update()
+    {
+        GadgetText = $"{LinkedGadgetModel.GadgetText}";
+    }
+
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
@@ -101,8 +104,6 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
 
     public async Task AfterRandomizedAsync()
     {
-        GadgetCard gadgetCard = GadgetCard.Create();
-        gadgetCard.SetVars(LinkedGadgetModel);
-        await gadgetCard.ShowAndDestoryCardAsync(0.5f);
+        await GadgetCard.ShowAsync(LinkedGadgetModel);
     }
 }

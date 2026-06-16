@@ -13,6 +13,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class Bonk() : GadgetModel(nameof(Bonk))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override decimal PowerBase => 5;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
@@ -30,7 +31,7 @@ public class Bonk() : GadgetModel(nameof(Bonk))
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, target, 5 * GetPower(player), DamageProps.nonCardUnpowered, null, null);
+        await CreatureCmd.Damage(choiceContext, target, Power, DamageProps.nonCardUnpowered, null, null);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

@@ -24,6 +24,6 @@ public class SawWavePower : TheInventorPower
             return;
         }
 
-        await DexterityPower.ApplyAsync(choiceContext, Owner, Amount, applier, cardSource);
+        await DexterityPower.ApplyAsync(choiceContext, Owner, Amount, Owner, cardSource);
     }
 }

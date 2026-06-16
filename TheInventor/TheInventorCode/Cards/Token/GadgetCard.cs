@@ -12,7 +12,9 @@ using MegaCrit.Sts2.Core.Nodes.Vfx.Cards;
 using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Settings;
 using System.Data;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
@@ -42,6 +44,9 @@ public class GadgetCard : CustomCardModel
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+
+    public override bool CanBeGeneratedByModifiers => false;
+    public override bool CanBeGeneratedInCombat => false;
 
     public void SetVars(GadgetModel linkedGadgetModel)
     {
@@ -80,5 +85,15 @@ public class GadgetCard : CustomCardModel
         tween.TweenCallback(Callable.From(ResetVars));
 
         await tween.AwaitFinished(nCard);
+    }
+
+    public static async Task ShowAsync(GadgetModel linkedGadgetModel)
+    {
+        if (linkedGadgetModel.Parent is null || LocalContext.IsMe(linkedGadgetModel.Parent.Owner))
+        {
+            GadgetCard gadgetCard = GadgetCard.Create();
+            gadgetCard.SetVars(linkedGadgetModel);
+            await gadgetCard.ShowAndDestoryCardAsync(0.5f);
+        }
     }
 }

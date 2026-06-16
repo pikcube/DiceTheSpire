@@ -1,10 +1,10 @@
 ﻿using BaseLib.Abstracts;
 using JetBrains.Annotations;
-using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using Pikcube.Common.Extensions;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
@@ -12,34 +12,19 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class DialUpSounds() : GadgetModel(nameof(DialUpSounds))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
-    public override Task AfterCreatureAddedToCombat(Creature creature)
+
+    public override bool IsAllowedAsTempGadget => false;
+
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
-        if (creature.IsPlayer)
+        if (Parent?.Owner.Creature is not null)
         {
-            return Task.CompletedTask;
+            await BufferPower.ApplyAsync(new BlockingPlayerChoiceContext(), Parent.Owner.Creature, Power, Parent.Owner.Creature,
+                null);
         }
 
-        if (creature.HasPower<MinionPower>())
-        {
-            CreatureCmd.Stun(creature);
-        }
-
-        return Task.CompletedTask;
+        BreakMe();
     }
 
-    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
-        CardModel? cardSource)
-    {
-        if (power.Owner.IsPlayer)
-        {
-            return Task.CompletedTask;
-        }
-
-        if (power is MinionPower)
-        {
-            CreatureCmd.Stun(power.Owner);
-        }
-
-        return Task.CompletedTask;
-    }
 }
