@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Keywords;
@@ -8,11 +9,12 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class ViseGrip() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class TabulaRasa() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override bool HasEnergyCostX => true;
 
