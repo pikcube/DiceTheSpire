@@ -73,9 +73,9 @@ namespace TheInventor.TheInventorCode.Cards
             return false;
         }
 
-        public Texture2D GetPips()
+        public Texture2D GetPips(int? cost = null)
         {
-            int cost = EnergyCost.GetWithModifiers(CostModifiers.All);
+            cost ??= EnergyCost.GetWithModifiers(CostModifiers.All);
             return ResourceLoader.Load<Texture2D>(cost is < 1 or > 9 ? "charui/Energy/ui_dice_dice0.png".ImagePath() : $"charui/Energy/ui_dice_dice{cost}.png".ImagePath());
         }
     }
