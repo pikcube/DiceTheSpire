@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
@@ -72,5 +73,10 @@ namespace TheInventor.TheInventorCode.Cards
             return false;
         }
 
+        public Texture2D GetPips()
+        {
+            int cost = EnergyCost.GetWithModifiers(CostModifiers.All);
+            return ResourceLoader.Load<Texture2D>(cost is < 1 or > 9 ? "charui/Energy/ui_dice_dice0.png".ImagePath() : $"charui/Energy/ui_dice_dice{cost}.png".ImagePath());
+        }
     }
 }
