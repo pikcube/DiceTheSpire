@@ -34,5 +34,8 @@
   "DICETHESPIRECORE-LAST_STAND_POWER.title": "Last Stand",
   "DICETHESPIRECORE-PRACTICE_ROLL_POWER.description": "Add {Amount} [gold]Roll Again[/gold] to your hand at the start of your turn.",
   "DICETHESPIRECORE-PRACTICE_ROLL_POWER.smartDescription": "Add {Amount} [gold]Roll Again[/gold] to your hand at the start of your turn.",
-  "DICETHESPIRECORE-PRACTICE_ROLL_POWER.title": "Practice Roll"
+  "DICETHESPIRECORE-PRACTICE_ROLL_POWER.title": "Practice Roll",
+  "DICETHESPIRECORE-MAGIC_REROLL_POWER.description": "All copies of [gold]Roll Again[/gold] are upgraded.",
+  "DICETHESPIRECORE-MAGIC_REROLL_POWER.smartDescription": "All copies of [gold]Roll Again[/gold] are upgraded.",
+  "DICETHESPIRECORE-MAGIC_REROLL_POWER.title": "Magic Reroll"
 }

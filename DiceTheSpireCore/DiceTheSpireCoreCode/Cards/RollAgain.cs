@@ -38,7 +38,7 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            NCombatRoom.Instance?.PlaySplashVfx(Owner.Creature, new Color("6ec46f"));
+            //NCombatRoom.Instance?.PlaySplashVfx(Owner.Creature, new Color("6ec46f"));
 
                 CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_RANDOMIZE"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
                 CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
