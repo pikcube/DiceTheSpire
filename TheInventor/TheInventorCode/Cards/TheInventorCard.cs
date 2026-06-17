@@ -3,6 +3,7 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Helpers.Models;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Character;
@@ -76,7 +77,26 @@ namespace TheInventor.TheInventorCode.Cards
         public Texture2D GetPips(int? cost = null)
         {
             cost ??= EnergyCost.GetWithModifiers(CostModifiers.All);
-            return ResourceLoader.Load<Texture2D>(cost is < 1 or > 9 ? "charui/Energy/ui_dice_dice0.png".ImagePath() : $"charui/Energy/ui_dice_dice{cost}.png".ImagePath());
+            string costText = cost is < 1 or > 9 ? "0" : $"{cost}";
+            if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
+            {
+                return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
+            }
+
+            CardCostColor energyCostColor = CardCostHelper.GetEnergyCostColor(this, CombatState);
+            switch (energyCostColor)
+            {
+                case CardCostColor.Unmodified:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/ui_dice_dice{costText}.png".ImagePath());
+                case CardCostColor.Increased:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/Blue/ui_dice_dice{costText}.png".ImagePath());
+                case CardCostColor.Decreased:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
+                case CardCostColor.InsufficientResources:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/Red/ui_dice_dice{costText}.png".ImagePath());
+                default:
+                    goto case CardCostColor.Unmodified;
+            }
         }
     }
 }
