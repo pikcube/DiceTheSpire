@@ -104,7 +104,7 @@
   "THEINVENTOR-BROKEN_MIRROR.title": "Broken Mirror",
   "THEINVENTOR-SAFETY_GOGGLES.description": "[gold]Negate[/gold] debuffs you apply to yourself {IfUpgraded:show:for 2 turns|this turn}.",
   "THEINVENTOR-SAFETY_GOGGLES.title": "Safety Goggles",
-  "THEINVENTOR-SCORPION.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\n[gold]Held[/gold]: Decrease this card's cost by 1.",
+  "THEINVENTOR-SCORPION.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\nEnd your turn.\n[gold]Held[/gold]: Decrease this card's cost by 1.",
   "THEINVENTOR-SCORPION.title": "Scorpion",
   "THEINVENTOR-DOUBLE_EDGE.description": "Deal {Damage:diff()} damage.\nLose {StrengthPower:diff()} [gold]Strength[/gold].",
   "THEINVENTOR-DOUBLE_EDGE.title": "Double Edge",

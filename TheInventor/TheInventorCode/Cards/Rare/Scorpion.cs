@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -24,6 +25,7 @@ public class Scorpion() : TheInventorCard(7, CardType.Skill, CardRarity.Rare, Ta
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await PoisonPower.ApplyAsync(choiceContext, cardPlay.Target, DynamicVars.Poison.IntValue, Owner.Creature, this);
+        PlayerCmd.EndTurn(Owner, false);
     }
 
     public override bool HasTurnEndInHandEffect => true;
