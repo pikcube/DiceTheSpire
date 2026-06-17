@@ -20,7 +20,7 @@ public class UnluckyRoll() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommo
         var cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         foreach (CardModel card in cards)
         {
-            if (card.EnergyCost.Canonical != 1)
+            if (card.EnergyCost.GetResolved() != 1)
             {
                 await CardCmd.Discard(choiceContext, card);
             }
