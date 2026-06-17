@@ -98,6 +98,7 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
             await PowerCmd.Remove(this);
             return;
         }
+
         GadgetId = Gadget.GetRandomCombatGadgetId(Owner.Player.RunState.Rng.CombatOrbGeneration);
         await AfterRandomizedAsync();
     }
