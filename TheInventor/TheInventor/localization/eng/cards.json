@@ -147,5 +147,7 @@
   "THEINVENTOR-MIDNIGHT_CHARM.description": "Return ALL [gold]Blinked[/gold] cards to your hand.",
   "THEINVENTOR-MIDNIGHT_CHARM.title": "Midnight Charm",
   "THEINVENTOR-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nShuffle your [gold]Draw[/gold] Pile.",
-  "THEINVENTOR-RUBBER_MALLET.title": "Rubber Mallet"
+  "THEINVENTOR-RUBBER_MALLET.title": "Rubber Mallet",
+  "THEINVENTOR-TIDAL_BLADE.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Held[/gold]: Deal {Damage:diff()} damage to the enemy with the least HP.",
+  "THEINVENTOR-TIDAL_BLADE.title": "Tidal Blade"
 }
