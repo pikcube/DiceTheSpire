@@ -12,7 +12,7 @@ public class TidalBlade() : TheInventorCard(1, CardType.Skill, CardRarity.Uncomm
 {
     public override string GetScrapId => nameof(Overload);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), new BlockVar(13, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new BlockVar(11, BlockProps.card)];
     public override bool HasTurnEndInHandEffect => true;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
