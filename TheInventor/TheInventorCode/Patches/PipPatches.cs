@@ -23,34 +23,36 @@ public static class PipPatches
 
         FieldInfo energyLabelInfo = AccessTools.DeclaredField(typeof(NCard), "_energyLabel");
         MegaLabel l = (MegaLabel?) energyLabelInfo.GetValue(__instance) ?? throw new NoNullAllowedException();
+
+        FieldInfo energyTexture = AccessTools.DeclaredField(typeof(NCard), "_energyIcon");
+        TextureRect r = (TextureRect?)energyTexture.GetValue(__instance) ?? throw new NoNullAllowedException();
+
         int withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
+
         if (c.EnergyCost.CostsX)
         {
             l.SetTextAutoSize("X");
-            l.Set("theme_override_colors/font_color", new Color(0, 0, 0));
-            l.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
-            l.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
+            withModifiers = 0;
         }
         else if (withModifiers > 9)
         {
             l.SetTextAutoSize($"{withModifiers}");
-            l.Set("theme_override_colors/font_color", new Color(0, 0, 0));
-            l.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
-            l.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
         }
         else
         {
             l.SetTextAutoSize("");
         }
+        l.Set("theme_override_colors/font_color", new Color(0, 0, 0));
+        l.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
+        l.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
 
-        FieldInfo energyTexture = AccessTools.DeclaredField(typeof(NCard), "_energyIcon");
-        TextureRect r = (TextureRect?)energyTexture.GetValue(__instance) ?? throw new NoNullAllowedException();
-        r.Texture = c.GetPips();
+
+        r.Texture = c.GetPips(withModifiers);
     }
 }
 
 [HarmonyPatch(typeof(NCard), nameof(NCard.PlayRandomizeCostAnim))]
-public static class RnadomizePatch
+public static class RandomizePatch
 {
     public static bool Prefix(NCard __instance)
     {

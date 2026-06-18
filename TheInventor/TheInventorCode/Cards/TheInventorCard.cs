@@ -74,9 +74,8 @@ namespace TheInventor.TheInventorCode.Cards
             return false;
         }
 
-        public Texture2D GetPips(int? cost = null)
+        public Texture2D GetPips(int cost)
         {
-            cost ??= EnergyCost.GetWithModifiers(CostModifiers.All);
             string costText = cost is < 1 or > 9 ? "0" : $"{cost}";
             if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
             {
