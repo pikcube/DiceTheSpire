@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnv5jqjgrv0c"
-path="res://.godot/imported/ui_dice_dice0.png-b756ebd3e791524fc1b8ae515632baac.ctex"
+uid="uid://beyudq8si7geu"
+path="res://.godot/imported/ui_dice_dice0_d.png-fc17ca70169005a775e17dd2136ebd58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/charui/Energy/Green/ui_dice_dice0.png"
-dest_files=["res://.godot/imported/ui_dice_dice0.png-b756ebd3e791524fc1b8ae515632baac.ctex"]
+source_file="res://DiceTheSpireCore/images/Sized/ui_dice_dice0_d.png"
+dest_files=["res://.godot/imported/ui_dice_dice0_d.png-fc17ca70169005a775e17dd2136ebd58.ctex"]
 
 [params]
 

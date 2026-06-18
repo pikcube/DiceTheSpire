@@ -27,6 +27,9 @@ public static class PipPatches
         FieldInfo energyTexture = AccessTools.DeclaredField(typeof(NCard), "_energyIcon");
         TextureRect r = (TextureRect?)energyTexture.GetValue(__instance) ?? throw new NoNullAllowedException();
 
+        FieldInfo pretendCard = AccessTools.DeclaredField(typeof(NCard), "_pretendCardCanBePlayed");
+        bool isPretend = (bool?)pretendCard.GetValue(__instance) ?? throw new NoNullAllowedException();
+
         int withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
 
         if (c.EnergyCost.CostsX)
@@ -47,7 +50,7 @@ public static class PipPatches
         l.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
 
 
-        r.Texture = c.GetPips(withModifiers);
+        r.Texture = c.GetPips(withModifiers, isPretend);
     }
 }
 
@@ -69,11 +72,11 @@ public static class RandomizePatch
         float offset = Rng.Chaotic.NextFloat(10f);
         __instance.GetPrivateProperty<NCard, Tween>("RandomizeCostTween")!.TweenMethod(Callable.From<float>(t =>
         {
-            int val = ((int)Math.Floor(offset + t)) % 9 + 1;
+            int val = (int)Math.Floor(offset + t) % 8 + 1;
 
             FieldInfo energyTexture = AccessTools.DeclaredField(typeof(NCard), "_energyIcon");
             TextureRect r = (TextureRect?)energyTexture.GetValue(__instance) ?? throw new NoNullAllowedException();
-            r.Texture = c.GetPips(val);
+            r.Texture = c.GetPips(val, false, CardCostColor.Unmodified);
 
         }), 0, 50, Rng.Chaotic.NextFloat(0.4f, 0.6f)).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Sine);
 

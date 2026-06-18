@@ -74,7 +74,7 @@ namespace TheInventor.TheInventorCode.Cards
             return false;
         }
 
-        public Texture2D GetPips(int cost)
+        public Texture2D GetPips(int cost, bool isPretend, CardCostColor? energyCostColor = null)
         {
             string costText = cost is < 1 or > 9 ? "0" : $"{cost}";
             if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
@@ -82,7 +82,7 @@ namespace TheInventor.TheInventorCode.Cards
                 return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
             }
 
-            CardCostColor energyCostColor = CardCostHelper.GetEnergyCostColor(this, CombatState);
+            energyCostColor ??= CardCostHelper.GetEnergyCostColor(this, CombatState);
             switch (energyCostColor)
             {
                 case CardCostColor.Unmodified:
@@ -91,7 +91,7 @@ namespace TheInventor.TheInventorCode.Cards
                     return ResourceLoader.Load<Texture2D>($"charui/Energy/Blue/ui_dice_dice{costText}.png".ImagePath());
                 case CardCostColor.Decreased:
                     return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
-                case CardCostColor.InsufficientResources:
+                case CardCostColor.InsufficientResources when !isPretend:
                     return ResourceLoader.Load<Texture2D>($"charui/Energy/Red/ui_dice_dice{costText}.png".ImagePath());
                 default:
                     goto case CardCostColor.Unmodified;
