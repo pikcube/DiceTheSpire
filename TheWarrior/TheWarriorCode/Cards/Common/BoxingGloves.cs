@@ -38,8 +38,8 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.Damage.UpgradeValueBy(1);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 
 }
