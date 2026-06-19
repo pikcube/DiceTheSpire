@@ -76,5 +76,9 @@
   "THETHIEF-LEAKY_PIPE.description": "Whenever you apply [gold]Poison[/gold] to an enemy, it loses {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "THETHIEF-LEAKY_PIPE.title": "Leaky Pipe",
   "THETHIEF-PAPER_LANTERN.description": "Next turn,\ngain {Energy:energyIcons()} and {Cards:plural:{} [gold]Pip[/gold]|{} [gold]Pips[/gold]}.",
-  "THETHIEF-PAPER_LANTERN.title": "Paper Lantern"
+  "THETHIEF-PAPER_LANTERN.title": "Paper Lantern",
+  "THETHIEF-CACTUS_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {ThornsPower:diff()} [gold]Thorns[/gold] this turn.",
+  "THETHIEF-CACTUS_SHIELD.title": "Cactus Shield",
+  "THETHIEF-CACTUS_SPEAR.description": "Deal {CalculatedDamage:diff()} damage. Deals{IfUpgraded:show: 2 | }extra damage for each [gold]Thorns[/gold] you have.",
+  "THETHIEF-CACTUS_SPEAR.title": "Cactus Spear"
 }

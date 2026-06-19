@@ -36,5 +36,8 @@
   "THETHIEF-LEAKY_PIPE_POWER.title": "Leaky Pipe",
   "THETHIEF-PIP_NEXT_TURN_POWER.description": "At the start of next turn, add a [gold]Pip[/gold] to your [gold]Hand[/gold].",
   "THETHIEF-PIP_NEXT_TURN_POWER.smartDescription": "At the start of next turn, add {Amount:plural:a [gold]Pip[/gold]|{} [gold]Pips[/gold]} to your [gold]Hand[/gold].",
-  "THETHIEF-PIP_NEXT_TURN_POWER.title": "Pip Next Turn"
+  "THETHIEF-PIP_NEXT_TURN_POWER.title": "Pip Next Turn",
+  "THETHIEF-CACTUS_SHIELD_POWER.description": "Gain [gold]Thorns[/gold] this turn.",
+  "THETHIEF-CACTUS_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Thorns[/gold] this turn.",
+  "THETHIEF-CACTUS_SHIELD_POWER.title": "Cactus Shield"
 }

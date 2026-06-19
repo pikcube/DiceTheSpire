@@ -1,7 +1,9 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Helpers.Models;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Character;
@@ -72,5 +74,28 @@ namespace TheInventor.TheInventorCode.Cards
             return false;
         }
 
+        public Texture2D GetPips(int cost, bool isPretend, CardCostColor? energyCostColor = null)
+        {
+            string costText = cost is < 1 or > 9 ? "0" : $"{cost}";
+            if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
+            {
+                return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
+            }
+
+            energyCostColor ??= CardCostHelper.GetEnergyCostColor(this, CombatState);
+            switch (energyCostColor)
+            {
+                case CardCostColor.Unmodified:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/ui_dice_dice{costText}.png".ImagePath());
+                case CardCostColor.Increased:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/Blue/ui_dice_dice{costText}.png".ImagePath());
+                case CardCostColor.Decreased:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
+                case CardCostColor.InsufficientResources when !isPretend:
+                    return ResourceLoader.Load<Texture2D>($"charui/Energy/Red/ui_dice_dice{costText}.png".ImagePath());
+                default:
+                    goto case CardCostColor.Unmodified;
+            }
+        }
     }
 }
