@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,6 +20,9 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
 public class NailBat() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("Recoil", 4), new DamageVar(14M, DamageProps.card)];
+
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Held)];
+
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             ArgumentNullException.ThrowIfNull(cardPlay.Target);

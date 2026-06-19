@@ -19,4 +19,7 @@ public static class BetterStaticHoverTips
 
     [CustomEnum] 
     public static StaticHoverTip Inspect = 0;
+
+    [CustomEnum]
+    public static StaticHoverTip Held = 0;
 }
