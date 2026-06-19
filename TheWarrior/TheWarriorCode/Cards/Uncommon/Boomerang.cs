@@ -31,13 +31,13 @@ public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
             .FromCard(this)
             .Targeting(Owner.Creature)
             .WithValueProp(DynamicVars.Damage.Props)
-            .WithHitFx(VfxCmd.slashPath)
+            .WithHitFx(VfxCmd.rockShatterPath)
             .Execute(choiceContext);
     }
     protected override void OnUpgrade()
     {
-        //this.DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars["Recoil"].UpgradeValueBy(-3);
+        this.DynamicVars.Damage.UpgradeValueBy(6);
+        DynamicVars["Recoil"].UpgradeValueBy(2);
     }
 
 }
