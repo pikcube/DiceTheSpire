@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using DiceTheSpireCore.DiceTheSpireCoreCode;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Helpers.Models;
@@ -38,7 +39,7 @@ namespace TheInventor.TheInventorCode.Cards
         {
             if (HasTurnEndInHandEffect)
             {
-                yield return HoverTipFactory.Static(InventorStaticHoverTips.Held);
+                yield return HoverTipFactory.Static(BetterStaticHoverTips.Held);
             }
         }
 
