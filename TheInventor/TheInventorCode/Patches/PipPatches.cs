@@ -22,7 +22,7 @@ public static class PipPatches
         }
 
         FieldInfo energyLabelInfo = AccessTools.DeclaredField(typeof(NCard), "_energyLabel");
-        MegaLabel l = (MegaLabel?) energyLabelInfo.GetValue(__instance) ?? throw new NoNullAllowedException();
+        MegaLabel l = (MegaLabel?)energyLabelInfo.GetValue(__instance) ?? throw new NoNullAllowedException();
 
         FieldInfo energyTexture = AccessTools.DeclaredField(typeof(NCard), "_energyIcon");
         TextureRect r = (TextureRect?)energyTexture.GetValue(__instance) ?? throw new NoNullAllowedException();
@@ -63,10 +63,11 @@ public static class RandomizePatch
         {
             return true;
         }
+        PropertyInfo randomizeCostTween = AccessTools.DeclaredProperty(typeof(NCard), "RandomizeCostTween");
 
         __instance.GetPrivateProperty<NCard, Tween>("RandomizeCostTween")?.Kill();
 
-        PropertyInfo randomizeCostTween = AccessTools.DeclaredProperty(typeof(NCard), "RandomizeCostTween");
+
         randomizeCostTween.SetValue(__instance, __instance.CreateTween());
 
         float offset = Rng.Chaotic.NextFloat(10f);
