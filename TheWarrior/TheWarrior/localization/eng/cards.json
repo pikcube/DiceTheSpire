@@ -50,6 +50,8 @@
   "THEWARRIOR-NAIL_BAT.description": "Deal {Damage:diff()} damage.\n[gold]Held[/gold]: Take {Recoil:diff()} damage.",
   "THEWARRIOR-NAIL_BAT.title": "Nail Bat",
   "THEWARRIOR-RUMMAGE_STRIKE.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
-  "THEWARRIOR-RUMMAGE_STRIKE.title": "Rummage Strike"
+  "THEWARRIOR-RUMMAGE_STRIKE.title": "Rummage Strike",
+  "THEWARRIOR-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-BROADSWORD.title": "Broadsword"
 
 }     
