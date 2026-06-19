@@ -17,7 +17,7 @@ public class MagicReroll() : TheWarriorCard(1, CardType.Power, CardRarity.Rare, 
 
         protected override void OnUpgrade()
         {
-            EnergyCost.UpgradeBy(-1);
+            AddKeyword(CardKeyword.Innate);
         }
     }
 

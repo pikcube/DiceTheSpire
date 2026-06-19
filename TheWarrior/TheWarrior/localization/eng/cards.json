@@ -48,6 +48,8 @@
   "THEWARRIOR-MAGIC_REROLL.description": "All copies of [gold]Roll Again[/gold] are upgraded.",
   "THEWARRIOR-MAGIC_REROLL.title": "Magic Reroll",
   "THEWARRIOR-NAIL_BAT.description": "Deal {Damage:diff()} damage.\n[gold]Held[/gold]: Take {Recoil:diff()} damage.",
-  "THEWARRIOR-NAIL_BAT.title": "Nail Bat"
+  "THEWARRIOR-NAIL_BAT.title": "Nail Bat",
+  "THEWARRIOR-RUMMAGE_STRIKE.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-RUMMAGE_STRIKE.title": "Rummage Strike"
 
 }     
