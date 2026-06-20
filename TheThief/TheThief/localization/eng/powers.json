@@ -39,5 +39,8 @@
   "THETHIEF-PIP_NEXT_TURN_POWER.title": "Pip Next Turn",
   "THETHIEF-CACTUS_SHIELD_POWER.description": "Gain [gold]Thorns[/gold] this turn.",
   "THETHIEF-CACTUS_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Thorns[/gold] this turn.",
-  "THETHIEF-CACTUS_SHIELD_POWER.title": "Cactus Shield"
+  "THETHIEF-CACTUS_SHIELD_POWER.title": "Cactus Shield",
+  "THETHIEF-CLOAK_POWER.description": "Gain 2 [gold]Reduce[/gold] this turn.",
+  "THETHIEF-CLOAK_POWER.smartDescription": "Gain {Amount} [gold]Reduce[/gold] this turn.",
+  "THETHIEF-CLOAK_POWER.title": "Cloak"
 }

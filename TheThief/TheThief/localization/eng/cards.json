@@ -23,7 +23,7 @@
   "THETHIEF-BLENDER.title": "Blender",
   "THETHIEF-TOXIC_CLAW.description": "Deal {Damage:diff()} damage. Apply {PoisonPower:diff()} [gold]Poison[/gold].\nWhen drawn, add a copy of this card to your [gold]Hand[/gold].",
   "THETHIEF-TOXIC_CLAW.title": "Toxic Claw",
-  "THETHIEF-CLOAK.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {ReducePower:diff()} [gold]Reduce[/gold].",
+  "THETHIEF-CLOAK.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {ReducePower:diff()} [gold]Reduce[/gold] this turn.",
   "THETHIEF-CLOAK.title": "Cloak",
   "THETHIEF-DEXTERITY_CHARM.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].",
   "THETHIEF-DEXTERITY_CHARM.title": "Dexterity Charm",
