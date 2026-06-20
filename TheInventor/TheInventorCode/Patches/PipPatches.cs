@@ -1,11 +1,11 @@
-﻿using Godot;
+﻿using System.Data;
+using System.Reflection;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Random;
-using System.Data;
-using System.Reflection;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards;
 

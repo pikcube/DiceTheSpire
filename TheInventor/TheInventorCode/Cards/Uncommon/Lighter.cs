@@ -1,28 +1,44 @@
-﻿using BaseLib.Extensions;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
-using Pikcube.Common.Extensions;
+using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Lighter() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class Lighter() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Crack);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(2), new PowerVar<LighterPower>(50)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14, DamageProps.card), new DamageVar("HeldDamage", 6, DamageProps.card)];
+
+    public override bool HasTurnEndInHandEffect => true;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await StrengthPower.ApplyAsync(choiceContext, Owner.Creature, -DynamicVars.Strength.EnchantedValue, Owner.Creature, this);
-        await LighterPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<LighterPower>().EnchantedValue, Owner.Creature, this);
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this)
+            .Targeting(cardPlay.Target)
+            .WithHitFx(VfxCmd.slashPath)
+            .Execute(choiceContext);
+    }
+
+    protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
+    {
+        if (CombatState is null)
+        {
+            return;
+        }
+
+        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, (DamageVar)DynamicVars["HeldDamage"], Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Strength.UpgradeValueBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars["HeldDamage"].UpgradeValueBy(2);
     }
 }

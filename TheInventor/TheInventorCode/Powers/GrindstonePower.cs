@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Powers;
 
-public class LighterPower : TheInventorPower
+public class GrindstonePower : TheInventorPower
 {
     public override PowerType Type => PowerType.Buff;
 
