@@ -107,8 +107,15 @@ public static class InventorHelperFunctions
         }
         foreach (CardModel card in cards.TakeWhile(card => !card.Owner.Creature.IsDead))
         {
-            card.ShouldBlinkOnNextPlay = true;
-            await CardCmd.AutoPlay(choiceContext, card, null);
+            if (card.Keywords.Contains(CardKeyword.Unplayable))
+            {
+                await card.BlinkAsync(choiceContext);
+            }
+            else
+            {
+                card.ShouldBlinkOnNextPlay = true;
+                await CardCmd.AutoPlay(choiceContext, card, null);
+            }
         }
     }
 }
