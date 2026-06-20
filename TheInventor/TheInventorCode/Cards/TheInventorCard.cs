@@ -75,9 +75,15 @@ namespace TheInventor.TheInventorCode.Cards
             return false;
         }
 
-        public Texture2D GetPips(int cost, bool isPretend, CardCostColor? energyCostColor = null)
+        public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null)
         {
-            string costText = cost is < 1 or > 9 ? "0" : $"{cost}";
+            string costText = cost switch
+            {
+                null => "X",
+                < 1 or > 9 => "0",
+                _ => $"{cost}"
+            };
+
             if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
             {
                 return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
