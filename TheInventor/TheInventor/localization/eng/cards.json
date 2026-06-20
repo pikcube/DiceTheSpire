@@ -149,5 +149,7 @@
   "THEINVENTOR-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nShuffle your [gold]Draw[/gold] Pile.",
   "THEINVENTOR-RUBBER_MALLET.title": "Rubber Mallet",
   "THEINVENTOR-TIDAL_BLADE.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Held[/gold]: Deal {Damage:diff()} damage to the enemy with the least HP.",
-  "THEINVENTOR-TIDAL_BLADE.title": "Tidal Blade"
+  "THEINVENTOR-TIDAL_BLADE.title": "Tidal Blade",
+  "THEINVENTOR-QUICK_ATTACK.description": "Deal {Damage:diff()} damage to a random enemy.\nAt the start of your turn, if this card is in your [gold]Hand[/gold], play it.",
+  "THEINVENTOR-QUICK_ATTACK.title": "Quick Attack"
 }

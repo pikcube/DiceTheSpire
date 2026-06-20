@@ -62,5 +62,7 @@
   "THEINVENTOR-STARDUST.title": "Stardust",
   "THEINVENTOR-STARDUST.description": "At the start of each turn, apply {Power:plural:a|[blue]{Power}[/blue]} random debuff to a random enemy.",
   "THEINVENTOR-BLOWTORCH.title": "Blowtorch",
-  "THEINVENTOR-BLOWTORCH.description": "At the start of each turn, deal [blue]{Power}[/blue] damage to ALL enemies."
+  "THEINVENTOR-BLOWTORCH.description": "At the start of each turn, deal [blue]{Power}[/blue] damage to ALL enemies.",
+  "THEINVENTOR-QUICKER_ATTACK.title": "Quicker Attack",
+  "THEINVENTOR-QUICKER_ATTACK.description": "At the start of each turn, play a random attack card."
 }
