@@ -123,14 +123,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         }
 
         GadgetId = ModelDb.GetModel<HeatRay>().GadgetId;
-        if (InventorDebugConfig.IsKind)
-        {
-            KindnessLeft = 4;
-        }
-        else
-        {
-            KindnessLeft = 0;
-        }
+        KindnessLeft = InventorDebugConfig.IsKind ? 4 : 0;
     }
 
     public override async Task AfterCombatVictory(CombatRoom room)
