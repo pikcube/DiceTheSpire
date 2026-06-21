@@ -7,7 +7,7 @@
   "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
   "THEINVENTOR-RESONANCE_POWER.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, apply a debuff to all enemies.",
   "THEINVENTOR-RESONANCE_POWER.smartDescription": "Whenever you apply a [gold]Debuff[/gold] to yourself, apply a debuff to all enemies..",
-  "THEINVENTOR-RESONANCE_POWER.title": "Double Edge",
+  "THEINVENTOR-RESONANCE_POWER.title": "Resonance",
   "THEINVENTOR-EXHAUSTION_POWER.description": "Whenever you play a card this turn, this creature takes damage.",
   "THEINVENTOR-EXHAUSTION_POWER.remoteDescription": "Whenever {ApplierName} plays a card, {IsSelfInflicted:you take|{OwnerName} takes} {Amount} damage.",
   "THEINVENTOR-EXHAUSTION_POWER.smartDescription": "Whenever you play a card this turn, {IsSelfInflicted:you take|{OwnerName} takes} {Amount} damage.",
