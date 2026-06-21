@@ -1,11 +1,11 @@
-﻿using Godot;
+﻿using System.Data;
+using System.Reflection;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Random;
-using System.Data;
-using System.Reflection;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards;
 
@@ -30,12 +30,12 @@ public static class PipPatches
         FieldInfo pretendCard = AccessTools.DeclaredField(typeof(NCard), "_pretendCardCanBePlayed");
         bool isPretend = (bool?)pretendCard.GetValue(__instance) ?? throw new NoNullAllowedException();
 
-        int withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
+        int? withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
 
         if (c.EnergyCost.CostsX)
         {
-            l.SetTextAutoSize("X");
-            withModifiers = 0;
+            l.SetTextAutoSize("");
+            withModifiers = null;
         }
         else if (withModifiers > 9)
         {

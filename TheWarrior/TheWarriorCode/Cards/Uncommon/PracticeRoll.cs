@@ -1,12 +1,12 @@
-﻿namespace TheWarrior.TheWarriorCode.Cards.Uncommon
-{
-    using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
-    using MegaCrit.Sts2.Core.Commands;
-    using MegaCrit.Sts2.Core.Entities.Cards;
-    using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-    using MegaCrit.Sts2.Core.Localization.DynamicVars;
-    using MegaCrit.Sts2.Core.Models.Powers;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+{
     namespace TheWarrior.TheWarriorCode.Cards.Uncommon
     {
 

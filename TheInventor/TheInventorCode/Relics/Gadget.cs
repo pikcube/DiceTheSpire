@@ -77,6 +77,13 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         }
     } = nameof(DefaultGadget);
 
+    [SavedProperty]
+    public int KindnessLeft
+    {
+        get;
+        set;
+    }
+
     public AbstractModel AsModel() => this;
     public async Task AfterRandomizedAsync()
     {
@@ -116,10 +123,15 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         }
 
         GadgetId = ModelDb.GetModel<HeatRay>().GadgetId;
+        KindnessLeft = InventorDebugConfig.IsKind ? 4 : 0;
     }
 
     public override async Task AfterCombatVictory(CombatRoom room)
     {
+        if (KindnessLeft > 0)
+        {
+            --KindnessLeft;
+        }
         List<CardModel> cards = [.. Owner.Deck.Cards.Where(c => c is 
         {
             IsRemovable: true,
@@ -229,6 +241,10 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     private IEnumerable<CardModel> ShuffleForScrap(List<CardModel> scrapCards)
     {
         Owner.PlayerRng.Rewards.Shuffle(scrapCards);
+        if (KindnessLeft > 0)
+        {
+            return scrapCards.OrderByDescending(c => c.Rarity == CardRarity.Basic);
+        }
         //return scrapCards.OrderByDescending(c => PlayedThisCombat.ContainsValue(c));
         return scrapCards;
     }
