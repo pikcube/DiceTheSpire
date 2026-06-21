@@ -14,7 +14,7 @@ public class LuckyDrawPower : TheThiefPower
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         
-        if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.EnergyCost.Canonical != 1)
+        if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.EnergyCost.GetResolved() != 1)
         {
             return;
         }
