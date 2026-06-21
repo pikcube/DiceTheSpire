@@ -31,5 +31,5 @@ public partial class MainFile : Node
 public class InventorDebugConfig : SimpleModConfig
 {
     public static bool ShowGadgetTips { get; set; } = true;
-    public static bool IsKind { get; set; } = true;
+    public static bool IsFirstRun { get; set; } = true;
 }

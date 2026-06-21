@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rooms;
@@ -35,6 +36,10 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     {
         ModHelper.SubscribeForCombatStateHooks("TheInventor.Gadgets", GetCombatHooks);
         ModHelper.SubscribeForRunStateHooks("TheInventor.Gadgets", GetRunHooks);
+        RelicSpawnManager manager = new();
+        manager.RegisterRule<PreciseScissors>(_ => !InventorDebugConfig.IsFirstRun);
+        manager.RegisterRule<PrecariousShears>(_ => !InventorDebugConfig.IsFirstRun);
+        manager.RegisterRule<LeafyPoultice>(_ => !InventorDebugConfig.IsFirstRun);
     }
 
     private static AbstractModel[] GetRunHooks(IRunState state)
@@ -123,7 +128,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         }
 
         GadgetId = ModelDb.GetModel<HeatRay>().GadgetId;
-        KindnessLeft = InventorDebugConfig.IsKind ? 4 : 0;
+        KindnessLeft = InventorDebugConfig.IsFirstRun ? 4 : 0;
     }
 
     public override async Task AfterCombatVictory(CombatRoom room)
@@ -241,12 +246,14 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
     private IEnumerable<CardModel> ShuffleForScrap(List<CardModel> scrapCards)
     {
         Owner.PlayerRng.Rewards.Shuffle(scrapCards);
-        if (KindnessLeft > 0)
+        return KindnessLeft switch
         {
-            return scrapCards.OrderByDescending(c => c.Rarity == CardRarity.Basic);
-        }
+            > 2 => scrapCards.OrderByDescending(c => c.Rarity is CardRarity.Basic),
+            > 1 => scrapCards.OrderByDescending(c => c.Rarity is CardRarity.Curse).ThenByDescending(c => c.Rarity is CardRarity.Basic),
+            > 0 => scrapCards.OrderByDescending(c => c.Rarity is CardRarity.Basic or CardRarity.Curse),
+            _ => scrapCards
+        };
         //return scrapCards.OrderByDescending(c => PlayedThisCombat.ContainsValue(c));
-        return scrapCards;
     }
 
     //private Dictionary<CardModel, CardModel> PlayedThisCombat { get; set; } = [];
