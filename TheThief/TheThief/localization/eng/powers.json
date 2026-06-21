@@ -42,5 +42,8 @@
   "THETHIEF-CACTUS_SHIELD_POWER.title": "Cactus Shield",
   "THETHIEF-CLOAK_POWER.description": "Gain 2 [gold]Reduce[/gold] this turn.",
   "THETHIEF-CLOAK_POWER.smartDescription": "Gain {Amount} [gold]Reduce[/gold] this turn.",
-  "THETHIEF-CLOAK_POWER.title": "Cloak"
+  "THETHIEF-CLOAK_POWER.title": "Cloak",
+  "THETHIEF-PARRYING_DAGGER_POWER.description": "Gain 1 [gold]Reduce[/gold] this turn.",
+  "THETHIEF-PARRYING_DAGGER_POWER.smartDescription": "Gain {Amount} [gold]Reduce[/gold] this turn.",
+  "THETHIEF-PARRYING_DAGGER_POWER.title": "Parrying Dagger"
 }
