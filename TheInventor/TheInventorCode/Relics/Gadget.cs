@@ -332,5 +332,8 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         }
     }
 
-    public static List<IGadgetParent> GetGadgetParents(Player owner) => [.. owner.RunState.IterateHookListeners(owner.Creature.CombatState).OfType<IGadgetParent>()];
+    public static List<IGadgetParent> GetGadgetParents(Player owner) => [.. owner.RunState
+        .IterateHookListeners(owner.Creature.CombatState)
+        .OfType<IGadgetParent>()
+        .Where(p => p.Owner == owner)];
 }
