@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -62,6 +63,7 @@ public class ShockPower : DiceTheSpireCorePower
         foreach (CardModel card in cards)
         {
             card.AddTempKeyword(CardKeyword.Unplayable, this);
+            await DiceyHooks.OnKeywordAddedAsync(card, CardKeyword.Unplayable);
         }
     }
 
@@ -84,4 +86,6 @@ public class ShockPower : DiceTheSpireCorePower
             TempKeywordManager.DestroyKeywordsEarly(this);
         }
     }
+
+
 }

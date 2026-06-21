@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace TheInventor.TheInventorCode.Utilities;
 
