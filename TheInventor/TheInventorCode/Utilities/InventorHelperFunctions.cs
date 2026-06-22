@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
+using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Utilities;
 
@@ -25,24 +26,56 @@ public static class InventorHelperFunctions
                 amount = 1;
                 break;
             case 7:
-                power = ModelDb.Power<ShrinkPower>().StrongMutableClone();
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<EnergyDownNextTurnPower>().StrongMutableClone();
+                }
+                else
+                {
+                    power = ModelDb.Power<ShrinkPower>().StrongMutableClone();
+                }
+
                 amount = 1;
                 break;
             case 6:
-                power = ModelDb.Power<DarkShacklesPower>().StrongMutableClone();
-                amount = 7;
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<ShockPower>().StrongMutableClone();
+                    amount = 2;
+                }
+                else
+                {
+                    power = ModelDb.Power<DarkShacklesPower>().StrongMutableClone();
+                    amount = 7;
+                }
                 break;
             case 5:
                 power = ModelDb.Power<DoomPower>().StrongMutableClone();
                 amount = 6;
                 break;
             case 4:
-                power = ModelDb.Power<PoisonPower>().StrongMutableClone();
-                amount = 4;
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<ExhaustionPower>().StrongMutableClone();
+                    amount = 1;
+                }
+                else
+                {
+                    power = ModelDb.Power<PoisonPower>().StrongMutableClone();
+                    amount = 4;
+                }
                 break;
             case 3:
-                power = ModelDb.Power<DemisePower>().StrongMutableClone();
-                amount = 5;
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<FrailPower>().StrongMutableClone();
+                    amount = 1;
+                }
+                else
+                {
+                    power = ModelDb.Power<DemisePower>().StrongMutableClone();
+                    amount = 5;
+                }
                 break;
             case 2:
                 power = ModelDb.Power<FreezePower>().StrongMutableClone();

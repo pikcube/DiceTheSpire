@@ -25,12 +25,15 @@ public class SilverDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Unc
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        if (RunState is null || cardPlay.Target?.IsAlive is not true)
+        for (int n = 0; n < DynamicVars["DebuffCount"].IntValue; ++n)
         {
-            return;
-        }
+            if (RunState is null || cardPlay.Target?.IsAlive is not true)
+            {
+                return;
+            }
 
-        await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, cardPlay.Target, Owner.Creature, this);
+            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, cardPlay.Target, Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()

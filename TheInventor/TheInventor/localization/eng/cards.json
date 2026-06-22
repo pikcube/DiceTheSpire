@@ -157,5 +157,9 @@
   "THEINVENTOR-GOLD_DAGGER.description": "Deal {Damage:diff()} damage.",
   "THEINVENTOR-GOLD_DAGGER.title": "Gold Dagger Strike",
   "THEINVENTOR-SILVER_DAGGER.description": "Deal {Damage:diff()} damage.\nApply {DebuffCount:diff()} random debuffs.",
-  "THEINVENTOR-SILVER_DAGGER.title": "Silver Dagger Strike"
+  "THEINVENTOR-SILVER_DAGGER.title": "Silver Dagger Strike",
+  "THEINVENTOR-DICE_DETONATOR.description": "Transform all [gold]Blinked[/gold] cards.\nDeal {Damage:diff()} damage for each card Transformed.",
+  "THEINVENTOR-DICE_DETONATOR.title": "Dice Detonator",
+  "THEINVENTOR-PLAGUE.description": "[gold]Held[/gold]: Apply a random debuff to {IfUpgraded:show:|yourself and }ALL enemies.",
+  "THEINVENTOR-PLAGUE.title": "Plague"
 }
