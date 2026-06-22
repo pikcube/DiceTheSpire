@@ -3,18 +3,16 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
+using TheInventor.TheInventorCode.Utilities;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class SilverDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    public override string GetScrapId => nameof(Harvest);
+    public override string GetScrapId => nameof(Stardust);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new IntVar("DebuffCount", 2)];
     public override IEnumerable<CardTag> Tags => [CardTag.Strike];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -26,10 +24,18 @@ public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare,
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
+
+        if (RunState is null || cardPlay.Target?.IsAlive is not true)
+        {
+            return;
+        }
+
+        await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, cardPlay.Target, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(ScrapKeyword.Scrap);
+        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars["DebuffCount"].UpgradeValueBy(2);
     }
 }
