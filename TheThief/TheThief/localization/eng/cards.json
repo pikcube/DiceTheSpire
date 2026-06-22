@@ -82,5 +82,7 @@
   "THETHIEF-CACTUS_SPEAR.description": "Deal {CalculatedDamage:diff()} damage. Deals{IfUpgraded:show: 2 | }extra damage for each [gold]Thorns[/gold] you have.",
   "THETHIEF-CACTUS_SPEAR.title": "Cactus Spear",
   "THETHIEF-PARRYING_DAGGER.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold] this turn.\nDeal {Damage:diff()} damage.",
-  "THETHIEF-PARRYING_DAGGER.title": "Parrying Dagger"
+  "THETHIEF-PARRYING_DAGGER.title": "Parrying Dagger",
+  "THETHIEF-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {Repeat:diff()} times.|.}",
+  "THETHIEF-TETRAPHOBIA.title": "Tetraphobia"
 }
