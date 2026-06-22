@@ -12,7 +12,8 @@ public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare,
 {
     public override string GetScrapId => nameof(Harvest);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card)];
+    public override IEnumerable<CardTag> Tags => [CardTag.Strike];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

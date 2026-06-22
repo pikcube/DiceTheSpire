@@ -155,5 +155,5 @@
   "THEINVENTOR-QUICK_ATTACK.description": "Deal {Damage:diff()} damage to a random enemy.\nAt the start of your turn, if this card is in your [gold]Hand[/gold], play it.",
   "THEINVENTOR-QUICK_ATTACK.title": "Quick Attack",
   "THEINVENTOR-GOLD_DAGGER.description": "Deal {Damage:diff()} damage.",
-  "THEINVENTOR-GOLD_DAGGER.title": "Gold Dagger"
+  "THEINVENTOR-GOLD_DAGGER.title": "Gold Dagger Strike"
 }
