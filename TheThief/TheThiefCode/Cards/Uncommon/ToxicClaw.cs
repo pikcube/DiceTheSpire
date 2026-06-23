@@ -12,14 +12,13 @@ namespace TheThief.TheThiefCode.Cards.Uncommon;
 
 public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    private Decimal _extraDamageFromClawPlays;
-    private Decimal ExtraDamageFromClawPlays
+    private decimal ExtraDamageFromClawPlays
     {
-        get => _extraDamageFromClawPlays;
+        get;
         set
         {
             AssertMutable();
-            _extraDamageFromClawPlays = value;
+            field = value;
         }
     }
 
@@ -67,7 +66,7 @@ public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon,
         damage.BaseValue = damage.BaseValue + ExtraDamageFromClawPlays;
     }
 
-    private void BuffFromClawPlay(Decimal extraDamage)
+    private void BuffFromClawPlay(decimal extraDamage)
     {
         DamageVar damage = DynamicVars.Damage;
         damage.BaseValue = damage.BaseValue + extraDamage;

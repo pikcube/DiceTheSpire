@@ -206,6 +206,11 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         {
             return nameof(CursedGadget);
         }
+
+        if (choice.Rarity == CardRarity.Ancient)
+        {
+            return nameof(BattleWrench);
+        }
         
         DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
         {

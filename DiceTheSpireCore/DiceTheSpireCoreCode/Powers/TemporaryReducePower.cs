@@ -20,7 +20,7 @@ public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPow
 
     public override async Task BeforeApplied(
         Creature target,
-        Decimal amount,
+        decimal amount,
         Creature? applier,
         CardModel? cardSource)
     {
@@ -37,7 +37,7 @@ public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPow
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
-        Decimal amount,
+        decimal amount,
         Creature? applier,
         CardModel? cardSource)
     {

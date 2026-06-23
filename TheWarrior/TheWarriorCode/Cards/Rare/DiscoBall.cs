@@ -15,23 +15,20 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
 
 public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
-
-        private int _testEnergyCostOverride = -1;
-
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
         public int TestEnergyCostOverride
         {
-            get => _testEnergyCostOverride;
+            get;
             set
             {
                 TestMode.AssertOn();
                 AssertMutable();
-                _testEnergyCostOverride = value;
+                field = value;
             }
-        }
+        } = -1;
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

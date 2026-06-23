@@ -26,7 +26,7 @@
   "THEINVENTOR-BLAST_CHILLER.title": "Blast Chiller",
   "THEINVENTOR-CHAINSAW.description": "Deal {Damage:diff()} damage to ALL enemies.\nDeals double damage to [gold]Minions[/gold].",
   "THEINVENTOR-CHAINSAW.title": "Chainsaw",
-  "THEINVENTOR-ROTTEN_EGG.description": "Permanently add [gold]Scrap[/gold] to this card.\n{IfUpgraded:show:Keep going...|Contains a terrible gadget.}",
+  "THEINVENTOR-ROTTEN_EGG.description": "Can be hatched at a rest site.",
   "THEINVENTOR-ROTTEN_EGG.title": "Rotten Egg",
   "THEINVENTOR-SPOOKY_NOISES.description": "Draw {Cards:diff()} cards.\nWhenever you play a card this turn, take {ExhaustionPower:diff()} damage.",
   "THEINVENTOR-SPOOKY_NOISES.title": "Spooky Noises",

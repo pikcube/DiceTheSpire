@@ -17,22 +17,20 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
     [Pool(typeof(TokenCardPool))]
     public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
-
-        private int _testEnergyCostOverride = -1;
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
         public int TestEnergyCostOverride
         {
-            get => _testEnergyCostOverride;
+            get;
             set
             {
                 TestMode.AssertOn();
                 AssertMutable();
-                _testEnergyCostOverride = value;
+                field = value;
             }
-        }
+        } = -1;
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
