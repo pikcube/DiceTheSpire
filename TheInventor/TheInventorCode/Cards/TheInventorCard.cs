@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using DiceTheSpireCore.DiceTheSpireCoreCode;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Helpers.Models;
@@ -38,7 +39,7 @@ namespace TheInventor.TheInventorCode.Cards
         {
             if (HasTurnEndInHandEffect)
             {
-                yield return HoverTipFactory.Static(InventorStaticHoverTips.Held);
+                yield return HoverTipFactory.Static(BetterStaticHoverTips.Held);
             }
         }
 
@@ -74,9 +75,15 @@ namespace TheInventor.TheInventorCode.Cards
             return false;
         }
 
-        public Texture2D GetPips(int cost, bool isPretend, CardCostColor? energyCostColor = null)
+        public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null)
         {
-            string costText = cost is < 1 or > 9 ? "0" : $"{cost}";
+            string costText = cost switch
+            {
+                null => "X",
+                < 1 or > 9 => "0",
+                _ => $"{cost}"
+            };
+
             if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
             {
                 return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());

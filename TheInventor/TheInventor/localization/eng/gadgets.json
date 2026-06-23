@@ -44,7 +44,7 @@
   "THEINVENTOR-PROTECTION.title": "Protection",
   "THEINVENTOR-PROTECTION.description": "At the start of combat, gain [blue]{Power}[/blue] [gold]Reduce[/gold].",
   "THEINVENTOR-BURST_OF_KNOWLEDGE.title": "Burst Of Knowledge",
-  "THEINVENTOR-BURST_OF_KNOWLEDGE.description": "Obtain two card rewards.",
+  "THEINVENTOR-BURST_OF_KNOWLEDGE.description": "Obtain two additional card rewards.",
   "THEINVENTOR-BLOOD_SIP.title": "Blood Sip",
   "THEINVENTOR-BLOOD_SIP.description": "At the start of combat, heal [blue]{Power}[/blue] [gold]HP[/gold]",
   "THEINVENTOR-NEEDLE.title": "Needle",
@@ -62,5 +62,9 @@
   "THEINVENTOR-STARDUST.title": "Stardust",
   "THEINVENTOR-STARDUST.description": "At the start of each turn, apply {Power:plural:a|[blue]{Power}[/blue]} random debuff to a random enemy.",
   "THEINVENTOR-BLOWTORCH.title": "Blowtorch",
-  "THEINVENTOR-BLOWTORCH.description": "At the start of each turn, deal [blue]{Power}[/blue] damage to ALL enemies."
+  "THEINVENTOR-BLOWTORCH.description": "At the start of each turn, deal [blue]{Power}[/blue] damage to ALL enemies.",
+  "THEINVENTOR-QUICKER_ATTACK.title": "Quicker Attack",
+  "THEINVENTOR-QUICKER_ATTACK.description": "At the start of each turn, play a random attack card.",
+  "THEINVENTOR-HARVEST.title": "Harvest",
+  "THEINVENTOR-HARVEST.description": "Obtain approximately 200 gold."
 }

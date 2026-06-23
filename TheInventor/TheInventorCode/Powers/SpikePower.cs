@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -8,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Powers;
 
-public class SpikePower : TheInventorPower
+public class SpikePower : TheInventorPower, IAfterKeywordAddedListener
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -23,5 +24,14 @@ public class SpikePower : TheInventorPower
 
         HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
         await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null);
+    }
+
+    public async Task AfterKeywordAddedAsync(CardModel card, CardKeyword keyword)
+    {
+        if (keyword == CardKeyword.Unplayable && card.Owner.Creature == Owner && card.Pile?.Type == PileType.Hand)
+        {
+            HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
+            await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null);
+        }
     }
 }

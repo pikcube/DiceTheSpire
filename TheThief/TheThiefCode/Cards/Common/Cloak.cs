@@ -1,5 +1,4 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
@@ -8,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using TheThief.TheThiefCode.Powers;
 
 namespace TheThief.TheThiefCode.Cards.Common;
 
@@ -50,7 +50,7 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
 
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<ReducePower>(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<CloakPower>(choiceContext, Owner.Creature, DynamicVars["ReducePower"].BaseValue, Owner.Creature, this);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -60,6 +60,6 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<ReducePower>().UpgradeValueBy(1);
+        DynamicVars["ReducePower"].UpgradeValueBy(1);
     }
 }

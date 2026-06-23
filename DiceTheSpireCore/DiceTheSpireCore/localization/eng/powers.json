@@ -37,5 +37,8 @@
   "DICETHESPIRECORE-PRACTICE_ROLL_POWER.title": "Practice Roll",
   "DICETHESPIRECORE-MAGIC_REROLL_POWER.description": "All copies of [gold]Roll Again[/gold] are upgraded.",
   "DICETHESPIRECORE-MAGIC_REROLL_POWER.smartDescription": "All copies of [gold]Roll Again[/gold] are upgraded.",
-  "DICETHESPIRECORE-MAGIC_REROLL_POWER.title": "Magic Reroll"
+  "DICETHESPIRECORE-MAGIC_REROLL_POWER.title": "Magic Reroll",
+  "DICETHESPIRECORE-ENERGY_DOWN_NEXT_TURN_POWER.description": "Lose [gold]Energy[/gold] next turn.",
+  "DICETHESPIRECORE-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "Lose [blue]{Amount}[/blue] {energyPrefix:energyIcons(1)} next turn.",
+  "DICETHESPIRECORE-ENERGY_DOWN_NEXT_TURN_POWER.title": "Energy Down Next Turn"
 }

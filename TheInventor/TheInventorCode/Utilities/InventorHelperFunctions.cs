@@ -1,11 +1,15 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
+using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Utilities;
 
@@ -22,24 +26,56 @@ public static class InventorHelperFunctions
                 amount = 1;
                 break;
             case 7:
-                power = ModelDb.Power<ShrinkPower>().StrongMutableClone();
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<EnergyDownNextTurnPower>().StrongMutableClone();
+                }
+                else
+                {
+                    power = ModelDb.Power<ShrinkPower>().StrongMutableClone();
+                }
+
                 amount = 1;
                 break;
             case 6:
-                power = ModelDb.Power<DarkShacklesPower>().StrongMutableClone();
-                amount = 7;
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<ShockPower>().StrongMutableClone();
+                    amount = 2;
+                }
+                else
+                {
+                    power = ModelDb.Power<DarkShacklesPower>().StrongMutableClone();
+                    amount = 7;
+                }
                 break;
             case 5:
                 power = ModelDb.Power<DoomPower>().StrongMutableClone();
                 amount = 6;
                 break;
             case 4:
-                power = ModelDb.Power<PoisonPower>().StrongMutableClone();
-                amount = 4;
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<ExhaustionPower>().StrongMutableClone();
+                    amount = 1;
+                }
+                else
+                {
+                    power = ModelDb.Power<PoisonPower>().StrongMutableClone();
+                    amount = 4;
+                }
                 break;
             case 3:
-                power = ModelDb.Power<DemisePower>().StrongMutableClone();
-                amount = 5;
+                if (target.IsPlayer)
+                {
+                    power = ModelDb.Power<FrailPower>().StrongMutableClone();
+                    amount = 1;
+                }
+                else
+                {
+                    power = ModelDb.Power<DemisePower>().StrongMutableClone();
+                    amount = 5;
+                }
                 break;
             case 2:
                 power = ModelDb.Power<FreezePower>().StrongMutableClone();
@@ -56,5 +92,62 @@ public static class InventorHelperFunctions
         }
 
         await PowerCmd.Apply(choiceContext, power, target, amount, applier, cardSource, silent);
+    }
+
+    /// <summary>
+    /// Play cards directly from the draw pile.
+    /// If the draw pile becomes empty before the specified number of cards are played, the discard pile will
+    /// automatically be shuffled into it.
+    /// </summary>
+    /// <param name="choiceContext">The context that is signalled in the event of a player choice.</param>
+    /// <param name="player">Player whose draw pile we should play from.</param>
+    /// <param name="count">Number of cards to play.</param>
+    /// <param name="position">Position to play the cards from.</param>
+    public static async Task AutoPlayFromDrawPileAndBlink(
+      PlayerChoiceContext choiceContext,
+      Player player,
+      int count,
+      CardPilePosition position)
+    {
+        if (CombatManager.Instance.IsOverOrEnding)
+        {
+            return;
+        }
+
+        List<CardModel> cards = new(count);
+        CardPile drawPile = PileType.Draw.GetPile(player);
+        for (int i = 0; i < count; ++i)
+        {
+            await CardPileCmd.ShuffleIfNecessary(choiceContext, player);
+            if (drawPile.Cards.Count == 0)
+            {
+                break;
+            }
+            CardModel? card = position switch
+            {
+                CardPilePosition.Bottom => drawPile.Cards[^1],
+                CardPilePosition.Top => drawPile.Cards[0],
+                _ => player.RunState.Rng.CombatCardSelection.NextItem(drawPile.Cards)
+            };
+            if (card == null)
+            {
+                break;
+            }
+
+            cards.Add(card);
+            await CardPileCmd.Add(card, PileType.Play);
+        }
+        foreach (CardModel card in cards.TakeWhile(card => !card.Owner.Creature.IsDead))
+        {
+            if (card.Keywords.Contains(CardKeyword.Unplayable))
+            {
+                await card.BlinkAsync(choiceContext);
+            }
+            else
+            {
+                card.ShouldBlinkOnNextPlay = true;
+                await CardCmd.AutoPlay(choiceContext, card, null);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -36,5 +37,26 @@ public static class DiceyHooks
         {
             await listener.ModifyPipOnPlayAsync(choiceContext, cardPlay);
         }
+    }
+
+    public delegate void AfterKeywordAddedAsyncHandler(CardModel card, CardKeyword keyword);
+
+    public static event AfterKeywordAddedAsyncHandler? AfterKeywordAddedAsync;
+
+    //Warning, no harmony patch has been set up for this function yet, so don't expect it to work unless you call it manually after adding the keyword.
+
+    public static async Task OnKeywordAddedAsync(CardModel card, CardKeyword keyword)
+    {
+        AfterKeywordAddedAsync?.Invoke(card, keyword);
+        if (card.RunState is null)
+        {
+            return;
+        }
+
+        foreach (IAfterKeywordAddedListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterKeywordAddedListener>())
+        {
+            await listener.AfterKeywordAddedAsync(card, keyword);
+        }
+
     }
 }

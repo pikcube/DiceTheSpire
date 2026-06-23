@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
-namespace TheThief.TheThiefCode.Cards.Uncommon;
+namespace TheThief.TheThiefCode.Cards.Common;
 
   
 public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
@@ -26,10 +26,7 @@ public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Common, Targe
         {
             return;
         }
-        if (original.EnergyCost.Canonical > 1)
-        {
-            original.EnergyCost.AddThisTurnOrUntilPlayed(-1);
-        }
+        original.EnergyCost.AddThisTurnOrUntilPlayed(-1);
 
         await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Pip>(Owner), PileType.Hand, Owner);
     }

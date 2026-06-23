@@ -13,8 +13,12 @@ public class SneezePower : DiceTheSpireCorePower, IOnBlinkListener
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public Task AfterCardBlinkedAsync(PlayerChoiceContext choiceContext, CardModel card)
+    public async Task AfterCardBlinkedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
-        return CreatureCmd.GainBlock(Owner, Amount, BlockProps.nonCardUnpowered, null);
+        if (card.Owner.Creature != Owner)
+        {
+            return;
+        }
+        await CreatureCmd.GainBlock(Owner, Amount, BlockProps.nonCardUnpowered, null);
     }
 }

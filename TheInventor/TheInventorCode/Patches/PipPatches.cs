@@ -1,11 +1,11 @@
-﻿using Godot;
+﻿using System.Data;
+using System.Reflection;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Random;
-using System.Data;
-using System.Reflection;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards;
 
@@ -22,7 +22,7 @@ public static class PipPatches
         }
 
         FieldInfo energyLabelInfo = AccessTools.DeclaredField(typeof(NCard), "_energyLabel");
-        MegaLabel l = (MegaLabel?) energyLabelInfo.GetValue(__instance) ?? throw new NoNullAllowedException();
+        MegaLabel l = (MegaLabel?)energyLabelInfo.GetValue(__instance) ?? throw new NoNullAllowedException();
 
         FieldInfo energyTexture = AccessTools.DeclaredField(typeof(NCard), "_energyIcon");
         TextureRect r = (TextureRect?)energyTexture.GetValue(__instance) ?? throw new NoNullAllowedException();
@@ -30,12 +30,12 @@ public static class PipPatches
         FieldInfo pretendCard = AccessTools.DeclaredField(typeof(NCard), "_pretendCardCanBePlayed");
         bool isPretend = (bool?)pretendCard.GetValue(__instance) ?? throw new NoNullAllowedException();
 
-        int withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
+        int? withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
 
         if (c.EnergyCost.CostsX)
         {
-            l.SetTextAutoSize("X");
-            withModifiers = 0;
+            l.SetTextAutoSize("");
+            withModifiers = null;
         }
         else if (withModifiers > 9)
         {
@@ -63,10 +63,11 @@ public static class RandomizePatch
         {
             return true;
         }
+        PropertyInfo randomizeCostTween = AccessTools.DeclaredProperty(typeof(NCard), "RandomizeCostTween");
 
         __instance.GetPrivateProperty<NCard, Tween>("RandomizeCostTween")?.Kill();
 
-        PropertyInfo randomizeCostTween = AccessTools.DeclaredProperty(typeof(NCard), "RandomizeCostTween");
+
         randomizeCostTween.SetValue(__instance, __instance.CreateTween());
 
         float offset = Rng.Chaotic.NextFloat(10f);

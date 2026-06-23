@@ -44,6 +44,7 @@ public class Bounce() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, Ta
 
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("CurrentCount", 6), new PowerVar<BouncePower>(1M)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

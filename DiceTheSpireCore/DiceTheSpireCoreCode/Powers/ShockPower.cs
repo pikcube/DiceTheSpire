@@ -62,6 +62,7 @@ public class ShockPower : DiceTheSpireCorePower
         foreach (CardModel card in cards)
         {
             card.AddTempKeyword(CardKeyword.Unplayable, this);
+            await DiceyHooks.OnKeywordAddedAsync(card, CardKeyword.Unplayable);
         }
     }
 
@@ -84,4 +85,6 @@ public class ShockPower : DiceTheSpireCorePower
             TempKeywordManager.DestroyKeywordsEarly(this);
         }
     }
+
+
 }

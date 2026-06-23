@@ -13,7 +13,7 @@
   "THETHIEF-SINGULARITY.title": "Singularity",
   "THETHIEF-COLLAPSE.description": "Deal {Damage:diff()} damage.",
   "THETHIEF-COLLAPSE.title": "Collapse",
-  "THETHIEF-CHISEL.description": "Reduce the cost of a card in your [gold]Hand[/gold] by 1 this turn (to a minimum of 1).\nCreate a [gold]Pip[/gold].",
+  "THETHIEF-CHISEL.description": "Reduce the cost of a card in your [gold]Hand[/gold] by 1 this turn.\nCreate a [gold]Pip[/gold].",
   "THETHIEF-CHISEL.title": "Chisel",
   "THETHIEF-DETONATOR.description": "Deal damage equal to the amount of [gold]Poison[/gold] on the enemy.",
   "THETHIEF-DETONATOR.title": "Detonator",
@@ -23,7 +23,7 @@
   "THETHIEF-BLENDER.title": "Blender",
   "THETHIEF-TOXIC_CLAW.description": "Deal {Damage:diff()} damage. Apply {PoisonPower:diff()} [gold]Poison[/gold].\nWhen drawn, add a copy of this card to your [gold]Hand[/gold].",
   "THETHIEF-TOXIC_CLAW.title": "Toxic Claw",
-  "THETHIEF-CLOAK.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {ReducePower:diff()} [gold]Reduce[/gold].",
+  "THETHIEF-CLOAK.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {ReducePower:diff()} [gold]Reduce[/gold] this turn.",
   "THETHIEF-CLOAK.title": "Cloak",
   "THETHIEF-DEXTERITY_CHARM.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].",
   "THETHIEF-DEXTERITY_CHARM.title": "Dexterity Charm",
@@ -80,5 +80,9 @@
   "THETHIEF-CACTUS_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {ThornsPower:diff()} [gold]Thorns[/gold] this turn.",
   "THETHIEF-CACTUS_SHIELD.title": "Cactus Shield",
   "THETHIEF-CACTUS_SPEAR.description": "Deal {CalculatedDamage:diff()} damage. Deals{IfUpgraded:show: 2 | }extra damage for each [gold]Thorns[/gold] you have.",
-  "THETHIEF-CACTUS_SPEAR.title": "Cactus Spear"
+  "THETHIEF-CACTUS_SPEAR.title": "Cactus Spear",
+  "THETHIEF-PARRYING_DAGGER.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold] this turn.\nDeal {Damage:diff()} damage.",
+  "THETHIEF-PARRYING_DAGGER.title": "Parrying Dagger",
+  "THETHIEF-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {Repeat:diff()} times.|.}",
+  "THETHIEF-TETRAPHOBIA.title": "Tetraphobia"
 }

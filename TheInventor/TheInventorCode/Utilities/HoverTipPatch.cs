@@ -12,13 +12,15 @@ public class HoverTipPatch() : CustomSingletonModel(HookType.Run), IModifyHoverT
 {
     public void ModifyCardHoverTips(CardModel sender, HoverTipEventArgs e)
     {
-        if (sender.Owner.Character is Character.TheInventor && sender is not TheInventorCard)
+        if (sender.Owner.Character is not Character.TheInventor || sender is TheInventorCard)
         {
-            string id = Gadget.GetDefaultGadget(sender);
-
-            GadgetModel gadgetModel = Gadget.AllGadgets[id];
-
-            e.NewHoverTips.Add(new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Relic<Gadget>().Icon));
+            return;
         }
+
+        string id = Gadget.GetDefaultGadget(sender);
+
+        GadgetModel gadgetModel = Gadget.AllGadgets[id];
+
+        e.NewHoverTips.Add(new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Relic<Gadget>().Icon));
     }
 }

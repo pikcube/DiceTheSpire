@@ -18,17 +18,17 @@ public class Stardust() : GadgetModel(nameof(Stardust))
             return;
         }
 
-        Creature? target = player.Creature.CombatState.Enemies.TakeRandom(1, player.RunState.Rng.CombatTargets).SingleOrDefault();
-
-        if (target is null)
-        {
-            return;
-        }
-
         Parent.Flash();
 
         for (int n = 0; n < Power; ++n)
         {
+            Creature? target = player.Creature.CombatState.Enemies.TakeRandom(1, player.RunState.Rng.CombatTargets).SingleOrDefault();
+
+            if (target is null)
+            {
+                return;
+            }
+
             await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, target, player.Creature, null);
         }
     }
