@@ -134,7 +134,7 @@
   "THEINVENTOR-BEE_STING.title": "Bee Sting",
   "THEINVENTOR-ROCK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to a random enemy.",
   "THEINVENTOR-ROCK.title": "Rock",
-  "THEINVENTOR-AVALANCHE.description": "At the start of each turn, add {IfUpgraded:show:two [gold]Rocks[/gold]|a [gold]Rock[/gold]} to your hand.",
+  "THEINVENTOR-AVALANCHE.description": "At the start of each turn, add {AvalanchePower:plural:a [gold]Rock[/gold]|{AvalanchePower:diff()} [gold]Rocks[/gold]} to your hand.",
   "THEINVENTOR-AVALANCHE.title": "Avalanche",
   "THEINVENTOR-CALCULATOR.description": "The first {Cards:plural:time|two times} you [gold]Inspect[/gold] each turn, gain {Energy:energyIcons()}.",
   "THEINVENTOR-CALCULATOR.title": "Calculator",
@@ -161,5 +161,17 @@
   "THEINVENTOR-DICE_DETONATOR.description": "Transform all [gold]Blinked[/gold] cards.\nDeal {Damage:diff()} damage for each card Transformed.",
   "THEINVENTOR-DICE_DETONATOR.title": "Dice Detonator",
   "THEINVENTOR-PLAGUE.description": "[gold]Held[/gold]: Apply a random debuff to {IfUpgraded:show:|yourself and }ALL enemies.",
-  "THEINVENTOR-PLAGUE.title": "Plague"
+  "THEINVENTOR-PLAGUE.title": "Plague",
+  "THEINVENTOR-BASS_DROP.description": "Deal {ExtraDamage:diff()} damage for each unique debuff ANYONE has.{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
+  "THEINVENTOR-BASS_DROP.title": "Bass Drop",
+  "THEINVENTOR-FROST_HAMMER.description": "Deal {Damage:diff()} damage.\nIf the enemy is [gold]Frozen[/gold], attack again. Otherwise, inflict [gold]Freeze[/gold].",
+  "THEINVENTOR-FROST_HAMMER.title": "Frost Hammer",
+  "THEINVENTOR-STALL_OF_MIRRORS.description": "At the start of each turn next combat, gain {Energy:energyIcons()}.",
+  "THEINVENTOR-STALL_OF_MIRRORS.title": "Stall of Mirrors",
+  "THEINVENTOR-ROCKPICK.description": "Draw a card.\nCreate {Cards:plural:a [gold]Rock[/gold]|{Cards:diff()} [gold]Rocks[/gold]}.",
+  "THEINVENTOR-ROCKPICK.title": "Rockpick",
+  "THEINVENTOR-AIR_CONDITIONER.description": "Double your current block.\nFreeze yourself.",
+  "THEINVENTOR-AIR_CONDITIONER.title": "Air Conditioner",
+  "THEINVENTOR-BACKFIRE.description": "Gain {MaxHp:diff()} HP.\nWhenever you would lose HP, lose Max HP instead.",
+  "THEINVENTOR-BACKFIRE.title": "Backfire"
 }

@@ -38,6 +38,9 @@ public class ResonancePower : TheInventorPower
             case TheGambitPower:
                 amount = 99;
                 return ModelDb.Power<VulnerablePower>();
+            case BackfirePower:
+                amount = 99;
+                return ModelDb.Power<WeakPower>();
             case ConfusedPower:
                 amount = -3;
                 return ModelDb.Power<StrengthPower>().StrongMutableClone();

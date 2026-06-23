@@ -47,5 +47,11 @@
   "THEINVENTOR-FLIPPED_DRAW_PILE_POWER.title": "Flipped Draw Pile",
   "THEINVENTOR-UNCLE_POWER.description": "In [blue]5[/blue] turns, ALL enemies lose [blue]90[/blue] HP.",
   "THEINVENTOR-UNCLE_POWER.smartDescription": "In [blue]{Amount}[/blue] turns, ALL enemies lose [blue]90[/blue] HP.",
-  "THEINVENTOR-UNCLE_POWER.title": "Uncle"
+  "THEINVENTOR-UNCLE_POWER.title": "Uncle",
+  "THEINVENTOR-STALL_OF_MIRRORS_POWER.description": "At the start of each turn next combat, gain {energyPrefix:energyIcons(1)}.",
+  "THEINVENTOR-STALL_OF_MIRRORS_POWER.smartDescription": "At the start of each turn next combat, gain {Amount:energyIcons()}.",
+  "THEINVENTOR-STALL_OF_MIRRORS_POWER.title": "Stall of Mirrors",
+  "THEINVENTOR-BACKFIRE_POWER.description": "Whenever you would lose HP, lose Max HP instead.",
+  "THEINVENTOR-BACKFIRE_POWER.smartDescription": "Whenever you would lose HP, lose Max HP instead.",
+  "THEINVENTOR-BACKFIRE_POWER.title": "Backfire"
 }

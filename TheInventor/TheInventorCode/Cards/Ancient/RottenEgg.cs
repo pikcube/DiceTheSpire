@@ -34,7 +34,7 @@ public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Ancien
 
     public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)
     {
-        if (player != this.Owner)
+        if (player != Owner)
         {
             return false;
         }

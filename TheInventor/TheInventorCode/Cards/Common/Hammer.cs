@@ -20,11 +20,10 @@ public class Hammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await base.OnPlay(choiceContext, cardPlay);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this)
             .Targeting(cardPlay.Target)
-            .WithHitFx(VfxCmd.slashPath)
+            .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
 
         await PowerCmd.Apply<VulnerablePower>(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.IntValue,

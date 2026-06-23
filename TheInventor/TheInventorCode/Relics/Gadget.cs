@@ -337,6 +337,16 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         }
     }
 
+    public override async Task BeforeCombatStart()
+    {
+        if (GadgetId is nameof(BrokenGadget) or nameof(DefaultGadget))
+        {
+            return;
+        }
+
+        await AfterRandomizedAsync();
+    }
+
     public static List<IGadgetParent> GetGadgetParents(Player owner) => [.. owner.RunState
         .IterateHookListeners(owner.Creature.CombatState)
         .OfType<IGadgetParent>()
