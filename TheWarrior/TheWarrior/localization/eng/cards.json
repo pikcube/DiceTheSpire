@@ -21,7 +21,7 @@
   "THEWARRIOR-FISHING_NET.title": "Fishing Net",
   "THEWARRIOR-BUCKLER.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "THEWARRIOR-BUCKLER.title": "Buckler",
-  "THEWARRIOR-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:show:\nGain 1 [gold]Dexterity[/gold]|}.",
+  "THEWARRIOR-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:show:\nGain 1 [gold]Dexterity[/gold].|}",
   "THEWARRIOR-TARGET_SHIELD.title": "Target Shield",
   "THEWARRIOR-NUDGE.description": "[gold]Nudge[/gold] {Cards:diff()} cards in hand.\nGain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].",
   "THEWARRIOR-NUDGE.title": "Nudge",
@@ -54,6 +54,8 @@
   "THEWARRIOR-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-BROADSWORD.title": "Broadsword",
   "THEWARRIOR-DEFENSIVE_STANCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.\nAdd a copy of this card to your hand when drawn.",
-  "THEWARRIOR-DEFENSIVE_STANCE.title": "Defensive Stance"
+  "THEWARRIOR-DEFENSIVE_STANCE.title": "Defensive Stance",
+  "THEWARRIOR-SINE_WAVE.description": "Add [gold]Bump[/gold] and [gold]Nudge[/gold] to your hand.",
+  "THEWARRIOR-SINE_WAVE.title": "Sine Wave"
 
 }     

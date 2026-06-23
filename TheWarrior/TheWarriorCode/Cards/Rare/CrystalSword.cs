@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace TheWarrior.TheWarriorCode.Cards.Rare
 {
 
-    public class CrystalSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+    public class CrystalSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];
