@@ -52,6 +52,8 @@
   "THEWARRIOR-RUMMAGE_STRIKE.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-RUMMAGE_STRIKE.title": "Rummage Strike",
   "THEWARRIOR-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
-  "THEWARRIOR-BROADSWORD.title": "Broadsword"
+  "THEWARRIOR-BROADSWORD.title": "Broadsword",
+  "THEWARRIOR-DEFENSIVE_STANCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.\nAdd a copy of this card to your hand when drawn.",
+  "THEWARRIOR-DEFENSIVE_STANCE.title": "Defensive Stance"
 
 }     
