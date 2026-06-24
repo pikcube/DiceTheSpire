@@ -53,5 +53,11 @@
   "THEINVENTOR-STALL_OF_MIRRORS_POWER.title": "Stall of Mirrors",
   "THEINVENTOR-BACKFIRE_POWER.description": "Whenever you would lose HP, lose Max HP instead.",
   "THEINVENTOR-BACKFIRE_POWER.smartDescription": "Whenever you would lose HP, lose Max HP instead.",
-  "THEINVENTOR-BACKFIRE_POWER.title": "Backfire"
+  "THEINVENTOR-BACKFIRE_POWER.title": "Backfire",
+  "THEINVENTOR-ROSE_SHIELD_POWER.description": "Whenever you are attacked this turn, gain 1 [gold]Thorn[/gold].",
+  "THEINVENTOR-ROSE_SHIELD_POWER.smartDescription": "Whenever you are attacked this turn, gain [blue]Amount[/blue] [gold]{Amount:plural:Thron|Thorns}[/gold].",
+  "THEINVENTOR-ROSE_SHIELD_POWER.title": "Rose Shield",
+  "THEINVENTOR-RESISTOR_POWER.description": "Gain [gold]Reduce[/gold] this turn.",
+  "THEINVENTOR-RESISTOR_POWER.smartDescription": "Gain [blue]{Amount}[/blue] [gold]Reduce[/gold] this turn.",
+  "THEINVENTOR-RESISTOR_POWER.title": "Resistor"
 }

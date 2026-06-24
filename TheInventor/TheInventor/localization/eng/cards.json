@@ -158,7 +158,7 @@
   "THEINVENTOR-GOLD_DAGGER.title": "Gold Dagger Strike",
   "THEINVENTOR-SILVER_DAGGER.description": "Deal {Damage:diff()} damage.\nApply {DebuffCount:diff()} random debuffs.",
   "THEINVENTOR-SILVER_DAGGER.title": "Silver Dagger Strike",
-  "THEINVENTOR-DICE_DETONATOR.description": "Transform all [gold]Blinked[/gold] cards.\nDeal {Damage:diff()} damage for each card Transformed.",
+  "THEINVENTOR-DICE_DETONATOR.description": "Transform all [gold]Blinked[/gold] cards into [gold]Dazes[/gold].\nDeal {Damage:diff()} damage for each card Transformed.",
   "THEINVENTOR-DICE_DETONATOR.title": "Dice Detonator",
   "THEINVENTOR-PLAGUE.description": "[gold]Held[/gold]: Apply a random debuff to {IfUpgraded:show:|yourself and }ALL enemies.",
   "THEINVENTOR-PLAGUE.title": "Plague",
@@ -175,5 +175,13 @@
   "THEINVENTOR-BACKFIRE.description": "Gain {MaxHp:diff()} Max HP.\nWhenever you would lose HP, lose Max HP instead.",
   "THEINVENTOR-BACKFIRE.title": "Backfire",
   "THEINVENTOR-KALEIDOSCOPE.description": "[gold]Inspect[/gold] 3.\nTransform all cards [gold]Blinked[/gold] into cards of any color.",
-  "THEINVENTOR-KALEIDOSCOPE.title": "Kaleidoscope"
+  "THEINVENTOR-KALEIDOSCOPE.title": "Kaleidoscope",
+  "THEINVENTOR-ROSE_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you are attacked this turn, gain 1 [gold]Thorn[/gold].",
+  "THEINVENTOR-ROSE_SHIELD.title": "Rose Shield",
+  "THEINVENTOR-TRANSISTOR.description": "Deal {CalculatedDamage:diff()} damage.\nDouble if you are [gold]Shocked[/gold].",
+  "THEINVENTOR-TRANSISTOR.title": "Transistor",
+  "THEINVENTOR-RESISTOR.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold] this turn.",
+  "THEINVENTOR-RESISTOR.title": "Resistor",
+  "THEINVENTOR-DAZZLER.description": "[gold]Inspect[/gold] {Cards:diff()}.\nApply a random debuff to ALL enemies for each card [gold]Blinked[/gold].",
+  "THEINVENTOR-DAZZLER.title": "Dazzler"
 }

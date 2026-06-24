@@ -55,9 +55,6 @@ public class Kaleidoscope() : TheInventorCard(1, CardType.Skill, CardRarity.Rare
         CardModel[] cards = [.. trans.Select(r => r.cardAdded)];
         await BlinkModel.BlinkCardsAsync(choiceContext, cards);
 
-
-
-
         foreach (IOnInspectListener listener in Owner.RunState.IterateHookListeners(Owner.Creature.CombatState).OfType<IOnInspectListener>())
         {
             await listener.OnInspectAsync(choiceContext, cards.Length, cards, Owner);
