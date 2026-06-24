@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
@@ -11,10 +12,12 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class StallOfMirrors() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    public static SavedSpireField<Player, int> CurrentStall = new(() => 0, $"{MainFile.ModId}_{nameof(CurrentStall)}");
+    public static readonly SavedSpireField<Player, int> CurrentStall = new(() => 0, $"{MainFile.ModId}_{nameof(CurrentStall)}");
 
     public override string GetScrapId => nameof(MagicDice);
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
+
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.ForEnergy(this)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -23,6 +26,7 @@ public class StallOfMirrors() : TheInventorCard(3, CardType.Power, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        //EnergyCost.UpgradeBy(-1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }

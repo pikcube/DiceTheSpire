@@ -1,16 +1,27 @@
-﻿using MegaCrit.Sts2.Core.Entities.Players;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using Pikcube.Common.Extensions;
+using Pikcube.Common.Powers;
 
 namespace TheInventor.TheInventorCode.Powers;
 
 public class BrokenMirrorPower : TheInventorPower
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyMaxEnergy(Player player, decimal amount)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        return player == Owner.Player ? amount + Amount : amount;
+        if (Owner != player.Creature)
+        {
+            return;
+        }
+
+        await CursedPower.ApplyAsync(choiceContext, Owner, DynamicVars.Power<CursedPower>().IntValue, Owner, null);
+        await PowerCmd.Remove(this);
     }
 }
