@@ -11,7 +11,7 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class StallOfMirrors() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    public static SavedSpireField<Player, int> CurrentStall = new SavedSpireField<Player, int>(() => 0, $"{MainFile.ModId}_{nameof(CurrentStall)}");
+    public static SavedSpireField<Player, int> CurrentStall = new(() => 0, $"{MainFile.ModId}_{nameof(CurrentStall)}");
 
     public override string GetScrapId => nameof(MagicDice);
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
@@ -23,6 +23,6 @@ public class StallOfMirrors() : TheInventorCard(3, CardType.Power, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Energy.UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
 }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
@@ -13,7 +14,7 @@ public class AirConditioner() : TheInventorCard(2, CardType.Skill, CardRarity.Ra
 {
     public override string GetScrapId => nameof(WallOfIce);
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(10)];
 
@@ -25,6 +26,6 @@ public class AirConditioner() : TheInventorCard(2, CardType.Skill, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        EnergyCost.UpgradeBy(-1);
     }
 }

@@ -172,6 +172,8 @@
   "THEINVENTOR-ROCKPICK.title": "Rockpick",
   "THEINVENTOR-AIR_CONDITIONER.description": "Double your current block.\nFreeze yourself.",
   "THEINVENTOR-AIR_CONDITIONER.title": "Air Conditioner",
-  "THEINVENTOR-BACKFIRE.description": "Gain {MaxHp:diff()} HP.\nWhenever you would lose HP, lose Max HP instead.",
-  "THEINVENTOR-BACKFIRE.title": "Backfire"
+  "THEINVENTOR-BACKFIRE.description": "Gain {MaxHp:diff()} Max HP.\nWhenever you would lose HP, lose Max HP instead.",
+  "THEINVENTOR-BACKFIRE.title": "Backfire",
+  "THEINVENTOR-KALEIDOSCOPE.description": "[gold]Inspect[/gold] 3.\nTransform all cards [gold]Blinked[/gold] into cards of any color.",
+  "THEINVENTOR-KALEIDOSCOPE.title": "Kaleidoscope"
 }
