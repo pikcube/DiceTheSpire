@@ -10,13 +10,14 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.TestSupport;
 
-namespace TheWarrior.TheWarriorCode.Cards.Rare
+
+
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 {
 
-public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+    public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
         public int TestEnergyCostOverride
@@ -32,8 +33,9 @@ public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, Ta
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
-            foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX))
+
+            var cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+            foreach (CardModel card in cards)
             {
                 if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
                 {
@@ -42,7 +44,6 @@ public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, Ta
                 }
             }
         }
-
         private int NextEnergyCost()
         {
             return TestEnergyCostOverride >= 0 ? TestEnergyCostOverride : Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
@@ -50,8 +51,7 @@ public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, Ta
 
         protected override void OnUpgrade()
         {
-            //RemoveKeyword(CardKeyword.Exhaust);
-            DynamicVars.Cards.UpgradeValueBy(2);
+            DynamicVars.Cards.UpgradeValueBy(1);
         }
     }
 }
