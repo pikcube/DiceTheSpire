@@ -1,46 +1,53 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class RubberMallet() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, DamageProps.card), new EnergyVar(2)];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
 
     public override string GetScrapId => nameof(BattleWrench);
+
+    public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
+    {
+        if (card == this && Owner.PlayerCombatState is not null && Owner.PlayerCombatState.Energy < DynamicVars.Energy.EnchantedValue)
+        {
+            modifiedCost = 0;
+            return true;
+        }
+        modifiedCost = originalCost; 
+        return false;
+    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 3, 3);
+        IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
+        await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-
-
-        CardModel[] cards = PileType.Draw.GetPile(Owner).Cards.ToArray();
-        if (RunState is null)
-        {
-            return;
-        }
-
-        RunState.Rng.Shuffle.Shuffle(cards);
-
-        foreach (CardModel card in cards)
-        {
-            await CardPileCmd.Add(card, PileType.Draw);
-        }
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(5);
     }
 }
