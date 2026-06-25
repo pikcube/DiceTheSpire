@@ -1,8 +1,12 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
@@ -15,56 +19,73 @@ public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPow
     private bool _shouldIgnoreNextInstance;
     public void IgnoreNextInstance() => _shouldIgnoreNextInstance = true;
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [..GetCardTip()];
+
+    private CardModel? CardSource { get; set; }
+
+    private IEnumerable<IHoverTip> GetCardTip()
+    {
+        if (CardSource is not null)
+        {
+            yield return HoverTipFactory.FromCard(CardSource);
+        }
+    }
+
     public abstract AbstractModel OriginModel { get; }
     public PowerModel InternallyAppliedPower => ModelDb.Power<ReducePower>();
 
     public override async Task BeforeApplied(
         Creature target,
-        Decimal amount,
+        decimal amount,
         Creature? applier,
         CardModel? cardSource)
     {
+        CardSource = cardSource;
+        Player? p = target.Player ?? applier?.Player ?? cardSource?.Owner ?? target.CombatState?.Players[0];
+        if (p is null)
+        {
+            return;
+        }
         if (_shouldIgnoreNextInstance)
         {
             _shouldIgnoreNextInstance = false;
         }
         else
         {
-            await PowerCmd.Apply<ReducePower>(new ThrowingPlayerChoiceContext(), target, amount, applier, cardSource, true);
+
+            HookPlayerChoiceContext context = new(p, LocalContext.NetId ?? 0, GameActionType.Combat);
+            await PowerCmd.Apply<ReducePower>(context, target, amount, applier, cardSource, true);
         }
     }
 
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
-        Decimal amount,
+        decimal amount,
         Creature? applier,
         CardModel? cardSource)
     {
-        TemporaryReducePower temporaryReducePower = this;
-        if (amount == temporaryReducePower.Amount || power != temporaryReducePower)
+        if (amount == Amount || power != this)
             return;
-        if (temporaryReducePower._shouldIgnoreNextInstance)
+        if (_shouldIgnoreNextInstance)
         {
-            temporaryReducePower._shouldIgnoreNextInstance = false;
+            _shouldIgnoreNextInstance = false;
         }
         else
         {
-            await PowerCmd.Apply<ReducePower>(choiceContext, temporaryReducePower.Owner, amount, applier, cardSource, true);
+            await PowerCmd.Apply<ReducePower>(choiceContext, Owner, amount, applier, cardSource, true);
         }
     }
 
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-
-        TemporaryReducePower power = this;
-        if (!participants.Contains(power.Owner) || side != power.Owner.Side)
+        if (!participants.Contains(Owner) || side != Owner.Side)
         {
             return;
         }
-        power.Flash();
-        await PowerCmd.Remove(power);
-        await PowerCmd.Apply<ReducePower>(choiceContext, power.Owner, -power.Amount, power.Owner, null);
+        Flash();
+        await PowerCmd.Remove(this);
+        await PowerCmd.Apply<ReducePower>(choiceContext, Owner, -Amount, Owner, null);
     }
 }

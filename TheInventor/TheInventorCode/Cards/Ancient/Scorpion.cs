@@ -8,13 +8,13 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheInventor.TheInventorCode.Cards.Ancient;
 
-public class Scorpion() : TheInventorCard(7, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
+public class Scorpion() : TheInventorCard(6, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(PoisonArrow);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(99)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(36)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     public override bool CanBeGeneratedInCombat => false;
@@ -37,6 +37,6 @@ public class Scorpion() : TheInventorCard(7, CardType.Skill, CardRarity.Rare, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<PoisonPower>().UpgradeValueBy(12);
+        DynamicVars.Power<PoisonPower>().UpgradeValueBy(13);
     }
 }

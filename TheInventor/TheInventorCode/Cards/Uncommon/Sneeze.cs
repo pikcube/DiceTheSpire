@@ -15,7 +15,7 @@ public class Sneeze() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, 
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SneezePower>(3)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink), HoverTipFactory.Static(StaticHoverTip.Block)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

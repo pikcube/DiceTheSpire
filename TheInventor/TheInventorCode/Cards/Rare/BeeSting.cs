@@ -14,7 +14,7 @@ public class BeeSting() : TheInventorCard(1, CardType.Power, CardRarity.Rare, Ta
     public override string GetScrapId => nameof(MagicDice);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<ShockPower>(1)];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(1)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.ForEnergy(this), HoverTipFactory.FromPower<ShockPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

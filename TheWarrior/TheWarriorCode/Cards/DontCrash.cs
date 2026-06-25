@@ -42,6 +42,10 @@ public class DontCrashCommonAtk3() : DontCrash(CardType.Attack, CardRarity.Commo
 {
 }
 
+public class DontCrashCommonAtk4() : DontCrash(CardType.Attack, CardRarity.Common)
+{
+}
+
 
 public class DontCrashCommonSkl1() : DontCrash(CardType.Skill, CardRarity.Common)
 {
@@ -55,6 +59,9 @@ public class DontCrashCommonSkl3() : DontCrash(CardType.Skill, CardRarity.Common
 {
 }
 
+public class DontCrashCommonSkl4() : DontCrash(CardType.Skill, CardRarity.Common)
+{
+}
 
 public class DontCrashUncommonAtk1() : DontCrash(CardType.Attack, CardRarity.Uncommon)
 {

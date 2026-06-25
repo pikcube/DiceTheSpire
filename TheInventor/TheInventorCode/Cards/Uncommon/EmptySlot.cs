@@ -19,15 +19,15 @@ public class EmptySlot() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
 
-        CardModel? card = CardFactory
-            .GetDistinctForCombat(Owner, Owner.Character.CardPool
-                .GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint), 1, Owner.RunState.Rng.CombatCardGeneration)
-            .FirstOrDefault();
+        IEnumerable<CardModel> unlockedCards = Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint);
+
+        CardModel? card = CardFactory.GetDistinctForCombat(Owner, unlockedCards, 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
 
         if (card is null)
         {
             return;
         }
+
         card.SetToFreeThisTurn();
         
         await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);

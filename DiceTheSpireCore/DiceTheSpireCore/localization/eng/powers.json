@@ -40,5 +40,11 @@
   "DICETHESPIRECORE-MAGIC_REROLL_POWER.title": "Magic Reroll",
   "DICETHESPIRECORE-ENERGY_DOWN_NEXT_TURN_POWER.description": "Lose [gold]Energy[/gold] next turn.",
   "DICETHESPIRECORE-ENERGY_DOWN_NEXT_TURN_POWER.smartDescription": "Lose [blue]{Amount}[/blue] {energyPrefix:energyIcons(1)} next turn.",
-  "DICETHESPIRECORE-ENERGY_DOWN_NEXT_TURN_POWER.title": "Energy Down Next Turn"
+  "DICETHESPIRECORE-ENERGY_DOWN_NEXT_TURN_POWER.title": "Energy Down Next Turn",
+  "DICETHESPIRECORE-HALL_OF_MIRRORS_POWER.description": "At the start of each turn, gain {energyPrefix:energyIcons(1)}.",
+  "DICETHESPIRECORE-HALL_OF_MIRRORS_POWER.smartDescription": "At the start of each turn, gain {Amount:energyIcons()}.",
+  "DICETHESPIRECORE-HALL_OF_MIRRORS_POWER.title": "Hall Of Mirrors",
+  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE.description": "At the start of next turn, gain [gold]Vulnerable[/gold].",
+  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE.smartDescription": "At the start of next turn, gain {Amount} [gold]Vulnerable[/gold].",
+  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE.title": "Next Turn Vulnerable"
 }

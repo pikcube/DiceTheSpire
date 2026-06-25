@@ -20,7 +20,7 @@ public class PuppyPaws() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, BlockProps.card)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
-        [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
+        [HoverTipFactory.Static(StaticHoverTip.Block), HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

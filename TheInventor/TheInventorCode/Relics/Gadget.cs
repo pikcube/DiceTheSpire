@@ -206,6 +206,11 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         {
             return nameof(CursedGadget);
         }
+
+        if (choice.Rarity == CardRarity.Ancient)
+        {
+            return nameof(BattleWrench);
+        }
         
         DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
         {
@@ -330,6 +335,16 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
             parent.GadgetId = GetRandomCombatGadgetId(owner.RunState.Rng.CombatOrbGeneration);
             await parent.AfterRandomizedAsync();
         }
+    }
+
+    public override async Task BeforeCombatStart()
+    {
+        if (GadgetId is nameof(BrokenGadget) or nameof(DefaultGadget))
+        {
+            return;
+        }
+
+        await AfterRandomizedAsync();
     }
 
     public static List<IGadgetParent> GetGadgetParents(Player owner) => [.. owner.RunState

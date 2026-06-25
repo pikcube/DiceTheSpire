@@ -33,11 +33,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.3.1" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.3.2" PrivateAssets="All" />
         <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" />
         <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
-        <PackageReference Include="Pikcube.Common" Version="0.3.1" />
+        <PackageReference Include="Pikcube.Common" Version="0.3.2" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
         <AdditionalFiles Include="TheInventor/localization/**/*.json" /> <!-- Used by analyzer -->
@@ -64,10 +64,16 @@
     </ItemGroup>
 
     <ItemGroup>
+      <AdditionalFiles Remove="TheInventor\localization\eng\rest_site_ui.json" />
+    </ItemGroup>
+
+    <ItemGroup>
       <None Remove="TheInventor\localization\eng\gadgets.json" />
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="TheInventor\images\enchantments\" />
+      <Folder Include="TheInventor\images\rest_site\" />
       <Folder Include="TheInventor\images\relics\big\" />
     </ItemGroup>
 

@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Keywords;
@@ -17,6 +18,8 @@ public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink, ScrapKeyword.Scrap];
+
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.ForEnergy(this)];
 
     protected override void OnUpgrade()
     {

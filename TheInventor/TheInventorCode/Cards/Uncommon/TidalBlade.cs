@@ -1,7 +1,9 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
@@ -13,6 +15,11 @@ public class TidalBlade() : TheInventorCard(1, CardType.Skill, CardRarity.Uncomm
     public override string GetScrapId => nameof(Overload);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new BlockVar(11, BlockProps.card)];
+
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
+    [
+        HoverTipFactory.Static(StaticHoverTip.Block), HoverTipFactory.Static(BetterStaticHoverTips.Held)
+    ];
     public override bool HasTurnEndInHandEffect => true;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

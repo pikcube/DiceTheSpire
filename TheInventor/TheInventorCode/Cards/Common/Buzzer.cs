@@ -1,13 +1,11 @@
-﻿using BaseLib.Extensions;
-using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
-using Pikcube.Common.Commands;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
@@ -27,16 +25,12 @@ public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, T
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        await JinxCmd.JinxAsync(choiceContext, Owner.Creature, 1, false, JinxDesc, StartOfNextTurnAsync, Owner.Creature, this);
-    }
-
-    private async Task StartOfNextTurnAsync(PlayerChoiceContext choiceContext, Creature target)
-    {
         if (CombatState is null)
         {
             return;
         }
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState.Enemies, DynamicVars.Power<VulnerablePower>().IntValue, Owner.Creature, this);
+
+        await NextTurnVulnerable.ApplyAsync(choiceContext, CombatState.Enemies, DynamicVars.Vulnerable.EnchantedValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

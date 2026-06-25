@@ -82,8 +82,7 @@ public class Pip : DiceTheSpireCoreCard
             return;
         }
 
-        IEnumerable<string> descriptions = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>()
-            .Select(listener => listener.PipDescription.GetFormattedText());
+        IEnumerable<string> descriptions = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>().Select(listener => listener.PipDescription.GetFormattedText());
         StringVar pipDescription = (StringVar)DynamicVars["PipDescription"];
         pipDescription.StringValue = string.Join("\n", descriptions);
         MutableHoverTips = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>()

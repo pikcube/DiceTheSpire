@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Powers;
 
 namespace TheInventor.TheInventorCode.Powers;
 
@@ -27,7 +28,10 @@ public class ResonancePower : TheInventorPower
         foreach (Creature target in CombatState.Enemies)
         {
             PowerModel p = GetPowerToApply(power, ref amount);
-            await PowerCmd.Apply(choiceContext, p, target, amount, Owner, null);
+            if (amount != 0)
+            {
+                await PowerCmd.Apply(choiceContext, p, target, amount, Owner, null);
+            }
         }
     }
 
@@ -38,6 +42,9 @@ public class ResonancePower : TheInventorPower
             case TheGambitPower:
                 amount = 99;
                 return ModelDb.Power<VulnerablePower>();
+            case BackfirePower:
+                amount = 99;
+                return ModelDb.Power<WeakPower>();
             case ConfusedPower:
                 amount = -3;
                 return ModelDb.Power<StrengthPower>().StrongMutableClone();
@@ -56,6 +63,12 @@ public class ResonancePower : TheInventorPower
             case StartledPower:
                 amount = 1;
                 return ModelDb.Power<FreezePower>().StrongMutableClone();
+            case BrokenMirrorPower:
+                amount = 0;
+                return ModelDb.Power<BrokenMirrorPower>();
+            case CursedPower:
+                amount *= 3;
+                return ModelDb.Power<DoomPower>().StrongMutableClone();
             case DemisePower:
             case PoisonPower:
             case NeurosurgePower:

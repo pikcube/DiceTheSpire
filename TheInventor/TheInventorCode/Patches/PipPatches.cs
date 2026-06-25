@@ -14,43 +14,34 @@ namespace TheInventor.TheInventorCode.Patches;
 [HarmonyPatch(typeof(NCard), "UpdateEnergyCostVisuals")]
 public static class PipPatches
 {
-    public static void Postfix(NCard __instance)
+    public static void Postfix(NCard __instance, MegaLabel ____energyLabel, TextureRect ____energyIcon, bool ____pretendCardCanBePlayed)
     {
         if (__instance.Model is not TheInventorCard c)
         {
             return;
         }
 
-        FieldInfo energyLabelInfo = AccessTools.DeclaredField(typeof(NCard), "_energyLabel");
-        MegaLabel l = (MegaLabel?)energyLabelInfo.GetValue(__instance) ?? throw new NoNullAllowedException();
-
-        FieldInfo energyTexture = AccessTools.DeclaredField(typeof(NCard), "_energyIcon");
-        TextureRect r = (TextureRect?)energyTexture.GetValue(__instance) ?? throw new NoNullAllowedException();
-
-        FieldInfo pretendCard = AccessTools.DeclaredField(typeof(NCard), "_pretendCardCanBePlayed");
-        bool isPretend = (bool?)pretendCard.GetValue(__instance) ?? throw new NoNullAllowedException();
-
         int? withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
 
         if (c.EnergyCost.CostsX)
         {
-            l.SetTextAutoSize("");
+            ____energyLabel.SetTextAutoSize("");
             withModifiers = null;
         }
         else if (withModifiers > 9)
         {
-            l.SetTextAutoSize($"{withModifiers}");
+            ____energyLabel.SetTextAutoSize($"{withModifiers}");
         }
         else
         {
-            l.SetTextAutoSize("");
+            ____energyLabel.SetTextAutoSize("");
         }
-        l.Set("theme_override_colors/font_color", new Color(0, 0, 0));
-        l.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
-        l.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
+        ____energyLabel.Set("theme_override_colors/font_color", new Color(0, 0, 0));
+        ____energyLabel.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
+        ____energyLabel.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
 
 
-        r.Texture = c.GetPips(withModifiers, isPretend);
+        ____energyIcon.Texture = c.GetPips(withModifiers, ____pretendCardCanBePlayed);
     }
 }
 

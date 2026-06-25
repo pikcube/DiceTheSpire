@@ -15,7 +15,7 @@ public class ElasticHeart() : TheInventorCard(2, CardType.Power, CardRarity.Unco
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ElasticHeartPower>(3)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
-        [HoverTipFactory.FromKeyword(CardKeyword.Unplayable)];
+        [HoverTipFactory.Static(StaticHoverTip.Block), HoverTipFactory.FromKeyword(CardKeyword.Unplayable)];
 
     public override string GetScrapId => nameof(WallOfIce);
 
