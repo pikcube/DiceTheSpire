@@ -12,6 +12,7 @@ namespace TheInventor.TheInventorCode.Powers;
 
 public class BackfirePower : TheInventorPower
 {
+    public float CapturedHp { get; set; }
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Single;
@@ -47,6 +48,7 @@ public class BackfirePower : TheInventorPower
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         Amounts = [];
+        CapturedHp = Owner.MaxHp;
         return Task.CompletedTask;
     }
 }
