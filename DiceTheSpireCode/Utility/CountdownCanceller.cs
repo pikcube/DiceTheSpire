@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -9,6 +10,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace DiceTheSpire.DiceTheSpireCode.Utility;
 
 //Normally CustomSingltons live in the core, but this one should only be touched by the Countdown patch, so it lives in the patch layer.
+[UsedImplicitly]
 public class CountdownCanceller() : CustomSingletonModel(HookType.Combat)
 {
     //Do not touch. Responsible for keeping track of which cards needs to be cancelled.
