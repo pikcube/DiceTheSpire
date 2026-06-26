@@ -17,7 +17,7 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Kaleidoscope() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Hook);
+    public override string GetScrapId => nameof(Replicate);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, DynamicVars.Cards), HoverTipFactory.FromKeyword(BlinkModel.Blink)];

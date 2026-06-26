@@ -29,6 +29,8 @@
   "THEINVENTOR-CHANGE_MACHINE.description": "[gold]Blink[/gold] a card.\nPut a card from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
   "THEINVENTOR-CHANGE_MACHINE.selectionScreenPrompt": "Choose a card to put back in your [gold]Hand[/gold].",
   "THEINVENTOR-CHANGE_MACHINE.title": "Change Machine",
+  "THEINVENTOR-CLIPBOARD.description": "ALL players [gold]Inspect[/gold] {Cards:diff()}.",
+  "THEINVENTOR-CLIPBOARD.title": "Clipboard",
   "THEINVENTOR-CROSSBOW.description": "Deal {Damage:diff()} damage.\n[gold]Blink[/gold] a card in your [gold]Draw Pile[/gold].",
   "THEINVENTOR-CROSSBOW.title": "Crossbow",
   "THEINVENTOR-DAZZLER.description": "[gold]Inspect[/gold] {Cards:diff()}.\nApply a random debuff to ALL enemies for each card [gold]Blinked[/gold].",
@@ -47,7 +49,7 @@
   "THEINVENTOR-ELECTROMAGNET.title": "Electromagnet",
   "THEINVENTOR-EMPTY_SLOT.description": "Add a random [gold]Unplayable[/gold] card with a [gold]Held[/gold] effect to your [gold]Hand[/gold].",
   "THEINVENTOR-EMPTY_SLOT.title": "Empty Slot",
-  "THEINVENTOR-ENCYCLOPEDIC_FORM.description": "Get a temporary [gold]Gadget[/gold].",
+  "THEINVENTOR-ENCYCLOPEDIC_FORM.description": "Gain a [gold]Temporary Gadget[/gold].",
   "THEINVENTOR-ENCYCLOPEDIC_FORM.title": "Encyclopedic Form",
   "THEINVENTOR-FEEDBACK_LOOP.description": "The first {Cards:plural:time|{Cards:diff()} times} you [gold]Blink[/gold] a card each turn, draw a card.",
   "THEINVENTOR-FEEDBACK_LOOP.title": "Feedback Loop",
@@ -183,5 +185,7 @@
   "THEINVENTOR-WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.{IfUpgraded:show:\nDraw a card.|}",
   "THEINVENTOR-WHIP.title": "Whip",
   "THEINVENTOR-WHISPER.description": "[gold]Held[/gold]: Apply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
-  "THEINVENTOR-WHISPER.title": "Whisper"
+  "THEINVENTOR-WHISPER.title": "Whisper",
+  "THEINVENTOR-WIKIPEDIA.description": "Give ALL allies a [gold]Temporary Gadget[/gold].",
+  "THEINVENTOR-WIKIPEDIA.title": "Wikipedia"
 }

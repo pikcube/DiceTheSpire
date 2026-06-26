@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Keywords;
 using TheInventor.TheInventorCode.Powers;
@@ -13,6 +14,7 @@ public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.
     public override string GetScrapId => nameof(BurstOfKnowledge);
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(InventorStaticHoverTips.TemporaryGadget)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

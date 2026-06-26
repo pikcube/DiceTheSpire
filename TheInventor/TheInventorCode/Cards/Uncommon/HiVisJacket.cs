@@ -27,7 +27,7 @@ public class HiVisJacket() : TheInventorCard(1, CardType.Power, CardRarity.Uncom
         await HiVisJacketPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<HiVisJacketPower>().EnchantedValue, Owner.Creature, this);
     }
 
-    public override string GetScrapId => nameof(Hook);
+    public override string GetScrapId => nameof(Accelerate);
 
     protected override void OnUpgrade()
     {

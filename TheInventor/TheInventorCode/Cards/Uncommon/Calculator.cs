@@ -13,7 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class Calculator() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(BattleWrench);
+    public override string GetScrapId => nameof(Accelerate);
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, new CardsVar(3)), HoverTipFactory.FromKeyword(BlinkModel.Blink), HoverTipFactory.ForEnergy(this)];

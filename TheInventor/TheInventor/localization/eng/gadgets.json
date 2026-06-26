@@ -66,5 +66,9 @@
   "THEINVENTOR-QUICKER_ATTACK.title": "Quicker Attack",
   "THEINVENTOR-QUICKER_ATTACK.description": "At the start of each turn, play a random attack card.",
   "THEINVENTOR-HARVEST.title": "Harvest",
-  "THEINVENTOR-HARVEST.description": "Obtain approximately 200 gold."
+  "THEINVENTOR-HARVEST.description": "Obtain approximately 200 gold.",
+  "THEINVENTOR-ACCELERATE.title": "Accelerate",
+  "THEINVENTOR-ACCELERATE.description": "At the start of each turn, [gold]Inspect[/gold] [blue]{Power}[/blue].",
+  "THEINVENTOR-SHARED_INTEREST.title": "Shared Interest",
+  "THEINVENTOR-SHARED_INTEREST.description": "Obtain a card reward from each ally's deck."
 }
