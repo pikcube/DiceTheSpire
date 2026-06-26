@@ -1,5 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -38,19 +37,18 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Basic, 
         }
     }
 
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override PileType GetResultPileTypeForCardPlay()
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        await CardPileCmd.Add(this, PileType.Hand);
+        return CurrentCount == 0 ? PileType.Hand : base.GetResultPileTypeForCardPlay();
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+            .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

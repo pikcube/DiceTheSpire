@@ -1,5 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -43,17 +42,12 @@ public class PoisonSlingshot() : TheThiefCard(-1, CardType.Skill, CardRarity.Com
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(6), new IntVar(nameof(CurrentCount), 2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue, Owner.Creature,
             this);
-    }
-
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
     }
 
     protected override void OnUpgrade()

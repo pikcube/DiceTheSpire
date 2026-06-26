@@ -1,5 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
@@ -48,14 +47,9 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>()];
 
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await PowerCmd.Apply<CloakPower>(choiceContext, Owner.Creature, DynamicVars["ReducePower"].BaseValue, Owner.Creature, this);
-    }
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
+        await PowerCmd.Apply<CloakPower>(choiceContext, Owner.Creature, DynamicVars["ReducePower"].EnchantedValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

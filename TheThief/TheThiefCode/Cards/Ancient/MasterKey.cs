@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using Countdown = DiceTheSpireCore.DiceTheSpireCoreCode.Extensions.Countdown;
 
 namespace TheThief.TheThiefCode.Cards.Ancient;
 
@@ -45,7 +44,7 @@ public class MasterKey() : TheThiefCard(-1, CardType.Skill, CardRarity.Ancient, 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>()];
 
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
         {
@@ -54,11 +53,6 @@ public class MasterKey() : TheThiefCard(-1, CardType.Skill, CardRarity.Ancient, 
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         await Pip.CreateInHandAsync(Owner, (int)DynamicVars["PipCount"].BaseValue, CombatState);
         await Cmd.Wait(0.1f);
-    }
-
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
     }
 
     protected override void OnUpgrade()

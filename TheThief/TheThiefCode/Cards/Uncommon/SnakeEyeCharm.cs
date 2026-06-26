@@ -39,7 +39,7 @@ public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncom
     }
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new EnergyVar(2)];
 
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
         {
@@ -47,11 +47,6 @@ public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncom
         }
 
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
-    }
-
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
     }
 
     protected override void OnUpgrade()
