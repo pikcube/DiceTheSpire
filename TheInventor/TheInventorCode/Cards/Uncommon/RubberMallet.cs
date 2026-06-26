@@ -14,7 +14,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, DamageProps.card), new EnergyVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, DamageProps.card), new EnergyVar(2), new CardsVar(2)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
 
@@ -35,7 +35,7 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 3, 3);
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
 

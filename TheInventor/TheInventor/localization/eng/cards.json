@@ -113,7 +113,7 @@
   "THEINVENTOR-ROSE_SHIELD.title": "Rose Shield",
   "THEINVENTOR-ROTTEN_EGG.description": "Can be hatched at a rest site.",
   "THEINVENTOR-ROTTEN_EGG.title": "Rotten Egg",
-  "THEINVENTOR-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nIf you have less than {Energy:energyIcons()} remaining, this card costs 0.",
+  "THEINVENTOR-RUBBER_MALLET.description": "[gold]Blink[/gold] {Cards:diff()} cards.\nDeal {Damage:diff()} damage.\nIf you have less than {Energy:energyIcons()} remaining, this card costs 0.",
   "THEINVENTOR-RUBBER_MALLET.title": "Rubber Mallet",
   "THEINVENTOR-SAFETY_GOGGLES.description": "[gold]Negate[/gold] debuffs you apply to yourself {IfUpgraded:show:for 2 turns|this turn}.",
   "THEINVENTOR-SAFETY_GOGGLES.title": "Safety Goggles",
