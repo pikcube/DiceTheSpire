@@ -45,7 +45,6 @@ public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Unco
         [new PowerVar<DexterityPower>(3M), new IntVar("CurrentCount", 4)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DexterityPower>()];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override void OnUpgrade()
     {

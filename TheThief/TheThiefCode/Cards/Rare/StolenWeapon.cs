@@ -42,7 +42,6 @@ public class StolenWeapon() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, 
     }
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StolenWeaponPower>(1), new IntVar(nameof(CurrentCount),3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
