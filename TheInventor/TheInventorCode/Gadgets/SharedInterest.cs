@@ -55,7 +55,7 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
                         .GetUnlockedCards(player.UnlockState, CardMultiplayerConstraint.MultiplayerOnly)
                         .TakeRandom(6 - deck.Count, player.PlayerRng.Rewards)
                 ];
-                deck.AddRange(deck);
+                deck.AddRange(add);
             }
             if (deck.Count < 6)
             {
