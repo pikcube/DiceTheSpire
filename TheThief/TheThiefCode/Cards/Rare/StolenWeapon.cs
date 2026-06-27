@@ -6,12 +6,11 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
-using Pikcube.Common.Extensions;
 using TheThief.TheThiefCode.Powers;
 
 namespace TheThief.TheThiefCode.Cards.Rare;
 
-public class StolenWeapon() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, TargetType.Self), ICountdown
+public class StolenWeapon() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -43,17 +42,10 @@ public class StolenWeapon() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, 
     }
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StolenWeaponPower>(1), new IntVar(nameof(CurrentCount),3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await PowerCmd.Apply<StolenWeaponPower>(choiceContext, Owner.Creature, DynamicVars["StolenWeaponPower"].BaseValue, Owner.Creature, this);
-        await this.ExhaustAsync(choiceContext);
-    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
+        await PowerCmd.Apply<StolenWeaponPower>(choiceContext, Owner.Creature, DynamicVars["StolenWeaponPower"].EnchantedValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

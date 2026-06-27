@@ -13,7 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Common;
 
 public class Keyblade() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    public override string GetScrapId => nameof(Hook);
+    public override string GetScrapId => nameof(Accelerate);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new CardsVar(3)];
 

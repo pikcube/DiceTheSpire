@@ -1,5 +1,4 @@
-﻿using BaseLib.Extensions;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +20,7 @@ public class BrokenMirrorPower : TheInventorPower
             return;
         }
 
-        await CursedPower.ApplyAsync(choiceContext, Owner, DynamicVars.Power<CursedPower>().IntValue, Owner, null);
+        await CursedPower.ApplyAsync(choiceContext, Owner, Amount, Owner, null);
         await PowerCmd.Remove(this);
     }
 }

@@ -2,6 +2,6 @@
 
   "THEINVENTOR-SCRAP.description": "Choose one of three cards to remove from your [gold]Deck[/gold]. Favors cards you played in the most recent combat.",
   "THEINVENTOR-SCRAP.title": "Scrap",
-  "THEINVENTOR-HELD.description": "At the end of your turn, if this card is held in hand, this card triggers an effect.",
-  "THEINVENTOR-HELD.title": "Held"
+  "THEINVENTOR-TEMPORARY_GADGET.description": "A gadget that lasts until the end of combat. Does not require scrapping an additional card.",
+  "THEINVENTOR-TEMPORARY_GADGET.title": "Temporary Gadget"
 }

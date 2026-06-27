@@ -45,16 +45,6 @@ public class SpikySneeze() : TheThiefCard(-1, CardType.Attack, CardRarity.Uncomm
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
-    }
-
-    protected override void OnUpgrade()
-    {
-        DynamicVars.Damage.UpgradeValueBy(3);
-    }
-
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
@@ -72,5 +62,10 @@ public class SpikySneeze() : TheThiefCard(-1, CardType.Attack, CardRarity.Uncomm
         {
             await countdownCard.DecrementCountAsync(2);
         }
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

@@ -44,7 +44,7 @@ public class Blight() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, Target
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
@@ -53,11 +53,6 @@ public class Blight() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, Target
             await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, cardPlay.Target.GetPowerAmount<PoisonPower>(),
                 Owner.Creature, this);
         }
-    }
-
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
     }
 
     protected override void OnUpgrade()

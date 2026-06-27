@@ -1,5 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -45,16 +44,11 @@ public class Rat() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, Targe
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Countdown.OnCountdownPlay(choiceContext, cardPlay, this);
-    }
-
-    public async Task OnCountdownZero(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue, Owner.Creature,
             this);
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.EnchantedValue, Owner);
     }
 
     protected override void OnUpgrade()

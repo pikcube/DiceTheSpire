@@ -43,7 +43,7 @@
   "THETHIEF-HOOKSHOT.title": "Hookshot",
   "THETHIEF-BERLIN_KEY.description": "Choose a card in your [gold]Hand[/gold] to {IfUpgraded:show:copy|add a copy to your [gold]Discard pile[/gold]}.",
   "THETHIEF-BERLIN_KEY.title": "Berlin Key",
-  "THETHIEF-MASTER_KEY.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDraw {Cards:diff()} cards.\nCreate {Cards:diff()} [gold]Pips[/gold].",
+  "THETHIEF-MASTER_KEY.description": "Discard {Cards:diff()} cards.\nDraw {Cards:diff()} cards.\nCreate {Cards:diff()} [gold]Pips[/gold].",
   "THETHIEF-MASTER_KEY.title": "Master Key",
   "THETHIEF-AMBITIOUS_FORM.description": "Every {Cards:diff()} 1-cost cards you play, gain {Energy:energyIcons()}.",
   "THETHIEF-AMBITIOUS_FORM.title": "Ambitious Form",
