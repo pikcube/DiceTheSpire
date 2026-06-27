@@ -32,8 +32,8 @@ public static class DiceyHooks
     {
         ModifyPipOnPlay?.Invoke(choiceContext, cardPlay);
         foreach (IModifyPipOnPlayListener listener in cardPlay.Card.Owner.RunState
-                     .IterateHookListeners(cardPlay.Card.Owner.Creature
-                     .CombatState).OfType<IModifyPipOnPlayListener>().Where(l => l.Owner == cardPlay.Card.Owner))
+                     .IterateHookListeners(cardPlay.Card.Owner.Creature.CombatState)
+                     .OfType<IModifyPipOnPlayListener>())
         {
             await listener.ModifyPipOnPlayAsync(choiceContext, cardPlay);
         }

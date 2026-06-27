@@ -31,7 +31,7 @@ public class WreckingBallPower : TheThiefPower, IModifyPipOnPlayListener
 
     public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner.CombatState is null)
+        if (Owner.CombatState is null || cardPlay.Card.Owner != Owner.Player)
         {
             return;
         }

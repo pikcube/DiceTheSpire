@@ -49,6 +49,11 @@ public class PoisonCrownPower : TheThiefPower, IModifyPipOnPlayListener
 
     public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (cardPlay.Card.Owner != Owner.Player)
+        {
+            return;
+        }
+
         await PowerCmd.Apply<PoisonPower>(choiceContext, CombatState.Enemies, Amount, Owner, cardPlay.Card);
     }
 }
