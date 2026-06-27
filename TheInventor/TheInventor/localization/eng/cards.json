@@ -141,7 +141,7 @@
   "THEINVENTOR-SILVER_DAGGER.title": "Silver Dagger Strike",
   "THEINVENTOR-SIX_SHOOTER.description": "Deal {Damage:diff()} damage {Hits:diff()} times.",
   "THEINVENTOR-SIX_SHOOTER.title": "Six Shooter",
-  "THEINVENTOR-SLEDGE_HAMMER.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage\nNext turn, apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies.",
+  "THEINVENTOR-SLEDGE_HAMMER.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage.\nNext turn, apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies.",
   "THEINVENTOR-SLEDGE_HAMMER.title": "Sledge Hammer",
   "THEINVENTOR-SNEEZE.description": "Whenever you [gold]Blink[/gold] a card, gain {SneezePower:diff()} [gold]Block[/gold].",
   "THEINVENTOR-SNEEZE.title": "Sneeze",
