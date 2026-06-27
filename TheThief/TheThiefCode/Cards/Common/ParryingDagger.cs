@@ -11,7 +11,7 @@ namespace TheThief.TheThiefCode.Cards.Common;
 public class ParryingDagger(): TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(6, ValueProp.Move), new PowerVar<ReducePower>(1)];
+        [new DamageVar(6, ValueProp.Move), new PowerVar<ReducePower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -26,5 +26,6 @@ public class ParryingDagger(): TheThiefCard(1, CardType.Attack, CardRarity.Commo
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars["ReducePower"].UpgradeValueBy(1);
     }
 }

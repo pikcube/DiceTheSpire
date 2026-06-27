@@ -41,7 +41,7 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
         }
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 2), new PowerVar<ReducePower>(2M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 2), new PowerVar<ReducePower>(3M)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
 
@@ -54,6 +54,6 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
 
     protected override void OnUpgrade()
     {
-        DynamicVars["ReducePower"].UpgradeValueBy(1);
+        DynamicVars["ReducePower"].UpgradeValueBy(2);
     }
 }
