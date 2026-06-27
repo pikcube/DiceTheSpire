@@ -1,6 +1,7 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -27,9 +28,10 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
             return;
         }
 
-        Task[] tasks = [.. CombatState.Players.Select(p => p.InspectAsync(choiceContext, DynamicVars.Cards.IntValue))];
-
-        await Task.WhenAll(tasks);
+        foreach (Player p in CombatState.Players)
+        {
+            await p.InspectAsync(choiceContext, DynamicVars.Cards.IntValue);
+        }
     }
 
     protected override void OnUpgrade()
