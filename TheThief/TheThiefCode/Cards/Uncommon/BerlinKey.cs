@@ -5,12 +5,10 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
-namespace TheThief.TheThiefCode.Cards.Common;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
-public class BerlinKey() : TheThiefCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class BerlinKey() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
