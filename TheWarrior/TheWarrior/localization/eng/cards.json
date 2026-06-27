@@ -60,5 +60,8 @@
   "THEWARRIOR-CRESCENT_MOON_BLADE.description": "On {IfUpgraded:show:ODD|EVEN} turns deal {Damage:diff()} damage X times.\nOn {IfUpgraded:show:EVEN|ODD} turns gain {Block:diff()} [gold]Block[/gold] X times.",
   "THEWARRIOR-CRESCENT_MOON_BLADE.title": "Crescent Moon Blade",
   "THEWARRIOR-MYSTERY_BOX.description": "Draw {Cards:diff()} cards then [gold]Reroll[/gold] their cost.",
-  "THEWARRIOR-MYSTERY_BOX.title": "Mystery Box"
+  "THEWARRIOR-MYSTERY_BOX.title": "Mystery Box",
+  "THEWARRIOR-SHIELD_BASH.description": "Gain {ShieldBashPower:diff()} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
+  "THEWARRIOR-SHIELD_BASH.title": "Shield Bash"
+
 }     

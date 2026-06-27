@@ -16,11 +16,9 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
         public override PowerStackType StackType => PowerStackType.Counter;
 
-        //AfterSideTurnStart
         public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) //AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
         {
             TargetShieldPower targetShieldPower = this;
-            //if (!participants.Contains(targetShieldPower.Owner)) return;
             targetShieldPower.Flash(); 
             await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), targetShieldPower.Owner, targetShieldPower.Amount, targetShieldPower.Owner, null);
 
