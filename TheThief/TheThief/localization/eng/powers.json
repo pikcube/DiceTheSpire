@@ -45,5 +45,9 @@
   "THETHIEF-CLOAK_POWER.title": "Cloak",
   "THETHIEF-PARRYING_DAGGER_POWER.description": "Gain 1 [gold]Reduce[/gold] this turn.",
   "THETHIEF-PARRYING_DAGGER_POWER.smartDescription": "Gain {Amount} [gold]Reduce[/gold] this turn.",
-  "THETHIEF-PARRYING_DAGGER_POWER.title": "Parrying Dagger"
+  "THETHIEF-PARRYING_DAGGER_POWER.title": "Parrying Dagger",
+  "THETHIEF-UPKEEP_POWER.description": "[gold]Pips[/gold], now gain {Energy:energyIcons()}.",
+  "THETHIEF-UPKEEP_POWER.smartDescription": "[gold]Pips[/gold], now gain {Energy:energyIcons()}.",
+  "THETHIEF-UPKEEP_POWER.title": "Upkeep",
+  "THETHIEF-UPKEEP_POWER.pipDescription": "Gain {Energy:energyIcons()}."
 }

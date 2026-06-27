@@ -84,5 +84,7 @@
   "THETHIEF-PARRYING_DAGGER.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold] this turn.\nDeal {Damage:diff()} damage.",
   "THETHIEF-PARRYING_DAGGER.title": "Parrying Dagger",
   "THETHIEF-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {Repeat:diff()} times.|.}",
-  "THETHIEF-TETRAPHOBIA.title": "Tetraphobia"
+  "THETHIEF-TETRAPHOBIA.title": "Tetraphobia",
+  "THETHIEF-UPKEEP.description": "[gold]Pips[/gold] now gain {Energy:energyIcons()}.",
+  "THETHIEF-UPKEEP.title": "Upkeep"
 }
