@@ -10,7 +10,7 @@
   "THEWARRIOR-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times. Then take {Recoil:diff()} damage.",
   "THEWARRIOR-BOOMERANG.title": "Boomerang",
   "THEWARRIOR-POLAR_STAR.description": "Deal {Damage:diff()} damage {Repeat:diff()} times. Can only be used on {IfUpgraded:show:ODD|EVEN} turns.",
-  "THEWARRIOR-POLAR_STAR.title": "PolarStar",
+  "THEWARRIOR-POLAR_STAR.title": "Polar Star",
   "THEWARRIOR-BUMP.description": "[gold]Bump[/gold] {Cards:diff()} cards in hand.",
   "THEWARRIOR-BUMP.title": "Bump",
   "THEWARRIOR-DISCO_BALL.description": "Draw {Cards:diff()} cards. Then [gold]Reroll[/gold] all cards in hand.",
@@ -58,6 +58,10 @@
   "THEWARRIOR-SINE_WAVE.description": "Add [gold]Bump[/gold] and [gold]Nudge[/gold] to your hand.",
   "THEWARRIOR-SINE_WAVE.title": "Sine Wave",
   "THEWARRIOR-CRESCENT_MOON_BLADE.description": "On {IfUpgraded:show:ODD|EVEN} turns deal {Damage:diff()} damage X times.\nOn {IfUpgraded:show:EVEN|ODD} turns gain {Block:diff()} [gold]Block[/gold] X times.",
-  "THEWARRIOR-CRESCENT_MOON_BLADE.title": "Crescent Moon Blade"
+  "THEWARRIOR-CRESCENT_MOON_BLADE.title": "Crescent Moon Blade",
+  "THEWARRIOR-MYSTERY_BOX.description": "Draw {Cards:diff()} cards then [gold]Reroll[/gold] their cost.",
+  "THEWARRIOR-MYSTERY_BOX.title": "Mystery Box",
+  "THEWARRIOR-SHIELD_BASH.description": "Gain {ShieldBashPower:diff()} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
+  "THEWARRIOR-SHIELD_BASH.title": "Shield Bash"
 
 }     
