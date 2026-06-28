@@ -1,16 +1,13 @@
 ﻿using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Enchantments;
-using MegaCrit.Sts2.Core.Nodes.Cards;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
 
@@ -19,9 +16,10 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Befuddle() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Hook);
+    public override string GetScrapId => nameof(Replicate);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override void OnUpgrade()
     {
@@ -42,6 +40,5 @@ public class Befuddle() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, Ta
         BefuddlePower? power = await BefuddlePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Cards.EnchantedValue, Owner.Creature, this);
 
         power?.SetCards(card);
-
     }
 }
