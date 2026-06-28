@@ -62,6 +62,8 @@
   "THEWARRIOR-MYSTERY_BOX.description": "Draw {Cards:diff()} cards then [gold]Reroll[/gold] their cost.",
   "THEWARRIOR-MYSTERY_BOX.title": "Mystery Box",
   "THEWARRIOR-SHIELD_BASH.description": "Gain {ShieldBashPower:diff()} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
-  "THEWARRIOR-SHIELD_BASH.title": "Shield Bash"
+  "THEWARRIOR-SHIELD_BASH.title": "Shield Bash",
+  "THEWARRIOR-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your hand.",
+  "THEWARRIOR-THICK_SKIN.title": "Thick Skin"
 
 }     
