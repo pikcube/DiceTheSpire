@@ -1,10 +1,14 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
@@ -28,10 +32,32 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
             return;
         }
 
+        int cards = DynamicVars.Cards.IntValue;
+        Dictionary<Player, Task<IEnumerable<CardModel>>> results = [];
+
         foreach (Player p in CombatState.Players)
         {
-            await p.InspectAsync(choiceContext, DynamicVars.Cards.IntValue);
+            CardModel[] topCards = [.. PileType.Draw.GetPile(p).Cards.Take(cards)];
+
+            CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BLINK"), 0, topCards.Length);
+
+            results.Add(p, CardSelectCmd.FromSimpleGrid(new BlockingPlayerChoiceContext(), topCards, p, prefs));
         }
+
+        await Task.WhenAll(results.Values);
+
+        foreach ((Player p, Task<IEnumerable<CardModel>> value) in results)
+        {
+            CardModel[] r = [.. await value];
+            await BlinkModel.BlinkCardsAsync(choiceContext, r);
+
+            foreach (IOnInspectListener listener in p.RunState.IterateHookListeners(p.Creature.CombatState).OfType<IOnInspectListener>())
+            {
+                await listener.OnInspectAsync(choiceContext, cards, r, p);
+            }
+        }
+
+        results = [];
     }
 
     protected override void OnUpgrade()
