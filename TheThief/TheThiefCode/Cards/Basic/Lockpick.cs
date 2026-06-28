@@ -13,20 +13,18 @@ namespace TheThief.TheThiefCode.Cards.Basic;
 
 public class Lockpick() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self), ITranscendenceCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Pip>())];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        //CombatState might be null according to type annotations, so I added a null check
         if (CombatState is null)
         {
             return;
         }
 
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Pip>(Owner), PileType.Hand, Owner);
+        await Pip.CreateInHandAsync(Owner, DynamicVars.Cards.IntValue, CombatState);
         await Cmd.Wait(0.5f);
     }
 

@@ -5,9 +5,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheThief.TheThiefCode.Cards.Basic;
+namespace TheThief.TheThiefCode.Cards.Common;
 
-public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ICountdown
+public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {
@@ -42,7 +42,7 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Basic, 
         return CurrentCount == 0 ? PileType.Hand : base.GetResultPileTypeForCardPlay();
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -53,6 +53,6 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Basic, 
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2M);
+        DynamicVars.Damage.UpgradeValueBy(3M);
     }
 }

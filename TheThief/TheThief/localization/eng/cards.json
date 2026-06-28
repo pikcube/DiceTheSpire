@@ -5,7 +5,7 @@
   "THETHIEF-STRIKE_THIEF.title": "Strike",
   "THETHIEF-DAGGER.description": "Deal {Damage:diff()} damage.\nReturn this card to your [gold]hand[/gold].",
   "THETHIEF-DAGGER.title": "Dagger",
-  "THETHIEF-LOCKPICK.description": "Draw {Cards:plural:a card|{} cards}.\nCreate a [gold]Pip[/gold].",
+  "THETHIEF-LOCKPICK.description": "Create {Cards:diff()} [gold]Pips[/gold].",
   "THETHIEF-LOCKPICK.title": "Lockpick",
   "THETHIEF-PEASHOOTER.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDeal {Damage:diff()} damage.\nReturn this card to your [gold]Hand[/gold].",
   "THETHIEF-PEASHOOTER.title": "Peashooter",
@@ -88,5 +88,7 @@
   "THETHIEF-UPKEEP.description": "[gold]Pips[/gold] now gain {Energy:energyIcons()}.",
   "THETHIEF-UPKEEP.title": "Upkeep",
   "THETHIEF-BROKEN_MIRROR.description": "Gain {Energy:energyIcons()} at the start of each turn.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
-  "THETHIEF-BROKEN_MIRROR.title": "Broken Mirror"
+  "THETHIEF-BROKEN_MIRROR.title": "Broken Mirror",
+  "THETHIEF-POCKET_KNIFE.description": "Deal {CalculatedDamage:diff()} damage. Deals {ExtraDamage:diff()} extra damage for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
+  "THETHIEF-POCKET_KNIFE.title": "Pocket Knife"
 }

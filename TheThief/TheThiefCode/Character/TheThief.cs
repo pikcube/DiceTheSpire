@@ -20,7 +20,8 @@ namespace TheThief.TheThiefCode.Character
         public override Color MapDrawingColor => Color;
 
         public override CharacterGender Gender => CharacterGender.Masculine;
-        public override int StartingHp => 70;
+        public override int StartingHp => 75;
+        public override int StartingGold => 124;
 
         public override IEnumerable<CardModel> StartingDeck => [
             ModelDb.Card<StrikeThief>(),
@@ -31,7 +32,7 @@ namespace TheThief.TheThiefCode.Character
             ModelDb.Card<DefendThief>(),
             ModelDb.Card<DefendThief>(),
             ModelDb.Card<DefendThief>(),
-            ModelDb.Card<Peashooter>(),
+            ModelDb.Card<PocketKnife>(),
             ModelDb.Card<Lockpick>()
         ];
 
