@@ -56,8 +56,6 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
                 await listener.OnInspectAsync(choiceContext, cards, r, p);
             }
         }
-
-        results = [];
     }
 
     protected override void OnUpgrade()
