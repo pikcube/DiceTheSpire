@@ -63,9 +63,6 @@ public class ResonancePower : TheInventorPower
             case StartledPower:
                 amount = 1;
                 return ModelDb.Power<FreezePower>().StrongMutableClone();
-            case BrokenMirrorPower:
-                amount = 0;
-                return ModelDb.Power<BrokenMirrorPower>();
             case CursedPower:
                 amount *= 3;
                 return ModelDb.Power<DoomPower>().StrongMutableClone();

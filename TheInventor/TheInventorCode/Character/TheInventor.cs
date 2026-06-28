@@ -23,7 +23,7 @@ namespace TheInventor.TheInventorCode.Character
         public override Color EnergyLabelOutlineColor => Color;
         public override Color MapDrawingColor => Color;
         public override CharacterGender Gender => CharacterGender.Feminine;
-        public override int StartingHp => 60;
+        public override int StartingHp => 62;
         public override IEnumerable<CardModel> StartingDeck => [
             StrikeInventor.Create(),
             StrikeInventor.Create(),

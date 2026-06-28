@@ -27,7 +27,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
         {
             if (c.HasPower<MinionPower>())
             {
-                await DamageCmd.Attack(DynamicVars.Damage.BaseValue * 2)
+                await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue * 2)
                     .FromCard(this)
                     .Targeting(c)
                     .WithHitFx(VfxCmd.slashPath)
@@ -35,7 +35,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
             }
             else
             {
-                await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+                await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
                     .FromCard(this)
                     .Targeting(c)
                     .WithHitFx(VfxCmd.slashPath)

@@ -86,5 +86,7 @@
   "THETHIEF-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {Repeat:diff()} times.|.}",
   "THETHIEF-TETRAPHOBIA.title": "Tetraphobia",
   "THETHIEF-UPKEEP.description": "[gold]Pips[/gold] now gain {Energy:energyIcons()}.",
-  "THETHIEF-UPKEEP.title": "Upkeep"
+  "THETHIEF-UPKEEP.title": "Upkeep",
+  "THETHIEF-BROKEN_MIRROR.description": "Gain {Energy:energyIcons()} at the start of each turn.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
+  "THETHIEF-BROKEN_MIRROR.title": "Broken Mirror"
 }

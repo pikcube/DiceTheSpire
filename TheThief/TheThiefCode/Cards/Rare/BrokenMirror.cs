@@ -5,19 +5,16 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Powers;
-using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Powers;
+using TheThief.TheThiefCode.Powers;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheThief.TheThiefCode.Cards.Rare;
 
 
-public class BrokenMirror() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class BrokenMirror() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
-    public override string GetScrapId => nameof(InfinityMirror);
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<CursedPower>(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.ForEnergy(this), HoverTipFactory.FromPower<CursedPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this), HoverTipFactory.FromPower<CursedPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
