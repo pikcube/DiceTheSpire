@@ -23,7 +23,7 @@ public static class InventorHelperFunctions
         {
             case 8:
                 power = ModelDb.Power<DebilitatePower>().StrongMutableClone();
-                amount = 1;
+                amount = 2;
                 break;
             case 7:
                 if (target.IsPlayer)
