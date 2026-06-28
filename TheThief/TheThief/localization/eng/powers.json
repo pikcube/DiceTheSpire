@@ -49,5 +49,8 @@
   "THETHIEF-UPKEEP_POWER.description": "[gold]Pips[/gold], now gain {Energy:energyIcons()}.",
   "THETHIEF-UPKEEP_POWER.smartDescription": "[gold]Pips[/gold], now gain {Energy:energyIcons()}.",
   "THETHIEF-UPKEEP_POWER.title": "Upkeep",
-  "THETHIEF-UPKEEP_POWER.pipDescription": "Gain {Energy:energyIcons()}."
+  "THETHIEF-UPKEEP_POWER.pipDescription": "Gain {Energy:energyIcons()}.",
+  "THETHIEF-BROKEN_MIRROR_POWER.description": "At the start of next turn, [gold]Curse[/gold] yourself.",
+  "THETHIEF-BROKEN_MIRROR_POWER.smartDescription": "At the start of next turn, [gold]Curse[/gold] yourself.",
+  "THETHIEF-BROKEN_MIRROR_POWER.title": "Broken Mirror"
 }

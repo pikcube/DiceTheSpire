@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b67w5sjfx24j"
-path="res://.godot/imported/broken_mirror.png-86ab5fcb5f58c40ec2a6b4629aaa757a.ctex"
+uid="uid://d3m2cxsg43ptv"
+path="res://.godot/imported/doppeltwice.png-64e210e3112b7caec11552ae9296c725.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/broken_mirror.png"
-dest_files=["res://.godot/imported/broken_mirror.png-86ab5fcb5f58c40ec2a6b4629aaa757a.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/doppeltwice.png"
+dest_files=["res://.godot/imported/doppeltwice.png-64e210e3112b7caec11552ae9296c725.ctex"]
 
 [params]
 

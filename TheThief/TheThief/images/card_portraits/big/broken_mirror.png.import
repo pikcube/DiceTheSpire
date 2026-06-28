@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d23ppv7gh38sj"
-path="res://.godot/imported/broken_mirror.png-5a989faff1e401bbe47fdfdfe7cd1dfe.ctex"
+uid="uid://dyfxo74u3x6ft"
+path="res://.godot/imported/broken_mirror.png-6907cbac3342ca745836794cfb46c242.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/broken_mirror.png"
-dest_files=["res://.godot/imported/broken_mirror.png-5a989faff1e401bbe47fdfdfe7cd1dfe.ctex"]
+source_file="res://TheThief/images/card_portraits/big/broken_mirror.png"
+dest_files=["res://.godot/imported/broken_mirror.png-6907cbac3342ca745836794cfb46c242.ctex"]
 
 [params]
 
