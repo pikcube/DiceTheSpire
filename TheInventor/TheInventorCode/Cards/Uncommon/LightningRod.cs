@@ -41,7 +41,7 @@ public class LightningRod() : TheInventorCard(4, CardType.Attack, CardRarity.Unc
             return;
         }
         await base.OnPlay(choiceContext, cardPlay);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this)
             .TargetingAllOpponents(CombatState)
             .WithHitFx(VfxCmd.slashPath)
