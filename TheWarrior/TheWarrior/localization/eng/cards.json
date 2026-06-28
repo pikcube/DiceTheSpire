@@ -64,6 +64,8 @@
   "THEWARRIOR-SHIELD_BASH.description": "Gain {ShieldBashPower:diff()} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
   "THEWARRIOR-SHIELD_BASH.title": "Shield Bash",
   "THEWARRIOR-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your hand.",
-  "THEWARRIOR-THICK_SKIN.title": "Thick Skin"
+  "THEWARRIOR-THICK_SKIN.title": "Thick Skin",
+  "THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage. Repeat once for each [gold]Battle Axe[/gold] played this combat.\n(Currently {Repeat:diff()} hits)",
+  "THEWARRIOR-BATTLE_AXE.title": "Battle Axe"
 
 }     
