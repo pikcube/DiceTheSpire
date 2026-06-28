@@ -13,7 +13,7 @@ public class Rockpick() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
 {
     public override string GetScrapId => nameof(Catapult);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromCard<Rock>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -22,8 +22,6 @@ public class Rockpick() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
         {
             return;
         }
-
-        await CardPileCmd.Draw(choiceContext, 1, Owner);
 
         for (int n = 0; n < DynamicVars.Cards.IntValue; ++n)
         {
