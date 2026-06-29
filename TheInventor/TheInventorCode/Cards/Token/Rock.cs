@@ -14,7 +14,7 @@ namespace TheInventor.TheInventorCode.Cards.Token;
 [Pool(typeof(TokenCardPool))]
 public class Rock() : CustomCardModel(-1, CardType.Attack, CardRarity.Token, TargetType.RandomEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Ethereal];
 

@@ -15,7 +15,7 @@ public class Avalanche() : TheInventorCard(2, CardType.Power, CardRarity.Rare, T
 {
     public override string GetScrapId => nameof(Catapult);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<AvalanchePower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<AvalanchePower>(2)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromCard<Rock>()];
 
