@@ -25,7 +25,7 @@ public class SixShooter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncom
             .Execute(choiceContext);
     }
 
-    public override string GetScrapId => nameof(Crack);
+    public override string GetScrapId => nameof(PowerUp);
 
     protected override void OnUpgrade()
     {

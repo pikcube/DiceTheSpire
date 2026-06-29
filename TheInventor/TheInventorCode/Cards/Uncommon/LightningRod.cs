@@ -11,7 +11,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class LightningRod() : TheInventorCard(4, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
-    public override string GetScrapId => nameof(Crack);
+    public override string GetScrapId => nameof(PowerUp);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(0, DamageProps.card)];
 

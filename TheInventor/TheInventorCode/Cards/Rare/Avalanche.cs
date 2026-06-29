@@ -13,7 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Avalanche() : TheInventorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Catapult);
+    public override string GetScrapId => nameof(Rockslide);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<AvalanchePower>(2)];
 

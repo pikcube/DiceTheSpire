@@ -11,7 +11,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class Rockpick() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Catapult);
+    public override string GetScrapId => nameof(Rockslide);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromCard<Rock>()];

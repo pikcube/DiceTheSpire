@@ -31,5 +31,5 @@ public class Spark() : TheInventorCard(-1, CardType.Attack, CardRarity.Common, T
         DynamicVars.Damage.UpgradeValueBy(3);
     }
 
-    public override string GetScrapId => nameof(Crack);
+    public override string GetScrapId => nameof(Blowtorch);
 }

@@ -12,7 +12,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class Grindstone() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Crack);
+    public override string GetScrapId => nameof(PowerUp);
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new PowerVar<StrengthPower>(2), new PowerVar<GrindstonePower>(50)];

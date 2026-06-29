@@ -13,7 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Scissors() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
-    public override string GetScrapId => nameof(BattleWrench);
+    public override string GetScrapId => nameof(MagicSix);
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];

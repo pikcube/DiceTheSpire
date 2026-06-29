@@ -12,7 +12,7 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Spike() : TheInventorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Crack);
+    public override string GetScrapId => nameof(Rockslide);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SpikePower>(3)];
 

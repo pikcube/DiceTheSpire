@@ -9,7 +9,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    public override string GetScrapId => nameof(Crack);
+    public override string GetScrapId => nameof(Blowtorch);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14, DamageProps.card), new DamageVar("HeldDamage", 6, DamageProps.card)];
 

@@ -39,5 +39,5 @@ public class Staff() :TheInventorCard(1, CardType.Attack, CardRarity.Common, Tar
         DynamicVars.Power<ExhaustionPower>().UpgradeValueBy(-1);
     }
 
-    public override string GetScrapId => nameof(Bonk);
+    public override string GetScrapId => nameof(Blowtorch);
 }

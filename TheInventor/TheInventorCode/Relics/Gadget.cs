@@ -190,7 +190,7 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
         }
     }
 
-    private void BetterHooksOnModifyCardSelectionScreenTitle(NChooseACardSelectionScreen sender, ModifyCardSelectionScreenTitleArgs e)
+    private static void BetterHooksOnModifyCardSelectionScreenTitle(NChooseACardSelectionScreen sender, ModifyCardSelectionScreenTitleArgs e)
     {
         e.NewText = "Scrap a Card";
     }
@@ -235,13 +235,13 @@ public class Gadget : TheInventorRelic, IGadgetParent, IRunInitializedListener
             PowerVar<WeakPower> => nameof(Burrower),
             EnergyVar => nameof(MagicDice),
             CardsVar => nameof(BattleWrench),
-            DamageVar or CalculatedDamageVar => choice.TargetType == TargetType.AllEnemies ? nameof(Crack) : nameof(Bonk),
+            DamageVar or CalculatedDamageVar => choice.TargetType == TargetType.AllEnemies ? nameof(Blowtorch) : nameof(Bonk),
             BlockVar or CalculatedBlockVar => choice.Rarity is CardRarity.Basic or CardRarity.Common ? nameof(Shield) : nameof(WallOfIce),
             _ => choice.Type switch
             {
-                CardType.Attack => nameof(Bonk),
-                CardType.Skill => nameof(Shield),
-                CardType.Power => nameof(BattleWrench),
+                CardType.Attack => choice.TargetType is TargetType.AnyEnemy ? nameof(Bonk) : nameof(Blowtorch),
+                CardType.Skill => choice.Rarity is CardRarity.Common or CardRarity.Basic ? nameof(Shield) : nameof(WallOfIce),
+                CardType.Power => choice.Rarity is CardRarity.Uncommon ? nameof(MagicSix) : nameof(BattleWrench),
                 CardType.Status or CardType.Curse or CardType.Quest => nameof(CursedGadget),
                 _ => nameof(BrokenGadget)
             }

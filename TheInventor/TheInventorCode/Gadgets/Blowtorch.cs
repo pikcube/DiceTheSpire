@@ -9,7 +9,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class Blowtorch() : GadgetModel(nameof(Blowtorch))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
-    public override decimal PowerBase => 5;
+    public override decimal PowerBase => 7;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {

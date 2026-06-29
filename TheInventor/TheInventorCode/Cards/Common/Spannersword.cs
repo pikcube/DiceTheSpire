@@ -16,7 +16,7 @@ namespace TheInventor.TheInventorCode.Cards.Common;
 
 public class Spannersword() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    public override string GetScrapId => nameof(Bonk);
+    public override string GetScrapId => nameof(Hook);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new CardsVar(1)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];

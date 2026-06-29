@@ -70,5 +70,12 @@
   "THEINVENTOR-ACCELERATE.title": "Accelerate",
   "THEINVENTOR-ACCELERATE.description": "At the start of each turn, [gold]Inspect[/gold] [blue]{Power}[/blue].",
   "THEINVENTOR-SHARED_INTEREST.title": "Shared Interest",
-  "THEINVENTOR-SHARED_INTEREST.description": "Obtain a card reward from each ally's deck."
+  "THEINVENTOR-SHARED_INTEREST.description": "Obtain a card reward from each ally's deck.",
+  "THEINVENTOR-BIG_BOMB.title": "Big Bomb",
+  "THEINVENTOR-BIG_BOMB.description": "At the end of turn 3, all enemies lose [blue]{Power}[/blue] HP.",
+  "THEINVENTOR-MAGIC_SIX.title": "Magic Six",
+  "THEINVENTOR-MAGIC_SIX.description": "At the start of combat, draw [blue]{Power}[/blue] additional cards.",
+  "THEINVENTOR-ROCKSLIDE.title": "Rockslide",
+  "THEINVENTOR-ROCKSLIDE.description": "At the start of each turn, add [blue]{Power}[/blue] rocks to your hand."
+
 }
