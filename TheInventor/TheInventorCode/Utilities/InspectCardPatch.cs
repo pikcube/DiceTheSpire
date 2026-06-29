@@ -4,20 +4,26 @@ using TheInventor.TheInventorCode.Cards;
 
 namespace TheInventor.TheInventorCode.Utilities;
 
-[HarmonyPatch(typeof(NInspectCardScreen), nameof(NInspectCardScreen.Open))]
-public static class InspectCardPatchOpen
+public static class InspectCardPatch
 {
-    public static void Prefix()
-    {
-        TheInventorCard.ShowGadgetTips = true;
-    }
-}
+    public static Stack<bool> ShowStack { get; } = [];
 
-[HarmonyPatch(typeof(NInspectCardScreen), nameof(NInspectCardScreen.Close))]
-public static class InspectCardPatchClose
-{
-    public static void Postfix()
+    [HarmonyPatch(typeof(NInspectCardScreen), nameof(NInspectCardScreen.Open))]
+    public static class InspectCardPatchOpen
     {
-        TheInventorCard.ShowGadgetTips = false;
+        public static void Prefix()
+        {
+            ShowStack.Push(TheInventorCard.ShowGadgetTips);
+            TheInventorCard.ShowGadgetTips = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(NInspectCardScreen), nameof(NInspectCardScreen.Close))]
+    public static class InspectCardPatchClose
+    {
+        public static void Postfix()
+        {
+            TheInventorCard.ShowGadgetTips = ShowStack.Pop();
+        }
     }
 }
