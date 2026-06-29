@@ -14,7 +14,7 @@ using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Ancient;
 
-public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Ancient, TargetType.Self), ITomeCard
+public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.Self), ITomeCard
 {
     public override string GetScrapId => nameof(StinkyGadget);
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, ScrapKeyword.Scrap];

@@ -10,7 +10,7 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Ancient;
 
-public class Scorpion() : TheInventorCard(6, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)
+public class Scorpion() : TheInventorCard(6, CardType.Skill, CardRarity.Ancient, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(PoisonArrow);
 
