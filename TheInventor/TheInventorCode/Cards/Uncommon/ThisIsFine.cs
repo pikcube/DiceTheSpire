@@ -20,5 +20,5 @@ public class ThisIsFine() : TheInventorCard(-1, CardType.Skill, CardRarity.Uncom
 
     }
 
-    public override string GetScrapId => nameof(MagicDice);
+    public override string GetScrapId => nameof(Fury);
 }

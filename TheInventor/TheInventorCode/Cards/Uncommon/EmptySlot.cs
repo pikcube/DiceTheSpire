@@ -8,7 +8,6 @@ using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Character;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
@@ -44,7 +43,7 @@ public class EmptySlot() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
         AddKeyword(BlinkModel.Blink);
     }
 
-    public override bool ModifyScrap(Gadget gadget, GadgetModel linkedGadgetModel)
+    public override bool ModifyScrap()
     {
         return true;
     }

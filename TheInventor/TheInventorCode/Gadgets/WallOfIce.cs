@@ -23,6 +23,11 @@ public class WallOfIce() : GadgetModel(nameof(WallOfIce))
         decimal val = 1;
         val *= (100M - Power) / 100M;
 
+        if (val < 0)
+        {
+            val = 0;
+        }
+
         return val;
     }
 }

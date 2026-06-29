@@ -9,7 +9,7 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Resonance() : TheInventorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    public override string GetScrapId => nameof(MagicDice);
+    public override string GetScrapId => nameof(Fury);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

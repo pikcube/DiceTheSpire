@@ -6,7 +6,7 @@
   "THEINVENTOR-BONK.title": "Bonk",
   "THEINVENTOR-BONK.description": "At the start of each turn, deal [blue]{Power}[/blue] damage to a random enemy.",
   "THEINVENTOR-BROKEN_GADGET.title": "Broken Gadget",
-  "THEINVENTOR-BROKEN_GADGET.description": "Does nothing.",
+  "THEINVENTOR-BROKEN_GADGET.description": "This gadget is all used up.",
   "THEINVENTOR-DEFAULT_GADGET.title": "",
   "THEINVENTOR-DEFAULT_GADGET.description": "",
   "THEINVENTOR-HEAT_RAY.title": "Heat Ray",
@@ -36,7 +36,7 @@
   "THEINVENTOR-REPLICATE.title": "Replicate",
   "THEINVENTOR-REPLICATE.description": "At the start of each turn, duplicate {Power:plural:a card|[blue]{Power}[/blue] cards}.",
   "THEINVENTOR-EFFICIENCY.title": "Efficiency",
-  "THEINVENTOR-EFFICIENCY.description": "The first {Power:plural:card|[blue]{Power}[/blue] cards} you play each turn {Power:plural:is|are} returned to your hand.",
+  "THEINVENTOR-EFFICIENCY.description": "The first non-power {Power:plural:card|[blue]{Power}[/blue] cards} you play each turn {Power:plural:is|are} returned to your hand.",
   "THEINVENTOR-PERSISTENCE_OF_MEMORY.title": "Persistence Of Memory",
   "THEINVENTOR-PERSISTENCE_OF_MEMORY.description": "Keep your current gadget an additional combat.",
   "THEINVENTOR-HOOK.title": "Hook",
@@ -73,9 +73,10 @@
   "THEINVENTOR-SHARED_INTEREST.description": "Obtain a card reward from each ally's deck.",
   "THEINVENTOR-BIG_BOMB.title": "Big Bomb",
   "THEINVENTOR-BIG_BOMB.description": "At the end of turn 3, all enemies lose [blue]{Power}[/blue] HP.",
-  "THEINVENTOR-MAGIC_SIX.title": "Magic Six",
-  "THEINVENTOR-MAGIC_SIX.description": "At the start of combat, draw [blue]{Power}[/blue] additional cards.",
+  "THEINVENTOR-MAGIC_SPANNER.title": "Magic Spanner",
+  "THEINVENTOR-MAGIC_SPANNER.description": "At the start of combat, draw [blue]{Power}[/blue] additional cards.",
   "THEINVENTOR-ROCKSLIDE.title": "Rockslide",
-  "THEINVENTOR-ROCKSLIDE.description": "At the start of each turn, add [blue]{Power}[/blue] rocks to your hand."
-
+  "THEINVENTOR-ROCKSLIDE.description": "At the start of each turn, add [blue]{Power}[/blue] rocks to your hand.",
+  "THEINVENTOR-FURY.title": "Fury",
+  "THEINVENTOR-FURY.description": "The first {Power:pluralcard:|[blue]{Power}[/blue] cards} you play each turn {Power:plural:is|are} played an additional time."
 }

@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Interfaces;
-using TheInventor.TheInventorCode.Relics;
+using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Powers;
 
@@ -28,7 +28,7 @@ public class ScrewdriverPower : TheInventorPower, IGadgetPowerListener
             await PowerCmd.Remove(this);
             return;
         }
-        List<IGadgetParent> gadgetParents = Gadget.GetGadgetParents(Owner.Player);
+        List<IGadgetParent> gadgetParents = ScrapManager.GetGadgetParents(Owner.Player);
 
         if (gadgetParents.Count == 0)
         {

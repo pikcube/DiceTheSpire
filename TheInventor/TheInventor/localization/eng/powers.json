@@ -2,9 +2,6 @@
   "THEINVENTOR-FOCUS_POWER.description": "At the start of your turn, draw [blue]1[/blue] additional card.",
   "THEINVENTOR-FOCUS_POWER.smartDescription": "At the start of your turn, draw [blue]{Amount}[/blue] additional {Amount:plural:card|cards}.",
   "THEINVENTOR-FOCUS_POWER.title": "Focus",
-  "THEINVENTOR-TEMPORARY_GADGET_POWER.description": "Gain a Gadget for the rest of combat.",
-  "THEINVENTOR-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
-  "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
   "THEINVENTOR-RESONANCE_POWER.description": "Whenever you apply a [gold]Debuff[/gold] to yourself, apply a debuff to all enemies.",
   "THEINVENTOR-RESONANCE_POWER.smartDescription": "Whenever you apply a [gold]Debuff[/gold] to yourself, apply a debuff to all enemies..",
   "THEINVENTOR-RESONANCE_POWER.title": "Resonance",
@@ -59,5 +56,11 @@
   "THEINVENTOR-RESISTOR_POWER.title": "Resistor",
   "THEINVENTOR-BEFUDDLE_POWER.description": "Next turn, add a copy of a card to your hand.",
   "THEINVENTOR-BEFUDDLE_POWER.smartDescription": "Next turn, add {Amount:plural:a copy|{Amount} copies} of {CardName.StringValue} to your hand.",
-  "THEINVENTOR-BEFUDDLE_POWER.title": "Befuddle"
+  "THEINVENTOR-BEFUDDLE_POWER.title": "Befuddle",
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.description": "Gain a Gadget for the rest of combat.",
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
+  "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
+  "THEINVENTOR-GADGET_POWER.description": "Changes every combat.",
+  "THEINVENTOR-GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
+  "THEINVENTOR-GADGET_POWER.title": "Gadget"
 }

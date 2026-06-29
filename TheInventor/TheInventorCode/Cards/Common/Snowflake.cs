@@ -11,7 +11,7 @@ namespace TheInventor.TheInventorCode.Cards.Common;
 
 public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Shield);
+    public override string GetScrapId => nameof(WallOfIce);
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 

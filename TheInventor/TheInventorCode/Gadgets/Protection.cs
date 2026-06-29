@@ -12,15 +12,23 @@ public class Protection() : GadgetModel(nameof(Protection))
 
     public override decimal PowerBase => 2;
 
+    public bool IsUsedUp { get; set; }
+
+    public override Task BeforeCombatStart()
+    {
+        IsUsedUp = false;
+        return Task.CompletedTask;
+    }
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (Parent?.Owner != player)
+        if (IsUsedUp || Parent?.Owner != player)
         {
             return;
         }
 
         await PowerCmd.Apply<ReducePower>(choiceContext, player.Creature, Power, player.Creature, null);
-        BreakMe();
+        IsUsedUp = true;
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

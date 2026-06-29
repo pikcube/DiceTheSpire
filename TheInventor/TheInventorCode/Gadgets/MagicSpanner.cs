@@ -5,12 +5,18 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
-public class MagicSix() : GadgetModel(nameof(MagicSix))
+public class MagicSpanner() : GadgetModel(nameof(MagicSpanner))
 {
     private bool IsUsedUp { get; set; }
     public override decimal PowerBase => 2;
 
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+
+    public override Task BeforeCombatStart()
+    {
+        IsUsedUp = false;
+        return Task.CompletedTask;
+    }
 
     public override decimal ModifyHandDraw(Player player, decimal count)
     {

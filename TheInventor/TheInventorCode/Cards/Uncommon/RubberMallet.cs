@@ -18,7 +18,7 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
 
-    public override string GetScrapId => nameof(MagicDice);
+    public override string GetScrapId => nameof(Efficiency);
 
     public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {

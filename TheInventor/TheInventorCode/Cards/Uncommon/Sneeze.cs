@@ -27,5 +27,5 @@ public class Sneeze() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, 
         DynamicVars.Power<SneezePower>().UpgradeValueBy(1);
     }
 
-    public override string GetScrapId => nameof(Shield);
+    public override string GetScrapId => nameof(Protection);
 }

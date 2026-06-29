@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Relics;
+using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
@@ -25,7 +25,7 @@ public class RemoteControl() : TheInventorCard(1, CardType.Attack, CardRarity.Un
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        await Gadget.RandomizeAllGadgetsAsync(choiceContext, Owner, cardPlay.Card);
+        await ScrapManager.RandomizeAllGadgetsAsync(choiceContext, Owner, cardPlay.Card);
     }
 
     protected override void OnUpgrade()

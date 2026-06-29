@@ -35,9 +35,7 @@ namespace TheInventor.TheInventorCode.Character
             Capacitor.Create()
         ];
 
-        public override IReadOnlyList<RelicModel> StartingRelics => HideGadget
-        ? [ModelDb.Relic<Manual>()]
-        : [ModelDb.Relic<Manual>(), ModelDb.Relic<Gadget>()];
+        public override IReadOnlyList<RelicModel> StartingRelics => [ModelDb.Relic<Manual>()];
 
         public override CardPoolModel CardPool => ModelDb.CardPool<TheInventorCardPool>();
         public override RelicPoolModel RelicPool => ModelDb.RelicPool<TheInventorRelicPool>();

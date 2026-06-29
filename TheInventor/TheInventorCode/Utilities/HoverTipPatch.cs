@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Relics;
+using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Utilities;
 
@@ -17,10 +17,10 @@ public class HoverTipPatch() : CustomSingletonModel(HookType.Run), IModifyHoverT
             return;
         }
 
-        string id = Gadget.GetDefaultGadget(sender);
+        string id = ScrapManager.GetDefaultGadget(sender);
 
-        GadgetModel gadgetModel = Gadget.AllGadgets[id];
+        GadgetModel gadgetModel = ScrapManager.AllGadgets[id];
 
-        e.NewHoverTips.Add(new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Relic<Gadget>().Icon));
+        e.NewHoverTips.Add(new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Power<GadgetPower>().Icon));
     }
 }

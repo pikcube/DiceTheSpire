@@ -15,6 +15,12 @@ public class Burrower() : GadgetModel(nameof(Burrower))
 
     public override decimal PowerBase => 5;
 
+    public override Task BeforeCombatStart()
+    {
+        IsUsedUp = false;
+        return Task.CompletedTask;
+    }
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (IsUsedUp || player != Parent?.Owner || player.Creature.CombatState is null)

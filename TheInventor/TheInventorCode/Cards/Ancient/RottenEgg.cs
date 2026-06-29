@@ -21,7 +21,7 @@ public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest,
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [.. HoverTipFactory.FromEnchantment<Stinky>()];
     public override int MaxUpgradeLevel => 0;
 
-    public override async Task OnScrapAsync(GadgetModel linkedGadgetModel)
+    public override async Task OnScrapAsync()
     {
         CardSelectorPrefs prefs = new(CardSelectorPrefs.EnchantSelectionPrompt, 3);
         IEnumerable<CardModel> cards = await CardSelectCmd.FromDeckForEnchantment(Owner, ModelDb.Enchantment<Stinky>(), 1, prefs);
@@ -29,7 +29,6 @@ public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest,
         {
             CardCmd.Enchant<Stinky>(card, 1);
         }
-        linkedGadgetModel.BreakMe();
     }
 
     public override bool TryModifyRestSiteOptions(Player player, ICollection<RestSiteOption> options)

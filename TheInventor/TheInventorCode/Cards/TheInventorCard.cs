@@ -10,7 +10,8 @@ using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Character;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Relics;
+using TheInventor.TheInventorCode.Powers;
+using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Cards
 {
@@ -50,17 +51,17 @@ namespace TheInventor.TheInventorCode.Cards
                 yield break;
             }
 
-            GadgetModel gadgetModel = Gadget.AllGadgets[GetScrapId];
+            GadgetModel gadgetModel = ScrapManager.AllGadgets[GetScrapId];
             if (gadgetModel is DefaultGadget)
             {
                 yield break;
             }
 
-            yield return new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Relic<Gadget>().Icon);
+            yield return new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Power<GadgetPower>().Icon);
         }
         public abstract string GetScrapId { get; }
 
-        public virtual Task OnScrapAsync(GadgetModel linkedGadgetModel)
+        public virtual Task OnScrapAsync()
         {
             return Task.CompletedTask;
         }
@@ -70,7 +71,7 @@ namespace TheInventor.TheInventorCode.Cards
             return Task.CompletedTask;
         }
 
-        public virtual bool ModifyScrap(Gadget gadget, GadgetModel linkedGadgetModel)
+        public virtual bool ModifyScrap()
         {
             return false;
         }

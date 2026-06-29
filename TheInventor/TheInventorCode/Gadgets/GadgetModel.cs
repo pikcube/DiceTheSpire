@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Powers;
-using TheInventor.TheInventorCode.Relics;
+using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
@@ -16,7 +16,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     protected GadgetModel(string gadgetId)
     {
         GadgetId = gadgetId;
-        Gadget.AllGadgets[GadgetId] = this;
+        ScrapManager.AllGadgets[GadgetId] = this;
     }
 
     public IGadgetParent? Parent { get; set; }
@@ -82,7 +82,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
         return power;
     }
 
-    public void BreakMe()
+    protected void BreakMe()
     {
         AssertMutable();
         if (IsAllowedAsTempGadget)
@@ -90,6 +90,15 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
             throw new InvalidProgramException("Breakable Gadgets cannot be temporary");
         }
 
-        Parent?.GadgetId = nameof(BrokenGadget);
+        if (Parent is TempParent tp)
+        {
+            ScrapManager.GadgetId.Set(tp.Owner, nameof(BrokenGadget));
+            tp.GadgetId = nameof(BrokenGadget);
+            tp.LinkedGadgetModel = ScrapManager.AllGadgets[nameof(BrokenGadget)].GetMutable(tp);
+        }
+        else
+        {
+            Parent?.GadgetId = nameof(BrokenGadget);
+        }
     }
 }

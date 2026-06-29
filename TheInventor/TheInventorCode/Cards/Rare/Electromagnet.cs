@@ -41,7 +41,7 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
             .Execute(choiceContext);
     }
 
-    public override string GetScrapId => nameof(MagicDice);
+    public override string GetScrapId => nameof(Fury);
     public Task AfterCardBlinkedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
         if (card.Owner != Owner)

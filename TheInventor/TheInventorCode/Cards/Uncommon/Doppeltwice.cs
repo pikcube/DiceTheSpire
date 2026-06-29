@@ -11,7 +11,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 public class Doppeltwice() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(MagicDice);
+    public override string GetScrapId => nameof(MagicSpanner);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2)];
 

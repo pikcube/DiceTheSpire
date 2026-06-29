@@ -19,4 +19,9 @@ public class Needle() : GadgetModel(nameof(Needle))
 
         await PowerCmd.Apply<ThornsPower>(choiceContext, Parent.Owner.Creature, Power, Parent.Owner.Creature, null);
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        return AfterPlayerTurnStart(choiceContext, player);
+    }
 }

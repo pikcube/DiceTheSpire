@@ -1,5 +1,4 @@
 ﻿using BaseLib.Abstracts;
-using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -15,21 +14,30 @@ using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Powers;
 
-[UsedImplicitly]
-public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
+public class GadgetPower : TheInventorPower, IGadgetParent
 {
-    static TemporaryGadgetPower()
+    static GadgetPower()
     {
-        ModHelper.SubscribeForCombatStateHooks("TheInventor.TemporaryGadgetPower", CombatStateHooks);
+        ModHelper.SubscribeForCombatStateHooks("TheInventor.GadgetPower", CombatStateHooks);
     }
 
     private static GadgetModel[] CombatStateHooks(CombatState state)
     {
-        return [.. state.Players.SelectMany(p => p.Creature.Powers.OfType<TemporaryGadgetPower>())
+        return [.. state.Players.SelectMany(p => p.Creature.Powers.OfType<GadgetPower>())
             .Select(g => g.LinkedGadgetModel)
             .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)];
     }
 
+    public override PowerType Type => PowerType.Buff;
+
+    public override PowerStackType StackType => GetStackType();
+
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+
+    private PowerStackType GetStackType()
+    {
+        return PowerStackType.Single;
+    }
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];
 
     private string GadgetText
@@ -65,14 +73,12 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
         }
     }
 
+    public string InitialGadgetId { get; set; } = nameof(DefaultGadget);
+
     public void Update()
     {
         GadgetText = $"{LinkedGadgetModel.GadgetText}";
     }
-
-    public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
@@ -80,22 +86,13 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
         {
             await PowerCmd.Remove(this);
         }
-    }
 
-    public async Task RandomizeThis()
-    {
-        if (Owner.Player is null)
-        {
-            await PowerCmd.Remove(this);
-            return;
-        }
-
-        GadgetId = ScrapManager.GetRandomCombatGadgetId(Owner.Player.RunState.Rng.CombatOrbGeneration);
-        await AfterRandomizedAsync();
+        GadgetId = InitialGadgetId;
     }
 
     public async Task AfterRandomizedAsync()
     {
+        Update();
         await GadgetCard.ShowAsync(LinkedGadgetModel);
     }
 }
