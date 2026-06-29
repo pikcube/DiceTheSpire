@@ -78,5 +78,5 @@
   "THEINVENTOR-ROCKSLIDE.title": "Rockslide",
   "THEINVENTOR-ROCKSLIDE.description": "At the start of each turn, add [blue]{Power}[/blue] rocks to your hand.",
   "THEINVENTOR-FURY.title": "Fury",
-  "THEINVENTOR-FURY.description": "The first {Power:pluralcard:|[blue]{Power}[/blue] cards} you play each turn {Power:plural:is|are} played an additional time."
+  "THEINVENTOR-FURY.description": "The first {Power:plural:card|[blue]{Power}[/blue] cards} you play each turn {Power:plural:is|are} played an additional time."
 }

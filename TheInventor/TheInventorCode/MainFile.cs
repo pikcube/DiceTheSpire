@@ -1,4 +1,3 @@
-using BaseLib.Config;
 using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
@@ -23,13 +22,5 @@ public partial class MainFile : Node
         harmony.PatchAll();
 
         CustomLocTableManager.Register("gadgets.json");
-
-        ModConfigRegistry.Register(ModId, new InventorDebugConfig());
     }
-}
-
-public class InventorDebugConfig : SimpleModConfig
-{
-    public static bool ShowGadgetTips { get; set; } = true;
-    public static bool IsFirstRun { get; set; } = true;
 }

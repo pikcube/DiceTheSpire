@@ -2,6 +2,7 @@
 using BaseLib.Utils;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
@@ -127,9 +128,20 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             //Hope they aren't totally boned right now.
             GadgetId.Set(p, nameof(BrokenGadget));
         }
-        BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
+
+        if (LocalContext.IsMe(p))
+        {
+            TheInventorCard.ShowGadgetTips = true;
+            BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
+        }
+
         CardModel? choice = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), cardModels, p);
-        BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
+        
+        if (LocalContext.IsMe(p))
+        {
+            TheInventorCard.ShowGadgetTips = false;
+            BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
+        }
 
         if (choice is not null)
         {
@@ -155,6 +167,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
 
         Ignore.Add(rewardsSet.Player);
+        
         await rewardsSet.Offer();
     }
 

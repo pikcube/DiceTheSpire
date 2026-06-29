@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Nodes.Cards;
@@ -48,12 +49,14 @@ public class GadgetCard : CustomCardModel
     public override bool CanBeGeneratedByModifiers => false;
     public override bool CanBeGeneratedInCombat => false;
 
-    public void SetVars(GadgetModel linkedGadgetModel)
+    public void SetVars(GadgetModel linkedGadgetModel, CardModel? card, bool isForPopUp = false)
     {
         StringVar title = (StringVar)DynamicVars["GadgetTitle"];
         StringVar desc = (StringVar)DynamicVars["GadgetDescription"];
         title.StringValue = linkedGadgetModel.Title.GetFormattedText();
-        desc.StringValue = linkedGadgetModel.Description.GetFormattedText();
+        desc.StringValue = isForPopUp ? 
+            linkedGadgetModel.Description.GetFormattedText() : 
+            $"Gadget: {linkedGadgetModel.Description.GetFormattedText()}";
         TitleLocString.Add(title);
     }
 
@@ -92,7 +95,7 @@ public class GadgetCard : CustomCardModel
         if (linkedGadgetModel.Parent is null || LocalContext.IsMe(linkedGadgetModel.Parent.Owner))
         {
             GadgetCard gadgetCard = GadgetCard.Create();
-            gadgetCard.SetVars(linkedGadgetModel);
+            gadgetCard.SetVars(linkedGadgetModel, null, true);
             await gadgetCard.ShowAndDestoryCardAsync(0.5f);
         }
     }

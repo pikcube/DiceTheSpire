@@ -6,11 +6,11 @@ using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Helpers.Models;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
+using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Character;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Powers;
 using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Cards
@@ -46,7 +46,7 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {
-            if (!InventorDebugConfig.ShowGadgetTips)
+            if (!ShowGadgetTips)
             {
                 yield break;
             }
@@ -57,8 +57,13 @@ namespace TheInventor.TheInventorCode.Cards
                 yield break;
             }
 
-            yield return new HoverTip(gadgetModel.Title, gadgetModel.Description, ModelDb.Power<GadgetPower>().Icon);
+            GadgetCard gadgetCard = GadgetCard.Create();
+            gadgetCard.SetVars(gadgetModel, this);
+            yield return new CardHoverTip(gadgetCard);
         }
+
+        public static bool ShowGadgetTips { get; set; } = false;
+
         public abstract string GetScrapId { get; }
 
         public virtual Task OnScrapAsync()
