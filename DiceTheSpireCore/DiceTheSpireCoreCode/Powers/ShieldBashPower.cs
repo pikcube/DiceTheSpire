@@ -18,15 +18,13 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers
 
         public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props, CardModel? cardSource)
         {
-            if (Owner.Player is null || Owner.Player.PlayerCombatState is null)
+            if (Owner.Player?.PlayerCombatState is null)
             {
                 return;
             }
             ShieldBashPower shieldBashPower = this;
             shieldBashPower.Flash();
             await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), shieldBashPower.Owner, Amount, Applier, null);
-
-            return;
         }
           
     }
