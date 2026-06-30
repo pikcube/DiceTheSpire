@@ -142,12 +142,15 @@ public static class InventorHelperFunctions
             if (card.Keywords.Contains(CardKeyword.Unplayable))
             {
                 await card.BlinkAsync(choiceContext);
+                continue;
             }
-            else
+
+            if (card.Type != CardType.Power)
             {
                 card.ShouldBlinkOnNextPlay = true;
-                await CardCmd.AutoPlay(choiceContext, card, null);
             }
+
+            await CardCmd.AutoPlay(choiceContext, card, null);
         }
     }
 }
