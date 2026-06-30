@@ -90,5 +90,7 @@
   "THETHIEF-BROKEN_MIRROR.description": "Gain {Energy:energyIcons()} at the start of each turn.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
   "THETHIEF-BROKEN_MIRROR.title": "Broken Mirror",
   "THETHIEF-POCKET_KNIFE.description": "Deal {CalculatedDamage:diff()} damage. Deals {ExtraDamage:diff()} extra damage for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
-  "THETHIEF-POCKET_KNIFE.title": "Pocket Knife"
+  "THETHIEF-POCKET_KNIFE.title": "Pocket Knife",
+  "THETHIEF-BENCH_PRESS.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDeal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
+  "THETHIEF-BENCH_PRESS.title": "Bench Press"
 }
