@@ -19,6 +19,8 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
 {
     public override string GetScrapId => nameof(Accelerate);
 
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
