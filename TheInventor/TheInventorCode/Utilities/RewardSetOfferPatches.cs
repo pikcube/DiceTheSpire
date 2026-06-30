@@ -9,7 +9,7 @@ public class RewardSetOfferPatches
 {
     public static bool Prefix(RewardsSet __instance, ref Task __result)
     {
-        if (__instance.Player.Character is not Character.TheInventor || __instance.Player.RunState.CurrentRoom is not CombatRoom || ScrapManager.IgnoreNext(__instance.Player))
+        if (__instance.Player.Character is not Character.TheInventor || __instance.Player.RunState.CurrentRoom is not CombatRoom || ScrapManager.ScrapComplete(__instance.Player))
         {
             return true;
         }
