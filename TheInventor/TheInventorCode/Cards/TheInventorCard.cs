@@ -6,6 +6,7 @@ using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Helpers.Models;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Character;
@@ -46,7 +47,7 @@ namespace TheInventor.TheInventorCode.Cards
 
         protected IEnumerable<IHoverTip> GetGadgetHoverTip()
         {
-            if (!ShowGadgetTips)
+            if (!ShowGadgetTips(this))
             {
                 yield break;
             }
@@ -62,7 +63,9 @@ namespace TheInventor.TheInventorCode.Cards
             yield return new CardHoverTip(gadgetCard);
         }
 
-        public static bool ShowGadgetTips { get; set; } = false;
+        public static bool ShowGadgetTips(CardModel card) => EnableTipsGlobal || EnableTipsOnCards.Contains(card);
+        public static List<CardModel> EnableTipsOnCards { get; } = [];
+        public static bool EnableTipsGlobal { get; set; } = false;
 
         public abstract string GetScrapId { get; }
 

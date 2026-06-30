@@ -129,17 +129,23 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             GadgetId.Set(p, nameof(BrokenGadget));
         }
 
+        CardModel[] choiceClones = [..cardModels.Select(c => (CardModel)c.ClonePreservingMutability())];
+
         if (LocalContext.IsMe(p))
         {
-            TheInventorCard.ShowGadgetTips = true;
             BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
+            TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
         }
 
-        CardModel? choice = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), cardModels, p);
+        CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p);
+        CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
         
         if (LocalContext.IsMe(p))
         {
-            TheInventorCard.ShowGadgetTips = false;
+            foreach (CardModel c in choiceClones)
+            {
+                TheInventorCard.EnableTipsOnCards.Remove(c);
+            }
             BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
         }
 

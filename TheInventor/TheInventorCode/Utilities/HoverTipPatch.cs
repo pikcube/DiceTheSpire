@@ -13,7 +13,7 @@ public class HoverTipPatch() : CustomSingletonModel(HookType.Run), IModifyHoverT
 {
     public void ModifyCardHoverTips(CardModel sender, HoverTipEventArgs e)
     {
-        if (sender.Owner.Character is not Character.TheInventor || sender is TheInventorCard || !TheInventorCard.ShowGadgetTips)
+        if (sender.Owner.Character is not Character.TheInventor || sender is TheInventorCard || !TheInventorCard.ShowGadgetTips(sender))
         {
             return;
         }
