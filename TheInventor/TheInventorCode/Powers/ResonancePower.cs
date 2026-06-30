@@ -60,7 +60,6 @@ public class ResonancePower : TheInventorPower
                 return ModelDb.Power<WeakPower>().StrongMutableClone();
             case NoBlockPower:
             case FrailPower:
-            case StartledPower:
                 amount = 1;
                 return ModelDb.Power<FreezePower>().StrongMutableClone();
             case CursedPower:

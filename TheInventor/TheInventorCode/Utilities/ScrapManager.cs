@@ -38,7 +38,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
     {
         foreach ((Player p, string? gadgetId) in runState.Players.Where(p => p.Character is Character.TheInventor).Select(p => (p, GadgetId.Get(p))))
         {
-            if (gadgetId is null or nameof(Dig))
+            if (gadgetId is null)
             {
                 continue;
             }

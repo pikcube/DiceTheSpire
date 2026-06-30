@@ -25,7 +25,7 @@ namespace TheInventor.TheInventorCode.Cards.Token;
 public class GadgetCard : CustomCardModel
 {
 
-    public GadgetCard() : base(-1, CardType.Status, CardRarity.Token, TargetType.Self, false)
+    public GadgetCard() : base(-1, CardType.Power, CardRarity.Token, TargetType.Self, false)
     {
         TitleLocString.Add(DynamicVars["GadgetTitle"]);
     }
@@ -54,9 +54,7 @@ public class GadgetCard : CustomCardModel
         StringVar title = (StringVar)DynamicVars["GadgetTitle"];
         StringVar desc = (StringVar)DynamicVars["GadgetDescription"];
         title.StringValue = linkedGadgetModel.Title.GetFormattedText();
-        desc.StringValue = isForPopUp ? 
-            linkedGadgetModel.Description.GetFormattedText() : 
-            $"Gadget: {linkedGadgetModel.Description.GetFormattedText()}";
+        desc.StringValue = isForPopUp ? linkedGadgetModel.Description.GetFormattedText() : $"{linkedGadgetModel.Description.GetFormattedText()}\n{linkedGadgetModel.Duration.GetFormattedText()}";
         TitleLocString.Add(title);
     }
 

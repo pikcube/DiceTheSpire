@@ -1,5 +1,4 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -24,10 +23,6 @@ public class SpookyNoises() : TheInventorCard(1, CardType.Skill, CardRarity.Unco
     {
         if (cardPlay.Card == this)
         {
-            if (Owner.HasPower<StartledPower>())
-            {
-                return;
-            }
             await PowerCmd.Apply<ExhaustionPower>(choiceContext, Owner.Creature, DynamicVars.Power<ExhaustionPower>().IntValue, Owner.Creature, this);
         }
     }

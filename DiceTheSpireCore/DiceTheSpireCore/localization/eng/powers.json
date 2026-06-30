@@ -44,9 +44,9 @@
   "DICETHESPIRECORE-HALL_OF_MIRRORS_POWER.description": "At the start of each turn, gain {energyPrefix:energyIcons(1)}.",
   "DICETHESPIRECORE-HALL_OF_MIRRORS_POWER.smartDescription": "At the start of each turn, gain {Amount:energyIcons()}.",
   "DICETHESPIRECORE-HALL_OF_MIRRORS_POWER.title": "Hall Of Mirrors",
-  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE.description": "At the start of next turn, gain [gold]Vulnerable[/gold].",
-  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE.smartDescription": "At the start of next turn, gain {Amount} [gold]Vulnerable[/gold].",
-  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE.title": "Next Turn Vulnerable",
+  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE_POWER.description": "At the start of next turn, gain [gold]Vulnerable[/gold].",
+  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE_POWER.smartDescription": "At the start of next turn, gain {Amount} [gold]Vulnerable[/gold].",
+  "DICETHESPIRECORE-NEXT_TURN_VULNERABLE_POWER.title": "Next Turn Vulnerable",
   "DICETHESPIRECORE-SHIELD_BASH_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
   "DICETHESPIRECORE-SHIELD_BASH_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
   "DICETHESPIRECORE-SHIELD_BASH_POWER.title": "Shield Bash"
