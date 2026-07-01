@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgbsu8a3qegu4"
-path="res://.godot/imported/next_turn_vulnerable.png-a9a3e670f183ffb6f88722722a6b2dcd.ctex"
+uid="uid://d08n70f8adth3"
+path="res://.godot/imported/next_turn_vulnerable_power.png-be3b906e98c5e05a79c2f9e527a82ec4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpireCore/images/powers/big/next_turn_vulnerable.png"
-dest_files=["res://.godot/imported/next_turn_vulnerable.png-a9a3e670f183ffb6f88722722a6b2dcd.ctex"]
+source_file="res://DiceTheSpireCore/images/powers/big/next_turn_vulnerable_power.png"
+dest_files=["res://.godot/imported/next_turn_vulnerable_power.png-be3b906e98c5e05a79c2f9e527a82ec4.ctex"]
 
 [params]
 

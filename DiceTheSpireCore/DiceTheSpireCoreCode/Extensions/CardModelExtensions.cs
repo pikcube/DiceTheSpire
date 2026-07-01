@@ -33,6 +33,7 @@ public static class CardModelExtensions
             if (instance.CurrentUpgradeLevel <= 0)
             {
                 await instance.ExhaustAsync(choiceContext, true);
+                await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, true);
             }
             else
             {

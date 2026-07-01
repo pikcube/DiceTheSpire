@@ -31,7 +31,7 @@ public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targ
                 {
                     await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
                 }
-                    await card.NudgeAsync(choiceContext);
+                await card.NudgeAsync(choiceContext);
             }
         }
         protected override void OnUpgrade()
