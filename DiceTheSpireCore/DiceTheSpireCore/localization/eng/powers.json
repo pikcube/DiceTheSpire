@@ -49,5 +49,9 @@
   "DICETHESPIRECORE-NEXT_TURN_VULNERABLE_POWER.title": "Next Turn Vulnerable",
   "DICETHESPIRECORE-SHIELD_BASH_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
   "DICETHESPIRECORE-SHIELD_BASH_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
-  "DICETHESPIRECORE-SHIELD_BASH_POWER.title": "Shield Bash"
+  "DICETHESPIRECORE-SHIELD_BASH_POWER.title": "Shield Bash",
+  "DICETHESPIRECORE-BICEP_CURL_POWER.description": "[gold]Upgrade[/gold] {Amount} random card each time you [gold]Nudge[/gold] a card.",
+  "DICETHESPIRECORE-BICEP_CURL_POWER.smartDescription": "[gold]Upgrade[/gold] {Amount} random card each time you [gold]Nudge[/gold] a card.",
+  "DICETHESPIRECORE-BICEP_CURL_POWER.title": "Bicep Curl"
+
 }
