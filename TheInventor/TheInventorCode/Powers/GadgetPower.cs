@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -14,6 +15,7 @@ using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Powers;
 
+[UsedImplicitly]
 public class GadgetPower : TheInventorPower, IGadgetParent
 {
     static GadgetPower()
@@ -73,7 +75,15 @@ public class GadgetPower : TheInventorPower, IGadgetParent
         }
     }
 
-    public string InitialGadgetId { get; set; } = nameof(DefaultGadget);
+    public string InitialGadgetId
+    {
+        get;
+        set
+        {
+            field = value;
+            GadgetText = $"{ScrapManager.AllGadgets[field].GadgetText}";
+        }
+    } = nameof(DefaultGadget);
 
     public void Update()
     {

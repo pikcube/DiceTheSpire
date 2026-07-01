@@ -62,7 +62,7 @@ public class ShockPower : DiceTheSpireCorePower
         foreach (CardModel card in cards)
         {
             card.AddTempKeyword(CardKeyword.Unplayable, this);
-            await DiceyHooks.OnKeywordAddedAsync(card, CardKeyword.Unplayable);
+            await DiceyHooks.OnKeywordAdded(card, CardKeyword.Unplayable);
         }
     }
 

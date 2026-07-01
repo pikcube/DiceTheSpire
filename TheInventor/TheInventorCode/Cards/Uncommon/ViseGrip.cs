@@ -24,7 +24,7 @@ public class ViseGrip() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
         foreach (CardModel card in cards)
         {
             await CardPileCmd.Add(card, PileType.Hand);
-            await card.BumpAsync();
+            await card.BumpAsync(choiceContext);
         }
     }
 

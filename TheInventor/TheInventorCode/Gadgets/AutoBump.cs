@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -9,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
+[UsedImplicitly]
 public class AutoBump() : GadgetModel(nameof(AutoBump))
 {
     public override decimal PowerBase => 1;
@@ -27,7 +29,7 @@ public class AutoBump() : GadgetModel(nameof(AutoBump))
 
         foreach (CardModel card in result)
         {
-            await card.BumpAsync();
+            await card.BumpAsync(choiceContext);
         }
     }
 

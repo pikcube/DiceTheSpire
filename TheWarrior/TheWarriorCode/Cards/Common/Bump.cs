@@ -27,7 +27,7 @@ public class Bump() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
-            await card.BumpAsync();
+            await card.BumpAsync(choiceContext);
         }
     }
 
