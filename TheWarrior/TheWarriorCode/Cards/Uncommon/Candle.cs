@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -18,8 +19,7 @@ public class Candle() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, T
     {
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(999), new BlockVar(6, BlockProps.card)];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
-
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.FromCard<Burn>()];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 0, DynamicVars.Cards.IntValue);
