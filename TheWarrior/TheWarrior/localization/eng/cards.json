@@ -66,6 +66,8 @@
   "THEWARRIOR-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your hand.",
   "THEWARRIOR-THICK_SKIN.title": "Thick Skin",
   "THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage. Repeat once for each [gold]Battle Axe[/gold] played this combat.\n(Currently {Repeat:diff()} hits)",
-  "THEWARRIOR-BATTLE_AXE.title": "Battle Axe"
+  "THEWARRIOR-BATTLE_AXE.title": "Battle Axe",
+  "THEWARRIOR-CRYSTAL_SHIELD.description": "Gain block equal to the energy cost\nof your hand.\n(Currently {CalculatedBlock:diff()})",
+  "THEWARRIOR-CRYSTAL_SHIELD.title": "Crystal Shield"
 
 }     
