@@ -64,6 +64,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <AdditionalFiles Remove="TheInventor\localization\eng\events.json" />
       <AdditionalFiles Remove="TheInventor\localization\eng\rest_site_ui.json" />
     </ItemGroup>
 

@@ -1,5 +1,4 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Helpers;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
 
