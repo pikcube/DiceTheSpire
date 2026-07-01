@@ -92,5 +92,7 @@
   "THETHIEF-POCKET_KNIFE.description": "Deal {CalculatedDamage:diff()} damage. Deals {ExtraDamage:diff()} extra damage for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
   "THETHIEF-POCKET_KNIFE.title": "Pocket Knife",
   "THETHIEF-BENCH_PRESS.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDeal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
-  "THETHIEF-BENCH_PRESS.title": "Bench Press"
+  "THETHIEF-BENCH_PRESS.title": "Bench Press",
+  "THETHIEF-CAMPFIRE.description": "{IfUpgraded:show:Gain 1 [gold]Strength[/gold].\n}[gold]Pips[/gold] now gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "THETHIEF-CAMPFIRE.title": "Campfire"
 }
