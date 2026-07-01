@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 {
 
-public class Candle() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Candle() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
     {
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(999), new BlockVar(6, BlockProps.card)];

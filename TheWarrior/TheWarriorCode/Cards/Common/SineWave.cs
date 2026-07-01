@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 namespace TheWarrior.TheWarriorCode.Cards.Common
 {
 
-    public class SineWave() : TheWarriorCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
+    public class SineWave() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
