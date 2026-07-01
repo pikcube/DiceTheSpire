@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode;
 
@@ -67,12 +68,13 @@ public static class DiceyHooks
     public static async Task OnAfterBumpAsync(PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard)
     {
         AfterBump?.Invoke(choiceContext, card, newCard);
-        if (card.RunState is null)
+        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        if (state is null)
         {
             return;
         }
 
-        foreach (IAfterBumpListener listener in card.Owner.RunState.IterateHookListeners(card.CombatState).OfType<IAfterBumpListener>())
+        foreach (IAfterBumpListener listener in state.IterateHookListeners(card.CombatState).OfType<IAfterBumpListener>())
         {
             await listener.AfterBumpAsync(choiceContext, card, newCard);
         }
@@ -85,12 +87,13 @@ public static class DiceyHooks
     public static async Task OnAfterNudgeAsync(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted)
     {
         AfterNudge?.Invoke(choiceContext, card, wasExhausted);
-        if (card.RunState is null)
+        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        if (state is null)
         {
             return;
         }
 
-        foreach (IAfterNudgeListener listener in card.Owner.RunState.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
+        foreach (IAfterNudgeListener listener in state.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
         {
             await listener.AfterNudgeAsync(choiceContext, card, wasExhausted);
         }
