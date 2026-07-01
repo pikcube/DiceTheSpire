@@ -25,13 +25,11 @@ public class Replicate() : GadgetModel(nameof(Replicate))
         }
 
         CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_DUPE"), Power, Power);
-        CardModel? result = (await CardSelectCmd.FromHand(choiceContext, player, prefs, null, this)).SingleOrDefault();
-        if (result is null)
-        {
-            return;
-        }
 
-        CardModel copy = result.CreateClone();
-        await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Hand, player);
+        foreach (CardModel result in await CardSelectCmd.FromHand(choiceContext, player, prefs, null, this))
+        {
+            CardModel copy = result.CreateClone();
+            await CardPileCmd.AddGeneratedCardToCombat(copy, PileType.Hand, player);
+        }
     }
 }
