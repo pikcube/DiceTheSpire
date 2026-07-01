@@ -62,5 +62,5 @@
   "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
   "THEINVENTOR-GADGET_POWER.description": "Changes every combat.",
   "THEINVENTOR-GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
-  "THEINVENTOR-GADGET_POWER.title": "Gadget"
+  "THEINVENTOR-GADGET_POWER.title": "{GadgetName.StringValue}"
 }

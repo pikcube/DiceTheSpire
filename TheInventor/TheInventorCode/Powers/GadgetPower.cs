@@ -1,10 +1,12 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
@@ -34,13 +36,21 @@ public class GadgetPower : TheInventorPower, IGadgetParent
 
     public override PowerStackType StackType => GetStackType();
 
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
-
     private PowerStackType GetStackType()
     {
+        //todo: Add more complex logic for when gadgets need to show a counter on screen
         return PowerStackType.Single;
     }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText))];
+
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText)), new StringVar(nameof(GadgetName))];
+
+    public string GadgetName
+    {
+        get => ((StringVar)DynamicVars[nameof(GadgetName)]).StringValue;
+        set => ((StringVar)DynamicVars[nameof(GadgetName)]).StringValue = value;
+    }
 
     private string GadgetText
     {
@@ -48,13 +58,15 @@ public class GadgetPower : TheInventorPower, IGadgetParent
         set => ((StringVar)DynamicVars[nameof(GadgetText)]).StringValue = value;
     }
 
+    public override LocString Title => new LocString("powers", Id.Entry + ".title").WithDynamicVars(DynamicVars);
+
     public string GadgetId
     {
         get;
         set
         {
             field = value;
-            GadgetText = $"{LinkedGadgetModel.GadgetText}";
+            GadgetText = $"Gadget: {LinkedGadgetModel.Description.GetFormattedText()}";
         }
     } = nameof(DefaultGadget);
 
@@ -75,19 +87,21 @@ public class GadgetPower : TheInventorPower, IGadgetParent
         }
     }
 
-    public string InitialGadgetId
+    public string InitialGadgetId //Used to preload the name before we apply the power
     {
         get;
         set
         {
             field = value;
-            GadgetText = $"{ScrapManager.AllGadgets[field].GadgetText}";
+            GadgetText = $"Gadget: {ScrapManager.AllGadgets[field].Description.GetFormattedText()}";
+            GadgetName = ScrapManager.AllGadgets[field].Title.GetFormattedText();
         }
     } = nameof(DefaultGadget);
 
     public void Update()
     {
-        GadgetText = $"{LinkedGadgetModel.GadgetText}";
+        GadgetText = $"Gadget: {LinkedGadgetModel.Description.GetFormattedText()}";
+        GadgetName = LinkedGadgetModel.Title.GetFormattedText();
     }
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
