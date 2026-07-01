@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Cards;
@@ -36,7 +37,7 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers
             PlayerCombatState pcs = Owner.Player.PlayerCombatState;
             CardModel[] allCards = [.. pcs.Hand.Cards, .. pcs.DrawPile.Cards, .. pcs.DiscardPile.Cards];
 
-            CardCmd.Upgrade(allCards.TakeRandom(Amount, Owner.Player.RunState.Rng.CombatCardSelection), CardPreviewStyle.HorizontalLayout);
+            CardCmd.Upgrade(allCards.Where(c => !c.IsUpgraded).TakeRandom(Amount, Owner.Player.RunState.Rng.CombatCardSelection), CardPreviewStyle.HorizontalLayout);
         }
     }
 }
