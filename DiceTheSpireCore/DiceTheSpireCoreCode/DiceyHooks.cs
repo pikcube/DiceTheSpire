@@ -72,7 +72,7 @@ public static class DiceyHooks
             return;
         }
 
-        foreach (IAfterBumpListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterBumpListener>())
+        foreach (IAfterBumpListener listener in card.Owner.RunState.IterateHookListeners(card.CombatState).OfType<IAfterBumpListener>())
         {
             await listener.AfterBumpAsync(choiceContext, card, newCard);
         }
@@ -90,7 +90,7 @@ public static class DiceyHooks
             return;
         }
 
-        foreach (IAfterNudgeListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
+        foreach (IAfterNudgeListener listener in card.Owner.RunState.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
         {
             await listener.AfterNudgeAsync(choiceContext, card, wasExhausted);
         }
