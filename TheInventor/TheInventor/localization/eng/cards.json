@@ -109,7 +109,7 @@
   "THEINVENTOR-RESONANCE.title": "Resonance",
   "THEINVENTOR-ROCK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to a random enemy.",
   "THEINVENTOR-ROCK.title": "Rock",
-  "THEINVENTOR-ROCKPICK.description": "Draw a card.\nCreate {Cards:plural:a [gold]Rock[/gold]|{Cards:diff()} [gold]Rocks[/gold]}.",
+  "THEINVENTOR-ROCKPICK.description": "Create {Cards:plural:a [gold]Rock[/gold]|{Cards:diff()} [gold]Rocks[/gold]}.",
   "THEINVENTOR-ROCKPICK.title": "Rockpick",
   "THEINVENTOR-ROSE_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you are attacked this turn, gain 1 [gold]Thorn[/gold].",
   "THEINVENTOR-ROSE_SHIELD.title": "Rose Shield",

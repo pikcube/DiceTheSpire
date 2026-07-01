@@ -29,5 +29,6 @@ public class PaperLantern() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommo
     protected override void OnUpgrade()
     {
         DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }

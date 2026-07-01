@@ -10,7 +10,7 @@ namespace TheThief.TheThiefCode.Cards.Uncommon;
 
 public class WreckingBall() : TheThiefCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WreckingBallPower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WreckingBallPower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
