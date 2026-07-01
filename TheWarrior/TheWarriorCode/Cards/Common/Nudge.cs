@@ -13,33 +13,32 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Common
 {
 
-public class Nudge() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(8, BlockProps.card)];
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new BlockVar(8, BlockProps.card)];
+
+        //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             await base.OnPlay(choiceContext, cardPlay);
-            LocString locString = new("card_selection", "TO_NUDGE");
-            CardSelectorPrefs cardSelectorPrefs = new(locString, DynamicVars.Cards.IntValue);
-            IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
-
-            foreach (CardModel card in result)
+            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 0, DynamicVars.Cards.IntValue);
+            CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+            foreach (CardModel card in cards)
             {
-                if(card.CurrentUpgradeLevel > 0)
+                if (card.CurrentUpgradeLevel > 0)
                 {
                     await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
                 }
-                    await card.NudgeAsync(choiceContext);
+                await card.NudgeAsync(choiceContext);
             }
         }
         protected override void OnUpgrade()
         {
             base.OnUpgrade();
-            //DynamicVars.Cards.UpgradeValueBy(1);
-            RemoveKeyword(CardKeyword.Exhaust);
+            DynamicVars.Cards.UpgradeValueBy(2);
+            
         }
 
     }

@@ -34,7 +34,7 @@ public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common,
 
         foreach (CardModel card in result)
         {
-            await card.BumpAsync();
+            await card.BumpAsync(choiceContext);
         }
     }
 

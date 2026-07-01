@@ -63,6 +63,17 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     public virtual bool IsAllowedAsTempGadget => true;
     public abstract CustomSingletonModel.HookType HookType { get; }
 
+    public LocString Duration
+    {
+        get
+        {
+            string key = LocString.Exists("gadgets", Id.Entry + ".duration") ? Id.Entry + ".duration" : "THEINVENTOR-DEFAULT.duration";
+            LocString description = new LocString("gadgets", key).WithDynamicVars(DynamicVars);
+            description.Add(nameof(Power), Power);
+            return description;
+        }
+    }
+
     public GadgetModel GetMutable(IGadgetParent gadget)
     {
         GadgetModel newGadgetModel = (GadgetModel)MutableClone();

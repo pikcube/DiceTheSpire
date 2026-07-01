@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode;
 
@@ -39,15 +40,15 @@ public static class DiceyHooks
         }
     }
 
-    public delegate void AfterKeywordAddedAsyncHandler(CardModel card, CardKeyword keyword);
+    public delegate void AfterKeywordAddedHandler(CardModel card, CardKeyword keyword);
 
-    public static event AfterKeywordAddedAsyncHandler? AfterKeywordAddedAsync;
+    public static event AfterKeywordAddedHandler? AfterKeywordAdded;
 
     //Warning, no harmony patch has been set up for this function yet, so don't expect it to work unless you call it manually after adding the keyword.
 
-    public static async Task OnKeywordAddedAsync(CardModel card, CardKeyword keyword)
+    public static async Task OnKeywordAdded(CardModel card, CardKeyword keyword)
     {
-        AfterKeywordAddedAsync?.Invoke(card, keyword);
+        AfterKeywordAdded?.Invoke(card, keyword);
         if (card.RunState is null)
         {
             return;
@@ -58,5 +59,43 @@ public static class DiceyHooks
             await listener.AfterKeywordAddedAsync(card, keyword);
         }
 
+    }
+
+    public delegate void AfterBumpHandler(PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard);
+
+    public static event AfterBumpHandler? AfterBump;
+
+    public static async Task OnAfterBumpAsync(PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard)
+    {
+        AfterBump?.Invoke(choiceContext, card, newCard);
+        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        if (state is null)
+        {
+            return;
+        }
+
+        foreach (IAfterBumpListener listener in state.IterateHookListeners(card.CombatState).OfType<IAfterBumpListener>())
+        {
+            await listener.AfterBumpAsync(choiceContext, card, newCard);
+        }
+    }
+
+    public delegate void AfterNudgeHandler(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted);
+
+    public static event AfterNudgeHandler? AfterNudge;
+
+    public static async Task OnAfterNudgeAsync(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted)
+    {
+        AfterNudge?.Invoke(choiceContext, card, wasExhausted);
+        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        if (state is null)
+        {
+            return;
+        }
+
+        foreach (IAfterNudgeListener listener in state.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
+        {
+            await listener.AfterNudgeAsync(choiceContext, card, wasExhausted);
+        }
     }
 }

@@ -33,7 +33,7 @@
   "THEWARRIOR-BATTERING_RAM.title": "Battering Ram",
   "THEWARRIOR-LAST_STAND.description": "Survive 3 more turns...",
   "THEWARRIOR-LAST_STAND.title": "Last Stand",
-  "THEWARRIOR-CANDLE.description": "[gold]Nudge[/gold] any number of cards. Gain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].\nAdd a [gold]Burn+[/gold] to your discard pile.",
+  "THEWARRIOR-CANDLE.description": "[gold]Nudge[/gold] any number of cards. Gain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].\nAdd a [gold]Burn[/gold] to your discard pile.",
   "THEWARRIOR-CANDLE.title": "Candle",
   "THEWARRIOR-MATCHSTICK.description": "Draw {Cards:diff()} cards.\nGain {Energy:energyIcons()}.",
   "THEWARRIOR-MATCHSTICK.title": "Matchstick",
@@ -66,6 +66,10 @@
   "THEWARRIOR-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your hand.",
   "THEWARRIOR-THICK_SKIN.title": "Thick Skin",
   "THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage. Repeat once for each [gold]Battle Axe[/gold] played this combat.\n(Currently {Repeat:diff()} hits)",
-  "THEWARRIOR-BATTLE_AXE.title": "Battle Axe"
+  "THEWARRIOR-BATTLE_AXE.title": "Battle Axe",
+  "THEWARRIOR-CRYSTAL_SHIELD.description": "Gain block equal to the energy cost\nof your hand.\n(Currently {CalculatedBlock:diff()})",
+  "THEWARRIOR-CRYSTAL_SHIELD.title": "Crystal Shield",
+  "THEWARRIOR-FISTS.description": "[gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-FISTS.title": "Fists"
 
 }     

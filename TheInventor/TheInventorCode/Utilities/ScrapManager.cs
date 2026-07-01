@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
@@ -37,7 +38,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
     {
         foreach ((Player p, string? gadgetId) in runState.Players.Where(p => p.Character is Character.TheInventor).Select(p => (p, GadgetId.Get(p))))
         {
-            if (gadgetId is null or nameof(Dig))
+            if (gadgetId is null)
             {
                 continue;
             }
@@ -93,16 +94,15 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     private static List<Player> Ignore { get; set; } = [];
 
-    public static bool IgnoreNext(Player player)
+    public static bool ScrapComplete(Player player)
     {
-        if (!Ignore.Contains(player))
-        {
-            return false;
-        }
+        return Ignore.Contains(player);
+    }
 
-        Ignore.Remove(player);
-        return true;
-
+    public override Task BeforeRoomEntered(AbstractRoom room)
+    {
+        Ignore.Clear();
+        return Task.CompletedTask;
     }
 
     public static async Task DoScrapAsyncFor(RewardsSet rewardsSet)

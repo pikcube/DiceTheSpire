@@ -29,7 +29,7 @@ public class PuppyPaws() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
         {
             foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.ToArray())
             {
-                await card.BumpAsync();
+                await card.BumpAsync(choiceContext);
             }
         }
         else
@@ -41,7 +41,7 @@ public class PuppyPaws() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
 
             foreach (CardModel card in result)
             {
-                await card.BumpAsync();
+                await card.BumpAsync(choiceContext);
             }
         }
     }

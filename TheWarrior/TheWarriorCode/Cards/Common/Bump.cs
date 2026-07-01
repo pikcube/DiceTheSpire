@@ -14,30 +14,28 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 
  
-public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Bump() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
+    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await base.OnPlay(choiceContext, cardPlay);
-        LocString locString = new("card_selection", "TO_BUMP");
-        CardSelectorPrefs cardSelectorPrefs = new(locString, DynamicVars.Cards.IntValue);
-        IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
-
-        foreach (CardModel card in result)
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 0, DynamicVars.Cards.IntValue);
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        foreach (CardModel card in cards)
         {
-            await card.BumpAsync();
+            await card.BumpAsync(choiceContext);
         }
     }
 
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        //DynamicVars.Cards.UpgradeValueBy(1);
-        RemoveKeyword(CardKeyword.Exhaust);
+        DynamicVars.Cards.UpgradeValueBy(2);
+        //RemoveKeyword(CardKeyword.Exhaust);
     }
 
 }

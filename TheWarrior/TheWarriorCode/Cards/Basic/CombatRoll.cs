@@ -30,7 +30,7 @@ public class CombatRoll() : TheWarriorCard(1, CardType.Skill, CardRarity.Basic, 
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Retain);
     }
 
 }

@@ -22,7 +22,7 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic
             return;
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .WithHitCount(IsUpgraded ? 3 : 2)
             .FromCard(this)
             .TargetingRandomOpponents(CombatState)

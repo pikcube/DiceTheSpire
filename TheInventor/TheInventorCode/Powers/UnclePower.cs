@@ -18,6 +18,10 @@ public class UnclePower : TheInventorPower
 
     public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
+        if (side != Owner.Side)
+        {
+            return;
+        }
         if (Amount == 1)
         {
             await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner, null);
