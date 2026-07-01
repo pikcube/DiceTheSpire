@@ -18,33 +18,13 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
 
         private static decimal Bonus(CardModel card, Creature? arg2)
         {
-
-            if (card.Owner.PlayerCombatState is null)
-            {
-                return 0;
-            }
-
-            int block = 0;
-
-            List<CardModel> handCards = [.. card.Owner.PlayerCombatState.Hand.Cards];
-            foreach (CardModel c in handCards)
-            {
-                int xValue = c.EnergyCost.GetAmountToSpend();
-
-                block += xValue;
-            }
-            return block;
+            return card.Owner.PlayerCombatState is null ? 0 : card.Owner.PlayerCombatState.Hand.Cards.Sum(c => c.EnergyCost.GetAmountToSpend());
         }
 
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             CrystalShield crystalShield = this;
-            if (DynamicVars.CalculatedBlock is null)
-            {
-                return;
-            }
-            await base.OnPlay(choiceContext, cardPlay);
             await CreatureCmd.GainBlock(crystalShield.Owner.Creature, crystalShield.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target), crystalShield.DynamicVars.CalculatedBlock.Props, cardPlay);
         }
 

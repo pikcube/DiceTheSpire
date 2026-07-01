@@ -285,32 +285,3 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
     }
 }
-
-internal class TempParent : IGadgetParent
-{
-    public TempParent(Player player, GadgetModel gadget)
-    {
-        Owner = player;
-        LinkedGadgetModel = gadget.GetMutable(this);
-    }
-
-    public string GadgetId
-    {
-        set {}
-    }
-    public Player Owner { get; }
-    public GadgetModel LinkedGadgetModel { get; internal set; }
-
-    public void Flash()
-    {
-    }
-
-    public Task AfterRandomizedAsync()
-    {
-        return Task.CompletedTask;
-    }
-
-    public void Update()
-    {
-    }
-}

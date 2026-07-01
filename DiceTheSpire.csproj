@@ -112,4 +112,7 @@
     <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
 	    <Exec Command="FastPackAll.exe -godot &quot;$(GodotPath)&quot; -mods &quot;$(ModsPath)&quot;" />
     </Target>
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+      <Exec Command="CloseSts2.exe" />
+    </Target>
 </Project>
