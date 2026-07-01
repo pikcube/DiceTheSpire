@@ -19,13 +19,10 @@ using System.Threading.Tasks;
 using System.Threading.Tasks;
 
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+namespace TheWarrior.TheWarriorCode.Cards.Common
 {
 
-
-
-
-    public class CrystalShield() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public class CrystalShield() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
     {
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedBlock(0, Bonus)];
@@ -68,8 +65,6 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
         {
             AddKeyword(CardKeyword.Retain);
         }
-
     }
-
 }
 
