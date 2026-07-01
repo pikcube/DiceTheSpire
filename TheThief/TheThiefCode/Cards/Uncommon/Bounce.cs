@@ -21,7 +21,7 @@ public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, Ta
             field = value;
             CurrentCount += changeBy;
         }
-    } = 6;
+    } = 4;
 
     public int CurrentCount
     {
@@ -42,7 +42,7 @@ public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, Ta
     }
 
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("CurrentCount", 6), new PowerVar<BouncePower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("CurrentCount", 4), new PowerVar<BouncePower>(1M)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -51,6 +51,6 @@ public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, Ta
 
     protected override void OnUpgrade()
     {
-        this.UpgradeCountdown(-2);
+        this.UpgradeCountdown(-1);
     }
 }
