@@ -68,6 +68,8 @@
   "THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage. Repeat once for each [gold]Battle Axe[/gold] played this combat.\n(Currently {Repeat:diff()} hits)",
   "THEWARRIOR-BATTLE_AXE.title": "Battle Axe",
   "THEWARRIOR-CRYSTAL_SHIELD.description": "Gain block equal to the energy cost\nof your hand.\n(Currently {CalculatedBlock:diff()})",
-  "THEWARRIOR-CRYSTAL_SHIELD.title": "Crystal Shield"
+  "THEWARRIOR-CRYSTAL_SHIELD.title": "Crystal Shield",
+  "THEWARRIOR-FISTS.description": "[gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-FISTS.title": "Fists"
 
 }     
