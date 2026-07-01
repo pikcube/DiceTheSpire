@@ -77,7 +77,7 @@
   "THEINVENTOR-HI_VIS_JACKET.title": "Hi Vis Jacket",
   "THEINVENTOR-ICICLE.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "THEINVENTOR-ICICLE.title": "Icicle",
-  "THEINVENTOR-KALEIDOSCOPE.description": "[gold]Inspect[/gold] {Cards:diff()}.\nTransform all cards [gold]Blinked[/gold] into cards of any color.",
+  "THEINVENTOR-KALEIDOSCOPE.description": "Transform up to {Cards:diff()} cards in hand into cards of any color.",
   "THEINVENTOR-KALEIDOSCOPE.title": "Kaleidoscope",
   "THEINVENTOR-KEYBLADE.description": "Deal {Damage:diff()} damage.\n[gold]Inspect[/gold] {Cards:diff()}.",
   "THEINVENTOR-KEYBLADE.title": "Keyblade",

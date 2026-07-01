@@ -1,15 +1,12 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
@@ -24,16 +21,9 @@ public class Kaleidoscope() : TheInventorCard(1, CardType.Skill, CardRarity.Rare
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardModel[] topCards = [.. PileType.Draw.GetPile(Owner).Cards.Take(DynamicVars.Cards.IntValue)];
+        CardSelectorPrefs prefs = new(CardSelectorPrefs.TransformSelectionPrompt, 0, DynamicVars.Cards.IntValue);
 
-        if (topCards.Length == 0)
-        {
-            return;
-        }
-
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BLINK"), 0, topCards.Length);
-
-        CardModel[] selectedCards = [.. await CardSelectCmd.FromSimpleGrid(choiceContext, topCards, Owner, prefs)];
+        CardModel[] selectedCards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)];
 
         List<CardTransformation> transforms = [];
 
@@ -50,15 +40,9 @@ public class Kaleidoscope() : TheInventorCard(1, CardType.Skill, CardRarity.Rare
             transforms.Add(new CardTransformation(o, r));
         }
 
-        IEnumerable<CardPileAddResult> trans = await CardCmd.Transform(transforms, null, CardPreviewStyle.None);
+        await CardCmd.Transform(transforms, null);
 
-        CardModel[] cards = [.. trans.Select(r => r.cardAdded)];
-        await BlinkModel.BlinkCardsAsync(choiceContext, cards);
 
-        foreach (IOnInspectListener listener in Owner.RunState.IterateHookListeners(Owner.Creature.CombatState).OfType<IOnInspectListener>())
-        {
-            await listener.OnInspectAsync(choiceContext, cards.Length, cards, Owner);
-        }
     }
 
     protected override void OnUpgrade()
