@@ -11,7 +11,7 @@ namespace TheThief.TheThiefCode.Cards.Uncommon;
 
 public class PoisonCrown() : TheThiefCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(2)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>(), HoverTipFactory.FromPower<PoisonPower>()];
 
