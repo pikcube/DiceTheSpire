@@ -23,7 +23,14 @@ public static class InspectCardPatch
     {
         public static void Postfix()
         {
-            TheInventorCard.EnableTipsGlobal = ShowStack.Pop();
+            if (ShowStack.Count == 0)
+            {
+                TheInventorCard.EnableTipsGlobal = false;
+            }
+            else
+            {
+                TheInventorCard.EnableTipsGlobal = ShowStack.Pop();
+            }
         }
     }
 }
