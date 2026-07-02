@@ -72,6 +72,8 @@
   "THEWARRIOR-FISTS.description": "[gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-FISTS.title": "Fists",
   "THEWARRIOR-BICEP_CURL.description": "Whenever you [gold]Nudge[/gold] a card, [gold]Upgrade[/gold] a random card.",
-  "THEWARRIOR-BICEP_CURL.title": "Bicep Curl"
+  "THEWARRIOR-BICEP_CURL.title": "Bicep Curl",
+  "THEWARRIOR-JAVELIN.description": "Deal {Damage:diff()} damage. All 3-cost cards in [gold]Hand[/gold] cost 0 the next time they are played this turn.",
+  "THEWARRIOR-JAVELIN.title": "Javelin"
 
 }     
