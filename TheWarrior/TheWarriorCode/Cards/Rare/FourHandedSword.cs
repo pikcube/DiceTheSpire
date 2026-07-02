@@ -1,0 +1,33 @@
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.TestSupport;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace TheWarrior.TheWarriorCode.Cards.Rare
+{
+
+    public class FourHandedSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+    {
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        {
+            if (CombatState is null)
+            {
+                return;
+            }
+            await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+            
+        }
+
+        protected override void OnUpgrade()
+        {
+            base.OnUpgrade();
+        }
+    }
+}       

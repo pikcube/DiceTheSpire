@@ -9,10 +9,10 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 {
     public class ShieldBash() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BicepCurlPower>(2)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShieldBashPower>(2)];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            await PowerCmd.Apply<BicepCurlPower>(choiceContext, Owner.Creature, DynamicVars.Power<BicepCurlPower>().IntValue, Owner.Creature, this);
+            await PowerCmd.Apply<ShieldBashPower>(choiceContext, Owner.Creature, DynamicVars.Power<ShieldBashPower>().IntValue, Owner.Creature, this);
         }
         protected override void OnUpgrade()
         {
