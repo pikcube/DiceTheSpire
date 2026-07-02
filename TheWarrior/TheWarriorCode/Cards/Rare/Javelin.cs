@@ -3,7 +3,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.TestSupport;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare
@@ -11,43 +10,26 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
 
     public class Javelin() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15M, DamageProps.card)];
-        public int TestEnergyCostOverride
-        {
-            get;
-            set
-            {
-                TestMode.AssertOn();
-                AssertMutable();
-                field = value;
-            }
-        } = -1;
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, DamageProps.card)];
+
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-           .FromCard(this)
-           .Targeting(cardPlay.Target)
-           .WithHitFx(VfxCmd.slashPath)
-           .Execute(choiceContext);
+                .FromCard(this)
+                .Targeting(cardPlay.Target)
+                .WithHitFx(VfxCmd.slashPath)
+                .Execute(choiceContext);
 
-            foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX & c.EnergyCost is not null))
+            foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX && c.EnergyCost.GetAmountToSpend() == 3))
             {
-                if (card.EnergyCost.GetAmountToSpend() == 3)
-                {
-                    card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
-                }
+                card.EnergyCost.SetThisTurnOrUntilPlayed(0);
             }
         }
 
-        private int NextEnergyCost()
-        {
-            return TestEnergyCostOverride == 3 ? TestEnergyCostOverride : 0;
-        }
         protected override void OnUpgrade()
-        { 
+        {
             DynamicVars.Damage.UpgradeValueBy(5);
         }
     }
