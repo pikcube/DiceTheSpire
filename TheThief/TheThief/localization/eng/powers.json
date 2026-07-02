@@ -56,5 +56,8 @@
   "THETHIEF-CAMPFIRE_POWER.description": "[gold]Pips[/gold] now gain 1 [gold]Strength[/gold].",
   "THETHIEF-CAMPFIRE_POWER.smartDescription": "[gold]Pips[/gold] now gain {Amount} [gold]Strength[/gold].",
   "THETHIEF-CAMPFIRE_POWER.pipDescription": "Gain {Amount} [gold]Strength[/gold].",
-  "THETHIEF-CAMPFIRE_POWER.title": "Campfire"
+  "THETHIEF-CAMPFIRE_POWER.title": "Campfire",
+  "THETHIEF-CACTUS_NEEDLE_POWER.description": "Gain 3 [gold]Thorns[/gold] this turn.",
+  "THETHIEF-CACTUS_NEEDLE_POWER.smartDescription": "Gain {Amount} [gold]Thorns[/gold] this turn.",
+  "THETHIEF-CACTUS_NEEDLE_POWER.title": "Cactus Needle"
 }

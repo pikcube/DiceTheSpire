@@ -94,5 +94,9 @@
   "THETHIEF-BENCH_PRESS.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDeal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "THETHIEF-BENCH_PRESS.title": "Bench Press",
   "THETHIEF-CAMPFIRE.description": "{IfUpgraded:show:Gain 1 [gold]Strength[/gold].\n}[gold]Pips[/gold] now gain {StrengthPower:diff()} [gold]Strength[/gold].",
-  "THETHIEF-CAMPFIRE.title": "Campfire"
+  "THETHIEF-CAMPFIRE.title": "Campfire",
+  "THETHIEF-ROSEPETAL_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold] twice.",
+  "THETHIEF-ROSEPETAL_SHIELD.title": "Rosepetal Shield",
+  "THETHIEF-CACTUS_NEEDLE.description": "{IfUpgraded:show:Gain {ThornsPower:diff()} [gold]Thorns[/gold] this turn.\n|}Gain {CalculatedBlock:diff()} [gold]Block[/gold].\nGains extra [gold]Block[/gold] for each [gold]Thorns[/gold] you have.",
+  "THETHIEF-CACTUS_NEEDLE.title": "Cactus Needle"
 }
