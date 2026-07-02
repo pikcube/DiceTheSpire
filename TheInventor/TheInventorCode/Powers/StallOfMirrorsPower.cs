@@ -1,9 +1,11 @@
-﻿using MegaCrit.Sts2.Core.Entities.Powers;
+﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Rooms;
-using TheInventor.TheInventorCode.Cards.Rare;
+using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Powers;
 
+[UsedImplicitly]
 public class StallOfMirrorsPower : TheInventorPower
 {
     public override PowerType Type => PowerType.Buff;
@@ -16,7 +18,7 @@ public class StallOfMirrorsPower : TheInventorPower
         {
             return Task.CompletedTask;
         }
-        StallOfMirrors.CurrentStall.Set(Owner.Player, Amount);
+        StallOfMirrorsHelper.CurrentStall.Set(Owner.Player, Amount);
         return Task.CompletedTask;
     }
 }
