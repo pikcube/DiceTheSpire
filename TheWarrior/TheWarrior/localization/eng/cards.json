@@ -55,7 +55,7 @@
   "THEWARRIOR-BROADSWORD.title": "Broadsword",
   "THEWARRIOR-DEFENSIVE_STANCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.\nAdd a copy of this card to your [gold]Hand[/gold] when drawn.",
   "THEWARRIOR-DEFENSIVE_STANCE.title": "Defensive Stance",
-  "THEWARRIOR-SINE_WAVE.description": "Add [gold]Bump[/gold] and [gold]Nudge[/gold] to your [gold]Hand[/gold].",
+  "THEWARRIOR-SINE_WAVE.description": "[gold]Bump[/gold] a card in your {IfUpgraded:show:[gold]Hand[/gold].|[gold]Draw Pile[/gold].}\n[gold]Nudge[/gold] a card in your {IfUpgraded:show:[gold]Draw Pile[/gold].|[gold]Hand[/gold].}",
   "THEWARRIOR-SINE_WAVE.title": "Sine Wave",
   "THEWARRIOR-CRESCENT_MOON_BLADE.description": "On {IfUpgraded:show:ODD|EVEN} turns deal {Damage:diff()} damage X times.\nOn {IfUpgraded:show:EVEN|ODD} turns gain {Block:diff()} [gold]Block[/gold] X times.",
   "THEWARRIOR-CRESCENT_MOON_BLADE.title": "Crescent Moon Blade",
