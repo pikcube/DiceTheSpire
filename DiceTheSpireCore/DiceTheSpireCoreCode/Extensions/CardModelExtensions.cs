@@ -10,7 +10,7 @@ public static class CardModelExtensions
 {
     extension<T>(T instance) where T : CardModel
     {
-        public async Task BumpAsync(PlayerChoiceContext choiceContext)
+        public async Task BumpAsync(PlayerChoiceContext choiceContext, PileType? destinationPile = null)
         {
             if (instance.IsUpgradable)
             {
@@ -21,7 +21,15 @@ public static class CardModelExtensions
             {
                 CardModel newCard = instance.CreateClone();
                 newCard.DowngradeInternal();
-                await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Hand, instance.Owner);
+                PileType newPileType = destinationPile ?? instance.Pile?.Type ?? PileType.Hand;
+                if (newPileType is PileType.Draw)
+                {
+                    await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Draw, instance.Owner, CardPilePosition.Random);
+                }
+                else
+                {
+                    await CardPileCmd.AddGeneratedCardToCombat(newCard, newPileType, instance.Owner);
+                }
                 await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, newCard);
             }
 
