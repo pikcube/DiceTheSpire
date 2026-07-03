@@ -18,17 +18,11 @@ public class Dagger() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, Ta
 
     }
 
-    //todo: Fix
     protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
     {
-        throw new NotImplementedException();
+        (PileType pileType, CardPilePosition pilePosition) = base.GetResultPileTypeAndPositionForCardPlay();
+        return pileType == PileType.Discard ? (PileType.Hand, CardPilePosition.Bottom) : (pileType, pilePosition);
     }
-
-    //protected override PileType GetResultPileTypeForCardPlay()
-    //{
-    //    PileType pileTypeForCardPlay = base.GetResultPileTypeForCardPlay();
-    //    return pileTypeForCardPlay != PileType.Discard ? pileTypeForCardPlay : PileType.Hand;
-    //}
 
     protected override void OnUpgrade()
     {

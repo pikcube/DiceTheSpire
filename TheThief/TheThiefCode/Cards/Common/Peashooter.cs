@@ -39,8 +39,12 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Common,
 
     protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
     {
-        return CurrentCount == 0 ? (PileType.Hand, CardPilePosition.Bottom) : base.GetResultPileTypeAndPositionForCardPlay();
+        (PileType pileType, CardPilePosition pilePosition) = base.GetResultPileTypeAndPositionForCardPlay();
+        return (pileType == PileType.Discard && CurrentCount == 0) ? (PileType.Hand, CardPilePosition.Bottom) : (pileType, pilePosition);
     }
+
+        
+
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2)];
 
