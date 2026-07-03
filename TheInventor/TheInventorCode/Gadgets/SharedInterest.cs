@@ -18,7 +18,7 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
 
     public override bool IsAllowedAsTempGadget => false;
 
-    public override bool TryModifyRewardsLate(Player player, List<Reward> rewards, AbstractRoom? room)
+    public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (player != Parent?.Owner)
         {
@@ -91,6 +91,7 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
             List<CardModel> backupCards = deck[3..];
 
             CardReward cardReward = new(deck[..3], CardCreationSource.Encounter, player, new CardCreationOptions([], CardCreationSource.Encounter, CardRarityOddsType.Uniform));
+            cardReward.Populate();
             rewards.Add(cardReward);
             CardRewardRerollPatch.HijackReroll(cardReward, backupCards);
         }

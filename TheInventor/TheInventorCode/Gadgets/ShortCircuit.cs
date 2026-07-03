@@ -12,7 +12,7 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class ShortCircuit() : GadgetModel(nameof(ShortCircuit))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
-    public override bool IsAllowedAsTempGadget => true;
+    public override bool IsAllowedAsTempGadget => false;
 
     public override decimal PowerBase => 5;
 
@@ -44,17 +44,7 @@ public class ShortCircuit() : GadgetModel(nameof(ShortCircuit))
 
     public override async Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player != Parent?.Owner || player.Creature.CombatState is null)
-        {
-            return;
-        }
-
-        for (int n = 0; n < Power; ++n)
-        {
-            foreach (Creature c in player.Creature.CombatState.Enemies)
-            {
-                await PowerCmd.Apply<VulnerablePower>(choiceContext, c, 1, null, null);
-            }
-        }
+        IsUsedUp = false;
+        await AfterPlayerTurnStart(choiceContext, player);
     }
 }
