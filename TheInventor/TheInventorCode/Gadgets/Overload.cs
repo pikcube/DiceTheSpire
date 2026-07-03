@@ -35,7 +35,7 @@ public class Overload() : GadgetModel(nameof(Overload))
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource, CardPlay? cardPlay)
     {
         if (Parent is null || Count > Power || cardSource is null || cardSource.Owner != Parent.Owner)
         {

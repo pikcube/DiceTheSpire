@@ -30,7 +30,7 @@ public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Un
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner.Creature, this);
+        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner.Creature, this, null);
         await NextTurnVulnerablePower.ApplyAsync(choiceContext, CombatState.Enemies, DynamicVars.Vulnerable.IntValue, Owner.Creature, this);
     }
 

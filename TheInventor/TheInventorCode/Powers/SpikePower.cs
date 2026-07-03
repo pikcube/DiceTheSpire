@@ -23,7 +23,7 @@ public class SpikePower : TheInventorPower, IAfterKeywordAddedListener
         }
 
         HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
-        await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null);
+        await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
     }
 
     public async Task AfterKeywordAddedAsync(CardModel card, CardKeyword keyword)
@@ -31,7 +31,7 @@ public class SpikePower : TheInventorPower, IAfterKeywordAddedListener
         if (keyword == CardKeyword.Unplayable && card.Owner.Creature == Owner && card.Pile?.Type == PileType.Hand)
         {
             HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
-            await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null);
+            await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
         }
     }
 }

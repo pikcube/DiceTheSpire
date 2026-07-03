@@ -25,7 +25,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
                 return;
             }
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .FromCard(this)
+                .FromCard(this, cardPlay)
                 .TargetingAllOpponents(CombatState)
                 .WithHitFx(VfxCmd.slashPath)
                 .Execute(choiceContext);

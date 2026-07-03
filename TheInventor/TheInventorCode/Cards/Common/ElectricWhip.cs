@@ -28,7 +28,7 @@ public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Com
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .TargetingAllOpponents(CombatState)
             .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)

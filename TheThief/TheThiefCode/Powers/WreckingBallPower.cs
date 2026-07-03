@@ -35,7 +35,6 @@ public class WreckingBallPower : TheThiefPower, IModifyPipOnPlayListener
         {
             return;
         }
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, Amount,
-            ValueProp.Unpowered, Owner, cardPlay.Card);
+        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, Amount, ValueProp.Unpowered, Owner, cardPlay.Card, cardPlay);
     }
 }

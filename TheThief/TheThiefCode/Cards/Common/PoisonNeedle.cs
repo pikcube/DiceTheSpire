@@ -23,10 +23,16 @@ public class PoisonNeedle() : TheThiefCard(1, CardType.Skill, CardRarity.Common,
         await Cmd.Wait(0.2f);
     }
 
-    protected override PileType GetResultPileTypeForCardPlay()
+    //todo: This one is a bit more complicated to rewrite, best of luck Cory
+    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
     {
-        return base.GetResultPileTypeForCardPlay() != PileType.Discard ? base.GetResultPileTypeForCardPlay() : PileType.Hand;
+        throw new NotImplementedException();
     }
+
+    //protected override PileType GetResultPileTypeForCardPlay()
+    //{
+    //    return base.GetResultPileTypeForCardPlay() != PileType.Discard ? base.GetResultPileTypeForCardPlay() : PileType.Hand;
+    //}
 
     protected override void OnUpgrade()
     {

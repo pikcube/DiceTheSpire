@@ -44,7 +44,7 @@ public class Rock() : CustomCardModel(-1, CardType.Attack, CardRarity.Token, Tar
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, null)
             .TargetingRandomOpponents(CombatState)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);

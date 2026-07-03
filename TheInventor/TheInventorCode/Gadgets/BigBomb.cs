@@ -26,7 +26,7 @@ public class BigBomb() : GadgetModel(nameof(BigBomb))
         switch (TurnNumber)
         {
             case 3:
-                await CreatureCmd.Damage(choiceContext, Parent.Owner.Creature.CombatState.Enemies, Power, DamageProps.nonCardHpLoss, Parent.Owner.Creature, null);
+                await CreatureCmd.Damage(choiceContext, Parent.Owner.Creature.CombatState.Enemies, Power, DamageProps.nonCardHpLoss, Parent.Owner.Creature, null, null);
                 break;
         }
     }

@@ -14,7 +14,7 @@ public class Tetraphobia() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, T
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).Targeting(cardPlay.Target).FromCard(this)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).Targeting(cardPlay.Target).FromCard(this, cardPlay)
             .Execute(choiceContext);
     }
 

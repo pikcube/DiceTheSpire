@@ -37,7 +37,7 @@ public class DiceDetonator() : TheInventorCard(1, CardType.Attack, CardRarity.Ra
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitCount(blinkCards.Count)
             .WithHitFx(VfxCmd.rockShatterPath)

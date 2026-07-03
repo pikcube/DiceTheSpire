@@ -33,7 +33,7 @@ public class FrostHammer() : TheInventorCard(2, CardType.Attack, CardRarity.Unco
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitCount(count)
             .WithHitFx(VfxCmd.bluntPath)

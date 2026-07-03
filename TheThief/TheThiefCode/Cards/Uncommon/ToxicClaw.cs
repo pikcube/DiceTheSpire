@@ -31,7 +31,7 @@ public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath).Execute(choiceContext);
         await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue,
             Owner.Creature, this);
@@ -63,13 +63,13 @@ public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon,
     {
         base.AfterDowngraded();
         DamageVar damage = DynamicVars.Damage;
-        damage.BaseValue = damage.BaseValue + ExtraDamageFromClawPlays;
+        damage.BaseValue += ExtraDamageFromClawPlays;
     }
 
     private void BuffFromClawPlay(decimal extraDamage)
     {
         DamageVar damage = DynamicVars.Damage;
-        damage.BaseValue = damage.BaseValue + extraDamage;
+        damage.BaseValue += extraDamage;
         ExtraDamageFromClawPlays += extraDamage;
     }
 }

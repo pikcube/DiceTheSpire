@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
@@ -17,6 +18,8 @@ public class Scissors() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, Ta
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

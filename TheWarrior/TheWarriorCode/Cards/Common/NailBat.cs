@@ -21,7 +21,7 @@ public class NailBat() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, T
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                         .FromCard(this)
+                         .FromCard(this, cardPlay)
                          .Targeting(cardPlay.Target)
                          .WithHitFx(VfxCmd.slashPath)
                          .Execute(choiceContext);
@@ -37,7 +37,6 @@ public class NailBat() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, T
             }
 
             await DamageCmd.Attack(DynamicVars["Recoil"].IntValue)
-                .FromCard(this)
                 .Targeting(Owner.Creature)
                 .WithValueProp(DynamicVars.Damage.Props)
                 .WithHitFx(VfxCmd.rockShatterPath)

@@ -33,7 +33,7 @@ public class QuickAttack() : TheInventorCard(3, CardType.Attack, CardRarity.Unco
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .TargetingRandomOpponents(CombatState)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);

@@ -29,7 +29,7 @@ public class Transistor() : TheInventorCard(1, CardType.Attack, CardRarity.Uncom
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.lightningPath)
             .Execute(choiceContext);

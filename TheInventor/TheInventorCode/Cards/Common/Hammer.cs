@@ -21,7 +21,7 @@ public class Hammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
