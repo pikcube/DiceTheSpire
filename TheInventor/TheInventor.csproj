@@ -28,14 +28,10 @@
         </Reference>
     </ItemGroup>
 
-    <ItemGroup Condition="False"> <!--Allows access to originally private/protected members but may (unlikely to) cause errors.-->
-        <Publicize Include="sts2" IncludeVirtualMembers="false" IncludeCompilerGeneratedMembers="false" />
-    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.3.5" PrivateAssets="All" />
         <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" />
-        <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
         <PackageReference Include="Pikcube.Common" Version="0.3.3" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
@@ -66,10 +62,6 @@
     <ItemGroup>
       <AdditionalFiles Remove="TheInventor\localization\eng\events.json" />
       <AdditionalFiles Remove="TheInventor\localization\eng\rest_site_ui.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="C:\Users\Michael\.nuget\packages\krafs.publicizer\2.3.0\contentfiles\cs\any\Publicizer\IgnoresAccessChecksToAttribute.cs" />
     </ItemGroup>
 
     <ItemGroup>

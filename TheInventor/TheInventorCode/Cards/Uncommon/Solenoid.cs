@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -10,17 +11,15 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Solenoid() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllAllies)
+public class Solenoid() : TheInventorCard(3, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
 {
     public override string GetScrapId => nameof(BattleWrench);
 
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(6), new PowerVar<ShockPower>(6)];
 
-    private int ShockValForTip => IsUpgraded ? 1 : -2;
-
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(ShockValForTip)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(DynamicVars.Power<ShockPower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -30,15 +29,16 @@ public class Solenoid() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
         }
         foreach (Player p in CombatState.Players)
         {
+            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.EnchantedValue, p);
             if (p == Owner)
             {
-                int cardsToShock = IsUpgraded ? 1 : Owner.PlayerCombatState?.Hand.Cards.Count ?? 10;
-                await ShockPower.ApplyAsync(choiceContext, p.Creature, cardsToShock, p.Creature, this);
-            }
-            else
-            {
-                await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.EnchantedValue, p);
+                await ShockPower.ApplyAsync(choiceContext, p.Creature, DynamicVars.Power<ShockPower>().EnchantedValue, p.Creature, this);
             }
         }
+    }
+
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
     }
 }

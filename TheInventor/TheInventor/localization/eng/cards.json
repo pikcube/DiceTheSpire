@@ -149,7 +149,7 @@
   "THEINVENTOR-SNEEZE.title": "Sneeze",
   "THEINVENTOR-SNOWFLAKE.description": "[gold]Held[/gold]: Gain {BlockNextTurnPower:diff()} [gold]Block[/gold] next turn.",
   "THEINVENTOR-SNOWFLAKE.title": "Snowflake",
-  "THEINVENTOR-SOLENOID.description": "Allies draw {Cards:diff()} cards.\n[gold]Shock[/gold] {IfUpgraded:show:a card|your hand}.",
+  "THEINVENTOR-SOLENOID.description": "All players draw {Cards:diff()} cards.\n[gold]Shock[/gold] {ShockPower:diff()} cards.",
   "THEINVENTOR-SOLENOID.title": "Solenoid",
   "THEINVENTOR-SPANNER.description": "[gold]Blink[/gold] 2 cards.\nAdd {Cards:diff()} random cards from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
   "THEINVENTOR-SPANNER.title": "Spanner",
