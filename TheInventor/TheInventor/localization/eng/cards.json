@@ -179,7 +179,7 @@
   "THEINVENTOR-TOWER_SHIELD.title": "Tower Shield",
   "THEINVENTOR-TRANSFORMER.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nPermanently increase this card's [gold]Block[/gold] and damage by {Increase:diff()}.",
   "THEINVENTOR-TRANSFORMER.title": "Transformer",
-  "THEINVENTOR-TRANSISTOR.description": "Deal {CalculatedDamage:diff()} damage.\nWhenever you [gold]Shock[/gold] yourself, double this card's damage until played.",
+  "THEINVENTOR-TRANSISTOR.description": "Deal {Damage:diff()} damage.\nIf this card would be [gold]Shocked[/gold], play it instead.",
   "THEINVENTOR-TRANSISTOR.title": "Transistor",
   "THEINVENTOR-UNCLE.description": "In {Delay:diff()} turns, ALL enemies lose {Damage:diff()} HP.",
   "THEINVENTOR-UNCLE.jinxDescription": "ALL enemies lose [blue]{Damage:diff()}[/blue] HP.",

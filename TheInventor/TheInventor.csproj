@@ -69,6 +69,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Compile Remove="C:\Users\Michael\.nuget\packages\krafs.publicizer\2.3.0\contentfiles\cs\any\Publicizer\IgnoresAccessChecksToAttribute.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
       <None Remove="TheInventor\localization\eng\gadgets.json" />
     </ItemGroup>
 

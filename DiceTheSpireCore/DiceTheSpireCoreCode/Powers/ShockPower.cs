@@ -65,14 +65,21 @@ public class ShockPower : DiceTheSpireCorePower
             return;
         }
 
-        IEnumerable<CardModel> cards = PileType.Hand.GetPile(Owner.Player).Cards
-            .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
-            .TakeRandom((int)amount, CombatState.RunState.Rng.CombatCardSelection);
+        CardModel[] cards =
+        [
+            ..PileType.Hand.GetPile(Owner.Player).Cards
+                .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
+                .TakeRandom((int)amount, CombatState.RunState.Rng.CombatCardSelection)
+        ];
 
         foreach (CardModel card in cards)
         {
             card.AddTempKeyword(CardKeyword.Unplayable, this);
-            await DiceyHooks.OnCardShocked(card);
+        }
+
+        foreach (CardModel card in cards)
+        {
+            await DiceyHooks.OnCardShocked(choiceContext, card);
         }
     }
 

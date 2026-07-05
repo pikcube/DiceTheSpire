@@ -45,7 +45,7 @@ public static class DiceyHooks
     public static event AfterCardShockedHandler? AfterCardShocked;
 
 
-    public static async Task OnCardShocked(CardModel card)
+    public static async Task OnCardShocked(PlayerChoiceContext choiceContext, CardModel card)
     {
         AfterCardShocked?.Invoke(card);
         if (card.RunState is null)
@@ -55,7 +55,7 @@ public static class DiceyHooks
 
         foreach (IAfterCardShockedListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterCardShockedListener>())
         {
-            await listener.AfterCardShockedAsync(card);
+            await listener.AfterCardShockedAsync(choiceContext, card);
         }
 
     }

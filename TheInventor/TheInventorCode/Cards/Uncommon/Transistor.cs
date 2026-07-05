@@ -1,13 +1,13 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
@@ -16,48 +16,36 @@ public class Transistor() : TheInventorCard(1, CardType.Attack, CardRarity.Uncom
 {
     public override string GetScrapId => nameof(ShortCircuit);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(9, Bonus, 9)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, DamageProps.card)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(1)];
 
-    public bool IsShock { get; set; } = false;
-
-    private static decimal Bonus(CardModel card, Creature? target)
-    {
-        if (card is not Transistor transistor)
-        {
-            return 0;
-        }
-
-        return transistor.IsShock ? 1 : 0;
-    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.CalculatedDamage)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.lightningPath)
             .Execute(choiceContext);
-
-        IsShock = false;
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(4);
-        DynamicVars.ExtraDamage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 
-    public Task AfterCardShockedAsync(CardModel card)
+    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext,CardModel card)
     {
-        if (card.Owner == Owner && IsInCombat)
+        if (card != this)
         {
-            IsShock = true;
+            return;
         }
 
-        return Task.CompletedTask;
+        card.RemoveTempKeywordEarly(CardKeyword.Unplayable);
+        card.RemoveKeyword(CardKeyword.Unplayable);
+        await CardCmd.AutoPlay(choiceContext, this, null);
     }
 }

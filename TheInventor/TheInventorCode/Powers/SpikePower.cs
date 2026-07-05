@@ -26,12 +26,11 @@ public class SpikePower : TheInventorPower, IAfterCardShockedListener
         await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
     }
 
-    public async Task AfterCardShockedAsync(CardModel card)
+    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
         if (card.Owner.Creature == Owner && card.Pile?.Type == PileType.Hand)
         {
-            HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
-            await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
+            await CreatureCmd.Damage(choiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
         }
     }
 }
