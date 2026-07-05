@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,17 +12,24 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Transistor() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class Transistor() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IAfterCardShockedListener
 {
     public override string GetScrapId => nameof(ShortCircuit);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(9, Bonus, 9)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>()];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(1)];
+
+    public bool IsShock { get; set; } = false;
 
     private static decimal Bonus(CardModel card, Creature? target)
     {
-        return card.Owner.HasPower<ShockPower>() ? 1 : 0;
+        if (card is not Transistor transistor)
+        {
+            return 0;
+        }
+
+        return transistor.IsShock ? 1 : 0;
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -33,11 +41,23 @@ public class Transistor() : TheInventorCard(1, CardType.Attack, CardRarity.Uncom
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.lightningPath)
             .Execute(choiceContext);
+
+        IsShock = false;
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.CalculationBase.UpgradeValueBy(4);
         DynamicVars.ExtraDamage.UpgradeValueBy(4);
+    }
+
+    public Task AfterCardShockedAsync(CardModel card)
+    {
+        if (card.Owner == Owner && IsInCombat)
+        {
+            IsShock = true;
+        }
+
+        return Task.CompletedTask;
     }
 }
