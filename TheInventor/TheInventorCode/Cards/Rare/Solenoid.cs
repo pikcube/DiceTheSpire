@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Uncommon;
+namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Solenoid() : TheInventorCard(3, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
 {
@@ -39,6 +39,6 @@ public class Solenoid() : TheInventorCard(3, CardType.Skill, CardRarity.Rare, Ta
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Cards.UpgradeValueBy(3);
     }
 }
