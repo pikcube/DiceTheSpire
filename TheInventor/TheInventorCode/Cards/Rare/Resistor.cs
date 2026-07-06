@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -12,6 +13,7 @@ using TheInventor.TheInventorCode.Powers;
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
 
+[UsedImplicitly]
 public class Resistor() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override string GetScrapId => nameof(Protection);

@@ -119,7 +119,7 @@
   "THEINVENTOR-ROTTEN_EGG.title": "Rotten Egg",
   "THEINVENTOR-RUBBER_MALLET.description": "[gold]Blink[/gold] {Cards:diff()} cards.\nDeal {Damage:diff()} damage.\nIf you have less than {Energy:energyIcons()} remaining, this card costs 0.",
   "THEINVENTOR-RUBBER_MALLET.title": "Rubber Mallet",
-  "THEINVENTOR-SAFETY_GOGGLES.description": "[gold]Negate[/gold] debuffs you apply to yourself {IfUpgraded:show:for 2 turns|this turn}.",
+  "THEINVENTOR-SAFETY_GOGGLES.description": "[gold]Negate[/gold] the next {SafetyGogglesPower:diff()} debuffs you apply to yourself.",
   "THEINVENTOR-SAFETY_GOGGLES.title": "Safety Goggles",
   "THEINVENTOR-SAW_WAVE.description": "Whenever you apply a debuff to yourself, gain {SawWavePower:diff()} [gold]Dexterity[/gold].",
   "THEINVENTOR-SAW_WAVE.title": "Saw Wave",

@@ -40,7 +40,7 @@ public class Megabump() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
 
         await Task.WhenAll(results.Values);
 
-        foreach ((Player p, Task<IEnumerable<CardModel>> value) in results)
+        foreach ((Player _, Task<IEnumerable<CardModel>> value) in results)
         {
             CardModel[] r = [.. await value];
             foreach (CardModel c in r)
