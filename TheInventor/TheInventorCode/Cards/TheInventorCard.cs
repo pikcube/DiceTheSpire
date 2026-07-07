@@ -63,9 +63,9 @@ namespace TheInventor.TheInventorCode.Cards
             yield return new CardHoverTip(gadgetCard);
         }
 
-        public static bool ShowGadgetTips(CardModel card) => EnableTipsGlobal || EnableTipsOnCards.Contains(card);
+        public static bool ShowGadgetTips(CardModel card) => EnableGadgetTipsGlobal || EnableTipsOnCards.Contains(card);
         public static List<CardModel> EnableTipsOnCards { get; } = [];
-        public static bool EnableTipsGlobal { get; set; } = false;
+        public static bool EnableGadgetTipsGlobal { get; set; } = false;
 
         public abstract string GetScrapId { get; }
 

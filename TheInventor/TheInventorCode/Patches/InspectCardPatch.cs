@@ -13,8 +13,8 @@ public static class InspectCardPatch
     {
         public static void Prefix()
         {
-            ShowStack.Push(TheInventorCard.EnableTipsGlobal);
-            TheInventorCard.EnableTipsGlobal = true;
+            ShowStack.Push(TheInventorCard.EnableGadgetTipsGlobal);
+            TheInventorCard.EnableGadgetTipsGlobal = true;
         }
     }
 
@@ -24,7 +24,7 @@ public static class InspectCardPatch
         public static void Postfix()
         {
             ShowStack.TryPop(out bool lastState);
-            TheInventorCard.EnableTipsGlobal = lastState;
+            TheInventorCard.EnableGadgetTipsGlobal = lastState;
         }
     }
 }
