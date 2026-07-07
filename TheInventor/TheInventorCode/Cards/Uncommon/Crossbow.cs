@@ -27,7 +27,7 @@ public class Crossbow() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommo
 
         await base.OnPlay(choiceContext, cardPlay);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);

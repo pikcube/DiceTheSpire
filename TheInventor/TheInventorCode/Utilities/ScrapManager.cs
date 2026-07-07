@@ -160,6 +160,8 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             {
                 GadgetId.Set(p, scrapCard.GetScrapId);
                 await scrapCard.OnScrapAsync();
+                TempParent parent = new(p, AllGadgets[scrapCard.GetScrapId]);
+                parent.LinkedGadgetModel.TryModifyRewards(p, rewardsSet.Rewards, p.RunState.CurrentRoom);
             }
         }
         else

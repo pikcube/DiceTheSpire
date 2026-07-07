@@ -24,7 +24,9 @@ public class Harvest() : GadgetModel(nameof(Harvest))
 
         for (int n = 0; n < 6; ++n)
         {
-            rewards.Add(new GoldReward(5 + 10 * n, 15 + 10 * n, player));
+            GoldReward goldReward = new GoldReward(5 + 10 * n, 15 + 10 * n, player);
+            goldReward.Populate();
+            rewards.Add(goldReward);
         }
 
         BreakMe();

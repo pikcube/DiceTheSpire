@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using Pikcube.Common.Extensions;
@@ -18,6 +19,15 @@ public class ShockPower : DiceTheSpireCorePower
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    public override LocString Description
+    {
+        get
+        {
+            LocString val = base.Description;
+            return val;
+        }
+    }
 
     private int StacksToResolve { get; set; }
 
@@ -55,14 +65,21 @@ public class ShockPower : DiceTheSpireCorePower
             return;
         }
 
-        IEnumerable<CardModel> cards = PileType.Hand.GetPile(Owner.Player).Cards
-            .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
-            .TakeRandom((int)amount, CombatState.RunState.Rng.CombatCardSelection);
+        CardModel[] cards =
+        [
+            ..PileType.Hand.GetPile(Owner.Player).Cards
+                .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
+                .TakeRandom((int)amount, CombatState.RunState.Rng.CombatCardSelection)
+        ];
 
         foreach (CardModel card in cards)
         {
             card.AddTempKeyword(CardKeyword.Unplayable, this);
-            await DiceyHooks.OnKeywordAdded(card, CardKeyword.Unplayable);
+        }
+
+        foreach (CardModel card in cards)
+        {
+            await DiceyHooks.OnCardShocked(choiceContext, card);
         }
     }
 

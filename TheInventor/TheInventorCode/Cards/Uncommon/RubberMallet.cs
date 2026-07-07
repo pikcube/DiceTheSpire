@@ -40,7 +40,7 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);

@@ -12,7 +12,7 @@ namespace TheInventor.TheInventorCode.Cards.Uncommon;
 public class SafetyGoggles() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(Protection);
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SafetyGogglesPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SafetyGogglesPower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

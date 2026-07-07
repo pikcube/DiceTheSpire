@@ -48,7 +48,7 @@ public class BenchPress() : TheThiefCard(-1, CardType.Attack, CardRarity.Common,
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).Targeting(cardPlay.Target).FromCard(this)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).Targeting(cardPlay.Target).FromCard(this, cardPlay)
             .Execute(choiceContext);
         await PowerCmd.Apply<BenchPressPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue,
             Owner.Creature, this);

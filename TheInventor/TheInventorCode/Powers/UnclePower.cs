@@ -24,7 +24,7 @@ public class UnclePower : TheInventorPower
         }
         if (Amount == 1)
         {
-            await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner, null);
+            await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner, null, null);
             await PowerCmd.Remove(this);
             return;
         }

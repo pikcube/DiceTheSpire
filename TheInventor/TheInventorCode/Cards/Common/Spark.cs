@@ -23,7 +23,7 @@ public class Spark() : TheInventorCard(-1, CardType.Attack, CardRarity.Common, T
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner.Creature, this);
+        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner.Creature, this, null);
     }
 
     protected override void OnUpgrade()

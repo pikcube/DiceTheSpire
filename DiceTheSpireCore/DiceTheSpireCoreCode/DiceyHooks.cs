@@ -40,23 +40,22 @@ public static class DiceyHooks
         }
     }
 
-    public delegate void AfterKeywordAddedHandler(CardModel card, CardKeyword keyword);
+    public delegate void AfterCardShockedHandler(CardModel card);
 
-    public static event AfterKeywordAddedHandler? AfterKeywordAdded;
+    public static event AfterCardShockedHandler? AfterCardShocked;
 
-    //Warning, no harmony patch has been set up for this function yet, so don't expect it to work unless you call it manually after adding the keyword.
 
-    public static async Task OnKeywordAdded(CardModel card, CardKeyword keyword)
+    public static async Task OnCardShocked(PlayerChoiceContext choiceContext, CardModel card)
     {
-        AfterKeywordAdded?.Invoke(card, keyword);
+        AfterCardShocked?.Invoke(card);
         if (card.RunState is null)
         {
             return;
         }
 
-        foreach (IAfterKeywordAddedListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterKeywordAddedListener>())
+        foreach (IAfterCardShockedListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterCardShockedListener>())
         {
-            await listener.AfterKeywordAddedAsync(card, keyword);
+            await listener.AfterCardShockedAsync(choiceContext, card);
         }
 
     }

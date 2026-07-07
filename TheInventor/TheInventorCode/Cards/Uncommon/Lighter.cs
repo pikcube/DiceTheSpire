@@ -20,7 +20,7 @@ public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
@@ -33,7 +33,7 @@ public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, (DamageVar)DynamicVars["HeldDamage"], Owner.Creature, this);
+        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, (DamageVar)DynamicVars["HeldDamage"], Owner.Creature, this, null);
     }
 
     protected override void OnUpgrade()

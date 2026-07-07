@@ -33,7 +33,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
 
             await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
            .WithHitCount(HitCount)
-           .FromCard(this)
+           .FromCard(this, cardPlay)
            .WithHitFx(VfxCmd.slashPath)
            .Targeting(cardPlay.Target)
            .Execute(choiceContext);

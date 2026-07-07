@@ -37,7 +37,7 @@ public class TidalBlade() : TheInventorCard(1, CardType.Skill, CardRarity.Uncomm
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, null)
             .Targeting(target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);

@@ -27,7 +27,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
                 for (int n = 0; n < xValue; ++n)
                 {
                     await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                    .FromCard(this)
+                    .FromCard(this, cardPlay)
                     .Targeting(cardPlay.Target)
                     .WithHitFx(VfxCmd.slashPath)
                     .Execute(choiceContext);

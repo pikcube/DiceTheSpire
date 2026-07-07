@@ -43,7 +43,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
             }
 
             await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-                .FromCard(this)
+                .FromCard(this, cardPlay)
                 .Targeting(cardPlay.Target)
                 .WithHitFx(VfxCmd.slashPath)
                 .Execute(choiceContext);

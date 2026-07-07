@@ -21,14 +21,14 @@ public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommo
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .WithHitCount(DynamicVars.Repeat.IntValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .TargetingAllOpponents(CombatState)
             .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         await DamageCmd.Attack(DynamicVars["Recoil"].IntValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(Owner.Creature)
             .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.rockShatterPath)

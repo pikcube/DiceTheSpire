@@ -23,13 +23,8 @@ public class RewardSetOfferPatches
         return false;
     }
 
-    private static bool IsEndOfRun(IRunState runState, CombatRoom cr)
+    private static bool IsEndOfRun(IRunState runState, CombatRoom room)
     {
-        if (cr.Act.Index + 1 != runState.Acts.Count)
-        {
-            return false;
-        }
-
-        return cr.Encounter.Id == cr.Act.BossEncounter.Id || cr.Encounter.Id == cr.Act.SecondBossEncounter?.Id;
+        return room.RoomType == RoomType.Boss && runState.CurrentActIndex >= runState.Acts.Count - 1;
     }
 }

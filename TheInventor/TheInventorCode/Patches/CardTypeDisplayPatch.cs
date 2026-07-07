@@ -1,9 +1,7 @@
 ﻿using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using TheInventor.TheInventorCode.Cards.Token;
-using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Patches;
 
@@ -16,6 +14,6 @@ public class CardTypeDisplayPatch
         {
             return;
         }
-        ____typeLabel.SetTextAutoSize(ModelDb.Power<GadgetPower>().Title.GetFormattedText());
+        ____typeLabel.SetTextAutoSize("Gadget");
     }
 }

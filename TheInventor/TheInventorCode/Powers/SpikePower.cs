@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheInventor.TheInventorCode.Powers;
 
-public class SpikePower : TheInventorPower, IAfterKeywordAddedListener
+public class SpikePower : TheInventorPower, IAfterCardShockedListener
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -23,15 +23,14 @@ public class SpikePower : TheInventorPower, IAfterKeywordAddedListener
         }
 
         HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
-        await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null);
+        await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
     }
 
-    public async Task AfterKeywordAddedAsync(CardModel card, CardKeyword keyword)
+    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
-        if (keyword == CardKeyword.Unplayable && card.Owner.Creature == Owner && card.Pile?.Type == PileType.Hand)
+        if (card.Owner.Creature == Owner && card.Pile?.Type == PileType.Hand)
         {
-            HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
-            await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null);
+            await CreatureCmd.Damage(choiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
         }
     }
 }

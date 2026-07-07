@@ -8,10 +8,9 @@ using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class Wikipedia() : TheInventorCard(4, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
+public class Wikipedia() : TheInventorCard(4, CardType.Power, CardRarity.Rare, TargetType.AllAllies)
 {
     public override string GetScrapId => nameof(SharedInterest);
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(InventorStaticHoverTips.TemporaryGadget)];
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 

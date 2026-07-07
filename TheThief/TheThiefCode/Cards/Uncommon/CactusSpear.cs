@@ -17,7 +17,7 @@ public class CactusSpear() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommo
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.CalculatedDamage).Targeting(cardPlay.Target).FromCard(this).Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage).Targeting(cardPlay.Target).FromCard(this, cardPlay).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

@@ -22,7 +22,7 @@ public class PocketKnife() : TheThiefCard(1, CardType.Attack, CardRarity.Basic, 
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.CalculatedDamage).Targeting(cardPlay.Target).FromCard(this).Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage).Targeting(cardPlay.Target).FromCard(this, cardPlay).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

@@ -27,7 +27,9 @@ public class BurstOfKnowledge() : GadgetModel(nameof(BurstOfKnowledge))
 
         for (int n = 0; n < 2; ++n)
         {
-            rewards.Add(new CardReward(CardCreationOptions.ForRoom(Parent.Owner, Parent.Owner.RunState.CurrentRoom.RoomType), 3, Parent.Owner));
+            CardReward cardReward = new(CardCreationOptions.ForRoom(Parent.Owner, Parent.Owner.RunState.CurrentRoom.RoomType), 3, Parent.Owner);
+            cardReward.Populate();
+            rewards.Add(cardReward);
         }
 
         BreakMe();

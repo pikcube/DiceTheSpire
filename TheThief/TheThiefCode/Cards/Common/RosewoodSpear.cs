@@ -20,7 +20,7 @@ public class RosewoodSpear() : TheThiefCard(1, CardType.Attack, CardRarity.Commo
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath).Execute(choiceContext);
         await PowerCmd.Apply<RosewoodSpearPower>(choiceContext, Owner.Creature, DynamicVars["ThornsPower"].BaseValue, Owner.Creature, this);
     }

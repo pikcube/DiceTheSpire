@@ -19,7 +19,7 @@ public class ParryingDagger(): TheThiefCard(1, CardType.Attack, CardRarity.Commo
 
         await PowerCmd.Apply<ParryingDaggerPower>(choiceContext, Owner.Creature, DynamicVars["ReducePower"].BaseValue,
             Owner.Creature, this);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .Execute(choiceContext);
     }
 

@@ -29,7 +29,7 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
         if (IsUpgraded)
         {
             await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-                .FromCard(this)
+                .FromCard(this, null)
                 .TargetingAllOpponents(CombatState)
                 .WithHitFx(VfxCmd.slashPath)
                 .Execute(choiceContext);
@@ -37,7 +37,7 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
         else
         {
             await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-                .FromCard(this)
+                .FromCard(this, null)
                 .WithHitCount(1)
                 .TargetingRandomOpponents(CombatState)
                 .WithHitFx(VfxCmd.slashPath)

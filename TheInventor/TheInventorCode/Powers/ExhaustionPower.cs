@@ -28,7 +28,7 @@ public class ExhaustionPower : TheInventorPower
     {
         if (cardPlay.Card.Owner.Creature == Applier)
         {
-            await CreatureCmd.Damage(choiceContext, Owner, Amount, DamageProps.nonCardUnpowered, Applier, null);
+            await CreatureCmd.Damage(choiceContext, Owner, Amount, DamageProps.nonCardUnpowered, Applier, null, null);
         }
     }
 

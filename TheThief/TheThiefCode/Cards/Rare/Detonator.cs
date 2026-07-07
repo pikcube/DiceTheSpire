@@ -20,7 +20,7 @@ public class Detonator() : TheThiefCard(2, CardType.Attack, CardRarity.Rare, Tar
             damage = cardPlay.Target.GetPowerAmount<PoisonPower>();
         }
 
-        await DamageCmd.Attack(damage).FromCard(this).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash")
+        await DamageCmd.Attack(damage).FromCard(this, cardPlay).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash")
             .Execute(choiceContext);
     }
 

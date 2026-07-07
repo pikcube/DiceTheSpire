@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -13,7 +14,7 @@ public class WallOfIce() : GadgetModel(nameof(WallOfIce))
     public override decimal PowerBase => 25;
 
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource, CardPlay? cardPlay)
     {
         if (Parent is null || Parent.Owner.Creature != target)
         {

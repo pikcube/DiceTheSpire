@@ -11,7 +11,7 @@ using TheInventor.TheInventorCode.Gadgets;
 namespace TheInventor.TheInventorCode.Cards.Common;
 
 public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
-{
+{ 
     public override string GetScrapId => nameof(ShortCircuit);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), new PowerVar<ShockPower>(2)];
@@ -28,7 +28,7 @@ public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Com
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .TargetingAllOpponents(CombatState)
             .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)

@@ -31,7 +31,7 @@ public class DoubleEdge() : TheInventorCard(3, CardType.Attack, CardRarity.Uncom
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this)
+            .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
