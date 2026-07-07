@@ -19,11 +19,11 @@ public static class InventorHelperFunctions
     {
         PowerModel power;
         decimal amount;
-        switch (runState.Rng.CombatOrbGeneration.NextInt(9))
+        switch (runState.Rng.CombatOrbGeneration.NextInt(target.HasPower<FreezePower>() ? 8 : 9))
         {
             case 8:
-                power = ModelDb.Power<DebilitatePower>().StrongMutableClone();
-                amount = 2;
+                power = ModelDb.Power<FreezePower>().StrongMutableClone();
+                amount = 1;
                 break;
             case 7:
                 if (target.IsPlayer)
@@ -40,30 +40,23 @@ public static class InventorHelperFunctions
             case 6:
                 if (target.IsPlayer)
                 {
+                    //todo Shock Next Turn
                     power = ModelDb.Power<ShockPower>().StrongMutableClone();
                     amount = 2;
                 }
                 else
                 {
                     power = ModelDb.Power<DarkShacklesPower>().StrongMutableClone();
-                    amount = 7;
+                    amount = 4;
                 }
                 break;
             case 5:
                 power = ModelDb.Power<DoomPower>().StrongMutableClone();
-                amount = 6;
+                amount = 5;
                 break;
             case 4:
-                if (target.IsPlayer)
-                {
-                    power = ModelDb.Power<ExhaustionPower>().StrongMutableClone();
-                    amount = 1;
-                }
-                else
-                {
-                    power = ModelDb.Power<PoisonPower>().StrongMutableClone();
-                    amount = 4;
-                }
+                power = ModelDb.Power<ExhaustionPower>().StrongMutableClone();
+                amount = 1;
                 break;
             case 3:
                 if (target.IsPlayer)
@@ -73,21 +66,21 @@ public static class InventorHelperFunctions
                 }
                 else
                 {
-                    power = ModelDb.Power<DemisePower>().StrongMutableClone();
-                    amount = 5;
+                    power = ModelDb.Power<PoisonPower>().StrongMutableClone();
+                    amount = 4;
                 }
                 break;
             case 2:
-                power = ModelDb.Power<FreezePower>().StrongMutableClone();
+                power = ModelDb.Power<DebilitatePower>().StrongMutableClone();
                 amount = 1;
                 break;
             case 1:
                 power = ModelDb.Power<WeakPower>().StrongMutableClone();
-                amount = 2;
+                amount = 1;
                 break;
             default:
                 power = ModelDb.Power<VulnerablePower>().StrongMutableClone();
-                amount = 2;
+                amount = 1;
                 break;
         }
 
