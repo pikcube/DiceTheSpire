@@ -10,9 +10,9 @@ using Pikcube.Common.Extensions;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class DiceDetonator() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class DiceDetonator() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Catapult);
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
