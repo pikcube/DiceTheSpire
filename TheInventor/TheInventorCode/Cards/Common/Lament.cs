@@ -19,7 +19,6 @@ public class Lament() : TheInventorCard(2, CardType.Attack, CardRarity.Common, T
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await base.OnPlay(choiceContext, cardPlay);
         await PowerCmd.Apply<FreezePower>(choiceContext, cardPlay.Target, 1, Owner.Creature, cardPlay.Card);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
