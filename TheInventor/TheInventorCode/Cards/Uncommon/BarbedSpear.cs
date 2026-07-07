@@ -19,7 +19,7 @@ public class BarbedSpear() : TheInventorCard(2, CardType.Attack, CardRarity.Unco
 
     private static decimal Bonus(CardModel card, Creature? target)
     {
-        return card.Owner.HasPower<ThornsPower>() ? 2 : 0;
+        return card.Owner.HasPower<ThornsPower>() ? card.IsUpgraded ? 2 : 1 : 0;
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -29,12 +29,7 @@ public class BarbedSpear() : TheInventorCard(2, CardType.Attack, CardRarity.Unco
         await DamageCmd.Attack(DynamicVars.CalculatedDamage)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx(VfxCmd.thrashPath)
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-
-        if (!IsUpgraded)
-        {
-            await PowerCmd.Remove<ThornsPower>(Owner.Creature);
-        }
     }
 }
