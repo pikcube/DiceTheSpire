@@ -11,37 +11,34 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
-{
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
 public class Candle() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
-    {
+{
 
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(999), new BlockVar(6, BlockProps.card)];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.FromCard<Burn>()];
-        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(999), new BlockVar(6, BlockProps.card)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.FromCard<Burn>()];
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 0, DynamicVars.Cards.IntValue);
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        foreach (CardModel card in cards)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 0, DynamicVars.Cards.IntValue);
-            CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-            foreach (CardModel card in cards)
+            if (card.CurrentUpgradeLevel > 0)
             {
-                if (card.CurrentUpgradeLevel > 0)
-                {
-                    await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-                }
-                await card.NudgeAsync(choiceContext);
+                await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
             }
-            if (CombatState is null)
-            {
-                return;
-            }
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Burn>(Owner), PileType.Discard, Owner));
-            await Cmd.Wait(0.5f);
+            await card.NudgeAsync(choiceContext);
         }
-        protected override void OnUpgrade()
+        if (CombatState is null)
         {
-            DynamicVars.Block.UpgradeValueBy(2);
+            return;
         }
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Burn>(Owner), PileType.Discard, Owner));
+        await Cmd.Wait(0.5f);
+    }
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 }
-

@@ -3,27 +3,26 @@ using BaseLib.Extensions;
 using Godot;
 using TheWarrior.TheWarriorCode.Extensions;
 
-namespace TheWarrior.TheWarriorCode.Powers
-{
-    public abstract class TheWarriorPower : CustomPowerModel
-    {
-        //Loads from TheWarrior/images/powers/your_power.png
-        public override string CustomPackedIconPath
-        {
-            get
-            {
-                var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
-                return ResourceLoader.Exists(path) ? path : "power.png".PowerImagePath();
-            }
-        }
+namespace TheWarrior.TheWarriorCode.Powers;
 
-        public override string CustomBigIconPath
+public abstract class TheWarriorPower : CustomPowerModel
+{
+    //Loads from TheWarrior/images/powers/your_power.png
+    public override string CustomPackedIconPath
+    {
+        get
         {
-            get
-            {
-                var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
-                return ResourceLoader.Exists(path) ? path : "power.png".BigPowerImagePath();
-            }
+            var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
+            return ResourceLoader.Exists(path) ? path : "power.png".PowerImagePath();
+        }
+    }
+
+    public override string CustomBigIconPath
+    {
+        get
+        {
+            var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
+            return ResourceLoader.Exists(path) ? path : "power.png".BigPowerImagePath();
         }
     }
 }

@@ -8,48 +8,46 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.TestSupport;
 
-namespace TheWarrior.TheWarriorCode.Cards.Rare
-{
+namespace TheWarrior.TheWarriorCode.Cards.Rare;
 
 public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+
+    public int TestEnergyCostOverride
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
-
-        public int TestEnergyCostOverride
+        get;
+        set
         {
-            get;
-            set
-            {
-                TestMode.AssertOn();
-                AssertMutable();
-                field = value;
-            }
-        } = -1;
+            TestMode.AssertOn();
+            AssertMutable();
+            field = value;
+        }
+    } = -1;
 
-        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
+        foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX))
         {
-            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
-            foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX))
+            if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
             {
-                if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
-                {
-                    card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
-                    NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
-                }
+                card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
+                NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
             }
         }
+    }
 
-        private int NextEnergyCost()
-        {
-            return TestEnergyCostOverride >= 0 ? TestEnergyCostOverride : Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
-        }
+    private int NextEnergyCost()
+    {
+        return TestEnergyCostOverride >= 0 ? TestEnergyCostOverride : Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
+    }
 
-        protected override void OnUpgrade()
-        {
-            //RemoveKeyword(CardKeyword.Exhaust);
-            DynamicVars.Cards.UpgradeValueBy(2);
-        }
+    protected override void OnUpgrade()
+    {
+        //RemoveKeyword(CardKeyword.Exhaust);
+        DynamicVars.Cards.UpgradeValueBy(2);
     }
 }

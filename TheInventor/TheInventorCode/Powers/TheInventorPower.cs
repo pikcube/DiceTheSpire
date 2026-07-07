@@ -2,12 +2,11 @@
 using BaseLib.Extensions;
 using TheInventor.TheInventorCode.Extensions;
 
-namespace TheInventor.TheInventorCode.Powers
+namespace TheInventor.TheInventorCode.Powers;
+
+public abstract class TheInventorPower : CustomPowerModel
 {
-    public abstract class TheInventorPower : CustomPowerModel
-    {
-        //Loads from TheInventor/images/powers/your_power.png
-        public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
-        public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
-    }
+    //Loads from TheInventor/images/powers/your_power.png
+    public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
+    public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
 }

@@ -10,36 +10,34 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Common
-{
+namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new BlockVar(8, BlockProps.card)];
+
+    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new BlockVar(8, BlockProps.card)];
-
-        //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
-
-        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        await base.OnPlay(choiceContext, cardPlay);
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 0, DynamicVars.Cards.IntValue);
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        foreach (CardModel card in cards)
         {
-            await base.OnPlay(choiceContext, cardPlay);
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 0, DynamicVars.Cards.IntValue);
-            CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-            foreach (CardModel card in cards)
+            if (card.CurrentUpgradeLevel > 0)
             {
-                if (card.CurrentUpgradeLevel > 0)
-                {
-                    await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-                }
-                await card.NudgeAsync(choiceContext);
+                await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
             }
+            await card.NudgeAsync(choiceContext);
         }
-        protected override void OnUpgrade()
-        {
-            base.OnUpgrade();
-            DynamicVars.Cards.UpgradeValueBy(2);
-            
-        }
-
     }
+    protected override void OnUpgrade()
+    {
+        base.OnUpgrade();
+        DynamicVars.Cards.UpgradeValueBy(2);
+            
+    }
+
 }

@@ -10,46 +10,44 @@ using MegaCrit.Sts2.Core.TestSupport;
 
 
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+
+public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
-    public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public int TestEnergyCostOverride
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
-
-        public int TestEnergyCostOverride
+        get;
+        set
         {
-            get;
-            set
-            {
-                TestMode.AssertOn();
-                AssertMutable();
-                field = value;
-            }
-        } = -1;
+            TestMode.AssertOn();
+            AssertMutable();
+            field = value;
+        }
+    } = -1;
 
-        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+
+        var cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        foreach (CardModel card in cards)
         {
-
-            var cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-            foreach (CardModel card in cards)
+            if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
             {
-                if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
-                {
-                    card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
-                    NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
-                }
+                card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
+                NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
             }
         }
-        private int NextEnergyCost()
-        {
-            return TestEnergyCostOverride >= 0 ? TestEnergyCostOverride : Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
-        }
+    }
+    private int NextEnergyCost()
+    {
+        return TestEnergyCostOverride >= 0 ? TestEnergyCostOverride : Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
+    }
 
-        protected override void OnUpgrade()
-        {
-            DynamicVars.Cards.UpgradeValueBy(1);
-        }
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

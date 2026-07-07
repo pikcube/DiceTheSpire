@@ -2,13 +2,12 @@
 using Godot;
 using TheInventor.TheInventorCode.Extensions;
 
-namespace TheInventor.TheInventorCode.Character
-{
-    public class TheInventorRelicPool : CustomRelicPoolModel
-    {
-        public override Color LabOutlineColor => TheInventor.Color;
+namespace TheInventor.TheInventorCode.Character;
 
-        public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
-        public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
-    }
+public class TheInventorRelicPool : CustomRelicPoolModel
+{
+    public override Color LabOutlineColor => TheInventor.Color;
+
+    public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
+    public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();
 }
