@@ -13,8 +13,8 @@ public class Icicle() : TheInventorCard(3, CardType.Skill, CardRarity.Common, Ta
 {
     public override string GetScrapId => nameof(Burrower);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(22, BlockProps.card)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(19, BlockProps.card)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, BlinkModel.Blink];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -23,6 +23,6 @@ public class Icicle() : TheInventorCard(3, CardType.Skill, CardRarity.Common, Ta
 
     protected override void OnUpgrade()
     {
-        AddKeyword(BlinkModel.Blink);
+        DynamicVars.Block.UpgradeValueBy(6);
     }
 }

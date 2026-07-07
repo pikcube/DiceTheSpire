@@ -1,9 +1,8 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
@@ -32,40 +31,40 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
             //List<CardModel> drawPile = [.. Owner.PlayerCombatState.DrawPile.Cards];
             //List<CardModel> handPile = [.. Owner.PlayerCombatState.Hand.Cards];
             if (!IsUpgraded)
+            {
+                CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
+                IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
+                foreach (CardModel card in results)
                 {
-                    CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
-                    IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
-                    foreach (CardModel card in results)
-                    {
-                        await card.BumpAsync(choiceContext);
-                    }
-                } else
-                {
-                    CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
-                    IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Hand.GetPile(Owner), Owner, cardSelectorPrefs);
-                    foreach (CardModel card in results)
-                    {
-                        await card.BumpAsync(choiceContext);
-                    }
+                    await card.BumpAsync(choiceContext);
                 }
+            } else
+            {
+                CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
+                IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Hand.GetPile(Owner), Owner, cardSelectorPrefs);
+                foreach (CardModel card in results)
+                {
+                    await card.BumpAsync(choiceContext);
+                }
+            }
 
-                if (!IsUpgraded)
+            if (!IsUpgraded)
+            {
+                CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 1, 1);
+                IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Hand.GetPile(Owner), Owner, cardSelectorPrefs);
+                foreach (CardModel card in results)
                 {
-                    CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 1, 1);
-                    IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Hand.GetPile(Owner), Owner, cardSelectorPrefs);
-                    foreach (CardModel card in results)
-                    {
-                        await card.NudgeAsync(choiceContext);
-                    }
-                } else
-                {
-                    CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 1, 1);
-                    IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
-                    foreach (CardModel card in results)
-                    {
-                        await card.NudgeAsync(choiceContext);
-                    }
+                    await card.NudgeAsync(choiceContext);
                 }
+            } else
+            {
+                CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 1, 1);
+                IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
+                foreach (CardModel card in results)
+                {
+                    await card.NudgeAsync(choiceContext);
+                }
+            }
         }
 
         protected override void OnUpgrade()
