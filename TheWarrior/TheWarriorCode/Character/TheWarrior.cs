@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 using TheWarrior.TheWarriorCode.Cards.Basic;
 using TheWarrior.TheWarriorCode.Extensions;
+using TheWarrior.TheWarriorCode.Relics;
 
 namespace TheWarrior.TheWarriorCode.Character
 {
@@ -18,8 +19,8 @@ namespace TheWarrior.TheWarriorCode.Character
         public override Color NameColor => Color;
         public override Color EnergyLabelOutlineColor => Color;
         public override Color MapDrawingColor => Color;
-        public override CharacterGender Gender => CharacterGender.Neutral;
-        public override int StartingHp => 70;
+        public override CharacterGender Gender => CharacterGender.Masculine;
+        public override int StartingHp => 80;
 
         public override IEnumerable<CardModel> StartingDeck => [
             ModelDb.Card<StrikeWarrior>(),
@@ -36,7 +37,7 @@ namespace TheWarrior.TheWarriorCode.Character
 
         public override IReadOnlyList<RelicModel> StartingRelics =>
         [
-            ModelDb.Relic<BurningBlood>()
+            ModelDb.Relic<CombatRoll>()
         ];
 
         public override CardPoolModel CardPool => ModelDb.CardPool<TheWarriorCardPool>();

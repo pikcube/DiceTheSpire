@@ -5,7 +5,8 @@
 //using MegaCrit.Sts2.Core.HoverTips;
 
 //namespace TheWarrior.TheWarriorCode.Cards.Basic;
-
+//"THEWARRIOR-COMBAT_ROLL.description": "Add 3 copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
+//  "THEWARRIOR-COMBAT_ROLL.title": "Combat Roll",
 
 //public class CombatRoll() : TheWarriorCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 //{

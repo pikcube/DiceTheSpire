@@ -3,8 +3,6 @@
   "THEWARRIOR-STRIKE_WARRIOR.title": "Strike",
   "THEWARRIOR-DEFEND_WARRIOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "THEWARRIOR-DEFEND_WARRIOR.title": "Defend",
-  "THEWARRIOR-COMBAT_ROLL.description": "Add 3 copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
-  "THEWARRIOR-COMBAT_ROLL.title": "Combat Roll",
   "THEWARRIOR-SLINGSHOT.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} {IfUpgraded:show:copies|copy} of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-SLINGSHOT.title": "Slingshot",
   "THEWARRIOR-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times. Then take {Recoil:diff()} damage.",
