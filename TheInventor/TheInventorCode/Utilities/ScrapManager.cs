@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
+using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
@@ -107,75 +108,87 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     public static async Task DoScrapAsyncFor(RewardsSet rewardsSet)
     {
-        Player p = rewardsSet.Player;
-        List<CardModel> cards = [.. p.Deck.Cards.Where(c => c is
+        ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
+
+        bool canTravel = NMapScreen.Instance.IsTravelEnabled;
+        NMapScreen.Instance.SetTravelEnabled(false);
+
+        try
+        {
+            Player p = rewardsSet.Player;
+            List<CardModel> cards = [.. p.Deck.Cards.Where(c => c is
         {
             IsRemovable: true,
             Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
         })];
 
-        List<CardModel> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
-        List<CardModel> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
+            List<CardModel> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
+            List<CardModel> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
 
-        cards.Clear();
-        cards.AddRange(ShuffleForScrap(p, scrapCards));
-        cards.AddRange(ShuffleForScrap(p, otherCards));
+            cards.Clear();
+            cards.AddRange(ShuffleForScrap(p, scrapCards));
+            cards.AddRange(ShuffleForScrap(p, otherCards));
 
-        CardModel[] cardModels = [.. cards.Take(3)];
-        if (cardModels.Length == 0)
-        {
-            //Well shit, the player's deck is literally empty except for Eternal cards.
-            //Hope they aren't totally boned right now.
-            GadgetId.Set(p, nameof(BrokenGadget));
-        }
-
-        CardModel[] choiceClones = [..cardModels.Select(c => (CardModel)c.ClonePreservingMutability())];
-
-        if (LocalContext.IsMe(p))
-        {
-            BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
-            TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
-        }
-
-        CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p);
-        CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
-        
-        if (LocalContext.IsMe(p))
-        {
-            foreach (CardModel c in choiceClones)
+            CardModel[] cardModels = [.. cards.Take(3)];
+            if (cardModels.Length == 0)
             {
-                TheInventorCard.EnableTipsOnCards.Remove(c);
+                //Well shit, the player's deck is literally empty except for Eternal cards.
+                //Hope they aren't totally boned right now.
+                GadgetId.Set(p, nameof(BrokenGadget));
             }
-            BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
-        }
 
-        if (choice is not null)
-        {
-            await CardPileCmd.RemoveFromDeck(choice, false);
-        }
+            CardModel[] choiceClones = [.. cardModels.Select(c => (CardModel)c.ClonePreservingMutability())];
 
-        if (choice is TheInventorCard scrapCard)
-        {
-            if (!scrapCard.ModifyScrap())
+            if (LocalContext.IsMe(p))
             {
-                GadgetId.Set(p, scrapCard.GetScrapId);
-                await scrapCard.OnScrapAsync();
-                TempParent parent = new(p, AllGadgets[scrapCard.GetScrapId]);
-                parent.LinkedGadgetModel.TryModifyRewards(p, rewardsSet.Rewards, p.RunState.CurrentRoom);
+                BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
+                TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
             }
+
+            CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p);
+            CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
+
+            if (LocalContext.IsMe(p))
+            {
+                foreach (CardModel c in choiceClones)
+                {
+                    TheInventorCard.EnableTipsOnCards.Remove(c);
+                }
+                BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
+            }
+
+            if (choice is not null)
+            {
+                await CardPileCmd.RemoveFromDeck(choice, false);
+            }
+
+            if (choice is TheInventorCard scrapCard)
+            {
+                if (!scrapCard.ModifyScrap())
+                {
+                    GadgetId.Set(p, scrapCard.GetScrapId);
+                    await scrapCard.OnScrapAsync();
+                    TempParent parent = new(p, AllGadgets[scrapCard.GetScrapId]);
+                    parent.LinkedGadgetModel.TryModifyRewards(p, rewardsSet.Rewards, p.RunState.CurrentRoom);
+                }
+            }
+            else
+            {
+                GadgetId.Set(p, GetDefaultGadget(choice));
+            }
+
+            foreach (TheInventorCard c in p.Deck.Cards.OfType<TheInventorCard>().Where(c => c != choice))
+            {
+                await c.OnSkippedAsync();
+            }
+
+            Ignore.Add(rewardsSet.Player);
         }
-        else
+        finally
         {
-            GadgetId.Set(p, GetDefaultGadget(choice));
+            NMapScreen.Instance.SetTravelEnabled(canTravel);
         }
 
-        foreach (TheInventorCard c in p.Deck.Cards.OfType<TheInventorCard>().Where(c => c != choice))
-        {
-            await c.OnSkippedAsync();
-        }
-
-        Ignore.Add(rewardsSet.Player);
-        
         await rewardsSet.Offer();
     }
 
