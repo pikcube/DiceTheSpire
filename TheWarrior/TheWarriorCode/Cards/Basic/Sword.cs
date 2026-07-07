@@ -11,9 +11,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Basic
 {
-        public class Sword() : TheWarriorCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+        public class Sword() : TheWarriorCard(3, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
         {
-            protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new DamageVar(11M, DamageProps.card)];
+            protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new DamageVar(20M, DamageProps.card)];
             protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
 
             protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

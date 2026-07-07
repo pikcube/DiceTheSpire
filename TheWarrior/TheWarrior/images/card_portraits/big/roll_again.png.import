@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qi3l88xrfwyq"
-path="res://.godot/imported/roll_again.png-444879049e2d6c7a8261370583c07507.ctex"
+uid="uid://dg474uq40x8b6"
+path="res://.godot/imported/combat_roll.png-fdb2d8acbcedda9628557831bb40cbbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/roll_again.png"
-dest_files=["res://.godot/imported/roll_again.png-444879049e2d6c7a8261370583c07507.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/combat_roll.png"
+dest_files=["res://.godot/imported/combat_roll.png-fdb2d8acbcedda9628557831bb40cbbc.ctex"]
 
 [params]
 
