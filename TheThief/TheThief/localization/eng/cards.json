@@ -9,7 +9,7 @@
   "THETHIEF-LOCKPICK.title": "Lockpick",
   "THETHIEF-PEASHOOTER.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDeal {Damage:diff()} damage.\nReturn this card to your [gold]Hand[/gold].",
   "THETHIEF-PEASHOOTER.title": "Peashooter",
-  "THETHIEF-SINGULARITY.description": "Choose a card in your [gold]Hand[/gold] to transform into [gold]{IfUpgraded:show:Collapse+|Collapse}[/gold].",
+  "THETHIEF-SINGULARITY.description": "At the start of your turn,\ndraw 1 card and choose 1 card in your [gold]Hand[/gold] to [gold]Transform[/gold] into a [gold]Pip[/gold].",
   "THETHIEF-SINGULARITY.title": "Singularity",
   "THETHIEF-COLLAPSE.description": "Deal {Damage:diff()} damage.",
   "THETHIEF-COLLAPSE.title": "Collapse",

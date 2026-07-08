@@ -59,5 +59,8 @@
   "THETHIEF-CAMPFIRE_POWER.title": "Campfire",
   "THETHIEF-CACTUS_NEEDLE_POWER.description": "Gain 3 [gold]Thorns[/gold] this turn.",
   "THETHIEF-CACTUS_NEEDLE_POWER.smartDescription": "Gain {Amount} [gold]Thorns[/gold] this turn.",
-  "THETHIEF-CACTUS_NEEDLE_POWER.title": "Cactus Needle"
+  "THETHIEF-CACTUS_NEEDLE_POWER.title": "Cactus Needle",
+  "THETHIEF-SINGULARITY_POWER.description": "At the start of your turn, draw 1 card and [gold]Transform[/gold] 1 card in your [gold]Hand[/gold] into a [gold]Pip[/gold].",
+  "THETHIEF-SINGULARITY_POWER.smartDescription": "At the start of your turn, draw {Amount} card and [gold]Transform[/gold] {Amount} card in your [gold]Hand[/gold] into a [gold]Pip[/gold].",
+  "THETHIEF-SINGULARITY_POWER.title": "Singularity"
 }
