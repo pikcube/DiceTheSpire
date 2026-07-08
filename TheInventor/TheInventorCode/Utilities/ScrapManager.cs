@@ -117,10 +117,10 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         {
             Player p = rewardsSet.Player;
             List<CardModel> cards = [.. p.Deck.Cards.Where(c => c is
-        {
-            IsRemovable: true,
-            Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
-        })];
+            {
+                IsRemovable: true,
+                Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
+            })];
 
             List<CardModel> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
             List<CardModel> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];

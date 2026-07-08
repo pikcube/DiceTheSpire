@@ -16,6 +16,6 @@ public class ShieldBash() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommo
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<BicepCurlPower>().UpgradeValueBy(1);
+        DynamicVars.Power<ShieldBashPower>().UpgradeValueBy(1);
     }
 }
