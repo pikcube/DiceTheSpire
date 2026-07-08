@@ -15,7 +15,7 @@ public class Doppeltwice() : TheInventorCard(1, CardType.Skill, CardRarity.Uncom
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,6 +27,7 @@ public class Doppeltwice() : TheInventorCard(1, CardType.Skill, CardRarity.Uncom
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Energy.UpgradeValueBy(1);
+        RemoveKeyword(CardKeyword.Exhaust);
+        AddKeyword(BlinkModel.Blink);
     }
 }

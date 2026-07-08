@@ -3,52 +3,33 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class DiceDetonator() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class DiceDetonator() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(Catapult);
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(2, BlockProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner.PlayerCombatState is null || CombatState is null)
+        if (Owner.PlayerCombatState is null)
         {
             return;
         }
 
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
-        List<CardModel> blinkCards = [.. Owner.PlayerCombatState.AllCards.Where(c => c.Owner == Owner && c.Keywords.Contains(BlinkedModel.Blinked))];
-
-        foreach (CardModel c in blinkCards)
+        foreach (CardModel card in Owner.PlayerCombatState.Hand.Cards.ToArray())
         {
-            CardPileAddResult? result = await CardCmd.Transform(c, Dazed.Create(Owner, CombatState), CardPreviewStyle.GridLayout);
-            result?.cardAdded.AddPurpleKeyword(BlinkedModel.Blinked);
-        }
-
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this, cardPlay)
-            .Targeting(cardPlay.Target)
-            .WithHitCount(blinkCards.Count)
-            .WithHitFx(VfxCmd.rockShatterPath)
-            .Execute(choiceContext);
-
-        foreach (CardModel card in blinkCards)
-        {
-            card.RemoveKeyword(BlinkedModel.Blinked);
+            await BlinkModel.BlinkCardAsync(choiceContext, card);
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 }
