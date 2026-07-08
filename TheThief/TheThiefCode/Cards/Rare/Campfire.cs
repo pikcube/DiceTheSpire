@@ -9,7 +9,7 @@ using TheThief.TheThiefCode.Powers;
 
 namespace TheThief.TheThiefCode.Cards.Rare;
 
-public class Campfire() : TheThiefCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Campfire() : TheThiefCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(1)];
 
