@@ -39,6 +39,6 @@ public class SilverDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Unc
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars["DebuffCount"].UpgradeValueBy(2);
+        DynamicVars["DebuffCount"].UpgradeValueBy(1);
     }
 }

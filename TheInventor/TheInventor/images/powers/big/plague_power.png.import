@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://celi23tdq5t6n"
-path="res://.godot/imported/uncle_power.png-4b44ac91ed28c8de899152082267c0c1.ctex"
+uid="uid://cc6hch3ee8ykt"
+path="res://.godot/imported/plague_power.png-6c403b7c783c5ede163a5ff48f8f2540.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/powers/uncle_power.png"
-dest_files=["res://.godot/imported/uncle_power.png-4b44ac91ed28c8de899152082267c0c1.ctex"]
+source_file="res://TheInventor/images/powers/big/plague_power.png"
+dest_files=["res://.godot/imported/plague_power.png-6c403b7c783c5ede163a5ff48f8f2540.ctex"]
 
 [params]
 

@@ -49,7 +49,7 @@
   "THEINVENTOR-BACKFIRE_POWER.smartDescription": "Whenever you would lose HP, lose Max HP instead.",
   "THEINVENTOR-BACKFIRE_POWER.title": "Backfire",
   "THEINVENTOR-ROSE_SHIELD_POWER.description": "Whenever you are attacked this turn, gain 1 [gold]Thorns[/gold].",
-  "THEINVENTOR-ROSE_SHIELD_POWER.smartDescription": "Whenever you are attacked this turn, gain [blue]Amount[/blue] [gold]Thorns[/gold].",
+  "THEINVENTOR-ROSE_SHIELD_POWER.smartDescription": "Whenever you are attacked this turn, gain [blue]{Amount}[/blue] [gold]Thorns[/gold].",
   "THEINVENTOR-ROSE_SHIELD_POWER.title": "Rose Shield",
   "THEINVENTOR-RESISTOR_POWER.description": "Gain [gold]Reduce[/gold] this turn.",
   "THEINVENTOR-RESISTOR_POWER.smartDescription": "Gain [blue]{Amount}[/blue] [gold]Reduce[/gold] this turn.",
@@ -62,5 +62,8 @@
   "THEINVENTOR-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
   "THEINVENTOR-GADGET_POWER.description": "Changes every combat.",
   "THEINVENTOR-GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
-  "THEINVENTOR-GADGET_POWER.title": "{GadgetName.StringValue}"
+  "THEINVENTOR-GADGET_POWER.title": "{GadgetName.StringValue}",
+  "THEINVENTOR-PLAGUE_POWER.description": "At the start of next turn, gain a random debuff.",
+  "THEINVENTOR-PLAGUE_POWER.smartDescription": "At the start of next turn, gain [blue]{Amount:plural:a|{Amount}}[/blue] random debuff.",
+  "THEINVENTOR-PLAGUE_POWER.title": "Plague"
 }
