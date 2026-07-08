@@ -6,9 +6,9 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using TheThief.TheThiefCode.Powers;
 
-namespace TheThief.TheThiefCode.Cards.Rare;
+namespace TheThief.TheThiefCode.Cards.Uncommon;
 
-public class Overwhelm() : TheThiefCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Overwhelm() : TheThiefCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
