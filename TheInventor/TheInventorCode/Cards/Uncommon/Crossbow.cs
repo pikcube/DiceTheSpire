@@ -14,7 +14,7 @@ using TheInventor.TheInventorCode.Gadgets;
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class Crossbow() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class Crossbow() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Hook);
 
@@ -25,7 +25,6 @@ public class Crossbow() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommo
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await base.OnPlay(choiceContext, cardPlay);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
@@ -33,7 +32,7 @@ public class Crossbow() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommo
             .Execute(choiceContext);
 
         CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 1, 1);
-        IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
+        IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, cardSelectorPrefs);
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
     }
 

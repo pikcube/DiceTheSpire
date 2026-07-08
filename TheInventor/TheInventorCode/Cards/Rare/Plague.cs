@@ -23,12 +23,18 @@ public class Plague() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, Tar
 
         if (!IsUpgraded)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, Owner.Creature, Owner.Creature, this);
+            for (int n = 0; n < 2; ++n)
+            {
+                await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, Owner.Creature, Owner.Creature, this);
+            }
         }
 
         foreach (Creature c in CombatState.HittableEnemies)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, c, Owner.Creature, this);
+            for (int n = 0; n < 2; ++n)
+            {
+                await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, c, Owner.Creature, this);
+            }
         }
     }
 }
