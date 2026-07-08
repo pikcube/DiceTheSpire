@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://celi23tdq5t6n"
-path="res://.godot/imported/uncle_power.png-4b44ac91ed28c8de899152082267c0c1.ctex"
+uid="uid://bs24mhiqhtd1h"
+path="res://.godot/imported/avalanche_power.png-27b34f5d72068d0d8fdcbcb477513804.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/powers/uncle_power.png"
-dest_files=["res://.godot/imported/uncle_power.png-4b44ac91ed28c8de899152082267c0c1.ctex"]
+source_file="res://TheInventor/images/powers/big/avalanche_power.png"
+dest_files=["res://.godot/imported/avalanche_power.png-27b34f5d72068d0d8fdcbcb477513804.ctex"]
 
 [params]
 

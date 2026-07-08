@@ -99,7 +99,7 @@
   "THEINVENTOR-MIDNIGHT_CHARM.title": "Midnight Charm",
   "THEINVENTOR-PILLOW_FORT.description": "Give a player {ReducePower:diff()} [gold]Reduce[/gold].",
   "THEINVENTOR-PILLOW_FORT.title": "Pillow Fort",
-  "THEINVENTOR-PLAGUE.description": "[gold]Held[/gold]: Apply 2 random debuffs to {IfUpgraded:show:|yourself and }ALL enemies.",
+  "THEINVENTOR-PLAGUE.description": "[gold]Held[/gold]: Apply a random debuffs to {IfUpgraded:show:|yourself and }ALL enemies at the start of next turn.",
   "THEINVENTOR-PLAGUE.title": "Plague",
   "THEINVENTOR-PUPPY_PAWS.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Bump[/gold] {IfUpgraded:show:ALL cards|a card} in your [gold]Hand[/gold].",
   "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws",
