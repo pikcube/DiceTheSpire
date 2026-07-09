@@ -9,6 +9,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare;
 public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(9, BlockProps.card), new DamageVar(12, DamageProps.card)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     public override bool GainsBlock => true;
     protected override bool HasEnergyCostX => true;
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
