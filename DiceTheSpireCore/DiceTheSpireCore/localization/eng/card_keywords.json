@@ -1,4 +1,6 @@
 {
   "DICETHESPIRECORE-COUNTDOWN.description": "Countdown cards require discarding a certain number of cards to be played.\nThe value persists between turns.",
-  "DICETHESPIRECORE-COUNTDOWN.title": "Countdown"
+  "DICETHESPIRECORE-COUNTDOWN.title": "Countdown",
+  "DICETHESPIRECORE-RETURNING.description": "This card returns to your [gold]Hand[/gold] when played.",
+  "DICETHESPIRECORE-RETURNING.title": "Returning"
 }

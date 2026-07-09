@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -9,6 +10,7 @@ namespace TheThief.TheThiefCode.Cards.Uncommon;
 public class Dagger() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, ValueProp.Move)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturningModel.Returning];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -16,12 +18,6 @@ public class Dagger() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, Ta
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath).Execute(choiceContext);
 
-    }
-
-    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
-    {
-        (PileType pileType, CardPilePosition pilePosition) = base.GetResultPileTypeAndPositionForCardPlay();
-        return pileType == PileType.Discard ? (PileType.Hand, CardPilePosition.Bottom) : (pileType, pilePosition);
     }
 
     protected override void OnUpgrade()

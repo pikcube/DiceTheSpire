@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -13,6 +14,7 @@ public class PoisonNeedle() : TheThiefCard(1, CardType.Skill, CardRarity.Common,
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(4)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturningModel.Returning];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -21,12 +23,6 @@ public class PoisonNeedle() : TheThiefCard(1, CardType.Skill, CardRarity.Common,
         await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue,
             Owner.Creature, this);
         await Cmd.Wait(0.2f);
-    }
-
-    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
-    {
-        (PileType pileType, CardPilePosition pilePosition) = base.GetResultPileTypeAndPositionForCardPlay();
-        return pileType == PileType.Discard ? (PileType.Hand, CardPilePosition.Bottom) : (pileType, pilePosition);
     }
 
     protected override void OnUpgrade()
