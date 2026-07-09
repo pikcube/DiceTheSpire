@@ -80,7 +80,7 @@ public class GadgetCard : CustomCardModel
         tween.TweenInterval(delayTimeBasedOnIndex);
         tween.TweenCallback(Callable.From((Action)(() => { NRun.Instance.GlobalUi.AddChildSafely(NCardExhaustVfx.Create(nCard)!); })));
         tween.TweenProperty(nCard, (NodePath)"modulate", StsColors.exhaustGray,
-            SaveManager.Instance.PrefsSave.FastMode == FastModeType.Fast ? 0.20000000298023224 : 0.30000001192092896);
+            SaveManager.Instance.PrefsSave.FastMode == FastModeType.Fast ? 0.2 : 0.3);
         tween.TweenCallback(Callable.From(nCard.QueueFree));
         tween.TweenCallback(Callable.From(ResetVars));
 

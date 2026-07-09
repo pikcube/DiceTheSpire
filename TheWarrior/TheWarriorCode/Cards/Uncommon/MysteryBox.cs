@@ -5,9 +5,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.Cards;
-using MegaCrit.Sts2.Core.TestSupport;
-
 
 
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
@@ -17,17 +14,6 @@ public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommo
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
-    public int TestEnergyCostOverride
-    {
-        get;
-        set
-        {
-            TestMode.AssertOn();
-            AssertMutable();
-            field = value;
-        }
-    } = -1;
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
@@ -36,14 +22,9 @@ public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommo
         {
             if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
             {
-                card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
-                NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
+                await RerollCmd.RerollAsync(card, false);
             }
         }
-    }
-    private int NextEnergyCost()
-    {
-        return TestEnergyCostOverride >= 0 ? TestEnergyCostOverride : Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
     }
 
     protected override void OnUpgrade()

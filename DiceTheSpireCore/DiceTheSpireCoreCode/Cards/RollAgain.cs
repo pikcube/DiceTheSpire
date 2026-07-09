@@ -8,8 +8,6 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Nodes.Cards;
-using MegaCrit.Sts2.Core.TestSupport;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 
@@ -21,17 +19,6 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
-        public int TestEnergyCostOverride
-        {
-            get;
-            set
-            {
-                TestMode.AssertOn();
-                AssertMutable();
-                field = value;
-            }
-        } = -1;
-
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             //NCombatRoom.Instance?.PlaySplashVfx(Owner.Creature, new Color("6ec46f"));
@@ -42,18 +29,10 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
                 {
                     if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
                     {
-                    card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
-                    await Cmd.Wait(0.5f);
-                    NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
+                        await RerollCmd.RerollAsync(card, false);
                     }
                 }
 
-        }
-        
-
-        private int NextEnergyCost()
-        {
-            return TestEnergyCostOverride >= 0 ? TestEnergyCostOverride : Owner.RunState.Rng.CombatEnergyCosts.NextInt(4);
         }
 
         protected override void OnUpgrade()
