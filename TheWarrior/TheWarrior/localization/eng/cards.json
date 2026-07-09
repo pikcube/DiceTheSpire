@@ -78,6 +78,8 @@
   "THEWARRIOR-LUCKY_ROLL.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.\nDiscard any cards drawn this way that do not cost at least {Energy:energyIcons()}.",
   "THEWARRIOR-LUCKY_ROLL.title": "Lucky Roll",
   "THEWARRIOR-BREADCRUMBS.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold]\nGain {Block:diff()} [gold]Block[/gold].\nShuffle this card into your [gold]Draw Pile[/gold].",
-  "THEWARRIOR-BREADCRUMBS.title": "Breadcrumbs"
+  "THEWARRIOR-BREADCRUMBS.title": "Breadcrumbs",
+  "THEWARRIOR-NUDGE_BLADE.description": "[gold]Nudge[/gold] all cards in [gold]Hand[/gold].\nDeal {Damage:diff()} damage for each {IfUpgraded:show:|[gold]Upgraded[/gold] }card [gold]Nudged[/gold].",
+  "THEWARRIOR-NUDGE_BLADE.title": "Nudge Blade"
 
 }     
