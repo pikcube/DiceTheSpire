@@ -1,5 +1,9 @@
 ﻿namespace DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 
+
+/// <summary>
+/// Modify the range of values a card can randomize to when randomized with Reroll, Snecko, or a related effect.
+/// </summary>
 public interface IRangeCard
 {
     /// <summary>

@@ -21,8 +21,8 @@ namespace TheInventor.TheInventorCode.Cards;
 public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target), IPipCard, IRangeCard
 { 
-    public int MinimumCost => 1;
-    public int MaximumCost => 4;
+    public int MinimumCost => 0;
+    public int MaximumCost => 3;
 
 
     //Image size:
