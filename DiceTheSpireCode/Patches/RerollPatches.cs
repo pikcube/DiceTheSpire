@@ -26,7 +26,9 @@ public static class RerollPatches
                 return true;
             }
 
-            __result = RerollCmd.RerollAsync(card, true);
+            RerollCmd.Reroll(card, true);
+
+            __result = Task.CompletedTask;
             return false;
         }
     }
@@ -41,7 +43,8 @@ public static class RerollPatches
                 return true;
             }
 
-            __result = RerollCmd.RerollAsync(card, true);
+            RerollCmd.Reroll(card, true);
+            __result = Task.CompletedTask;
             return false;
         }
     }
@@ -66,7 +69,7 @@ public static class RerollPatches
             IEnumerable<CardModel> cardModels = await CardPileCmd.Draw(choiceContext, sneckoOil.DynamicVars.Cards.BaseValue, target.Player);
             foreach (CardModel card in PileType.Hand.GetPile(target.Player).Cards.Where(c => !c.EnergyCost.CostsX))
             {
-                await RerollCmd.RerollAsync(card, false);
+                RerollCmd.Reroll(card, false);
             }
         }
     }

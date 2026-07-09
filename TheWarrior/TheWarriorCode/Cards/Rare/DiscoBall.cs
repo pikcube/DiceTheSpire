@@ -21,7 +21,7 @@ public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, Ta
         {
             if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
             {
-                await RerollCmd.RerollAsync(card, false);
+                RerollCmd.Reroll(card, false);
             }
         }
     }

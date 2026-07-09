@@ -22,7 +22,7 @@ public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommo
         {
             if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
             {
-                await RerollCmd.RerollAsync(card, false);
+                RerollCmd.Reroll(card, false);
             }
         }
     }
