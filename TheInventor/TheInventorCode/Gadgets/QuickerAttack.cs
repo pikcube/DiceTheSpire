@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Cards.Basic;
+using TheInventor.TheInventorCode.Cards.Uncommon;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
@@ -22,7 +23,7 @@ public class QuickerAttack() : GadgetModel(nameof(QuickerAttack))
 
         CardModel? card = CardFactory.GetDistinctForCombat(player, player.Character.CardPool
                 .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
-                .Where(c => c.Type == CardType.Attack && !c.Keywords.Contains(CardKeyword.Unplayable)),
+                .Where(c => c.Type == CardType.Attack && !c.Keywords.Contains(CardKeyword.Unplayable) && c is not RemoteControl),
             1, player.RunState.Rng.CombatCardGeneration).SingleOrDefault();
 
         card ??= player.Creature.CombatState.CreateCard<StrikeInventor>(player);

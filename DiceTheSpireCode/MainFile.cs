@@ -5,27 +5,26 @@ using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
-namespace DiceTheSpire.DiceTheSpireCode
+namespace DiceTheSpire.DiceTheSpireCode;
+
+//You're recommended but not required to keep all your code in this package and all your assets in the DiceTheSpire folder.
+[ModInitializer(nameof(Initialize))]
+public partial class MainFile : Node
 {
-    //You're recommended but not required to keep all your code in this package and all your assets in the DiceTheSpire folder.
-    [ModInitializer(nameof(Initialize))]
-    public partial class MainFile : Node
+    public const string ModId = "DiceTheSpire"; //At the moment, this is used only for the Logger and harmony names.
+
+    public static Logger Logger { get; } = new(ModId, LogType.Generic);
+
+    public static void Initialize()
     {
-        public const string ModId = "DiceTheSpire"; //At the moment, this is used only for the Logger and harmony names.
+        Harmony harmony = new(ModId);
 
-        public static Logger Logger { get; } = new(ModId, LogType.Generic);
+        harmony.PatchAll();
 
-        public static void Initialize()
-        {
-            Harmony harmony = new(ModId);
-
-            harmony.PatchAll();
-
-            CustomCharacterUtils.TryOrderCustomCharacters<
-                TheWarrior.TheWarriorCode.Character.TheWarrior,
-                TheThief.TheThiefCode.Character.TheThief,
-                TheInventor.TheInventorCode.Character.TheInventor
-            >();
-        }
+        CustomCharacterUtils.TryOrderCustomCharacters<
+            TheWarrior.TheWarriorCode.Character.TheWarrior,
+            TheThief.TheThiefCode.Character.TheThief,
+            TheInventor.TheInventorCode.Character.TheInventor
+        >();
     }
 }

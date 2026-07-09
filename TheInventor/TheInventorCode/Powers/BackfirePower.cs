@@ -12,14 +12,14 @@ namespace TheInventor.TheInventorCode.Powers;
 
 public class BackfirePower : TheInventorPower
 {
-    public float CapturedHp { get; set; }
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Single;
 
     private Stack<decimal> Amounts { get; set; } = [];
 
-    private bool IsStupid { get; set; } //A hack to avoid overflowing the stack. Set this to true to prevent this power from modifying damage that results from decreasing your max hp.
+    private bool IsStupid { get; set; } //A hack to avoid overflowing the stack.
+                                        //Set this to true to prevent this power from modifying damage that results from decreasing your max hp.
 
     public override decimal ModifyHpLostAfterOstyLate(Creature target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource)
@@ -48,7 +48,6 @@ public class BackfirePower : TheInventorPower
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
         Amounts = [];
-        CapturedHp = Owner.MaxHp;
         return Task.CompletedTask;
     }
 }

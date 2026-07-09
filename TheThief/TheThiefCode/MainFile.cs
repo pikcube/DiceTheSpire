@@ -4,21 +4,20 @@ using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
-namespace TheThief.TheThiefCode
+namespace TheThief.TheThiefCode;
+
+[ModInitializer(nameof(Initialize))]
+public partial class MainFile : Node
 {
-    [ModInitializer(nameof(Initialize))]
-    public partial class MainFile : Node
+    public const string ModId = "TheThief"; //Used for resource filepath
+    public const string ResPath = $"res://{ModId}";
+
+    public static Logger Logger { get; } = new(ModId, LogType.Generic);
+
+    public static void Initialize()
     {
-        public const string ModId = "TheThief"; //Used for resource filepath
-        public const string ResPath = $"res://{ModId}";
+        Harmony harmony = new(ModId);
 
-        public static Logger Logger { get; } = new(ModId, LogType.Generic);
-
-        public static void Initialize()
-        {
-            Harmony harmony = new(ModId);
-
-            harmony.PatchAll();
-        }
+        harmony.PatchAll();
     }
 }

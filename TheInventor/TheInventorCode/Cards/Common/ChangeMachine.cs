@@ -13,7 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Common;
 
 public class ChangeMachine() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
@@ -36,6 +36,7 @@ public class ChangeMachine() : TheInventorCard(1, CardType.Skill, CardRarity.Com
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(BlinkModel.Blink);
+        RemoveKeyword(CardKeyword.Exhaust);
+        AddKeyword(BlinkModel.Blink);
     }
 }

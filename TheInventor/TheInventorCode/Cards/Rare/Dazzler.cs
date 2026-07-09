@@ -9,13 +9,13 @@ using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Utilities;
 
-namespace TheInventor.TheInventorCode.Cards.Uncommon;
+namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class Dazzler() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Dazzler() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override string GetScrapId => nameof(Stardust);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [

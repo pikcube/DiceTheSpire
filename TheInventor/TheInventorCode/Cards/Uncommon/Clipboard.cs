@@ -51,7 +51,13 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
         foreach ((Player p, Task<IEnumerable<CardModel>> value) in results)
         {
             CardModel[] r = [.. await value];
-            await BlinkModel.BlinkCardsAsync(choiceContext, r);
+            
+            await CardPileCmd.Add(r, PileType.Exhaust, skipVisuals: true);
+            foreach (CardModel c in r)
+            {
+                await CardPileCmd.Add(c, PileType.Draw, CardPilePosition.Top, skipVisuals: true);
+                await BlinkModel.BlinkCardAsync(choiceContext, c);
+            }
 
             foreach (IOnInspectListener listener in p.RunState.IterateHookListeners(p.Creature.CombatState).OfType<IOnInspectListener>())
             {

@@ -8,13 +8,8 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
-using MegaCrit.Sts2.Core.Nodes.CommonUi;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace TheWarrior.TheWarriorCode.Relics;
 [UsedImplicitly]
@@ -22,37 +17,19 @@ public class CombatRoll : TheWarriorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll), HoverTipFactory.FromCard<RollAgain>(true)];
-    public override async Task BeforeHandDraw(
-    Player player,
-    PlayerChoiceContext choiceContext,
-    ICombatState combatState)
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
-        if (Owner.Creature.CombatState is null || Owner.Creature.CombatState.RoundNumber != 1)
+        if (Owner != player || Owner.Creature.CombatState is null || Owner.PlayerCombatState?.TurnNumber != 1)
         {
             return;
         }
-        CardModel card = Owner.Creature.CombatState.CreateCard<RollAgain>(Owner);
-        if (card is null)
+
+        for (int n = 0; n < 3; ++n)
         {
-            return;
+            RollAgain card = combatState.CreateCard<RollAgain>(Owner);
+            CardCmd.Upgrade(card);
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
         }
-        CardCmd.Upgrade(card);
-        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
-        CardModel card2 = Owner.Creature.CombatState.CreateCard<RollAgain>(Owner);
-        if (card2 is null)
-        {
-            return;
-        }
-        CardCmd.Upgrade(card2);
-        await CardPileCmd.AddGeneratedCardToCombat(card2, PileType.Hand, Owner);
-        CardModel card3 = Owner.Creature.CombatState.CreateCard<RollAgain>(Owner);
-        if (card3 is null)
-        {
-            return;
-        }
-        CardCmd.Upgrade(card3);
-        await CardPileCmd.AddGeneratedCardToCombat(card3, PileType.Hand, Owner);
-        return;
     }
 
     public override RelicModel GetUpgradeReplacement()

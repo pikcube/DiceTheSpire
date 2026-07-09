@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,6 +12,7 @@ using Pikcube.Common.Keywords;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 
+[UsedImplicitly]
 public class InspectModel() : CustomSingletonModel(HookType.Combat)
 {
     public static async Task<int> InspectAsync(PlayerChoiceContext choiceContext, Player player, int cards)

@@ -1,8 +1,9 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Utilities;
+using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
@@ -23,12 +24,12 @@ public class Plague() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, Tar
 
         if (!IsUpgraded)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, Owner.Creature, Owner.Creature, this);
+            await PlaguePower.ApplyAsync(choiceContext, Owner.Creature, 1, Owner.Creature, this);
         }
 
         foreach (Creature c in CombatState.HittableEnemies)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, c, Owner.Creature, this);
+            await PlaguePower.ApplyAsync(choiceContext, c, 1, Owner.Creature, this);
         }
     }
 }

@@ -1,28 +1,25 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class BassDrop() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+
+public class BarbedSpear() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    public override string GetScrapId => nameof(Burrower);
+    public override string GetScrapId => nameof(Needle);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(0, Bonus, 4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(10, Bonus, 10)];
 
     private static decimal Bonus(CardModel card, Creature? target)
     {
-        if (card is not BassDrop bd || bd.CombatState is null)
-        {
-            return 1;
-        }
-
-        return bd.CombatState.Creatures.SelectMany(c => c.Powers).Count(p => p.Type == PowerType.Debuff);
+        return card.Owner.HasPower<ThornsPower>() ? card.IsUpgraded ? 2 : 1 : 0;
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -34,10 +31,5 @@ public class BassDrop() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, T
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-    }
-
-    protected override void OnUpgrade()
-    {
-        DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

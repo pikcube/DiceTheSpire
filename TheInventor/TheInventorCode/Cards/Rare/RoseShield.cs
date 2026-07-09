@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -24,11 +25,12 @@ public class RoseShield() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-        await RoseShieldPower.ApplyAsync(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        await RoseShieldPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<ThornsPower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Block.UpgradeValueBy(4);
+        DynamicVars.Power<ThornsPower>().UpgradeValueBy(1);
     }
 }

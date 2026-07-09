@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using TheThief.TheThiefCode.Cards.Rare;
+using TheThief.TheThiefCode.Cards.Uncommon;
 
 namespace TheThief.TheThiefCode.Powers;
 
