@@ -12,31 +12,30 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 
 
-    [Pool(typeof(TokenCardPool))]
-    public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
-    {
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+[Pool(typeof(TokenCardPool))]
+public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+{
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
-        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_RANDOMIZE"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX))
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_RANDOMIZE"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
-            CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-            foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX))
+            if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
             {
-                if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
-                {
-                    await RerollCmd.RerollAsync(card, false);
-                }
+                await RerollCmd.RerollAsync(card, false);
             }
         }
-
-        protected override void OnUpgrade()
-        {
-            RemoveKeyword(CardKeyword.Ethereal);
-            AddKeyword(CardKeyword.Retain);
-        }
-    
     }
 
+    protected override void OnUpgrade()
+    {
+        RemoveKeyword(CardKeyword.Ethereal);
+        AddKeyword(CardKeyword.Retain);
+    }
+
+}
