@@ -10,6 +10,7 @@ internal class TempParent : IGadgetParent
     {
         Owner = player;
         LinkedGadgetModel = gadget.GetMutable(this);
+        gadget.OnFirstCharge();
     }
 
     public string GadgetId
@@ -29,6 +30,10 @@ internal class TempParent : IGadgetParent
     }
 
     public void Update()
+    {
+    }
+
+    public void SetValue(int display)
     {
     }
 }

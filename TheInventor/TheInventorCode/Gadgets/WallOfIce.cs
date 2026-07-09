@@ -31,4 +31,10 @@ public class WallOfIce() : GadgetModel(nameof(WallOfIce))
 
         return val;
     }
+
+    public override Task AfterModifyingDamageAmount(CardModel? cardSource)
+    {
+        Parent?.Flash();
+        return Task.CompletedTask;
+    }
 }

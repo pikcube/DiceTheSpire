@@ -60,6 +60,7 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
             if (field?.GadgetId != GadgetId || field.Parent != this)
             {
                 field = ScrapManager.AllGadgets[GadgetId].GetMutable(this);
+                field.OnFirstCharge();
             }
             return field;
         }
@@ -71,7 +72,31 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
     }
 
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => GetStackType();
+    public override int DisplayAmount => DispAmount;
+
+    private int DispAmount
+    {
+        get;
+        set
+        {
+            int newVal = value < 1 ? 0 : value;
+            bool changed = newVal != field;
+            if (!changed)
+            {
+                return;
+            }
+            field = newVal;
+            InvokeDisplayAmountChanged();
+        }
+    }
+
+    private PowerStackType GetStackType() => DispAmount < 1 ? PowerStackType.Single : PowerStackType.Counter;
+
+    public void SetValue(int display)
+    {
+        DispAmount = display;
+    }
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)

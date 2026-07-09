@@ -29,6 +29,7 @@ public class DialUpSounds() : GadgetModel(nameof(DialUpSounds))
             return;
         }
 
+        Parent.Flash();
         await BufferPower.ApplyAsync(choiceContext, Parent.Owner.Creature, Power,
             Parent.Owner.Creature, null);
 
@@ -42,6 +43,7 @@ public class DialUpSounds() : GadgetModel(nameof(DialUpSounds))
             return;
         }
 
+        Parent.Flash();
         await BufferPower.ApplyAsync(choiceContext, Parent.Owner.Creature, Power, Parent.Owner.Creature, null);
     }
 }

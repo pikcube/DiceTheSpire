@@ -27,6 +27,7 @@ public class Protection() : GadgetModel(nameof(Protection))
             return;
         }
 
+        Parent.Flash();
         await PowerCmd.Apply<ReducePower>(choiceContext, player.Creature, Power, player.Creature, null);
         IsUsedUp = true;
     }

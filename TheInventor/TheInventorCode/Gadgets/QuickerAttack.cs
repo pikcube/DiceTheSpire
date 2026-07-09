@@ -28,6 +28,7 @@ public class QuickerAttack() : GadgetModel(nameof(QuickerAttack))
 
         card ??= player.Creature.CombatState.CreateCard<StrikeInventor>(player);
 
+        Parent.Flash();
         await CardCmd.AutoPlay(choiceContext, card.CreateDupe(), null);
     }
 }

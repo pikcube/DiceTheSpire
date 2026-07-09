@@ -17,16 +17,18 @@ public class BloodSip() : GadgetModel(nameof(BloodSip))
             return;
         }
 
+        Parent.Flash();
         await CreatureCmd.Heal(Parent.Owner.Creature, Power);
     }
 
     public override async Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
-        if (Parent?.Owner is null)
+        if (Parent is null || player == Parent.Owner)
         {
             return;
         }
 
+        Parent.Flash();
         await CreatureCmd.Heal(Parent.Owner.Creature, Power);
     }
 

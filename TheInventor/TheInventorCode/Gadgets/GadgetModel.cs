@@ -112,4 +112,8 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
             Parent?.GadgetId = nameof(BrokenGadget);
         }
     }
+
+    public virtual void OnFirstCharge()
+    {
+    }
 }

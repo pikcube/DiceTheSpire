@@ -11,6 +11,12 @@ public class Efficiency() : GadgetModel(nameof(Efficiency))
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
     public int Count { get; set; }
 
+    public override void OnFirstCharge()
+    {
+        Parent?.SetValue(Power);
+    }
+
+
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         Count = 0;
@@ -27,6 +33,9 @@ public class Efficiency() : GadgetModel(nameof(Efficiency))
 
         ++Count;
 
+        Parent.Flash();
+
+        Parent.SetValue(Count >= Power ? 0 : Power - Count);
         return (PileType.Hand, CardPilePosition.Top);
     }
 

@@ -12,6 +12,10 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class Fury() : GadgetModel(nameof(Fury))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+    public override void OnFirstCharge()
+    {
+        Parent?.SetValue(Power);
+    }
 
     private int Count { get; set; }
 
@@ -34,10 +38,13 @@ public class Fury() : GadgetModel(nameof(Fury))
         }
 
         ++Count;
+        Parent.SetValue(Count >= Power ? 0 : Power - Count);
         if (Count > Power || Count < 0)
         {
             return playCount;
         }
+
+        Parent.Flash();
 
         return playCount + 1;
     }

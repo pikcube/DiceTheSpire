@@ -13,6 +13,10 @@ public class Overload() : GadgetModel(nameof(Overload))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
+    public override void OnFirstCharge()
+    {
+        Parent?.SetValue(Power);
+    }
 
     private int Count { get; set; }
     public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
@@ -30,6 +34,7 @@ public class Overload() : GadgetModel(nameof(Overload))
             return 1;
         }
 
+        Parent?.Flash();
         return 2;
     }
 
@@ -42,6 +47,7 @@ public class Overload() : GadgetModel(nameof(Overload))
             return 1;
         }
 
+        Parent?.Flash();
         return 2;
     }
 
@@ -50,6 +56,7 @@ public class Overload() : GadgetModel(nameof(Overload))
         if (cardPlay.Card.Owner == Parent?.Owner)
         {
             ++Count;
+            Parent.SetValue(Power - Count > 0 ? Power - Count : 0);
         }
 
         return Task.CompletedTask;

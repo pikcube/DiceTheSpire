@@ -22,6 +22,8 @@ public class AutoBump() : GadgetModel(nameof(AutoBump))
             return;
         }
 
+        Parent.Flash();
+
         LocString locString = new("card_selection", "TO_BUMP");
         CardSelectorPrefs cardSelectorPrefs = new(locString, Power);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Parent.Owner,

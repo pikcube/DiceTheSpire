@@ -20,6 +20,7 @@ public class PowerUp() : GadgetModel(nameof(PowerUp))
             return;
         }
 
+        Parent.Flash();
         await VigorPower.ApplyAsync(choiceContext, player.Creature, Power, player.Creature, null);
     }
 

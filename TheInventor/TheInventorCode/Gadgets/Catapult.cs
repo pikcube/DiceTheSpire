@@ -29,6 +29,7 @@ public class Catapult() : GadgetModel(nameof(Catapult))
             return;
         }
 
+        Parent.Flash();
         await CreatureCmd.Damage(choiceContext, target, Power, DamageProps.nonCardUnpowered, null, null);
     }
 

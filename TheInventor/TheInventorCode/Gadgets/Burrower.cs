@@ -34,6 +34,7 @@ public class Burrower() : GadgetModel(nameof(Burrower))
         {
             foreach (Creature c in player.Creature.CombatState.Enemies)
             {
+                Parent.Flash();
                 await PowerCmd.Apply<WeakPower>(choiceContext, c, 1, null, null);
             }
         }

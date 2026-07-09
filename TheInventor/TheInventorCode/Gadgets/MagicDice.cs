@@ -14,16 +14,25 @@ public class MagicDice() : GadgetModel(nameof(MagicDice))
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
-        if (player == Parent?.Owner)
+        if (player != Parent?.Owner)
         {
-            return amount + DynamicVars.Energy.EnchantedValue * Power;
+            return amount;
         }
 
-        return amount;
+        Parent?.Flash();
+        return amount + DynamicVars.Energy.EnchantedValue * Power;
+
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
-        return Parent?.Owner == player ? PlayerCmd.GainEnergy(Power, player) : Task.CompletedTask;
+        if (Parent?.Owner != player)
+        {
+            return Task.CompletedTask;
+        }
+
+        Parent?.Flash();
+        return PlayerCmd.GainEnergy(Power, player);
+
     }
 }

@@ -19,6 +19,7 @@ public class PoisonArrow() : GadgetModel(nameof(PoisonArrow))
             return Task.CompletedTask;
         }
 
+        Parent.Flash();
         return PoisonPower.ApplyAsync(choiceContext, Parent.Owner.Creature.CombatState.Enemies, Power, Parent?.Owner.Creature, null);
     }
 

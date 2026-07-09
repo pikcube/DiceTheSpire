@@ -25,6 +25,7 @@ public class MagicSpanner() : GadgetModel(nameof(MagicSpanner))
             return count;
         }
 
+        Parent?.Flash();
         IsUsedUp = true;
 
         return count + Power;
@@ -34,6 +35,7 @@ public class MagicSpanner() : GadgetModel(nameof(MagicSpanner))
     {
         if (player == Parent?.Owner)
         {
+            Parent?.Flash();
             return CardPileCmd.Draw(choiceContext, Power, player);
         }
 

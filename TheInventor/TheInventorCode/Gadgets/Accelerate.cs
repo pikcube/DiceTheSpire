@@ -17,6 +17,13 @@ public class Accelerate() : GadgetModel(nameof(Accelerate))
             return;
         }
 
+        Parent.Flash();
+
         await Parent.Owner.InspectAsync(choiceContext, Power);
+    }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        return player.Creature.CombatState is null ? Task.CompletedTask : BeforeHandDraw(player, choiceContext, player.Creature.CombatState);
     }
 }

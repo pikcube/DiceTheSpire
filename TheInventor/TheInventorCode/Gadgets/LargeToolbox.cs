@@ -40,6 +40,7 @@ public class LargeToolbox() : GadgetModel(nameof(LargeToolbox))
 
     private async Task EmptyTheToolboxAsync(Player player)
     {
+        Parent?.Flash();
         IEnumerable<CardModel> validColorlessCards = ModelDb.CardPool<ColorlessCardPool>()
             .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
 
