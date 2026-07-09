@@ -54,6 +54,11 @@ public static class RerollCmd
 
         isFixed = minimum == maximum;
 
+        if (minimum > maximum)
+        {
+            (minimum, maximum) = (maximum, minimum);
+        }
+
         return runState.Rng.CombatEnergyCosts.NextInt(minimum, maximum + 1);
 
     }
