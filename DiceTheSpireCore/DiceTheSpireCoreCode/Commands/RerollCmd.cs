@@ -43,7 +43,6 @@ public static class RerollCmd
     {
         int minimum = 0;
         int maximum = 3;
-        isFixed = false;
         
         if (card is IRangeCard range)
         {
