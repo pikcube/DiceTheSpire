@@ -80,6 +80,8 @@
   "THEWARRIOR-BREADCRUMBS.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold]\nGain {Block:diff()} [gold]Block[/gold].\nShuffle this card into your [gold]Draw Pile[/gold].",
   "THEWARRIOR-BREADCRUMBS.title": "Breadcrumbs",
   "THEWARRIOR-NUDGE_BLADE.description": "[gold]Nudge[/gold] all cards in [gold]Hand[/gold].\nDeal {Damage:diff()} damage for each {IfUpgraded:show:|[gold]Upgraded[/gold] }card [gold]Nudged[/gold].",
-  "THEWARRIOR-NUDGE_BLADE.title": "Nudge Blade"
+  "THEWARRIOR-NUDGE_BLADE.title": "Nudge Blade",
+  "THEWARRIOR-ICE_AGE.description": "[gold]Reroll[/gold] your [gold]Hand[/gold].\n[gold]Retain[/gold] your [gold]Hand[/gold] this turn.",
+  "THEWARRIOR-ICE_AGE.title": "Ice Age"
 
 }     
