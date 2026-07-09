@@ -82,6 +82,8 @@
   "THEWARRIOR-NUDGE_BLADE.description": "[gold]Nudge[/gold] all cards in [gold]Hand[/gold].\nDeal {Damage:diff()} damage for each {IfUpgraded:show:|[gold]Upgraded[/gold] }card [gold]Nudged[/gold].",
   "THEWARRIOR-NUDGE_BLADE.title": "Nudge Blade",
   "THEWARRIOR-ICE_AGE.description": "[gold]Reroll[/gold] your [gold]Hand[/gold].\n[gold]Retain[/gold] your [gold]Hand[/gold] this turn.",
-  "THEWARRIOR-ICE_AGE.title": "Ice Age"
+  "THEWARRIOR-ICE_AGE.title": "Ice Age",
+  "THEWARRIOR-TAZER.description": "[gold]Shock[/gold] {ShockPower:diff()} {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] any number of cards.",
+  "THEWARRIOR-TAZER.title": "Tazer"
 
 }     

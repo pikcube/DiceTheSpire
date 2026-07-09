@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
@@ -36,6 +37,7 @@ public class NailBat() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, T
         }
 
         await DamageCmd.Attack(DynamicVars["Recoil"].IntValue)
+            .FromCard(this, null)
             .Targeting(Owner.Creature)
             .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.rockShatterPath)
