@@ -30,7 +30,7 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
                     await RerollCmd.RerollAsync(card, false);
                 }
             }
-}
+        }
 
         protected override void OnUpgrade()
         {
