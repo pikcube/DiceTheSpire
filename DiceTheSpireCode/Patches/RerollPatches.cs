@@ -66,7 +66,7 @@ public static class RerollPatches
                 return;
             }
             NCombatRoom.Instance?.PlaySplashVfx(target, new Color("6ec46f"));
-            IEnumerable<CardModel> cardModels = await CardPileCmd.Draw(choiceContext, sneckoOil.DynamicVars.Cards.BaseValue, target.Player);
+            await CardPileCmd.Draw(choiceContext, sneckoOil.DynamicVars.Cards.BaseValue, target.Player);
             foreach (CardModel card in PileType.Hand.GetPile(target.Player).Cards.Where(c => !c.EnergyCost.CostsX))
             {
                 RerollCmd.Reroll(card, false);
