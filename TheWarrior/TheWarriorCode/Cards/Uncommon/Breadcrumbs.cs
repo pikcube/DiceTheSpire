@@ -1,0 +1,41 @@
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Cards;
+using MegaCrit.Sts2.Core.ValueProps;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+{
+
+    public class Breadcrumbs() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    {
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(1M), new BlockVar(1, BlockProps.card)];
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];
+
+        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+        {
+            await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, this);
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+
+            //await CardPileCmd.Add(this, PileType.Draw, CardPilePosition.Random);
+        }
+
+        public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
+        {
+            return card == this && pileType == PileType.Discard ? (PileType.Draw, CardPilePosition.Random) : (pileType, position);
+        }
+        protected override void OnUpgrade()
+        {
+            DynamicVars.Dexterity.UpgradeValueBy(1);
+        }
+    }
+}
