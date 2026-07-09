@@ -21,7 +21,10 @@ public class AirConditioner() : TheInventorCard(2, CardType.Skill, CardRarity.Ra
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.GainBlock(Owner.Creature, Owner.Creature.Block, BlockProps.card, cardPlay);
+        for (int n = 0; n < DynamicVars.Repeat.IntValue; ++n)
+        {
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block.EnchantedValue, BlockProps.card, cardPlay);
+        }
     }
 
     protected override void OnUpgrade()
