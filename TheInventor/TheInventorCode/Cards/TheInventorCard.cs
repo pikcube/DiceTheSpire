@@ -20,7 +20,11 @@ namespace TheInventor.TheInventorCode.Cards;
 [Pool(typeof(TheInventorCardPool))]
 public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target), IPipCard, IRangeCard
-{
+{ 
+    public int MinimumCost => 1;
+    public int MaximumCost => 4;
+
+
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
     //Full art: 606x852
@@ -66,7 +70,7 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
 
     public static bool ShowGadgetTips(CardModel card) => EnableGadgetTipsGlobal || EnableTipsOnCards.Contains(card);
     public static List<CardModel> EnableTipsOnCards { get; } = [];
-    public static bool EnableGadgetTipsGlobal { get; set; } = false;
+    public static bool EnableGadgetTipsGlobal { get; set; }
 
     public abstract string GetScrapId { get; }
 
@@ -114,7 +118,4 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
                 goto case CardCostColor.Unmodified;
         }
     }
-
-    public int MinimumCost => 1;
-    public int MaximumCost => 4;
 }
