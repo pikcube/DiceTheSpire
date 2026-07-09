@@ -38,6 +38,8 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 
                 CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_RANDOMIZE"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
                 CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+                //NCard.FindOnTable(this)?.ReleaseFocus();
+                NCard.FindOnTable(this)?.Hide();
                 foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX))
                 {
                     if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
@@ -45,8 +47,10 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
                     card.EnergyCost.SetThisTurnOrUntilPlayed(NextEnergyCost());
                     await Cmd.Wait(0.5f);
                     NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
+                    //NCard.FindOnTable(card)?.GrabFocus();
+                    //NCard.FindOnTable(card)?.MoveToFront();
                     }
-                }
+        }
 
         }
         
