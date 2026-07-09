@@ -7,7 +7,7 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode;
 
 public static class RerollCmd
 {
-    public static async Task RerollAsync(CardModel card, bool isPermanent)
+    public static void Reroll(CardModel card, bool isPermanent)
     {
         int nextEnergyCost = NextEnergyCost(card, out bool isFixed);
 
@@ -26,7 +26,6 @@ public static class RerollCmd
         }
 
         NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
-        await Cmd.Wait(0.5f);
     }
 
     private static int NextEnergyCost(CardModel card, out bool isFixed)
