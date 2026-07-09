@@ -1,22 +1,22 @@
-﻿using System.Data;
-using System.Reflection;
-using Godot;
+﻿using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Random;
 using Pikcube.Common.Extensions;
-using TheInventor.TheInventorCode.Cards;
+using System.Data;
+using System.Reflection;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 
-namespace TheInventor.TheInventorCode.Patches;
+namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
 [HarmonyPatch(typeof(NCard), "UpdateEnergyCostVisuals")]
 public static class PipPatches
 {
     public static void Postfix(NCard __instance, MegaLabel ____energyLabel, TextureRect ____energyIcon, bool ____pretendCardCanBePlayed)
     {
-        if (__instance.Model is not TheInventorCard c)
+        if (__instance.Model is not IPipCard c)
         {
             return;
         }
@@ -50,7 +50,7 @@ public static class RandomizePatch
 {
     public static bool Prefix(NCard __instance)
     {
-        if (__instance.Model is not TheInventorCard c)
+        if (__instance.Model is not IPipCard c)
         {
             return true;
         }

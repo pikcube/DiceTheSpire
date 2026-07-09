@@ -2,6 +2,7 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using DiceTheSpireCore.DiceTheSpireCoreCode;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Helpers.Models;
@@ -18,7 +19,7 @@ namespace TheInventor.TheInventorCode.Cards;
 
 [Pool(typeof(TheInventorCardPool))]
 public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity, TargetType target) :
-    CustomCardModel(cost, type, rarity, target)
+    CustomCardModel(cost, type, rarity, target), IPipCard
 {
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
