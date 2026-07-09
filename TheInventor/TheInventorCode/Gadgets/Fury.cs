@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -7,11 +8,12 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
 
+[UsedImplicitly]
 public class Fury() : GadgetModel(nameof(Fury))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
 
-    public int Count { get; set; }
+    private int Count { get; set; }
 
     public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
@@ -32,7 +34,7 @@ public class Fury() : GadgetModel(nameof(Fury))
         }
 
         ++Count;
-        if (Count >= Power || Count < 0)
+        if (Count > Power || Count < 0)
         {
             return playCount;
         }

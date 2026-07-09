@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwierbl1ye8af"
-path="res://.godot/imported/bass_drop.png-d4c98ae105aad2cd0cb3113611a3e0fb.ctex"
+uid="uid://djbgsjttk5knp"
+path="res://.godot/imported/fireworks.png-08819bdf67f8f9f4efb4973f8e13a41f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/bass_drop.png"
-dest_files=["res://.godot/imported/bass_drop.png-d4c98ae105aad2cd0cb3113611a3e0fb.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/fireworks.png"
+dest_files=["res://.godot/imported/fireworks.png-08819bdf67f8f9f4efb4973f8e13a41f.ctex"]
 
 [params]
 

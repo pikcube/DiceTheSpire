@@ -9,7 +9,7 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class BassDrop() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class Fireworks() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Burrower);
 
@@ -17,7 +17,7 @@ public class BassDrop() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, T
 
     private static decimal Bonus(CardModel card, Creature? target)
     {
-        if (card is not BassDrop bd || bd.CombatState is null)
+        if (card is not Fireworks bd || bd.CombatState is null)
         {
             return 1;
         }
