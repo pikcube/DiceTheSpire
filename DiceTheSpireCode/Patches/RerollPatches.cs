@@ -1,4 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
@@ -19,14 +19,14 @@ public static class RerollPatches
     [HarmonyPatch(typeof(ConfusedPower), "AfterCardDrawn")]
     public static class ConfusedPatch
     {
-        public static bool Prefix(ref Task __result, ConfusedPower __instance, PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+        public static bool Prefix(ref Task __result, ConfusedPower __instance, CardModel card)
         {
             if (card is not IRangeCard || card.Owner != __instance.Owner.Player || card.EnergyCost.Canonical < 0)
             {
                 return true;
             }
 
-            RerollCmd.Reroll(card, true);
+            RerollCmd.Reroll(card, RerollDuration.Combat);
 
             __result = Task.CompletedTask;
             return false;
@@ -36,14 +36,14 @@ public static class RerollPatches
     [HarmonyPatch(typeof(Slither), "AfterCardDrawn")]
     public static class SlitherPatch
     {
-        public static bool Prefix(ref Task __result, Slither __instance, PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+        public static bool Prefix(ref Task __result, Slither __instance, CardModel card)
         {
             if (card is not IRangeCard || card != __instance.Card || __instance.Card.Pile?.Type != PileType.Hand)
             {
                 return true;
             }
 
-            RerollCmd.Reroll(card, true);
+            RerollCmd.Reroll(card, RerollDuration.Combat);
             __result = Task.CompletedTask;
             return false;
         }
@@ -69,7 +69,7 @@ public static class RerollPatches
             await CardPileCmd.Draw(choiceContext, sneckoOil.DynamicVars.Cards.BaseValue, target.Player);
             foreach (CardModel card in PileType.Hand.GetPile(target.Player).Cards.Where(c => !c.EnergyCost.CostsX))
             {
-                RerollCmd.Reroll(card, false);
+                RerollCmd.Reroll(card, RerollDuration.UntilEndOfTurnOrPlayed);
             }
         }
     }

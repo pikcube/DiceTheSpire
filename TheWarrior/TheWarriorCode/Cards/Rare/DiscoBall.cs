@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +22,7 @@ public class DiscoBall() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, Ta
         {
             if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
             {
-                RerollCmd.Reroll(card, false);
+                RerollCmd.Reroll(card, RerollDuration.UntilEndOfTurnOrPlayed);
             }
         }
     }

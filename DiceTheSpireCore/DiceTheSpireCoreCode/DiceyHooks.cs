@@ -97,4 +97,12 @@ public static class DiceyHooks
             await listener.AfterNudgeAsync(choiceContext, card, wasExhausted);
         }
     }
+
+    public static void OnModifyRerollRange(IRunState runState, CardModel card, ref int minimum, ref int maximum)
+    {
+        foreach (IModifyRerollListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyRerollListener>())
+        {
+            listener.ModifyRerollRange(card, ref minimum, ref maximum);
+        }
+    }
 }
