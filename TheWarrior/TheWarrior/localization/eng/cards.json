@@ -87,7 +87,9 @@
   "THEWARRIOR-TAZER.title": "Tazer",
   "THEWARRIOR-SPARE_THREE.description": "Gain {Energy:energyIcons()}.\nYou cannot draw additional cards this turn.",
   "THEWARRIOR-SPARE_THREE.title": "Spare Three",
-  "THEWARRIOR-SPARE_THREE.upgradeTitle": "Spare Four"
+  "THEWARRIOR-SPARE_THREE.upgradeTitle": "Spare Four+",
+  "THEWARRIOR-POWER_CRYSTAL.description": "When you play a [gold]Power[/gold], gain one [gold]Stregnth[/gold] for each {Energy:energyIcons()} spent.",
+  "THEWARRIOR-POWER_CRYSTAL.title": "Power Crystal"
 
 
 }     
