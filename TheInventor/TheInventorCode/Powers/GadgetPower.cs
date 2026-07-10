@@ -34,10 +34,10 @@ public class GadgetPower : TheInventorPower, IGadgetParent
 
     public override PowerType Type => PowerType.Buff;
 
-    public override PowerStackType StackType => GetStackType();
-    public override int DisplayAmount => DispAmount;
+    public override PowerStackType StackType => MutableDisplayAmount < 1 ? PowerStackType.Single : PowerStackType.Counter;
+    public override int DisplayAmount => MutableDisplayAmount;
 
-    private int DispAmount
+    private int MutableDisplayAmount
     {
         get;
         set
@@ -53,12 +53,10 @@ public class GadgetPower : TheInventorPower, IGadgetParent
         }
     }
 
-    private PowerStackType GetStackType() => DispAmount < 1 ? PowerStackType.Single : PowerStackType.Counter;
-
 
     public void SetValue(int display)
     {
-        DispAmount = display;
+        MutableDisplayAmount = display;
     }
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
