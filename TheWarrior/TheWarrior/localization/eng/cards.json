@@ -84,6 +84,8 @@
   "THEWARRIOR-ICE_AGE.description": "[gold]Reroll[/gold] your [gold]Hand[/gold].\n[gold]Retain[/gold] your [gold]Hand[/gold] this turn.",
   "THEWARRIOR-ICE_AGE.title": "Ice Age",
   "THEWARRIOR-TAZER.description": "[gold]Shock[/gold] {ShockPower:diff()} {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] any number of cards.",
-  "THEWARRIOR-TAZER.title": "Tazer"
+  "THEWARRIOR-TAZER.title": "Tazer",
+  "THEWARRIOR-SPARE_THREE.description": "Gain {Energy:energyIcons()}.\nYou cannot draw additional cards this turn.",
+  "THEWARRIOR-SPARE_THREE.title": "{IfUpgraded:show:Spare Four|Spare Three}"
 
 }     
