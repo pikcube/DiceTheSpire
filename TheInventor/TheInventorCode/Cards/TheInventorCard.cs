@@ -19,11 +19,8 @@ namespace TheInventor.TheInventorCode.Cards;
 
 [Pool(typeof(TheInventorCardPool))]
 public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity, TargetType target) :
-    CustomCardModel(cost, type, rarity, target), IPipCard, IRangeCard
+    CustomCardModel(cost, type, rarity, target), IPipCard
 { 
-    public int MinimumCost => 0;
-    public int MaximumCost => 3;
-
 
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
