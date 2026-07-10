@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -12,7 +13,7 @@ namespace TheInventor.TheInventorCode.Cards.Common;
 
 
 public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
-{
+{ 
     public override string GetScrapId => nameof(ShortCircuit);
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
