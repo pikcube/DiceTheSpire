@@ -11,20 +11,7 @@ using TheWarrior.TheWarriorCode.Extensions;
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 public class SpareThree() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string Title
-    {
-        get
-        {
-            if (IsUpgraded)
-            {
-                return UpgradedTitleLocString.GetFormattedText();
-            }
-            else
-            {
-                return TitleLocString.GetFormattedText();
-            }
-        }
-    }
+    public override string Title => IsUpgraded ? UpgradedTitleLocString.GetFormattedText() : TitleLocString.GetFormattedText();
 
     public LocString UpgradedTitleLocString
     {
