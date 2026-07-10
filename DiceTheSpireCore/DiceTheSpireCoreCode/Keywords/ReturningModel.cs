@@ -7,7 +7,7 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 
 public class ReturningModel() : CustomSingletonModel(HookType.Combat)
 {
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
     public static CardKeyword Returning;
 
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
