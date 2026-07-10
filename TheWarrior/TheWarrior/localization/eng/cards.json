@@ -86,6 +86,8 @@
   "THEWARRIOR-TAZER.description": "[gold]Shock[/gold] {ShockPower:diff()} {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] any number of cards.",
   "THEWARRIOR-TAZER.title": "Tazer",
   "THEWARRIOR-SPARE_THREE.description": "Gain {Energy:energyIcons()}.\nYou cannot draw additional cards this turn.",
-  "THEWARRIOR-SPARE_THREE.title": "{IfUpgraded:show:Spare Four|Spare Three}"
+  "THEWARRIOR-SPARE_THREE.title": "Spare Three",
+  "THEWARRIOR-SPARE_THREE.upgradeTitle": "Spare Four"
+
 
 }     
