@@ -52,6 +52,9 @@
   "DICETHESPIRECORE-SHIELD_BASH_POWER.title": "Shield Bash",
   "DICETHESPIRECORE-BICEP_CURL_POWER.description": "[gold]Upgrade[/gold] {Amount} random card each time you [gold]Nudge[/gold] a card.",
   "DICETHESPIRECORE-BICEP_CURL_POWER.smartDescription": "[gold]Upgrade[/gold] {Amount} random card each time you [gold]Nudge[/gold] a card.",
-  "DICETHESPIRECORE-BICEP_CURL_POWER.title": "Bicep Curl"
+  "DICETHESPIRECORE-BICEP_CURL_POWER.title": "Bicep Curl",
+  "DICETHESPIRECORE-POWER_CRYSTAL_POWER.description": "When you play a [gold]Power[/gold], gain {Amount} [gold]Stregnth[/gold] for each {energyPrefix:energyIcons(1)} spent.",
+  "DICETHESPIRECORE-POWER_CRYSTAL_POWER.smartDescription": "When you play a [gold]Power[/gold], gain {Amount} [gold]Stregnth[/gold] for each {energyPrefix:energyIcons(1)} spent.",
+  "DICETHESPIRECORE-POWER_CRYSTAL_POWER.title": "Power Crystal"
 
 }

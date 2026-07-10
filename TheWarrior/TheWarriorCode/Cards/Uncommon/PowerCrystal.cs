@@ -16,10 +16,10 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 
     public class PowerCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
-        //protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PowerCrystalPower>(1M)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PowerCrystalPower>(1M), new EnergyVar(1)];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            //await PowerCmd.Apply<PowerCrystalPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
+            await PowerCmd.Apply<PowerCrystalPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
         }
 
         protected override void OnUpgrade()

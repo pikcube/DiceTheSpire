@@ -85,7 +85,7 @@
   "THEWARRIOR-ICE_AGE.title": "Ice Age",
   "THEWARRIOR-TAZER.description": "[gold]Shock[/gold] {ShockPower:diff()} {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] any number of cards.",
   "THEWARRIOR-TAZER.title": "Tazer",
-  "THEWARRIOR-SPARE_THREE.description": "Gain {Energy:energyIcons()}.\nYou cannot draw additional cards this turn.",
+  "THEWARRIOR-SPARE_THREE.description": "[gold]Range[/gold] [0]\nGain {Energy:energyIcons()}.\nYou cannot draw additional cards this turn.",
   "THEWARRIOR-SPARE_THREE.title": "Spare Three",
   "THEWARRIOR-SPARE_THREE.upgradeTitle": "Spare Four+",
   "THEWARRIOR-POWER_CRYSTAL.description": "When you play a [gold]Power[/gold], gain one [gold]Stregnth[/gold] for each {Energy:energyIcons()} spent.",
