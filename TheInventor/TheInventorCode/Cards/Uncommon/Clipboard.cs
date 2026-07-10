@@ -1,6 +1,7 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -9,6 +10,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Relics;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
@@ -27,6 +29,15 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, DynamicVars.Cards), HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
+    private static async Task<IEnumerable<CardModel>> GetInspectResultAsync(Player p, int cards)
+    {
+        CardModel[] topCards = [.. PileType.Draw.GetPile(p).Cards.Take(cards)];
+
+        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BLINK"), 0, topCards.Length);
+
+        return await CardSelectCmd.FromSimpleGrid(new BlockingPlayerChoiceContext(), topCards, p, prefs);
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
@@ -39,11 +50,7 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
 
         foreach (Player p in CombatState.Players)
         {
-            CardModel[] topCards = [.. PileType.Draw.GetPile(p).Cards.Take(cards)];
-
-            CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BLINK"), 0, topCards.Length);
-
-            results.Add(p, CardSelectCmd.FromSimpleGrid(new BlockingPlayerChoiceContext(), topCards, p, prefs));
+            results.Add(p, GetInspectResultAsync(p, cards));
         }
 
         await Task.WhenAll(results.Values);
