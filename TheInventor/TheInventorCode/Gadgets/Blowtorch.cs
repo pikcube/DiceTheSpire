@@ -15,6 +15,7 @@ public class Blowtorch() : GadgetModel(nameof(Blowtorch))
     {
         if (Parent?.Owner == player && player.Creature.CombatState is not null)
         {
+            Parent.Flash();
             await CreatureCmd.Damage(choiceContext, player.Creature.CombatState.Enemies, Power,
                 DamageProps.nonCardUnpowered, player.Creature, null, null);
         }

@@ -17,6 +17,7 @@ public class Needle() : GadgetModel(nameof(Needle))
             return;
         }
 
+        Parent.Flash();
         await PowerCmd.Apply<ThornsPower>(choiceContext, Parent.Owner.Creature, Power, Parent.Owner.Creature, null);
     }
 

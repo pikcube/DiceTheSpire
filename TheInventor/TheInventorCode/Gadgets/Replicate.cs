@@ -24,6 +24,7 @@ public class Replicate() : GadgetModel(nameof(Replicate))
             return;
         }
 
+        Parent.Flash();
         CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_DUPE"), Power, Power);
 
         foreach (CardModel result in await CardSelectCmd.FromHand(choiceContext, player, prefs, null, this))

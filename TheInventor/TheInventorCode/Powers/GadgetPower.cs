@@ -35,11 +35,30 @@ public class GadgetPower : TheInventorPower, IGadgetParent
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => GetStackType();
+    public override int DisplayAmount => DispAmount;
 
-    private PowerStackType GetStackType()
+    private int DispAmount
     {
-        //todo: Add more complex logic for when gadgets need to show a counter on screen
-        return PowerStackType.Single;
+        get;
+        set
+        {
+            int newVal = value < 1 ? 0 : value;
+            bool changed = newVal != field;
+            if (!changed)
+            {
+                return;
+            }
+            field = newVal;
+            InvokeDisplayAmountChanged();
+        }
+    }
+
+    private PowerStackType GetStackType() => DispAmount < 1 ? PowerStackType.Single : PowerStackType.Counter;
+
+
+    public void SetValue(int display)
+    {
+        DispAmount = display;
     }
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
@@ -82,6 +101,7 @@ public class GadgetPower : TheInventorPower, IGadgetParent
             if (field?.GadgetId != GadgetId || field.Parent != this)
             {
                 field = ScrapManager.AllGadgets[GadgetId].GetMutable(this);
+                field.OnFirstCharge();
             }
             return field;
         }

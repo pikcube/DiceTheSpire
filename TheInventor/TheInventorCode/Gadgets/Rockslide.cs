@@ -18,6 +18,7 @@ public class Rockslide() : GadgetModel(nameof(Rockslide))
     {
         if (player == Parent?.Owner && player.Creature.CombatState is not null)
         {
+            Parent.Flash();
             for (int n = 0; n < Power; ++n)
             {
                 await CardPileCmd.AddGeneratedCardToCombat(Rock.Create(player, player.Creature.CombatState), PileType.Hand, player);

@@ -1,4 +1,5 @@
 ﻿using BaseLib.Utils;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -25,7 +26,7 @@ public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.To
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX && c.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0))
         {
-            RerollCmd.Reroll(card, false);
+            RerollCmd.Reroll(card, RerollDuration.UntilEndOfTurnOrPlayed);
         }
     }
 

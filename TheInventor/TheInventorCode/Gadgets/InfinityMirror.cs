@@ -18,7 +18,7 @@ public class InfinityMirror() : GadgetModel(nameof(InfinityMirror))
         {
             return amount;
         }
-
+        Parent.Flash();
         return amount + player.Creature.CombatState.RoundNumber * GetPower(player);
     }
 
@@ -28,6 +28,8 @@ public class InfinityMirror() : GadgetModel(nameof(InfinityMirror))
         {
             return;
         }
+
+        Parent?.Flash();
         await PlayerCmd.GainEnergy(player.Creature.CombatState.RoundNumber * Power, player);
     }
 

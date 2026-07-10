@@ -14,21 +14,25 @@ public class BattleWrench() : GadgetModel(nameof(BattleWrench))
 
     public override decimal ModifyHandDrawLate(Player player, decimal count)
     {
-        if (player == Parent?.Owner)
+        if (player != Parent?.Owner)
         {
-            return count + Power;
+            return count;
         }
 
-        return count;
+        Parent.Flash();
+        return count + Power;
+
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player == Parent?.Owner)
+        if (player != Parent?.Owner)
         {
-            return CardPileCmd.Draw(choiceContext, Power, player);
+            return Task.CompletedTask;
         }
 
-        return Task.CompletedTask;
+        Parent.Flash();
+        return CardPileCmd.Draw(choiceContext, Power, player);
+
     }
 }

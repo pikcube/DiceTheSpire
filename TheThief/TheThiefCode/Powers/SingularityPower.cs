@@ -28,7 +28,7 @@ public class SingularityPower : TheThiefPower
             return;
         }
 
-        CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, Amount);
+        CardSelectorPrefs prefs = new(CardSelectorPrefs.TransformSelectionPrompt, Amount);
         foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, Owner.Player, prefs, null, this))
         {
             await CardCmd.Transform(card, CombatState.CreateCard<Pip>(Owner.Player));

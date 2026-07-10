@@ -31,6 +31,7 @@ public class Bonk() : GadgetModel(nameof(Bonk))
             return;
         }
 
+        Parent.Flash();
         await CreatureCmd.Damage(choiceContext, target, Power, DamageProps.nonCardUnpowered, null, null);
     }
 

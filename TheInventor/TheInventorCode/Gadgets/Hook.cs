@@ -31,6 +31,8 @@ public class Hook() : GadgetModel(nameof(Hook))
         {
             return;
         }
+
+        Parent.Flash();
         await CardPileCmd.Add(card, PileType.Hand);
     }
 

@@ -22,25 +22,24 @@ public static class InventorHelperFunctions
         switch (runState.Rng.CombatOrbGeneration.NextInt(target.HasPower<FreezePower>() ? 8 : 9))
         {
             case 8:
-                power = ModelDb.Power<FreezePower>().StrongMutableClone();
-                amount = 1;
+                power = ModelDb.Power<FreezePower>().StrongMutableClone(); //This is the only debuff in this table that doesn't stack
+                amount = 1;                                                //So we exclude it if the target is already frozen
                 break;
             case 7:
                 if (target.IsPlayer)
                 {
                     power = ModelDb.Power<EnergyDownNextTurnPower>().StrongMutableClone();
+                    amount = 1;
                 }
                 else
                 {
-                    power = ModelDb.Power<ShrinkPower>().StrongMutableClone();
+                    power = ModelDb.Power<PoisonPower>().StrongMutableClone();
+                    amount = 4;
                 }
-
-                amount = 1;
                 break;
             case 6:
                 if (target.IsPlayer)
                 {
-                    //todo Shock Next Turn
                     power = ModelDb.Power<ShockPower>().StrongMutableClone();
                     amount = 2;
                 }
@@ -59,16 +58,8 @@ public static class InventorHelperFunctions
                 amount = 1;
                 break;
             case 3:
-                if (target.IsPlayer)
-                {
-                    power = ModelDb.Power<FrailPower>().StrongMutableClone();
-                    amount = 1;
-                }
-                else
-                {
-                    power = ModelDb.Power<PoisonPower>().StrongMutableClone();
-                    amount = 4;
-                }
+                power = ModelDb.Power<ShrinkPower>().StrongMutableClone();
+                amount = 1;
                 break;
             case 2:
                 power = ModelDb.Power<DebilitatePower>().StrongMutableClone();

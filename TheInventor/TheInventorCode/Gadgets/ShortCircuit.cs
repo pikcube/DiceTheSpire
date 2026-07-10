@@ -31,6 +31,7 @@ public class ShortCircuit() : GadgetModel(nameof(ShortCircuit))
             return;
         }
 
+        Parent.Flash();
         for (int n = 0; n < Power; ++n)
         {
             foreach (Creature c in player.Creature.CombatState.Enemies)

@@ -19,6 +19,7 @@ public class Shield() : GadgetModel(nameof(Shield))
             return;
         }
 
+        Parent.Flash();
         await CreatureCmd.GainBlock(player.Creature, new BlockVar(Power, BlockProps.nonCardUnpowered), null);
     }
 
