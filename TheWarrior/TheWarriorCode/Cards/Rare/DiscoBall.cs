@@ -1,5 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

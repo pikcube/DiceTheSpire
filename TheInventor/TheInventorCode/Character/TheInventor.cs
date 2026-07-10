@@ -14,7 +14,6 @@ namespace TheInventor.TheInventorCode.Character;
 public class TheInventor : PlaceholderCharacterModel
 {
     public const string CharacterId = "TheInventor";
-    public static bool HideGadget { get; set; }
 
     public static readonly Color Color = new("FFB458");
 

@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

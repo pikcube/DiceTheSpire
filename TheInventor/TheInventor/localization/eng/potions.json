@@ -1,4 +1,6 @@
 {
   "THEINVENTOR-VILE_VIAL.description": "Apply [blue]5[/blue] random debuffs.",
-  "THEINVENTOR-VILE_VIAL.title": "Vile Vial"
+  "THEINVENTOR-VILE_VIAL.title": "Vile Vial",
+  "THEINVENTOR-POTION_OF_INSPIRATION.description": "Choose [blue]1[/blue] of [blue]3[/blue] [gold]Temporary Gadgets[/gold] to gain.",
+  "THEINVENTOR-POTION_OF_INSPIRATION.title": "Potion Of Inspiration"
 }

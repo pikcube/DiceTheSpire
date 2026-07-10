@@ -107,7 +107,19 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
         }
     }
 
-    public async Task RandomizeThis()
+    public async Task SetThisAsync(string id)
+    {
+        if (Owner.Player is null)
+        {
+            await PowerCmd.Remove(this);
+            return;
+        }
+
+        GadgetId = id;
+        await AfterRandomizedAsync();
+    }
+
+    public async Task RandomizeThisAsync()
     {
         if (Owner.Player is null)
         {
@@ -121,6 +133,6 @@ public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
 
     public async Task AfterRandomizedAsync()
     {
-        await GadgetCard.ShowAsync(LinkedGadgetModel);
+        await GadgetCard1.ShowAsync(LinkedGadgetModel);
     }
 }

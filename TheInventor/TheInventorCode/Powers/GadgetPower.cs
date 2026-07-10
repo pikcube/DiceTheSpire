@@ -135,6 +135,6 @@ public class GadgetPower : TheInventorPower, IGadgetParent
     public async Task AfterRandomizedAsync()
     {
         Update();
-        await GadgetCard.ShowAsync(LinkedGadgetModel);
+        await GadgetCard1.ShowAsync(LinkedGadgetModel);
     }
 }

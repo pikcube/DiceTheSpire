@@ -37,7 +37,7 @@ public class ScrewdriverPower : TheInventorPower, IGadgetPowerListener
             {
                 return;
             }
-            await p.RandomizeThis();
+            await p.RandomizeThisAsync();
         }
 
         foreach (IGadgetParent parent in gadgetParents)

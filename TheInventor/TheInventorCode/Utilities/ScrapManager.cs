@@ -256,9 +256,14 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         return scrapCards;
     }
 
+    public static IEnumerable<string> GetRandomCombatGadgetId(Rng rng, int i)
+    {
+        return AllGadgets.Where(g => g.Value.IsAllowedAsTempGadget).TakeRandom(i, rng).Select(pair => pair.Key);
+    }
+
     public static string GetRandomCombatGadgetId(Rng rng)
     {
-        return AllGadgets.Where(g => g.Value.IsAllowedAsTempGadget).TakeRandom(1, rng).Single().Key;
+        return GetRandomCombatGadgetId(rng, 1).Single();
     }
 
     public void AfterRunInitialized(RunState runState)

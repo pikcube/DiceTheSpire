@@ -1,8 +1,8 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using DiceTheSpireCore.DiceTheSpireCoreCode;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Helpers.Models;
@@ -60,8 +60,8 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
             yield break;
         }
 
-        GadgetCard gadgetCard = GadgetCard.Create();
-        gadgetCard.SetVars(gadgetModel, this);
+        GadgetCard gadgetCard = GadgetCard1.Create();
+        gadgetCard.SetVars(gadgetModel);
         yield return new CardHoverTip(gadgetCard);
     }
 

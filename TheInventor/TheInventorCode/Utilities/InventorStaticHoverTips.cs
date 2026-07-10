@@ -1,7 +1,7 @@
 ﻿using BaseLib.Patches.Content;
 using MegaCrit.Sts2.Core.HoverTips;
 
-namespace TheInventor.TheInventorCode;
+namespace TheInventor.TheInventorCode.Utilities;
 
 public static class InventorStaticHoverTips
 {

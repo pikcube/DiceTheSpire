@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Keywords;
 using TheInventor.TheInventorCode.Powers;
+using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
@@ -24,7 +25,7 @@ public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.
             return;
         }
 
-        await power.RandomizeThis();
+        await power.RandomizeThisAsync();
         await power.LinkedGadgetModel.OnRechargeAsync(choiceContext, Owner);
     }
 
