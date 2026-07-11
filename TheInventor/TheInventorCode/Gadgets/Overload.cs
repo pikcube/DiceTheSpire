@@ -53,11 +53,13 @@ public class Overload() : GadgetModel(nameof(Overload))
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner == Parent?.Owner)
+        if (cardPlay.Card.Owner != Parent?.Owner)
         {
-            ++Count;
-            Parent.SetValue(Power - Count > 0 ? Power - Count : 0);
+            return Task.CompletedTask;
         }
+
+        ++Count;
+        Parent.SetValue(Power - Count > 0 ? Power - Count : 0);
 
         return Task.CompletedTask;
     }
