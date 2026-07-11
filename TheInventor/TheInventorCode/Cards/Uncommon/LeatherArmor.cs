@@ -16,7 +16,7 @@ public class LeatherArmor() : TheInventorCard(1, CardType.Power, CardRarity.Unco
         //new BlockVar(4, BlockProps.card), 
         new PowerVar<ReducePower>(2)
     ];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ReducePower>()];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

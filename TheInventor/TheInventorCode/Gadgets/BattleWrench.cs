@@ -18,10 +18,18 @@ public class BattleWrench() : GadgetModel(nameof(BattleWrench))
         {
             return count;
         }
-
-        Parent.Flash();
         return count + Power;
 
+    }
+
+    public override Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player == Parent?.Owner)
+        {
+            Parent?.Flash();
+        }
+
+        return Task.CompletedTask;
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
