@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -8,17 +9,13 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
-//Scrap Bump (Common Skill) [0] Upgrade a (2) card(s). Scrap.
-//Auto Bump (Gadget): At the start of each turn, upgrade a random card.
-
-//Weaker version of Bump (Warrior or Thief), which will allow you to also pick upgraded cards to create unupgraded copies.
-public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), IScrapCard<ScrapBump>
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
+    public ScrapBump Card => this;
+    public bool IsAlwaysOfferedAsScrap => true;
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => IsUpgraded ? [HoverTipFactory.Static(BetterStaticHoverTips.Bump)] : [];
 

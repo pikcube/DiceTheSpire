@@ -1,15 +1,15 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IScrapCard<GoldDagger>
 {
     public override string GetScrapId => nameof(Harvest);
 
@@ -28,8 +28,6 @@ public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare,
             .Execute(choiceContext);
     }
 
-    protected override void OnUpgrade()
-    {
-        AddKeyword(ScrapKeyword.Scrap);
-    }
+    public bool IsAlwaysOfferedAsScrap => IsUpgraded;
+    public GoldDagger Card => this;
 }

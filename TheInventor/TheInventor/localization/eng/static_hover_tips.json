@@ -1,7 +1,9 @@
 {
 
-  "THEINVENTOR-SCRAP.description": "Choose one of three cards to remove from your [gold]Deck[/gold]. Favors cards you played in the most recent combat.",
+  "THEINVENTOR-SCRAP.description": "At the end of combat, choose [blue]1[/blue] of [blue]3[/blue] cards to remove from your deck. Obtain its [gold]Gadget[/gold].",
   "THEINVENTOR-SCRAP.title": "Scrap",
-  "THEINVENTOR-TEMPORARY_GADGET.description": "A gadget that lasts until the end of combat. Does not require scrapping an additional card.",
-  "THEINVENTOR-TEMPORARY_GADGET.title": "Temporary Gadget"
+  "THEINVENTOR-TEMPORARY_GADGET.description": "A [gold]Gadget[/gold] that lasts until the end of combat. Does not require scrapping an additional card.",
+  "THEINVENTOR-TEMPORARY_GADGET.title": "Temporary Gadget",
+  "THEINVENTOR-GADGET.description": "Gadgets are items that passively provide you with powerful abilities, but are destroyed after a period of time.",
+  "THEINVENTOR-GADGET.title": "Gadget"
 }

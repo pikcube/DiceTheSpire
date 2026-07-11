@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
@@ -22,7 +23,6 @@ using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
-using TheInventor.TheInventorCode.Keywords;
 using TheInventor.TheInventorCode.Powers;
 
 namespace TheInventor.TheInventorCode.Utilities;
@@ -122,8 +122,8 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
             })];
 
-            List<CardModel> scrapCards = [.. cards.Where(c => c.Keywords.Contains(ScrapKeyword.Scrap))];
-            List<CardModel> otherCards = [.. cards.Where(c => !c.Keywords.Contains(ScrapKeyword.Scrap))];
+            List<CardModel> scrapCards = [.. cards.Where(c => c is IScrapCard)];
+            List<CardModel> otherCards = [.. cards.Where(c => c is not IScrapCard)];
 
             cards.Clear();
             cards.AddRange(ShuffleForScrap(p, scrapCards));

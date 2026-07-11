@@ -37,7 +37,16 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
 
     protected virtual IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
 
-    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [.. GetGadgetHoverTip() , .. GetHeldHoverTip(), ..ExtraInventorHoverTips];
+    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [.. GetGadgetHoverTip() , .. GetHeldHoverTip(), ..ExtraInventorHoverTips, ..GetScrapHoverTip()];
+
+    private IEnumerable<IHoverTip> GetScrapHoverTip()
+    {
+        if (this is IScrapCard { IsAlwaysOfferedAsScrap: true })
+        {
+            yield return HoverTipFactory.Static(InventorStaticHoverTips.Scrap);
+            yield return HoverTipFactory.Static(InventorStaticHoverTips.Gadget);
+        }
+    }
 
     private IEnumerable<IHoverTip> GetHeldHoverTip()
     {
