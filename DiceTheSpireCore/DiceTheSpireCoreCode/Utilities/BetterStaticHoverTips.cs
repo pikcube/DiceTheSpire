@@ -3,7 +3,7 @@ using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 
-namespace DiceTheSpireCore.DiceTheSpireCoreCode;
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 
 public static class BetterStaticHoverTips
 {
@@ -25,14 +25,7 @@ public static class BetterStaticHoverTips
     [CustomEnum]
     public static StaticHoverTip Held = 0;
 
-    private static LocString RangeTitle
-    {
-        get
-        {
-            field ??= new LocString("static_hover_tips", "DICETHESPIRECORE-RANGE.title");
-            return field;
-        }
-    }
+    private static LocString RangeTitle => new("static_hover_tips", "DICETHESPIRECORE-RANGE.title");
 
     private static LocString OneRangeText => new("static_hover_tips", "DICETHESPIRECORE-RANGE.oneDescription");
 
@@ -44,12 +37,19 @@ public static class BetterStaticHoverTips
         {
             LocString oneRange = OneRangeText;
             oneRange.Add("cost", card.MaximumCost);
-            return new HoverTip(RangeTitle, oneRange);
+            LocString title = RangeTitle;
+            title.Add("values", card.MaximumCost);
+            return new HoverTip(title, oneRange);
+        }
+        else
+        {
+            LocString twoRange = TwoRangeText;
+            twoRange.Add("min", card.MinimumCost);
+            twoRange.Add("max", card.MaximumCost);
+            LocString title = RangeTitle;
+            title.Add("values", $"{card.MinimumCost}, {card.MaximumCost}");
+            return new HoverTip(title, twoRange);
         }
 
-        LocString twoRange = TwoRangeText;
-        twoRange.Add("min", card.MinimumCost);
-        twoRange.Add("max", card.MaximumCost);
-        return new HoverTip(RangeTitle, twoRange);
     }
 }

@@ -35,10 +35,10 @@ public static class PipPatches
         else
         {
             ____energyLabel.SetTextAutoSize("");
+            ____energyLabel.Set("theme_override_colors/font_color", new Color(0, 0, 0));
+            ____energyLabel.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
+            ____energyLabel.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
         }
-        ____energyLabel.Set("theme_override_colors/font_color", new Color(0, 0, 0));
-        ____energyLabel.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
-        ____energyLabel.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
 
 
         ____energyIcon.Texture = c.GetPips(withModifiers, ____pretendCardCanBePlayed);

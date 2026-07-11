@@ -13,5 +13,5 @@
   "DICETHESPIRECORE-HELD.title": "Held",
   "DICETHESPIRECORE-RANGE.oneDescription": "This card will always randomize to cost [blue]{cost}[/blue].",
   "DICETHESPIRECORE-RANGE.twoDescription": "This card will always randomize to cost between [blue]{min}[/blue] and [blue]{max}[/blue].",
-  "DICETHESPIRECORE-RANGE.title": "Range"
+  "DICETHESPIRECORE-RANGE.title": "Range [{values}]"
 }

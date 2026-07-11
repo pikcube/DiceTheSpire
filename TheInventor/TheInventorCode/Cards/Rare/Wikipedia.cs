@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
+using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
@@ -28,7 +29,7 @@ public class Wikipedia() : TheInventorCard(4, CardType.Power, CardRarity.Rare, T
                 return;
             }
 
-            await power.RandomizeThis();
+            await power.RandomizeThisAsync();
             await power.LinkedGadgetModel.OnRechargeAsync(choiceContext, target);
         }
     }

@@ -24,7 +24,7 @@ public class Resistor() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, Ta
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [
-        HoverTipFactory.FromPower<ReducePower>(), HoverTipFactory.FromKeyword(BlinkModel.Blink)
+        HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue), HoverTipFactory.FromKeyword(BlinkModel.Blink)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

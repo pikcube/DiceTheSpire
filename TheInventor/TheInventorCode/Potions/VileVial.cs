@@ -8,7 +8,7 @@ namespace TheInventor.TheInventorCode.Potions;
 
 public class VileVial : TheInventorPotion
 {
-    public override PotionRarity Rarity => PotionRarity.Uncommon;
+    public override PotionRarity Rarity => PotionRarity.Rare;
     public override PotionUsage Usage => PotionUsage.CombatOnly;
     public override TargetType TargetType => TargetType.AnyEnemy;
 
@@ -18,7 +18,7 @@ public class VileVial : TheInventorPotion
         {
             return;
         }
-        for (int n = 0; n < 5; ++n)
+        for (int n = 0; n < 6; ++n)
         {
             await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, Owner.RunState, target, Owner.Creature, null);
         }

@@ -22,8 +22,8 @@ public class InfestedAutomatonPatch
             return __result;
         }
 
-        GadgetCard newGadget = GadgetCard.Create().StrongMutableClone();
-        newGadget.SetVars(ScrapManager.AllGadgets[nameof(HeatRay)], null);
+        GadgetCard newGadget = GadgetCard1.Create().StrongMutableClone();
+        newGadget.SetVars(ScrapManager.AllGadgets[nameof(HeatRay)]);
 
         List<EventOption> options =
         [
@@ -42,6 +42,6 @@ public class InfestedAutomatonPatch
             new LocString(instance.LocTable, "THEINVENTOR-INFESTED_AUTOMATON.SCRAP_CORE.description")
         ]);
 
-        await GadgetCard.ShowAsync(ScrapManager.AllGadgets[nameof(HeatRay)]);
+        await GadgetCard1.ShowAsync(ScrapManager.AllGadgets[nameof(HeatRay)]);
     }
 }

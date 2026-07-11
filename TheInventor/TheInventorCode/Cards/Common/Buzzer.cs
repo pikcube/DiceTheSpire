@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using Pikcube.Common.Extensions;
@@ -19,8 +18,6 @@ public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, T
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VulnerablePower>(1)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
-
-    public LocString JinxDesc => new("cards", Id.Entry + ".jinxDescription");
     public override bool HasTurnEndInHandEffect => true;
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)

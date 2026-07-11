@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 
-namespace DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 
 public interface IModifyPipOnPlayListener
 {

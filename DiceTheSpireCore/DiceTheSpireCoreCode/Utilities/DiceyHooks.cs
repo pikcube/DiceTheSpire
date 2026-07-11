@@ -1,5 +1,4 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,7 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 
-namespace DiceTheSpireCore.DiceTheSpireCoreCode;
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 
 public static class DiceyHooks
 {

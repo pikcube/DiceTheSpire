@@ -1,7 +1,10 @@
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using SmartFormat;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode;
@@ -19,5 +22,14 @@ public partial class MainFile : Node
         Harmony harmony = new(ModId);
 
         harmony.PatchAll();
+    }
+}
+
+[HarmonyPatch(typeof(LocManager), "LoadLocFormatters")]
+public static class StringFormatterPatches
+{
+    public static void Postfix()
+    {
+        Smart.Default.AddExtensions(new DiceIconFormatter());
     }
 }

@@ -19,9 +19,17 @@ public class MagicDice() : GadgetModel(nameof(MagicDice))
             return amount;
         }
 
-        Parent?.Flash();
         return amount + DynamicVars.Energy.EnchantedValue * Power;
+    }
 
+    public override Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player == Parent?.Owner)
+        {
+            Parent?.Flash();
+        }
+
+        return Task.CompletedTask;
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
