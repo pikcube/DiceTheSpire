@@ -62,5 +62,8 @@
   "THETHIEF-CACTUS_NEEDLE_POWER.title": "Cactus Needle",
   "THETHIEF-SINGULARITY_POWER.description": "At the start of your turn, draw 1 card and [gold]Transform[/gold] 1 card in your [gold]Hand[/gold] into a [gold]Pip[/gold].",
   "THETHIEF-SINGULARITY_POWER.smartDescription": "At the start of your turn, draw {Amount} card and [gold]Transform[/gold] {Amount} card in your [gold]Hand[/gold] into a [gold]Pip[/gold].",
-  "THETHIEF-SINGULARITY_POWER.title": "Singularity"
+  "THETHIEF-SINGULARITY_POWER.title": "Singularity",
+  "THETHIEF-FORTIFY_POWER.description": "At the end of your turn, gain 2 [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
+  "THETHIEF-FORTIFY_POWER.smartDescription": "At the end of your turn, gain {Amount} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
+  "THETHIEF-FORTIFY_POWER.title": "Fortify"
 }
