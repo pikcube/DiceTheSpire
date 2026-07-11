@@ -10,7 +10,7 @@ namespace TheThief.TheThiefCode.Cards.Basic;
 
 public class PocketKnife() : TheThiefCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(6), new ExtraDamageVar(2),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(6), new ExtraDamageVar(3),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
         {
             if (card.Owner.PlayerCombatState is null) return 0;
