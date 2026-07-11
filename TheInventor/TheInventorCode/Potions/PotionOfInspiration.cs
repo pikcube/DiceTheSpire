@@ -17,7 +17,7 @@ namespace TheInventor.TheInventorCode.Potions;
 
 public class PotionOfInspiration : TheInventorPotion
 {
-    public override PotionRarity Rarity => PotionRarity.Rare;
+    public override PotionRarity Rarity => PotionRarity.Uncommon;
     public override PotionUsage Usage => PotionUsage.CombatOnly;
     public override TargetType TargetType => TargetType.AnyPlayer;
 
