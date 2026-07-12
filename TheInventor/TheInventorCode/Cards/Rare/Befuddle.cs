@@ -14,7 +14,7 @@ using TheInventor.TheInventorCode.Powers;
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
 
-public class Befuddle() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Befuddle() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override string GetScrapId => nameof(Replicate);
 
