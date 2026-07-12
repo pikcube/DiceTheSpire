@@ -102,5 +102,7 @@
   "THETHIEF-READY_OR_NOT.description": "Deal {Damage:diff()} damage.\n{IfUpgraded:show:Apply|If the enemy intends to attack, apply} {WeakPower:diff()} [gold]Weak[/gold]{IfUpgraded:show:\nand|.\nOtherwise, apply} {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "THETHIEF-READY_OR_NOT.title": "Ready Or Not",
   "THETHIEF-FORTIFY.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
-  "THETHIEF-FORTIFY.title": "Fortify"
+  "THETHIEF-FORTIFY.title": "Fortify",
+  "THETHIEF-INK_SPLAT.description": "[gold]Enchant[/gold] an attack in [gold]Hand[/gold] with [gold]Inky[/gold].",
+  "THETHIEF-INK_SPLAT.title": "Ink Splat"
 }
