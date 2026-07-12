@@ -21,7 +21,7 @@ public class PlaguePower : TheInventorPower
 
         while (Amount > 0)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, Owner, Owner, null);
+            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, Owner, Applier, null);
             await PowerCmd.Decrement(this);
         }
     }
