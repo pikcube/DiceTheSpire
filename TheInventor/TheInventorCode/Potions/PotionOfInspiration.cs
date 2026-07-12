@@ -20,8 +20,6 @@ public class PotionOfInspiration : TheInventorPotion
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        Player player = target?.Player ?? Owner;
-
         await ScrapManager.RandomizeAllGadgetsAsync(choiceContext, Owner, null);
     }
 }
