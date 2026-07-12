@@ -6,10 +6,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Uncommon;
+namespace TheInventor.TheInventorCode.Cards.Rare;
 
 
-public class QuickAttack() : TheInventorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.RandomEnemy)
+public class QuickAttack() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, TargetType.RandomEnemy)
 {
     public override string GetScrapId => nameof(QuickerAttack);
 

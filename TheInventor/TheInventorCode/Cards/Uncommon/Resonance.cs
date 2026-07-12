@@ -4,10 +4,10 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class Resonance() : TheInventorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Resonance() : TheInventorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(Fury);
 

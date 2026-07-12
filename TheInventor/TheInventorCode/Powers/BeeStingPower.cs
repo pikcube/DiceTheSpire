@@ -8,14 +8,9 @@ namespace TheInventor.TheInventorCode.Powers;
 
 public class BeeStingPower : TheInventorPower
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
-
-    public override decimal ModifyMaxEnergy(Player player, decimal amount)
-    {
-        return player == Owner.Player ? amount + Amount : amount;
-    }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
