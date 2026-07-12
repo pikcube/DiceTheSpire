@@ -91,7 +91,9 @@
   "THEWARRIOR-POWER_CRYSTAL.description": "When you play a [gold]Power[/gold], gain one [gold]Stregnth[/gold] for each {Energy:energyIcons()} spent.",
   "THEWARRIOR-POWER_CRYSTAL.title": "Power Crystal",
   "THEWARRIOR-DEFLECT.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {VigorPower:diff()} [gold]Vigor[/gold].",
-  "THEWARRIOR-DEFLECT.title": "Deflect"
+  "THEWARRIOR-DEFLECT.title": "Deflect",
+  "THEWARRIOR-SHRIEK.description": "[gold]Range[/gold] [1, 3]\nGain 1 [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
+  "THEWARRIOR-SHRIEK.title": "Shriek"
 
 
 }     

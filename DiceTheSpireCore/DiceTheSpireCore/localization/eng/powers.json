@@ -55,5 +55,8 @@
   "DICETHESPIRECORE-BICEP_CURL_POWER.title": "Bicep Curl",
   "DICETHESPIRECORE-POWER_CRYSTAL_POWER.description": "When you play a [gold]Power[/gold], gain {Amount} [gold]Stregnth[/gold] for each {energyPrefix:energyIcons(1)} spent.",
   "DICETHESPIRECORE-POWER_CRYSTAL_POWER.smartDescription": "When you play a [gold]Power[/gold], gain {Amount} [gold]Stregnth[/gold] for each {energyPrefix:energyIcons(1)} spent.",
-  "DICETHESPIRECORE-POWER_CRYSTAL_POWER.title": "Power Crystal"
+  "DICETHESPIRECORE-POWER_CRYSTAL_POWER.title": "Power Crystal",
+  "DICETHESPIRECORE-WARRIOR_SHRIEK_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
+  "DICETHESPIRECORE-WARRIOR_SHRIEK_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
+  "DICETHESPIRECORE-WARRIOR_SHRIEK_POWER.title": "Shriek"
 }
