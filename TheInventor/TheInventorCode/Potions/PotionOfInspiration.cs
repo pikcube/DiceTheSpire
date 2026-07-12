@@ -16,7 +16,7 @@ public class PotionOfInspiration : TheInventorPotion
     public override TargetType TargetType => TargetType.AnyPlayer;
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.Static(InventorStaticHoverTips.TemporaryGadget)];
+        [HoverTipFactory.Static(InventorStaticHoverTips.Gadget)];
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
