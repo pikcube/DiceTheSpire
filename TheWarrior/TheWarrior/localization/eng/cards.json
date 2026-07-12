@@ -89,7 +89,9 @@
   "THEWARRIOR-SPARE_THREE.title": "Spare Three",
   "THEWARRIOR-SPARE_THREE.upgradeTitle": "Spare Four+",
   "THEWARRIOR-POWER_CRYSTAL.description": "When you play a [gold]Power[/gold], gain one [gold]Stregnth[/gold] for each {Energy:energyIcons()} spent.",
-  "THEWARRIOR-POWER_CRYSTAL.title": "Power Crystal"
+  "THEWARRIOR-POWER_CRYSTAL.title": "Power Crystal",
+  "THEWARRIOR-DEFLECT.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {VigorPower:diff()} [gold]Vigor[/gold].",
+  "THEWARRIOR-DEFLECT.title": "Deflect"
 
 
 }     
