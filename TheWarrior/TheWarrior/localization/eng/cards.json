@@ -41,7 +41,7 @@
   "THEWARRIOR-SWORD.title": "Sword",
   "THEWARRIOR-PRACTICE_ROLL.description": "Add a copy of [gold]Roll Again[/gold] to your [gold]Hand[/gold] at the start of your turn.",
   "THEWARRIOR-PRACTICE_ROLL.title": "Practice Roll",
-  "THEWARRIOR-BATTLE_CRY.description": "Apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to all enemies. Gain {VigorPower:diff()} [gold]Vigor[/gold]",
+  "THEWARRIOR-BATTLE_CRY.description": "[gold]Range[/gold] [0, 2]\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to all enemies. Gain {VigorPower:diff()} [gold]Vigor[/gold]",
   "THEWARRIOR-BATTLE_CRY.title": "Battle Cry",
   "THEWARRIOR-MAGIC_REROLL.description": "All copies of [gold]Roll Again[/gold] are upgraded.",
   "THEWARRIOR-MAGIC_REROLL.title": "Magic Reroll",
