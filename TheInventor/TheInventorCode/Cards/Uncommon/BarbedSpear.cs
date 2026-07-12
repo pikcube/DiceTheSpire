@@ -11,7 +11,7 @@ using TheInventor.TheInventorCode.Gadgets;
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class BarbedSpear() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class BarbedSpear() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(Needle);
 

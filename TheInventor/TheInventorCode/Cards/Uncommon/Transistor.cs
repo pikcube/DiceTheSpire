@@ -12,11 +12,11 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Transistor() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IAfterCardShockedListener
+public class Transistor() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IAfterCardShockedListener
 {
     public override string GetScrapId => nameof(ShortCircuit);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, DamageProps.card)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(1)];
 

@@ -10,9 +10,9 @@ using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Kaleidoscope() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Kaleidoscope() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(Replicate);
 
