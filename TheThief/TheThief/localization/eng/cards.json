@@ -104,5 +104,7 @@
   "THETHIEF-FORTIFY.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
   "THETHIEF-FORTIFY.title": "Fortify",
   "THETHIEF-INK_SPLAT.description": "[gold]Enchant[/gold] an attack in [gold]Hand[/gold] with [gold]Inky[/gold].",
-  "THETHIEF-INK_SPLAT.title": "Ink Splat"
+  "THETHIEF-INK_SPLAT.title": "Ink Splat",
+  "THETHIEF-ECHO_BLAST.description": "Deal {SingleDamage} damage.\nDeal {AreaDamage} damage to all enemies.",
+  "THETHIEF-ECHO_BLAST.title": "Echo Blast"
 }
