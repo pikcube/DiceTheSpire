@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Enchantments;
 
 namespace TheThief.TheThiefCode.Cards.Rare;
 
-public class InkSplat() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class InkSplat() : TheThiefCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [..HoverTipFactory.FromEnchantment<Inky>()];
@@ -34,6 +34,6 @@ public class InkSplat() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, Targe
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Retain);
     }
 }
