@@ -1,18 +1,19 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
-public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IScrapCard<ScrapStrike>
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
+    public ScrapStrike Card => this;
+    public bool IsAlwaysOfferedAsScrap => true;
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ScrapKeyword.Scrap];
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card)];
 

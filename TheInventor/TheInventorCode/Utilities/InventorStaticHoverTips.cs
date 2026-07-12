@@ -10,4 +10,7 @@ public static class InventorStaticHoverTips
 
     [CustomEnum] 
     public static StaticHoverTip TemporaryGadget = 0;
+
+    [CustomEnum]
+    public static StaticHoverTip Gadget = 0;
 }

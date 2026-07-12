@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,14 +11,16 @@ using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Enchantments;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
-using TheInventor.TheInventorCode.Keywords;
 
 namespace TheInventor.TheInventorCode.Cards.Ancient;
 
-public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.Self), ITomeCard
+public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.Self), ITomeCard, IScrapCard<RottenEgg>
 {
     public override string GetScrapId => nameof(StinkyGadget);
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, ScrapKeyword.Scrap];
+    public bool IsAlwaysOfferedAsScrap => true;
+    public RottenEgg Card => this;
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [.. HoverTipFactory.FromEnchantment<Stinky>()];
     public override int MaxUpgradeLevel => 0;
 
