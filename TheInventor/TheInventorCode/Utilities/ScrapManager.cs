@@ -111,7 +111,11 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
 
         bool canTravel = NMapScreen.Instance.IsTravelEnabled;
-        NMapScreen.Instance.SetTravelEnabled(false);
+
+        if (LocalContext.IsMe(rewardsSet.Player))
+        { 
+            NMapScreen.Instance.SetTravelEnabled(false);
+        }
 
         try
         {
@@ -122,8 +126,8 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
             })];
 
-            List<CardModel> scrapCards = [.. cards.Where(c => c is IScrapCard)];
-            List<CardModel> otherCards = [.. cards.Where(c => c is not IScrapCard)];
+            List<CardModel> scrapCards = [.. cards.Where(c => c is IScrapCard { IsAlwaysOfferedAsScrap: true })];
+            List<CardModel> otherCards = [.. cards.Where(c => c is not IScrapCard { IsAlwaysOfferedAsScrap: true })];
 
             cards.Clear();
             cards.AddRange(ShuffleForScrap(p, scrapCards));
@@ -186,7 +190,10 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
         finally
         {
-            NMapScreen.Instance.SetTravelEnabled(canTravel);
+            if (LocalContext.IsMe(rewardsSet.Player))
+            {
+                NMapScreen.Instance.SetTravelEnabled(canTravel);
+            }
         }
 
         await rewardsSet.Offer();
