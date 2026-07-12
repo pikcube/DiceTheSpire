@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 public class Deflect() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4M, BlockProps.card), new PowerVar<VigorPower>(4M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4M, BlockProps.card), new PowerVar<VigorPower>(2M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
     public override bool GainsBlock => true;
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
