@@ -21,7 +21,6 @@ using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
-using TheInventor.TheInventorCode.Enchantments;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Powers;
