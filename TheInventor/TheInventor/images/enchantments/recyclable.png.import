@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3fbu15xvtsd5"
-path="res://.godot/imported/stinky.png-040be9f1485a5a47ed6a65ac61e872a0.ctex"
+uid="uid://bewxa7g6yt1vn"
+path="res://.godot/imported/recyclable.png-a0d538c5838468f13110387127062a28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/enchantments/stinky.png"
-dest_files=["res://.godot/imported/stinky.png-040be9f1485a5a47ed6a65ac61e872a0.ctex"]
+source_file="res://TheInventor/images/enchantments/recyclable.png"
+dest_files=["res://.godot/imported/recyclable.png-a0d538c5838468f13110387127062a28.ctex"]
 
 [params]
 

@@ -11,5 +11,8 @@
   "THEINVENTOR-GADGET.title": "Gadget",
   "THEINVENTOR-SOUPY_GADGET.description": "{GadgetName.StringValue}: {GadgetDescription.StringValue}.",
   "THEINVENTOR-SOUPY_GADGET.flavor": "\"Too many ideas, not enough time...\"",
-  "THEINVENTOR-SOUPY_GADGET.title": "SoupyGadget"
+  "THEINVENTOR-SOUPY_GADGET.title": "SoupyGadget",
+  "THEINVENTOR-CARDBOARD_HAT.description": "[gold]Enchant[/gold] up to 3 cards with [gold]Recyclable[/gold].",
+  "THEINVENTOR-CARDBOARD_HAT.flavor": "\"I can't believe the Merchant was just going to throw this away!\"",
+  "THEINVENTOR-CARDBOARD_HAT.title": "Cardboard Hat"
 }

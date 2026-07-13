@@ -21,6 +21,7 @@ using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards;
+using TheInventor.TheInventorCode.Enchantments;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
 using TheInventor.TheInventorCode.Powers;
@@ -126,8 +127,8 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
             })];
 
-            List<CardModel> scrapCards = [.. cards.Where(c => c is IScrapCard { IsAlwaysOfferedAsScrap: true })];
-            List<CardModel> otherCards = [.. cards.Where(c => c is not IScrapCard { IsAlwaysOfferedAsScrap: true })];
+            List<CardModel> scrapCards = [.. cards.Where(IsScrapCard)];
+            List<CardModel> otherCards = [.. cards.Where(c => !IsScrapCard(c))];
 
             cards.Clear();
             cards.AddRange(ShuffleForScrap(p, scrapCards));
@@ -197,6 +198,11 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
 
         await rewardsSet.Offer();
+    }
+
+    private static bool IsScrapCard(CardModel c)
+    {
+        return c is IScrapCard { IsAlwaysOfferedAsScrap: true } || c.Enchantment is IScrapCard { IsAlwaysOfferedAsScrap: true };
     }
 
     private static void BetterHooksOnModifyCardSelectionScreenTitle(NChooseACardSelectionScreen sender, ModifyCardSelectionScreenTitleArgs e)
