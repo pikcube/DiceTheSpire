@@ -1,6 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Models;
-
-namespace DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿namespace DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 
 public interface IScrapCard
 {

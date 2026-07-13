@@ -35,5 +35,4 @@ public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
     }
 
     public bool IsAlwaysOfferedAsScrap => true;
-    public ScrapBook Card => this;
 }
