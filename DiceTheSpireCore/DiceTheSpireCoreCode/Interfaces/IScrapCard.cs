@@ -6,8 +6,3 @@ public interface IScrapCard
 {
     public bool IsAlwaysOfferedAsScrap { get; }
 }
-
-public interface IScrapCard<out T> : IScrapCard where T : CardModel
-{
-    public T Card { get; }
-}

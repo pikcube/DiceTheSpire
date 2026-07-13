@@ -8,14 +8,13 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
-public class ScrapDefend() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), IScrapCard<ScrapDefend>
+public class ScrapDefend() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), IScrapCard
 {
     public override bool GainsBlock => true;
-    public ScrapDefend Card => this;
     public bool IsAlwaysOfferedAsScrap => true;
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, BlockProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

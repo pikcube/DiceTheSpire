@@ -10,7 +10,7 @@ using TheInventor.TheInventorCode.Utilities;
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
 
-public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self), IScrapCard<EncyclopedicForm>
+public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self), IScrapCard
 { 
     public override string GetScrapId => nameof(BurstOfKnowledge);
 

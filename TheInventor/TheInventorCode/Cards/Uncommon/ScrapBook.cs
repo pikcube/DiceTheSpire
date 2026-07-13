@@ -12,7 +12,7 @@ using TheInventor.TheInventorCode.Gadgets;
 namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IOnBlinkListener, IScrapCard<ScrapBook>
+public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IOnBlinkListener, IScrapCard
 {
     public override string GetScrapId => nameof(MagicDice);
 
