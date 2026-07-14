@@ -14,12 +14,10 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Ancient;
 
-public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.Self), ITomeCard, IScrapCard<RottenEgg>
+public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.Self), ITomeCard, IScrapCard
 {
     public override string GetScrapId => nameof(StinkyGadget);
     public bool IsAlwaysOfferedAsScrap => true;
-    public RottenEgg Card => this;
-
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [.. HoverTipFactory.FromEnchantment<Stinky>()];
     public override int MaxUpgradeLevel => 0;

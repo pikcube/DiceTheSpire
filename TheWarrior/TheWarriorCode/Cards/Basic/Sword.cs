@@ -1,4 +1,6 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,14 +9,16 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Basic;
 
 public class Sword() : TheWarriorCard(3, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new DamageVar(20M, DamageProps.card)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new DamageVar(15M, DamageProps.card), new PowerVar<FuryPower>(1M)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
+
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,27 +31,14 @@ public class Sword() : TheWarriorCard(3, CardType.Attack, CardRarity.Basic, Targ
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);
-        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-        foreach (CardModel card in cards)
-        {
-            await CardCmd.Discard(choiceContext, card);
-        }
+        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
 
-        if (cards.Length == 0)
-        {
-            return;
-        }
-
-
-        await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
     }
 
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Cards.UpgradeValueBy(1);
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(5);
     }
 
 }

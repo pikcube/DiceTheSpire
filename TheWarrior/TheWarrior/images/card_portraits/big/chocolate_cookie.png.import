@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0a0um7fxs35m"
-path="res://.godot/imported/feedback_loop_power.png-2d591e55e157be52c214b1f0ee768c27.ctex"
+uid="uid://chrok2ydulpmw"
+path="res://.godot/imported/chocolate_cookie.png-001a2b6b9ead0abf8ace5e9fea737fd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/powers/big/feedback_loop_power.png"
-dest_files=["res://.godot/imported/feedback_loop_power.png-2d591e55e157be52c214b1f0ee768c27.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/chocolate_cookie.png"
+dest_files=["res://.godot/imported/chocolate_cookie.png-001a2b6b9ead0abf8ace5e9fea737fd6.ctex"]
 
 [params]
 

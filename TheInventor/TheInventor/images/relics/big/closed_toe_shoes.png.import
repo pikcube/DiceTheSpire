@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgjdkkcppayva"
-path="res://.godot/imported/feedback_loop_power.png-a383aa1fb2b60f0a41e89fa657c93688.ctex"
+uid="uid://bjflbvnuud0kv"
+path="res://.godot/imported/closed_toe_shoes.png-27de0c51adfe2b518c41f59d3764aa89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/powers/feedback_loop_power.png"
-dest_files=["res://.godot/imported/feedback_loop_power.png-a383aa1fb2b60f0a41e89fa657c93688.ctex"]
+source_file="res://TheInventor/images/relics/big/closed_toe_shoes.png"
+dest_files=["res://.godot/imported/closed_toe_shoes.png-27de0c51adfe2b518c41f59d3764aa89.ctex"]
 
 [params]
 
