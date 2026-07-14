@@ -37,7 +37,7 @@
   "THETHIEF-CROWBAR.title": "Crowbar",
   "THETHIEF-BLIGHT.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDouble an enemy's [gold]Poison[/gold].",
   "THETHIEF-BLIGHT.title": "Blight",
-  "THETHIEF-HACKSAW.description": "Draw {Cards:diff()} cards.\nTransform a card in your [gold]Hand[/gold] into [gold]Pip[/gold].",
+  "THETHIEF-HACKSAW.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDraw {Cards:diff()} cards.",
   "THETHIEF-HACKSAW.title": "Hacksaw",
   "THETHIEF-HOOKSHOT.description": "Deal {Damage:diff()} damage.\nPut the next card you play back into your [gold]Hand[/gold].",
   "THETHIEF-HOOKSHOT.title": "Hookshot",
