@@ -109,6 +109,8 @@
   "THETHIEF-ECHO_BLAST.title": "Echo Blast",
   "THETHIEF-APPROACH.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold]{IfUpgraded:show: to all enemies|}.",
   "THETHIEF-APPROACH.title": "Approach",
-  "THETHIEF-SIGNAL_JAMMER.description": "Draw a card.\nAdd a [gold]Pip[/gold] to your [gold]Hand[/gold].",
-  "THETHIEF-SIGNAL_JAMMER.title": "Signal Jammer"
+  "THETHIEF-SIGNAL_JAMMER.description": "Gain {Block:diff()} [gold]Block[/gold].\nFill your [gold]Hand[/gold] with [gold]Pips[/gold].",
+  "THETHIEF-SIGNAL_JAMMER.title": "Signal Jammer",
+  "THETHIEF-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrement each [gold]Countdown[/gold] drawn by 1.",
+  "THETHIEF-SNEEZE.title": "Sneeze"
 }
