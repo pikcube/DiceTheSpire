@@ -95,7 +95,9 @@
   "THEWARRIOR-SHRIEK.description": "[gold]Range[/gold] [0, 2]\nGain 1 [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
   "THEWARRIOR-SHRIEK.title": "Shriek",
   "THEWARRIOR-CHOCOLATE_COOKIE.description": "[gold]Range[/gold] [3]\nGain {FuryPower:diff()} [gold]Fury[/gold].",
-  "THEWARRIOR-CHOCOLATE_COOKIE.title": "Chocolate Cookie"
+  "THEWARRIOR-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
+  "THEWARRIOR-TACKLE.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
+  "THEWARRIOR-TACKLE.title": "Tackle"
 
 
 }     

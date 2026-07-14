@@ -10,7 +10,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class Slingshot() : TheWarriorCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(5M, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(1M, DamageProps.card)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
