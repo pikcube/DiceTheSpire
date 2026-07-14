@@ -15,6 +15,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare;
 public class Shriek() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self), IRangeCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WarriorShriekPower>(1M)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [BetterStaticHoverTips.RangeHoverTip(this), HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -23,9 +24,9 @@ public class Shriek() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, Targe
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        RemoveKeyword(CardKeyword.Ethereal);
     }
-    public int MinimumCost => 1;
-    public int MaximumCost => 3;
+    public int MinimumCost => 0;
+    public int MaximumCost => 2;
 }
 

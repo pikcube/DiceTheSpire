@@ -24,18 +24,22 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
                 return;
             }
 
+            int repeats = 0;
+
             foreach (CardModel card in Owner.PlayerCombatState.Hand.Cards.ToArray())
             {
                 if (card.CurrentUpgradeLevel > 0 || IsUpgraded)
                 {
-                    await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                        .FromCard(this, cardPlay)
-                        .Targeting(cardPlay.Target)
-                        .WithHitFx(VfxCmd.slashPath)
-                        .Execute(choiceContext);
+                    repeats++;
                 }
                 await card.NudgeAsync(choiceContext);
             }
+            await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+                        .FromCard(this, cardPlay)
+                        .Targeting(cardPlay.Target)
+                        .WithHitCount(repeats)
+                        .WithHitFx(VfxCmd.slashPath)
+                        .Execute(choiceContext);
         }
     }
 }
