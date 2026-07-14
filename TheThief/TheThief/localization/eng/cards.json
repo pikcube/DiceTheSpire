@@ -112,5 +112,7 @@
   "THETHIEF-SIGNAL_JAMMER.description": "Gain {Block:diff()} [gold]Block[/gold].\nFill your [gold]Hand[/gold] with [gold]Pips[/gold].",
   "THETHIEF-SIGNAL_JAMMER.title": "Signal Jammer",
   "THETHIEF-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrement each [gold]Countdown[/gold] drawn by 1.",
-  "THETHIEF-SNEEZE.title": "Sneeze"
+  "THETHIEF-SNEEZE.title": "Sneeze",
+  "THETHIEF-COUNTVALANCHE.description": "Discard your [gold]Hand[/gold].\nDeal {Damage:diff()} damage for each card discarded.",
+  "THETHIEF-COUNTVALANCHE.title": "Countvalanche"
 }
