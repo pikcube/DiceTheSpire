@@ -6,10 +6,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
-using TheWarrior.TheWarriorCode.Extensions;
 
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
     public class ChocolateCookie() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IRangeCard

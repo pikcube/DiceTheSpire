@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Cards;
-using MegaCrit.Sts2.Core.TestSupport;
 
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 public class IceAge() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
