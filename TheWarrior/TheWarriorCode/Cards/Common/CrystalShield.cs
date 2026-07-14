@@ -10,7 +10,6 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class CrystalShield() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedBlock(0, Bonus)];
 
     public override bool GainsBlock => true;

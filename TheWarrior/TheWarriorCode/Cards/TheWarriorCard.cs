@@ -26,7 +26,6 @@ public abstract class TheWarriorCard(int cost, CardType type, CardRarity rarity,
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
-
     public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null)
     {
         string costText = cost switch
@@ -36,12 +35,12 @@ public abstract class TheWarriorCard(int cost, CardType type, CardRarity rarity,
             _ => $"{cost}"
         };
 
+
         if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
         {
             return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
         }
 
-        energyCostColor ??= CardCostHelper.GetEnergyCostColor(this, CombatState);
         switch (energyCostColor)
         {
             case CardCostColor.Unmodified:

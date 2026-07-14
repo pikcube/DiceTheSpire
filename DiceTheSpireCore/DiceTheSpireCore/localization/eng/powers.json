@@ -58,5 +58,8 @@
   "DICETHESPIRECORE-POWER_CRYSTAL_POWER.title": "Power Crystal",
   "DICETHESPIRECORE-WARRIOR_SHRIEK_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
   "DICETHESPIRECORE-WARRIOR_SHRIEK_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
-  "DICETHESPIRECORE-WARRIOR_SHRIEK_POWER.title": "Shriek"
+  "DICETHESPIRECORE-WARRIOR_SHRIEK_POWER.title": "Shriek",
+  "DICETHESPIRECORE-FURY_POWER.description": "The next {Amount:plural:card|{Amount} cards} played {Amount:plural:is|are} played an additional time.",
+  "DICETHESPIRECORE-FURY_POWER.smartDescription": "The next {Amount:plural:card|{Amount} cards} played {Amount:plural:is|are} played an additional time.",
+  "DICETHESPIRECORE-FURY_POWER.title": "Fury"
 }

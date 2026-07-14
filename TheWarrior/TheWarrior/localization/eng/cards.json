@@ -37,7 +37,7 @@
   "THEWARRIOR-MATCHSTICK.title": "Matchstick",
   "THEWARRIOR-IRON_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold]. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-IRON_SHIELD.title": "Iron Shield",
-  "THEWARRIOR-SWORD.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-SWORD.description": "Deal {Damage:diff()} damage.\nGain [gold]Fury[/gold].",
   "THEWARRIOR-SWORD.title": "Sword",
   "THEWARRIOR-PRACTICE_ROLL.description": "Add a copy of [gold]Roll Again[/gold] to your [gold]Hand[/gold] at the start of your turn.",
   "THEWARRIOR-PRACTICE_ROLL.title": "Practice Roll",
