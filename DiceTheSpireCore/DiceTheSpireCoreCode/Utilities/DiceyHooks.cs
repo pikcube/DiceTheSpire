@@ -1,6 +1,7 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
@@ -102,6 +103,14 @@ public static class DiceyHooks
         foreach (IModifyRerollListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyRerollListener>())
         {
             listener.ModifyRerollRange(card, ref minimum, ref maximum);
+        }
+    }
+
+    public static void ModifyScrapPriority(IRunState runState, Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
+    {
+        foreach (IModifyScrapPriorityListener listener in runState.IterateHookListeners(null).OfType<IModifyScrapPriorityListener>())
+        {
+            listener.ModifyPriority(player, ref scrapCards, ref otherCards);
         }
     }
 }
