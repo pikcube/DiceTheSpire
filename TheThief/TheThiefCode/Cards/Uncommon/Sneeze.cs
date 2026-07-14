@@ -14,13 +14,13 @@ public class Sneeze() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Tar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState is null)
+        if (CombatState is null || Owner.PlayerCombatState is null)
         {
             return;
         }
 
-        IEnumerable<CardModel> cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-        foreach (CardModel card in cards)
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        foreach (CardModel card in Owner.PlayerCombatState.Hand.Cards)
         {
             if (card is ICountdown countdown)
             {
