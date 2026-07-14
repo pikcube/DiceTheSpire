@@ -7,7 +7,7 @@ using Pikcube.Common.Utility;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
-public class SneezePower : DiceTheSpireCorePower, IOnBlinkListener
+public class FeedbackLoopPower : DiceTheSpireCorePower, IOnBlinkListener
 {
     public override PowerType Type => PowerType.Buff;
 

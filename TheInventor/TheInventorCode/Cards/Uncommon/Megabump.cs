@@ -35,7 +35,7 @@ public class Megabump() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
         foreach (Player p in CombatState.Players)
         {
             CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
-            results.Add(p, CardSelectCmd.FromHand(choiceContext, p, prefs, null, this));
+            results.Add(p, CardSelectCmd.FromHand(new BlockingPlayerChoiceContext(), p, prefs, null, this));
         }
 
         await Task.WhenAll(results.Values);

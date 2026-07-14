@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3fbu15xvtsd5"
-path="res://.godot/imported/stinky.png-040be9f1485a5a47ed6a65ac61e872a0.ctex"
+uid="uid://u7ju30stv7it"
+path="res://.godot/imported/feedback_loop_power.png-99c6641836279c5097e1c1898d7c0e82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/enchantments/stinky.png"
-dest_files=["res://.godot/imported/stinky.png-040be9f1485a5a47ed6a65ac61e872a0.ctex"]
+source_file="res://DiceTheSpireCore/images/powers/feedback_loop_power.png"
+dest_files=["res://.godot/imported/feedback_loop_power.png-99c6641836279c5097e1c1898d7c0e82.ctex"]
 
 [params]
 

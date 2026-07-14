@@ -8,14 +8,13 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
-public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IScrapCard<ScrapStrike>
+public class ScrapStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IScrapCard
 {
-    public ScrapStrike Card => this;
     public bool IsAlwaysOfferedAsScrap => true;
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -12,9 +12,8 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Common;
 
-public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), IScrapCard<ScrapBump>
-{
-    public ScrapBump Card => this;
+public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), IScrapCard
+{ 
     public bool IsAlwaysOfferedAsScrap => true;
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => IsUpgraded ? [HoverTipFactory.Static(BetterStaticHoverTips.Bump)] : [];

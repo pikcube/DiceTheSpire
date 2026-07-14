@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0a0um7fxs35m"
-path="res://.godot/imported/feedback_loop_power.png-2d591e55e157be52c214b1f0ee768c27.ctex"
+uid="uid://cqe2mf1c4kqe2"
+path="res://.godot/imported/feedback_loop_power.png-4ed6d482c8d50fcb2933a22f040e8c20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/powers/big/feedback_loop_power.png"
-dest_files=["res://.godot/imported/feedback_loop_power.png-2d591e55e157be52c214b1f0ee768c27.ctex"]
+source_file="res://DiceTheSpireCore/images/powers/big/feedback_loop_power.png"
+dest_files=["res://.godot/imported/feedback_loop_power.png-4ed6d482c8d50fcb2933a22f040e8c20.ctex"]
 
 [params]
 

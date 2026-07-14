@@ -9,7 +9,7 @@ using TheInventor.TheInventorCode.Gadgets;
 
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IScrapCard<GoldDagger>
+public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IScrapCard
 {
     public override string GetScrapId => nameof(Harvest);
 
@@ -29,5 +29,4 @@ public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare,
     }
 
     public bool IsAlwaysOfferedAsScrap => IsUpgraded;
-    public GoldDagger Card => this;
 }

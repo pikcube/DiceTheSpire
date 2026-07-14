@@ -42,7 +42,7 @@ public class CalculatorPower : TheInventorPower, IOnInspectListener
             return;
         }
 
-        await PlayerCmd.GainEnergy(1, inspector);
+        await CardPileCmd.Draw(choiceContext, inspector);
         ++Counter;
         if (Counter >= Amount)
         {

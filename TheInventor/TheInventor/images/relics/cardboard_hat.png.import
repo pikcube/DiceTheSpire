@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3fbu15xvtsd5"
-path="res://.godot/imported/stinky.png-040be9f1485a5a47ed6a65ac61e872a0.ctex"
+uid="uid://c5twdvr0tdn6s"
+path="res://.godot/imported/cardboard_hat.png-63c6db46fc4ac44bd72c364a492ad73f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/enchantments/stinky.png"
-dest_files=["res://.godot/imported/stinky.png-040be9f1485a5a47ed6a65ac61e872a0.ctex"]
+source_file="res://TheInventor/images/relics/cardboard_hat.png"
+dest_files=["res://.godot/imported/cardboard_hat.png-63c6db46fc4ac44bd72c364a492ad73f.ctex"]
 
 [params]
 
