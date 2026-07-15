@@ -97,7 +97,9 @@
   "THEWARRIOR-CHOCOLATE_COOKIE.description": "[gold]Range[/gold] [3]\nGain {FuryPower:diff()} [gold]Fury[/gold].",
   "THEWARRIOR-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
   "THEWARRIOR-TACKLE.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
-  "THEWARRIOR-TACKLE.title": "Tackle"
+  "THEWARRIOR-TACKLE.title": "Tackle",
+  "THEWARRIOR-STILL_STANDING.description": "WIP (become unkillable lol)",
+  "THEWARRIOR-STILL_STANDING.title": "Still Standing"
 
 
 }     
