@@ -12,19 +12,18 @@ using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare;
-public class Shriek() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self), IRangeCard
+public class Shriek() : TheWarriorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self), IRangeCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WarriorShriekPower>(1M)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [BetterStaticHoverTips.RangeHoverTip(this), HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<WarriorShriekPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
+        await PowerCmd.Apply<WarriorShriekPower>(choiceContext, Owner.Creature, DynamicVars.Power<ShriekPower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Ethereal);
+        DynamicVars.Power<ShriekPower>().UpgradeValueBy(1);
     }
     public int MinimumCost => 0;
     public int MaximumCost => 2;
