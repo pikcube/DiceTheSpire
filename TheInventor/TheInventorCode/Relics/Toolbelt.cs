@@ -27,7 +27,7 @@ public class Toolbelt : TheInventorRelic, IOnBlinkListener
             return;
         }
 
-        await CardPileCmd.Draw(choiceContext, Owner);
+        await CardPileCmd.Draw(choiceContext, 3, Owner);
         Flash();
         Status = RelicStatus.Normal;
         InvokeDisplayAmountChanged();

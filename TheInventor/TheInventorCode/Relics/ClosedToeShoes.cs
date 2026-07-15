@@ -1,7 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
@@ -14,7 +14,7 @@ namespace TheInventor.TheInventorCode.Relics;
 
 public class ClosedToeShoes : TheInventorRelic
 {
-    public override RelicRarity Rarity => RelicRarity.Uncommon;
+    public override RelicRarity Rarity => RelicRarity.Rare;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
@@ -23,12 +23,8 @@ public class ClosedToeShoes : TheInventorRelic
             return;
         }
 
-        CardModel? card = Owner.PlayerCombatState.Hand.Cards
-            .Where(c => ModelDb.Enchantment<Swift>().CanEnchant(c) && c.CanPlay())
-            .TakeRandom(1, Owner.RunState.Rng.CombatCardSelection)
-            .FirstOrDefault();
-
-        card ??= Owner.PlayerCombatState.DrawPile.Cards.FirstOrDefault(c => ModelDb.Enchantment<Swift>().CanEnchant(c) && c.CanPlay());
+        CardSelectorPrefs prefs = new(CardSelectorPrefs.EnchantSelectionPrompt, 1);
+        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, Filter, this)).SingleOrDefault();
 
         if (card is null)
         {
@@ -41,5 +37,10 @@ public class ClosedToeShoes : TheInventorRelic
         {
             NRun.Instance?.GlobalUi.CardPreviewContainer.AddChildSafely(child);
         }
+    }
+
+    private static bool Filter(CardModel card)
+    {
+        return card.CanPlay() && ModelDb.Enchantment<Swift>().CanEnchant(card);
     }
 }

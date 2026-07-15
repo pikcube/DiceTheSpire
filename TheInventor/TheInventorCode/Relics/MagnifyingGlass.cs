@@ -13,7 +13,7 @@ namespace TheInventor.TheInventorCode.Relics;
 public class MagnifyingGlass : TheInventorRelic, IOnInspectListener
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
-    public override RelicRarity Rarity => RelicRarity.Rare;
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
 
     private bool IsReady { get; set; }
     public override Task BeforeCombatStart()
