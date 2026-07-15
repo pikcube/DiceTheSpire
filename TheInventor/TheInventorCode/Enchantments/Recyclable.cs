@@ -14,4 +14,6 @@ public class Recyclable : CustomEnchantmentModel, IScrapCard
     ];
 
     public bool IsAlwaysOfferedAsScrap => true;
+
+    public override bool HasExtraCardText => true;
 }

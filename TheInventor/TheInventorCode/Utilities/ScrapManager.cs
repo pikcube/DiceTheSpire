@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
@@ -127,11 +128,15 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             })];
 
             List<CardModel> scrapCards = [.. cards.Where(IsScrapCard)];
+            ShuffleForScrap(p, scrapCards);
             List<CardModel> otherCards = [.. cards.Where(c => !IsScrapCard(c))];
+            ShuffleForScrap(p, otherCards);
+
+            DiceyHooks.ModifyScrapPriority(p.RunState, p, ref scrapCards, ref otherCards);
 
             cards.Clear();
-            cards.AddRange(ShuffleForScrap(p, scrapCards));
-            cards.AddRange(ShuffleForScrap(p, otherCards));
+            cards.AddRange(scrapCards);
+            cards.AddRange(otherCards);
 
             CardModel[] cardModels = [.. cards.Take(3)];
             if (cardModels.Length == 0)
@@ -262,10 +267,9 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         };
     }
 
-    private static List<CardModel> ShuffleForScrap(Player p, List<CardModel> scrapCards)
+    private static void ShuffleForScrap(Player p, List<CardModel> scrapCards)
     {
         p.PlayerRng.Rewards.Shuffle(scrapCards);
-        return scrapCards;
     }
 
     public static IEnumerable<string> GetRandomCombatGadgetId(Rng rng, int i)

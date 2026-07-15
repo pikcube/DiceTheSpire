@@ -37,7 +37,7 @@
   "THETHIEF-CROWBAR.title": "Crowbar",
   "THETHIEF-BLIGHT.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDouble an enemy's [gold]Poison[/gold].",
   "THETHIEF-BLIGHT.title": "Blight",
-  "THETHIEF-HACKSAW.description": "Draw {Cards:diff()} cards.\nTransform a card in your [gold]Hand[/gold] into [gold]Pip[/gold].",
+  "THETHIEF-HACKSAW.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nDraw {Cards:diff()} cards.",
   "THETHIEF-HACKSAW.title": "Hacksaw",
   "THETHIEF-HOOKSHOT.description": "Deal {Damage:diff()} damage.\nPut the next card you play back into your [gold]Hand[/gold].",
   "THETHIEF-HOOKSHOT.title": "Hookshot",
@@ -109,6 +109,10 @@
   "THETHIEF-ECHO_BLAST.title": "Echo Blast",
   "THETHIEF-APPROACH.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold]{IfUpgraded:show: to all enemies|}.",
   "THETHIEF-APPROACH.title": "Approach",
-  "THETHIEF-SIGNAL_JAMMER.description": "Draw a card.\nAdd a [gold]Pip[/gold] to your [gold]Hand[/gold].",
-  "THETHIEF-SIGNAL_JAMMER.title": "Signal Jammer"
+  "THETHIEF-SIGNAL_JAMMER.description": "Gain {Block:diff()} [gold]Block[/gold].\nFill your [gold]Hand[/gold] with [gold]Pips[/gold].",
+  "THETHIEF-SIGNAL_JAMMER.title": "Signal Jammer",
+  "THETHIEF-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrement each [gold]Countdown[/gold] in your [gold]Hand[/gold] by 1.",
+  "THETHIEF-SNEEZE.title": "Sneeze",
+  "THETHIEF-COUNTVALANCHE.description": "Discard your [gold]Hand[/gold].\nDeal {Damage:diff()} damage for each card discarded.",
+  "THETHIEF-COUNTVALANCHE.title": "Countvalanche"
 }

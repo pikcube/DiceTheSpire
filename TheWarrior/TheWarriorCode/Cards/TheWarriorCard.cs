@@ -4,7 +4,6 @@ using BaseLib.Utils;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Helpers.Models;
 using TheWarrior.TheWarriorCode.Character;
 using TheWarrior.TheWarriorCode.Extensions;
 
