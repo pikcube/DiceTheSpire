@@ -9,7 +9,7 @@ namespace TheInventor.TheInventorCode.Relics;
 
 public class SpareSpectacles : TheInventorRelic, IModifyScrapPriorityListener
 {
-    public override RelicRarity Rarity => RelicRarity.Rare;
+    public override RelicRarity Rarity => RelicRarity.Common;
     public void ModifyPriority(Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
     {
         if (player != Owner)

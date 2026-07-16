@@ -9,7 +9,7 @@ namespace TheInventor.TheInventorCode.Relics;
 
 public class Toolbelt : TheInventorRelic, IOnBlinkListener
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Rare;
     private bool IsReady { get; set; }
     public override Task BeforeCombatStart()
     {

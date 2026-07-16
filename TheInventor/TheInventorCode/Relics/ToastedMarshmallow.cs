@@ -12,7 +12,7 @@ namespace TheInventor.TheInventorCode.Relics;
 public class ToastedMarshmallow : TheInventorRelic
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
-    public override RelicRarity Rarity => RelicRarity.Rare;
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
     private int ModifyNextDraw { get; set; }
 
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)

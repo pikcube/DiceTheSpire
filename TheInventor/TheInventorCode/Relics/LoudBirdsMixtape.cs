@@ -12,7 +12,7 @@ namespace TheInventor.TheInventorCode.Relics;
 
 public class LoudBirdsMixtape : TheInventorRelic
 {
-    public override RelicRarity Rarity => RelicRarity.Uncommon;
+    public override RelicRarity Rarity => RelicRarity.Rare;
 
     public override Task BeforeCombatStart()
     {

@@ -14,7 +14,7 @@ namespace TheInventor.TheInventorCode.Relics;
 
 public class ClosedToeShoes : TheInventorRelic
 {
-    public override RelicRarity Rarity => RelicRarity.Rare;
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
