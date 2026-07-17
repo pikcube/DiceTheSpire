@@ -63,7 +63,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     public override async Task BeforeCombatStart()
     {
-        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        RunState? state = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
         if (state is null)
         {
             return;

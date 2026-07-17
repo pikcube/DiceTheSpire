@@ -8,6 +8,7 @@ using Pikcube.Common.Extensions;
 using System.Data;
 using System.Reflection;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using Pikcube.Common.Utility;
 
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
@@ -54,15 +55,15 @@ public static class RandomizePatch
         {
             return true;
         }
-        PropertyInfo randomizeCostTween = AccessTools.DeclaredProperty(typeof(NCard), "RandomizeCostTween");
 
-        __instance.GetPrivateProperty<NCard, Tween>("RandomizeCostTween")?.Kill();
+        PrivatePropertyWrapper<NCard, Tween> privatePropertyWrapper = __instance.PrivatePropertyWrapper<NCard, Tween>("RandomizeCostTween");
+        privatePropertyWrapper.Value?.Kill();
 
 
-        randomizeCostTween.SetValue(__instance, __instance.CreateTween());
+        privatePropertyWrapper.Value = __instance.CreateTween();
 
         float offset = Rng.Chaotic.NextFloat(10f);
-        __instance.GetPrivateProperty<NCard, Tween>("RandomizeCostTween")!.TweenMethod(Callable.From<float>(t =>
+        privatePropertyWrapper.Value.TweenMethod(Callable.From<float>(t =>
         {
             int val = (int)Math.Floor(offset + t) % 8 + 1;
 
@@ -72,7 +73,7 @@ public static class RandomizePatch
 
         }), 0, 50, Rng.Chaotic.NextFloat(0.4f, 0.6f)).SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Sine);
 
-        __instance.GetPrivateProperty<NCard, Tween>("RandomizeCostTween")!.Connect(Tween.SignalName.Finished, Callable.From((Action)(() =>
+        privatePropertyWrapper.Value.Connect(Tween.SignalName.Finished, Callable.From((Action)(() =>
         {
             if (__instance.Model == null)
             {

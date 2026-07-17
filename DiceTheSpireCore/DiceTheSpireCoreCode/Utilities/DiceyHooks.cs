@@ -67,7 +67,7 @@ public static class DiceyHooks
     public static async Task OnAfterBumpAsync(PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard)
     {
         AfterBump?.Invoke(choiceContext, card, newCard);
-        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        RunState? state = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
         if (state is null)
         {
             return;
@@ -86,7 +86,7 @@ public static class DiceyHooks
     public static async Task OnAfterNudgeAsync(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted)
     {
         AfterNudge?.Invoke(choiceContext, card, wasExhausted);
-        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        RunState? state = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
         if (state is null)
         {
             return;
