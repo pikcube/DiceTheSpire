@@ -23,12 +23,12 @@ public class Efficiency() : GadgetModel(nameof(Efficiency))
         return Task.CompletedTask;
     }
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
-        ResourceInfo resources, PileType pileType, CardPilePosition position)
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
+        CardLocation cardLocation)
     {
         if (Parent?.Owner != card.Owner || Count >= Power || isAutoPlay || card.Type == CardType.Power)
         {
-            return (pileType, position);
+            return cardLocation;
         }
 
         ++Count;
@@ -36,7 +36,7 @@ public class Efficiency() : GadgetModel(nameof(Efficiency))
         Parent.Flash();
 
         Parent.SetValue(Count >= Power ? 0 : Power - Count);
-        return (PileType.Hand, CardPilePosition.Top);
+        return new CardLocation(card.Owner, PileType.Hand, CardPilePosition.Top);
     }
 
     public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)

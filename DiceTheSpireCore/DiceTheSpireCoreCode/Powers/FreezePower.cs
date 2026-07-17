@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
@@ -22,9 +23,21 @@ public class FreezePower : DiceTheSpireCorePower
         return target == Owner ? 0 : 1;
     }
 
-    public override Task AfterModifyingBlockAmount(decimal modifiedAmount, CardModel? cardSource, CardPlay? cardPlay)
+    public override async Task AfterModifyingBlockAmount(decimal modifiedAmount, CardModel? cardSource, CardPlay? cardPlay)
     {
-        return Owner.Block == 0 ? Hook.AfterBlockBroken(CombatState, Owner) : Task.CompletedTask;
+        if (Owner.Block != 0)
+        {
+            return;
+        }
+
+        if (Owner.Player is not null)
+        {
+            await Hook.AfterBlockBroken(CombatState, new HookPlayerChoiceContext(Owner.Player, Owner.Player.NetId, GameActionType.Combat), Owner, null);
+        }
+        else
+        {
+            await Hook.AfterBlockBroken(CombatState, new BlockingPlayerChoiceContext(), Owner, null);
+        }
     }
 
     public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,

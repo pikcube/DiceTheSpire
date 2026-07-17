@@ -37,7 +37,7 @@ public class BatteringRam() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        await CreatureCmd.LoseBlock(Owner.Creature, Owner.Creature.Block);
+        await CreatureCmd.LoseBlock(choiceContext, Owner.Creature, Owner.Creature.Block, Owner.Creature);
     }
 
     protected override void OnUpgrade()
