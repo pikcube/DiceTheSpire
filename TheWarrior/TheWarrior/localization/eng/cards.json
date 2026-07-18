@@ -53,7 +53,7 @@
   "THEWARRIOR-RUMMAGE_STRIKE.title": "Rummage Strike",
   "THEWARRIOR-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies.",
   "THEWARRIOR-BROADSWORD.title": "Broadsword",
-  "THEWARRIOR-DEFENSIVE_STANCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.\nAdd a copy of this card to your [gold]Hand[/gold] when drawn.",
+  "THEWARRIOR-DEFENSIVE_STANCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd two copies of this card to your [gold]Hand[/gold] when drawn.",
   "THEWARRIOR-DEFENSIVE_STANCE.title": "Defensive Stance",
   "THEWARRIOR-SINE_WAVE.description": "[gold]Bump[/gold] a card in your {IfUpgraded:show:[gold]Hand[/gold].|[gold]Draw Pile[/gold].}\n[gold]Nudge[/gold] a card in your {IfUpgraded:show:[gold]Draw Pile[/gold].|[gold]Hand[/gold].}",
   "THEWARRIOR-SINE_WAVE.title": "Sine Wave",
@@ -90,7 +90,7 @@
   "THEWARRIOR-SPARE_THREE.description": "[gold]Range[/gold] [0]\nGain {Energy:energyIcons()}.\nYou cannot draw additional cards this turn.",
   "THEWARRIOR-SPARE_THREE.title": "Spare Three",
   "THEWARRIOR-SPARE_THREE.upgradeTitle": "Spare Four+",
-  "THEWARRIOR-POWER_CRYSTAL.description": "When you play a [gold]Power[/gold], gain one [gold]Stregnth[/gold] for each {Energy:energyIcons()} spent.",
+  "THEWARRIOR-POWER_CRYSTAL.description": "When you play a [gold]Power[/gold], gain {PowerCrystalPower:diff()} [gold]Stregnth[/gold] for each {Energy:energyIcons()} spent.",
   "THEWARRIOR-POWER_CRYSTAL.title": "Power Crystal",
   "THEWARRIOR-DEFLECT.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {VigorPower:diff()} [gold]Vigor[/gold].",
   "THEWARRIOR-DEFLECT.title": "Deflect",
@@ -101,5 +101,7 @@
   "THEWARRIOR-TACKLE.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-TACKLE.title": "Tackle",
   "THEWARRIOR-STILL_STANDING.description": "WIP (become unkillable lol)",
-  "THEWARRIOR-STILL_STANDING.title": "Still Standing"
+  "THEWARRIOR-STILL_STANDING.title": "Still Standing",
+  "THEWARRIOR-HEALING_CRYSTAL.description": "Heal {Heal:diff()} health. Can only be played if your [gold]Hand[/gold] costs less than {Energy:energyIcons()}.",
+  "THEWARRIOR-HEALING_CRYSTAL.title": "Healing Crystal"
 }     

@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 {
 
-    public class PowerCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+    public class PowerCrystal() : TheWarriorCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PowerCrystalPower>(1M), new EnergyVar(1)];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -17,7 +18,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 
         protected override void OnUpgrade()
         {
-            AddKeyword(CardKeyword.Innate);
+            DynamicVars.Power<PowerCrystalPower>().UpgradeValueBy(1);
         }
     }
 }
