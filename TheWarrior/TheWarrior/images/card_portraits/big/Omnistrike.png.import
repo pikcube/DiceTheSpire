@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3qfjlkcf2dk2"
-path="res://.godot/imported/Omnistrike.png-ae54338669a6be31912e3d371fd5598d.ctex"
+uid="uid://dtbgtkd73sytd"
+path="res://.godot/imported/omnistrike.png-b9a0b96c659aa0453aff1f00f577e97f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Omnistrike.png"
-dest_files=["res://.godot/imported/Omnistrike.png-ae54338669a6be31912e3d371fd5598d.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/omnistrike.png"
+dest_files=["res://.godot/imported/omnistrike.png-b9a0b96c659aa0453aff1f00f577e97f.ctex"]
 
 [params]
 

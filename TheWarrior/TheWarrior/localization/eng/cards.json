@@ -106,8 +106,6 @@
   "THEWARRIOR-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
   "THEWARRIOR-TACKLE.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-TACKLE.title": "Tackle",
-  "THEWARRIOR-STILL_STANDING.description": "WIP (become unkillable lol)",
-  "THEWARRIOR-STILL_STANDING.title": "Still Standing",
   "THEWARRIOR-HEALING_CRYSTAL.description": "Heal {Heal:diff()} health. Can only be played if your [gold]Hand[/gold] costs less than {Energy:energyIcons()}.",
   "THEWARRIOR-HEALING_CRYSTAL.title": "Healing Crystal"
 }     
