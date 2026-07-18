@@ -16,6 +16,9 @@
 //using System.Threading.Tasks;
 //using static Godot.HttpRequest;
 
+//"THEWARRIOR-STILL_STANDING.description": "WIP (become unkillable lol)",
+//  "THEWARRIOR-STILL_STANDING.title": "Still Standing"
+
 //namespace TheWarrior.TheWarriorCode.Cards.Rare
 //{
 //    public class StillStanding() : TheWarriorCard(0, CardType.Curse, CardRarity.Rare, TargetType.Self)
@@ -33,7 +36,7 @@
 //            StillStanding stillStanding = this;
 //            //List<CardModel> exhaustPile = [.. Owner.PlayerCombatState.ExhaustPile.Cards];
 
-        
+
 //            await CreatureCmd.Heal(creature, 20M, false);
 //            isStillStanding = isStillStanding--;
 //            if (isStillStanding < 0)

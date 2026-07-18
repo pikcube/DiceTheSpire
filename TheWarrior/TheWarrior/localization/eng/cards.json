@@ -49,7 +49,7 @@
   "THEWARRIOR-NAIL_BAT.title": "Nail Bat",
   "THEWARRIOR-RUMMAGE_STRIKE.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-RUMMAGE_STRIKE.title": "Rummage Strike",
-  "THEWARRIOR-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies.",
   "THEWARRIOR-BROADSWORD.title": "Broadsword",
   "THEWARRIOR-DEFENSIVE_STANCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card.\nAdd a copy of this card to your [gold]Hand[/gold] when drawn.",
   "THEWARRIOR-DEFENSIVE_STANCE.title": "Defensive Stance",
@@ -97,9 +97,8 @@
   "THEWARRIOR-CHOCOLATE_COOKIE.description": "[gold]Range[/gold] [3]\nGain {FuryPower:diff()} [gold]Fury[/gold].",
   "THEWARRIOR-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
   "THEWARRIOR-TACKLE.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
-  "THEWARRIOR-TACKLE.title": "Tackle",
-  "THEWARRIOR-STILL_STANDING.description": "WIP (become unkillable lol)",
-  "THEWARRIOR-STILL_STANDING.title": "Still Standing"
+  "THEWARRIOR-TACKLE.title": "Tackle"
+
 
 
 }     
