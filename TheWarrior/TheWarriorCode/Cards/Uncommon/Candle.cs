@@ -16,7 +16,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 public class Candle() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(999), new BlockVar(6, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(999), new BlockVar(2, BlockProps.card)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.FromCard<Burn>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -24,10 +24,10 @@ public class Candle() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, T
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
-            if (card.CurrentUpgradeLevel > 0)
-            {
+            //if (card.CurrentUpgradeLevel > 0)
+            //{
                 await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-            }
+            //}
             await card.NudgeAsync(choiceContext);
         }
         if (CombatState is null)

@@ -10,7 +10,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 {
     public class Tackle() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new CardsVar(3)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, DamageProps.card), new CardsVar(3)];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>()];
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

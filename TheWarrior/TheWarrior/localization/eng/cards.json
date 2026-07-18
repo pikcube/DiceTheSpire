@@ -31,7 +31,7 @@
   "THEWARRIOR-BATTERING_RAM.title": "Battering Ram",
   "THEWARRIOR-LAST_STAND.description": "Survive 3 more turns...",
   "THEWARRIOR-LAST_STAND.title": "Last Stand",
-  "THEWARRIOR-CANDLE.description": "[gold]Nudge[/gold] any number of cards. Gain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].\nAdd a [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",
+  "THEWARRIOR-CANDLE.description": "[gold]Nudge[/gold] any number of cards. Gain {Block:diff()} [gold]Block[/gold] for each card [gold]Nudged[/gold].\nAdd a [gold]Burn[/gold] to your [gold]Discard Pile[/gold].",
   "THEWARRIOR-CANDLE.title": "Candle",
   "THEWARRIOR-MATCHSTICK.description": "Draw {Cards:diff()} cards.\nGain {Energy:energyIcons()}.",
   "THEWARRIOR-MATCHSTICK.title": "Matchstick",
