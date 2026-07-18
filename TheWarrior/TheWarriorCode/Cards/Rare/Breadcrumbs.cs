@@ -6,10 +6,10 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+namespace TheWarrior.TheWarriorCode.Cards.Rare
 {
 
-    public class Breadcrumbs() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    public class Breadcrumbs() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(1M), new BlockVar(1, BlockProps.card)];
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];
@@ -30,7 +30,9 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
         }
         protected override void OnUpgrade()
         {
-            DynamicVars.Dexterity.UpgradeValueBy(1);
+            //DynamicVars.Dexterity.UpgradeValueBy(1);
+            //EnergyCost.UpgradeBy(-1);
+            DynamicVars.Block.UpgradeValueBy(4);
         }
     }
 }
