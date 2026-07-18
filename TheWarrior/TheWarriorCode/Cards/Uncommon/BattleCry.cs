@@ -12,7 +12,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
 public class BattleCry() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), IRangeCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(8M), new PowerVar<VulnerablePower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(6M), new PowerVar<VulnerablePower>(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [BetterStaticHoverTips.RangeHoverTip(this), HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue), HoverTipFactory.FromPower<VulnerablePower>(DynamicVars.Power<VulnerablePower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

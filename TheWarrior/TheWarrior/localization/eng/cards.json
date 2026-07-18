@@ -39,6 +39,8 @@
   "THEWARRIOR-IRON_SHIELD.title": "Iron Shield",
   "THEWARRIOR-SWORD.description": "Deal {Damage:diff()} damage.\nGain [gold]Fury[/gold].",
   "THEWARRIOR-SWORD.title": "Sword",
+  "THEWARRIOR-TWO_HANDED_SWORD.description": "[gold]Range[/gold] [{IfUpgraded:show:1|2}, {IfUpgraded:show:3|4}]\nDeal {Damage:diff()} damage twice.\nGain 2 [gold]Fury[/gold].",
+  "THEWARRIOR-TWO_HANDED_SWORD.title": "Two Handed Sword",
   "THEWARRIOR-PRACTICE_ROLL.description": "Add a copy of [gold]Roll Again[/gold] to your [gold]Hand[/gold] at the start of your turn.",
   "THEWARRIOR-PRACTICE_ROLL.title": "Practice Roll",
   "THEWARRIOR-BATTLE_CRY.description": "[gold]Range[/gold] [0, 2]\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to all enemies. Gain {VigorPower:diff()} [gold]Vigor[/gold]",
@@ -97,8 +99,7 @@
   "THEWARRIOR-CHOCOLATE_COOKIE.description": "[gold]Range[/gold] [3]\nGain {FuryPower:diff()} [gold]Fury[/gold].",
   "THEWARRIOR-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
   "THEWARRIOR-TACKLE.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
-  "THEWARRIOR-TACKLE.title": "Tackle"
-
-
-
+  "THEWARRIOR-TACKLE.title": "Tackle",
+  "THEWARRIOR-STILL_STANDING.description": "WIP (become unkillable lol)",
+  "THEWARRIOR-STILL_STANDING.title": "Still Standing"
 }     
