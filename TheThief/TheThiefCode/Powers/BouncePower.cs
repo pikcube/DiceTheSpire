@@ -11,20 +11,21 @@ public class BouncePower : TheThiefPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
-        ResourceInfo resources, PileType pileType, CardPilePosition position)
+
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
+        CardLocation cardLocation)
     {
         if (card.Owner.Creature != Owner ||
             CombatManager.Instance.History.CardPlaysStarted.Count(e =>
-                    e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState)) >=
-            Amount || pileType != PileType.Discard)
+                e.Actor == Owner && e.CardPlay.IsFirstInSeries && e.HappenedThisTurn(CombatState)) >=
+            Amount || cardLocation.pileType != PileType.Discard)
         {
-            return (pileType, position);
+            return cardLocation;
         }
-        return (PileType.Hand, CardPilePosition.Bottom);
+        return new CardLocation(cardLocation.player, PileType.Hand, CardPilePosition.Bottom);
     }
 
-    public override Task AfterModifyingCardPlayResultPileOrPosition(CardModel card, PileType pileType, CardPilePosition position)
+    public override Task AfterModifyingCardPlayResultLocation(CardModel card, CardLocation cardLocation)
     {
         Flash();
         return Task.CompletedTask;

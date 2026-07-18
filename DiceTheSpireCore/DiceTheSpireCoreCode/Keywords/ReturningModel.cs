@@ -8,11 +8,18 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 public class ReturningModel() : CustomSingletonModel(HookType.Combat)
 {
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
-    public static CardKeyword Returning;
+    public static CardKeyword Returning = 0;
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
-        ResourceInfo resources, PileType pileType, CardPilePosition position)
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
+        CardLocation cardLocation)
     {
-        return (card.Keywords.Contains(Returning) && pileType == PileType.Discard) ? (PileType.Hand, CardPilePosition.Bottom) : (pileType, position);
+        if (card.Keywords.Contains(Returning) && cardLocation.pileType == PileType.Discard)
+        {
+            return new CardLocation(card.Owner, PileType.Hand, CardPilePosition.Bottom);
+        }
+        else
+        {
+            return cardLocation;
+        }
     }
 }

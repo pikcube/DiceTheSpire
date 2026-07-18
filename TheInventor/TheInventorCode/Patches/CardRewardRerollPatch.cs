@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Runs.History;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Utility;
 
 namespace TheInventor.TheInventorCode.Patches;
 
@@ -34,18 +35,19 @@ public static class CardRewardRerollPatch
         }
 
         __instance.CanReroll = false;
-        foreach (CardCreationResult card in __instance.GetPrivateProperty<CardReward, List<CardCreationResult>>("_cards") ?? [])
+        PrivatePropertyWrapper<CardReward, List<CardCreationResult>> privatePropertyWrapper = __instance.PrivatePropertyWrapper<CardReward, List<CardCreationResult>>("_cards");
+        foreach (CardCreationResult card in privatePropertyWrapper.Value ?? [])
         {
             __instance.Player.RunState.CurrentMapPointHistoryEntry?.GetEntry(__instance.Player.NetId).CardChoices.Add(new CardChoiceHistoryEntry(card.Card, false));
         }
 
 
         AccessTools.DeclaredField(typeof(CardReward), "_hasBeenRerolled").SetValue(__instance, true);
-        (__instance.GetPrivateProperty<CardReward, List<CardCreationResult>>("_cards") ?? []).Clear();
+        (privatePropertyWrapper.Value ?? []).Clear();
 
         List<CardCreationResult> results = [.. cards.Select(c => new CardCreationResult(c))];
 
-        (__instance.GetPrivateProperty<CardReward, List<CardCreationResult>>("_cards") ?? []).AddRange(results);
+        (privatePropertyWrapper.Value ?? []).AddRange(results);
         __instance.Populate();
 
         HijackMap.Remove(__instance);

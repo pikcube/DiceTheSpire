@@ -22,9 +22,11 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
             //await CardPileCmd.Add(this, PileType.Draw, CardPilePosition.Random);
         }
 
-        public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay, ResourceInfo resources, PileType pileType, CardPilePosition position)
+        public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay,
+            ResourceInfo resources,
+            CardLocation cardLocation)
         {
-            return card == this && pileType == PileType.Discard ? (PileType.Draw, CardPilePosition.Random) : (pileType, position);
+            return card == this && cardLocation.pileType == PileType.Discard ? new CardLocation(cardLocation.player, PileType.Draw, CardPilePosition.Random) : cardLocation;
         }
         protected override void OnUpgrade()
         {

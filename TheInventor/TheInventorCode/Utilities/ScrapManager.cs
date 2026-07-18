@@ -63,7 +63,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     public override async Task BeforeCombatStart()
     {
-        RunState? state = RunManager.Instance.GetPrivateProperty<RunManager, RunState>("State");
+        RunState? state = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
         if (state is null)
         {
             return;
@@ -124,13 +124,17 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             List<CardModel> cards = [.. p.Deck.Cards.Where(c => c is
             {
                 IsRemovable: true,
-                Rarity: CardRarity.Basic or CardRarity.Common or CardRarity.Uncommon or CardRarity.Rare or CardRarity.Ancient or CardRarity.Event or CardRarity.Curse
+                Rarity: 
+                CardRarity.Basic or 
+                CardRarity.Common or 
+                CardRarity.Uncommon or 
+                CardRarity.Rare or 
+                CardRarity.Ancient or 
+                CardRarity.Event or 
+                CardRarity.Curse
             })];
 
-            List<CardModel> scrapCards = [.. cards.Where(IsScrapCard)];
-            ShuffleForScrap(p, scrapCards);
-            List<CardModel> otherCards = [.. cards.Where(c => !IsScrapCard(c))];
-            ShuffleForScrap(p, otherCards);
+            CreateScrapLists(cards, p, out List<CardModel> scrapCards, out List<CardModel> otherCards);
 
             DiceyHooks.ModifyScrapPriority(p.RunState, p, ref scrapCards, ref otherCards);
 
@@ -168,7 +172,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
             if (choice is not null)
             {
-                await CardPileCmd.RemoveFromDeck(choice, false);
+                await CardPileCmd.RemoveFromDeck(choice);
             }
 
             if (choice is TheInventorCard scrapCard)
@@ -202,6 +206,25 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
 
         await rewardsSet.Offer();
+    }
+
+    private static void CreateScrapLists(List<CardModel> cards, Player p, out List<CardModel> scrapCards, out List<CardModel> otherCards)
+    {
+        scrapCards = [];
+        otherCards = [];
+        foreach (IGrouping<bool, CardModel> group in cards.GroupBy(IsScrapCard))
+        {
+            if (group.Key)
+            {
+                scrapCards.AddRange(group);
+            }
+            else
+            {
+                otherCards.AddRange(group);
+            }
+        }
+        p.PlayerRng.Rewards.Shuffle(scrapCards);
+        p.PlayerRng.Rewards.Shuffle(otherCards);
     }
 
     private static bool IsScrapCard(CardModel c)
@@ -265,11 +288,6 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 _ => nameof(BrokenGadget)
             }
         };
-    }
-
-    private static void ShuffleForScrap(Player p, List<CardModel> scrapCards)
-    {
-        p.PlayerRng.Rewards.Shuffle(scrapCards);
     }
 
     public static IEnumerable<string> GetRandomCombatGadgetId(Rng rng, int i)

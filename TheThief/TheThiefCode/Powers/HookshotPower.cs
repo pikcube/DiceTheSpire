@@ -11,17 +11,17 @@ public class HookshotPower : TheThiefPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(CardModel card, bool isAutoPlay,
-        ResourceInfo resources, PileType pileType, CardPilePosition position)
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
+        CardLocation cardLocation)
     {
-        if (card.Owner.Creature != Owner || pileType != PileType.Discard)
+        if (card.Owner.Creature != Owner || cardLocation.pileType != PileType.Discard)
         {
-            return (pileType, position);
+            return cardLocation;
         }
-        return (PileType.Hand, CardPilePosition.Bottom);
+        return new CardLocation(card.Owner, PileType.Hand, CardPilePosition.Bottom);
     }
 
-    public override async Task AfterModifyingCardPlayResultPileOrPosition(CardModel card, PileType pileType, CardPilePosition position)
+    public override async Task AfterModifyingCardPlayResultLocation(CardModel card, CardLocation cardLocation)
     {
         Flash();
         await PowerCmd.Decrement(this);
