@@ -29,11 +29,11 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
             {
                 await card.BumpAsync(choiceContext);
             }
-        } 
+        }
         else
         {
             CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
-            IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Hand.GetPile(Owner), Owner, cardSelectorPrefs);
+            IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
             foreach (CardModel card in results)
             {
                 await card.BumpAsync(choiceContext);
@@ -43,7 +43,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
         if (!IsUpgraded)
         {
             CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 1, 1);
-            IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Hand.GetPile(Owner), Owner, cardSelectorPrefs);
+            IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
             foreach (CardModel card in results)
             {
                 await card.NudgeAsync(choiceContext);
