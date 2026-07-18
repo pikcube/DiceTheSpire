@@ -5,19 +5,18 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare;
-
-public class FourHandedSword() : TheWarriorCard(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class ReadjustGrip() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<AdjustGrip>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Omnistrike>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
         {
             return;
         }
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<AdjustGrip>(Owner), PileType.Hand, Owner);
-            
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<Omnistrike>(Owner), PileType.Hand, Owner);
+
     }
 
     protected override void OnUpgrade()

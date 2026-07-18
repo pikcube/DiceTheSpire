@@ -1,4 +1,4 @@
-﻿using BaseLib.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,14 +7,18 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Basic;
-
-public class Sword() : TheWarriorCard(3, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+namespace TheWarrior.TheWarriorCode.Cards.Rare;
+public class Omnistrike() : TheWarriorCard(3, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new PowerVar<FuryPower>(1M)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(200M, DamageProps.card)];
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (CombatState is null)
+        {
+            return;
+        }
 
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
@@ -23,14 +27,10 @@ public class Sword() : TheWarriorCard(3, CardType.Attack, CardRarity.Basic, Targ
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-
-        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
-
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(5);
+        DynamicVars.Damage.UpgradeValueBy(50);
     }
-
 }
