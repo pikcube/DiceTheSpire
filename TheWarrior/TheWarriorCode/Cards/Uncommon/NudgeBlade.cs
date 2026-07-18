@@ -14,7 +14,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
 
     public class NudgeBlade() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, DamageProps.card)];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
 
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
