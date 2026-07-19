@@ -1,9 +1,10 @@
-﻿using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 
 public interface IAfterCardShockedListener
 {
-    public Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card);
+    public Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, ShockPower shock, CardModel card);
 }

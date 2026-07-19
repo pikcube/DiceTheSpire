@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
@@ -26,7 +27,7 @@ public class SpikePower : TheInventorPower, IAfterCardShockedListener
         await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
     }
 
-    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
+    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, ShockPower _, CardModel card)
     {
         if (card.Owner.Creature == Owner && card.Pile?.Type == PileType.Hand)
         {

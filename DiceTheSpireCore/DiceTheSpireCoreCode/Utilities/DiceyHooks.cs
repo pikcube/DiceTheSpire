@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -45,7 +46,7 @@ public static class DiceyHooks
     public static event AfterCardShockedHandler? AfterCardShocked;
 
 
-    public static async Task OnCardShocked(PlayerChoiceContext choiceContext, CardModel card)
+    public static async Task OnCardShocked(PlayerChoiceContext choiceContext, ShockPower shock, CardModel card)
     {
         AfterCardShocked?.Invoke(card);
         if (card.RunState is null)
@@ -55,7 +56,7 @@ public static class DiceyHooks
 
         foreach (IAfterCardShockedListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterCardShockedListener>())
         {
-            await listener.AfterCardShockedAsync(choiceContext, card);
+            await listener.AfterCardShockedAsync(choiceContext, shock, card);
         }
 
     }

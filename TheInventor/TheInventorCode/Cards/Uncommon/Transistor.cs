@@ -37,7 +37,7 @@ public class Transistor() : TheInventorCard(2, CardType.Attack, CardRarity.Uncom
         DynamicVars.Damage.UpgradeValueBy(4);
     }
 
-    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext,CardModel card)
+    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, ShockPower shock, CardModel card)
     {
         if (card != this)
         {

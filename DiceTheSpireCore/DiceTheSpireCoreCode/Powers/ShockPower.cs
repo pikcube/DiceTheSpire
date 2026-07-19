@@ -80,7 +80,7 @@ public class ShockPower : DiceTheSpireCorePower
 
         foreach (CardModel card in cards)
         {
-            await DiceyHooks.OnCardShocked(choiceContext, card);
+            await DiceyHooks.OnCardShocked(choiceContext, this, card);
         }
     }
 
