@@ -14,7 +14,7 @@ public class PoisonNeedle() : TheThiefCard(1, CardType.Skill, CardRarity.Common,
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(4)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturningModel.Returning];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
