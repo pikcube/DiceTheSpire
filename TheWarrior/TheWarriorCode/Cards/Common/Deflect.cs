@@ -28,7 +28,7 @@ public class Deflect() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Ta
     protected override void OnUpgrade()
     {
         DynamicVars.Block.UpgradeValueBy(1);
-        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
+        DynamicVars.Power<VigorPower>().UpgradeValueBy(1);
     }
 
 }
