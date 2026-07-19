@@ -22,7 +22,7 @@ public class PillowFort() : TheInventorCard(2, CardType.Skill, CardRarity.Uncomm
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [
-        ..HoverTipFactory.FromPowerWithPowerHoverTips<ReducePower>()
+        ..HoverTipFactory.FromPowerWithPowerHoverTips<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
