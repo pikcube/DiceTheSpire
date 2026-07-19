@@ -41,7 +41,6 @@ public class Blight() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, Target
         }
     }
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 6)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
