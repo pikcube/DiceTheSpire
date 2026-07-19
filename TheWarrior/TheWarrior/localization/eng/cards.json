@@ -65,7 +65,7 @@
   "THEWARRIOR-SHIELD_BASH.title": "Shield Bash",
   "THEWARRIOR-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-THICK_SKIN.title": "Thick Skin",
-  "THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage. Repeat once for each [gold]Battle Axe[/gold] played this combat.\n(Currently {Repeat:diff()} hits)",
+  "THEWARRIOR-BATTLE_AXE.description": "[gold]Range[/gold] [0, {IfUpgraded:show:1|2}]\nDeal {Damage:diff()} damage twice.\nHits once more for each [gold]Battle Axe[/gold] played this combat.",
   "THEWARRIOR-BATTLE_AXE.title": "Battle Axe",
   "THEWARRIOR-CRYSTAL_SHIELD.description": "Gain block equal to the energy cost\nof your [gold]Hand[/gold].\n(Currently {CalculatedBlock:diff()})",
   "THEWARRIOR-CRYSTAL_SHIELD.title": "Crystal Shield",

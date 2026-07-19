@@ -1,35 +1,31 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
-public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IRangeCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card), new RepeatVar(1)];
-
-    public static event Action? OnHitCountChanged;
-    public static int HitCount
-    {
-        get;
-        set
-        {
-            field = value;
-            OnHitCountChanged?.Invoke();
-        }
-    } = 1;
-    public override Task BeforeCombatStart()
-    {
-        DynamicVars.Repeat.BaseValue = 1;
-        HitCount = 1;
-        return Task.CompletedTask;
-    }
-
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card), new RepeatVar(2)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+        if (this.Owner.Creature is null)
+        {
+            return;
+        }
+
+        int ExtraHits = (Owner.Creature.GetPower<AxeMasteryPower>() is null) ? 0 : this.Owner.Creature.GetPower<AxeMasteryPower>().Amount;
+
+        int HitCount = (int)(2 + ExtraHits);
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .WithHitCount(HitCount)
@@ -38,22 +34,13 @@ public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common,
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
-        HitCount += 1;
+        await PowerCmd.Apply<AxeMasteryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+    }
+    public int MinimumCost => 0;
+    public int MaximumCost => IsUpgraded ? 1 : 2;
 
-    }
-    protected override void AfterDowngraded()
-    {
-        DynamicVars.Repeat.BaseValue = HitCount;
-        OnHitCountChanged?.Invoke();
-    }
     protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);
-        OnHitCountChanged?.Invoke();
-    }
-    protected override void AfterCloned()
-    {
-        base.AfterCloned();
-        OnHitCountChanged += () => DynamicVars.Repeat.BaseValue = 1;
     }
 }
