@@ -1,10 +1,10 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using TheWarrior.TheWarriorCode.Cards.Rare;
 
-namespace TheWarrior.TheWarriorCode.Cards.Rare;
+namespace TheWarrior.TheWarriorCode.Cards.Token;
 public class AdjustGrip() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];

@@ -1,12 +1,9 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
@@ -18,17 +15,12 @@ public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common,
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        if (this.Owner.Creature is null)
-        {
-            return;
-        }
+        int extraHits = Owner.Creature.GetPower<AxeMasteryPower>()?.Amount ?? 0;
 
-        int ExtraHits = (Owner.Creature.GetPower<AxeMasteryPower>() is null) ? 0 : this.Owner.Creature.GetPower<AxeMasteryPower>().Amount;
-
-        int HitCount = (int)(2 + ExtraHits);
+        int hitCount = 2 + extraHits;
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
-            .WithHitCount(HitCount)
+            .WithHitCount(hitCount)
             .FromCard(this, cardPlay)
             .WithHitFx(VfxCmd.slashPath)
             .Targeting(cardPlay.Target)

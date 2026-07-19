@@ -18,7 +18,7 @@ public class SingularityPower : TheThiefPower
 
     public override decimal ModifyHandDraw(Player player, decimal count)
     {
-        return player != this.Owner.Player ? count : count + Amount;
+        return player != Owner.Player ? count : count + Amount;
     }
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
