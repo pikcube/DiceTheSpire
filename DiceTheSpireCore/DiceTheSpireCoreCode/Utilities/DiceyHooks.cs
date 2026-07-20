@@ -107,11 +107,27 @@ public static class DiceyHooks
         }
     }
 
-    public static void ModifyScrapPriority(IRunState runState, Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
+    public static void OnModifyScrapPriority(IRunState runState, Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
     {
         foreach (IModifyScrapPriorityListener listener in runState.IterateHookListeners(null).OfType<IModifyScrapPriorityListener>())
         {
             listener.ModifyPriority(player, ref scrapCards, ref otherCards);
         }
+    }
+
+    public static bool OnModifyUnplayableBehavior(IRunState runState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task>? newOnPlay)
+    {
+        bool isNewOnPlayUsed = false;
+        newOnPlay = null;
+        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
+        {
+            isNewOnPlayUsed = listener.ModifyUnplayableBehavior(card, ref newOnPlay);
+            if (isNewOnPlayUsed)
+            {
+                return true;
+            }
+        }
+
+        return isNewOnPlayUsed;
     }
 }

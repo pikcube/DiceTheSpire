@@ -1,5 +1,6 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -11,6 +12,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IRangeCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card), new RepeatVar(2)];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
