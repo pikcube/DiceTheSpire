@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using TheWarrior.TheWarriorCode.Cards.Rare;
 
 namespace TheWarrior.TheWarriorCode.Cards.Token;
 public class ReadjustGrip() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)

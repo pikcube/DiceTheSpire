@@ -17,7 +17,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
             }
             if (IsPlayable)
             {
-                await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.IntValue, true);
+                await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.IntValue);
             }
         }
         protected override bool IsPlayable => Owner.PlayerCombatState?.Hand.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) <= DynamicVars.Energy.IntValue;
