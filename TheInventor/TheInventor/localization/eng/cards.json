@@ -107,6 +107,8 @@
   "THEINVENTOR-PILLOW_FORT.title": "Pillow Fort",
   "THEINVENTOR-PLAGUE.description": "[gold]Held[/gold]: Apply a random debuffs to {IfUpgraded:show:|yourself and }ALL enemies at the start of next turn.",
   "THEINVENTOR-PLAGUE.title": "Plague",
+  "THEINVENTOR-PLASMA_CANNON.description": "",
+  "THEINVENTOR-PLASMA_CANNON.title": "Plasma Cannon",
   "THEINVENTOR-PUPPY_PAWS.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Bump[/gold] {IfUpgraded:show:ALL cards|a card} in your [gold]Hand[/gold].",
   "THEINVENTOR-PUPPY_PAWS.title": "Puppy Paws",
   "THEINVENTOR-QUICK_ATTACK.description": "Deal {Damage:diff()} damage to a random enemy.\nAt the start of your turn, if this card is in your [gold]Hand[/gold], play it.",

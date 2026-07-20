@@ -136,7 +136,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
             CreateScrapLists(cards, p, out List<CardModel> scrapCards, out List<CardModel> otherCards);
 
-            DiceyHooks.ModifyScrapPriority(p.RunState, p, ref scrapCards, ref otherCards);
+            DiceyHooks.OnModifyScrapPriority(p.RunState, p, ref scrapCards, ref otherCards);
 
             cards.Clear();
             cards.AddRange(scrapCards);

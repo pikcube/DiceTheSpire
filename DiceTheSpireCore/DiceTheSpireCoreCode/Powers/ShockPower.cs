@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -18,6 +19,14 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 public class ShockPower : DiceTheSpireCorePower
 {
     public override PowerType Type => PowerType.Debuff;
+
+    public List<CardModel> Cards { get; set; } = [];
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        Cards = [];
+    }
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -76,12 +85,18 @@ public class ShockPower : DiceTheSpireCorePower
         foreach (CardModel card in cards)
         {
             card.AddTempKeyword(CardKeyword.Unplayable, this);
+            Cards.Add(card);
         }
 
         foreach (CardModel card in cards)
         {
             await DiceyHooks.OnCardShocked(choiceContext, this, card);
         }
+    }
+
+    public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
+    {
+        return Cards.Contains(card);
     }
 
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
@@ -99,6 +114,7 @@ public class ShockPower : DiceTheSpireCorePower
     {
         if (side == CombatSide.Player)
         {
+            Cards.Clear();
             await PowerCmd.Remove(this);
             TempKeywordManager.DestroyKeywordsEarly(this);
         }
