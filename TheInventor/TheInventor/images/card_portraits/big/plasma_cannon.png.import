@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtbgtkd73sytd"
-path="res://.godot/imported/Omnistrike.png-ae54338669a6be31912e3d371fd5598d.ctex"
+uid="uid://mq0ge0i8p6tc"
+path="res://.godot/imported/plasma_cannon.png-f6dcf03d2f9bc44141321f676b4e0dd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Omnistrike.png"
-dest_files=["res://.godot/imported/Omnistrike.png-ae54338669a6be31912e3d371fd5598d.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/plasma_cannon.png"
+dest_files=["res://.godot/imported/plasma_cannon.png-f6dcf03d2f9bc44141321f676b4e0dd5.ctex"]
 
 [params]
 

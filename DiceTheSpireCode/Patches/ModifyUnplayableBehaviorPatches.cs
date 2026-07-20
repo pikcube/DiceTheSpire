@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using JetBrains.Annotations;
 
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
@@ -15,12 +16,7 @@ public static class ModifyUnplayableBehaviorPatches
 
     public static bool Postfix(bool __result, CardModel __instance, ref UnplayableReason reason, ref AbstractModel? preventer)
     {
-        if (__result)
-        {
-            return __result;
-        }
-
-        if (__instance.RunState is null || (reason ^ UnplayableReason.HasUnplayableKeyword) != 0)
+        if (__result || __instance.RunState is null || (reason ^ UnplayableReason.HasUnplayableKeyword) != 0)
         {
             OnPlayReplacements.Remove(__instance);
             return __result;
@@ -46,6 +42,7 @@ public static class ModifyUnplayableBehaviorPatches
 [HarmonyPatch]
 public static class ModifyCardOnPlay
 {
+    [UsedImplicitly]
     static IEnumerable<MethodBase> TargetMethods()
     {
         MethodInfo? onPlayMethod = typeof(CardModel).GetMethod("OnPlay", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
