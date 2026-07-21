@@ -190,11 +190,6 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 GadgetId.Set(p, GetDefaultGadget(choice));
             }
 
-            foreach (TheInventorCard c in p.Deck.Cards.OfType<TheInventorCard>().Where(c => c != choice))
-            {
-                await c.OnSkippedAsync();
-            }
-
             Ignore.Add(rewardsSet.Player);
         }
         finally

@@ -15,8 +15,7 @@ public class PlasmaCannon() : TheInventorCard(3, CardType.Power, CardRarity.Unco
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlasmaCannonPower>(10)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
-        [..HoverTipFactory.FromPowerWithPowerHoverTips<GrindstonePower>(DynamicVars.Power<PlasmaCannonPower>().IntValue)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<GrindstonePower>(DynamicVars.Power<PlasmaCannonPower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

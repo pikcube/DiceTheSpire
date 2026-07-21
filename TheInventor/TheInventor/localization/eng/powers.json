@@ -9,7 +9,7 @@
   "THEINVENTOR-EXHAUSTION_POWER.remoteDescription": "Whenever {ApplierName} plays a card, {IsSelfInflicted:they take|{OwnerName} takes} {Amount} damage.",
   "THEINVENTOR-EXHAUSTION_POWER.smartDescription": "Whenever you play a card this turn, {IsSelfInflicted:you take|{OwnerName} takes} {Amount} damage.",
   "THEINVENTOR-EXHAUSTION_POWER.title": "Exhaustion",
-  "THEINVENTOR-GRINDSTONE_POWER.description": "Deal [blue]{{Amount:cond:<1?50|{Amount}}}%[/blue] additional damage.",
+  "THEINVENTOR-GRINDSTONE_POWER.description": "Deal [blue]{Amount:cond:<1?50|{Amount}}%[/blue] additional damage.",
   "THEINVENTOR-GRINDSTONE_POWER.smartDescription": "Deal [blue]{Amount}%[/blue] additional damage.",
   "THEINVENTOR-GRINDSTONE_POWER.title": "Damage Up",
   "THEINVENTOR-SAW_WAVE_POWER.description": "Whenever you apply a debuff to yourself, gain [blue]{Amount:cond:<1?1|{Amount}}[/blue] [gold]Dexterity[/gold].",
