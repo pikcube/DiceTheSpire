@@ -1,5 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -23,15 +25,22 @@ public class Wikipedia() : TheInventorCard(4, CardType.Power, CardRarity.Rare, T
         }
         foreach (Player target in CombatState.Players.Where(p => p != Owner))
         {
-            TemporaryGadgetPower? power = await PowerCmd.Apply<TemporaryGadgetPower>(choiceContext, target.Creature, 1, Owner.Creature, this);
-            if (power is null)
-            {
-                return;
-            }
-
-            await power.RandomizeThisAsync();
-            await power.LinkedGadgetModel.OnRechargeAsync(choiceContext, target);
+            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
+            Task task = GainGadgetAsync(bpcc, target);
+            await bpcc.AssignTaskAndWaitForPauseOrCompletion(task);
         }
+    }
+
+    private async Task GainGadgetAsync(BranchingPlayerChoiceContext choiceContext, Player target)
+    {
+        TemporaryGadgetPower? power = await PowerCmd.Apply<TemporaryGadgetPower>(choiceContext, target.Creature, 1, Owner.Creature, this);
+        if (power is null)
+        {
+            return;
+        }
+
+        await power.RandomizeThisAsync();
+        await power.LinkedGadgetModel.OnRechargeAsync(choiceContext, target);
     }
 
     protected override void OnUpgrade()

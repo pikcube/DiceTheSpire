@@ -1,14 +1,12 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
-using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
@@ -27,14 +25,6 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, DynamicVars.Cards), HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
-    private static async Task<IEnumerable<CardModel>> GetInspectResultAsync(Player p, int cards)
-    {
-        CardModel[] topCards = [.. PileType.Draw.GetPile(p).Cards.Take(cards)];
-
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BLINK"), 0, topCards.Length);
-
-        return await CardSelectCmd.FromSimpleGrid(new BlockingPlayerChoiceContext(), topCards, p, prefs);
-    }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -44,30 +34,18 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
         }
 
         int cards = DynamicVars.Cards.IntValue;
-        Dictionary<Player, Task<IEnumerable<CardModel>>> results = [];
+
+        List<Task> tasks = [];
 
         foreach (Player p in CombatState.Players)
         {
-            results.Add(p, GetInspectResultAsync(p, cards));
+            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
+            tasks.Add(bpcc.AssignTaskAndWaitForPauseOrCompletion(p.InspectAsync(bpcc, cards)));
         }
 
-        await Task.WhenAll(results.Values);
-
-        foreach ((Player p, Task<IEnumerable<CardModel>> value) in results)
+        foreach (Task task in tasks)
         {
-            CardModel[] r = [.. await value];
-            
-            await CardPileCmd.Add(r, PileType.Exhaust, skipVisuals: true);
-            foreach (CardModel c in r)
-            {
-                await CardPileCmd.Add(c, PileType.Draw, CardPilePosition.Top, skipVisuals: true);
-                await BlinkModel.BlinkCardAsync(choiceContext, c);
-            }
-
-            foreach (IOnInspectListener listener in p.RunState.IterateHookListeners(p.Creature.CombatState).OfType<IOnInspectListener>())
-            {
-                await listener.OnInspectAsync(choiceContext, cards, r, p);
-            }
+            await task;
         }
     }
 
