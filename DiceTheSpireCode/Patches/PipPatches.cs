@@ -1,13 +1,13 @@
-﻿using Godot;
+﻿using System.Data;
+using System.Reflection;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Random;
 using Pikcube.Common.Extensions;
-using System.Data;
-using System.Reflection;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using Pikcube.Common.Utility;
 
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
@@ -23,6 +23,16 @@ public static class PipPatches
         }
 
         int? withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
+
+        if (__instance.Model.Keywords.Contains(CardKeyword.Unplayable))
+        {
+            ____energyLabel.SetTextAutoSize("");
+            ____energyLabel.Set("theme_override_colors/font_color", new Color(0, 0, 0));
+            ____energyLabel.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
+            ____energyLabel.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
+            ____energyIcon.Visible = false;
+            return;
+        }
 
         if (c.EnergyCost.CostsX)
         {

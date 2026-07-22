@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
 public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)

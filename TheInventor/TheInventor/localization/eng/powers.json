@@ -60,7 +60,7 @@
   "THEINVENTOR-PLAGUE_POWER.description": "At the start of next turn, gain a random debuff.",
   "THEINVENTOR-PLAGUE_POWER.smartDescription": "At the start of next turn, gain [blue]{Amount:plural:a|{Amount}}[/blue] random debuff.",
   "THEINVENTOR-PLAGUE_POWER.title": "Plague",
-  "THEINVENTOR-PLASMA_CANNON_POWER.description": "Whenever you apply a debuff to yourself, gain [blue]{Amount:cond:<1?10|{Amount}}[/blue] [gold]Damage Up[/gold].",
-  "THEINVENTOR-PLASMA_CANNON_POWER.smartDescription": "Whenever you apply a debuff to yourself, gain [blue]{Amount}[/blue] [gold]Damage Up[/gold].",
+  "THEINVENTOR-PLASMA_CANNON_POWER.description": "Whenever you apply a debuff, gain [blue]{Amount:cond:<1?10|{Amount}}[/blue] [gold]Damage Up[/gold].",
+  "THEINVENTOR-PLASMA_CANNON_POWER.smartDescription": "Whenever you apply a debuff, gain [blue]{Amount}[/blue] [gold]Damage Up[/gold].",
   "THEINVENTOR-PLASMA_CANNON_POWER.title": "Plasma Cannon"
 }

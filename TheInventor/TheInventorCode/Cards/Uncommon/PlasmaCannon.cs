@@ -19,7 +19,7 @@ public class PlasmaCannon() : TheInventorCard(3, CardType.Power, CardRarity.Unco
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await GrindstonePower.ApplyAsync(choiceContext, Owner, DynamicVars.Power<PlasmaCannonPower>().EnchantedValue, Owner, this);
+        await PlasmaCannonPower.ApplyAsync(choiceContext, Owner, DynamicVars.Power<PlasmaCannonPower>().EnchantedValue, Owner, this);
     }
 
     protected override void OnUpgrade()

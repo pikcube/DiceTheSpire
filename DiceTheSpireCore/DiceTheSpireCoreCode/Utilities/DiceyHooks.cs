@@ -130,4 +130,18 @@ public static class DiceyHooks
 
         return isNewOnPlayUsed;
     }
+
+    public static bool OnModifyTargetType(IRunState runState, CardModel card, ref TargetType targetType)
+    {
+        bool isModified = false;
+        foreach (IModifyTargetType listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyTargetType>())
+        {
+            isModified = listener.TryModifyTargetType(card, ref targetType);
+            if (isModified)
+            {
+                return true;
+            }
+        }
+        return isModified;
+    }
 }

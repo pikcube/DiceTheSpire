@@ -15,7 +15,7 @@ public class Dig() : GadgetModel(nameof(Dig))
 
     public override IReadOnlyList<LocString> ModifyExtraRestSiteHealText(Player player, IReadOnlyList<LocString> currentExtraText)
     {
-        return player == Parent?.Owner ? [..currentExtraText, new LocString("rest_site_ui", $"OPTION_DIG.description")] : currentExtraText;
+        return player == Parent?.Owner ? [..currentExtraText, new LocString("rest_site_ui", "OPTION_DIG.description")] : currentExtraText;
     }
 
     public override bool TryModifyRestSiteHealRewards(Player player, List<Reward> rewards, bool isMimicked)

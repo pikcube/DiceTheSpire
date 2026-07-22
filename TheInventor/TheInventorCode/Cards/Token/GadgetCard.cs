@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿using System.Data;
+using BaseLib.Abstracts;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Context;
@@ -13,7 +14,6 @@ using MegaCrit.Sts2.Core.Nodes.Vfx.Cards;
 using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Settings;
 using Pikcube.Common.Extensions;
-using System.Data;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 
@@ -37,8 +37,8 @@ public abstract class GadgetCard() : CustomCardModel(-1, CardType.Power, CardRar
     //Smaller variant of normalart: 250x190
 
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
-    public override string PortraitPath => $"gadget_card.png".CardImagePath();
-    public override string BetaPortraitPath => $"beta/gadget_card.png".CardImagePath();
+    public override string PortraitPath => "gadget_card.png".CardImagePath();
+    public override string BetaPortraitPath => "beta/gadget_card.png".CardImagePath();
 
     public override bool CanBeGeneratedByModifiers => false;
     public override bool CanBeGeneratedInCombat => false;

@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +16,7 @@ using Pikcube.Common.Utility;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
-public class ShockPower : DiceTheSpireCorePower
+public class ShockPower : DiceTheSpireCorePower, IModifyTargetType
 {
     public override PowerType Type => PowerType.Debuff;
 
@@ -93,9 +94,32 @@ public class ShockPower : DiceTheSpireCorePower
         }
     }
 
-    public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
+    //public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
+    //{
+    //    return Cards.Contains(card);
+    //}
+
+    public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
-        return Cards.Contains(card);
+        if (Cards.Contains(card))
+        {
+            modifiedCost = -1;
+            return true;
+        }
+
+        modifiedCost = originalCost;
+        return false;
+    }
+
+    public bool TryModifyTargetType(CardModel card, ref TargetType result)
+    {
+        if (!Cards.Contains(card))
+        {
+            return false;
+        }
+
+        result = TargetType.Self;
+        return true;
     }
 
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
@@ -118,6 +142,4 @@ public class ShockPower : DiceTheSpireCorePower
             TempKeywordManager.DestroyKeywordsEarly(this);
         }
     }
-
-
 }

@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class CrystalShield() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)

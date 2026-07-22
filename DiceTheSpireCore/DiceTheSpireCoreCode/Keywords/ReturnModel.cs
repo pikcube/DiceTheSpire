@@ -17,9 +17,7 @@ public class ReturnModel() : CustomSingletonModel(HookType.Combat)
         {
             return new CardLocation(card.Owner, PileType.Hand, CardPilePosition.Bottom);
         }
-        else
-        {
-            return cardLocation;
-        }
+
+        return cardLocation;
     }
 }
