@@ -18,7 +18,7 @@
   "THEINVENTOR-TOASTED_MARSHMALLOW.description": "At the end of your turn, gain 2 block per {Energy:energyIcons()} remaining.",
   "THEINVENTOR-TOASTED_MARSHMALLOW.flavor": "\"...I don't want to talk about this one.\"",
   "THEINVENTOR-TOASTED_MARSHMALLOW.title": "Toasted Marshmallow",
-  "THEINVENTOR-ELECTRICAL_GLOVES.description": "[gold]Retain[/gold] all [gold]Shocked[/gold] cards.",
+  "THEINVENTOR-ELECTRICAL_GLOVES.description": "At the end of your turn, [gold]Retain[/gold] ALL [gold]Shocked[/gold] cards.",
   "THEINVENTOR-ELECTRICAL_GLOVES.flavor": "\"Not only does this protect my hands, the abrasive texture means I won't keep dropping my stuff!\"",
   "THEINVENTOR-ELECTRICAL_GLOVES.title": "Electrical Gloves",
   "THEINVENTOR-CLOSED_TOE_SHOES.description": "At the start of combat, [gold]Enchant[/gold] a card in hand with [pink]Swift[/pink] [blue]3[/blue].",

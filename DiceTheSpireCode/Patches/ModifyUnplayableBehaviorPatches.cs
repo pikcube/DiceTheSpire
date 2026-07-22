@@ -1,11 +1,11 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using HarmonyLib;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
 
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 

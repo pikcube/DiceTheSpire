@@ -1,7 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Localization;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SmartFormat.Core.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 

@@ -1,5 +1,6 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,7 +11,6 @@ using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Models.Potions;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
-using Godot;
 
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
