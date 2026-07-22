@@ -15,9 +15,13 @@ public class Grindstone() : TheInventorCard(2, CardType.Power, CardRarity.Uncomm
     public override string GetScrapId => nameof(PowerUp);
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<StrengthPower>(2), new PowerVar<GrindstonePower>(50)];
+        [new PowerVar<StrengthPower>(3), new PowerVar<GrindstonePower>(50)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
+    [
+        HoverTipFactory.FromPower<StrengthPower>(),
+        HoverTipFactory.FromPower<GrindstonePower>(DynamicVars.Power<GrindstonePower>().IntValue)
+    ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -29,6 +33,6 @@ public class Grindstone() : TheInventorCard(2, CardType.Power, CardRarity.Uncomm
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Strength.UpgradeValueBy(-1);
+        DynamicVars.Strength.UpgradeValueBy(-2);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -45,7 +46,7 @@ public static class DiceyHooks
     public static event AfterCardShockedHandler? AfterCardShocked;
 
 
-    public static async Task OnCardShocked(PlayerChoiceContext choiceContext, CardModel card)
+    public static async Task OnCardShocked(PlayerChoiceContext choiceContext, ShockPower shock, CardModel card)
     {
         AfterCardShocked?.Invoke(card);
         if (card.RunState is null)
@@ -55,7 +56,7 @@ public static class DiceyHooks
 
         foreach (IAfterCardShockedListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterCardShockedListener>())
         {
-            await listener.AfterCardShockedAsync(choiceContext, card);
+            await listener.AfterCardShockedAsync(choiceContext, shock, card);
         }
 
     }
@@ -106,11 +107,27 @@ public static class DiceyHooks
         }
     }
 
-    public static void ModifyScrapPriority(IRunState runState, Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
+    public static void OnModifyScrapPriority(IRunState runState, Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
     {
         foreach (IModifyScrapPriorityListener listener in runState.IterateHookListeners(null).OfType<IModifyScrapPriorityListener>())
         {
             listener.ModifyPriority(player, ref scrapCards, ref otherCards);
         }
+    }
+
+    public static bool OnModifyUnplayableBehavior(IRunState runState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task>? newOnPlay)
+    {
+        bool isNewOnPlayUsed = false;
+        newOnPlay = null;
+        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
+        {
+            isNewOnPlayUsed = listener.ModifyUnplayableBehavior(card, ref newOnPlay);
+            if (isNewOnPlayUsed)
+            {
+                return true;
+            }
+        }
+
+        return isNewOnPlayUsed;
     }
 }

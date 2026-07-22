@@ -114,5 +114,9 @@
   "THETHIEF-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrement each [gold]Countdown[/gold] in your [gold]Hand[/gold] by 1.",
   "THETHIEF-SNEEZE.title": "Sneeze",
   "THETHIEF-COUNTVALANCHE.description": "Discard your [gold]Hand[/gold].\nDeal {Damage:diff()} damage for each card discarded.",
-  "THETHIEF-COUNTVALANCHE.title": "Countvalanche"
+  "THETHIEF-COUNTVALANCHE.title": "Countvalanche",
+  "THETHIEF-CAMOUFLAGE.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {ReducePower:diff()} [gold]Reduce[/gold].",
+  "THETHIEF-CAMOUFLAGE.title": "Camouflage",
+  "THETHIEF-UNDERHANDED_STRIKE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} extra damage for each [gold]Pip[/gold] in your [gold]Exhaust Pile[/gold].",
+  "THETHIEF-UNDERHANDED_STRIKE.title": "Underhanded Strike"
 }

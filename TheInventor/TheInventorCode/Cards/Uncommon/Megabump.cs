@@ -2,7 +2,9 @@
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -30,23 +32,23 @@ public class Megabump() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
             return;
         }
 
-        Dictionary<Player, Task<IEnumerable<CardModel>>> results = [];
+        List<Task> tasks = [];
 
         foreach (Player p in CombatState.Players)
         {
-            CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
-            results.Add(p, CardSelectCmd.FromHand(new BlockingPlayerChoiceContext(), p, prefs, null, this));
+            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
+            tasks.Add(bpcc.AssignTaskAndWaitForPauseOrCompletion(DoBumpAsync(bpcc, p)));
         }
 
-        await Task.WhenAll(results.Values);
+        await Task.WhenAll(tasks);
+    }
 
-        foreach ((Player _, Task<IEnumerable<CardModel>> value) in results)
+    private async Task DoBumpAsync(PlayerChoiceContext choiceContext, Player p)
+    {
+        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
+        foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, p, prefs, null, this))
         {
-            CardModel[] r = [.. await value];
-            foreach (CardModel c in r)
-            {
-                await c.BumpAsync(choiceContext);
-            }
+            await card.BumpAsync(choiceContext);
         }
     }
 

@@ -1,8 +1,8 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using TheWarrior.TheWarriorCode.Cards.Token;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare;
 

@@ -1,44 +1,38 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Rooms;
-using Pikcube.Common.Utility;
+using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 
 namespace TheInventor.TheInventorCode.Relics;
 
-public class Toolbelt : TheInventorRelic, IOnBlinkListener
+public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
-    private bool IsReady { get; set; }
-    public override Task BeforeCombatStart()
-    {
-        Status = RelicStatus.Active;
-        InvokeDisplayAmountChanged();
-        IsReady = true;
-        return Task.CompletedTask;
-    }
 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(BlinkModel.Blink)
+    ];
 
-    public async Task AfterCardBlinkedAsync(PlayerChoiceContext choiceContext, CardModel card)
+    public bool ModifyUnplayableBehavior(CardModel card, ref Func<PlayerChoiceContext, CardPlay, Task>? newOnPlay)
     {
-        if (!IsReady || card.Owner != Owner)
+        if (card.Owner != Owner)
         {
-            return;
+            return false;
         }
 
-        await CardPileCmd.Draw(choiceContext, 3, Owner);
-        Flash();
-        Status = RelicStatus.Normal;
-        InvokeDisplayAmountChanged();
-        IsReady = false;
+        newOnPlay = NewOnPlayAsync;
+        return true;
+
     }
 
-    public override Task AfterCombatEnd(CombatRoom room)
+    private async Task NewOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        Status = RelicStatus.Normal;
-        InvokeDisplayAmountChanged();
-        IsReady = false;
-        return Task.CompletedTask;
+        await cardPlay.Card.BlinkAsync(choiceContext);
+        Flash();
     }
 }

@@ -10,7 +10,7 @@ namespace TheThief.TheThiefCode.Cards.Uncommon;
 public class Dagger() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, ValueProp.Move)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturningModel.Returning];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

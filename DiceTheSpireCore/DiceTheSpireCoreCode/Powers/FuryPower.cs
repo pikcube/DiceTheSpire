@@ -12,12 +12,12 @@ public class FuryPower : DiceTheSpireCorePower
     {
         //return card.Owner.Creature == this.Owner ? playCount: playCount + 1;
         //|| CombatManager.Instance.History.CardPlaysStarted.Count<CardPlayStartedEntry>((Func<CardPlayStartedEntry, bool>)(e => e.Actor == this.Owner && e.HappenedThisTurn(this.CombatState))) >= this.Amount
-        return card.Owner.Creature != this.Owner  ? playCount : playCount + 1;
+        return card.Owner.Creature != Owner  ? playCount : playCount + 1;
     }
 
     public override async Task AfterModifyingCardPlayCount(CardModel card)
     {
-        this.Flash();
+        Flash();
         await PowerCmd.Decrement(this);
     }
 }

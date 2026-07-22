@@ -1,5 +1,4 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -42,8 +41,6 @@ public class Cloak() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, Targe
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 2), new PowerVar<ReducePower>(3M)];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CountdownModel.Countdown];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>()];
 

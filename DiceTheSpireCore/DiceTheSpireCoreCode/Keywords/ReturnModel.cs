@@ -5,15 +5,15 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 
-public class ReturningModel() : CustomSingletonModel(HookType.Combat)
+public class ReturnModel() : CustomSingletonModel(HookType.Combat)
 {
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
-    public static CardKeyword Returning = 0;
+    public static CardKeyword Return = 0;
 
     public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
         CardLocation cardLocation)
     {
-        if (card.Keywords.Contains(Returning) && cardLocation.pileType == PileType.Discard)
+        if (card.Keywords.Contains(Return) && cardLocation.pileType == PileType.Discard)
         {
             return new CardLocation(card.Owner, PileType.Hand, CardPilePosition.Bottom);
         }

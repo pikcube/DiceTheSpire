@@ -20,7 +20,10 @@ namespace TheInventor.TheInventorCode.Cards;
 [Pool(typeof(TheInventorCardPool))]
 public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target), IPipCard
-{ 
+{
+    public static bool ShowGadgetTips(CardModel card) => EnableGadgetTipsGlobal || EnableTipsOnCards.Contains(card);
+    public static List<CardModel> EnableTipsOnCards { get; } = [];
+    public static bool EnableGadgetTipsGlobal { get; set; }
 
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
@@ -37,26 +40,15 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
 
     protected virtual IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
 
-    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => [.. GetGadgetHoverTip() , .. GetHeldHoverTip(), ..ExtraInventorHoverTips, ..GetScrapHoverTip()];
+    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => 
+    [
+        ..GetGadgetHoverTip() , 
+        ..GetHeldHoverTip(), 
+        ..ExtraInventorHoverTips, 
+        ..GetScrapHoverTip()
+    ];
 
-    private IEnumerable<IHoverTip> GetScrapHoverTip()
-    {
-        if (this is IScrapCard { IsAlwaysOfferedAsScrap: true })
-        {
-            yield return HoverTipFactory.Static(InventorStaticHoverTips.Scrap);
-            yield return HoverTipFactory.Static(InventorStaticHoverTips.Gadget);
-        }
-    }
-
-    private IEnumerable<IHoverTip> GetHeldHoverTip()
-    {
-        if (HasTurnEndInHandEffect)
-        {
-            yield return HoverTipFactory.Static(BetterStaticHoverTips.Held);
-        }
-    }
-
-    protected IEnumerable<IHoverTip> GetGadgetHoverTip()
+    private IEnumerable<IHoverTip> GetGadgetHoverTip()
     {
         if (!ShowGadgetTips(this))
         {
@@ -74,18 +66,28 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
         yield return new CardHoverTip(gadgetCard);
     }
 
-    public static bool ShowGadgetTips(CardModel card) => EnableGadgetTipsGlobal || EnableTipsOnCards.Contains(card);
-    public static List<CardModel> EnableTipsOnCards { get; } = [];
-    public static bool EnableGadgetTipsGlobal { get; set; }
+    private IEnumerable<IHoverTip> GetHeldHoverTip()
+    {
+        if (HasTurnEndInHandEffect)
+        {
+            yield return HoverTipFactory.Static(BetterStaticHoverTips.Held);
+        }
+    }
+
+    private IEnumerable<IHoverTip> GetScrapHoverTip()
+    {
+        if (this is not IScrapCard { IsAlwaysOfferedAsScrap: true })
+        {
+            yield break;
+        }
+
+        yield return HoverTipFactory.Static(InventorStaticHoverTips.Scrap);
+        yield return HoverTipFactory.Static(InventorStaticHoverTips.Gadget);
+    }
 
     public abstract string GetScrapId { get; }
 
     public virtual Task OnScrapAsync()
-    {
-        return Task.CompletedTask;
-    }
-
-    public virtual Task OnSkippedAsync()
     {
         return Task.CompletedTask;
     }
