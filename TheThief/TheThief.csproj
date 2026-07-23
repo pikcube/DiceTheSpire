@@ -57,6 +57,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <AdditionalFiles Remove="TheThief\localization\eng\enchantments.json" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Folder Include="TheThief\images\powers\big\" />
       <Folder Include="TheThief\images\relics\big\" />
     </ItemGroup>
