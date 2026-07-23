@@ -70,5 +70,8 @@
   "DICETHESPIRECORE-NEXT_TURN_DOUBLE_BLOCK_POWER.title": "Next Turn Double Block",
   "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.description": "All [gold]Block[/gold] is doubled this turn.",
   "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.smartDescription": "All [gold]Block[/gold] is doubled this turn.",
-  "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.title": "Double Block"
+  "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.title": "Double Block",
+  "DICETHESPIRECORE-CANTRIPS_POWER.description": "Deal {Amount} damage to a random enemy each time you [gold]Reroll[/gold] a card.",
+  "DICETHESPIRECORE-CANTRIPS_POWER.smartDescription": "Deal {Amount} damage to a random enemy each time you [gold]Reroll[/gold] a card.",
+  "DICETHESPIRECORE-CANTRIPS_POWER.title": "Cantrips"
 }
