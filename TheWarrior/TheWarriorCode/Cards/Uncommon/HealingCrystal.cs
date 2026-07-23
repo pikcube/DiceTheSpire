@@ -9,6 +9,7 @@ public class HealingCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Unc
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3), new HealVar(7M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+    public override bool CanBeGeneratedInCombat => false;
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (Owner.PlayerCombatState is null)
