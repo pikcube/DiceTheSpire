@@ -109,5 +109,7 @@
   "THEWARRIOR-HEALING_CRYSTAL.description": "Heal {Heal:diff()} health. Can only be played if your [gold]Hand[/gold] costs less than {Energy:energyIcons()}.",
   "THEWARRIOR-HEALING_CRYSTAL.title": "Healing Crystal",
   "THEWARRIOR-COPPER_SHIELD.description": "Next turn, all [gold]Block[/gold] gained is doubled.",
-  "THEWARRIOR-COPPER_SHIELD.title": "Copper Shield"
+  "THEWARRIOR-COPPER_SHIELD.title": "Copper Shield",
+  "THEWARRIOR-KITE_SHIELD.description": "[gold]Range[/gold] [1, {IfUpgraded:show:3|6}]\nGain {Block:diff()} [gold]Block[/gold].",
+  "THEWARRIOR-KITE_SHIELD.title": "Kite Shield"
 }     
