@@ -62,7 +62,13 @@
   "DICETHESPIRECORE-FURY_POWER.description": "The next {Amount:plural:card|{Amount} cards} played {Amount:plural:is|are} played an additional time.",
   "DICETHESPIRECORE-FURY_POWER.smartDescription": "The next {Amount:plural:card|{Amount} cards} played {Amount:plural:is|are} played an additional time.",
   "DICETHESPIRECORE-FURY_POWER.title": "Fury",
-  "DICETHESPIRECORE-AXE_MASTERY_POWER.description": "",
+  "DICETHESPIRECORE-AXE_MASTERY_POWER.description": "[gold]Battle Axes[/gold] hit one additional time.",
   "DICETHESPIRECORE-AXE_MASTERY_POWER.smartDescription": "[gold]Battle Axes[/gold] hit one additional time.",
-  "DICETHESPIRECORE-AXE_MASTERY_POWER.title": "Axe Mastery"
+  "DICETHESPIRECORE-AXE_MASTERY_POWER.title": "Axe Mastery",
+  "DICETHESPIRECORE-NEXT_TURN_DOUBLE_BLOCK_POWER.description": "All [gold]Block[/gold] is doubled next turn.",
+  "DICETHESPIRECORE-NEXT_TURN_DOUBLE_BLOCK_POWER.smartDescription": "All [gold]Block[/gold] is doubled next turn.",
+  "DICETHESPIRECORE-NEXT_TURN_DOUBLE_BLOCK_POWER.title": "Next Turn Double Block",
+  "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.description": "All [gold]Block[/gold] is doubled this turn.",
+  "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.smartDescription": "All [gold]Block[/gold] is doubled this turn.",
+  "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.title": "Double Block"
 }

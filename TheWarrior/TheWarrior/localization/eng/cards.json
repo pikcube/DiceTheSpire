@@ -107,5 +107,7 @@
   "THEWARRIOR-TACKLE.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-TACKLE.title": "Tackle",
   "THEWARRIOR-HEALING_CRYSTAL.description": "Heal {Heal:diff()} health. Can only be played if your [gold]Hand[/gold] costs less than {Energy:energyIcons()}.",
-  "THEWARRIOR-HEALING_CRYSTAL.title": "Healing Crystal"
+  "THEWARRIOR-HEALING_CRYSTAL.title": "Healing Crystal",
+  "THEWARRIOR-COPPER_SHIELD.description": "Next turn, all [gold]Block[/gold] gained is doubled.",
+  "THEWARRIOR-COPPER_SHIELD.title": "Copper Shield"
 }     

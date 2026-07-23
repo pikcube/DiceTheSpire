@@ -6,9 +6,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Rare;
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
-public class Buckler() : TheWarriorCard(-1, CardType.Skill, CardRarity.Rare, TargetType.Self), ICountdown
+public class Buckler() : TheWarriorCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public override bool GainsBlock => true;
     public int MaxCount
@@ -39,7 +39,7 @@ public class Buckler() : TheWarriorCard(-1, CardType.Skill, CardRarity.Rare, Tar
             }
         }
     }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new BlockVar(30, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new BlockVar(18, BlockProps.card)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await base.OnPlay(choiceContext, cardPlay);
@@ -49,7 +49,7 @@ public class Buckler() : TheWarriorCard(-1, CardType.Skill, CardRarity.Rare, Tar
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Block.UpgradeValueBy(10);
+        DynamicVars.Block.UpgradeValueBy(4);
     }
 
 }
