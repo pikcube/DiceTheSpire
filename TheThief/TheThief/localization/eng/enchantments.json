@@ -1,5 +1,5 @@
 {
-  "STELLAR.description": "Gain {Stars:starIcons()}.",
-  "STELLAR.extraCardText": "Gain {Stars:starIcons()}.",
-  "STELLAR.title": "Stellar"
+  "THETHIEF-STELLAR.description": "Gain {Stars:starIcons()}.",
+  "THETHIEF-STELLAR.extraCardText": "Gain {Stars:starIcons()}.",
+  "THETHIEF-STELLAR.title": "Stellar"
 }
