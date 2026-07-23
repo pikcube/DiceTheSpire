@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
-public class IceAge() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class TableSlam() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<RetainHandPower>(1M)];
