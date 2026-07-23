@@ -18,7 +18,7 @@ public class ClosedToeShoes : TheInventorRelic
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (Owner != player || Owner.PlayerCombatState?.TurnNumber != 1)
+        if (Owner != player)
         {
             return;
         }
@@ -31,7 +31,7 @@ public class ClosedToeShoes : TheInventorRelic
             return;
         }
 
-        CardCmd.Enchant<Swift>(card, 3);
+        CardCmd.Enchant<Swift>(card, 1);
         NCardEnchantVfx? child = NCardEnchantVfx.Create(card);
         if (child != null)
         {
