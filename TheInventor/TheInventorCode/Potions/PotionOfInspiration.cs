@@ -3,7 +3,6 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Utilities;
 
 namespace TheInventor.TheInventorCode.Potions;
