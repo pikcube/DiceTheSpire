@@ -21,7 +21,7 @@
   "THEINVENTOR-ELECTRICAL_GLOVES.description": "At the end of your turn, [gold]Retain[/gold] ALL [gold]Shocked[/gold] cards.",
   "THEINVENTOR-ELECTRICAL_GLOVES.flavor": "\"Not only does this protect my hands, the abrasive texture means I won't keep dropping my stuff!\"",
   "THEINVENTOR-ELECTRICAL_GLOVES.title": "Electrical Gloves",
-  "THEINVENTOR-CLOSED_TOE_SHOES.description": "At the start of combat, [gold]Enchant[/gold] a card in hand with [pink]Swift[/pink] [blue]3[/blue].",
+  "THEINVENTOR-CLOSED_TOE_SHOES.description": "At the start of each turn, [gold]Enchant[/gold] a card in hand with [pink]Swift[/pink] [blue]1[/blue].",
   "THEINVENTOR-CLOSED_TOE_SHOES.flavor": "\"If I rotate my shoes out after each combat, I might be able to keep my socks dry!\"",
   "THEINVENTOR-CLOSED_TOE_SHOES.title": "Closed Toe Shoes",
   "THEINVENTOR-TOOLBELT.description": "[gold]Unplayable[/gold] cards can now be played. Playing an [gold]Unplayable[/gold] card [gold]Blinks[/gold] it.",
