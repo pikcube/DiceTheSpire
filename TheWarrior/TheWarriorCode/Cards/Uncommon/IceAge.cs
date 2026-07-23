@@ -33,7 +33,7 @@ public class IceAge() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, T
                 if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
                 {
                     NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
-                    RerollCmd.Reroll(card, RerollDuration.UntilEndOfTurnOrPlayed);
+                    await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
                 }
             
                 //if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)

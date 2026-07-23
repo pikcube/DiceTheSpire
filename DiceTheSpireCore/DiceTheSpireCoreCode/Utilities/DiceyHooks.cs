@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -144,4 +145,17 @@ public static class DiceyHooks
         }
         return isModified;
     }
+
+    public static async Task OnRerollAsync(IRunState runState, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
+    {
+        foreach (IAfterRerollListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterRerollListener>())
+        {
+            await listener.AfterRerollAsync(card, isFixed, originalCost, getAmountToSpend, duration);
+        }
+    }
+}
+
+public interface IAfterRerollListener
+{
+    public Task AfterRerollAsync(CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration);
 }

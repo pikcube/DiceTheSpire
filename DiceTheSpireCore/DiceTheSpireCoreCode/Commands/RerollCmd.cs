@@ -8,9 +8,10 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 
 public static class RerollCmd
 {
-    public static void Reroll(CardModel card, RerollDuration duration)
+    public static async Task RerollAsync(CardModel card, RerollDuration duration)
     {
         ArgumentNullException.ThrowIfNull(card.RunState);
+        int originalCost = card.EnergyCost.GetAmountToSpend();
 
         int nextEnergyCost = NextEnergyCost(card, card.RunState, out bool isFixed);
 
@@ -32,12 +33,12 @@ public static class RerollCmd
                 throw new ArgumentOutOfRangeException(nameof(duration), duration, null);
         }
 
-        if (isFixed)
+        if (!isFixed)
         {
-            return;
+            NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
         }
 
-        NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
+        await DiceyHooks.OnRerollAsync(card.RunState, card, isFixed, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
     }
 
     private static int NextEnergyCost(CardModel card, IRunState runState, out bool isFixed)

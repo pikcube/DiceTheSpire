@@ -14,6 +14,8 @@ public class Backfire() : TheInventorCard(1, CardType.Power, CardRarity.Rare, Ta
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new MaxHpVar(3)];
 
+    public override bool CanBeGeneratedInCombat => false;
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainMaxHp(Owner.Creature, DynamicVars.MaxHp.EnchantedValue);

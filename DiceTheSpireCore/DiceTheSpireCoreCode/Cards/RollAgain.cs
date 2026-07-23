@@ -27,7 +27,7 @@ public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.To
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX && c.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0))
         {
-            RerollCmd.Reroll(card, RerollDuration.UntilEndOfTurnOrPlayed);
+            await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
         }
     }
 

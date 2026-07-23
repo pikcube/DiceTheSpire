@@ -25,10 +25,7 @@ public static class RerollPatches
             {
                 return true;
             }
-
-            RerollCmd.Reroll(card, RerollDuration.Combat);
-
-            __result = Task.CompletedTask;
+            __result = RerollCmd.RerollAsync(card, RerollDuration.Combat);
             return false;
         }
     }
@@ -43,8 +40,8 @@ public static class RerollPatches
                 return true;
             }
 
-            RerollCmd.Reroll(card, RerollDuration.Combat);
-            __result = Task.CompletedTask;
+           
+            __result = RerollCmd.RerollAsync(card, RerollDuration.Combat);
             return false;
         }
     }
@@ -69,7 +66,7 @@ public static class RerollPatches
             await CardPileCmd.Draw(choiceContext, sneckoOil.DynamicVars.Cards.BaseValue, target.Player);
             foreach (CardModel card in PileType.Hand.GetPile(target.Player).Cards.Where(c => !c.EnergyCost.CostsX))
             {
-                RerollCmd.Reroll(card, RerollDuration.UntilEndOfTurnOrPlayed);
+                await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
             }
         }
     }

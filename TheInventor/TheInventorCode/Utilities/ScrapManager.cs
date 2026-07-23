@@ -333,4 +333,9 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             GadgetId.Set(p, ascensionLevel > 5 ? nameof(Efficiency) : nameof(HeatRay));
         }
     }
+
+    public static bool HasGadget(Player targetPlayer)
+    {
+        return GetGadgetParents(targetPlayer).Count > 0;
+    }
 }
