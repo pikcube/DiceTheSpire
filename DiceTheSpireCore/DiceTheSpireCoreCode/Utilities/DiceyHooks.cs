@@ -154,8 +154,3 @@ public static class DiceyHooks
         }
     }
 }
-
-public interface IAfterRerollListener
-{
-    public Task AfterRerollAsync(CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration);
-}
