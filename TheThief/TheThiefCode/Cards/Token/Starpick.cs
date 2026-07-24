@@ -12,7 +12,7 @@ using TheThief.TheThiefCode.Enchantments;
 namespace TheThief.TheThiefCode.Cards.Token;
 
 [Pool(typeof(TokenCardPool))]
-public class Starpick() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Starpick() : TheThiefCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
