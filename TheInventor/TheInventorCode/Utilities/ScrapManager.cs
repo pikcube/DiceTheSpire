@@ -121,18 +121,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         try
         {
             Player p = rewardsSet.Player;
-            List<CardModel> cards = [.. p.Deck.Cards.Where(c => c is
-            {
-                IsRemovable: true,
-                Rarity: 
-                CardRarity.Basic or 
-                CardRarity.Common or 
-                CardRarity.Uncommon or 
-                CardRarity.Rare or 
-                CardRarity.Ancient or 
-                CardRarity.Event or 
-                CardRarity.Curse
-            })];
+            List<CardModel> cards = [.. p.Deck.Cards.Where(CanScrapCard)];
 
             CreateScrapLists(cards, p, out List<CardModel> scrapCards, out List<CardModel> otherCards);
 
@@ -201,6 +190,27 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
 
         await rewardsSet.Offer();
+    }
+
+    public static bool CanScrapCard(CardModel card)
+    {
+        if (card is IScrapCard { IsAlwaysOfferedAsScrap: true })
+        {
+            return true;
+        }
+
+        return card is
+        {
+            IsRemovable: true,
+            Rarity:
+            CardRarity.Basic or
+            CardRarity.Common or
+            CardRarity.Uncommon or
+            CardRarity.Rare or
+            CardRarity.Ancient or
+            CardRarity.Event or
+            CardRarity.Curse
+        };
     }
 
     private static void CreateScrapLists(List<CardModel> cards, Player p, out List<CardModel> scrapCards, out List<CardModel> otherCards)

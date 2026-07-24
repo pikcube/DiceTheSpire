@@ -6,11 +6,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare;
 public class KiteShield() : TheWarriorCard(6, CardType.Skill, CardRarity.Rare, TargetType.Self), IRangeCard
