@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Utilities;
@@ -16,7 +17,17 @@ public class Recyclable : CustomEnchantmentModel, IScrapCard
 
     public override bool CanEnchant(CardModel card)
     {
-        return ScrapManager.CanScrapCard(card);
+        if (card.Type is CardType.Status or CardType.Quest)
+        {
+            return false;
+        }
+
+        if (card.Enchantment is not null)
+        {
+            return false;
+        }
+
+        return !ScrapManager.IsAlwaysOfferedAsScrap(card) && ScrapManager.CanScrapCard(card);
     }
 
     public bool IsAlwaysOfferedAsScrap => true;

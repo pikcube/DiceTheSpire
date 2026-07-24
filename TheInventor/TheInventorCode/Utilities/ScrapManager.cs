@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
@@ -171,12 +172,16 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                     GadgetId.Set(p, scrapCard.GetScrapId);
                     await scrapCard.OnScrapAsync();
                     TempParent parent = new(p, AllGadgets[scrapCard.GetScrapId]);
+                    await parent.LinkedGadgetModel.OnPickupAsync();
                     parent.LinkedGadgetModel.TryModifyRewards(p, rewardsSet.Rewards, p.RunState.CurrentRoom);
                 }
             }
             else
             {
-                GadgetId.Set(p, GetDefaultGadget(choice));
+                string gadgetId = GetDefaultGadget(choice);
+                GadgetId.Set(p, gadgetId);
+                TempParent parent = new(p, AllGadgets[gadgetId]);
+                await parent.LinkedGadgetModel.OnPickupAsync();
             }
 
             Ignore.Add(rewardsSet.Player);
@@ -194,7 +199,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     public static bool CanScrapCard(CardModel card)
     {
-        if (card is IScrapCard { IsAlwaysOfferedAsScrap: true })
+        if (IsAlwaysOfferedAsScrap(card))
         {
             return true;
         }
@@ -217,7 +222,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
     {
         scrapCards = [];
         otherCards = [];
-        foreach (IGrouping<bool, CardModel> group in cards.GroupBy(IsScrapCard))
+        foreach (IGrouping<bool, CardModel> group in cards.GroupBy(IsAlwaysOfferedAsScrap))
         {
             if (group.Key)
             {
@@ -232,7 +237,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         p.PlayerRng.Rewards.Shuffle(otherCards);
     }
 
-    private static bool IsScrapCard(CardModel c)
+    public static bool IsAlwaysOfferedAsScrap(CardModel c)
     {
         return c is IScrapCard { IsAlwaysOfferedAsScrap: true } || c.Enchantment is IScrapCard { IsAlwaysOfferedAsScrap: true };
     }
@@ -244,21 +249,33 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     public static string GetDefaultGadget(CardModel? choice)
     {
+        //No card, no gadget
         if (choice is null)
         {
             return nameof(BrokenGadget);
         }
 
+        //I don't plan on adding a lot of these, but if there's a really obvious gadget for a colorless card I can override the default logic
+        string? specialCase = GetGadgetSpecialCase(choice);
+        if (!string.IsNullOrEmpty(specialCase))
+        {
+            return specialCase;
+        }
+
+        //You aren't supposed to be able to scrap Statuses or Quests, but just in case we'll have them return the bad option.
         if (choice.Type is CardType.Curse or CardType.Status or CardType.Quest)
         {
             return nameof(CursedGadget);
         }
 
+        //All ancient cards give you Battle Wrench. Not strictly the strongest, but consistently good.
         if (choice.Rarity == CardRarity.Ancient)
         {
             return nameof(BattleWrench);
         }
 
+        //All of these dynamic vars are good indicators of the card's function, and have associated gadgets
+        //Priority is determined by how likely the var is to be accurate and how unique the effect is
         DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
         {
             PowerVar<PoisonPower> => 10,
@@ -281,7 +298,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             PowerVar<VulnerablePower> => nameof(ShortCircuit),
             PowerVar<WeakPower> => nameof(Burrower),
             EnergyVar => nameof(MagicDice),
-            CardsVar => nameof(BattleWrench),
+            CardsVar => choice.Rarity is CardRarity.Common or CardRarity.Basic ? nameof(MagicSpanner) : nameof(BattleWrench),
             DamageVar or CalculatedDamageVar => choice.TargetType == TargetType.AllEnemies ? nameof(Blowtorch) : nameof(Bonk),
             BlockVar or CalculatedBlockVar => choice.Rarity is CardRarity.Basic or CardRarity.Common ? nameof(Shield) : nameof(WallOfIce),
             _ => choice.Type switch
@@ -289,9 +306,20 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 CardType.Attack => choice.TargetType is TargetType.AnyEnemy ? nameof(Bonk) : nameof(Blowtorch),
                 CardType.Skill => choice.Rarity is CardRarity.Common or CardRarity.Basic ? nameof(Shield) : nameof(WallOfIce),
                 CardType.Power => choice.Rarity is CardRarity.Uncommon ? nameof(MagicSpanner) : nameof(BattleWrench),
-                CardType.Status or CardType.Curse or CardType.Quest => nameof(CursedGadget),
+                CardType.Status or CardType.Curse or CardType.Quest => nameof(CursedGadget), //This branch shouldn't be reachable but just in case
                 _ => nameof(BrokenGadget)
             }
+        };
+    }
+
+    //If you add a special case, please include a justification
+    private static string? GetGadgetSpecialCase(CardModel choice)
+    {
+        return choice switch
+        {
+            TheBomb => nameof(BigBomb), //It's called The Bomb, obviously it should give you a bigger bomb
+            ByrdSwoop => nameof(ByrdNuggets), //Only gadget that is exclusive to an off class card, and it's for a dumb joke
+            _ => null
         };
     }
 

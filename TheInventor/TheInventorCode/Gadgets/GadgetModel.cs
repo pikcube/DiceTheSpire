@@ -116,4 +116,6 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     public virtual void OnFirstCharge()
     {
     }
+
+    public virtual Task OnPickupAsync() => Task.CompletedTask;
 }
