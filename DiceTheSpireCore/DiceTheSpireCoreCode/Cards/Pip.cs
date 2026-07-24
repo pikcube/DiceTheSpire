@@ -43,6 +43,7 @@ public class Pip : DiceTheSpireCoreCard
         UpdatePips();
     }
 
+    public override int MaxUpgradeLevel => 0;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("PipDescription")];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Sly, CardKeyword.Exhaust];
 
