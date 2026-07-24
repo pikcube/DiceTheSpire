@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtbgtkd73sytd"
-path="res://.godot/imported/Omnistrike.png-ae54338669a6be31912e3d371fd5598d.ctex"
+uid="uid://duffvcel3v464"
+path="res://.godot/imported/roll_the_bones.png-f99a868cde43399b4aba90b30951e837.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/big/Omnistrike.png"
-dest_files=["res://.godot/imported/Omnistrike.png-ae54338669a6be31912e3d371fd5598d.ctex"]
+source_file="res://TheThief/images/card_portraits/big/roll_the_bones.png"
+dest_files=["res://.godot/imported/roll_the_bones.png-f99a868cde43399b4aba90b30951e837.ctex"]
 
 [params]
 
