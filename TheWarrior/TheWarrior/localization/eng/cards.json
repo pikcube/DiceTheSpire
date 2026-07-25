@@ -115,5 +115,7 @@
   "THEWARRIOR-PARTICLE_ACCELERATOR.description": "[gold]Range[/gold] [1, 3]\nDeal {Damage:diff()} damage.\nDouble this cards damage this combat each time it is [gold]Rerolled[/gold].",
   "THEWARRIOR-PARTICLE_ACCELERATOR.title": "Particle Accelerator",
   "THEWARRIOR-CANTRIPS.description": "Deal {CantripsPower:diff()} damage to a random enemy each time you [gold]Reroll[/gold] a card.",
-  "THEWARRIOR-CANTRIPS.title": "Cantrips"
+  "THEWARRIOR-CANTRIPS.title": "Cantrips",
+  "THEWARRIOR-CRUNCH.description": "Deal {Damage:diff()} damage.\n[gold]Bump[/gold] {Cards:diff()} {IfUpgraded:show:|random }cards in [gold]Hand[/gold].",
+  "THEWARRIOR-CRUNCH.title": "Crunch"
 }     
