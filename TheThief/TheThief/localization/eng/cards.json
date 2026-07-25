@@ -120,5 +120,11 @@
   "THETHIEF-UNDERHANDED_STRIKE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} extra damage for each [gold]Pip[/gold] in your [gold]Exhaust Pile[/gold].",
   "THETHIEF-UNDERHANDED_STRIKE.title": "Underhanded Strike",
   "THETHIEF-STARPICK.description": "Add {Cards:diff()} [gold]Stellar Pips[/gold] to your [gold]Hand[/gold].",
-  "THETHIEF-STARPICK.title": "Starpick"
+  "THETHIEF-STARPICK.title": "Starpick",
+  "THETHIEF-ROLL_THE_BONES.description": "[gold]Count:[/gold] {CurrentCount:diff()}\n[gold]Summon[/gold] {Summon:diff()}.\nApply {DoomPower:diff()} [gold]Doom[/gold].",
+  "THETHIEF-ROLL_THE_BONES.title": "Roll The Bones",
+  "THETHIEF-AUTOTUNE.description": "Choose {IfUpgraded:show:an Upgraded|1 of} [gold]Starpick[/gold], [gold]Roll The Bones[/gold], or [gold]Crossed Wire[/gold] to add to your [gold]Hand[/gold].",
+  "THETHIEF-AUTOTUNE.title": "Autotune",
+  "THETHIEF-CROSSED_WIRE.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\n[gold]Channel[/gold] 1 [gold]Plasma[/gold].",
+  "THETHIEF-CROSSED_WIRE.title": "Crossed Wire"
 }

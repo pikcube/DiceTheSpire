@@ -1,15 +1,18 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+﻿using BaseLib.Utils;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
 using TheThief.TheThiefCode.Enchantments;
 
-namespace TheThief.TheThiefCode.Cards.Uncommon;
+namespace TheThief.TheThiefCode.Cards.Token;
 
-public class Starpick() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+[Pool(typeof(TokenCardPool))]
+public class Starpick() : TheThiefCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
