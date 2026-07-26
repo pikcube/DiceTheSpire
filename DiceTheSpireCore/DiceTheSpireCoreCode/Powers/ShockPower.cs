@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
@@ -75,12 +74,7 @@ public class ShockPower : DiceTheSpireCorePower, IModifyTargetType
             return;
         }
 
-        CardModel[] cards =
-        [
-            ..PileType.Hand.GetPile(Owner.Player).Cards
-                .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
-                .TakeRandom((int)amount, CombatState.RunState.Rng.CombatCardSelection)
-        ];
+        CardModel[] cards = GetCards((int)amount, Owner.Player);
 
         foreach (CardModel card in cards)
         {
@@ -92,6 +86,19 @@ public class ShockPower : DiceTheSpireCorePower, IModifyTargetType
         {
             await DiceyHooks.OnCardShocked(choiceContext, this, card);
         }
+    }
+
+    private static CardModel[] GetCards(int amount, Player player)
+    {
+        CardModel[] handPile =
+        [
+            .. PileType.Hand.GetPile(player).Cards
+                .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
+        ];
+
+        player.RunState.Rng.CombatCardSelection.Shuffle(handPile);
+
+        return [..handPile.OrderBy(c => c.Keywords.Contains(CardKeyword.Ethereal)).Take(amount)];
     }
 
     //public override bool ShouldPlay(CardModel card, AutoPlayType autoPlayType)
