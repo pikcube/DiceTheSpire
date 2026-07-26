@@ -15,6 +15,7 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
@@ -51,11 +52,15 @@ public class Crunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Ta
         
         if (IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 0, DynamicVars.Cards.IntValue);
+            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_MODIFY_COST"), 0, DynamicVars.Cards.IntValue);
             CardModel[] cardChoices = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
             foreach (CardModel card in cardChoices)
             {
-                await card.BumpAsync(choiceContext);
+                if (card.EnergyCost.CostsX == false)
+                {
+                    card.EnergyCost.SetThisTurnOrUntilPlayed(card.EnergyCost.GetAmountToSpend() - 1);
+                }
+                //await card.BumpAsync(choiceContext);
             }
         }
         else
@@ -63,12 +68,14 @@ public class Crunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Ta
             CardModel[] cards =
             [
            ..PileType.Hand.GetPile(Owner).Cards
-                        .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable) && (c.IsUpgradable == true || c.IsUpgraded == true))
+                        .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable) && c.EnergyCost.CostsX == false)
                         .TakeRandom((int)DynamicVars.Cards.BaseValue, Owner.RunState.Rng.CombatCardSelection)
             ];
             foreach (CardModel card in cards)
             {
-                await card.BumpAsync(choiceContext);
+
+                card.EnergyCost.SetThisTurnOrUntilPlayed(card.EnergyCost.GetAmountToSpend() - 1);
+                //await card.BumpAsync(choiceContext);
             }
         }
 
