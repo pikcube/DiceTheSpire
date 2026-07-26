@@ -21,7 +21,7 @@
   "THEWARRIOR-BUCKLER.title": "Buckler",
   "THEWARRIOR-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:show:\nGain 1 [gold]Dexterity[/gold].|}",
   "THEWARRIOR-TARGET_SHIELD.title": "Target Shield",
-  "THEWARRIOR-NUDGE.description": "[gold]Nudge[/gold] {Cards:diff()} cards in [gold]Hand[/gold].\nGain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].",
+  "THEWARRIOR-NUDGE.description": "[gold]Nudge[/gold] up to {Cards:diff()} cards in [gold]Hand[/gold].\nGain {Block:diff()} [gold]Block[/gold] for each upgraded card [gold]Nudged[/gold].",
   "THEWARRIOR-NUDGE.title": "Nudge",
   "THEWARRIOR-CRYSTAL_SWORD.description": "Deal damage equal to the energy cost of your deck.\n(Currently {CalculatedDamage:diff()})",
   "THEWARRIOR-CRYSTAL_SWORD.title": "Crystal Sword",
@@ -119,5 +119,7 @@
   "THEWARRIOR-CRUNCH.description": "Deal {Damage:diff()} damage.\n{Cards:diff()} {IfUpgraded:show:|random }cards in [gold]Hand[/gold] cost 1 less the next time they are played this turn.",
   "THEWARRIOR-CRUNCH.title": "Crunch",
   "THEWARRIOR-SPEEDBUMP.description": "Draw {Cards:diff()} card.\n[gold]Bump[/gold] all cards drawn this turn.",
-  "THEWARRIOR-SPEEDBUMP.title": "Speedbump"
+  "THEWARRIOR-SPEEDBUMP.title": "Speedbump",
+  "THEWARRIOR-ACORN_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Nudge[/gold] {Cards:diff()} card in [gold]Hand[/gold].",
+  "THEWARRIOR-ACORN_SHIELD.title": "Acorn Shield"
 }     
