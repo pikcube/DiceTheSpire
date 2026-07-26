@@ -100,7 +100,7 @@
   "THEWARRIOR-POWER_CRYSTAL.title": "Power Crystal",
   "THEWARRIOR-DEFLECT.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {VigorPower:diff()} [gold]Vigor[/gold].",
   "THEWARRIOR-DEFLECT.title": "Deflect",
-  "THEWARRIOR-SHRIEK.description": "[gold]Range[/gold] [0, 2]\nGain 1 [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
+  "THEWARRIOR-SHRIEK.description": "[gold]Range[/gold] [0, 2]\nGain {WarriorShriekPower:diff()} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
   "THEWARRIOR-SHRIEK.title": "Shriek",
   "THEWARRIOR-CHOCOLATE_COOKIE.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {FuryPower:diff()} [gold]Fury[/gold].",
   "THEWARRIOR-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
