@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1lx5i08fv2er"
-path="res://.godot/imported/elastic_heart.png-394a20b64275e33eb42a9075fe1dc444.ctex"
+uid="uid://c1xnrxh6cuswj"
+path="res://.godot/imported/elastic_heart.png-95688d7df0f485d86aa704718b6b86be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/elastic_heart.png"
-dest_files=["res://.godot/imported/elastic_heart.png-394a20b64275e33eb42a9075fe1dc444.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/elastic_heart.png"
+dest_files=["res://.godot/imported/elastic_heart.png-95688d7df0f485d86aa704718b6b86be.ctex"]
 
 [params]
 

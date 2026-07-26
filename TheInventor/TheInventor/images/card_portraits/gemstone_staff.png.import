@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bghcakc6tw54c"
-path="res://.godot/imported/gemstone_staff.png-b98258c4d0e539ad217735a3c72cf27f.ctex"
+uid="uid://cl4qh47qclo6t"
+path="res://.godot/imported/gemstone_staff.png-b1bb95f17d09120471fa54aab7c68d27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/gemstone_staff.png"
-dest_files=["res://.godot/imported/gemstone_staff.png-b98258c4d0e539ad217735a3c72cf27f.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/gemstone_staff.png"
+dest_files=["res://.godot/imported/gemstone_staff.png-b1bb95f17d09120471fa54aab7c68d27.ctex"]
 
 [params]
 

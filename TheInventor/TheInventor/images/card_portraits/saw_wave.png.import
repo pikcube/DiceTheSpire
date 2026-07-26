@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djma4n0lghkjs"
-path="res://.godot/imported/saw_wave.png-fa039504864bffa227e25243a3ef41be.ctex"
+uid="uid://5r8pjvteidrf"
+path="res://.godot/imported/saw_wave.png-0267c173e455d442f5d8c6e8765cc1ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/saw_wave.png"
-dest_files=["res://.godot/imported/saw_wave.png-fa039504864bffa227e25243a3ef41be.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/saw_wave.png"
+dest_files=["res://.godot/imported/saw_wave.png-0267c173e455d442f5d8c6e8765cc1ef.ctex"]
 
 [params]
 

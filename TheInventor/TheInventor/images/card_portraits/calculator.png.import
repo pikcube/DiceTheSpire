@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddnq72aq5rvle"
-path="res://.godot/imported/calculator.png-8c6e44af91cba2e668e5a561b20e47c5.ctex"
+uid="uid://dnmkpq28ptox2"
+path="res://.godot/imported/calculator.png-db75aed565ded261bec009b4e1b0c593.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/calculator.png"
-dest_files=["res://.godot/imported/calculator.png-8c6e44af91cba2e668e5a561b20e47c5.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/calculator.png"
+dest_files=["res://.godot/imported/calculator.png-db75aed565ded261bec009b4e1b0c593.ctex"]
 
 [params]
 

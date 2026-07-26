@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk8g6hty1wg5n"
-path="res://.godot/imported/remote_control.png-d79eaa644baafb4b64ec6a140a7c9aa8.ctex"
+uid="uid://by84hihqydccl"
+path="res://.godot/imported/remote_control.png-3ab26c56f88562c57960817db06b7e8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/remote_control.png"
-dest_files=["res://.godot/imported/remote_control.png-d79eaa644baafb4b64ec6a140a7c9aa8.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/remote_control.png"
+dest_files=["res://.godot/imported/remote_control.png-3ab26c56f88562c57960817db06b7e8a.ctex"]
 
 [params]
 

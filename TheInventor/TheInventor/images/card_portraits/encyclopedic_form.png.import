@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnkem0vni6mjy"
-path="res://.godot/imported/encyclopedic_form.png-104141d4e825f9a06702cf9220bbb998.ctex"
+uid="uid://bu3b188cakxvx"
+path="res://.godot/imported/encyclopedic_form.png-f9779555971bc1d24162ba5608e21eaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/encyclopedic_form.png"
-dest_files=["res://.godot/imported/encyclopedic_form.png-104141d4e825f9a06702cf9220bbb998.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/encyclopedic_form.png"
+dest_files=["res://.godot/imported/encyclopedic_form.png-f9779555971bc1d24162ba5608e21eaa.ctex"]
 
 [params]
 

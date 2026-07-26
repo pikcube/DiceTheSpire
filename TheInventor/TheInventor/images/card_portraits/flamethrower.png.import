@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtsebjo6xtrq2"
-path="res://.godot/imported/flamethrower.png-a111499761bd86c4779767529ead67a0.ctex"
+uid="uid://dy7toufwcewj0"
+path="res://.godot/imported/flamethrower.png-a62395724c7652235ecd8ffb08b3f429.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/flamethrower.png"
-dest_files=["res://.godot/imported/flamethrower.png-a111499761bd86c4779767529ead67a0.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/flamethrower.png"
+dest_files=["res://.godot/imported/flamethrower.png-a62395724c7652235ecd8ffb08b3f429.ctex"]
 
 [params]
 

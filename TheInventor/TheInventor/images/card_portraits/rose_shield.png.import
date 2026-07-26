@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drjik14im3r0"
-path="res://.godot/imported/rose_shield.png-304b49c30444a1bd4e0fff9409677061.ctex"
+uid="uid://btrw6sfaarg3o"
+path="res://.godot/imported/rose_shield.png-552c40fb40bebb1f9dd116f5e5f2baa5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/rose_shield.png"
-dest_files=["res://.godot/imported/rose_shield.png-304b49c30444a1bd4e0fff9409677061.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/rose_shield.png"
+dest_files=["res://.godot/imported/rose_shield.png-552c40fb40bebb1f9dd116f5e5f2baa5.ctex"]
 
 [params]
 

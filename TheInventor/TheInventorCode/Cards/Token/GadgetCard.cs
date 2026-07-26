@@ -30,7 +30,7 @@ public abstract class GadgetCard() : CustomCardModel(-1, CardType.Power, CardRar
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
     //Full art: 606x852
-    public override string CustomPortraitPath => "gadget_card.png".BigCardImagePath();
+    public override string CustomPortraitPath => "gadget_card.png".CardImagePath();
 
     //Smaller variants of card images for efficiency:
     //Smaller variant of fullart: 250x350

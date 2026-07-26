@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f042bfhha2yj"
-path="res://.godot/imported/icicle.png-936ebed8757cadfc07c0cf0a98792695.ctex"
+uid="uid://c4isaccmf5yu7"
+path="res://.godot/imported/icicle.png-081ac67d307acd7d2d47db510098c6d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/icicle.png"
-dest_files=["res://.godot/imported/icicle.png-936ebed8757cadfc07c0cf0a98792695.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/icicle.png"
+dest_files=["res://.godot/imported/icicle.png-081ac67d307acd7d2d47db510098c6d2.ctex"]
 
 [params]
 

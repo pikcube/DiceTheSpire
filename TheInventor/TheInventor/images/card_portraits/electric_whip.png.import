@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxir4g6rbhldo"
-path="res://.godot/imported/electric_whip.png-e71f43d2640b0f0af4028ef397bef90c.ctex"
+uid="uid://clektxgxywkad"
+path="res://.godot/imported/electric_whip.png-16fb25adacd265c4fbbe345325c66f1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/electric_whip.png"
-dest_files=["res://.godot/imported/electric_whip.png-e71f43d2640b0f0af4028ef397bef90c.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/electric_whip.png"
+dest_files=["res://.godot/imported/electric_whip.png-16fb25adacd265c4fbbe345325c66f1f.ctex"]
 
 [params]
 

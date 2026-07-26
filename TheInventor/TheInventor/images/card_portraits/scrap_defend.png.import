@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cflbj0qdil8y1"
-path="res://.godot/imported/scrap_defend.png-bd65766ec6a50db4ff76235f46845530.ctex"
+uid="uid://dbn05ul0nhtuj"
+path="res://.godot/imported/scrap_defend.png-f3190d82d198d22232d3a53da220e7b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/scrap_defend.png"
-dest_files=["res://.godot/imported/scrap_defend.png-bd65766ec6a50db4ff76235f46845530.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/scrap_defend.png"
+dest_files=["res://.godot/imported/scrap_defend.png-f3190d82d198d22232d3a53da220e7b0.ctex"]
 
 [params]
 

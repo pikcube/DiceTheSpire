@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fdnrfuy7v8sp"
-path="res://.godot/imported/safety_goggles.png-7dca2dc2ac718a98607269e1d299fe55.ctex"
+uid="uid://cw3e1f8w2ykls"
+path="res://.godot/imported/safety_goggles.png-bfa0dd5ffd2a53db2476b81bdac095a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/safety_goggles.png"
-dest_files=["res://.godot/imported/safety_goggles.png-7dca2dc2ac718a98607269e1d299fe55.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/safety_goggles.png"
+dest_files=["res://.godot/imported/safety_goggles.png-bfa0dd5ffd2a53db2476b81bdac095a1.ctex"]
 
 [params]
 

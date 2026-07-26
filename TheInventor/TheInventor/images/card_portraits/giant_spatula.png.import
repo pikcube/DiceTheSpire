@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dilg3qkejuohm"
-path="res://.godot/imported/giant_spatula.png-ce1e84da9e4d5fff182a84985fbc0d22.ctex"
+uid="uid://b063l7nbdq170"
+path="res://.godot/imported/giant_spatula.png-bf3f75db561287de280f98234ffdaabe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/giant_spatula.png"
-dest_files=["res://.godot/imported/giant_spatula.png-ce1e84da9e4d5fff182a84985fbc0d22.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/giant_spatula.png"
+dest_files=["res://.godot/imported/giant_spatula.png-bf3f75db561287de280f98234ffdaabe.ctex"]
 
 [params]
 

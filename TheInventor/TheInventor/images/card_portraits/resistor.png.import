@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pms3ebv0psx0"
-path="res://.godot/imported/resistor.png-09d0fce386820af36880c151312b9c2a.ctex"
+uid="uid://d3tq57xqupmuf"
+path="res://.godot/imported/resistor.png-030e9f67f2abbb7a29b28d39e9f790cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/resistor.png"
-dest_files=["res://.godot/imported/resistor.png-09d0fce386820af36880c151312b9c2a.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/resistor.png"
+dest_files=["res://.godot/imported/resistor.png-030e9f67f2abbb7a29b28d39e9f790cf.ctex"]
 
 [params]
 

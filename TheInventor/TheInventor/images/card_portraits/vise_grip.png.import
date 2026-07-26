@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1h7g51vsgw8p"
-path="res://.godot/imported/vise_grip.png-1032c3b7a34b5b3268e52b6427392c6d.ctex"
+uid="uid://c2o4y3p3ioegr"
+path="res://.godot/imported/vise_grip.png-2a4171b007dbd96eb3638095166185a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/vise_grip.png"
-dest_files=["res://.godot/imported/vise_grip.png-1032c3b7a34b5b3268e52b6427392c6d.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/vise_grip.png"
+dest_files=["res://.godot/imported/vise_grip.png-2a4171b007dbd96eb3638095166185a4.ctex"]
 
 [params]
 

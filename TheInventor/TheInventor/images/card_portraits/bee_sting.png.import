@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi6npidvokixt"
-path="res://.godot/imported/bee_sting.png-795dab6e8895a54ac3b21911df0eb644.ctex"
+uid="uid://brf6c4hmfynje"
+path="res://.godot/imported/bee_sting.png-2970db42c94e6dd4d4baf4a98fc8806e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/bee_sting.png"
-dest_files=["res://.godot/imported/bee_sting.png-795dab6e8895a54ac3b21911df0eb644.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/bee_sting.png"
+dest_files=["res://.godot/imported/bee_sting.png-2970db42c94e6dd4d4baf4a98fc8806e.ctex"]
 
 [params]
 

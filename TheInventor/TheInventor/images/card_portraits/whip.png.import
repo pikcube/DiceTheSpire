@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dig0nilfuxp2y"
-path="res://.godot/imported/whip.png-9f131b325b7ffeecc17b5e61f84e7239.ctex"
+uid="uid://djrsfmd7tiuxc"
+path="res://.godot/imported/whip.png-187ea8e588c5a71d2077fe8134dd3390.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/whip.png"
-dest_files=["res://.godot/imported/whip.png-9f131b325b7ffeecc17b5e61f84e7239.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/whip.png"
+dest_files=["res://.godot/imported/whip.png-187ea8e588c5a71d2077fe8134dd3390.ctex"]
 
 [params]
 

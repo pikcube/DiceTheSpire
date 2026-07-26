@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch4bokf1k02jh"
-path="res://.godot/imported/focus.png-140d00e42a131738168b655f3acc7ee6.ctex"
+uid="uid://cshawqmrq5vpa"
+path="res://.godot/imported/focus.png-6a2042e2ad2296f2ad801390981f7f7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/focus.png"
-dest_files=["res://.godot/imported/focus.png-140d00e42a131738168b655f3acc7ee6.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/focus.png"
+dest_files=["res://.godot/imported/focus.png-6a2042e2ad2296f2ad801390981f7f7b.ctex"]
 
 [params]
 

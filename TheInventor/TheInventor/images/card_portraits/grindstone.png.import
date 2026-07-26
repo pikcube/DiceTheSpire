@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chu8j3xp4vyh1"
-path="res://.godot/imported/grindstone.png-0d1577df9fa5e9bbdcbff7324005805a.ctex"
+uid="uid://cjacqenr07ri1"
+path="res://.godot/imported/grindstone.png-efca3fb3bf62cbb68e3ec0b51f8093e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/grindstone.png"
-dest_files=["res://.godot/imported/grindstone.png-0d1577df9fa5e9bbdcbff7324005805a.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/grindstone.png"
+dest_files=["res://.godot/imported/grindstone.png-efca3fb3bf62cbb68e3ec0b51f8093e9.ctex"]
 
 [params]
 

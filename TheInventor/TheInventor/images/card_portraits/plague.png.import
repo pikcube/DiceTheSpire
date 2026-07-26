@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwks70xwf0nhe"
-path="res://.godot/imported/plague.png-a87454e82ce77c3464e0d78b198683b7.ctex"
+uid="uid://b4wlu2bvkfsgd"
+path="res://.godot/imported/plague.png-c9413053566aefbc6cb508fe6c6b8ea1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/plague.png"
-dest_files=["res://.godot/imported/plague.png-a87454e82ce77c3464e0d78b198683b7.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/plague.png"
+dest_files=["res://.godot/imported/plague.png-c9413053566aefbc6cb508fe6c6b8ea1.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcstqlxkrrgar"
-path="res://.godot/imported/hammer.png-01cf660389cd533f2d7d1472d77b770c.ctex"
+uid="uid://2mcgqw5kr4yf"
+path="res://.godot/imported/hammer.png-3edf012764a53e24ac3f0239649a0ce6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/hammer.png"
-dest_files=["res://.godot/imported/hammer.png-01cf660389cd533f2d7d1472d77b770c.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/hammer.png"
+dest_files=["res://.godot/imported/hammer.png-3edf012764a53e24ac3f0239649a0ce6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwtqi2prw2v4o"
-path="res://.godot/imported/hi_vis_jacket.png-9220408586e136eb00e7bcb92f01ffff.ctex"
+uid="uid://cca65q4i73hpq"
+path="res://.godot/imported/hi_vis_jacket.png-f5f304e0b592f26ae7ca2e9b1aa0ebb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/hi_vis_jacket.png"
-dest_files=["res://.godot/imported/hi_vis_jacket.png-9220408586e136eb00e7bcb92f01ffff.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/hi_vis_jacket.png"
+dest_files=["res://.godot/imported/hi_vis_jacket.png-f5f304e0b592f26ae7ca2e9b1aa0ebb4.ctex"]
 
 [params]
 

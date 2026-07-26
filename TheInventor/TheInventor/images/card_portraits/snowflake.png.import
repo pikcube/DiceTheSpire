@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccye76edg1pd8"
-path="res://.godot/imported/snowflake.png-e7505892faf5d7ff2eca88c594e7022a.ctex"
+uid="uid://lm7ctdit51pw"
+path="res://.godot/imported/snowflake.png-e98d9ada378794bf4eb07a0fe6a96881.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/snowflake.png"
-dest_files=["res://.godot/imported/snowflake.png-e7505892faf5d7ff2eca88c594e7022a.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/snowflake.png"
+dest_files=["res://.godot/imported/snowflake.png-e98d9ada378794bf4eb07a0fe6a96881.ctex"]
 
 [params]
 

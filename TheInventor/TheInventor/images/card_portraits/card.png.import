@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c63e6pyq4n6ns"
-path="res://.godot/imported/card.png-56fbebcdeee7913e01a8609cd679d018.ctex"
+uid="uid://dje5f58fmqmrt"
+path="res://.godot/imported/card.png-4e1f728796d3c2a2fdee7bfe405c93bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/card.png"
-dest_files=["res://.godot/imported/card.png-56fbebcdeee7913e01a8609cd679d018.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/card.png"
+dest_files=["res://.godot/imported/card.png-4e1f728796d3c2a2fdee7bfe405c93bd.ctex"]
 
 [params]
 

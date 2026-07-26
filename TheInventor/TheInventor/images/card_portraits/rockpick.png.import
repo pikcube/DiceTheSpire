@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tvnvphyy2vb1"
-path="res://.godot/imported/rockpick.png-cf00f12eeb9b4660d3f71b46d279600e.ctex"
+uid="uid://c1gg2le1ut5u7"
+path="res://.godot/imported/rockpick.png-4e8947282f54667c5cd61aae2c33c3dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/rockpick.png"
-dest_files=["res://.godot/imported/rockpick.png-cf00f12eeb9b4660d3f71b46d279600e.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/rockpick.png"
+dest_files=["res://.godot/imported/rockpick.png-4e8947282f54667c5cd61aae2c33c3dd.ctex"]
 
 [params]
 

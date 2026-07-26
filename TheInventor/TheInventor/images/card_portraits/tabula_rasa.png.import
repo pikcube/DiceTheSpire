@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://deoc6gi31pmo7"
-path="res://.godot/imported/tabula_rasa.png-2f509df81d50c39fb7247114630ef08f.ctex"
+uid="uid://bw5mohmrfv4g0"
+path="res://.godot/imported/tabula_rasa.png-5cac933a55b231cef6014eb53d0fbd26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/tabula_rasa.png"
-dest_files=["res://.godot/imported/tabula_rasa.png-2f509df81d50c39fb7247114630ef08f.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/tabula_rasa.png"
+dest_files=["res://.godot/imported/tabula_rasa.png-5cac933a55b231cef6014eb53d0fbd26.ctex"]
 
 [params]
 

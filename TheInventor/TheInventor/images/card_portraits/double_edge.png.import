@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgsdfgtv0mkw5"
-path="res://.godot/imported/double_edge.png-c21c92d420ff4db95e02d3818d2984a5.ctex"
+uid="uid://ct0o6iu4g84ww"
+path="res://.godot/imported/double_edge.png-fb9c2a25601457ec4c728f429248e925.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/double_edge.png"
-dest_files=["res://.godot/imported/double_edge.png-c21c92d420ff4db95e02d3818d2984a5.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/double_edge.png"
+dest_files=["res://.godot/imported/double_edge.png-fb9c2a25601457ec4c728f429248e925.ctex"]
 
 [params]
 

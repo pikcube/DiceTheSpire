@@ -24,18 +24,6 @@ public static class StringExtensions
             return Path.Join(MainFile.ResPath, "images", "card_portraits", "card.png");
         }
 
-        public string BigCardImagePath()
-        {
-            path = Path.Join(MainFile.ResPath, "images", "card_portraits", "big", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find big card image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "card_portraits", "big", "card.png");
-        }
-
         public string PowerImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "powers", path);

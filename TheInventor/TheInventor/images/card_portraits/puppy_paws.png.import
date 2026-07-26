@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sh4fca727ox6"
-path="res://.godot/imported/puppy_paws.png-f43804806d6f796c457482dbd849737a.ctex"
+uid="uid://dqnoh3u0aybpo"
+path="res://.godot/imported/puppy_paws.png-f41423489318d46e759f7d90e2eae893.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/puppy_paws.png"
-dest_files=["res://.godot/imported/puppy_paws.png-f43804806d6f796c457482dbd849737a.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/puppy_paws.png"
+dest_files=["res://.godot/imported/puppy_paws.png-f41423489318d46e759f7d90e2eae893.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciwwmfisukpj6"
-path="res://.godot/imported/strike_inventor.png-1dd02beb573740c2012acd4dd45a7052.ctex"
+uid="uid://ds0ke0ava5aye"
+path="res://.godot/imported/strike_inventor.png-752e976f80f60d446f4ff99cb36cde95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/strike_inventor.png"
-dest_files=["res://.godot/imported/strike_inventor.png-1dd02beb573740c2012acd4dd45a7052.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/strike_inventor.png"
+dest_files=["res://.godot/imported/strike_inventor.png-752e976f80f60d446f4ff99cb36cde95.ctex"]
 
 [params]
 

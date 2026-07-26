@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhl7c1pqe4ob"
-path="res://.godot/imported/scissors.png-2d127eb2800c22504afac0d193c39b3e.ctex"
+uid="uid://b3jmhwlrkogrm"
+path="res://.godot/imported/scissors.png-8634807d63dd26ac0e4391635aee8162.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/scissors.png"
-dest_files=["res://.godot/imported/scissors.png-2d127eb2800c22504afac0d193c39b3e.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/scissors.png"
+dest_files=["res://.godot/imported/scissors.png-8634807d63dd26ac0e4391635aee8162.ctex"]
 
 [params]
 

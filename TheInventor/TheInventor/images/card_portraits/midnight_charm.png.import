@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyhpd4g0mc8h7"
-path="res://.godot/imported/midnight_charm.png-3af37281f84c1174f653c14948a53462.ctex"
+uid="uid://c5ic4w1j4bvmr"
+path="res://.godot/imported/midnight_charm.png-02790226f81b12ce9e85fd6b17c0124d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/midnight_charm.png"
-dest_files=["res://.godot/imported/midnight_charm.png-3af37281f84c1174f653c14948a53462.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/midnight_charm.png"
+dest_files=["res://.godot/imported/midnight_charm.png-02790226f81b12ce9e85fd6b17c0124d.ctex"]
 
 [params]
 

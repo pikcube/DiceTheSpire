@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo3rlqhdrwala"
-path="res://.godot/imported/transformer.png-388123aef6d46a5cca8027fb31e6bf1d.ctex"
+uid="uid://bkh7h4nwckjva"
+path="res://.godot/imported/transformer.png-6d060f5766db66d198300a4ec8e12ff5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/transformer.png"
-dest_files=["res://.godot/imported/transformer.png-388123aef6d46a5cca8027fb31e6bf1d.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/transformer.png"
+dest_files=["res://.godot/imported/transformer.png-6d060f5766db66d198300a4ec8e12ff5.ctex"]
 
 [params]
 

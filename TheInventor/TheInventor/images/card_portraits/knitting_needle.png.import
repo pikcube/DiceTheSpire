@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5ttkg16l2mfs"
-path="res://.godot/imported/knitting_needle.png-ca71c9caac3f86b44a1a236867fb7c39.ctex"
+uid="uid://34ic68od6xjm"
+path="res://.godot/imported/knitting_needle.png-2992417b482ec9b6d45dcaffe811d28c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/knitting_needle.png"
-dest_files=["res://.godot/imported/knitting_needle.png-ca71c9caac3f86b44a1a236867fb7c39.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/knitting_needle.png"
+dest_files=["res://.godot/imported/knitting_needle.png-2992417b482ec9b6d45dcaffe811d28c.ctex"]
 
 [params]
 

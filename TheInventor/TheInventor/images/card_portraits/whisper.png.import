@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnoj6cxls1kyh"
-path="res://.godot/imported/whisper.png-301c798e3a66ca7fd1013ddd42c2c607.ctex"
+uid="uid://dwo81rrvtny0l"
+path="res://.godot/imported/whisper.png-e1305eb0e87407139f7c64fe391b6c31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/whisper.png"
-dest_files=["res://.godot/imported/whisper.png-301c798e3a66ca7fd1013ddd42c2c607.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/whisper.png"
+dest_files=["res://.godot/imported/whisper.png-e1305eb0e87407139f7c64fe391b6c31.ctex"]
 
 [params]
 

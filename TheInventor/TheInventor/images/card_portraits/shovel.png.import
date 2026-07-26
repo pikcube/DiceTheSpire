@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2f2i7b851e3s"
-path="res://.godot/imported/shovel.png-86387efe2cc6a025f2f5fc668df2cfff.ctex"
+uid="uid://utyiy1016fc"
+path="res://.godot/imported/shovel.png-123e2cc9f14d0036fa42999560b11d50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/shovel.png"
-dest_files=["res://.godot/imported/shovel.png-86387efe2cc6a025f2f5fc668df2cfff.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/shovel.png"
+dest_files=["res://.godot/imported/shovel.png-123e2cc9f14d0036fa42999560b11d50.ctex"]
 
 [params]
 

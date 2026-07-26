@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7n381r3i5kwu"
-path="res://.godot/imported/screwdriver.png-d2977b5472084388af263bb57e2dea13.ctex"
+uid="uid://65ddm74loquw"
+path="res://.godot/imported/screwdriver.png-c7974c1f221a25520f1d1e740847ba83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/screwdriver.png"
-dest_files=["res://.godot/imported/screwdriver.png-d2977b5472084388af263bb57e2dea13.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/screwdriver.png"
+dest_files=["res://.godot/imported/screwdriver.png-c7974c1f221a25520f1d1e740847ba83.ctex"]
 
 [params]
 

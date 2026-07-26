@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpmrcdo677pk1"
-path="res://.godot/imported/avalanche.png-ace2c0c74cb2f991ca25ff3a9a4e9d1e.ctex"
+uid="uid://d4e2ojnj7fyog"
+path="res://.godot/imported/avalanche.png-fc90de953fecdb657f400f0a1fa4eb47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/avalanche.png"
-dest_files=["res://.godot/imported/avalanche.png-ace2c0c74cb2f991ca25ff3a9a4e9d1e.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/avalanche.png"
+dest_files=["res://.godot/imported/avalanche.png-fc90de953fecdb657f400f0a1fa4eb47.ctex"]
 
 [params]
 

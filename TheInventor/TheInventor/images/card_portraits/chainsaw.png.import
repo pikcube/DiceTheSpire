@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cptjcqgjx265o"
-path="res://.godot/imported/chainsaw.png-7bbd2a6aef25ad6e0755502b496d20e2.ctex"
+uid="uid://blgn8h0bpetjt"
+path="res://.godot/imported/chainsaw.png-5fded0db2d9add18342b9d526f7d81a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/chainsaw.png"
-dest_files=["res://.godot/imported/chainsaw.png-7bbd2a6aef25ad6e0755502b496d20e2.ctex"]
+source_file="res://TheInventor/images/card_portraits/big/chainsaw.png"
+dest_files=["res://.godot/imported/chainsaw.png-5fded0db2d9add18342b9d526f7d81a6.ctex"]
 
 [params]
 
