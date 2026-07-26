@@ -31,23 +31,26 @@ using TheWarrior.TheWarriorCode.Cards;
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 public class Speedbump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)//, IRangeCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new PowerVar<SpeedbumpPower>(1M)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)]; //BetterStaticHoverTips.RangeHoverTip(this),
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        await PowerCmd.Apply<SpeedbumpPower>(choiceContext, Owner.Creature, DynamicVars.Power<SpeedbumpPower>().IntValue, Owner.Creature, this);
 
-        var cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
-        foreach (CardModel card in cards)
-        {
-            await card.BumpAsync(choiceContext);
-            if(IsUpgraded)
-            {
-                if(card.EnergyCost.CostsX==false)
-                {
-                    card.EnergyCost.SetThisTurnOrUntilPlayed(card.EnergyCost.GetAmountToSpend() - 1);
-                }
-            }
-        }
+        //var cards = 
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        //foreach (CardModel card in cards)
+        //{
+            //await card.BumpAsync(choiceContext);
+            //if(IsUpgraded)
+            //{
+            //    if(card.EnergyCost.CostsX==false)
+            //    {
+            //        card.EnergyCost.SetThisTurnOrUntilPlayed(card.EnergyCost.GetAmountToSpend() - 1);
+            //    }
+            //}
+        //}
         
         return;
     }
@@ -56,7 +59,7 @@ public class Speedbump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, 
     //public int MaximumCost => 0;
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }
 

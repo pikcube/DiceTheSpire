@@ -118,6 +118,6 @@
   "THEWARRIOR-CANTRIPS.title": "Cantrips",
   "THEWARRIOR-CRUNCH.description": "Deal {Damage:diff()} damage.\n{Cards:diff()} {IfUpgraded:show:|random }cards in [gold]Hand[/gold] cost 1 less the next time they are played this turn.",
   "THEWARRIOR-CRUNCH.title": "Crunch",
-  "THEWARRIOR-SPEEDBUMP.description": "Draw {Cards:diff()} card.\n[gold]Bump[/gold] the card drawn.{IfUpgraded:show:\nIt costs 1 less the next time it is played this turn.|}",
+  "THEWARRIOR-SPEEDBUMP.description": "Draw {Cards:diff()} card.\n[gold]Bump[/gold] all cards drawn this turn.",
   "THEWARRIOR-SPEEDBUMP.title": "Speedbump"
 }     

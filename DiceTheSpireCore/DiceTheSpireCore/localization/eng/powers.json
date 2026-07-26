@@ -73,5 +73,8 @@
   "DICETHESPIRECORE-DOUBLE_BLOCK_POWER.title": "Double Block",
   "DICETHESPIRECORE-CANTRIPS_POWER.description": "Deal {Amount} damage to a random enemy each time you [gold]Reroll[/gold] a card.",
   "DICETHESPIRECORE-CANTRIPS_POWER.smartDescription": "Deal {Amount} damage to a random enemy each time you [gold]Reroll[/gold] a card.",
-  "DICETHESPIRECORE-CANTRIPS_POWER.title": "Cantrips"
+  "DICETHESPIRECORE-CANTRIPS_POWER.title": "Cantrips",
+  "DICETHESPIRECORE-SPEEDBUMP_POWER.description": "[gold]Bump[/gold] all cards drawn this turn.",
+  "DICETHESPIRECORE-SPEEDBUMP_POWER.smartDescription": "[gold]Bump[/gold] all cards drawn this turn.",
+  "DICETHESPIRECORE-SPEEDBUMP_POWER.title": "Speedbump"
 }
