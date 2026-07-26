@@ -126,5 +126,7 @@
   "THETHIEF-AUTOTUNE.description": "Choose {IfUpgraded:show:an Upgraded|1 of} [gold]Starpick[/gold], [gold]Roll The Bones[/gold], or [gold]Crossed Wire[/gold] to add to your [gold]Hand[/gold].\nIt is free to play this turn.",
   "THETHIEF-AUTOTUNE.title": "Autotune",
   "THETHIEF-CROSSED_WIRE.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\n[gold]Channel[/gold] 1 [gold]Plasma[/gold].",
-  "THETHIEF-CROSSED_WIRE.title": "Crossed Wire"
+  "THETHIEF-CROSSED_WIRE.title": "Crossed Wire",
+  "THETHIEF-KUNAI.description": "Deal {Damage:diff()} damage. Add a [gold]Pip[/gold] to your [gold]Hand[/gold].{IfUpgraded:show:\n[gold]Persist[/gold] {Persist:diff()}.|}",
+  "THETHIEF-KUNAI.title": "Kunai"
 }
