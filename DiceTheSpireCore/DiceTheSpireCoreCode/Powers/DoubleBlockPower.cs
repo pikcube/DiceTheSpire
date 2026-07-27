@@ -23,7 +23,7 @@ public class DoubleBlockPower : DiceTheSpireCorePower
     }
     public override Decimal ModifyBlockMultiplicative(Creature target, Decimal block,ValueProp props,CardModel? cardSource,CardPlay? cardPlay)
     {
-        return target.IsMonster || !props.IsCardOrMonsterMove() || cardSource != null && cardSource.Owner.Creature != this.Owner ? 1M : 2M;
+        return target.IsMonster || !props.IsCardOrMonsterMove() || cardSource != null && cardSource.Owner.Creature != Owner ? 1M : 2M;
     }
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
