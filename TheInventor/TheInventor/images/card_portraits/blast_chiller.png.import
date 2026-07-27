@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cocxbpf4fpf2d"
-path="res://.godot/imported/blast_chiller.png-01095c3ab34749f6915f50841026a007.ctex"
+path="res://.godot/imported/blast_chiller.png-38b7d19e64c0311251824ec4b1c32ce4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/blast_chiller.png"
-dest_files=["res://.godot/imported/blast_chiller.png-01095c3ab34749f6915f50841026a007.ctex"]
+source_file="res://TheInventor/images/card_portraits/blast_chiller.png"
+dest_files=["res://.godot/imported/blast_chiller.png-38b7d19e64c0311251824ec4b1c32ce4.ctex"]
 
 [params]
 

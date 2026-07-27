@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cng7013gnv5le"
-path="res://.godot/imported/scrap_book.png-6ca31a11d6816575f8e89031bece193d.ctex"
+path="res://.godot/imported/scrap_book.png-082cf0ae5940b96f35403eebc88911d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/scrap_book.png"
-dest_files=["res://.godot/imported/scrap_book.png-6ca31a11d6816575f8e89031bece193d.ctex"]
+source_file="res://TheInventor/images/card_portraits/scrap_book.png"
+dest_files=["res://.godot/imported/scrap_book.png-082cf0ae5940b96f35403eebc88911d9.ctex"]
 
 [params]
 

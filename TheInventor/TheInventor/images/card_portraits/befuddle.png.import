@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cv7qmsge0lsde"
-path="res://.godot/imported/befuddle.png-bccc98665950cd15c26bc24a07ed44a3.ctex"
+path="res://.godot/imported/befuddle.png-576ccf3b1ca507ce92d15e03d99bf968.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/befuddle.png"
-dest_files=["res://.godot/imported/befuddle.png-bccc98665950cd15c26bc24a07ed44a3.ctex"]
+source_file="res://TheInventor/images/card_portraits/befuddle.png"
+dest_files=["res://.godot/imported/befuddle.png-576ccf3b1ca507ce92d15e03d99bf968.ctex"]
 
 [params]
 

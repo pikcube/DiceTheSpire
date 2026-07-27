@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2liart7sb8vf"
-path="res://.godot/imported/barbed_spear.png-7d23b8627226a33273cbd55bda7b5c1c.ctex"
+path="res://.godot/imported/barbed_spear.png-ead96c3b2dd0ecb856a5a8752e8bf9ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/barbed_spear.png"
-dest_files=["res://.godot/imported/barbed_spear.png-7d23b8627226a33273cbd55bda7b5c1c.ctex"]
+source_file="res://TheInventor/images/card_portraits/barbed_spear.png"
+dest_files=["res://.godot/imported/barbed_spear.png-ead96c3b2dd0ecb856a5a8752e8bf9ee.ctex"]
 
 [params]
 

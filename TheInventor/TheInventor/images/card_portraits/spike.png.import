@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bccswhq8cw01f"
-path="res://.godot/imported/spike.png-6a5a366b415893e6e581b267ddbfc695.ctex"
+path="res://.godot/imported/spike.png-ecbf7d330aa8fec51fbabfbf31260ac2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/spike.png"
-dest_files=["res://.godot/imported/spike.png-6a5a366b415893e6e581b267ddbfc695.ctex"]
+source_file="res://TheInventor/images/card_portraits/spike.png"
+dest_files=["res://.godot/imported/spike.png-ecbf7d330aa8fec51fbabfbf31260ac2.ctex"]
 
 [params]
 

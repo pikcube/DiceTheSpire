@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2euh5lnlkv8d"
-path="res://.godot/imported/change_machine.png-1d55330e8c8e7a50a029c459aa2fdba0.ctex"
+path="res://.godot/imported/change_machine.png-f8574a2c6c3e9815d48edffc907b45e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/change_machine.png"
-dest_files=["res://.godot/imported/change_machine.png-1d55330e8c8e7a50a029c459aa2fdba0.ctex"]
+source_file="res://TheInventor/images/card_portraits/change_machine.png"
+dest_files=["res://.godot/imported/change_machine.png-f8574a2c6c3e9815d48edffc907b45e8.ctex"]
 
 [params]
 

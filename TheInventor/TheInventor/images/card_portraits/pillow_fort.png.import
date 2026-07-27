@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nwckxpqgoobs"
-path="res://.godot/imported/pillow_fort.png-3c2d0b440226c8436efb1c7d854309a6.ctex"
+path="res://.godot/imported/pillow_fort.png-6dfd0cc74f1dfdcf1a2900e5cc98f322.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/pillow_fort.png"
-dest_files=["res://.godot/imported/pillow_fort.png-3c2d0b440226c8436efb1c7d854309a6.ctex"]
+source_file="res://TheInventor/images/card_portraits/pillow_fort.png"
+dest_files=["res://.godot/imported/pillow_fort.png-6dfd0cc74f1dfdcf1a2900e5cc98f322.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn6u8no2k6pfu"
-path="res://.godot/imported/dice_detonator.png-a5193661b018601329c0b9453eee44bf.ctex"
+path="res://.godot/imported/dice_detonator.png-b6d1eb31d0de825586713f40076d53f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/dice_detonator.png"
-dest_files=["res://.godot/imported/dice_detonator.png-a5193661b018601329c0b9453eee44bf.ctex"]
+source_file="res://TheInventor/images/card_portraits/dice_detonator.png"
+dest_files=["res://.godot/imported/dice_detonator.png-b6d1eb31d0de825586713f40076d53f2.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b880pg2tkqm2n"
-path="res://.godot/imported/capacitor.png-33a9eeed267c95ae1970c6f833e61dd4.ctex"
+path="res://.godot/imported/capacitor.png-63cfa94130984bded764b785b7469e9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/capacitor.png"
-dest_files=["res://.godot/imported/capacitor.png-33a9eeed267c95ae1970c6f833e61dd4.ctex"]
+source_file="res://TheInventor/images/card_portraits/capacitor.png"
+dest_files=["res://.godot/imported/capacitor.png-63cfa94130984bded764b785b7469e9a.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3d4xuqlp4y5"
-path="res://.godot/imported/electromagnet.png-9b9161b93b11d6f8484c62f051f60196.ctex"
+path="res://.godot/imported/electromagnet.png-74ff17460e8c171376fc90f2fd84df65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/electromagnet.png"
-dest_files=["res://.godot/imported/electromagnet.png-9b9161b93b11d6f8484c62f051f60196.ctex"]
+source_file="res://TheInventor/images/card_portraits/electromagnet.png"
+dest_files=["res://.godot/imported/electromagnet.png-74ff17460e8c171376fc90f2fd84df65.ctex"]
 
 [params]
 

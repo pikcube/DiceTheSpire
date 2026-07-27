@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://odhgtq77e6m"
-path="res://.godot/imported/empty_slot.png-7e1da48170100c518f7d6ff0283b41d0.ctex"
+path="res://.godot/imported/empty_slot.png-28876a7fe3e7069e8ca2e3b924f38a03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/empty_slot.png"
-dest_files=["res://.godot/imported/empty_slot.png-7e1da48170100c518f7d6ff0283b41d0.ctex"]
+source_file="res://TheInventor/images/card_portraits/empty_slot.png"
+dest_files=["res://.godot/imported/empty_slot.png-28876a7fe3e7069e8ca2e3b924f38a03.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyaegtdta35fs"
-path="res://.godot/imported/scrap_strike.png-095268b68cf326dc18ec44f41305ad98.ctex"
+path="res://.godot/imported/scrap_strike.png-693a2407e68444e9f0f1a9d62a84faf7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/scrap_strike.png"
-dest_files=["res://.godot/imported/scrap_strike.png-095268b68cf326dc18ec44f41305ad98.ctex"]
+source_file="res://TheInventor/images/card_portraits/scrap_strike.png"
+dest_files=["res://.godot/imported/scrap_strike.png-693a2407e68444e9f0f1a9d62a84faf7.ctex"]
 
 [params]
 

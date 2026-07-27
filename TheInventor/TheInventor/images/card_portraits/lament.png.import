@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tyyc8pgskk65"
-path="res://.godot/imported/lament.png-8cde3cf2b08c20fab383557b1d17bd61.ctex"
+path="res://.godot/imported/lament.png-8927154462696b7413fe15d75a7ba7ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/lament.png"
-dest_files=["res://.godot/imported/lament.png-8cde3cf2b08c20fab383557b1d17bd61.ctex"]
+source_file="res://TheInventor/images/card_portraits/lament.png"
+dest_files=["res://.godot/imported/lament.png-8927154462696b7413fe15d75a7ba7ad.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://0jkuyrvtdstg"
-path="res://.godot/imported/lightning_rod.png-6b9f2e1e028b6ff8891ee2b8dc1d0572.ctex"
+path="res://.godot/imported/lightning_rod.png-3397c7e2f56925d4637964760d640be9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/lightning_rod.png"
-dest_files=["res://.godot/imported/lightning_rod.png-6b9f2e1e028b6ff8891ee2b8dc1d0572.ctex"]
+source_file="res://TheInventor/images/card_portraits/lightning_rod.png"
+dest_files=["res://.godot/imported/lightning_rod.png-3397c7e2f56925d4637964760d640be9.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://j7lolvnpu6je"
-path="res://.godot/imported/uncle.png-0159a3a55038fccb909d68b9ba6fd4aa.ctex"
+path="res://.godot/imported/uncle.png-ef9c183bfb93c295805b3d7427c33ec2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/uncle.png"
-dest_files=["res://.godot/imported/uncle.png-0159a3a55038fccb909d68b9ba6fd4aa.ctex"]
+source_file="res://TheInventor/images/card_portraits/uncle.png"
+dest_files=["res://.godot/imported/uncle.png-ef9c183bfb93c295805b3d7427c33ec2.ctex"]
 
 [params]
 

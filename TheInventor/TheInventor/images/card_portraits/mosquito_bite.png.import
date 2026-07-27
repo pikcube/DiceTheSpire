@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnkv34vukik2h"
-path="res://.godot/imported/mosquito_bite.png-63a7a5e8600d4e61d7f12fccd98d13e8.ctex"
+path="res://.godot/imported/mosquito_bite.png-766b5ece9d68147d4af6522de879174d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/mosquito_bite.png"
-dest_files=["res://.godot/imported/mosquito_bite.png-63a7a5e8600d4e61d7f12fccd98d13e8.ctex"]
+source_file="res://TheInventor/images/card_portraits/mosquito_bite.png"
+dest_files=["res://.godot/imported/mosquito_bite.png-766b5ece9d68147d4af6522de879174d.ctex"]
 
 [params]
 

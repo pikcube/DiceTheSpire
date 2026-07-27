@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7skhumeatona"
-path="res://.godot/imported/air_conditioner.png-fb2c66f04ac6c1cc226d87386b890df4.ctex"
+path="res://.godot/imported/air_conditioner.png-f8c31114fe3a87bc6c9668851be07f03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/air_conditioner.png"
-dest_files=["res://.godot/imported/air_conditioner.png-fb2c66f04ac6c1cc226d87386b890df4.ctex"]
+source_file="res://TheInventor/images/card_portraits/air_conditioner.png"
+dest_files=["res://.godot/imported/air_conditioner.png-f8c31114fe3a87bc6c9668851be07f03.ctex"]
 
 [params]
 

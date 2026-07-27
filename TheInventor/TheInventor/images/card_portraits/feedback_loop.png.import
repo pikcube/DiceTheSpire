@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5rmuc7vcnroh"
-path="res://.godot/imported/feedback_loop.png-523f41750617b10984cb23202f4fa1fc.ctex"
+path="res://.godot/imported/feedback_loop.png-b36dd8c492bfce82e2c3205f6b5a1087.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/feedback_loop.png"
-dest_files=["res://.godot/imported/feedback_loop.png-523f41750617b10984cb23202f4fa1fc.ctex"]
+source_file="res://TheInventor/images/card_portraits/feedback_loop.png"
+dest_files=["res://.godot/imported/feedback_loop.png-b36dd8c492bfce82e2c3205f6b5a1087.ctex"]
 
 [params]
 

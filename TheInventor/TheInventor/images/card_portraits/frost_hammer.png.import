@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qtg0gtjsqly7"
-path="res://.godot/imported/frost_hammer.png-4b86d5e651db6f3a8ae42848f8fcd747.ctex"
+path="res://.godot/imported/frost_hammer.png-f94c133338c1b3a3391e6414f2468df8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/frost_hammer.png"
-dest_files=["res://.godot/imported/frost_hammer.png-4b86d5e651db6f3a8ae42848f8fcd747.ctex"]
+source_file="res://TheInventor/images/card_portraits/frost_hammer.png"
+dest_files=["res://.godot/imported/frost_hammer.png-f94c133338c1b3a3391e6414f2468df8.ctex"]
 
 [params]
 

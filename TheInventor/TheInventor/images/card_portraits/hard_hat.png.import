@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1qd7v1mfdu57"
-path="res://.godot/imported/hard_hat.png-d3039260d1f49d20882a6112c4ea2644.ctex"
+path="res://.godot/imported/hard_hat.png-d9b64217e13bf8bfc8e8c5d343f906fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/hard_hat.png"
-dest_files=["res://.godot/imported/hard_hat.png-d3039260d1f49d20882a6112c4ea2644.ctex"]
+source_file="res://TheInventor/images/card_portraits/hard_hat.png"
+dest_files=["res://.godot/imported/hard_hat.png-d9b64217e13bf8bfc8e8c5d343f906fb.ctex"]
 
 [params]
 

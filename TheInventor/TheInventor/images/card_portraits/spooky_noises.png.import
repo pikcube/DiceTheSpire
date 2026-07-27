@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5hsqspgx1ut5"
-path="res://.godot/imported/spooky_noises.png-0e838538e579cf0716efe33e6576970b.ctex"
+path="res://.godot/imported/spooky_noises.png-7c632ee4b6be6d751747e361f37964a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/spooky_noises.png"
-dest_files=["res://.godot/imported/spooky_noises.png-0e838538e579cf0716efe33e6576970b.ctex"]
+source_file="res://TheInventor/images/card_portraits/spooky_noises.png"
+dest_files=["res://.godot/imported/spooky_noises.png-7c632ee4b6be6d751747e361f37964a0.ctex"]
 
 [params]
 

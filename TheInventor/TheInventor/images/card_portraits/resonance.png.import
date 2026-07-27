@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkgl2gmstw8b2"
-path="res://.godot/imported/resonance.png-65d9ef56287a4152b92a35676a997f79.ctex"
+path="res://.godot/imported/resonance.png-6f8250426d402e864850fa70046041ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/resonance.png"
-dest_files=["res://.godot/imported/resonance.png-65d9ef56287a4152b92a35676a997f79.ctex"]
+source_file="res://TheInventor/images/card_portraits/resonance.png"
+dest_files=["res://.godot/imported/resonance.png-6f8250426d402e864850fa70046041ea.ctex"]
 
 [params]
 

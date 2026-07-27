@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj5fswtfk6htl"
-path="res://.godot/imported/six_shooter.png-0aadf2f811b461aad12b4561242ff9b8.ctex"
+path="res://.godot/imported/six_shooter.png-1ba039d56cf132809cdd7c6d1b5141e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheInventor/images/card_portraits/big/six_shooter.png"
-dest_files=["res://.godot/imported/six_shooter.png-0aadf2f811b461aad12b4561242ff9b8.ctex"]
+source_file="res://TheInventor/images/card_portraits/six_shooter.png"
+dest_files=["res://.godot/imported/six_shooter.png-1ba039d56cf132809cdd7c6d1b5141e9.ctex"]
 
 [params]
 
