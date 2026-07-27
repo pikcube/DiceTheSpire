@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
 [HarmonyPatch]
-public class ModifyCardTargetTypePatch
+public static class ModifyCardTargetTypePatch
 {
     [UsedImplicitly]
     static IEnumerable<MethodBase> TargetMethods()

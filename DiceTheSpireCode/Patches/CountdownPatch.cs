@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
 [HarmonyPatch(typeof(CardModel), nameof(CardModel.OnPlayWrapper))]
-public class CountdownPatch
+public static class CountdownPatch
 {
     //All branches eventually execute the OnPlayWrapper, the question is whether there is any sandwich logic happening before and after or not.
     public static bool Prefix(ref Task __result, CardModel __instance, PlayerChoiceContext choiceContext, Creature? target,
