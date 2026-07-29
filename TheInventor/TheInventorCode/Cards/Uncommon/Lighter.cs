@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -14,7 +15,7 @@ public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         new DamageVar(14, DamageProps.card), 
-        new DamageVar("HeldDamage", 6, DamageProps.card)
+        new DamageVar("HeldDamage", 6, DamageProps.cardUnpowered)
     ];
 
     public override bool HasTurnEndInHandEffect => true;
@@ -40,6 +41,7 @@ public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon
         await DamageCmd.Attack(DynamicVars["HeldDamage"].BaseValue)
             .FromCard(this, null)
             .TargetingAllOpponents(CombatState)
+            .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
     }

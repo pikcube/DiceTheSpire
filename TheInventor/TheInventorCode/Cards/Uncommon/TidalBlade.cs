@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -14,7 +15,7 @@ public class TidalBlade() : TheInventorCard(1, CardType.Skill, CardRarity.Uncomm
 {
     public override string GetScrapId => nameof(Overload);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new BlockVar(11, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.cardUnpowered), new BlockVar(11, BlockProps.card)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [
@@ -38,6 +39,7 @@ public class TidalBlade() : TheInventorCard(1, CardType.Skill, CardRarity.Uncomm
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, null)
+            .WithValueProp(DynamicVars.Damage.Props)
             .Targeting(target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
