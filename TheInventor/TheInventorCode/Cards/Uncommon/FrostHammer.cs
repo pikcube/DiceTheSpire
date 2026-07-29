@@ -26,13 +26,13 @@ public class FrostHammer() : TheInventorCard(2, CardType.Attack, CardRarity.Unco
 
         await FreezePower.ApplyAsync(choiceContext, cardPlay.Target, 1, Owner.Creature, this);
 
-        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
+        await DamageCmd.Attack(DynamicVars.Damage.IntValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
 
-        await VulnerablePower.ApplyAsync(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.EnchantedValue, Owner.Creature, this);
+        await VulnerablePower.ApplyAsync(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

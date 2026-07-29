@@ -19,7 +19,7 @@ public class StallOfMirrors() : TheInventorCard(3, CardType.Power, CardRarity.Ra
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await StallOfMirrorsPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Energy.EnchantedValue, Owner.Creature, this);
+        await StallOfMirrorsPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Energy.IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

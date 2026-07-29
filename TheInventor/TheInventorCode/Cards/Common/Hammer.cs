@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -20,8 +21,9 @@ public class Hammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
+            .WithValueProp(DynamicVars.Damage.Props)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);

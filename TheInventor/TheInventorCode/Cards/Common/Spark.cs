@@ -13,7 +13,7 @@ public class Spark() : TheInventorCard(-1, CardType.Attack, CardRarity.Common, T
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.cardUnpowered)];
 
     public override bool HasTurnEndInHandEffect => true;
 
@@ -24,7 +24,7 @@ public class Spark() : TheInventorCard(-1, CardType.Attack, CardRarity.Common, T
             return;
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, null)
             .TargetingAllOpponents(CombatState)
             .WithValueProp(DynamicVars.Damage.Props)

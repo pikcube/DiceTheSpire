@@ -18,7 +18,7 @@ public class FeedbackLoop() : TheInventorCard(2, CardType.Power, CardRarity.Unco
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<FeedbackLoopPower>(choiceContext, Owner.Creature, DynamicVars.Power<FeedbackLoopPower>().EnchantedValue, Owner.Creature, this);
+        await PowerCmd.Apply<FeedbackLoopPower>(choiceContext, Owner.Creature, DynamicVars.Power<FeedbackLoopPower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

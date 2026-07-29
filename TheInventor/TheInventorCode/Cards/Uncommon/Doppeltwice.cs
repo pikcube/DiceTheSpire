@@ -19,8 +19,8 @@ public class Doppeltwice() : TheInventorCard(1, CardType.Skill, CardRarity.Uncom
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PlayerCmd.GainEnergy(DynamicVars.Energy.EnchantedValue, Owner);
-        await EnergyNextTurnPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Energy.EnchantedValue,
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);
+        await EnergyNextTurnPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Energy.IntValue,
             Owner.Creature, this);
     }
 

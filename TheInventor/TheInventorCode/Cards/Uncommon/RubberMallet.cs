@@ -22,7 +22,7 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
 
     public override bool TryModifyEnergyCostInCombat(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
-        if (card == this && Owner.PlayerCombatState is not null && Owner.PlayerCombatState.Energy < DynamicVars.Energy.EnchantedValue)
+        if (card == this && Owner.PlayerCombatState is not null && Owner.PlayerCombatState.Energy < DynamicVars.Energy.IntValue)
         {
             modifiedCost = 0;
             return true;

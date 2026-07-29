@@ -11,7 +11,7 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.cardUnpowered)];
 
     public override bool HasTurnEndInHandEffect => true;
 
@@ -22,7 +22,7 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic
             return;
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, null)
             .WithHitCount(IsUpgraded ? 3 : 2)
             .TargetingRandomOpponents(CombatState)

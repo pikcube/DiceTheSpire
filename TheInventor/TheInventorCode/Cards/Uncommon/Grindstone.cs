@@ -25,10 +25,10 @@ public class Grindstone() : TheInventorCard(2, CardType.Power, CardRarity.Uncomm
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await StrengthPower.ApplyAsync(choiceContext, Owner.Creature, -DynamicVars.Strength.EnchantedValue,
+        await StrengthPower.ApplyAsync(choiceContext, Owner.Creature, -DynamicVars.Strength.IntValue,
             Owner.Creature, this);
         await GrindstonePower.ApplyAsync(choiceContext, Owner.Creature,
-            DynamicVars.Power<GrindstonePower>().EnchantedValue, Owner.Creature, this);
+            DynamicVars.Power<GrindstonePower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

@@ -35,7 +35,7 @@ public class DoubleEdge() : TheInventorCard(3, CardType.Attack, CardRarity.Uncom
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        await StrengthPower.ApplyAsync(choiceContext, Owner.Creature, -DynamicVars.Strength.EnchantedValue,
+        await StrengthPower.ApplyAsync(choiceContext, Owner.Creature, -DynamicVars.Strength.IntValue,
             Owner.Creature, this);
     }
 

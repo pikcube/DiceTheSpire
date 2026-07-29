@@ -21,7 +21,7 @@ public class Spike() : TheInventorCard(2, CardType.Power, CardRarity.Rare, Targe
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await SpikePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<SpikePower>().EnchantedValue, Owner.Creature, this);
+        await SpikePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<SpikePower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

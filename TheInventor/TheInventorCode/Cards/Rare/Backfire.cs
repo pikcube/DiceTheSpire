@@ -18,7 +18,7 @@ public class Backfire() : TheInventorCard(1, CardType.Power, CardRarity.Rare, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.GainMaxHp(Owner.Creature, DynamicVars.MaxHp.EnchantedValue);
+        await CreatureCmd.GainMaxHp(Owner.Creature, DynamicVars.MaxHp.IntValue);
         await BackfirePower.ApplyAsync(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 

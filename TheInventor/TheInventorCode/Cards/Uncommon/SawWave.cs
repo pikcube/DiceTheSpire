@@ -20,7 +20,7 @@ public class SawWave() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon,
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await SawWavePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<SawWavePower>().EnchantedValue, Owner.Creature, this);
+        await SawWavePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<SawWavePower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

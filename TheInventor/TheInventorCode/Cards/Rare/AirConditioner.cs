@@ -23,7 +23,7 @@ public class AirConditioner() : TheInventorCard(2, CardType.Skill, CardRarity.Ra
     {
         for (int n = 0; n < DynamicVars.Repeat.IntValue; ++n)
         {
-            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block.EnchantedValue, BlockProps.card, cardPlay);
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block.IntValue, BlockProps.card, cardPlay);
         }
     }
 

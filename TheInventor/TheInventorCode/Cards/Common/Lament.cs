@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -23,6 +24,7 @@ public class Lament() : TheInventorCard(2, CardType.Attack, CardRarity.Common, T
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
+            .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.heavyBluntPath)
             .Execute(choiceContext);
     }

@@ -21,6 +21,7 @@ public class Staff() :TheInventorCard(1, CardType.Attack, CardRarity.Common, Tar
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
+            .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
     }

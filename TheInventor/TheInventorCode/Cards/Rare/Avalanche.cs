@@ -21,7 +21,7 @@ public class Avalanche() : TheInventorCard(2, CardType.Power, CardRarity.Rare, T
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await AvalanchePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<AvalanchePower>().EnchantedValue, Owner.Creature, this);
+        await AvalanchePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<AvalanchePower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

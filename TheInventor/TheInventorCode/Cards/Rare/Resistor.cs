@@ -29,7 +29,7 @@ public class Resistor() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await ResistorPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().EnchantedValue, Owner.Creature, this);
+        await ResistorPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

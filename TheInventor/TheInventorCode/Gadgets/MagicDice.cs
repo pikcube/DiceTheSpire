@@ -19,7 +19,7 @@ public class MagicDice() : GadgetModel(nameof(MagicDice))
             return amount;
         }
 
-        return amount + DynamicVars.Energy.EnchantedValue * Power;
+        return amount + DynamicVars.Energy.IntValue * Power;
     }
 
     public override Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
