@@ -8,13 +8,13 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare;
-public class ParticleAccelerator() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IAfterRerollListener, IRangeCard
+public class ParticleAccelerator() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IAfterRerollListener, IRangeCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1, DamageProps.card)];
 
     public int MinimumCost => 1;
 
-    public int MaximumCost => 3;
+    public int MaximumCost => 4;
 
     public override Task BeforeCombatStart()
     {
