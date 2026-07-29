@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 
+//TODO: implement free to play for Countdown cards
 public static class Countdown
 {
     extension(ICountdown card)

@@ -17,7 +17,7 @@ public class Autotune() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, T
         HoverTipFactory.FromCard<Starpick>(IsUpgraded), HoverTipFactory.FromCard<RollTheBones>(IsUpgraded),
         HoverTipFactory.FromCard<CrossedWire>(IsUpgraded), ..HoverTipFactory.FromEnchantment<Stellar>(),
         HoverTipFactory.Static(StaticHoverTip.SummonStatic), HoverTipFactory.FromPower<DoomPower>(),
-        HoverTipFactory.FromOrb<PlasmaOrb>()
+        HoverTipFactory.Static(StaticHoverTip.Channeling), HoverTipFactory.FromOrb<PlasmaOrb>()
     ];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
@@ -48,7 +48,7 @@ public class Autotune() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, T
             return;
         }
 
-        
+        choice.SetToFreeThisTurn();
         await CardPileCmd.AddGeneratedCardToCombat(choice, PileType.Hand, Owner);
     }
 }

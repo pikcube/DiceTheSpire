@@ -1,8 +1,10 @@
+using System.Diagnostics;
 using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
 namespace TheInventor.TheInventorCode;
@@ -26,3 +28,33 @@ public partial class MainFile : Node
         CustomLocTableManager.Register("gadgets.json");
     }
 }
+
+/*
+public partial class GadgetIcon : Control
+{
+    public static AddedNode<NTopBar, GadgetIcon> Node = new(topbar =>
+    {
+        GadgetIcon gadgetIcon = new();
+        
+        Texture2D tex = ResourceLoader.Load<Texture2D>($"{MainFile.ResPath}/images/relics/gadget.png");
+        Vector2 size = tex.GetSize();
+
+        TextureRect texRect = new TextureRect();
+        texRect.Name = tex.ResourcePath;
+        texRect.Size = new Vector2(50, 50);
+        texRect.Texture = tex;
+        texRect.PivotOffset = size / 2f;
+        texRect.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+        texRect.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
+        texRect.MouseFilter = MouseFilterEnum.Ignore;
+
+        gadgetIcon.Size = new Vector2(50, 50);
+        gadgetIcon.Position = new Vector2(10, 10);
+        gadgetIcon.AddChild(texRect);
+
+        topbar.AddChild(gadgetIcon);
+
+        return gadgetIcon;
+    });
+}
+*/

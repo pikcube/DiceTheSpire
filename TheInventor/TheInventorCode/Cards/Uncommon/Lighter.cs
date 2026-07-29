@@ -11,7 +11,11 @@ public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon
 {
     public override string GetScrapId => nameof(Blowtorch);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14, DamageProps.card), new DamageVar("HeldDamage", 6, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => 
+    [
+        new DamageVar(14, DamageProps.card), 
+        new DamageVar("HeldDamage", 6, DamageProps.card)
+    ];
 
     public override bool HasTurnEndInHandEffect => true;
 
@@ -33,7 +37,11 @@ public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, (DamageVar)DynamicVars["HeldDamage"], Owner.Creature, this, null);
+        await DamageCmd.Attack(DynamicVars["HeldDamage"].BaseValue)
+            .FromCard(this, null)
+            .TargetingAllOpponents(CombatState)
+            .WithHitFx(VfxCmd.slashPath)
+            .Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

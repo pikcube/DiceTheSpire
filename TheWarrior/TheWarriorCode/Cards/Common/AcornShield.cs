@@ -1,5 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -11,12 +10,6 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
@@ -25,8 +18,6 @@ public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Common
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
-
-    public bool shouldReturnToHand = false;
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);

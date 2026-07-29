@@ -1,14 +1,14 @@
-﻿using HarmonyLib;
-using JetBrains.Annotations;
-using MegaCrit.Sts2.Core.Models;
-using System.Reflection;
+﻿using System.Reflection;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using HarmonyLib;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
 [HarmonyPatch]
-public class ModifyCardTargetTypePatch
+public static class ModifyCardTargetTypePatch
 {
     [UsedImplicitly]
     static IEnumerable<MethodBase> TargetMethods()
