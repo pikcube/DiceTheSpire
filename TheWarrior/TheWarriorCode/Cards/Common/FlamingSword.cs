@@ -28,6 +28,16 @@ public class FlamingSword() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
 
     }
 
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    {
+        if (cardPlay.Card == this)
+        {
+            Owner.Creature.GetPower<FuryPower>()?.IgnoreNextRemoval();
+        }
+
+        return Task.CompletedTask;
+    }
+
     //public override async Task AfterModifyingCardPlayCount(CardModel card)
     //{
     //    if(card == this)

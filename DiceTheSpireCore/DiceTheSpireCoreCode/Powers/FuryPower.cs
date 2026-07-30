@@ -8,6 +8,7 @@ public class FuryPower : DiceTheSpireCorePower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
+    private bool _shouldIgnoreNextRemoval;
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
         //return card.Owner.Creature == this.Owner ? playCount: playCount + 1;
@@ -18,6 +19,15 @@ public class FuryPower : DiceTheSpireCorePower
     public override async Task AfterModifyingCardPlayCount(CardModel card)
     {
         Flash();
-        await PowerCmd.Decrement(this);
+        if (_shouldIgnoreNextRemoval)
+        {
+            _shouldIgnoreNextRemoval = false;
+        }
+        else
+        {
+            await PowerCmd.Decrement(this);
+        }
     }
+
+    public void IgnoreNextRemoval() => _shouldIgnoreNextRemoval = true;
 }
