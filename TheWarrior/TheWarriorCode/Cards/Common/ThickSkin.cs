@@ -27,7 +27,6 @@ public class ThickSkin() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, 
             await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
         }
 
-        await base.OnPlay(choiceContext, cardPlay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
     protected override void OnUpgrade()

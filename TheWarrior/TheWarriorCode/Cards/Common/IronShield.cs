@@ -20,7 +20,6 @@ namespace TheWarrior.TheWarriorCode.Cards.Common
             protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
             protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
             {
-                await base.OnPlay(choiceContext, cardPlay);
                 await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
                 CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);

@@ -15,7 +15,6 @@ public class DefendWarrior() : TheWarriorCard(1, CardType.Skill, CardRarity.Basi
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await base.OnPlay(choiceContext, cardPlay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 

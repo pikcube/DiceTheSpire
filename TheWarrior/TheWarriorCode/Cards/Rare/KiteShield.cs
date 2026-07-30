@@ -22,7 +22,6 @@ public class KiteShield() : TheWarriorCard(6, CardType.Skill, CardRarity.Rare, T
     public int MaximumCost => IsUpgraded ? 3 : 6;
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(5);
     }
 

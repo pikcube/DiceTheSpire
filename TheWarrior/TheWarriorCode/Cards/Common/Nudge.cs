@@ -21,7 +21,6 @@ public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targ
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await base.OnPlay(choiceContext, cardPlay);
         CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 0, DynamicVars.Cards.IntValue);
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)

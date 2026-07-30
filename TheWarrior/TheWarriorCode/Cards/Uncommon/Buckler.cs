@@ -41,7 +41,6 @@ public class Buckler() : TheWarriorCard(-1, CardType.Skill, CardRarity.Uncommon,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new BlockVar(18, BlockProps.card)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await base.OnPlay(choiceContext, cardPlay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 
