@@ -42,7 +42,6 @@ public class SpikedShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Commo
     //    }
     //}
 
-
     protected override bool ShouldGlowGoldInternal => CombatState?.RoundNumber % 2 == 0 != IsUpgraded;
 
     protected override void OnUpgrade()

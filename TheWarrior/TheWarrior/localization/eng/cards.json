@@ -121,5 +121,7 @@
   "THEWARRIOR-SPEEDBUMP.description": "Draw {Cards:diff()} card.\n[gold]Bump[/gold] all cards drawn this turn.",
   "THEWARRIOR-SPEEDBUMP.title": "Speedbump",
   "THEWARRIOR-ACORN_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Nudge[/gold] {Cards:diff()} card in [gold]Hand[/gold].",
-  "THEWARRIOR-ACORN_SHIELD.title": "Acorn Shield"
+  "THEWARRIOR-ACORN_SHIELD.title": "Acorn Shield",
+  "THEWARRIOR-FLAMING_SWORD.description": "Deal {Damage:diff()} damage.\nGain [gold]Fury[/gold] if you have [gold]Fury[/gold]",
+  "THEWARRIOR-FLAMING_SWORD.title": "Flaming Sword"
 }     
