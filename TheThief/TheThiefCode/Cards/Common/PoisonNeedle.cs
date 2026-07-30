@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
+﻿using BaseLib.Cards.Variables;
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,8 +14,7 @@ public class PoisonNeedle() : TheThiefCard(1, CardType.Skill, CardRarity.Common,
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(4)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(4), new PersistVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,6 +27,7 @@ public class PoisonNeedle() : TheThiefCard(1, CardType.Skill, CardRarity.Common,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Poison.UpgradeValueBy(2);
+        DynamicVars.Poison.UpgradeValueBy(1);
+        DynamicVars.Var<PersistVar>().UpgradeValueBy(2);
     }
 }

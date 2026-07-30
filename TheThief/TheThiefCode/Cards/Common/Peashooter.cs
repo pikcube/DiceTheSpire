@@ -1,5 +1,6 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
+﻿using BaseLib.Cards.Variables;
+using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -38,8 +39,7 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Common,
         }
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2), new PersistVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -51,5 +51,6 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Common,
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3M);
+        DynamicVars.Var<PersistVar>().UpgradeValueBy(2);
     }
 }
