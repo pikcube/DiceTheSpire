@@ -29,7 +29,7 @@ public class Solenoid() : TheInventorCard(3, CardType.Skill, CardRarity.Rare, Ta
         }
         foreach (Player p in CombatState.Players)
         {
-            await CardPileCmd.DrawWithoutBlockingOnOtherPlayers(choiceContext, DynamicVars.Cards.IntValue, p);
+            await CardPileCmd.DrawWithoutBlockingOnOtherPlayers(choiceContext, DynamicVars.Cards.IntValue, p, this);
             if (p == Owner)
             {
                 await ShockPower.ApplyAsync(choiceContext, p.Creature, DynamicVars.Power<ShockPower>().IntValue, p.Creature, this);
