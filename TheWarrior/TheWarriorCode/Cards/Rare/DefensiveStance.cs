@@ -22,7 +22,6 @@ public class DefensiveStance() : TheWarriorCard(0, CardType.Skill, CardRarity.Ra
     }
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await base.OnPlay(choiceContext, cardPlay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
         //await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);

@@ -26,7 +26,6 @@ public class SpikedShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Commo
             await PowerCmd.Apply<ThornsPower>(choiceContext, Owner.Creature, DynamicVars.Power<ThornsPower>().IntValue, Owner.Creature, this);
         }
 
-        await base.OnPlay(choiceContext, cardPlay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
     }
 

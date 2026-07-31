@@ -22,7 +22,6 @@ public class Bump() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await base.OnPlay(choiceContext, cardPlay);
         CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 0, DynamicVars.Cards.IntValue);
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)

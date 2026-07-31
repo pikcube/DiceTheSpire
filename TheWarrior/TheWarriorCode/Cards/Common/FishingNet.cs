@@ -19,7 +19,6 @@ public class FishingNet() : TheWarriorCard(2, CardType.Skill, CardRarity.Common,
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await base.OnPlay(choiceContext, cardPlay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
         await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, DynamicVars.Weak.IntValue,

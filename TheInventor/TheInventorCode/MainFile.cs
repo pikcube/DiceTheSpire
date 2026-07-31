@@ -1,10 +1,8 @@
-using System.Diagnostics;
 using BaseLib.Utils;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
-using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
 namespace TheInventor.TheInventorCode;
