@@ -17,7 +17,7 @@ public class Broadsword() : TheWarriorCard(3, CardType.Attack, CardRarity.Common
         {
             return;
         }
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this, cardPlay)
             .TargetingAllOpponents(CombatState)
             .WithHitFx(VfxCmd.slashPath)

@@ -28,16 +28,16 @@ public class FlamingSword() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
 
     }
 
-    //public override async Task AfterModifyingCardPlayCount(CardModel card)
-    //{
-    //    if(card == this)
-    //    {
-    //        return;
-    //    }
-    //    await PowerCmd.Apply<FuryPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, this);
-    //}
+    public override async Task AfterModifyingCardPlayCount(CardModel card)
+    {
+        if (card == this)
+        {
+            await PowerCmd.Apply<FuryPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1, Owner.Creature, this);
+        }
+        return;
+    }
 
-    //int furyAmount = Owner is null ? 0 : Owner.Creature.GetPower<FuryPower>()?.Amount ?? 0;
+    //private int furyAmount = Owner.Creature.GetPower<FuryPower>()?.Amount ?? 0;
     //protected override bool ShouldGlowGoldInternal => (furyAmount != 0) ? true : false;
     protected override void OnUpgrade()
     {

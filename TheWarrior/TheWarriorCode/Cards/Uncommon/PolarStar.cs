@@ -23,7 +23,7 @@ public class PolarStar() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommo
 
         if (IsPlayable)
         {
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
            .WithHitCount(DynamicVars.Repeat.IntValue)
            .FromCard(this, cardPlay)
            .Targeting(cardPlay.Target)

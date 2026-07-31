@@ -23,7 +23,7 @@ public class RummageStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Com
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)

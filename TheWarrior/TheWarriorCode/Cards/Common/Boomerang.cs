@@ -19,7 +19,7 @@ public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Common,
             return;
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .WithHitCount(DynamicVars.Repeat.IntValue)
             .FromCard(this, cardPlay)
             .TargetingAllOpponents(CombatState)

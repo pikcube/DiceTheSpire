@@ -33,7 +33,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon
                 }
                 await card.NudgeAsync(choiceContext);
             }
-            await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
                         .FromCard(this, cardPlay)
                         .Targeting(cardPlay.Target)
                         .WithHitCount(repeats)

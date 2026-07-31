@@ -15,7 +15,7 @@ public class Javelin() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, Tar
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)

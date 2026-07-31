@@ -19,7 +19,7 @@ public class Omnistrike() : TheWarriorCard(3, CardType.Attack, CardRarity.Token,
 
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
