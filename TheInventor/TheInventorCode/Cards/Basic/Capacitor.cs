@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -24,6 +25,7 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, null)
+            .WithValueProp(DynamicVars.Damage.Props)
             .WithHitCount(IsUpgraded ? 3 : 2)
             .TargetingRandomOpponents(CombatState)
             .WithHitFx(VfxCmd.slashPath)
