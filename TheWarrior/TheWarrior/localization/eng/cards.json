@@ -123,5 +123,7 @@
   "THEWARRIOR-ACORN_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Nudge[/gold] {Cards:diff()} card in [gold]Hand[/gold].",
   "THEWARRIOR-ACORN_SHIELD.title": "Acorn Shield",
   "THEWARRIOR-FLAMING_SWORD.description": "Deal {Damage:diff()} damage.\nGain [gold]Fury[/gold] if you have [gold]Fury[/gold]",
-  "THEWARRIOR-FLAMING_SWORD.title": "Flaming Sword"
+  "THEWARRIOR-FLAMING_SWORD.title": "Flaming Sword",
+  "THEWARRIOR-FLYING_DROPKICK.description": "Deal {Damage:diff()} damage.\nGain {FuryPower:diff()} [gold]Fury[/gold] if this is the last card in hand when played.",
+  "THEWARRIOR-FLYING_DROPKICK.title": "Flying Dropkick"
 }     

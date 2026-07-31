@@ -16,8 +16,6 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 public class Crunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(7M, DamageProps.card)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
@@ -43,7 +41,6 @@ public class Crunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Ta
                 {
                     card.EnergyCost.SetThisTurnOrUntilPlayed(card.EnergyCost.GetAmountToSpend() - 1);
                 }
-                //await card.BumpAsync(choiceContext);
             }
         }
         else
@@ -58,7 +55,6 @@ public class Crunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Ta
             {
 
                 card.EnergyCost.SetThisTurnOrUntilPlayed(card.EnergyCost.GetAmountToSpend() - 1);
-                //await card.BumpAsync(choiceContext);
             }
         }
     }

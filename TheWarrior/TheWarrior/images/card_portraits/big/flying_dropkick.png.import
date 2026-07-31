@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://druydh1by6gcg"
-path="res://.godot/imported/sine_wave.png-dbc94cc8e0080ce237d5a71ece01d7c2.ctex"
+uid="uid://c1e7uxphk8xgx"
+path="res://.godot/imported/flying_dropkick.png-de6499250197559429221c1d28a1d814.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TheWarrior/images/card_portraits/sine_wave.png"
-dest_files=["res://.godot/imported/sine_wave.png-dbc94cc8e0080ce237d5a71ece01d7c2.ctex"]
+source_file="res://TheWarrior/images/card_portraits/big/flying_dropkick.png"
+dest_files=["res://.godot/imported/flying_dropkick.png-de6499250197559429221c1d28a1d814.ctex"]
 
 [params]
 
