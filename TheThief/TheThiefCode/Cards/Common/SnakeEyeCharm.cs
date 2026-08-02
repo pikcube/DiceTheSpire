@@ -5,9 +5,9 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace TheThief.TheThiefCode.Cards.Uncommon;
+namespace TheThief.TheThiefCode.Cards.Common;
 
-public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICountdown
+public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
