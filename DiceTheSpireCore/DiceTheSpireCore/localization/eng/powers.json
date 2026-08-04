@@ -76,5 +76,8 @@
   "DICETHESPIRECORE-CANTRIPS_POWER.title": "Cantrips",
   "DICETHESPIRECORE-SPEEDBUMP_POWER.description": "[gold]Bump[/gold] all cards drawn this turn.",
   "DICETHESPIRECORE-SPEEDBUMP_POWER.smartDescription": "[gold]Bump[/gold] all cards drawn this turn.",
-  "DICETHESPIRECORE-SPEEDBUMP_POWER.title": "Speedbump"
+  "DICETHESPIRECORE-SPEEDBUMP_POWER.title": "Speedbump",
+  "DICETHESPIRECORE-FURIOUS_FORM_POWER.description": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
+  "DICETHESPIRECORE-FURIOUS_FORM_POWER.smartDescription": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
+  "DICETHESPIRECORE-FURIOUS_FORM_POWER.title": "Furious Form"
 }

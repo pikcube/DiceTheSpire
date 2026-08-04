@@ -25,7 +25,8 @@ public class FuryPower : DiceTheSpireCorePower
             return playCount;
         }
 
-        return playCount + 1;
+        return playCount + 1 + Owner.GetPower<FuriousFormPower>()?.Amount ?? 0;
+        
     }
 
     public override async Task AfterModifyingCardPlayCount(CardModel card)

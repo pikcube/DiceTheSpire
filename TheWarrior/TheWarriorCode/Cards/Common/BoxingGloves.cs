@@ -44,7 +44,6 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
     public int MaximumCost => IsUpgraded ? 0 : 1;
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Damage.UpgradeValueBy(2);
     }
 

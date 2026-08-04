@@ -31,7 +31,7 @@ public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common,
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<AxeMasteryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<FuriousFormPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
     public int MinimumCost => 0;
     public int MaximumCost => IsUpgraded ? 1 : 2;
