@@ -127,8 +127,10 @@
   "THETHIEF-AUTOTUNE.title": "Autotune",
   "THETHIEF-CROSSED_WIRE.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\n[gold]Channel[/gold] 1 [gold]Plasma[/gold].",
   "THETHIEF-CROSSED_WIRE.title": "Crossed Wire",
-  "THETHIEF-KUNAI.description": "Deal {Damage:diff()} damage. Add a [gold]Pip[/gold] to your [gold]Hand[/gold].{IfUpgraded:show:\n[gold]Persist[/gold] {Persist:diff()}.|}",
+  "THETHIEF-KUNAI.description": "Deal {Damage:diff()} damage.\nAdd a [gold]Pip[/gold] to your [gold]Hand[/gold].{IfUpgraded:show:\n[gold]Persist[/gold] {Persist:diff()}.|}",
   "THETHIEF-KUNAI.title": "Kunai",
   "THETHIEF-MOOD_CHANGE.description": "Swap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
-  "THETHIEF-MOOD_CHANGE.title": "Mood Change"
+  "THETHIEF-MOOD_CHANGE.title": "Mood Change",
+  "THETHIEF-WAKIZASHI.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.{IfUpgraded:show:\n[gold]Persist[/gold] {Persist:diff()}.|}",
+  "THETHIEF-WAKIZASHI.title": "Wakizashi"
 }
