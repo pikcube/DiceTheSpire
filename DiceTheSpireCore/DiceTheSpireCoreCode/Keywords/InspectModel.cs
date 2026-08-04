@@ -74,6 +74,15 @@ public class InspectModel() : CustomSingletonModel(HookType.Combat)
     {
         //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
         List<CardModel> cards = [.. PileType.Draw.GetPile(player).Cards.Take(count)];
+        if (cards.Count < 1)
+        {
+            return [];
+        }
+
+        if (cards.Count < count)
+        {
+            count = cards.Count;
+        }
 
         //If we aren't the local player, we just listen for the choice to come in over the network
         if (!LocalContext.IsMe(player) || RunManager.Instance.NetService.Type == NetGameType.Replay)

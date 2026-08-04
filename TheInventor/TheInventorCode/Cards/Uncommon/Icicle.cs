@@ -6,10 +6,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 
-namespace TheInventor.TheInventorCode.Cards.Common;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
 
-public class Icicle() : TheInventorCard(3, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
+public class Icicle() : TheInventorCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     public override string GetScrapId => nameof(Burrower);
 
