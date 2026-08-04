@@ -127,5 +127,7 @@
   "THEWARRIOR-FLYING_DROPKICK.description": "Deal {Damage:diff()} damage.\nGain {FuryPower:diff()} [gold]Fury[/gold] if this is the last card in hand when played.",
   "THEWARRIOR-FLYING_DROPKICK.title": "Flying Dropkick",
   "THEWARRIOR-KNUCKLE_DUSTER.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].\n[gold]Rummage[/gold] {Cards:diff()} cards.",
-  "THEWARRIOR-KNUCKLE_DUSTER.title": "Knuckle Duster"
+  "THEWARRIOR-KNUCKLE_DUSTER.title": "Knuckle Duster",
+  "THEWARRIOR-NIGHTSTICK.description": "[gold]Range[/gold] [1, 3]\nDeal {Damage:diff()} and apply {WeakPower:diff()} [gold]Weak[/gold] for each energy spent on this card.",
+  "THEWARRIOR-NIGHTSTICK.title": "Nightstick"
 }     
