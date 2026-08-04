@@ -15,14 +15,17 @@ public class PlasmaCannonPower : TheInventorPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<GrindstonePower>()];
+    public int UsesThisTurn { get; set; } = 0;
 
     public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner || Owner.Player is null || power.Type != PowerType.Debuff)
+        if (applier != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff)
         {
             return;
         }
+
+
 
         HookPlayerChoiceContext choiceContext = new(Owner.Player, LocalContext.NetId ?? 0, GameActionType.Combat);
 

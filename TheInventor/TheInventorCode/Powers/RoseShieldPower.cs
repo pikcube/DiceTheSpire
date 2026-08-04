@@ -23,7 +23,7 @@ public class RoseShieldPower : TheInventorPower
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props,
         Creature? dealer, CardModel? cardSource)
     {
-        if (target != Owner || dealer == null || (!props.IsPoweredAttack() && cardSource is not Omnislice))
+        if (target != Owner || dealer is null || (!props.IsPoweredAttack() && cardSource is not Omnislice))
         {
             return;
         }
