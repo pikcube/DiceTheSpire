@@ -132,5 +132,7 @@
   "THETHIEF-MOOD_CHANGE.description": "Swap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "THETHIEF-MOOD_CHANGE.title": "Mood Change",
   "THETHIEF-WAKIZASHI.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.{IfUpgraded:show:\n[gold]Persist[/gold] {Persist:diff()}.|}",
-  "THETHIEF-WAKIZASHI.title": "Wakizashi"
+  "THETHIEF-WAKIZASHI.title": "Wakizashi",
+  "THETHIEF-CARROTS.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {Block:diff()} [gold]Block[/gold].",
+  "THETHIEF-CARROTS.title": "Carrots"
 }
