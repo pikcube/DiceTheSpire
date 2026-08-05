@@ -1,5 +1,7 @@
 ﻿using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -15,14 +17,15 @@ public class SawWavePower : TheInventorPower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount,
-        Creature? applier,
+    public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner || power.Owner != Owner || power.Type != PowerType.Debuff)
+        if (applier != Owner || Owner.Player is null || power.Owner != Owner || power.GetTypeForAmount(amount) != PowerType.Debuff)
         {
             return;
         }
+
+        HookPlayerChoiceContext choiceContext = new(Owner.Player, LocalContext.NetId ?? 0, GameActionType.Combat);
 
         await DexterityPower.ApplyAsync(choiceContext, Owner, Amount, Owner, cardSource);
     }

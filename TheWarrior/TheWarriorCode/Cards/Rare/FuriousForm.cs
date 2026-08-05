@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using TheWarrior.TheWarriorCode.Cards;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare;
 public class FuriousForm() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self), IRangeCard
@@ -22,8 +21,4 @@ public class FuriousForm() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, 
 
     public int MinimumCost => IsUpgraded ? 0 : 3;
     public int MaximumCost => 3;
-    protected override void OnUpgrade()
-    {
-        base.OnUpgrade();
-    }
 }
