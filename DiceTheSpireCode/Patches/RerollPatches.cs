@@ -1,5 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
@@ -21,7 +21,7 @@ public static class RerollPatches
     {
         public static bool Prefix(ref Task __result, ConfusedPower __instance, CardModel card)
         {
-            if (card is not IRangeCard || card.Owner != __instance.Owner.Player || card.EnergyCost.Canonical < 0)
+            if (!RangeVars.TryGet(card, out _, out _) || card.Owner != __instance.Owner.Player || card.EnergyCost.Canonical < 0)
             {
                 return true;
             }
@@ -35,7 +35,7 @@ public static class RerollPatches
     {
         public static bool Prefix(ref Task __result, Slither __instance, CardModel card)
         {
-            if (card is not IRangeCard || card != __instance.Card || __instance.Card.Pile?.Type != PileType.Hand)
+            if (!RangeVars.TryGet(card, out _, out _) || card != __instance.Card || __instance.Card.Pile?.Type != PileType.Hand)
             {
                 return true;
             }

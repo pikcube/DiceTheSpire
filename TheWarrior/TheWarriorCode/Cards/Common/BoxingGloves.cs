@@ -1,7 +1,7 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,10 +13,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 [UsedImplicitly]
-public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IRangeCard
+public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new PowerVar<ReducePower>(1)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [BetterStaticHoverTips.RangeHoverTip(this), HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new PowerVar<ReducePower>(1), .. RangeVars.Make(0, 1)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -40,11 +40,10 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Comm
     
     }
 
-    public int MinimumCost => 0;
-    public int MaximumCost => IsUpgraded ? 0 : 1;
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.MaxRange.UpgradeValueBy(-1);
     }
 
 }

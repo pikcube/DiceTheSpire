@@ -1,4 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
@@ -46,10 +46,10 @@ public static class RerollCmd
         int minimum = 0;
         int maximum = 3;
         
-        if (card is IRangeCard range)
+        if (RangeVars.TryGet(card, out int min, out int max))
         {
-            minimum = range.MinimumCost;
-            maximum = range.MaximumCost;
+            minimum = min;
+            maximum = max;
         }
 
         DiceyHooks.OnModifyRerollRange(runState, card, ref minimum, ref maximum);

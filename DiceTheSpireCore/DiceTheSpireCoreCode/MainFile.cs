@@ -4,6 +4,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using Pikcube.Common.Utility;
 using SmartFormat;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
@@ -22,6 +23,8 @@ public partial class MainFile : Node
         Harmony harmony = new(ModId);
 
         harmony.PatchAll();
+
+        BetterHooks.ModifyCardText += RangeCardDescriptionModifier.ModifyCardText;
     }
 }
 
