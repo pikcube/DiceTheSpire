@@ -3,14 +3,13 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheThief.TheThiefCode.Cards.Uncommon;
+namespace TheThief.TheThiefCode.Cards.Common;
 
-public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     private decimal ExtraDamageFromClawPlays
     {
@@ -22,35 +21,29 @@ public class ToxicClaw() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon,
         }
     }
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(5M, ValueProp.Move), new PowerVar<PoisonPower>(2M)];
+        [new DamageVar(3, ValueProp.Move), new PowerVar<PoisonPower>(2), new IntVar("Increase", 0)];
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
-            .WithHitFx(VfxCmd.slashPath).Execute(choiceContext);
-        await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue,
-            Owner.Creature, this);
+            .Execute(choiceContext);
+        await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue, Owner.Creature,
+            this);
     }
 
-    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
-    {
-        if (card == this)
-        {
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CreateClone(), PileType.Hand, card.Owner));
-        }
-    }
-
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card is Claw && cardPlay.Card.Owner == Owner)
         {
             BuffFromClawPlay(cardPlay.Card.DynamicVars["Increase"].BaseValue);
         }
+
+        return Task.CompletedTask;
     }
 
     protected override void OnUpgrade()
