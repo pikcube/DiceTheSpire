@@ -62,5 +62,8 @@
   "THETHIEF-SINGULARITY_POWER.title": "Singularity",
   "THETHIEF-FORTIFY_POWER.description": "At the end of your turn, gain 2 [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
   "THETHIEF-FORTIFY_POWER.smartDescription": "At the end of your turn, gain {Amount} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
-  "THETHIEF-FORTIFY_POWER.title": "Fortify"
+  "THETHIEF-FORTIFY_POWER.title": "Fortify",
+  "THETHIEF-BELL_PEPPERS_POWER.description": "Gain 2 [gold]Strength[/gold] this turn for the next 3 turns.",
+  "THETHIEF-BELL_PEPPERS_POWER.smartDescription": "For the next {Amount} turns, gain [blue]2[/blue] [gold]Strength[/gold].",
+  "THETHIEF-BELL_PEPPERS_POWER.title": "Bell Peppers"
 }
