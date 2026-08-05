@@ -65,6 +65,11 @@ public static class RangeVars
             yield break;
         }
 
+        if (min == 0 && max == 3)
+        {
+            yield break;
+        }
+
         if (min == max)
         {
             LocString oneRange = OneRangeText;
