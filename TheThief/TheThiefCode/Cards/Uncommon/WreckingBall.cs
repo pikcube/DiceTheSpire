@@ -1,31 +1,41 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using TheThief.TheThiefCode.Powers;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheThief.TheThiefCode.Cards.Uncommon;
 
-public class WreckingBall() : TheThiefCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class WreckingBall() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WreckingBallPower>(4)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, ValueProp.Move)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState is null)
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        if (Owner.PlayerCombatState is null)
         {
             return;
         }
 
-        await PowerCmd.Apply<WreckingBallPower>(choiceContext, Owner.Creature,
-            DynamicVars["WreckingBallPower"].BaseValue, Owner.Creature, this);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
+            .Execute(choiceContext);
+        foreach (CardModel card in Owner.PlayerCombatState.Hand.Cards)
+        {
+            if (card is ICountdown c)
+            {
+                await c.DecrementCountAsync();
+            }
+        }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["WreckingBallPower"].UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }
