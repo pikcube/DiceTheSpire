@@ -136,5 +136,7 @@
   "THETHIEF-CARROTS.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {Block:diff()} [gold]Block[/gold].",
   "THETHIEF-CARROTS.title": "Carrots",
   "THETHIEF-BELL_PEPPERS.description": "For the next {Turns:diff()} turns, gain {StrengthPower:diff()} [gold]Strength[/gold].",
-  "THETHIEF-BELL_PEPPERS.title": "Bell Peppers"
+  "THETHIEF-BELL_PEPPERS.title": "Bell Peppers",
+  "THETHIEF-BROCCOLI.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nGain {ThornsPower:diff()} [gold]Thorns[/gold].",
+  "THETHIEF-BROCCOLI.title": "Broccoli"
 }
