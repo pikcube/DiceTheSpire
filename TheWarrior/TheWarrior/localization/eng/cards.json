@@ -131,5 +131,7 @@
   "THEWARRIOR-NIGHTSTICK.description": "[gold]Range[/gold] [1, 3]\nDeal {Damage:diff()} damage.\nApply {WeakPower:diff()} [gold]Weak[/gold] for each energy spent on this card.",
   "THEWARRIOR-NIGHTSTICK.title": "Nightstick",
   "THEWARRIOR-FURIOUS_FORM.description": "{IfUpgraded:show:|[gold]Range[/gold] [3]\n}[gold]Fury[/gold] replays cards an additional time.",
-  "THEWARRIOR-FURIOUS_FORM.title": "Furious Form"
+  "THEWARRIOR-FURIOUS_FORM.title": "Furious Form",
+  "THEWARRIOR-BASS_DROP.description": "On {IfUpgraded:show:ODD|EVEN} turns,\napply {WeakPower:diff()} [gold]Weak[/gold] to EVERYONE.\nOn {IfUpgraded:show:EVEN|ODD} turns,\napply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to an enemy.",
+  "THEWARRIOR-BASS_DROP.title": "Bass Drop"
 }     
