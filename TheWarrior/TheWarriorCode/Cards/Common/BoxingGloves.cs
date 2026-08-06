@@ -15,6 +15,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 [UsedImplicitly]
 public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
+    public override TargetType TargetType => EnergyCost.GetAmountToSpend() > 0 ? TargetType.AnyEnemy : TargetType.Self;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8, DamageProps.card), new PowerVar<ReducePower>(1), .. RangeVars.Make(0, 1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)];
 
