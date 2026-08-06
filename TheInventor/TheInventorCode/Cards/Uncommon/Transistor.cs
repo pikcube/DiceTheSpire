@@ -44,6 +44,7 @@ public class Transistor() : TheInventorCard(2, CardType.Attack, CardRarity.Uncom
             return;
         }
 
+        shock.Cards.Remove(this);
         card.RemoveTempKeywordEarly(CardKeyword.Unplayable);
         card.RemoveKeyword(CardKeyword.Unplayable);
         await CardCmd.AutoPlay(choiceContext, this, null);
