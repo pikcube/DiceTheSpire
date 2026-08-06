@@ -39,6 +39,8 @@ public class BassDrop() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
         }
 
     }
+
+    public override TargetType TargetType => CombatState?.RoundNumber % 2 == 0 != IsUpgraded ? TargetType.AnyEnemy : TargetType.Self;
     protected override bool ShouldGlowGoldInternal => CombatState?.RoundNumber % 2 == 0 != IsUpgraded;
     protected override void OnUpgrade()
     {

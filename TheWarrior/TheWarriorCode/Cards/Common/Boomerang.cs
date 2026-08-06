@@ -8,9 +8,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 
-public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Boomerang() : TheWarriorCard(3, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new IntVar("Recoil", 6), new RepeatVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new IntVar("Recoil", 6), new RepeatVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -36,7 +36,7 @@ public class Boomerang() : TheWarriorCard(2, CardType.Attack, CardRarity.Common,
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
+        DynamicVars.Damage.UpgradeValueBy(5);
         DynamicVars["Recoil"].UpgradeValueBy(2);
     }
 

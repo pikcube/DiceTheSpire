@@ -7,8 +7,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace TheWarrior.TheWarriorCode.Cards.Common;
-public class Speedbump() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)//, IRangeCard
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+public class Speedbump() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)//, IRangeCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new PowerVar<SpeedbumpPower>(1M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];

@@ -7,8 +7,8 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Common;
-public class Nightstick() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+public class Nightstick() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7, DamageProps.card), new PowerVar<WeakPower>(1), .. RangeVars.Make(1, 3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>()]; 
