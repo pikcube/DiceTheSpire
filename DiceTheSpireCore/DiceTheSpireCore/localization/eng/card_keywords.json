@@ -4,5 +4,7 @@
   "DICETHESPIRECORE-RETURN.description": "This card returns to your [gold]Hand[/gold] when played.",
   "DICETHESPIRECORE-RETURN.title": "Return",
   "DICETHESPIRECORE-SHOCKED.description": "This card can't be played due to [gold]Shock[/gold].",
-  "DICETHESPIRECORE-SHOCKED.title": "Shocked"
+  "DICETHESPIRECORE-SHOCKED.title": "Shocked",
+  "DICETHESPIRECORE-RANGE.single": "[gold]Range[/gold] [{RangeMin:diff()}].",
+  "DICETHESPIRECORE-RANGE.double": "[gold]Range[/gold] [{RangeMin:diff()}, {RangeMax:diff()}]."
 }

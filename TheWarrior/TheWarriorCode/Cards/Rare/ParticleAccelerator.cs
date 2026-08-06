@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,13 +9,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Rare;
-public class ParticleAccelerator() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IAfterRerollListener, IRangeCard
+public class ParticleAccelerator() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IAfterRerollListener
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1, DamageProps.card)];
-
-    public int MinimumCost => 1;
-
-    public int MaximumCost => 4;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1, DamageProps.card), .. RangeVars.Make(1, 4)];
 
     public override Task BeforeCombatStart()
     {
