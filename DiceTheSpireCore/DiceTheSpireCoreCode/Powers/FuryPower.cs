@@ -25,7 +25,7 @@ public class FuryPower : DiceTheSpireCorePower
             return playCount;
         }
 
-        return playCount + 1 + Owner.GetPower<FuriousFormPower>()?.Amount ?? 0;
+        return playCount + 1 + (Owner.GetPower<FuriousFormPower>()?.Amount ?? 0);
         
     }
 
