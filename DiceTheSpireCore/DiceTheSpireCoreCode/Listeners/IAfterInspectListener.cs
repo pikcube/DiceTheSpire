@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 
-public interface IOnInspectListener
+public interface IAfterInspectListener
 {
-    public Task OnInspectAsync(PlayerChoiceContext choiceContext, int cards, CardModel[] selectedCards, Player inspector);
+    public Task AfterInspectAsync(PlayerChoiceContext choiceContext, int cards, CardModel[] selectedCards, Player inspector);
 }

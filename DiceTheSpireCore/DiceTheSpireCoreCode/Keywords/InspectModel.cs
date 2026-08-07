@@ -37,9 +37,9 @@ public class InspectModel() : CustomSingletonModel(HookType.Combat)
             await BlinkModel.BlinkCardAsync(choiceContext, card);
         }
 
-        foreach (IOnInspectListener listener in player.RunState.IterateHookListeners(player.Creature.CombatState).OfType<IOnInspectListener>())
+        foreach (IAfterInspectListener listener in player.RunState.IterateHookListeners(player.Creature.CombatState).OfType<IAfterInspectListener>())
         {
-            await listener.OnInspectAsync(choiceContext, cards, selectedCards, player);
+            await listener.AfterInspectAsync(choiceContext, cards, selectedCards, player);
         }
 
         return selectedCards.Length;
