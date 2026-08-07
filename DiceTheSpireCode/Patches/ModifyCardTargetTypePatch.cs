@@ -34,6 +34,10 @@ public static class ModifyCardTargetTypePatch
 
     public static TargetType Postfix(TargetType __result, CardModel __instance)
     {
+        if (!__instance.Keywords.Contains(CardKeyword.Unplayable))
+        {
+            return __result;
+        }
         if (__instance.RunState is not null)
         {
             DiceyHooks.OnModifyTargetType(__instance.RunState, __instance, ref __result);

@@ -116,28 +116,34 @@ public static class DiceyHooks
         }
     }
 
-    public static bool OnModifyUnplayableBehavior(IRunState runState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task>? newOnPlay)
+    public static bool OnModifyUnplayableBehavior(IRunState runState, CardModel card)
     {
-        bool isNewOnPlayUsed = false;
-        newOnPlay = null;
-        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
-        {
-            isNewOnPlayUsed = listener.ModifyUnplayableBehavior(card, ref newOnPlay);
-            if (isNewOnPlayUsed)
-            {
-                return true;
-            }
-        }
-
-        return isNewOnPlayUsed;
+        return runState.IterateHookListeners(card.CombatState)
+            .OfType<IModifyUnplayableBehaviorListener>()
+            .Any(listener => listener.ModifyUnplayableBehavior(card));
     }
 
     public static bool OnModifyTargetType(IRunState runState, CardModel card, ref TargetType targetType)
     {
         bool isModified = false;
-        foreach (IModifyTargetTypeListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyTargetTypeListener>())
+        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
         {
             isModified = listener.TryModifyTargetType(card, ref targetType);
+            if (isModified)
+            {
+                return true;
+            }
+        }
+        return isModified;
+    }
+
+    public static bool TryModifyUnplayableOnPlay(IRunState runState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task> task)
+    {
+        bool isModified = false;
+        task = (_, _) => Task.CompletedTask;
+        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
+        {
+            isModified = listener.TryModifyOnPlay(card, ref task);
             if (isModified)
             {
                 return true;

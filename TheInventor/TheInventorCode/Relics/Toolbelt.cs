@@ -9,7 +9,7 @@ using Pikcube.Common.Keywords;
 
 namespace TheInventor.TheInventorCode.Relics;
 
-public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener, IModifyTargetTypeListener
+public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
 
@@ -18,26 +18,14 @@ public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener, IMo
         HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(BlinkModel.Blink)
     ];
 
-    public bool ModifyUnplayableBehavior(CardModel card, ref Func<PlayerChoiceContext, CardPlay, Task>? newOnPlay)
+    public bool ModifyUnplayableBehavior(CardModel card)
     {
-        if (card.Owner != Owner)
-        {
-            return false;
-        }
-
-        newOnPlay = NewOnPlayAsync;
-        return true;
-    }
-
-    private async Task NewOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        await cardPlay.Card.BlinkAsync(choiceContext);
-        Flash();
+        return card.Owner == Owner && card.Keywords.Contains(CardKeyword.Unplayable);
     }
 
     public bool TryModifyTargetType(CardModel card, ref TargetType result)
     {
-        if (!card.Keywords.Contains(CardKeyword.Unplayable))
+        if (!ModifyUnplayableBehavior(card))
         {
             return false;
         }
@@ -45,5 +33,23 @@ public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener, IMo
         result = TargetType.Self;
         return true;
 
+    }
+
+    public bool TryModifyOnPlay(CardModel card, ref Func<PlayerChoiceContext, CardPlay, Task> task)
+    {
+        if (!ModifyUnplayableBehavior(card))
+        {
+            return false;
+        }
+
+        task = NewOnPlayAsync;
+
+        return true;
+    }
+
+    private async Task NewOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        await cardPlay.Card.BlinkAsync(choiceContext);
+        Flash();
     }
 }
