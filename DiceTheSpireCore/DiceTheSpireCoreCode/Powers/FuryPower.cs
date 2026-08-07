@@ -1,4 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -25,7 +26,11 @@ public class FuryPower : DiceTheSpireCorePower
             return playCount;
         }
 
-        return playCount + 1 + (Owner.GetPower<FuriousFormPower>()?.Amount ?? 0);
+        int furyCount = 1;
+
+        DiceyHooks.ModifyFuryPlayCount(card.Owner.RunState, this, card, ref furyCount);
+
+        return playCount + furyCount;
         
     }
 

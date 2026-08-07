@@ -153,4 +153,13 @@ public static class DiceyHooks
             await listener.AfterRerollAsync(card, isFixed, originalCost, getAmountToSpend, duration);
         }
     }
+
+    public static void ModifyFuryPlayCount(IRunState runState, FuryPower furyPower, CardModel card, ref int furyCount)
+    {
+        foreach (IModifyFuryPlayCountListener listener in runState.IterateHookListeners(card.CombatState)
+                     .OfType<IModifyFuryPlayCountListener>())
+        {
+            listener.ModifyFuryPlayCount(furyPower, card, ref furyCount);
+        }
+    }
 }
