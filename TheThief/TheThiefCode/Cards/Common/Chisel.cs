@@ -1,10 +1,10 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
 namespace TheThief.TheThiefCode.Cards.Common;
@@ -20,7 +20,7 @@ public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Common, Targe
         {
             return;
         }
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_MODIFY_COST"), 1);
+        CardSelectorPrefs prefs = new(DiceySelection.ToModifyCost, 1);
         CardModel? original = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
         if (original == null)
         {

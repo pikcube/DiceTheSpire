@@ -1,8 +1,8 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -35,7 +35,7 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBlink, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
 

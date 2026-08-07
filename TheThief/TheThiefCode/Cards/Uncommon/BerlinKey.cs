@@ -1,8 +1,8 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
 namespace TheThief.TheThiefCode.Cards.Uncommon;
@@ -15,7 +15,7 @@ public class BerlinKey() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, 
         {
             return;
         }
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_DUPE"), 1);
+        CardSelectorPrefs prefs = new(DiceySelection.ToDupe, 1);
         CardModel? original = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
         if (original == null)
         {

@@ -1,11 +1,11 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
@@ -23,7 +23,7 @@ public class Spanner() : TheInventorCard(1, CardType.Skill, CardRarity.Basic, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 2, 2);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBlink, 2, 2);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
         IEnumerable<CardModel> toRetrive = PileType.Discard.GetPile(Owner).Cards

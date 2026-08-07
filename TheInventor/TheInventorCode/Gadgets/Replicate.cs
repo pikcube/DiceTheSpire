@@ -1,10 +1,10 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
 namespace TheInventor.TheInventorCode.Gadgets;
@@ -25,7 +25,7 @@ public class Replicate() : GadgetModel(nameof(Replicate))
         }
 
         Parent.Flash();
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_DUPE"), Power, Power);
+        CardSelectorPrefs prefs = new(DiceySelection.ToDupe, Power, Power);
 
         foreach (CardModel result in await CardSelectCmd.FromHand(choiceContext, player, prefs, null, this))
         {

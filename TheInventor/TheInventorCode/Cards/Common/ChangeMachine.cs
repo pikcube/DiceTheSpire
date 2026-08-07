@@ -1,9 +1,9 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Keywords;
@@ -21,7 +21,7 @@ public class ChangeMachine() : TheInventorCard(1, CardType.Skill, CardRarity.Com
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 1, 1);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBlink, 1, 1);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
 

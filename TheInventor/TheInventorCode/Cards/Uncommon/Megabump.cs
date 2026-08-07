@@ -8,7 +8,6 @@ using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
@@ -45,7 +44,7 @@ public class Megabump() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
 
     private async Task DoBumpAsync(PlayerChoiceContext choiceContext, Player p)
     {
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
+        CardSelectorPrefs prefs = new(DiceySelection.ToBump, 1, 1);
         foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, p, prefs, null, this))
         {
             await card.BumpAsync(choiceContext);

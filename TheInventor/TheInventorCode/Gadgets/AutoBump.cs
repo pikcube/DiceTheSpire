@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -24,7 +25,7 @@ public class AutoBump() : GadgetModel(nameof(AutoBump))
 
         Parent.Flash();
 
-        LocString locString = new("card_selection", "TO_BUMP");
+        LocString locString = DiceySelection.ToBump;
         CardSelectorPrefs cardSelectorPrefs = new(locString, Power);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Parent.Owner,
             cardSelectorPrefs, null, this);
