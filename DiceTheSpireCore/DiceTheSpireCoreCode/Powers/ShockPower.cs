@@ -15,7 +15,7 @@ using Pikcube.Common.Utility;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
-public class ShockPower : DiceTheSpireCorePower, IModifyTargetTypeListener
+public class ShockPower : DiceTheSpireCorePower
 {
     public override PowerType Type => PowerType.Debuff;
 
@@ -116,17 +116,6 @@ public class ShockPower : DiceTheSpireCorePower, IModifyTargetTypeListener
 
         modifiedCost = originalCost;
         return false;
-    }
-
-    public bool TryModifyTargetType(CardModel card, ref TargetType result)
-    {
-        if (!Cards.Contains(card))
-        {
-            return false;
-        }
-
-        result = TargetType.Self;
-        return true;
     }
 
     public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)

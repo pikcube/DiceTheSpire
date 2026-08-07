@@ -18,6 +18,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Keywords;
 using ICardSelector = MegaCrit.Sts2.Core.TestSupport.ICardSelector;
 

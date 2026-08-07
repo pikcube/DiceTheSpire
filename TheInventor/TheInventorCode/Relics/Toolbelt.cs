@@ -9,7 +9,7 @@ using Pikcube.Common.Keywords;
 
 namespace TheInventor.TheInventorCode.Relics;
 
-public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener
+public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener, IModifyTargetTypeListener
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
 
@@ -27,12 +27,23 @@ public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener
 
         newOnPlay = NewOnPlayAsync;
         return true;
-
     }
 
     private async Task NewOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await cardPlay.Card.BlinkAsync(choiceContext);
         Flash();
+    }
+
+    public bool TryModifyTargetType(CardModel card, ref TargetType result)
+    {
+        if (!card.Keywords.Contains(CardKeyword.Unplayable))
+        {
+            return false;
+        }
+
+        result = TargetType.Self;
+        return true;
+
     }
 }
