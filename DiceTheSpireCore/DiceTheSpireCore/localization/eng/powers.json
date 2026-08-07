@@ -80,7 +80,7 @@
   "DICETHESPIRECORE-FURIOUS_FORM_POWER.description": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
   "DICETHESPIRECORE-FURIOUS_FORM_POWER.smartDescription": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
   "DICETHESPIRECORE-FURIOUS_FORM_POWER.title": "Furious Form",
-  "DICETHESPIRECORE-FROZEN_GASH_POWER.description": "WIP",
-  "DICETHESPIRECORE-FROZEN_GASH_POWER.smartDescription": "WIP",
+  "DICETHESPIRECORE-FROZEN_GASH_POWER.description": "This creature takes damage equal to your remaining [gold]Block[/gold] at the end of their turn. Does not stack.",
+  "DICETHESPIRECORE-FROZEN_GASH_POWER.smartDescription": "This creature takes damage equal to your remaining [gold]Block[/gold] at the end of their turn. Does not stack.",
   "DICETHESPIRECORE-FROZEN_GASH_POWER.title": "Frozen Gash"
 }

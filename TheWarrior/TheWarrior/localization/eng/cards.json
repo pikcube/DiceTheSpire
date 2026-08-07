@@ -133,5 +133,7 @@
   "THEWARRIOR-FURIOUS_FORM.description": "[gold]Fury[/gold] replays cards an additional time.",
   "THEWARRIOR-FURIOUS_FORM.title": "Furious Form",
   "THEWARRIOR-BASS_DROP.description": "On {IfUpgraded:show:EVEN|ODD} turns,\napply {WeakPower:diff()} [gold]Weak[/gold] to EVERYONE.\nOn {IfUpgraded:show:ODD|EVEN} turns,\napply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to an enemy.",
-  "THEWARRIOR-BASS_DROP.title": "Bass Drop"
+  "THEWARRIOR-BASS_DROP.title": "Bass Drop",
+  "THEWARRIOR-FROZEN_SWORD.description": "Deal {Damage:diff()} damage.\nApply {FrozenGashPower:diff()} [gold]Frozen Gash[/gold].",
+  "THEWARRIOR-FROZEN_SWORD.title": "Frozen Sword"
 }     
