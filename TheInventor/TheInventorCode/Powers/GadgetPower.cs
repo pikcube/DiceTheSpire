@@ -96,11 +96,13 @@ public class GadgetPower : TheInventorPower, IGadgetParent
     {
         get
         {
-            if (field?.GadgetId != GadgetId || field.Parent != this)
+            if (field?.GadgetId == GadgetId && field.Parent == this)
             {
-                field = ScrapManager.AllGadgets[GadgetId].GetMutable(this);
-                field.OnFirstCharge();
+                return field;
             }
+
+            field = ScrapManager.AllGadgets[GadgetId].GetMutable(this);
+            field.OnFirstCharge();
             return field;
         }
     }
