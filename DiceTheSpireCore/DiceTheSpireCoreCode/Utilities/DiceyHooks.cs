@@ -1,5 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -135,7 +135,7 @@ public static class DiceyHooks
     public static bool OnModifyTargetType(IRunState runState, CardModel card, ref TargetType targetType)
     {
         bool isModified = false;
-        foreach (IModifyTargetType listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyTargetType>())
+        foreach (IModifyTargetTypeListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyTargetTypeListener>())
         {
             isModified = listener.TryModifyTargetType(card, ref targetType);
             if (isModified)

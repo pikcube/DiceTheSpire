@@ -1,11 +1,9 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 

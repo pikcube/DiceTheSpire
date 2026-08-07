@@ -1,7 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 
-namespace DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+namespace DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 
 public interface IAfterCardCountsDownListener
 {

@@ -1,4 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -15,7 +15,7 @@ using Pikcube.Common.Utility;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
-public class ShockPower : DiceTheSpireCorePower, IModifyTargetType
+public class ShockPower : DiceTheSpireCorePower, IModifyTargetTypeListener
 {
     public override PowerType Type => PowerType.Debuff;
 
