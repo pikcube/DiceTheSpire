@@ -3,7 +3,10 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using Godot;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using TheWarrior.TheWarriorCode.Character;
 using TheWarrior.TheWarriorCode.Extensions;
 
@@ -54,4 +57,10 @@ public abstract class TheWarriorCard(int cost, CardType type, CardRarity rarity,
                 goto case CardCostColor.Unmodified;
         }
     }
+
+    public CardLocation PublicGetResultLocationForCardPlay() => GetResultLocationForCardPlay();
+
+    public Task<int> PublicGeneratePlayCount(ICombatState combatState, Creature? target) => GeneratePlayCount(combatState, target);
+
+    public Task PublicOnPlay(BranchingPlayerChoiceContext branchingPlayerChoiceContext, CardPlay cardPlay) => OnPlay(branchingPlayerChoiceContext, cardPlay);
 }
