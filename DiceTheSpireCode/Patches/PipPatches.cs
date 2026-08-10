@@ -15,8 +15,17 @@ namespace DiceTheSpire.DiceTheSpireCode.Patches;
 [HarmonyPatch(typeof(NCard), "UpdateEnergyCostVisuals")]
 public static class PipPatches
 {
+    public static LabelSettings CountdownLabelSettings => new()
+    {
+        Font = ResourceLoader.Load<FontFile>("res://DiceTheSpire/fonts/Pangolin.ttf"),
+        FontColor = new Color(0, 0, 0),
+        OutlineColor = new Color(0, 0, 0, 0),
+        ShadowColor = new Color(0, 0, 0, 0),
+    };
+
     public static void Postfix(NCard __instance, MegaLabel ____energyLabel, TextureRect ____energyIcon, bool ____pretendCardCanBePlayed)
     {
+        ____energyLabel.LabelSettings = null;
         if (__instance.Model is not IPipCard c)
         {
             return;
@@ -27,9 +36,8 @@ public static class PipPatches
         if (__instance.Model is ICountdown countdown)
         {
             ____energyLabel.SetTextAutoSize($"{countdown.CurrentCount}");
-            ____energyLabel.Set("theme_override_colors/font_color", new Color(0, 0, 0));
-            ____energyLabel.Set("theme_override_colors/font_outline_color", new Color(0, 0, 0, 0));
-            ____energyLabel.Set("theme_override_colors/font_shadow_color", new Color(0, 0, 0, 0));
+            ____energyLabel.LabelSettings = CountdownLabelSettings;
+            ____energyLabel.LabelSettings.FontSize = Adjust(____energyLabel, ____energyLabel.LabelSettings.Font);
             ____energyIcon.Visible = true;
             ____energyIcon.Texture = c.GetPips(0, ____pretendCardCanBePlayed);
             return;
@@ -65,6 +73,26 @@ public static class PipPatches
 
 
         ____energyIcon.Texture = c.GetPips(withModifiers, ____pretendCardCanBePlayed);
+    }
+
+    private static int Adjust(MegaLabel megaLabel, Font themeFont)
+    {
+        TextParagraph cachedParagraph = (TextParagraph?)AccessTools.DeclaredField(typeof(MegaLabel), "_cachedParagraph").GetValue(null) ?? new TextParagraph();
+        float themeConstant = megaLabel.GetThemeConstant(ThemeConstants.Label.LineSpacing, (StringName)"Label");
+        Vector2 size = megaLabel.GetRect().Size;
+        bool wrap = megaLabel.AutowrapMode != 0;
+        int val1 = megaLabel.MinFontSize;
+        int val2 = megaLabel.MaxFontSize;
+        while (val2 >= val1)
+        {
+            int fontSize = val1 + (val2 - val1) / 2;
+            if (fontSize == megaLabel.MaxFontSize || MegaLabelHelper.IsTooBig(cachedParagraph, megaLabel.Text, themeFont, fontSize, themeConstant, wrap, size))
+                val2 = fontSize - 1;
+            else
+                val1 = fontSize + 1;
+        }
+
+        return Math.Min(val1, val2);
     }
 }
 
