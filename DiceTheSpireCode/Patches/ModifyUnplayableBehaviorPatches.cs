@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -11,30 +10,23 @@ namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
 [HarmonyPatch(typeof(CardModel), nameof(CardModel.CanPlay), [typeof(UnplayableReason), typeof(AbstractModel)], [ArgumentType.Out, ArgumentType.Out])]
 public static class ModifyUnplayableBehaviorPatches
-{
-    public static readonly ConditionalWeakTable<CardModel, Func<PlayerChoiceContext, CardPlay, Task>> OnPlayReplacements = [];
-
+{ 
     public static bool Postfix(bool __result, CardModel __instance, ref UnplayableReason reason, ref AbstractModel? preventer)
     {
         if (__result || __instance.RunState is null || (reason ^ UnplayableReason.HasUnplayableKeyword) != 0)
         {
-            OnPlayReplacements.Remove(__instance);
             return __result;
         }
 
-        bool shouldModify = DiceyHooks.OnModifyUnplayableBehavior(__instance.RunState, __instance,
-            out Func<PlayerChoiceContext, CardPlay, Task>? play);
+        bool shouldModify = DiceyHooks.OnModifyUnplayableBehavior(__instance.RunState, __instance);
 
         if (!shouldModify)
         {
-            OnPlayReplacements.Remove(__instance);
             return __result;
         }
 
-        play ??= (_, _) => Task.CompletedTask;
         reason = UnplayableReason.None;
         preventer = null;
-        OnPlayReplacements.AddOrUpdate(__instance, play);
         return shouldModify;
     }
 }
@@ -67,13 +59,17 @@ public static class ModifyCardOnPlay
     public static bool Prefix(ref Task __result, CardModel __instance, PlayerChoiceContext choiceContext,
         CardPlay cardPlay)
     {
-        if (!ModifyUnplayableBehaviorPatches.OnPlayReplacements.TryGetValue(__instance,
-                out Func<PlayerChoiceContext, CardPlay, Task>? func))
+        if (__instance.RunState is null || !__instance.Keywords.Contains(CardKeyword.Unplayable))
         {
             return true;
         }
 
-        __result = func(choiceContext, cardPlay);
+        if (!DiceyHooks.TryModifyUnplayableOnPlay(__instance.RunState, __instance, out Func<PlayerChoiceContext, CardPlay, Task> newOnPlay))
+        {
+            return true;
+        }
+
+        __result = newOnPlay(choiceContext, cardPlay);
         return false;
 
     }

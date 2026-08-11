@@ -1,10 +1,10 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -31,7 +31,7 @@ public class Spannersword() : TheInventorCard(1, CardType.Attack, CardRarity.Com
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBlink, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
         await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
         IEnumerable<CardModel> toRetrive = PileType.Discard.GetPile(Owner).Cards

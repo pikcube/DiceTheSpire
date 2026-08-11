@@ -1,5 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;

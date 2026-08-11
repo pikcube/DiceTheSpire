@@ -1,4 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace TheInventor.TheInventorCode.Powers;
 
 
-public class CalculatorPower : TheInventorPower, IOnInspectListener
+public class CalculatorPower : TheInventorPower, IAfterInspectListener
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -35,7 +35,7 @@ public class CalculatorPower : TheInventorPower, IOnInspectListener
 
     public int Counter { get; set; }
 
-    public async Task OnInspectAsync(PlayerChoiceContext choiceContext, int cards, CardModel[] selectedCards, Player inspector)
+    public async Task AfterInspectAsync(PlayerChoiceContext choiceContext, int cards, CardModel[] selectedCards, Player inspector)
     {
         if (inspector != Owner.Player || Counter < 0 || Counter >= Amount)
         {

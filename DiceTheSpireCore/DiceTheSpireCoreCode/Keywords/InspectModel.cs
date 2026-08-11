@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
@@ -10,7 +11,6 @@ using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Multiplayer.Game;
@@ -37,9 +37,9 @@ public class InspectModel() : CustomSingletonModel(HookType.Combat)
             await BlinkModel.BlinkCardAsync(choiceContext, card);
         }
 
-        foreach (IOnInspectListener listener in player.RunState.IterateHookListeners(player.Creature.CombatState).OfType<IOnInspectListener>())
+        foreach (IAfterInspectListener listener in player.RunState.IterateHookListeners(player.Creature.CombatState).OfType<IAfterInspectListener>())
         {
-            await listener.OnInspectAsync(choiceContext, cards, selectedCards, player);
+            await listener.AfterInspectAsync(choiceContext, cards, selectedCards, player);
         }
 
         return selectedCards.Length;
@@ -103,7 +103,7 @@ public class InspectModel() : CustomSingletonModel(HookType.Combat)
     private static async Task<IEnumerable<CardModel>> DoLocalInspectAsync(uint choiceId, int count, Player player, List<CardModel> cards)
     {
         NPlayerHand.Instance?.CancelAllCardPlay();
-        NSimpleCardSelectScreen screen = NSimpleCardSelectScreen.Create(cards, new CardSelectorPrefs(new LocString("card_selection", "TO_BLINK"), 0, count));
+        NSimpleCardSelectScreen screen = NSimpleCardSelectScreen.Create(cards, new CardSelectorPrefs(DiceySelection.ToBlink, 0, count));
         NOverlayStack.Instance?.Push(screen);
         List<CardModel> result = [.. await screen.CardsSelected()];
         RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(player, choiceId, PlayerChoiceResult.FromIndexes([.. result.Select(c => cards.IndexOf(c))]));

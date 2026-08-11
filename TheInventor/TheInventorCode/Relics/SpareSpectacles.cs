@@ -1,4 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;

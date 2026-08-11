@@ -1,9 +1,9 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -31,7 +31,7 @@ public class Crunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Ta
 
         if (IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_MODIFY_COST"), 0, DynamicVars.Cards.IntValue);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToModifyCost, 0, DynamicVars.Cards.IntValue);
             CardModel[] cardChoices = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
             foreach (CardModel card in cardChoices)
             {

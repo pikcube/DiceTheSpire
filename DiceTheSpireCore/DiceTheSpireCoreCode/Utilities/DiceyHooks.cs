@@ -1,5 +1,5 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -116,28 +116,34 @@ public static class DiceyHooks
         }
     }
 
-    public static bool OnModifyUnplayableBehavior(IRunState runState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task>? newOnPlay)
+    public static bool OnModifyUnplayableBehavior(IRunState runState, CardModel card)
     {
-        bool isNewOnPlayUsed = false;
-        newOnPlay = null;
-        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
-        {
-            isNewOnPlayUsed = listener.ModifyUnplayableBehavior(card, ref newOnPlay);
-            if (isNewOnPlayUsed)
-            {
-                return true;
-            }
-        }
-
-        return isNewOnPlayUsed;
+        return runState.IterateHookListeners(card.CombatState)
+            .OfType<IModifyUnplayableBehaviorListener>()
+            .Any(listener => listener.ModifyUnplayableBehavior(card));
     }
 
     public static bool OnModifyTargetType(IRunState runState, CardModel card, ref TargetType targetType)
     {
         bool isModified = false;
-        foreach (IModifyTargetType listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyTargetType>())
+        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
         {
             isModified = listener.TryModifyTargetType(card, ref targetType);
+            if (isModified)
+            {
+                return true;
+            }
+        }
+        return isModified;
+    }
+
+    public static bool TryModifyUnplayableOnPlay(IRunState runState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task> task)
+    {
+        bool isModified = false;
+        task = (_, _) => Task.CompletedTask;
+        foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(card.CombatState).OfType<IModifyUnplayableBehaviorListener>())
+        {
+            isModified = listener.TryModifyOnPlay(card, ref task);
             if (isModified)
             {
                 return true;
@@ -151,6 +157,15 @@ public static class DiceyHooks
         foreach (IAfterRerollListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterRerollListener>())
         {
             await listener.AfterRerollAsync(card, isFixed, originalCost, getAmountToSpend, duration);
+        }
+    }
+
+    public static void ModifyFuryPlayCount(IRunState runState, FuryPower furyPower, CardModel card, ref int furyCount)
+    {
+        foreach (IModifyFuryPlayCountListener listener in runState.IterateHookListeners(card.CombatState)
+                     .OfType<IModifyFuryPlayCountListener>())
+        {
+            listener.ModifyFuryPlayCount(furyPower, card, ref furyCount);
         }
     }
 }

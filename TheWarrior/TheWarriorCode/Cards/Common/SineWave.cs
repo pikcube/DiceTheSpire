@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
@@ -24,7 +23,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
         //List<CardModel> handPile = [.. Owner.PlayerCombatState.Hand.Cards];
         if (!IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 1, 1);
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {
@@ -33,7 +32,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
         }
         else
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BUMP"), 1, 1);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 1, 1);
             IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
             foreach (CardModel card in results)
             {
@@ -43,7 +42,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
 
         if (!IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 1, 1);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 1, 1);
             IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
             foreach (CardModel card in results)
             {
@@ -52,7 +51,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
         } 
         else
         {
-            CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_NUDGE"), 1, 1);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 1, 1);
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {

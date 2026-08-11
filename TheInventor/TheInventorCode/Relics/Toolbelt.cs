@@ -1,4 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -18,16 +18,33 @@ public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener
         HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(BlinkModel.Blink)
     ];
 
-    public bool ModifyUnplayableBehavior(CardModel card, ref Func<PlayerChoiceContext, CardPlay, Task>? newOnPlay)
+    public bool ModifyUnplayableBehavior(CardModel card)
     {
-        if (card.Owner != Owner)
+        return card.Owner == Owner && card.Keywords.Contains(CardKeyword.Unplayable);
+    }
+
+    public bool TryModifyTargetType(CardModel card, ref TargetType result)
+    {
+        if (!ModifyUnplayableBehavior(card))
         {
             return false;
         }
 
-        newOnPlay = NewOnPlayAsync;
+        result = TargetType.Self;
         return true;
 
+    }
+
+    public bool TryModifyOnPlay(CardModel card, ref Func<PlayerChoiceContext, CardPlay, Task> task)
+    {
+        if (!ModifyUnplayableBehavior(card))
+        {
+            return false;
+        }
+
+        task = NewOnPlayAsync;
+
+        return true;
     }
 
     private async Task NewOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)

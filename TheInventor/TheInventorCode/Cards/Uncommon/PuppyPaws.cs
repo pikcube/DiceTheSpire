@@ -34,7 +34,7 @@ public class PuppyPaws() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
         }
         else
         {
-            LocString locString = new("card_selection", "TO_BUMP");
+            LocString locString = DiceySelection.ToBump;
             CardSelectorPrefs cardSelectorPrefs = new(locString, 1);
             IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner,
                 cardSelectorPrefs, null, this);

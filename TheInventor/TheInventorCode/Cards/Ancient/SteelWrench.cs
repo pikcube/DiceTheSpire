@@ -1,10 +1,10 @@
-﻿using JetBrains.Annotations;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Keywords;
@@ -22,7 +22,7 @@ public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancie
     {
         int handSize = PileType.Hand.GetPile(Owner).Cards.Count;
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_BLINK"), 0, handSize);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBlink, 0, handSize);
         CardModel[] cards = [..await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
@@ -34,7 +34,7 @@ public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancie
             return;
         }
 
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_PULL"), IsUpgraded ? cards.Length + 1 : cards.Length);
+        CardSelectorPrefs prefs = new(DiceySelection.ToPull, IsUpgraded ? cards.Length + 1 : cards.Length);
         IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, prefs);
 
         foreach (CardModel result in results)

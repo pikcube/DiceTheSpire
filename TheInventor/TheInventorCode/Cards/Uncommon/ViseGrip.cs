@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using TheInventor.TheInventorCode.Gadgets;
 
@@ -19,7 +18,7 @@ public class ViseGrip() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_PULL"), 2);
+        CardSelectorPrefs prefs = new(DiceySelection.ToPull, 2);
         CardModel[] cards = [.. await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, prefs)];
         foreach (CardModel card in cards)
         {

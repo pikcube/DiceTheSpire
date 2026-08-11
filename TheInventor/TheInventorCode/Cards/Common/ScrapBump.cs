@@ -21,8 +21,8 @@ public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         LocString locString = IsUpgraded ? 
-            new LocString("card_selection", "TO_BUMP") : 
-            new LocString("gameplay_ui", "CHOOSE_CARD_UPGRADE_HEADER");
+            DiceySelection.ToBump : 
+            CardSelectorPrefs.UpgradeSelectionPrompt;
         CardSelectorPrefs cardSelectorPrefs = new(locString, 1);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner,
             cardSelectorPrefs,

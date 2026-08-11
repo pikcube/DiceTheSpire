@@ -1,7 +1,13 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using Godot;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers.Models;
 using TheThief.TheThiefCode.Character;
 using TheThief.TheThiefCode.Extensions;
 
@@ -9,7 +15,7 @@ namespace TheThief.TheThiefCode.Cards;
 
 [Pool(typeof(TheThiefCardPool))]
 public abstract class TheThiefCard(int cost, CardType type, CardRarity rarity, TargetType target) :
-    CustomCardModel(cost, type, rarity, target)
+    CustomCardModel(cost, type, rarity, target), IPipCard
 {
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
@@ -23,4 +29,40 @@ public abstract class TheThiefCard(int cost, CardType type, CardRarity rarity, T
     //Uses card_portraits/card_name.png as image path. These should be smaller images.
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
+
+    public CardLocation PublicGetResultLocationForCardPlay() => GetResultLocationForCardPlay();
+
+    public Task<int> PublicGeneratePlayCount(ICombatState combatState, Creature? target) => GeneratePlayCount(combatState, target);
+
+    public Task PublicOnPlay(BranchingPlayerChoiceContext branchingPlayerChoiceContext, CardPlay cardPlay) => OnPlay(branchingPlayerChoiceContext, cardPlay);
+
+    public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null)
+    {
+        string costText = cost switch
+        {
+            null => "X",
+            < 1 or > 9 => "0",
+            _ => $"{cost}"
+        };
+
+        if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
+        {
+            return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
+        }
+
+        energyCostColor ??= CardCostHelper.GetEnergyCostColor(this, CombatState);
+        switch (energyCostColor)
+        {
+            case CardCostColor.Unmodified:
+                return ResourceLoader.Load<Texture2D>($"charui/Energy/ui_dice_dice{costText}.png".ImagePath());
+            case CardCostColor.Increased:
+                return ResourceLoader.Load<Texture2D>($"charui/Energy/Blue/ui_dice_dice{costText}.png".ImagePath());
+            case CardCostColor.Decreased:
+                return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
+            case CardCostColor.InsufficientResources when !isPretend:
+                return ResourceLoader.Load<Texture2D>($"charui/Energy/Red/ui_dice_dice{costText}.png".ImagePath());
+            default:
+                goto case CardCostColor.Unmodified;
+        }
+    }
 }
