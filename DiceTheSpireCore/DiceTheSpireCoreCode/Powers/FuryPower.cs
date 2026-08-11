@@ -2,7 +2,9 @@
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 
@@ -36,6 +38,8 @@ public class FuryPower : DiceTheSpireCorePower
         {
             return;
         }
+
+        await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner, Owner.GetPower<FuriousFormPower>()?.Amount ?? 0, Applier, null);
 
         await PowerCmd.Decrement(this);
     }
