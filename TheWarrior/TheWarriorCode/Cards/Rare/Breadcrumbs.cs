@@ -12,8 +12,6 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
     public class Breadcrumbs() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(1M), new BlockVar(1, BlockProps.card)];
-        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];
-
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, this);
@@ -30,9 +28,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare
         }
         protected override void OnUpgrade()
         {
-            //DynamicVars.Dexterity.UpgradeValueBy(1);
-            //EnergyCost.UpgradeBy(-1);
-            DynamicVars.Block.UpgradeValueBy(4);
+            AddKeyword(CardKeyword.Sly);
         }
     }
 }
