@@ -10,7 +10,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class ThickSkin() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(5M, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(4M, BlockProps.card)];
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

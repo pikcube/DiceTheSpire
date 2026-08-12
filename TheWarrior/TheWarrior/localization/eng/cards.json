@@ -3,7 +3,7 @@
   "THEWARRIOR-STRIKE_WARRIOR.title": "Strike",
   "THEWARRIOR-DEFEND_WARRIOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "THEWARRIOR-DEFEND_WARRIOR.title": "Defend",
-  "THEWARRIOR-SLINGSHOT.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} {IfUpgraded:show:copies|copy} of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
+  "THEWARRIOR-SLINGSHOT.description": "Deal {Damage:diff()} damage.\nAdd {IfUpgraded:show:2 copies of |}[gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-SLINGSHOT.title": "Slingshot",
   "THEWARRIOR-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times. Then take {Recoil:diff()} damage.",
   "THEWARRIOR-BOOMERANG.title": "Boomerang",
@@ -35,7 +35,7 @@
   "THEWARRIOR-CANDLE.title": "Candle",
   "THEWARRIOR-MATCHSTICK.description": "Draw {Cards:diff()} cards.\nGain {Energy:energyIcons()}.",
   "THEWARRIOR-MATCHSTICK.title": "Matchstick",
-  "THEWARRIOR-IRON_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold]. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
+  "THEWARRIOR-IRON_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Rummage[/gold] {Cards:diff()} cards.",
   "THEWARRIOR-IRON_SHIELD.title": "Iron Shield",
   "THEWARRIOR-SWORD.description": "Deal {Damage:diff()} damage.\nGain [gold]Fury[/gold].",
   "THEWARRIOR-SWORD.title": "Sword",
@@ -137,6 +137,8 @@
   "THEWARRIOR-FROZEN_SWORD.description": "Deal {Damage:diff()} damage.\nApply {FrozenGashPower:diff()} [gold]Frozen Gash[/gold].",
   "THEWARRIOR-FROZEN_SWORD.title": "Frozen Sword",
   "THEWARRIOR-FIRE_BREATH.description": "Whenever you gain [gold]Fury[/gold], gain {WarriorFireBreathPower:diff()} [gold]Vigor[/gold].",
-  "THEWARRIOR-FIRE_BREATH.title": "Fire Breath"
+  "THEWARRIOR-FIRE_BREATH.title": "Fire Breath",
+  "THEWARRIOR-PICKAXE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].\nDraw {Cards:diff()} card.",
+  "THEWARRIOR-PICKAXE.title": "Pickaxe"
 
 }     

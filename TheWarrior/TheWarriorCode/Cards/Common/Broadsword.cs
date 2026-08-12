@@ -8,7 +8,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class Broadsword() : TheWarriorCard(3, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -10,8 +10,8 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Common;
-public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(8, BlockProps.card)];
     public override bool GainsBlock => true;
