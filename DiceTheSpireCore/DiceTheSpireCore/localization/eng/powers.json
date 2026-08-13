@@ -86,7 +86,7 @@
   "DICETHESPIRECORE-WARRIOR_FIRE_BREATH_POWER.description": "When you gain [gold]Fury[/gold], gain {Amount} [gold]Vigor[/gold].",
   "DICETHESPIRECORE-WARRIOR_FIRE_BREATH_POWER.smartDescription": "When you gain [gold]Fury[/gold], gain {Amount} [gold]Vigor[/gold].",
   "DICETHESPIRECORE-WARRIOR_FIRE_BREATH_POWER.title": "Fire Breath",
-  "DICETHESPIRECORE-IS_A_GOOD_OFFENSE_POWER.description": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next {Amount:plural:|{Amount} }[gold]{Amount:plural:Attack|Attacks}[/gold] played this turn.",
-  "DICETHESPIRECORE-IS_A_GOOD_OFFENSE_POWER.smartDescription": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next {Amount:plural:|{Amount} }[gold]{Amount:plural:Attack|Attacks}[/gold] played this turn.",
-  "DICETHESPIRECORE-IS_A_GOOD_OFFENSE_POWER.title": "...Is A Good Offense"
+  "DICETHESPIRECORE-A_GOOD_OFFENSE_POWER.description": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next {Amount:plural:|{Amount} }[gold]{Amount:plural:Attack|Attacks}[/gold] played this turn.",
+  "DICETHESPIRECORE-A_GOOD_OFFENSE_POWER.smartDescription": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next {Amount:plural:|{Amount} }[gold]{Amount:plural:Attack|Attacks}[/gold] played this turn.",
+  "DICETHESPIRECORE-A_GOOD_OFFENSE_POWER.title": "...Is A Good Offense"
 }
