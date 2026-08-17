@@ -24,27 +24,27 @@ public static class PipCard
 
         if (card.EnergyCost is { CostsX: false, WasJustUpgraded: true })
         {
-            return ResourceLoader.Load<Texture2D>(ImagePath(resPath, $"charui/Energy/Green/ui_dice_dice{costText}.png"));
+            return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath, "Green", $"ui_dice_dice{costText}.png"));
         }
 
         energyCostColor ??= CardCostHelper.GetEnergyCostColor(card, card.CombatState);
         switch (energyCostColor)
         {
             case CardCostColor.Unmodified:
-                return ResourceLoader.Load<Texture2D>(ImagePath(resPath, $"charui/Energy/ui_dice_dice{costText}.png"));
+                return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath, $"ui_dice_dice{costText}.png"));
             case CardCostColor.Increased:
-                return ResourceLoader.Load<Texture2D>(ImagePath(resPath, $"charui/Energy/Blue/ui_dice_dice{costText}.png"));
+                return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath, "Blue", $"ui_dice_dice{costText}.png"));
             case CardCostColor.Decreased:
-                return ResourceLoader.Load<Texture2D>(ImagePath(resPath, $"charui/Energy/Green/ui_dice_dice{costText}.png"));
+                return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath,"Green", $"ui_dice_dice{costText}.png"));
             case CardCostColor.InsufficientResources when !isPretend:
-                return ResourceLoader.Load<Texture2D>(ImagePath(resPath, $"charui/Energy/Red/ui_dice_dice{costText}.png"));
+                return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath, "Red", $"ui_dice_dice{costText}.png"));
             default:
                 goto case CardCostColor.Unmodified;
         }
     }
 
-    private static string ImagePath(string resPath, string path)
+    private static string EnergyDiceconPath(string resPath, params ReadOnlySpan<string?> path)
     {
-        return Path.Join(resPath, "images", path);
+        return Path.Join([resPath, "images", "charui", "Energy", .. path]);
     }
 }
