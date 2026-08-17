@@ -1,4 +1,6 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using System.Data;
+using System.Reflection;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
@@ -7,8 +9,6 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Random;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
-using System.Data;
-using System.Reflection;
 
 namespace DiceTheSpire.DiceTheSpireCode.Patches;
 
