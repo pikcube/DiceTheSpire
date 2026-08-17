@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers.Models;
 using TheWarrior.TheWarriorCode.Character;
 using TheWarrior.TheWarriorCode.Extensions;
 
@@ -43,6 +44,7 @@ public abstract class TheWarriorCard(int cost, CardType type, CardRarity rarity,
             return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
         }
 
+        energyCostColor ??= CardCostHelper.GetEnergyCostColor(this, CombatState);
         switch (energyCostColor)
         {
             case CardCostColor.Unmodified:

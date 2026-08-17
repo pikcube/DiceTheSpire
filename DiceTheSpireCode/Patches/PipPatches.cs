@@ -134,7 +134,7 @@ public static class RandomizePatch
                 return;
             }
 
-            AccessTools.DeclaredMethod(typeof(NCard), "UpdateEnergyCostVisuals", [typeof(PileType)])
+            AccessTools.DeclaredMethod(typeof(NCard), "UpdateEnergyCostVisuals")
                 .Invoke(__instance, [__instance.DisplayingPile]);
         })), 4U);
 
