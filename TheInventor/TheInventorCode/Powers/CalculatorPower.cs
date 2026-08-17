@@ -16,6 +16,8 @@ public class CalculatorPower : TheInventorPower, IAfterInspectListener
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
+    private int Counter { get; set; }
+
     public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
@@ -32,8 +34,6 @@ public class CalculatorPower : TheInventorPower, IAfterInspectListener
         Counter = -1;
         return Task.CompletedTask;
     }
-
-    public int Counter { get; set; }
 
     public async Task AfterInspectAsync(PlayerChoiceContext choiceContext, int cards, CardModel[] selectedCards, Player inspector)
     {
