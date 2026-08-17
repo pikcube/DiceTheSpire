@@ -29,7 +29,7 @@ public class RummageStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Com
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_DISCARD"), 0, DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(CardSelectorPrefs.DiscardSelectionPrompt, 0, DynamicVars.Cards.IntValue);
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {

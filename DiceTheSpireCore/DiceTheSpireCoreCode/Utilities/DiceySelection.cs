@@ -11,4 +11,5 @@ public static class DiceySelection
     public static LocString ToPull => new("card_selection", "DICETHESPIRECORE-TO_PULL");
     public static LocString ToModifyCost => new("card_selection", "DICETHESPIRECORE-TO_MODIFY_COST");
     public static LocString ToCountdown => new("card_selection", "DICETHESPIRECORE-TO_COUNTDOWN");
+    public static LocString ToRandomize => new("card_selection", "DICETHESPIRECORE-TO_RANDOMIZE");
 }

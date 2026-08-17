@@ -16,8 +16,7 @@ public class MysteryBox() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommo
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-
-        var cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        IEnumerable<CardModel> cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         foreach (CardModel card in cards)
         {
             if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)

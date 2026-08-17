@@ -19,11 +19,13 @@ public class TableSlam() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon
     {
         foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX))
         {
-                if (card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0)
-                {
-                    NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
-                    await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
-                }
+            if (card.EnergyCost.GetWithModifiers(CostModifiers.None) < 0)
+            {
+                continue;
+            }
+
+            NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
+            await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
         }
         await PowerCmd.Apply<RetainHandPower>(choiceContext, Owner.Creature, DynamicVars.Power<RetainHandPower>().BaseValue, Owner.Creature, this);
     }

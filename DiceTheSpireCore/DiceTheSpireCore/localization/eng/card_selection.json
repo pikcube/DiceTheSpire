@@ -13,5 +13,6 @@
   "DICETHESPIRECORE-TO_DUPE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Duplicate[/gold].",
   "DICETHESPIRECORE-TO_PULL": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to put back in your Hand.",
   "DICETHESPIRECORE-TO_MODIFY_COST": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to modify {Amount:plural:its|their} cost.",
-  "DICETHESPIRECORE-TO_COUNTDOWN": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to Count Down."
+  "DICETHESPIRECORE-TO_COUNTDOWN": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to Count Down.",
+  "DICETHESPIRECORE-TO_RANDOMIZE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Reroll[/gold]."
 }

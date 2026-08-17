@@ -1,5 +1,7 @@
 ﻿using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Runs;
@@ -35,7 +37,12 @@ public static class RerollCmd
 
         if (!isFixed)
         {
-            NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
+            NCard? findOnTable = NCard.FindOnTable(card);
+            _ = TaskHelper.RunSafely(Task.Run(async () =>
+            {
+                await Cmd.Wait(0.0001f);
+                findOnTable?.PlayRandomizeCostAnim();
+            }));
         }
 
         await DiceyHooks.OnRerollAsync(card.RunState, card, isFixed, originalCost, card.EnergyCost.GetAmountToSpend(), duration);

@@ -41,7 +41,7 @@
 
 //            for (int n = 0; n < DynamicVars.Repeat.IntValue; ++n)
 //            {
-//                CardSelectorPrefs cardSelectorPrefs = new(new LocString("card_selection", "TO_RANDOMIZE"), 0, DynamicVars.Cards.IntValue);
+//                CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToRandomize, 0, DynamicVars.Cards.IntValue);
 //                CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
 //                foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX))
 //                {

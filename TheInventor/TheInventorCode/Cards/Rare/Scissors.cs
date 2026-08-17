@@ -23,7 +23,7 @@ public class Scissors() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardSelectorPrefs prefs = new(new LocString("card_selection", "TO_EXHAUST"), 1, 1);
+        CardSelectorPrefs prefs = new(CardSelectorPrefs.ExhaustSelectionPrompt, 1, 1);
 
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this);
 

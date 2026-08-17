@@ -23,9 +23,13 @@ public static class PipPatches
         ShadowColor = new Color(0, 0, 0, 0),
     };
 
-    public static void Postfix(NCard __instance, MegaLabel ____energyLabel, TextureRect ____energyIcon, bool ____pretendCardCanBePlayed)
+    public static void Prefix(MegaLabel ____energyLabel)
     {
         ____energyLabel.LabelSettings = null;
+    }
+
+    public static void Postfix(NCard __instance, MegaLabel ____energyLabel, TextureRect ____energyIcon, bool ____pretendCardCanBePlayed)
+    {
         if (__instance.Model is not IPipCard c)
         {
             return;
