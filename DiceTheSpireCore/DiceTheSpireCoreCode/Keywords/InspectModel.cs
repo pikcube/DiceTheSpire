@@ -62,18 +62,18 @@ public class InspectModel() : CustomSingletonModel(HookType.Combat)
         //Start a choice and run the inspection
         uint choiceId = RunManager.Instance.PlayerChoiceSynchronizer.ReserveChoiceId(player);
         await context.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
-        
-        List<CardModel> result = [.. await DispatchForInspectAsync(choiceId, count, player)];
+
+        //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
+        List<CardModel> cards = [.. PileType.Draw.GetPile(player).Cards.Take(count)];
+        List<CardModel> result = [.. await DispatchForInspectAsync(choiceId, count, cards, player)];
         
         await context.SignalPlayerChoiceEnded();
         
         return result;
     }
 
-    private static async Task<IEnumerable<CardModel>> DispatchForInspectAsync(uint choiceId, int count, Player player)
+    private static async Task<IEnumerable<CardModel>> DispatchForInspectAsync(uint choiceId, int count, List<CardModel> cards, Player player)
     {
-        //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
-        List<CardModel> cards = [.. PileType.Draw.GetPile(player).Cards.Take(count)];
         if (cards.Count < 1)
         {
             return [];

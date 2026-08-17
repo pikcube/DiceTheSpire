@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Helpers.Models;
 using TheWarrior.TheWarriorCode.Character;
 using TheWarrior.TheWarriorCode.Extensions;
 
@@ -31,33 +30,7 @@ public abstract class TheWarriorCard(int cost, CardType type, CardRarity rarity,
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null)
     {
-        string costText = cost switch
-        {
-            null => "X",
-            < 1 or > 9 => "0",
-            _ => $"{cost}"
-        };
-
-
-        if (EnergyCost is { CostsX: false, WasJustUpgraded: true })
-        {
-            return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
-        }
-
-        energyCostColor ??= CardCostHelper.GetEnergyCostColor(this, CombatState);
-        switch (energyCostColor)
-        {
-            case CardCostColor.Unmodified:
-                return ResourceLoader.Load<Texture2D>($"charui/Energy/ui_dice_dice{costText}.png".ImagePath());
-            case CardCostColor.Increased:
-                return ResourceLoader.Load<Texture2D>($"charui/Energy/Blue/ui_dice_dice{costText}.png".ImagePath());
-            case CardCostColor.Decreased:
-                return ResourceLoader.Load<Texture2D>($"charui/Energy/Green/ui_dice_dice{costText}.png".ImagePath());
-            case CardCostColor.InsufficientResources when !isPretend:
-                return ResourceLoader.Load<Texture2D>($"charui/Energy/Red/ui_dice_dice{costText}.png".ImagePath());
-            default:
-                goto case CardCostColor.Unmodified;
-        }
+        return PipCard.GetPipsForMod(this, MainFile.ResPath, cost, isPretend, energyCostColor);
     }
 
     public CardLocation PublicGetResultLocationForCardPlay() => GetResultLocationForCardPlay();
