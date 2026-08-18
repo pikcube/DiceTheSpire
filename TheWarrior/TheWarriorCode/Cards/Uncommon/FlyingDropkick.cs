@@ -8,12 +8,12 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace TheWarrior.TheWarriorCode.Cards.Common;
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 
 
-public class FlyingDropkick() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class FlyingDropkick() : TheWarriorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(2M), new DamageVar(6M, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(6M), new DamageVar(10M, DamageProps.card)];
     //new IntVar("FuryBonus", 1)
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -36,6 +36,6 @@ public class FlyingDropkick() : TheWarriorCard(1, CardType.Attack, CardRarity.Co
     //protected override bool ShouldGlowGoldInternal => Owner is null ? false : ([..PileType.Hand.GetPile(Owner).Cards?.Count] == 1 ? true : false);
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<FuryPower>().UpgradeValueBy(1);
+        DynamicVars.Power<FuryPower>().UpgradeValueBy(2);
     }
 }
