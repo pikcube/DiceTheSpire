@@ -144,5 +144,7 @@
   "THETHIEF-BARBED_SPEAR.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "THETHIEF-BARBED_SPEAR.title": "Barbed Spear",
   "THETHIEF-SEIZE.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nEnemy loses {StrengthDownPower:diff()} [gold]Strength[/gold].",
-  "THETHIEF-SEIZE.title": "Seize"
+  "THETHIEF-SEIZE.title": "Seize",
+  "THETHIEF-KATANA.description": "Deal {CalculatedDamage:diff()} damage.\n[gold]Strength[/gold] effects this card {StrengthPower:diff()} times.",
+  "THETHIEF-KATANA.title": "Katana"
 }
