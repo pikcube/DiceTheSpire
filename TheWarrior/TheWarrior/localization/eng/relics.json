@@ -2,5 +2,8 @@
   "SEA_GLASS.THEWARRIOR-THE_WARRIOR.title": "Strong Glass",
   "THEWARRIOR-COMBAT_ROLL.description": "Add 3 copies of [gold]Roll Again+[/gold] to your [gold]Hand[/gold] at the start of each combat.",
   "THEWARRIOR-COMBAT_ROLL.flavor": "Let's Go Gambling!",
-  "THEWARRIOR-COMBAT_ROLL.title": "Combat Roll"
+  "THEWARRIOR-COMBAT_ROLL.title": "Combat Roll",
+  "THEWARRIOR-PROTEIN_SHAKE.description": "Whenever you consume a [gold]Potion[/gold], gain {Energy:energyIcons()}.",
+  "THEWARRIOR-PROTEIN_SHAKE.flavor": "Strawberry",
+  "THEWARRIOR-PROTEIN_SHAKE.title": "Protein Shake"
 }

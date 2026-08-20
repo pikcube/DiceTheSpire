@@ -13,7 +13,7 @@
   "THEWARRIOR-BUMP.title": "Bump",
   "THEWARRIOR-DISCO_BALL.description": "Draw {Cards:diff()} cards.\n[gold]Reroll[/gold] all cards in [gold]Hand[/gold].",
   "THEWARRIOR-DISCO_BALL.title": "Disco Ball",
-  "THEWARRIOR-BOXING_GLOVES.description": "Deal {Damage:diff()}.\nIf this card costs 0,\nGain one {ReducePower:diff()} [gold]Reduce[/gold] instead.",
+  "THEWARRIOR-BOXING_GLOVES.description": "Deal {Damage:diff()} damage.\nIf this card costs 0,\nGain one {ReducePower:diff()} [gold]Reduce[/gold] instead.",
   "THEWARRIOR-BOXING_GLOVES.title": "Boxing Gloves",
   "THEWARRIOR-FISHING_NET.description": "Gain {Block:diff()} [gold]Block[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold].\nDraw {Cards:diff()} card.",
   "THEWARRIOR-FISHING_NET.title": "Fishing Net",
