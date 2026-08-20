@@ -173,7 +173,7 @@
   "THEINVENTOR-STAFF.title": "Staff",
   "THEINVENTOR-STALL_OF_MIRRORS.description": "Next combat:\nGain {Energy:energyIcons()} at the start of each turn.",
   "THEINVENTOR-STALL_OF_MIRRORS.title": "Stall of Mirrors",
-  "THEINVENTOR-STEEL_WRENCH.description": "[gold]Blink[/gold] any number of cards.\nAdd that many {IfUpgraded:show:cards + 1|cards} from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
+  "THEINVENTOR-STEEL_WRENCH.description": "[gold]Blink[/gold] any number of cards.\nAdd that many cards from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
   "THEINVENTOR-STEEL_WRENCH.title": "Steel Wrench",
   "THEINVENTOR-STRIKE_INVENTOR.description": "Deal {Damage:diff()} damage.",
   "THEINVENTOR-STRIKE_INVENTOR.title": "Strike",

@@ -15,7 +15,6 @@ namespace TheInventor.TheInventorCode.Cards.Ancient;
 [UsedImplicitly]
 public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate, CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -34,13 +33,18 @@ public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancie
             return;
         }
 
-        CardSelectorPrefs prefs = new(DiceySelection.ToPull, IsUpgraded ? cards.Length + 1 : cards.Length);
+        CardSelectorPrefs prefs = new(DiceySelection.ToPull, cards.Length);
         IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, prefs);
 
         foreach (CardModel result in results)
         {
             await CardPileCmd.Add(result, PileType.Hand);
         }
+    }
+
+    protected override void OnUpgrade()
+    {
+        AddKeyword(CardKeyword.Retain);
     }
 
     public override string GetScrapId => nameof(BattleWrench);
