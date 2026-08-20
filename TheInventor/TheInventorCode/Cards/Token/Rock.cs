@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -42,16 +43,13 @@ public class Rock() : CustomCardModel(-1, CardType.Attack, CardRarity.Token, Tar
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        if (CombatState is null)
+        if (CombatState is null || RunState is null)
         {
             return;
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this, null)
-            .TargetingRandomOpponents(CombatState)
-            .WithHitFx(VfxCmd.slashPath)
-            .Execute(choiceContext);
+        await CreatureCmd.Damage(choiceContext, CombatState.Enemies.TakeRandom(1, RunState.Rng.CombatTargets).Single(),
+            DynamicVars.Damage, this, null);
     }
 
     protected override void OnUpgrade()

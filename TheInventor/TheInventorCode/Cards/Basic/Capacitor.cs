@@ -1,6 +1,6 @@
-﻿using BaseLib.Extensions;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -18,18 +18,15 @@ public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        if (CombatState is null)
+        for (int n = 0; n < (IsUpgraded ? 3 : 2); ++n)
         {
-            return;
+            if (CombatState is null || RunState is null)
+            {
+                return;
+            }
+            await CreatureCmd.Damage(choiceContext, CombatState.Enemies.TakeRandom(1, RunState.Rng.CombatTargets),
+                DynamicVars.Damage, Owner.Creature, this, null);
         }
-
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this, null)
-            .WithValueProp(DynamicVars.Damage.Props)
-            .WithHitCount(IsUpgraded ? 3 : 2)
-            .TargetingRandomOpponents(CombatState)
-            .WithHitFx(VfxCmd.slashPath)
-            .Execute(choiceContext);
     }
 
     public override string GetScrapId => nameof(ShortCircuit);

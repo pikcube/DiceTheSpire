@@ -24,12 +24,10 @@ public class Spark() : TheInventorCard(-1, CardType.Attack, CardRarity.Common, T
             return;
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this, null)
-            .TargetingAllOpponents(CombatState)
-            .WithValueProp(DynamicVars.Damage.Props)
-            .WithHitFx(VfxCmd.slashPath)
-            .Execute(choiceContext);
+
+
+        await CreatureCmd.Damage(choiceContext, [.. CombatState.Enemies], DynamicVars.Damage, 
+            Owner.Creature, this, null);
     }
 
     protected override void OnUpgrade()
