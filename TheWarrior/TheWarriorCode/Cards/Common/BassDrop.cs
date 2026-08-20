@@ -6,11 +6,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
-public class BassDrop() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
+public class BassDrop() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>(), HoverTipFactory.FromPower<VulnerablePower>()];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VulnerablePower>(2), new PowerVar<WeakPower>(2)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VulnerablePower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -19,26 +19,13 @@ public class BassDrop() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
             return;
         }
 
-        if (CombatState?.RoundNumber % 2 == 0 != IsUpgraded)
-        {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target);
-            await PowerCmd.Apply<VulnerablePower>(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.IntValue,Owner.Creature, cardPlay.Card);
-        }
-        else
-        {
-            //await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature, DynamicVars.Power<WeakPower>().IntValue, Owner.Creature, this);
-            //await PowerCmd.Apply<WeakPower>(choiceContext, CombatState?.Enemies, DynamicVars.Vulnerable.IntValue, Owner.Creature, cardPlay.Card);
-            await PowerCmd.Apply<WeakPower>(choiceContext, CombatState?.Creatures, DynamicVars.Weak.IntValue, Owner.Creature, cardPlay.Card);
-        }
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState?.Creatures, DynamicVars.Vulnerable.IntValue, Owner.Creature, cardPlay.Card);
 
     }
-
-    public override TargetType TargetType => CombatState?.RoundNumber % 2 == 0 != IsUpgraded ? TargetType.AnyEnemy : TargetType.Self;
-    protected override bool ShouldGlowGoldInternal => CombatState?.RoundNumber % 2 == 0 != IsUpgraded;
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        RemoveKeyword(CardKeyword.Ethereal);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }
 

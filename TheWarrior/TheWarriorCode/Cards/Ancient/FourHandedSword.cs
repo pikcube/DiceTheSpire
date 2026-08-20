@@ -4,9 +4,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using TheWarrior.TheWarriorCode.Cards.Token;
 
-namespace TheWarrior.TheWarriorCode.Cards.Rare;
+namespace TheWarrior.TheWarriorCode.Cards.Ancient;
 
-public class FourHandedSword() : TheWarriorCard(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class FourHandedSword() : TheWarriorCard(3, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<AdjustGrip>()];
