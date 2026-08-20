@@ -9,16 +9,16 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
-public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class BattleAxe() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new RepeatVar(2), ..RangeVars.Make(0, 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new RepeatVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         int extraHits = Owner.Creature.GetPower<AxeMasteryPower>()?.Amount ?? 0;
-
+            
         int hitCount = 2 + extraHits;
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
@@ -29,11 +29,14 @@ public class BattleAxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common,
             .Execute(choiceContext);
 
         await PowerCmd.Apply<AxeMasteryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+
+        if (IsUpgraded)
+        {
+            await PowerCmd.Apply<AxeMasteryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        }
     }
 
-    protected override void OnUpgrade()
-    {
-        EnergyCost.UpgradeBy(-1);
-        DynamicVars.MaxRange.UpgradeValueBy(-1);
-    }
+  //"THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage twice.\nHits once more for each [gold]Battle Axe[/gold] played this combat.",
+  //"THEWARRIOR-BATTLE_AXE.title": "Battle Axe",
+
 }
