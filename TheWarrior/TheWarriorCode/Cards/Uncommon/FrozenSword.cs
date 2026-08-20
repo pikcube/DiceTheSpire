@@ -7,8 +7,8 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 
-namespace TheWarrior.TheWarriorCode.Cards.Rare;
-public class FrozenSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+public class FrozenSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new PowerVar<FrozenGashPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FrozenGashPower>()];
