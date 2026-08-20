@@ -37,7 +37,7 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(8);
+        DynamicVars.CalculationBase.UpgradeValueBy(8);
     }
 
     public override string GetScrapId => nameof(DialUpSounds);
