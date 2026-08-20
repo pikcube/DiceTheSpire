@@ -1,5 +1,6 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -28,20 +29,13 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
 
         if (IsUpgraded)
         {
-            await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-                .FromCard(this, null)
-                .TargetingAllOpponents(CombatState)
-                .WithHitFx(VfxCmd.slashPath)
-                .Execute(choiceContext);
+            await CreatureCmd.Damage(choiceContext, [.. CombatState.Enemies], Owner.Creature.Block,
+                DamageProps.cardUnpowered, Owner.Creature, this, null);
         }
         else
         {
-            await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-                .FromCard(this, null)
-                .WithHitCount(1)
-                .TargetingRandomOpponents(CombatState)
-                .WithHitFx(VfxCmd.slashPath)
-                .Execute(choiceContext);
+            await CreatureCmd.Damage(choiceContext, CombatState.Enemies.TakeRandom(1, RunState.Rng.CombatTargets), Owner.Creature.Block,
+                DamageProps.cardUnpowered, Owner.Creature, this, null);
         }
     }
 

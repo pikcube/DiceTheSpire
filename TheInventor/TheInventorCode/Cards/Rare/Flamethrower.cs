@@ -9,13 +9,13 @@ using TheInventor.TheInventorCode.Gadgets;
 namespace TheInventor.TheInventorCode.Cards.Rare;
 
 
-public class Flamethrower() : TheInventorCard(4, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
+public class Flamethrower() : TheInventorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
 {
     public override string GetScrapId => nameof(Blowtorch);
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(36, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(18, DamageProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -34,6 +34,7 @@ public class Flamethrower() : TheInventorCard(4, CardType.Attack, CardRarity.Rar
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        EnergyCost.UpgradeBy(2);
+        DynamicVars.Damage.UpgradeValueBy(18);
     }
 }
