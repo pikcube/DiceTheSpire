@@ -1,20 +1,10 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.Models.Relics;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Relics;
 
@@ -25,7 +15,7 @@ public class ProteinShake : TheWarriorRelic
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     public override async Task AfterPotionUsed(PotionModel potion, Creature? target)
     {
-        if (Owner.Creature.CombatState is null || potion.Owner.Creature is null || potion.Owner is null || potion is null)
+        if (!CombatManager.Instance.IsInProgress)
         {
             return;
         }
