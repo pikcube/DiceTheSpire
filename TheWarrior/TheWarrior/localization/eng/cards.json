@@ -143,5 +143,7 @@
   "THEWARRIOR-HAUNTED_SWORD.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-HAUNTED_SWORD.title": "Haunted Sword",
   "THEWARRIOR-TACKLE.description": "Put the next card you play\nthis turn on top your\n[gold]Draw Pile[/gold].\nGain {Energy:energyIcons()} next turn.",
-  "THEWARRIOR-TACKLE.title": "Tackle"
+  "THEWARRIOR-TACKLE.title": "Tackle",
+  "THEWARRIOR-CONFUSING_CRYSTAL.description": "[gold]Reroll[/gold] all cards in [gold]Hand[/gold]\nthat cost {Energy:energyIcons()} or more.",
+  "THEWARRIOR-CONFUSING_CRYSTAL.title": "Confusing Crystal"
 }     
