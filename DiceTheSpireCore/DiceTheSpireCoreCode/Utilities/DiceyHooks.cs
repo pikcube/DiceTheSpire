@@ -152,6 +152,13 @@ public static class DiceyHooks
         return isModified;
     }
 
+    public static async Task OnFlipAsync(IRunState runState, CardModel card, int originalCost, int getAmountToSpend, FlipDuration duration)
+    {
+        foreach (IAfterFlipListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterFlipListener>())
+        {
+            await listener.AfterFlipAsync(card, originalCost, getAmountToSpend, duration);
+        }
+    }
     public static async Task OnRerollAsync(IRunState runState, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
         foreach (IAfterRerollListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterRerollListener>())

@@ -52,7 +52,7 @@ public static class RerollCmd
     {
         int minimum = 0;
         int maximum = 3;
-        
+
         if (RangeVars.TryGet(card, out int min, out int max))
         {
             minimum = min;

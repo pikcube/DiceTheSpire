@@ -7,3 +7,8 @@ public interface IAfterRerollListener
 {
     public Task AfterRerollAsync(CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration);
 }
+
+public interface IAfterFlipListener
+{
+    public Task AfterFlipAsync(CardModel card, int originalCost, int getAmountToSpend, FlipDuration duration);
+}

@@ -50,5 +50,6 @@ public static class CardModelExtensions
                 await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, false);
             }
         }
+
     }
 }

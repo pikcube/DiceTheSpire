@@ -22,4 +22,7 @@ public static class BetterStaticHoverTips
 
     [CustomEnum]
     public static StaticHoverTip Held = 0;
+
+    [CustomEnum]
+    public static StaticHoverTip Flip = 0;
 }
