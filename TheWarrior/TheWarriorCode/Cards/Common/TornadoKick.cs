@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
-public class BattleAxe() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class TornadoKick() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new RepeatVar(1)];
 
@@ -15,9 +15,9 @@ public class BattleAxe() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        int extraHits = Owner.Creature.GetPower<AxeMasteryPower>()?.Amount ?? 0;
+        int extraHits = Owner.Creature.GetPower<FlurryOfKicksPower>()?.Amount ?? 0;
             
-        int hitCount = 2 + extraHits;
+        int hitCount = 1 + extraHits;
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .WithHitCount(hitCount)
@@ -26,11 +26,11 @@ public class BattleAxe() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<AxeMasteryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<FlurryOfKicksPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
 
         if (IsUpgraded)
         {
-            await PowerCmd.Apply<AxeMasteryPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+            await PowerCmd.Apply<FlurryOfKicksPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
         }
     }
 
