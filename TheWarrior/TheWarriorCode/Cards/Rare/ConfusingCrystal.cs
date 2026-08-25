@@ -19,7 +19,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Rare;
 public class ConfusingCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return, CardKeyword.Sly];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
