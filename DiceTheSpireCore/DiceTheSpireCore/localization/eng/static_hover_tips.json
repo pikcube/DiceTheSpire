@@ -13,5 +13,7 @@
   "DICETHESPIRECORE-HELD.title": "Held",
   "DICETHESPIRECORE-RANGE.oneDescription": "This card will always randomize to cost [blue]{cost}[/blue].",
   "DICETHESPIRECORE-RANGE.twoDescription": "This card will always randomize to cost between [blue]{min}[/blue] and [blue]{max}[/blue].",
-  "DICETHESPIRECORE-RANGE.title": "Range [{values}]"
+  "DICETHESPIRECORE-RANGE.title": "Range [{values}]",
+  "DICETHESPIRECORE-FLIP.description": "Inverse the cost of a card until the next time it is played this turn.\nCards that cost 3+, cost 0.\nCards that cost 2, cost 1.\nCards that cost 1, cost 2.\nCards that cost 0, cost 3.",
+  "DICETHESPIRECORE-FLIP.title": "Flip"
 }
