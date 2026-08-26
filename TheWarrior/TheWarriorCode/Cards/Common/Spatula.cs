@@ -13,9 +13,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 public class Spatula() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Flip)];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToFlip, 1, DynamicVars.Cards.IntValue);
@@ -28,7 +26,7 @@ public class Spatula() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Ta
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        RemoveKeyword(CardKeyword.Retain);
     }
 
 }

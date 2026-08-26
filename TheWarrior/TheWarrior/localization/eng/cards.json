@@ -147,5 +147,7 @@
   "THEWARRIOR-CONFUSING_CRYSTAL.description": "[gold]Reroll[/gold] all cards in [gold]Hand[/gold]\nthat cost {Energy:energyIcons()} or more.",
   "THEWARRIOR-CONFUSING_CRYSTAL.title": "Confusing Crystal",
   "THEWARRIOR-SPATULA.description": "[gold]Flip[/gold] a card in [gold]Hand[/gold].",
-  "THEWARRIOR-SPATULA.title": "Spatula"
+  "THEWARRIOR-SPATULA.title": "Spatula",
+  "THEWARRIOR-PERMAFROST_RETENTION.description": "Gain {PermafrostRetentionPower:diff()} [gold]Block[/gold] whenever you [gold]Retain[/gold] a card.",
+  "THEWARRIOR-PERMAFROST_RETENTION.title": "Permafrost Retention"
 }     
