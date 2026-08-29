@@ -2,5 +2,7 @@
   "DICETHESPIRECORE-PIP.description": "{PipDescription.StringValue}",
   "DICETHESPIRECORE-PIP.title": "Pip",
   "DICETHESPIRECORE-ROLL_AGAIN.description": "Select 1 card in hand to [gold]Reroll[/gold].",
-  "DICETHESPIRECORE-ROLL_AGAIN.title": "Roll Again"
+  "DICETHESPIRECORE-ROLL_AGAIN.title": "Roll Again",
+  "DICETHESPIRECORE-FLIP_AGAIN.description": "Select 1 card in hand to [gold]Flip[/gold].",
+  "DICETHESPIRECORE-FLIP_AGAIN.title": "Flip Again"
 }

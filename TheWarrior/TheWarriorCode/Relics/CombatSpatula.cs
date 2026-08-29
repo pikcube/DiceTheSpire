@@ -12,11 +12,12 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace TheWarrior.TheWarriorCode.Relics;
+
 [UsedImplicitly]
-public class CombatRoll : TheWarriorRelic
+public class CombatSpatula : TheWarriorRelic
 {
-    public override RelicRarity Rarity => RelicRarity.Starter;
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll), HoverTipFactory.FromCard<RollAgain>(true)];
+    public override RelicRarity Rarity => RelicRarity.Ancient;
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Flip), HoverTipFactory.FromCard<FlipAgain>(true)];
     public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
     {
         if (Owner != player || Owner.Creature.CombatState is null || Owner.PlayerCombatState?.TurnNumber != 1)
@@ -26,14 +27,9 @@ public class CombatRoll : TheWarriorRelic
 
         for (int n = 0; n < 3; ++n)
         {
-            RollAgain card = combatState.CreateCard<RollAgain>(Owner);
+            FlipAgain card = combatState.CreateCard<FlipAgain>(Owner);
             CardCmd.Upgrade(card);
             await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
         }
-    }
-
-    public override RelicModel GetUpgradeReplacement()
-    {
-        return ModelDb.Relic<CombatSpatula>();
     }
 }
