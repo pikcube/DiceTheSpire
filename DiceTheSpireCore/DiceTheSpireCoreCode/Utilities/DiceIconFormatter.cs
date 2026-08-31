@@ -2,6 +2,8 @@
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SmartFormat.Core.Extensions;
+using SmartFormat.Core.Formatting;
+using static Godot.HttpRequest;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 
@@ -9,30 +11,8 @@ public class DiceIconFormatter : IFormatter
 {
     public bool TryEvaluateFormat(IFormattingInfo formattingInfo)
     {
-        int result;
-        switch (formattingInfo.CurrentValue)
-        {
-            case EnergyVar energyVar:
-                result = Convert.ToInt32(energyVar.PreviewValue);
-                break;
-            case CalculatedVar calculatedVar:
-                result = Convert.ToInt32(calculatedVar.Calculate(null));
-                break;
-            case decimal num1:
-                result = (int)num1;
-                break;
-            case int num2:
-                result = num2;
-                break;
-            case string:
-                if (!int.TryParse(formattingInfo.FormatterOptions, out result))
-                {
-                    return false;
-                }
-                break;
-            default:
-                throw new LocException($"Unknown value='{formattingInfo.CurrentValue}' type={formattingInfo.CurrentValue?.GetType()}");
-        }
+        ArgumentNullException.ThrowIfNull(formattingInfo.CurrentValue);
+        int result = GetValue(formattingInfo.CurrentValue);
 
         switch (result)
         {
@@ -41,7 +21,7 @@ public class DiceIconFormatter : IFormatter
             case > 9:
             {
                 string element = Path.Join("text", "Dicecon_1.png").ImagePath();
-                formattingInfo.Write($"{result}[img]{element}[img]");
+                formattingInfo.Write($"{result}[img]{element}[/img]");
                 break;
             }
             default:
@@ -53,6 +33,20 @@ public class DiceIconFormatter : IFormatter
         }
 
         return true;
+    }
+
+    private static int GetValue(object value)
+    {
+        return value switch
+        {
+            EnergyVar energyVar => Convert.ToInt32(energyVar.PreviewValue),
+            CalculatedVar calculatedVar => Convert.ToInt32(calculatedVar.Calculate(null)),
+            DynamicVar dynamicVar => Convert.ToInt32(dynamicVar.PreviewValue),
+            decimal num1 => (int)num1,
+            int num2 => num2,
+            string => int.Parse(value.ToString() ?? ""),
+            _ => throw new LocException($"Unknown value='{value}' type={value.GetType()}")
+        };
     }
 
     public string Name { get; set; } = "diceIcons";
