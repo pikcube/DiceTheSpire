@@ -7,6 +7,9 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 
 public class DiceIconFormatter : IFormatter
 {
+    public string Name { get; set; } = "diceIcons";
+    public bool CanAutoDetect { get; set; } = false;
+
     public bool TryEvaluateFormat(IFormattingInfo formattingInfo)
     {
         ArgumentNullException.ThrowIfNull(formattingInfo.CurrentValue);
@@ -14,7 +17,7 @@ public class DiceIconFormatter : IFormatter
 
         switch (result)
         {
-            case < 1:
+            case < 0:
                 return false;
             case > 9:
             {
@@ -40,13 +43,10 @@ public class DiceIconFormatter : IFormatter
             EnergyVar energyVar => Convert.ToInt32(energyVar.PreviewValue),
             CalculatedVar calculatedVar => Convert.ToInt32(calculatedVar.Calculate(null)),
             DynamicVar dynamicVar => Convert.ToInt32(dynamicVar.PreviewValue),
-            decimal num1 => (int)num1,
-            int num2 => num2,
-            string => int.Parse(value.ToString() ?? ""),
+            decimal decimalNum => Convert.ToInt32(decimalNum),
+            int intNum => intNum,
+            string stringValue => int.Parse(stringValue),
             _ => throw new LocException($"Unknown value='{value}' type={value.GetType()}")
         };
     }
-
-    public string Name { get; set; } = "diceIcons";
-    public bool CanAutoDetect { get; set; }
 }
