@@ -2,8 +2,6 @@
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SmartFormat.Core.Extensions;
-using SmartFormat.Core.Formatting;
-using static Godot.HttpRequest;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 
