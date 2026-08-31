@@ -40,13 +40,13 @@ public class DiceIconFormatter : IFormatter
                 return false;
             case > 9:
             {
-                string element = Path.Join("Energy", "ui_dice_dice1.png").ImagePath();
+                string element = Path.Join("text", "Dicecon_1.png").ImagePath();
                 formattingInfo.Write($"{result}[img]{element}[img]");
                 break;
             }
             default:
             {
-                string element = Path.Join("Energy", $"ui_dice_dice{result}.png").ImagePath();
+                string element = Path.Join("text", $"Dicecon_{result}.png").ImagePath();
                 formattingInfo.Write($"[img]{element}[/img]");
                 break;
             }
