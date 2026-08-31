@@ -53,8 +53,3 @@ public enum FlipDuration
     UntilEndOfTurn = 2,
     UntilEndOfTurnOrPlayed = 3,
 }
-
-
-
-
-
