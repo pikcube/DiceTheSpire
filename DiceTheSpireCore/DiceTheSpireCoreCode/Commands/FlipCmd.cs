@@ -1,10 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Helpers;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.Cards;
-using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 
@@ -12,10 +7,15 @@ public static class FlipCmd
 {
     public static async Task FlipAsync(CardModel card, FlipDuration duration)
     {
+        if (card.EnergyCost.CostsX)
+        {
+            return;
+        }
+
         ArgumentNullException.ThrowIfNull(card.RunState);
         int originalCost = card.EnergyCost.GetAmountToSpend();
 
-        int nextEnergyCost = NextEnergyCost(card, card.RunState);
+        int nextEnergyCost = NextEnergyCost(card);
 
         switch (duration)
         {
@@ -38,23 +38,11 @@ public static class FlipCmd
         await DiceyHooks.OnFlipAsync(card.RunState, card, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
     }
 
-    private static int NextEnergyCost(CardModel card, IRunState runState)
+    private static int NextEnergyCost(CardModel card)
     {
-        if (card.EnergyCost == null) 
-            return 0;
-        if (card.EnergyCost.CostsX)
-            return -1;
-        if (card.EnergyCost.GetAmountToSpend() == 0)
-            return 3;
-        if (card.EnergyCost.GetAmountToSpend() == 1)
-            return 2;
-        if (card.EnergyCost.GetAmountToSpend() == 2)
-            return 1;
-        if (card.EnergyCost.GetAmountToSpend() >= 3)
-            return 0;
-
-        return 0;
-
+        return card.EnergyCost.CostsX 
+            ? throw new ArgumentException("Cannot flip X-Cost card", nameof(card)) 
+            : Math.Max(3 - card.EnergyCost.GetAmountToSpend(), 0);
     }
 }
 

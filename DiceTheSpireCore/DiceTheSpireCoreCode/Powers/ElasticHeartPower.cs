@@ -13,7 +13,7 @@ namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 public class ElasticHeartPower : DiceTheSpireCorePower
 {
     private const UnplayableReason ValidReasons = UnplayableReason.HasUnplayableKeyword | UnplayableReason.BlockedByHook;
-    private static bool GetUnplayableCards(CardModel card)
+    private static bool IsCardUnplayable(CardModel card)
     {
         card.CanPlay(out UnplayableReason reason, out _);
         return (ValidReasons & reason) > 0;
@@ -30,7 +30,7 @@ public class ElasticHeartPower : DiceTheSpireCorePower
             return;
         }
 
-        foreach (CardModel _ in PileType.Hand.GetPile(Owner.Player).Cards.Where(GetUnplayableCards))
+        foreach (CardModel _ in PileType.Hand.GetPile(Owner.Player).Cards.Where(IsCardUnplayable))
         {
             await CreatureCmd.GainBlock(Owner, Amount, BlockProps.nonCardUnpowered, null);
         }

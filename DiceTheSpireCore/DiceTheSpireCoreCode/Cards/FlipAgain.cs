@@ -1,7 +1,5 @@
 ﻿using BaseLib.Utils;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
