@@ -10,6 +10,8 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 
 public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
+    private const int Base = 5;
+
     public override string GetScrapId => nameof(Overload);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(CurrentDamage, DamageProps.card), new BlockVar(CurrentBlock, BlockProps.card), new IntVar("Increase", 2)];
@@ -26,7 +28,7 @@ public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare
             field = value;
             DynamicVars.Damage.BaseValue = field;
         }
-    } = 5;
+    } = Base;
 
     public int CurrentBlock
     {
@@ -37,10 +39,10 @@ public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare
             field = value;
             DynamicVars.Block.BaseValue = field;
         }
-    } = 5;
+    } = Base;
 
     [SavedProperty]
-    public int IncreasedDamage
+    public int IncreasedDamageAndBlock
     {
         get;
         set
@@ -65,12 +67,12 @@ public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         if (DeckVersion is Transformer t)
         {
-            t.BuffDamage();
+            t.BuffDamageAndBlock();
         }
     }
-    private void BuffDamage()
+    private void BuffDamageAndBlock()
     {
-        IncreasedDamage += DynamicVars["Increase"].IntValue;
+        IncreasedDamageAndBlock += DynamicVars["Increase"].IntValue;
     }
 
     protected override void OnUpgrade()
@@ -84,6 +86,6 @@ public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare
         UpdateBlock();
     }
 
-    private void UpdateDamage() => CurrentDamage = 1 + IncreasedDamage;
-    private void UpdateBlock() => CurrentBlock = 1 + IncreasedDamage;
+    private void UpdateDamage() => CurrentDamage = Base + IncreasedDamageAndBlock;
+    private void UpdateBlock() => CurrentBlock = Base + IncreasedDamageAndBlock;
 }
