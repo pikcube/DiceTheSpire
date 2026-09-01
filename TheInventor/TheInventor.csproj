@@ -33,7 +33,7 @@
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.4.5" PrivateAssets="All" />
         <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
-        <PackageReference Include="Pikcube.Common" Version="0.3.5" />
+        <PackageReference Include="Pikcube.Common" Version="0.3.7" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
         <AdditionalFiles Include="TheInventor/localization/**/*.json" /> <!-- Used by analyzer -->

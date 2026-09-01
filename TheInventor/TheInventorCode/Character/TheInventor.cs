@@ -2,16 +2,18 @@
 using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Utility;
 using TheInventor.TheInventorCode.Cards.Basic;
 using TheInventor.TheInventorCode.Extensions;
 using TheInventor.TheInventorCode.Relics;
 
 namespace TheInventor.TheInventorCode.Character;
 
-public class TheInventor : PlaceholderCharacterModel
+public class TheInventor : PlaceholderCharacterModel, ICustomEndTurnCharacter
 {
     public const string CharacterId = "TheInventor";
 
@@ -59,8 +61,11 @@ public class TheInventor : PlaceholderCharacterModel
         return NodeFactory<NCreatureVisuals>.CreateFromResource("res://TheInventor/images/inventor.png");
     }
 
+
+    public override string CustomMerchantAnimPath => Path.Join("res://TheInventor/", "merchant.tscn");
     public override string CustomIconTexturePath => "character_icon_the_inventor.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "charselect_inventor.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "charselect_unknown.png".CharacterUiPath();
     public override string CustomMapMarkerPath => "map_marker_the_inventor.png".CharacterUiPath();
+    public ICustomEndTurnPingMachine Create(Player player) => new SimpleEndTurnPingMachine(false);
 }

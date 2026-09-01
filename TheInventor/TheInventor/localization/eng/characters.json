@@ -1,6 +1,8 @@
 {
   "THEINVENTOR-THE_INVENTOR.aromaPrinciple": "[sine][orange]If it can be built...it can be destroyed...[/orange][/sine]",
   "THEINVENTOR-THE_INVENTOR.banter.alive.endTurnPing": "I bet the car weighs down the wheel!",
+  "THEINVENTOR-THE_INVENTOR.banter.alive.endTurnPing.0": "According to all known laws of aviation, there is no way a bee should be able to fly.",
+  "THEINVENTOR-THE_INVENTOR.banter.alive.endTurnPing.1": "Its wings are too small to get its fat little body off the ground.",
   "THEINVENTOR-THE_INVENTOR.banter.dead.endTurnPing": "...",
   "THEINVENTOR-THE_INVENTOR.cardsModifierDescription": "Inventor cards will now appear in rewards and shops.",
   "THEINVENTOR-THE_INVENTOR.cardsModifierTitle": "Inventor Cards",

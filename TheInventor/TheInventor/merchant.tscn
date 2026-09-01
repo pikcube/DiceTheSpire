@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh8rvll548c0w"]
+
+[ext_resource type="Texture2D" uid="uid://dygsufm4m74w5" path="res://TheInventor/images/inventor.png" id="1_nouyn"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -145.0
+offset_top = -280.0
+offset_right = 144.0
+offset_bottom = 29.556488
+texture = ExtResource("1_nouyn")

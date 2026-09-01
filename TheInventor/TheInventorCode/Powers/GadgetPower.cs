@@ -1,5 +1,4 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,6 +9,7 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Cards.Token;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Interfaces;
