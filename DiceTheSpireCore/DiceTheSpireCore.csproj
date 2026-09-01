@@ -31,7 +31,7 @@
     <ItemGroup>
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.4.5" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
-        <PackageReference Include="Pikcube.Common" Version="0.3.7" />
+        <PackageReference Include="Pikcube.Common" Version="0.3.8" />
         <PackageReference Include="SmartFormat" Version="3.6.1" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
