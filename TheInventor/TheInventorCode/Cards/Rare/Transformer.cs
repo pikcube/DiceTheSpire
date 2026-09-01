@@ -26,7 +26,7 @@ public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare
             field = value;
             DynamicVars.Damage.BaseValue = field;
         }
-    } = 1;
+    } = 5;
 
     public int CurrentBlock
     {
@@ -37,7 +37,7 @@ public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare
             field = value;
             DynamicVars.Block.BaseValue = field;
         }
-    } = 1;
+    } = 5;
 
     [SavedProperty]
     public int IncreasedDamage
