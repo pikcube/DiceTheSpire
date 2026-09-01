@@ -4,6 +4,7 @@ using BaseLib.Utils;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -48,7 +49,12 @@ public class Rock() : CustomCardModel(-1, CardType.Attack, CardRarity.Token, Tar
             return;
         }
 
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies.TakeRandom(1, RunState.Rng.CombatTargets).Single(),
+        Creature? target = CombatState.Enemies.TakeRandom(1, RunState.Rng.CombatTargets).SingleOrDefault();
+        if (target is null)
+        {
+            return;
+        }
+        await CreatureCmd.Damage(choiceContext, target,
             DynamicVars.Damage, this, null);
     }
 

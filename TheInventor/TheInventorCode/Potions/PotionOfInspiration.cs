@@ -17,13 +17,8 @@ public class PotionOfInspiration : TheInventorPotion
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.Static(InventorStaticHoverTips.Gadget)];
 
-    public override bool ShouldAllowTargeting(Creature target)
-    {
-        return target.Player is not null && ScrapManager.HasGadget(target.Player);
-    }
-
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        await ScrapManager.RandomizeAllGadgetsAsync(choiceContext, Owner, null);
+        await ScrapManager.RandomizeAllGadgetsAsync(choiceContext, target?.Player ?? Owner, null);
     }
 }
