@@ -23,6 +23,4 @@ public static class RummageCmd
         }
         await CardPileCmd.Draw(choiceContext, cards.Length, player);
     }
-
-
 }
