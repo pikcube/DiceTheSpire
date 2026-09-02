@@ -95,8 +95,8 @@
   "DICETHESPIRECORE-PERMAFROST_RETENTION_POWER.description": "Gain {Amount} [gold]Block[/gold] whenever a card is retained.",
   "DICETHESPIRECORE-PERMAFROST_RETENTION_POWER.smartDescription": "Gain {Amount} [gold]Block[/gold] whenever a card is retained.",
   "DICETHESPIRECORE-PERMAFROST_RETENTION_POWER.title": "Permafrost Retention",
-  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.description": "",
-  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.smartDescription": "",
-  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.title": "Super Set (Rummage)"
+  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.description": "Whenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {Amount} cards.",
+  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.smartDescription": "Whenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {Amount} cards.",
+  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.title": "Super Set"
 
 }

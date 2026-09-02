@@ -91,7 +91,7 @@
   "THEWARRIOR-NUDGE_BLADE.title": "Nudge Blade",
   "THEWARRIOR-TABLE_SLAM.description": "[gold]Reroll[/gold] your [gold]Hand[/gold].\n[gold]Retain[/gold] your [gold]Hand[/gold] this turn.",
   "THEWARRIOR-TABLE_SLAM.title": "Table Slam",
-  "THEWARRIOR-TAZER.description": "[gold]Shock[/gold] {ShockPower:diff()} {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] any number of cards.",
+  "THEWARRIOR-TAZER.description": "[gold]Shock[/gold] {ShockPower:diff()} {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] 10 cards.",
   "THEWARRIOR-TAZER.title": "Tazer",
   "THEWARRIOR-SPARE_THREE.description": "Gain {Energy:diceIcons()}.\nYou cannot draw additional cards this turn.",
   "THEWARRIOR-SPARE_THREE.title": "Spare Three",

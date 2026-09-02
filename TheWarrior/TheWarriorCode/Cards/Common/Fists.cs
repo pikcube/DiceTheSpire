@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -16,20 +17,7 @@ public class Fists() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Targ
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-
-        CardSelectorPrefs cardSelectorPrefs = new(CardSelectorPrefs.DiscardSelectionPrompt, 0, DynamicVars.Cards.IntValue);
-        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-        foreach (CardModel card in cards)
-        {
-            await CardCmd.Discard(choiceContext, card);
-        }
-
-        if (cards.Length == 0)
-        {
-            return;
-        }
-
-        await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
+        await RummageCmd.RummageAsync(DynamicVars.Cards.IntValue, choiceContext, Owner.Creature, this);
     }
 
     protected override void OnUpgrade() => DynamicVars.Cards.UpgradeValueBy(1);

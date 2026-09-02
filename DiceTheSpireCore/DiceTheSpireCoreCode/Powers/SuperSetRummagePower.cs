@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,7 +17,6 @@ public class SuperSetRummagePower : DiceTheSpireCorePower
         {
             return;
         }
-
-        await CardPileCmd.Draw(choiceContext, Amount, Owner.Player);
+        await RummageCmd.RummageAsync(Amount, choiceContext, Owner, cardPlay.Card);
     }
 }

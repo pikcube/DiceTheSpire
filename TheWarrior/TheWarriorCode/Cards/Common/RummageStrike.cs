@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -6,6 +7,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
@@ -28,18 +30,24 @@ public class RummageStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Com
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        CardSelectorPrefs cardSelectorPrefs = new(CardSelectorPrefs.DiscardSelectionPrompt, 0, DynamicVars.Cards.IntValue);
-        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-        foreach (CardModel card in cards)
-        {
-            await CardCmd.Discard(choiceContext, card);
-        }
-
-        if (cards.Length == 0)
+        if(Owner.Creature is null)
         {
             return;
         }
-        await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
+        await RummageCmd.RummageAsync(DynamicVars.Cards.IntValue, choiceContext, Owner.Creature, this);
+
+        //CardSelectorPrefs cardSelectorPrefs = new(CardSelectorPrefs.DiscardSelectionPrompt, 0, DynamicVars.Cards.IntValue);
+        //CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        //foreach (CardModel card in cards)
+        //{
+        //    await CardCmd.Discard(choiceContext, card);
+        //}
+
+        //if (cards.Length == 0)
+        //{
+        //    return;
+        //}
+        //await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
 
     }
     protected override void OnUpgrade()

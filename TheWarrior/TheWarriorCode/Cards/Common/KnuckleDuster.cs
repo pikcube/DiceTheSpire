@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -19,19 +20,7 @@ public class KnuckleDuster() : TheWarriorCard(1, CardType.Skill, CardRarity.Comm
     {
         await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, this);
 
-        CardSelectorPrefs cardSelectorPrefs = new(CardSelectorPrefs.DiscardSelectionPrompt, 0, DynamicVars.Cards.IntValue);
-        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-        foreach (CardModel card in cards)
-        {
-            await CardCmd.Discard(choiceContext, card);
-        }
-
-        if (cards.Length == 0)
-        {
-            return;
-        }
-
-        await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
+        await RummageCmd.RummageAsync(DynamicVars.Cards.IntValue, choiceContext, Owner.Creature, this);
 
     }
 
