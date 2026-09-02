@@ -1,8 +1,2 @@
 {
-  "DICETHESPIRE-VILE_VIAL.description": "Apply [blue]{DebuffCount:diff()}[/blue] random debuffs.",
-  "DICETHESPIRE-VILE_VIAL.title": "Vile Vial",
-  "DICETHESPIRE-POTION_OF_INSPIRATION.description": "Randomize your [gold]Gadget[/gold].",
-  "DICETHESPIRE-POTION_OF_INSPIRATION.title": "Potion Of Inspiration",
-  "DICETHESPIRE-REDUCE_POTION.description": "Gain [blue]{ReducePower:diff()}[/blue] [gold]Reduce[/gold].",
-  "DICETHESPIRE-REDUCE_POTION.title": "Reduce Potion"
 }
