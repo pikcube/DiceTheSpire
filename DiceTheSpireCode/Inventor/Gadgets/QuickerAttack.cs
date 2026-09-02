@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards.Basic;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards.Uncommon;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Basic;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Uncommon;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;

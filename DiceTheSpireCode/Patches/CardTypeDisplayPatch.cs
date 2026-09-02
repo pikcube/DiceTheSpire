@@ -1,4 +1,4 @@
-﻿using DiceTheSpire.DiceTheSpireCode.Inventor.Cards.Token;
+﻿using DiceTheSpire.DiceTheSpireCode.Inventor.Token;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Nodes.Cards;

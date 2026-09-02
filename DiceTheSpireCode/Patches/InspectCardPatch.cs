@@ -1,4 +1,4 @@
-﻿using DiceTheSpire.DiceTheSpireCode.Inventor.Cards;
+﻿using DiceTheSpire.DiceTheSpireCode.Inventor;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Nodes.Screens;
 

@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using DiceTheSpire.DiceTheSpireCode.Interfaces;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards.Token;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Token;
 using DiceTheSpire.DiceTheSpireCode.Utility;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;

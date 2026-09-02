@@ -1,5 +1,5 @@
 using BaseLib.Utils;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
+using DiceTheSpire.DiceTheSpireCode.Inventor;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;

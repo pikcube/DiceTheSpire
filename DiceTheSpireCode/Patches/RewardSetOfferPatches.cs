@@ -1,4 +1,4 @@
-﻿using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
+﻿using DiceTheSpire.DiceTheSpireCode.Inventor;
 using DiceTheSpire.DiceTheSpireCode.Utility;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Rewards;

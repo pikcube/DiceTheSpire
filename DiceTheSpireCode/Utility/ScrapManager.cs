@@ -1,8 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
 using DiceTheSpire.DiceTheSpireCode.Interfaces;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
+using DiceTheSpire.DiceTheSpireCode.Inventor;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
 using DiceTheSpire.DiceTheSpireCode.Powers;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;

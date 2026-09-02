@@ -1,6 +1,6 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.DiceTheSpireCode.Extensions;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards.Rare;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Rare;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;

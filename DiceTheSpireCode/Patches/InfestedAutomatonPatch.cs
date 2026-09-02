@@ -1,6 +1,6 @@
-﻿using DiceTheSpire.DiceTheSpireCode.Inventor.Cards.Token;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
+﻿using DiceTheSpire.DiceTheSpireCode.Inventor;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Token;
 using DiceTheSpire.DiceTheSpireCode.Utility;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;

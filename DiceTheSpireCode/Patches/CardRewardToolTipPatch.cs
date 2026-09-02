@@ -1,6 +1,5 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
+using DiceTheSpire.DiceTheSpireCode.Inventor;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;

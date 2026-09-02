@@ -1,8 +1,7 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Cards.Token;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
+using DiceTheSpire.DiceTheSpireCode.Inventor;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Token;
 using DiceTheSpire.DiceTheSpireCode.Utility;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;

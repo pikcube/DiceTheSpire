@@ -2,7 +2,7 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using DiceTheSpire.DiceTheSpireCode.Extensions;
-using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
+using DiceTheSpire.DiceTheSpireCode.Inventor;
 
 namespace DiceTheSpire.DiceTheSpireCode.Relics;
 
