@@ -12,7 +12,6 @@ namespace TheInventor.TheInventorCode.Cards.Rare;
 public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IScrapCard
 {
     public override string GetScrapId => nameof(Harvest);
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
     public override IEnumerable<CardTag> Tags => [CardTag.Strike];

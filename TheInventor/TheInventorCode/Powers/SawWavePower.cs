@@ -20,11 +20,15 @@ public class SawWavePower : TheInventorPower
     public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner || Owner.Player is null || power.Owner != Owner || power.GetTypeForAmount(amount) != PowerType.Debuff)
+        if (applier != Owner || target != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff)
         {
             return;
         }
 
+        if (power.GetTypeForAmount(amount) == power.GetTypeForAmount(-amount) && amount < 0)
+        {
+            return;
+        }
         HookPlayerChoiceContext choiceContext = new(Owner.Player, LocalContext.NetId ?? 0, GameActionType.Combat);
 
         await DexterityPower.ApplyAsync(choiceContext, Owner, Amount, Owner, cardSource);

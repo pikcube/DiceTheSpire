@@ -15,7 +15,7 @@
   "THEINVENTOR-PORTABLE_FAN.description": "Whenever you create a card in combat, apply a random debuff to ALL enemies.",
   "THEINVENTOR-PORTABLE_FAN.flavor": "\"God paper pulp smells awful. At least now I'm not the one smelling it.\"",
   "THEINVENTOR-PORTABLE_FAN.title": "Portable Fan",
-  "THEINVENTOR-TOASTED_MARSHMALLOW.description": "At the end of your turn, gain block equal to twice your current {Energy:diceIcons()}.",
+  "THEINVENTOR-TOASTED_MARSHMALLOW.description": "At the end of your turn, gain [blue]2[/blue] block for each unspent {Energy:diceIcons()}.",
   "THEINVENTOR-TOASTED_MARSHMALLOW.flavor": "\"...I don't want to talk about this one.\"",
   "THEINVENTOR-TOASTED_MARSHMALLOW.title": "Toasted Marshmallow",
   "THEINVENTOR-ELECTRICAL_GLOVES.description": "At the end of your turn, [gold]Retain[/gold] ALL [gold]Shocked[/gold] cards.",
