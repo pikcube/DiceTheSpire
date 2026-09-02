@@ -1,13 +1,11 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
@@ -20,7 +18,7 @@ public class KnuckleDuster() : TheWarriorCard(1, CardType.Skill, CardRarity.Comm
     {
         await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, this);
 
-        await RummageCmd.RummageAsync(DynamicVars.Cards.IntValue, choiceContext, Owner.Creature, this);
+        await RummageCmd.RummageAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
 
     }
 

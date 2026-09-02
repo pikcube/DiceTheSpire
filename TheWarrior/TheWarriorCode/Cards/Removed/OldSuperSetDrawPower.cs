@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TheWarrior.TheWarriorCode.Cards.Removed;
 
-namespace DiceTheSpireCore.DiceTheSpireCoreCode.Powers
+internal class SuperSetDrawPower
 {
-    internal class SuperSetDrawPower
-    {
-    }
 }

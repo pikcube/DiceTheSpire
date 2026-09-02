@@ -2,13 +2,11 @@
 using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 public class Tazer() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
@@ -20,7 +18,7 @@ public class Tazer() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, Ta
     {
         await PowerCmd.Apply<ShockPower>(choiceContext, Owner.Creature, DynamicVars.Power<ShockPower>().IntValue, Owner.Creature, this);
 
-        await RummageCmd.RummageAsync(DynamicVars.Cards.IntValue, choiceContext, Owner.Creature, this);
+        await RummageCmd.RummageAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
     }
 
     protected override void OnUpgrade()
