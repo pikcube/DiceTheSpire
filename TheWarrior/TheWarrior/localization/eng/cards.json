@@ -73,7 +73,7 @@
   "THEWARRIOR-FISTS.title": "Fists",
   "THEWARRIOR-BICEP_CURL.description": "Whenever you [gold]Nudge[/gold] a card, [gold]Upgrade[/gold] a random card.",
   "THEWARRIOR-BICEP_CURL.title": "Bicep Curl",
-  "THEWARRIOR-JAVELIN.description": "Deal {Damage:diff()} damage. All 3-cost cards in [gold]Hand[/gold] cost 0 the next time they are played this turn.",
+  "THEWARRIOR-JAVELIN.description": "Deal {Damage:diff()} damage.\n[gold]Flip[/gold] all 3-cost\ncards in [gold]Hand[/gold].",
   "THEWARRIOR-JAVELIN.title": "Javelin",
   "THEWARRIOR-FOUR_HANDED_SWORD.description": "Add [gold]Adjust Grip[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-FOUR_HANDED_SWORD.title": "Four Handed Sword",
@@ -152,6 +152,6 @@
   "THEWARRIOR-SPATULA.title": "Spatula",
   "THEWARRIOR-PERMAFROST_RETENTION.description": "Gain {PermafrostRetentionPower:diff()} [gold]Block[/gold] whenever you [gold]Retain[/gold] a card.",
   "THEWARRIOR-PERMAFROST_RETENTION.title": "Permafrost Retention",
-  "THEWARRIOR-SUPER_SET.description": "Whenever you play a [gold]Power[/gold], [gold]Rummage[/gold] {SuperSetRummagePower:diff()} cards.",
+  "THEWARRIOR-SUPER_SET.description": "[gold]Rummage[/gold] {SuperSetRummagePower:diff()} cards.\nWhenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {SuperSetRummagePower:diff()} cards.",
   "THEWARRIOR-SUPER_SET.title": "Super Set"
 }     
