@@ -5,14 +5,14 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace TheWarrior.TheWarriorCode.Cards.Uncommon
+namespace TheWarrior.TheWarriorCode.Cards.Rare
 {
 
 
-    public class PermafrostRetention() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+    public class PermafrostRetention() : TheWarriorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
     {
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PermafrostRetentionPower>(3M)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PermafrostRetentionPower>(2M)];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
             await PowerCmd.Apply<PermafrostRetentionPower>(choiceContext, Owner.Creature, DynamicVars.Power<PermafrostRetentionPower>().IntValue, Owner.Creature, this);
