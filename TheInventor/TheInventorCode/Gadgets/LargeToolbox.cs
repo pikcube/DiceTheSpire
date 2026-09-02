@@ -12,6 +12,8 @@ namespace TheInventor.TheInventorCode.Gadgets;
 public class LargeToolbox() : GadgetModel(nameof(LargeToolbox))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
+
+    public override bool IsAllowedAsTempGadget => false;
     public override decimal PowerBase => 3;
 
     public bool IsReady { get; set; }

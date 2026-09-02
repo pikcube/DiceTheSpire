@@ -5,9 +5,9 @@ using Pikcube.Common.Keywords;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Utilities;
 
-namespace TheInventor.TheInventorCode.Cards.Uncommon;
+namespace TheInventor.TheInventorCode.Cards.Rare;
 
-public class ThisIsFine() : TheInventorCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class ThisIsFine() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override bool HasTurnEndInHandEffect => true;
 

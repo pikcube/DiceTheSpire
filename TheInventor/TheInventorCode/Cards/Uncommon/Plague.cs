@@ -5,9 +5,9 @@ using Pikcube.Common.Extensions;
 using TheInventor.TheInventorCode.Gadgets;
 using TheInventor.TheInventorCode.Powers;
 
-namespace TheInventor.TheInventorCode.Cards.Rare;
+namespace TheInventor.TheInventorCode.Cards.Uncommon;
 
-public class Plague() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare, TargetType.AllEnemies)
+public class Plague() : TheInventorCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     public override string GetScrapId => nameof(Stardust);
 
