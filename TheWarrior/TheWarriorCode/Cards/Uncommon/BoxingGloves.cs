@@ -15,7 +15,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 [UsedImplicitly]
 public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    public override TargetType TargetType => EnergyCost.GetAmountToSpend() > 0 ? TargetType.AnyEnemy : TargetType.Self;
+    //public override TargetType TargetType => EnergyCost.GetAmountToSpend() > 0 ? TargetType.AnyEnemy : TargetType.Self;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, DamageProps.card), new PowerVar<ReducePower>(1), .. RangeVars.Make(0, 1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)];
 
@@ -36,6 +36,15 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Unco
         }
         else
         {
+
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+            await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
+                .FromCard(this, cardPlay)
+                .Targeting(cardPlay.Target)
+                .WithHitFx(VfxCmd.slashPath)
+                .Execute(choiceContext);
+
             await PowerCmd.Apply<ReducePower>(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().IntValue, Owner.Creature, this);
         }
     
@@ -43,7 +52,7 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Unco
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.MaxRange.UpgradeValueBy(-1);
     }
 

@@ -94,6 +94,9 @@
   "DICETHESPIRECORE-A_GOOD_OFFENSE_POWER.title": "...Is A Good Offense",
   "DICETHESPIRECORE-PERMAFROST_RETENTION_POWER.description": "Gain {Amount} [gold]Block[/gold] whenever a card is retained.",
   "DICETHESPIRECORE-PERMAFROST_RETENTION_POWER.smartDescription": "Gain {Amount} [gold]Block[/gold] whenever a card is retained.",
-  "DICETHESPIRECORE-PERMAFROST_RETENTION_POWER.title": "Permafrost Retention"
+  "DICETHESPIRECORE-PERMAFROST_RETENTION_POWER.title": "Permafrost Retention",
+  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.description": "",
+  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.smartDescription": "",
+  "DICETHESPIRECORE-SUPER_SET_RUMMAGE_POWER.title": "Super Set (Rummage)"
 
 }

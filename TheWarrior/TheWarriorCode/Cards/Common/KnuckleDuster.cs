@@ -13,7 +13,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Common;
 
 public class KnuckleDuster() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(4), new PowerVar<VigorPower>(4M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new PowerVar<VigorPower>(4M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage), HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -35,6 +35,9 @@ public class KnuckleDuster() : TheWarriorCard(1, CardType.Skill, CardRarity.Comm
 
     }
 
-    protected override void OnUpgrade() => AddKeyword(CardKeyword.Retain);
-
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
+        DynamicVars.Cards.UpgradeValueBy(1);
+    }
 }
