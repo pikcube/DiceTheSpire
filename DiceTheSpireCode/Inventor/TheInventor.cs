@@ -58,11 +58,11 @@ public class TheInventor : PlaceholderCharacterModel, ICustomEndTurnCharacter
 
     public override NCreatureVisuals CreateCustomVisuals()
     {
-        return NodeFactory<NCreatureVisuals>.CreateFromResource("res://DiceTheSpire/images/inventor.png");
+        return NodeFactory<NCreatureVisuals>.CreateFromResource(Path.Join(MainFile.ResPath, "images", "inventor.png"));
     }
 
 
-    public override string CustomMerchantAnimPath => Path.Join("res://DiceTheSpire/", "merchant.tscn");
+    public override string CustomMerchantAnimPath => Path.Join(MainFile.ResPath, "merchant.tscn");
     public override string CustomIconTexturePath => "character_icon_the_inventor.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "charselect_inventor.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "charselect_unknown.png".CharacterUiPath();

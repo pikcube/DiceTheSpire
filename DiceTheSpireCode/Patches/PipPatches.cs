@@ -17,7 +17,7 @@ public static class PipPatches
 {
     public static LabelSettings CountdownLabelSettings => new()
     {
-        Font = ResourceLoader.Load<FontFile>("res://DiceTheSpire/fonts/Pangolin.ttf"),
+        Font = ResourceLoader.Load<FontFile>($"{MainFile.ResPath}/fonts/Pangolin.ttf"),
         FontColor = new Color(0, 0, 0),
         OutlineColor = new Color(0, 0, 0, 0),
         ShadowColor = new Color(0, 0, 0, 0),

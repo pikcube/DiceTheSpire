@@ -2,6 +2,7 @@ using BaseLib.Utils;
 using DiceTheSpire.DiceTheSpireCode.Inventor;
 using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
@@ -16,6 +17,7 @@ public partial class MainFile : Node
 
     public static Logger Logger { get; } = new(ModId, LogType.Generic);
     public static string ResPath => $"res://{ModId}";
+    public static string ModPrefix { get; } = StringHelper.Slugify(ModId);
 
     public static void Initialize()
     {

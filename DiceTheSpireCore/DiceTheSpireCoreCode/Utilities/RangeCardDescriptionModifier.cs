@@ -20,13 +20,13 @@ public static class RangeCardDescriptionModifier
 
         if (min == max)
         {
-            LocString text = new("card_keywords", "DICETHESPIRECORE-RANGE.single");
+            LocString text = new("card_keywords", $"{MainFile.ModPrefix}-RANGE.single");
             card.DynamicVars.AddTo(text);
             lines.Insert(0, text.GetFormattedText());
         }
         else
         {
-            LocString text = new("card_keywords", "DICETHESPIRECORE-RANGE.double");
+            LocString text = new("card_keywords", $"{MainFile.ModPrefix}-RANGE.double");
             card.DynamicVars.AddTo(text);
             lines.Insert(0, text.GetFormattedText());
         }

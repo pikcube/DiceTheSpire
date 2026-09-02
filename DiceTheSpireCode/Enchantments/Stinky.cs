@@ -7,7 +7,7 @@ namespace DiceTheSpire.DiceTheSpireCode.Enchantments;
 
 public class Stinky : CustomEnchantmentModel
 {
-    protected override string CustomIconPath => $"res://{MainFile.ModId}/images/enchantments/{nameof(Stinky).ToLowerInvariant()}.png";
+    protected override string CustomIconPath => $"{MainFile.ResPath}/images/enchantments/{nameof(Stinky).ToLowerInvariant()}.png";
 
     public override bool CanEnchant(CardModel card)
     {
