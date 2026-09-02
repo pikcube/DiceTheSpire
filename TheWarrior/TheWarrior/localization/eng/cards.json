@@ -65,7 +65,7 @@
   "THEWARRIOR-SHIELD_BASH.title": "Shield Bash",
   "THEWARRIOR-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "THEWARRIOR-THICK_SKIN.title": "Thick Skin",
-  "THEWARRIOR-TORNADO_KICK.description": "Deal {Damage:diff()} damage.\nAll copies of [gold]Tornado Kick[/gold] hit {IfUpgraded:show:two|one} more time.",
+  "THEWARRIOR-TORNADO_KICK.description": "Deal {Damage:diff()} damage.\nAll copies of [gold]Tornado Kick[/gold] hit {IfUpgraded:show:two|one} more {IfUpgraded:show:time|times}.",
   "THEWARRIOR-TORNADO_KICK.title": "Tornado Kick",
   "THEWARRIOR-CRYSTAL_SHIELD.description": "Gain block equal to twice\nthe energy cost of\nyour [gold]Hand[/gold].\n(Currently {CalculatedBlock:diff()})",
   "THEWARRIOR-CRYSTAL_SHIELD.title": "Crystal Shield",
@@ -153,5 +153,7 @@
   "THEWARRIOR-PERMAFROST_RETENTION.description": "Gain {PermafrostRetentionPower:diff()} [gold]Block[/gold] whenever you [gold]Retain[/gold] a card.",
   "THEWARRIOR-PERMAFROST_RETENTION.title": "Permafrost Retention",
   "THEWARRIOR-SUPER_SET.description": "[gold]Rummage[/gold] {SuperSetRummagePower:diff()} cards.\nWhenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {SuperSetRummagePower:diff()} cards.",
-  "THEWARRIOR-SUPER_SET.title": "Super Set"
+  "THEWARRIOR-SUPER_SET.title": "Super Set",
+  "THEWARRIOR-INVISIBLE_CRYSTAL.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].",
+  "THEWARRIOR-INVISIBLE_CRYSTAL.title": "Invisible Crystal"
 }     
