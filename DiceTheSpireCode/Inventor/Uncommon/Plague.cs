@@ -1,5 +1,5 @@
-﻿using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
-using DiceTheSpire.DiceTheSpireCode.Powers;
+﻿using DiceTheSpire.DiceTheSpireCode.Common.Powers;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

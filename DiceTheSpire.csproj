@@ -79,7 +79,6 @@
 
     <ItemGroup>
       <ProjectReference Include="DiceTheSpireCore\DiceTheSpireCore.csproj" />
-      <ProjectReference Include="TheThief\TheThief.csproj" />
       <ProjectReference Include="TheWarrior\TheWarrior.csproj" />
     </ItemGroup>
     

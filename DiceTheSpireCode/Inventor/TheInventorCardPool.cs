@@ -1,5 +1,5 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.DiceTheSpireCode.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
 using Godot;
 
 namespace DiceTheSpire.DiceTheSpireCode.Inventor;

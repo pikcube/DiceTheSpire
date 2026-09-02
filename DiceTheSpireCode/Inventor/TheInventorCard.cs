@@ -1,10 +1,10 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using DiceTheSpire.DiceTheSpireCode.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Token;
-using DiceTheSpire.DiceTheSpireCode.Utility;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using Godot;

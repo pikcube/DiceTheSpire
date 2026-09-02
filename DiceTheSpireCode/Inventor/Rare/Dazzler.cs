@@ -1,5 +1,5 @@
-﻿using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
-using DiceTheSpire.DiceTheSpireCode.Utility;
+﻿using DiceTheSpire.DiceTheSpireCode.Common.Utility;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Entities.Cards;

@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.DiceTheSpireCode.Interfaces;
-using DiceTheSpire.DiceTheSpireCode.Powers;
-using DiceTheSpire.DiceTheSpireCode.Utility;
+using DiceTheSpire.DiceTheSpireCode.Common.Interfaces;
+using DiceTheSpire.DiceTheSpireCode.Common.Powers;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

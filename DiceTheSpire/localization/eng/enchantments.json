@@ -3,5 +3,9 @@
   "DICETHESPIRE-STINKY.description": "This card is [gold]Eternal[/gold].",
   "DICETHESPIRE-RECYCLABLE.title": "Recyclable",
   "DICETHESPIRE-RECYCLABLE.description": "This card is always offered as [gold]Scrap[/gold].",
-  "DICETHESPIRE-RECYCLABLE.extraCardText": "Always offered as [gold]Scrap[/gold]."
+  "DICETHESPIRE-RECYCLABLE.extraCardText": "Always offered as [gold]Scrap[/gold].",
+
+  "DICETHESPIRE-STELLAR.description": "Gain {Stars:starIcons()}.",
+  "DICETHESPIRE-STELLAR.extraCardText": "Gain {Stars:starIcons()}.",
+  "DICETHESPIRE-STELLAR.title": "Stellar"
 }

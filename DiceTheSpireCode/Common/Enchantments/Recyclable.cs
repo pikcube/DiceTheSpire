@@ -1,0 +1,36 @@
+﻿using BaseLib.Abstracts;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models;
+
+namespace DiceTheSpire.DiceTheSpireCode.Common.Enchantments;
+
+public class Recyclable : CustomEnchantmentModel, IScrapCard
+{
+    protected override string CustomIconPath => $"{MainFile.ResPath}/images/enchantments/{nameof(Recyclable).ToLowerInvariant()}.png";
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.Static(InventorStaticHoverTips.Scrap),
+        HoverTipFactory.Static(InventorStaticHoverTips.Gadget)
+    ];
+
+    public override bool CanEnchant(CardModel card)
+    {
+        if (card.Type is CardType.Status or CardType.Quest)
+        {
+            return false;
+        }
+
+        if (card.Enchantment is not null)
+        {
+            return false;
+        }
+
+        return !ScrapManager.IsAlwaysOfferedAsScrap(card) && ScrapManager.CanScrapCard(card);
+    }
+
+    public bool IsAlwaysOfferedAsScrap => true;
+
+    public override bool HasExtraCardText => true;
+}

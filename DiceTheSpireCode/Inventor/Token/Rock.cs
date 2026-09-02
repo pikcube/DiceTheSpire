@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using DiceTheSpire.DiceTheSpireCode.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

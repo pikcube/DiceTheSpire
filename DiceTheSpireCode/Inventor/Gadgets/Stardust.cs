@@ -1,5 +1,5 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.DiceTheSpireCode.Utility;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;

@@ -14,5 +14,20 @@
   "DICETHESPIRE-THE_INVENTOR.pronounPossessive": "hers",
   "DICETHESPIRE-THE_INVENTOR.pronounSubject": "she",
   "DICETHESPIRE-THE_INVENTOR.title": "The Inventor",
-  "DICETHESPIRE-THE_INVENTOR.titleObject": "The Inventor"
+  "DICETHESPIRE-THE_INVENTOR.titleObject": "The Inventor",
+
+  "DICETHESPIRE-THE_THIEF.aromaPrinciple": "Lore",
+  "DICETHESPIRE-THE_THIEF.banter.alive.endTurnPing": "Co-op hurry up end turn ping message",
+  "DICETHESPIRE-THE_THIEF.banter.dead.endTurnPing": "...",
+  "DICETHESPIRE-THE_THIEF.cardsModifierDescription": "Thief cards will now appear in rewards and shops.",
+  "DICETHESPIRE-THE_THIEF.cardsModifierTitle": "Thief Cards",
+  "DICETHESPIRE-THE_THIEF.description": "Character Selection\nScreen Description",
+  "DICETHESPIRE-THE_THIEF.eventDeathPrevention": "Co-op survival line",
+  "DICETHESPIRE-THE_THIEF.goldMonologue": "Line spoken when obtaining a large amount of gold",
+  "DICETHESPIRE-THE_THIEF.possessiveAdjective": "his",
+  "DICETHESPIRE-THE_THIEF.pronounObject": "him",
+  "DICETHESPIRE-THE_THIEF.pronounPossessive": "his",
+  "DICETHESPIRE-THE_THIEF.pronounSubject": "he",
+  "DICETHESPIRE-THE_THIEF.title": "The Thief",
+  "DICETHESPIRE-THE_THIEF.titleObject": "The Thief"
 }

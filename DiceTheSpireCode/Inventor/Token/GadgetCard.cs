@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-using DiceTheSpire.DiceTheSpireCode.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
 using Godot;
 using MegaCrit.Sts2.Core.Context;

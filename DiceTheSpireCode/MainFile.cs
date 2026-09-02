@@ -1,5 +1,6 @@
 using BaseLib.Utils;
 using DiceTheSpire.DiceTheSpireCode.Inventor;
+using DiceTheSpire.DiceTheSpireCode.Thief;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Helpers;
@@ -17,7 +18,7 @@ public partial class MainFile : Node
 
     public static Logger Logger { get; } = new(ModId, LogType.Generic);
     public static string ResPath => $"res://{ModId}";
-    public static string ModPrefix { get; } = StringHelper.Slugify(ModId);
+    public static string ModPrefix { get; } = ModId.ToUpperInvariant();
 
     public static void Initialize()
     {
@@ -28,14 +29,14 @@ public partial class MainFile : Node
         CustomLocTableManager.Register("gadgets.json");
 
 
-        LocAliasManager.Register(ModId, "cards", "cards.inventor");
-        LocAliasManager.Register(ModId, "relics.json", "relics.inventor");
-        LocAliasManager.Register(ModId, "potions", "potions.inventor.json");
-        LocAliasManager.Register(ModId, "powers.json", "powers.inventor.json");
+        LocAliasManager.Register(ModId, "cards", "cards.inventor", "cards.thief");
+        LocAliasManager.Register(ModId, "relics", "relics.inventor", "relics.thief");
+        LocAliasManager.Register(ModId, "potions", "potions.inventor", "potions.thief");
+        LocAliasManager.Register(ModId, "powers", "powers.inventor", "powers.thief");
         
         CustomCharacterUtils.TryOrderCustomCharacters<
             TheWarrior.TheWarriorCode.Character.TheWarrior,
-            TheThief.TheThiefCode.Character.TheThief,
+            TheThief,
             TheInventor
         >();
     }
