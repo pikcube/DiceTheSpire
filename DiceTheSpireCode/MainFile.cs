@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using DiceTheSpire.DiceTheSpireCode.Inventor.Character;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
@@ -14,17 +15,19 @@ public partial class MainFile : Node
     public const string ModId = "DiceTheSpire"; //At the moment, this is used only for the Logger and harmony names.
 
     public static Logger Logger { get; } = new(ModId, LogType.Generic);
+    public static string ResPath => $"res://{ModId}";
 
     public static void Initialize()
     {
         Harmony harmony = new(ModId);
 
         harmony.PatchAll();
+        CustomLocTableManager.Register("gadgets.json");
 
         CustomCharacterUtils.TryOrderCustomCharacters<
             TheWarrior.TheWarriorCode.Character.TheWarrior,
             TheThief.TheThiefCode.Character.TheThief,
-            TheInventor.TheInventorCode.Character.TheInventor
+            TheInventor
         >();
     }
 }

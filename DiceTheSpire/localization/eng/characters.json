@@ -1,3 +1,18 @@
 {
-  
+  "DICETHESPIRE-THE_INVENTOR.aromaPrinciple": "[sine][orange]If it can be built...it can be destroyed...[/orange][/sine]",
+  "DICETHESPIRE-THE_INVENTOR.banter.alive.endTurnPing": "I bet the car weighs down the wheel!",
+  "DICETHESPIRE-THE_INVENTOR.banter.alive.endTurnPing.0": "According to all known laws of aviation, there is no way a bee should be able to fly.",
+  "DICETHESPIRE-THE_INVENTOR.banter.alive.endTurnPing.1": "Its wings are too small to get its fat little body off the ground.",
+  "DICETHESPIRE-THE_INVENTOR.banter.dead.endTurnPing": "...",
+  "DICETHESPIRE-THE_INVENTOR.cardsModifierDescription": "Inventor cards will now appear in rewards and shops.",
+  "DICETHESPIRE-THE_INVENTOR.cardsModifierTitle": "Inventor Cards",
+  "DICETHESPIRE-THE_INVENTOR.description": "A curious soul on a quest for a complete understanding of the universe.\n[gold]Scrap[/gold] cards to create powerful [gold]Gadgets[/gold].",
+  "DICETHESPIRE-THE_INVENTOR.eventDeathPrevention": "I've got a plan, and it does not involve dying!",
+  "DICETHESPIRE-THE_INVENTOR.goldMonologue": "[sine]Libraries could be funded.[/sine]",
+  "DICETHESPIRE-THE_INVENTOR.possessiveAdjective": "her",
+  "DICETHESPIRE-THE_INVENTOR.pronounObject": "her",
+  "DICETHESPIRE-THE_INVENTOR.pronounPossessive": "hers",
+  "DICETHESPIRE-THE_INVENTOR.pronounSubject": "she",
+  "DICETHESPIRE-THE_INVENTOR.title": "The Inventor",
+  "DICETHESPIRE-THE_INVENTOR.titleObject": "The Inventor"
 }

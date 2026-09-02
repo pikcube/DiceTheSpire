@@ -1,8 +1,0 @@
-{
-  "THEINVENTOR-VILE_VIAL.description": "Apply [blue]{DebuffCount:diff()}[/blue] random debuffs.",
-  "THEINVENTOR-VILE_VIAL.title": "Vile Vial",
-  "THEINVENTOR-POTION_OF_INSPIRATION.description": "Randomize your [gold]Gadget[/gold].",
-  "THEINVENTOR-POTION_OF_INSPIRATION.title": "Potion Of Inspiration",
-  "THEINVENTOR-REDUCE_POTION.description": "Gain [blue]{ReducePower:diff()}[/blue] [gold]Reduce[/gold].",
-  "THEINVENTOR-REDUCE_POTION.title": "Reduce Potion"
-}

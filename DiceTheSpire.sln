@@ -4,8 +4,6 @@ VisualStudioVersion = 18.5.11723.231
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceTheSpire", "DiceTheSpire.csproj", "{55A9ABE4-ED75-492B-8511-88CF07558AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheInventor", "TheInventor\TheInventor.csproj", "{75F4DB8A-55EC-C30C-2AB0-63CAC843F4F7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheThief", "TheThief\TheThief.csproj", "{99E26728-3CCA-DA9F-A50C-3ACB5C84C487}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceTheSpireCore", "DiceTheSpireCore\DiceTheSpireCore.csproj", "{97E1DAF1-5326-B482-064B-11F2283FCDAA}"
@@ -30,12 +28,6 @@ Global
 		{55A9ABE4-ED75-492B-8511-88CF07558AD4}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{55A9ABE4-ED75-492B-8511-88CF07558AD4}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{55A9ABE4-ED75-492B-8511-88CF07558AD4}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
-		{75F4DB8A-55EC-C30C-2AB0-63CAC843F4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{75F4DB8A-55EC-C30C-2AB0-63CAC843F4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{75F4DB8A-55EC-C30C-2AB0-63CAC843F4F7}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{75F4DB8A-55EC-C30C-2AB0-63CAC843F4F7}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{75F4DB8A-55EC-C30C-2AB0-63CAC843F4F7}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{75F4DB8A-55EC-C30C-2AB0-63CAC843F4F7}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 		{99E26728-3CCA-DA9F-A50C-3ACB5C84C487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99E26728-3CCA-DA9F-A50C-3ACB5C84C487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99E26728-3CCA-DA9F-A50C-3ACB5C84C487}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
