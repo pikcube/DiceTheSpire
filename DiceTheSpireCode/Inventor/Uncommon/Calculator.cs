@@ -11,7 +11,7 @@ using Pikcube.Common.Keywords;
 namespace DiceTheSpire.DiceTheSpireCode.Inventor.Uncommon;
 
 
-public class Calculator() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class Calculator() : TheInventorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(Accelerate);
 
