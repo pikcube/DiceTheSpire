@@ -8,10 +8,11 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace TheWarrior.TheWarriorCode.Cards.Common;
-public class Spatula() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
+public class Spatula() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Flip)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -25,7 +26,7 @@ public class Spatula() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, Ta
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        EnergyCost.UpgradeBy(-1);
     }
 
 }
