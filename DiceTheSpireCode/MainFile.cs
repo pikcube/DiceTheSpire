@@ -3,7 +3,6 @@ using DiceTheSpire.DiceTheSpireCode.Inventor;
 using DiceTheSpire.DiceTheSpireCode.Thief;
 using Godot;
 using HarmonyLib;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
