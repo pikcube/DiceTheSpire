@@ -1,7 +1,6 @@
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using Godot;
 using HarmonyLib;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;

@@ -5,6 +5,7 @@ using DiceTheSpire.DiceTheSpireCode.Thief.Basic;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using StickyFingers = DiceTheSpire.DiceTheSpireCode.Common.Relics.StickyFingers;
 
 namespace DiceTheSpire.DiceTheSpireCode.Thief;
@@ -58,6 +59,12 @@ public class TheThief : PlaceholderCharacterModel
             return icon;
         }
     }
+
+    public override NCreatureVisuals CreateCustomVisuals()
+    {
+        return NodeFactory<NCreatureVisuals>.CreateFromResource(Path.Join(MainFile.ResPath, "images", "thief.png"));
+    }
+
     public override string CustomIconTexturePath => "character_icon_the_thief.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_thief.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_unknown.png".CharacterUiPath();
