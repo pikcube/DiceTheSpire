@@ -33,7 +33,7 @@ public class TheInventor : PlaceholderCharacterModel, ICustomEndTurnCharacter
         DefendInventor.Create(),
         DefendInventor.Create(),
         Spanner.Create(),
-        Capacitor.Create()
+        DiceyCapacitor.Create()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics => [ModelDb.Relic<Manual>()];

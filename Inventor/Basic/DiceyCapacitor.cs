@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Basic;
 
-public class Capacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic, TargetType.RandomEnemy)
+public class DiceyCapacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.Basic, TargetType.RandomEnemy)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 

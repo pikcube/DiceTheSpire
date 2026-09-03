@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b880pg2tkqm2n"
-path="res://.godot/imported/capacitor.png-4e46588b9371152435833ebb4f34ecb3.ctex"
+uid="uid://l71b18wr2yhl"
+path="res://.godot/imported/dicey_capacitor.png-2e546148590d15f85ce94ffb7693bfd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/capacitor.png"
-dest_files=["res://.godot/imported/capacitor.png-4e46588b9371152435833ebb4f34ecb3.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/dicey_capacitor.png"
+dest_files=["res://.godot/imported/dicey_capacitor.png-2e546148590d15f85ce94ffb7693bfd5.ctex"]
 
 [params]
 
