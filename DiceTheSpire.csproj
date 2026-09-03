@@ -42,13 +42,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Remove="DiceTheSpireCode\Warrior\Keywords\**" />
+        <AdditionalFiles Remove="Warrior\Keywords\**" />
         <AdditionalFiles Remove="DiceTheSpireCore\**" />
         <AdditionalFiles Remove="TheInventor\**" />
         <AdditionalFiles Remove="TheThief\**" />
         <AdditionalFiles Remove="TheWarrior\**" />
         <Compile Remove="DiceTheSpire/**" />
-        <Compile Remove="DiceTheSpireCode\Warrior\Keywords\**" />
+        <Compile Remove="Warrior\Keywords\**" />
         <Compile Remove="DiceTheSpireCore\**" />
         <Compile Remove="materials/**" />
         <Compile Remove="shaders/**" />
@@ -57,7 +57,7 @@
         <Compile Remove="TheThief\**" />
         <Compile Remove="TheWarrior\**" />
         <EmbeddedResource Remove="DiceTheSpire/**" />
-        <EmbeddedResource Remove="DiceTheSpireCode\Warrior\Keywords\**" />
+        <EmbeddedResource Remove="Warrior\Keywords\**" />
         <EmbeddedResource Remove="DiceTheSpireCore\**" />
         <EmbeddedResource Remove="materials/**" />
         <EmbeddedResource Remove="shaders/**" />
@@ -68,6 +68,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <None Include=".editorconfig" />
         <None Include="Credits.md" />
         <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props" />
         <None Include=".gitignore" />
