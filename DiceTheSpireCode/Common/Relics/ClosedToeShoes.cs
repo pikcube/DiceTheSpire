@@ -1,7 +1,9 @@
 ﻿using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
@@ -23,8 +25,11 @@ public class ClosedToeShoes : TheInventorRelic
             return;
         }
 
-        CardSelectorPrefs prefs = new(CardSelectorPrefs.EnchantSelectionPrompt, 1);
-        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, Filter, this)).SingleOrDefault();
+        
+        CardModel? card = Owner.PlayerCombatState?.Hand.Cards
+            .Where(ModelDb.Enchantment<Swift>().CanEnchant)
+            .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
+            .TakeRandom(1, Owner.RunState.Rng.CombatTargets).SingleOrDefault();
 
         if (card is null)
         {
