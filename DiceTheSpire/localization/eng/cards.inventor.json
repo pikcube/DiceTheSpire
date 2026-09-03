@@ -21,7 +21,7 @@
   "DICETHESPIRE-CALCULATOR.description": "The first {Cards:plural:time|{Cards:diff()} times} you [gold]Inspect[/gold] each turn, [gold]Draw[/gold] a card.",
   "DICETHESPIRE-CALCULATOR.title": "Calculator",
   "DICETHESPIRE-CAPACITOR.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to a random enemy {IfUpgraded:show:3|2} times.",
-  "DICETHESPIRE-CAPACITOR.title": "Worn Capacitor",
+  "DICETHESPIRE-CAPACITOR.title": "Dicey Capacitor",
   "DICETHESPIRE-CHAINSAW.description": "Deal {CalculatedDamage:diff()} damage to ALL enemies.\nDeals double damage to [gold]Minions[/gold].",
   "DICETHESPIRE-CHAINSAW.title": "Chainsaw",
   "DICETHESPIRE-CHANGE_MACHINE.description": "[gold]Blink[/gold] a card.\nPut a card from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
