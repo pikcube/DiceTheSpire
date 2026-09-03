@@ -8,8 +8,8 @@ public class TheInventorCardPool : CustomCardPoolModel
 {
     public override string Title => TheInventor.CharacterId; //This is not a display name.
 
-    public override string BigEnergyIconPath => "charui/Energy/ui_dice_dice0.png".ImagePath();
-    public override string TextEnergyIconPath => "charui/dice_energy.png".ImagePath();
+    public override string BigEnergyIconPath => "charui/Energy/ui_dice_dice1.png".ImagePath();
+    public override string TextEnergyIconPath => "text/Dicecon_1.png".ImagePath();
 
 
     /* These HSV values will determine the color of your card back.
