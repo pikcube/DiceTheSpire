@@ -14,7 +14,7 @@ namespace DiceTheSpire.Common.Cards;
 
 
 [Pool(typeof(TokenCardPool))]
-public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+public class RollAgain() : DiceTheSpireCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];

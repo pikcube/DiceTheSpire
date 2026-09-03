@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 namespace DiceTheSpire.Common.Cards;
 
 [Pool(typeof(StatusCardPool))]
-public class Pip : DiceTheSpireCoreCard
+public class Pip : DiceTheSpireCard
 {
     public Pip() : base(1, CardType.Status, CardRarity.Status, TargetType.None)
     {

@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 
 namespace DiceTheSpire.Common.Cards;
 
-public abstract class DiceTheSpireCoreCard(int cost, CardType type, CardRarity rarity, TargetType target) :
+public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target), IPipCard
 {
     //Image size:
@@ -23,6 +23,6 @@ public abstract class DiceTheSpireCoreCard(int cost, CardType type, CardRarity r
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
 
-    public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null) =>
+    public virtual Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null) =>
         PipCard.GetPipsForMod(this, MainFile.ResPath, cost, isPretend, energyCostColor);
 }

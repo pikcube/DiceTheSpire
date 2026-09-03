@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 namespace DiceTheSpire.Common.Cards;
 
 [Pool(typeof(TokenCardPool))]
-public class FlipAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+public class FlipAgain() : DiceTheSpireCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
