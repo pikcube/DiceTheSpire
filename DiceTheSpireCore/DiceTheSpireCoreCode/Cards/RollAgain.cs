@@ -23,7 +23,7 @@ public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.To
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToRandomize, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
-        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, c => c.EnergyCost is { Canonical: >= 0, CostsX: false }, this)];
         foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX && c.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0))
         {
             await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
