@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -15,7 +16,7 @@ namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 public class Candle() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(999), new BlockVar(2, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(10), new BlockVar(2, BlockProps.card)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.FromCard<Burn>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,7 +28,7 @@ public class Candle() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, T
             //{
                 await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
             //}
-            await card.NudgeAsync(choiceContext);
+            await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);
         }
         if (CombatState is null)
         {

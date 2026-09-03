@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Keywords;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -13,10 +14,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Uncommon;
 public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(8, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(6, BlockProps.card)];
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
+
+    //public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
@@ -27,7 +29,7 @@ public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncomm
             //{
             //}
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-            await card.NudgeAsync(choiceContext);
+            await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);
         }
     }
     protected override void OnUpgrade()

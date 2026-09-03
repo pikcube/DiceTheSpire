@@ -83,20 +83,36 @@ public static class DiceyHooks
 
     public delegate void AfterNudgeHandler(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted);
 
-    public static event AfterNudgeHandler? AfterNudge;
+    //public static event AfterNudgeHandler? AfterNudge;
 
-    public static async Task OnAfterNudgeAsync(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted)
+    //public static async Task OnAfterNudgeAsync(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted)
+    //{
+    //    AfterNudge?.Invoke(choiceContext, card, wasExhausted);
+    //    RunState? state = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
+    //    if (state is null)
+    //    {
+    //        return;
+    //    }
+
+    //    foreach (IAfterNudgeListener listener in state.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
+    //    {
+    //        await listener.AfterNudgeAsync(choiceContext, card, wasExhausted);
+    //    }
+    //}
+
+    public static async Task OnNudgeAsync(IRunState runState, CardModel card, int originalCost, int getAmountToSpend, NudgeDuration duration)
     {
-        AfterNudge?.Invoke(choiceContext, card, wasExhausted);
-        RunState? state = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
-        if (state is null)
+        foreach (IAfterNudgeListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
         {
-            return;
+            await listener.AfterNudgeAsync(card, originalCost, getAmountToSpend, duration);
         }
+    }
 
-        foreach (IAfterNudgeListener listener in state.IterateHookListeners(card.CombatState).OfType<IAfterNudgeListener>())
+    public static async Task OnFlipAsync(IRunState runState, CardModel card, int originalCost, int getAmountToSpend, FlipDuration duration)
+    {
+        foreach (IAfterFlipListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterFlipListener>())
         {
-            await listener.AfterNudgeAsync(choiceContext, card, wasExhausted);
+            await listener.AfterFlipAsync(card, originalCost, getAmountToSpend, duration);
         }
     }
 
@@ -152,13 +168,6 @@ public static class DiceyHooks
         return isModified;
     }
 
-    public static async Task OnFlipAsync(IRunState runState, CardModel card, int originalCost, int getAmountToSpend, FlipDuration duration)
-    {
-        foreach (IAfterFlipListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterFlipListener>())
-        {
-            await listener.AfterFlipAsync(card, originalCost, getAmountToSpend, duration);
-        }
-    }
     public static async Task OnRerollAsync(IRunState runState, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
         foreach (IAfterRerollListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterRerollListener>())

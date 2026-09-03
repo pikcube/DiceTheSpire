@@ -37,19 +37,19 @@ public static class CardModelExtensions
             
         }
 
-        public async Task NudgeAsync(PlayerChoiceContext choiceContext)
-        {
-            if (instance.CurrentUpgradeLevel <= 0)
-            {
-                await instance.ExhaustAsync(choiceContext, true);
-                await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, true);
-            }
-            else
-            {
-                CardCmd.Downgrade(instance);
-                await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, false);
-            }
-        }
+        //public async Task NudgeAsync(PlayerChoiceContext choiceContext)
+        //{
+        //    if (instance.CurrentUpgradeLevel <= 0)
+        //    {
+        //        await instance.ExhaustAsync(choiceContext, true);
+        //        await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, true);
+        //    }
+        //    else
+        //    {
+        //        CardCmd.Downgrade(instance);
+        //        await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, false);
+        //    }
+        //}
 
     }
 }

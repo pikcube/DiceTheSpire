@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 public class FlamingSword() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IFuryModifier
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new PowerVar<FuryPower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new PowerVar<FuryPower>(1M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

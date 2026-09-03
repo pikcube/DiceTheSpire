@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -6,6 +7,8 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace TheWarrior.TheWarriorCode.Cards.Common;
 
@@ -46,7 +49,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
             IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
             foreach (CardModel card in results)
             {
-                await card.NudgeAsync(choiceContext);
+                await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);
             }
         } 
         else
@@ -55,7 +58,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {
-                await card.NudgeAsync(choiceContext);
+                await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);
             }
         }
     }

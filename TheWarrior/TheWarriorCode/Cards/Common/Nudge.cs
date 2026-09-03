@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
 using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -24,17 +25,20 @@ public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targ
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
-            if (card.CurrentUpgradeLevel > 0)
-            {
-                await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-            }
-            await card.NudgeAsync(choiceContext);
+            await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);
+
+            //if (card.CurrentUpgradeLevel > 0)
+            //{
+            //    await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+            //}
+            //await card.NudgeAsync(choiceContext);
         }
+
     }
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Cards.UpgradeValueBy(2);
+        DynamicVars.Cards.UpgradeValueBy(1);
             
     }
 

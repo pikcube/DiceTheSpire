@@ -1,4 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
+﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
+using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -13,7 +14,7 @@ public class BicepCurlPower : DiceTheSpireCorePower, IAfterNudgeListener
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    public async Task AfterNudgeAsync(PlayerChoiceContext choiceContext, CardModel card, bool wasExhausted)
+    public async Task AfterNudgeAsync(CardModel card, int originalCost, int getAmountToSpend, NudgeDuration duration)
     {
         if (Owner.Player?.PlayerCombatState is null)
         {
