@@ -2,11 +2,10 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Interfaces;
 using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Token;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;

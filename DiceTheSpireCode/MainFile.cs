@@ -1,10 +1,15 @@
 using BaseLib.Utils;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using DiceTheSpire.DiceTheSpireCode.Inventor;
 using DiceTheSpire.DiceTheSpireCode.Thief;
+using DiceTheSpire.DiceTheSpireCode.Warrior;
 using Godot;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
+using Pikcube.Common.Utility;
+using SmartFormat;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
 namespace DiceTheSpire.DiceTheSpireCode;
@@ -23,21 +28,32 @@ public partial class MainFile : Node
     {
         Harmony harmony = new(ModId);
         harmony.PatchAll();
-        
-        
+
+        BetterHooks.ModifyCardText += RangeCardDescriptionModifier.ModifyCardText;
+
         CustomLocTableManager.Register("gadgets.json");
 
 
-        LocAliasManager.Register(ModId, "cards", "cards.inventor", "cards.thief");
-        LocAliasManager.Register(ModId, "relics", "relics.inventor", "relics.thief");
-        LocAliasManager.Register(ModId, "potions", "potions.inventor", "potions.thief");
-        LocAliasManager.Register(ModId, "powers", "powers.inventor", "powers.thief");
+        LocAliasManager.Register(ModId, "cards", "cards.inventor", "cards.thief", "cards.warrior");
+        LocAliasManager.Register(ModId, "relics", "relics.inventor", "relics.thief", "relics.warrior");
+        LocAliasManager.Register(ModId, "potions", "potions.inventor", "potions.thief", "potions.warrior");
+        LocAliasManager.Register(ModId, "powers", "powers.inventor", "powers.thief", "powers.warrior");
         
         CustomCharacterUtils.TryOrderCustomCharacters<
-            TheWarrior.TheWarriorCode.Character.TheWarrior,
+            TheWarrior,
             TheThief,
             TheInventor
         >();
+    }
+
+}
+
+[HarmonyPatch(typeof(LocManager), "LoadLocFormatters")]
+public static class StringFormatterPatches
+{
+    public static void Postfix()
+    {
+        Smart.Default.AddExtensions(new DiceIconFormatter());
     }
 }
 

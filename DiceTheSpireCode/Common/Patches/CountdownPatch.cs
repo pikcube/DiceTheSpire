@@ -1,5 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+﻿using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Interfaces;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.CardSelection;

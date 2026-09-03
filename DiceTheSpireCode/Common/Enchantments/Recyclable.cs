@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpire.DiceTheSpireCode.Common.Interfaces;
 using DiceTheSpire.DiceTheSpireCode.Common.Utility;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;

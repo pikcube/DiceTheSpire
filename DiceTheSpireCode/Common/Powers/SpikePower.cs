@@ -1,5 +1,4 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Listeners;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+﻿using DiceTheSpire.DiceTheSpireCode.Common.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;

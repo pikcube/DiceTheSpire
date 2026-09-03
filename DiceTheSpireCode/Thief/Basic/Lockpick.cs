@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpire.DiceTheSpireCode.Common.Cards;
 using DiceTheSpire.DiceTheSpireCode.Thief.Ancient;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Cards;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

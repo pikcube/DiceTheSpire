@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using System.Reflection;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpire.DiceTheSpireCode.Common.Interfaces;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;

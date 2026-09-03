@@ -2,7 +2,7 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;

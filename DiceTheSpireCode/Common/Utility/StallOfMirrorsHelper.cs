@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
+using DiceTheSpire.DiceTheSpireCode.Common.Powers;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Rare;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;

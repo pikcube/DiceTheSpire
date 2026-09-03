@@ -4,5 +4,22 @@
   "DICETHESPIRE-TEMPORARY_GADGET.description": "A [gold]Gadget[/gold] that lasts until the end of combat. Does not require scrapping an additional card.",
   "DICETHESPIRE-TEMPORARY_GADGET.title": "Temporary Gadget",
   "DICETHESPIRE-GADGET.description": "Gadgets are items that passively provide you with powerful abilities, but are destroyed after a period of time.",
-  "DICETHESPIRE-GADGET.title": "Gadget"
+  "DICETHESPIRE-GADGET.title": "Gadget",
+  "DICETHESPIRE-BUMP.description": "Upgrade the card if possible, otherwise create an unupgraded copy.",
+  "DICETHESPIRE-BUMP.title": "Bump",
+  "DICETHESPIRE-RUMMAGE.description": "Discard a chosen number of cards. Draw that many.",
+  "DICETHESPIRE-RUMMAGE.title": "Rummage",
+  "DICETHESPIRE-REROLL.description": "Randomize the cost of a card between 0 and 3 this turn.\nSome exceptions apply.",
+  "DICETHESPIRE-REROLL.title": "Reroll",
+  "DICETHESPIRE-NUDGE.description": "Reduce a card's cost by 1 until the next time it is played.",
+  "DICETHESPIRE-NUDGE.title": "Nudge",
+  "DICETHESPIRE-INSPECT.description": "Look at the top {Cards} cards of the draw pile. You may [gold]Blink[/gold] any of them.",
+  "DICETHESPIRE-INSPECT.title": "Inspect",
+  "DICETHESPIRE-HELD.description": "At the end of your turn, if this card is held in hand, this card triggers an effect.",
+  "DICETHESPIRE-HELD.title": "Held",
+  "DICETHESPIRE-RANGE.oneDescription": "This card will always randomize to cost [blue]{cost}[/blue].",
+  "DICETHESPIRE-RANGE.twoDescription": "This card will always randomize to cost between [blue]{min}[/blue] and [blue]{max}[/blue].",
+  "DICETHESPIRE-RANGE.title": "Range [{values}]",
+  "DICETHESPIRE-FLIP.description": "Inverse the cost of a card until the next time it is played this turn.\nCards that cost 3+, cost 0.\nCards that cost 2, cost 1.\nCards that cost 1, cost 2.\nCards that cost 0, cost 3.",
+  "DICETHESPIRE-FLIP.title": "Flip"
 }

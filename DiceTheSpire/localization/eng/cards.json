@@ -1,0 +1,8 @@
+{
+  "DICETHESPIRE-PIP.description": "{PipDescription.StringValue}",
+  "DICETHESPIRE-PIP.title": "Pip",
+  "DICETHESPIRE-ROLL_AGAIN.description": "Select 1 card in hand to [gold]Reroll[/gold].",
+  "DICETHESPIRE-ROLL_AGAIN.title": "Roll Again",
+  "DICETHESPIRE-FLIP_AGAIN.description": "Select 1 card in hand to [gold]Flip[/gold].",
+  "DICETHESPIRE-FLIP_AGAIN.title": "Flip Again"
+}

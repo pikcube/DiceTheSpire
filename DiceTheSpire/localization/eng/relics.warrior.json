@@ -1,0 +1,12 @@
+{
+  "SEA_GLASS.DICETHESPIRE-THE_WARRIOR.title": "Strong Glass",
+  "DICETHESPIRE-COMBAT_ROLL.description": "Add 3 copies of [gold]Roll Again+[/gold] to your [gold]Hand[/gold] at the start of each combat.",
+  "DICETHESPIRE-COMBAT_ROLL.flavor": "Let's Go Gambling!",
+  "DICETHESPIRE-COMBAT_ROLL.title": "Combat Roll",
+  "DICETHESPIRE-PROTEIN_SHAKE.description": "Whenever you consume a [gold]Potion[/gold], gain {Energy:diceIcons()}.",
+  "DICETHESPIRE-PROTEIN_SHAKE.flavor": "Strawberry",
+  "DICETHESPIRE-PROTEIN_SHAKE.title": "Protein Shake",
+  "DICETHESPIRE-COMBAT_SPATULA.description": "Add 3 copies of [gold]Flip Again+[/gold] to your [gold]Hand[/gold] at the start of each combat.",
+  "DICETHESPIRE-COMBAT_SPATULA.flavor": "Add 3 copies of [gold]Flip Again+[/gold] to your [gold]Hand[/gold] at the start of each combat.",
+  "DICETHESPIRE-COMBAT_SPATULA.title": "Combat Spatula"
+}

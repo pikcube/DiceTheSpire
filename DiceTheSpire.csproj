@@ -35,17 +35,20 @@
         <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
         <PackageReference Include="Pikcube.Common" Version="0.3.8" />
+        <PackageReference Include="SmartFormat.NET" Version="3.6.1" />
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
         <AdditionalFiles Include="DiceTheSpire/localization/**/*.json" /> <!-- Used by analyzer -->
     </ItemGroup>
 
     <ItemGroup>
+        <AdditionalFiles Remove="DiceTheSpireCode\Warrior\Keywords\**" />
         <AdditionalFiles Remove="DiceTheSpireCore\**" />
         <AdditionalFiles Remove="TheInventor\**" />
         <AdditionalFiles Remove="TheThief\**" />
         <AdditionalFiles Remove="TheWarrior\**" />
         <Compile Remove="DiceTheSpire/**" />
+        <Compile Remove="DiceTheSpireCode\Warrior\Keywords\**" />
         <Compile Remove="DiceTheSpireCore\**" />
         <Compile Remove="materials/**" />
         <Compile Remove="shaders/**" />
@@ -54,6 +57,7 @@
         <Compile Remove="TheThief\**" />
         <Compile Remove="TheWarrior\**" />
         <EmbeddedResource Remove="DiceTheSpire/**" />
+        <EmbeddedResource Remove="DiceTheSpireCode\Warrior\Keywords\**" />
         <EmbeddedResource Remove="DiceTheSpireCore\**" />
         <EmbeddedResource Remove="materials/**" />
         <EmbeddedResource Remove="shaders/**" />
@@ -68,18 +72,12 @@
         <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props" />
         <None Include=".gitignore" />
         <None Include="DiceTheSpire.json" />
-        <None Include="FastPackAll.exe" />
         <None Include="project.godot" />
         <None Include="DiceTheSpire/**" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="oldPackInstructions.txt" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="DiceTheSpireCore\DiceTheSpireCore.csproj" />
-      <ProjectReference Include="TheWarrior\TheWarrior.csproj" />
+      <AdditionalFiles Remove="DiceTheSpire\localization\eng\card_selection.json" />
     </ItemGroup>
     
     <Target Name="CheckDependencyPaths">
@@ -103,8 +101,10 @@
 
     </Target>
     <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
-        <Exec Command="FastPackAll.exe -godot &quot;$(GodotPath)&quot; -mods &quot;$(ModsPath)&quot;" />
-    </Target>
+		<Message Text="Exporting Godot .pck to mods folder for Dice the Spire" Importance="high" />
+		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" />
+
+	</Target>
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
       <Exec Command="CloseSts2.exe" />
     </Target>

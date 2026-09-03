@@ -1,0 +1,38 @@
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace DiceTheSpire.DiceTheSpireCode.Common.Powers;
+public class DoubleBlockPower : DiceTheSpireCorePower
+{
+    public override PowerType Type => PowerType.Buff;
+    public override PowerStackType StackType => PowerStackType.Single;
+    public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props, CardModel? cardSource)
+    {
+        if (Owner.Player?.PlayerCombatState is null)
+        {
+            return;
+        }
+        DoubleBlockPower doubleBlockPower = this;
+        doubleBlockPower.Flash();
+        
+    }
+    public override Decimal ModifyBlockMultiplicative(Creature target, Decimal block,ValueProp props,CardModel? cardSource,CardPlay? cardPlay)
+    {
+        return target.IsMonster || !props.IsCardOrMonsterMove() || cardSource != null && cardSource.Owner.Creature != Owner ? 1M : 2M;
+    }
+
+    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        if (side != Owner.Side)
+        {
+            return;
+        }
+
+        await PowerCmd.Remove(this);
+    }
+}

@@ -4,8 +4,6 @@ using DiceTheSpire.DiceTheSpireCode.Common.Interfaces;
 using DiceTheSpire.DiceTheSpireCode.Common.Powers;
 using DiceTheSpire.DiceTheSpireCode.Inventor;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;

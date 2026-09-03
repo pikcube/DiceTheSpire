@@ -1,0 +1,39 @@
+﻿using BaseLib.Utils;
+using DiceTheSpire.DiceTheSpireCode.Common.Commands;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
+using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
+
+namespace DiceTheSpire.DiceTheSpireCode.Common.Cards;
+
+
+[Pool(typeof(TokenCardPool))]
+public class RollAgain() : DiceTheSpireCoreCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+{
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToRandomize, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, c => c.EnergyCost is { Canonical: >= 0, CostsX: false }, this)];
+        foreach (CardModel card in cards.Where(c => !c.EnergyCost.CostsX && c.EnergyCost.GetWithModifiers(CostModifiers.None) >= 0))
+        {
+            await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
+        }
+    }
+
+    protected override void OnUpgrade()
+    {
+        RemoveKeyword(CardKeyword.Ethereal);
+        AddKeyword(CardKeyword.Retain);
+    }
+
+}

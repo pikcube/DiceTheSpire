@@ -1,5 +1,5 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Powers;
+using DiceTheSpire.DiceTheSpireCode.Common.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Potions;

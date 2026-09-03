@@ -1,6 +1,6 @@
 ﻿using BaseLib.Cards.Variables;
 using BaseLib.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Interfaces;
+using DiceTheSpire.DiceTheSpireCode.Common.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

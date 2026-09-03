@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using HarmonyLib;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;

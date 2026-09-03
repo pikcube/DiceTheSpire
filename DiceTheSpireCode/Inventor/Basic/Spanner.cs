@@ -1,7 +1,7 @@
 ﻿using BaseLib.Abstracts;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Ancient;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

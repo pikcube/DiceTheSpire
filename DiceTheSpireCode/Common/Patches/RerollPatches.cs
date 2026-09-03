@@ -1,5 +1,5 @@
-﻿using DiceTheSpireCore.DiceTheSpireCoreCode.Commands;
-using DiceTheSpireCore.DiceTheSpireCoreCode.DynamicVars;
+﻿using DiceTheSpire.DiceTheSpireCode.Common.Commands;
+using DiceTheSpire.DiceTheSpireCode.Common.DynamicVars;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;

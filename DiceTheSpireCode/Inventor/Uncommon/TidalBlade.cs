@@ -1,6 +1,6 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;

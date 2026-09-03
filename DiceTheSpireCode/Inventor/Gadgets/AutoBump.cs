@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Extensions;
-using DiceTheSpireCore.DiceTheSpireCoreCode.Utilities;
+using DiceTheSpire.DiceTheSpireCode.Common.Extensions;
+using DiceTheSpire.DiceTheSpireCode.Common.Utility;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
