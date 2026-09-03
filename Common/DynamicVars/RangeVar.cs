@@ -51,11 +51,11 @@ public static class RangeVars
         max = maxVar.IntValue;
         return true;
     }
-    private static LocString RangeTitle => new("static_hover_tips", $"{DiceTheSpire.MainFile.ModPrefix}-RANGE.title");
+    private static LocString RangeTitle => new("static_hover_tips", $"{MainFile.ModPrefix}-RANGE.title");
 
-    private static LocString OneRangeText => new("static_hover_tips", $"{DiceTheSpire.MainFile.ModPrefix}-RANGE.oneDescription");
+    private static LocString OneRangeText => new("static_hover_tips", $"{MainFile.ModPrefix}-RANGE.oneDescription");
 
-    private static LocString TwoRangeText => new("static_hover_tips", $"{DiceTheSpire.MainFile.ModPrefix}-RANGE.twoDescription");
+    private static LocString TwoRangeText => new("static_hover_tips", $"{MainFile.ModPrefix}-RANGE.twoDescription");
 
     public static IEnumerable<IHoverTip> RangeHoverTip(CardModel card)
     {

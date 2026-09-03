@@ -61,7 +61,7 @@ public class TheWarrior : PlaceholderCharacterModel
 
     public override NCreatureVisuals CreateCustomVisuals()
     {
-        return NodeFactory<NCreatureVisuals>.CreateFromResource(Path.Join(DiceTheSpire.MainFile.ResPath, "images", "warrior.png"));
+        return NodeFactory<NCreatureVisuals>.CreateFromResource(Path.Join(MainFile.ResPath, "images", "warrior.png"));
     }
 
 

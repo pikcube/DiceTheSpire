@@ -29,7 +29,7 @@ public class InfestedAutomatonPatch
         List<EventOption> options =
         [
             ..__result.Where(option => option.TextKey != "INFESTED_AUTOMATON.pages.INITIAL.options.TOUCH_CORE"),
-            new(__instance, () => OnChosen(__instance, __instance.Owner, inventor), $"{DiceTheSpire.MainFile.ModPrefix}-INFESTED_AUTOMATON.pages.INITIAL.options.SCRAP_CORE", new CardHoverTip(newGadget))
+            new(__instance, () => OnChosen(__instance, __instance.Owner, inventor), $"{MainFile.ModPrefix}-INFESTED_AUTOMATON.pages.INITIAL.options.SCRAP_CORE", new CardHoverTip(newGadget))
         ];
         return options.AsReadOnly();
     }
@@ -40,7 +40,7 @@ public class InfestedAutomatonPatch
 
         AccessTools.DeclaredMethod(typeof(EventModel), "SetEventFinished").Invoke(instance,
         [
-            new LocString(instance.LocTable, $"{DiceTheSpire.MainFile.ModPrefix}-INFESTED_AUTOMATON.SCRAP_CORE.description")
+            new LocString(instance.LocTable, $"{MainFile.ModPrefix}-INFESTED_AUTOMATON.SCRAP_CORE.description")
         ]);
 
         await GadgetCard1.ShowAsync(ScrapManager.AllGadgets[nameof(HeatRay)]);

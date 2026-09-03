@@ -15,7 +15,7 @@ namespace DiceTheSpire.Common.Utility;
 [UsedImplicitly]
 public class StallOfMirrorsHelper() : CustomSingletonModel(HookType.Combat)
 {
-    public static readonly SavedSpireField<Player, int> CurrentStall = new(() => 0, $"{DiceTheSpire.MainFile.ModId}_{nameof(CurrentStall)}");
+    public static readonly SavedSpireField<Player, int> CurrentStall = new(() => 0, $"{MainFile.ModId}_{nameof(CurrentStall)}");
 
     public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {

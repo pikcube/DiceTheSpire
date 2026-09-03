@@ -68,7 +68,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     {
         get
         {
-            string key = LocString.Exists("gadgets", Id.Entry + ".duration") ? Id.Entry + ".duration" : $"{DiceTheSpire.MainFile.ModPrefix}-DEFAULT.duration";
+            string key = LocString.Exists("gadgets", Id.Entry + ".duration") ? Id.Entry + ".duration" : $"{MainFile.ModPrefix}-DEFAULT.duration";
             LocString description = new LocString("gadgets", key).WithDynamicVars(DynamicVars);
             description.Add(nameof(Power), Power);
             return description;

@@ -62,7 +62,7 @@ public class TheThief : PlaceholderCharacterModel
 
     public override NCreatureVisuals CreateCustomVisuals()
     {
-        return NodeFactory<NCreatureVisuals>.CreateFromResource(Path.Join(DiceTheSpire.MainFile.ResPath, "images", "thief.png"));
+        return NodeFactory<NCreatureVisuals>.CreateFromResource(Path.Join(MainFile.ResPath, "images", "thief.png"));
     }
 
     public override string CustomIconTexturePath => "character_icon_the_thief.png".CharacterUiPath();

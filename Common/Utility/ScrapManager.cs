@@ -32,7 +32,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 {
     static ScrapManager()
     {
-        ModHelper.SubscribeForRunStateHooks(DiceTheSpire.MainFile.ModId, GetRunStateHooks);
+        ModHelper.SubscribeForRunStateHooks(MainFile.ModId, GetRunStateHooks);
     }
 
     private static IEnumerable<GadgetModel> GetRunStateHooks(RunState runState)
@@ -56,7 +56,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
     }
 
-    public static readonly SavedSpireField<Player, string> GadgetId = new(() => nameof(DefaultGadget), $"{DiceTheSpire.MainFile.ModId}_{nameof(GadgetId)}");
+    public static readonly SavedSpireField<Player, string> GadgetId = new(() => nameof(DefaultGadget), $"{MainFile.ModId}_{nameof(GadgetId)}");
 
     public static Dictionary<string, GadgetModel> AllGadgets { get; } = [];
 

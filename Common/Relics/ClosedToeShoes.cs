@@ -1,5 +1,4 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Extensions;
@@ -26,8 +25,7 @@ public class ClosedToeShoes : TheInventorRelic
 
         
         CardModel? card = Owner.PlayerCombatState?.Hand.Cards
-            .Where(ModelDb.Enchantment<Swift>().CanEnchant)
-            .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable))
+            .Where(Filter)
             .TakeRandom(1, Owner.RunState.Rng.CombatTargets).SingleOrDefault();
 
         if (card is null)

@@ -24,5 +24,5 @@ public abstract class DiceTheSpireCoreCard(int cost, CardType type, CardRarity r
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
 
     public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null) =>
-        PipCard.GetPipsForMod(this, DiceTheSpire.MainFile.ResPath, cost, isPretend, energyCostColor);
+        PipCard.GetPipsForMod(this, MainFile.ResPath, cost, isPretend, energyCostColor);
 }

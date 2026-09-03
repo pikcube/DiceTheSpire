@@ -29,7 +29,7 @@ public abstract class TheWarriorCard(int cost, CardType type, CardRarity rarity,
     public override string BetaPortraitPath => $"beta/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".CardImagePath();
     public Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null)
     {
-        return PipCard.GetPipsForMod(this, DiceTheSpire.MainFile.ResPath, cost, isPretend, energyCostColor);
+        return PipCard.GetPipsForMod(this, MainFile.ResPath, cost, isPretend, energyCostColor);
     }
 
     public CardLocation PublicGetResultLocationForCardPlay() => GetResultLocationForCardPlay();
