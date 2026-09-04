@@ -15,7 +15,7 @@
   "DICETHESPIRE-NUDGE.title": "Nudge",
   "DICETHESPIRE-INSPECT.description": "Look at the top {Cards} cards of the draw pile. You may [gold]Blink[/gold] any of them.",
   "DICETHESPIRE-INSPECT.title": "Inspect",
-  "DICETHESPIRE-HELD.description": "At the end of your turn, if this card is held in hand, this card triggers an effect.",
+  "DICETHESPIRE-HELD.description": "At the end of your turn, if this card is in your hand, this card triggers an effect.",
   "DICETHESPIRE-HELD.title": "Held",
   "DICETHESPIRE-RANGE.oneDescription": "This card will always randomize to cost [blue]{cost}[/blue].",
   "DICETHESPIRE-RANGE.twoDescription": "This card will always randomize to cost between [blue]{min}[/blue] and [blue]{max}[/blue].",
