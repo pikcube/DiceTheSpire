@@ -1,4 +1,4 @@
-﻿using DiceTheSpire.Common.Keywords;
+﻿using DiceTheSpire.Common.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -10,7 +10,7 @@ public static class PlayerExtensions
     {
         public Task<int> InspectAsync(PlayerChoiceContext choiceContext, int cards)
         {
-            return InspectModel.InspectAsync(choiceContext, instance, cards);
+            return InspectCmd.InspectAsync(choiceContext, instance, cards);
         }
     }
 }
