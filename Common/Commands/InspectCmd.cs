@@ -1,7 +1,5 @@
-﻿using BaseLib.Abstracts;
-using DiceTheSpire.Common.Listeners;
+﻿using DiceTheSpire.Common.Listeners;
 using DiceTheSpire.Common.Utility;
-using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -21,10 +19,9 @@ using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Keywords;
 using ICardSelector = MegaCrit.Sts2.Core.TestSupport.ICardSelector;
 
-namespace DiceTheSpire.Common.Keywords;
+namespace DiceTheSpire.Common.Commands;
 
-[UsedImplicitly]
-public class InspectModel() : CustomSingletonModel(HookType.Combat)
+public static class InspectCmd
 {
     public static async Task<int> InspectAsync(PlayerChoiceContext choiceContext, Player player, int cards)
     { 
@@ -64,6 +61,7 @@ public class InspectModel() : CustomSingletonModel(HookType.Combat)
         await context.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
 
         //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
+        await CardPileCmd.ShuffleIfNecessary(context, player);
         List<CardModel> cards = [.. PileType.Draw.GetPile(player).Cards.Take(count)];
         List<CardModel> result = [.. await DispatchForInspectAsync(choiceId, count, cards, player)];
         
