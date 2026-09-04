@@ -1,6 +1,6 @@
-﻿using DiceTheSpire.Common.Listeners;
-using DiceTheSpire.Common.Powers;
-using DiceTheSpire.Inventor.Gadgets;
+﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Listeners;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

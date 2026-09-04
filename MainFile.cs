@@ -1,6 +1,6 @@
 using BaseLib.Utils;
-using DiceTheSpire.Common.Utility;
 using DiceTheSpire.Inventor;
+using DiceTheSpire.Shared.Utility;
 using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using Godot;

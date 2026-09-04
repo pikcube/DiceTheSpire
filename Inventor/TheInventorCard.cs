@@ -1,11 +1,11 @@
 ﻿using BaseLib.Extensions;
 using BaseLib.Utils;
-using DiceTheSpire.Common.Cards;
-using DiceTheSpire.Common.Extensions;
-using DiceTheSpire.Common.Interfaces;
-using DiceTheSpire.Common.Utility;
 using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Inventor.Token;
+using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;

@@ -1,4 +1,4 @@
-﻿using DiceTheSpire.Common.Enchantments;
+﻿using DiceTheSpire.Shared.Enchantments;
 using DiceTheSpire.Thief.Token;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

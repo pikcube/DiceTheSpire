@@ -1,6 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using DiceTheSpire.Common.Powers;
+using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Warrior.Ancient;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

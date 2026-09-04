@@ -1,5 +1,5 @@
 ﻿using BaseLib.Utils;
-using DiceTheSpire.Common.Cards;
+using DiceTheSpire.Shared.Cards;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;

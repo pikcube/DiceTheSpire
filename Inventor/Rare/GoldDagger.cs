@@ -1,5 +1,5 @@
-﻿using DiceTheSpire.Common.Interfaces;
-using DiceTheSpire.Inventor.Gadgets;
+﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

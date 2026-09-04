@@ -1,8 +1,8 @@
 ﻿using System.Data;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
-using DiceTheSpire.Common.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;

@@ -1,6 +1,6 @@
-﻿using DiceTheSpire.Common.Extensions;
-using DiceTheSpire.Common.Interfaces;
-using DiceTheSpire.Common.Keywords;
+﻿using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;

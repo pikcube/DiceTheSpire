@@ -1,12 +1,12 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using DiceTheSpire.Common.Extensions;
+using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Thief.Basic;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
-using StickyFingers = DiceTheSpire.Common.Relics.StickyFingers;
+using StickyFingers = DiceTheSpire.Shared.Relics.StickyFingers;
 
 namespace DiceTheSpire.Thief;
 

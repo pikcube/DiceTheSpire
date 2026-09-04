@@ -1,8 +1,8 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
-using DiceTheSpire.Common.Extensions;
-using DiceTheSpire.Common.Relics;
 using DiceTheSpire.Inventor.Basic;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Relics;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Entities.Players;

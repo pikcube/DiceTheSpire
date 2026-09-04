@@ -55,7 +55,7 @@
   "DICETHESPIRE-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
   "DICETHESPIRE-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
   "DICETHESPIRE-GADGET_POWER.description": "Changes every combat.",
-  "DICETHESPIRE-GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
+  "DICETHESPIRE-GADGET_POWER.smartDescription": "{GadgetText.StringValue}\nAt the end of combat, [gold]Scrap[/gold] a card.",
   "DICETHESPIRE-GADGET_POWER.title": "{GadgetName.StringValue}",
   "DICETHESPIRE-PLAGUE_POWER.description": "At the start of next turn, gain a random debuff.",
   "DICETHESPIRE-PLAGUE_POWER.smartDescription": "At the start of next turn, gain [blue]{Amount:plural:a|{Amount}}[/blue] random debuff.",

@@ -1,5 +1,5 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.Common.Cards;
+using DiceTheSpire.Shared.Cards;
 using DiceTheSpire.Thief.Ancient;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

@@ -1,7 +1,7 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpire.Common.Extensions;
-using DiceTheSpire.Common.Utility;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

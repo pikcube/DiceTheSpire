@@ -3,7 +3,7 @@
   "DICETHESPIRE-SCRAP.title": "Scrap",
   "DICETHESPIRE-TEMPORARY_GADGET.description": "A [gold]Gadget[/gold] that lasts until the end of combat. Does not require scrapping an additional card.",
   "DICETHESPIRE-TEMPORARY_GADGET.title": "Temporary Gadget",
-  "DICETHESPIRE-GADGET.description": "Gadgets are items that passively provide you with powerful abilities, but are destroyed after a period of time.",
+  "DICETHESPIRE-GADGET.description": "Items that passively provide you with powerful abilities, but are destroyed after a period of time.",
   "DICETHESPIRE-GADGET.title": "Gadget",
   "DICETHESPIRE-BUMP.description": "Upgrade the card if possible, otherwise create an unupgraded copy.",
   "DICETHESPIRE-BUMP.title": "Bump",

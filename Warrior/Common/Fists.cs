@@ -1,5 +1,5 @@
-﻿using DiceTheSpire.Common.Commands;
-using DiceTheSpire.Common.Utility;
+﻿using DiceTheSpire.Shared.Commands;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;

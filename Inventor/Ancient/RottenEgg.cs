@@ -1,8 +1,8 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.Common.Enchantments;
-using DiceTheSpire.Common.Extensions;
-using DiceTheSpire.Common.Interfaces;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Enchantments;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

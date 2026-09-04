@@ -1,5 +1,5 @@
-﻿using DiceTheSpire.Common.Cards;
-using DiceTheSpire.Common.Utility;
+﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

@@ -1,8 +1,8 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.Common.Extensions;
-using DiceTheSpire.Common.Interfaces;
-using DiceTheSpire.Common.Powers;
-using DiceTheSpire.Common.Utility;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;

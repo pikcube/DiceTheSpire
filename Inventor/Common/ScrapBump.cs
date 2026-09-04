@@ -1,7 +1,7 @@
-﻿using DiceTheSpire.Common.Interfaces;
-using DiceTheSpire.Common.Utility;
-using DiceTheSpire.Common.Extensions;
-using DiceTheSpire.Inventor.Gadgets;
+﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
