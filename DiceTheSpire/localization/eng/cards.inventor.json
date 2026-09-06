@@ -55,7 +55,7 @@
   "DICETHESPIRE-FEEDBACK_LOOP.title": "Feedback Loop",
   "DICETHESPIRE-FIREWORKS.description": "Deal {ExtraDamage:diff()} damage for each unique debuff ANYONE has.{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
   "DICETHESPIRE-FIREWORKS.title": "Fireworks",
-  "DICETHESPIRE-FLAMETHROWER.description": "Deal {Damage:diff()} damage to ALL enemies.",
+  "DICETHESPIRE-FLAMETHROWER.description": "Deal {Damage:diff()} damage to ALL enemies.\nIf any enemies have {JudgeVar:diff()} or less HP, set their HP to 0.",
   "DICETHESPIRE-FLAMETHROWER.title": "Flamethrower",
   "DICETHESPIRE-FOCUS.description": "At the start of each turn, draw {Cards:diff()} cards.",
   "DICETHESPIRE-FOCUS.title": "Focus",

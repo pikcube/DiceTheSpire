@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Commands;
+﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Combat;
@@ -31,14 +32,14 @@ public static class DiceyHooks
 
     public static event ModifyPipOnPlayHandler? ModifyPipOnPlay;
 
-    internal static async Task OnModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    internal static async Task OnModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip)
     {
         ModifyPipOnPlay?.Invoke(choiceContext, cardPlay);
         foreach (IModifyPipOnPlayListener listener in cardPlay.Card.Owner.RunState
                      .IterateHookListeners(cardPlay.Card.Owner.Creature.CombatState)
                      .OfType<IModifyPipOnPlayListener>())
         {
-            await listener.ModifyPipOnPlayAsync(choiceContext, cardPlay);
+            await listener.ModifyPipOnPlayAsync(choiceContext, cardPlay, pip);
         }
     }
 

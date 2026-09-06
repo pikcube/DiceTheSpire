@@ -34,6 +34,7 @@ public class Hammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
 
     protected override void OnUpgrade()
     {
+        DynamicVars.Damage.UpgradeValueBy(1);
         DynamicVars.Vulnerable.UpgradeValueBy(1);
     }
 

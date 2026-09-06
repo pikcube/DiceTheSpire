@@ -52,7 +52,7 @@ public class Pip : DiceTheSpireCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DiceyHooks.OnModifyPipOnPlayAsync(choiceContext, cardPlay);
+        await DiceyHooks.OnModifyPipOnPlayAsync(choiceContext, cardPlay, this);
     }
 
     public static async Task<IEnumerable<CardModel>> CreateInHandAsync(
@@ -84,10 +84,11 @@ public class Pip : DiceTheSpireCard
             return;
         }
 
-        IEnumerable<string> descriptions = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>().Select(listener => listener.PipDescription.GetFormattedText());
+        IEnumerable<string> descriptions = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>().Where(p => p.ShouldModify(this)).Select(listener => listener.PipDescription.GetFormattedText());
         StringVar pipDescription = (StringVar)DynamicVars["PipDescription"];
         pipDescription.StringValue = string.Join("\n", descriptions);
         MutableHoverTips = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>()
+            .Where(p => p.ShouldModify(this))
             .SelectMany(listener => listener.PipHoverTips);
     }
 }

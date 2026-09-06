@@ -1,8 +1,11 @@
 ﻿using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Extensions;
 
@@ -19,8 +22,7 @@ public static class CardModelExtensions
             }
             else
             {
-                CardModel newCard = instance.CreateClone();
-                newCard.DowngradeInternal();
+                CardModel newCard = instance.CreateNewInstance(instance.Owner, instance.CombatState);
                 PileType newPileType = destinationPile ?? instance.Pile?.Type ?? PileType.Hand;
                 if (newPileType is PileType.Draw)
                 {
@@ -34,6 +36,13 @@ public static class CardModelExtensions
             }
 
             
+        }
+
+        public CardModel CreateNewInstance(Player owner, ICombatState? combatState = null)
+        {
+            return combatState is null
+                ? owner.RunState.CreateCard(instance.CanonicalInstance, owner)
+                : combatState.CreateCard(instance.CanonicalInstance, owner);
         }
 
         //public async Task NudgeAsync(PlayerChoiceContext choiceContext)
