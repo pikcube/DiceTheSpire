@@ -4,5 +4,9 @@
   "DICETHESPIRE-STICKY_FINGERS.title": "Sticky Fingers",
   "DICETHESPIRE-STICKY_HAND.description": "Card rewards contain an additional off-color card.",
   "DICETHESPIRE-STICKY_HAND.flavor": "",
-  "DICETHESPIRE-STICKY_HAND.title": "Sticky Hand"
+  "DICETHESPIRE-STICKY_HAND.title": "Sticky Hand",
+  "DICETHESPIRE-TINY_TREBUCHET.description": "Pips now deal [blue]4[/blue] damage to a random enemy.",
+  "DICETHESPIRE-TINY_TREBUCHET.flavor": "",
+  "DICETHESPIRE-TINY_TREBUCHET.title": "Tiny Trebuchet",
+  "DICETHESPIRE-TINY_TREBUCHET.pipDescription": "Deal 4 damage to a random enemy."
 }
