@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Listeners;
+﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -17,7 +18,8 @@ public class WreckingBallPower : TheThiefPower, IModifyPipOnPlayListener
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    Player IModifyPipOnPlayListener.Owner => Owner.Player ?? throw new InvalidOperationException();
+    public bool ShouldModify(Pip pip) => pip.Owner == Owner.Player;
+
     public LocString PipDescription {
         get
         {
@@ -29,9 +31,9 @@ public class WreckingBallPower : TheThiefPower, IModifyPipOnPlayListener
 
     public IEnumerable<IHoverTip> PipHoverTips => [];
 
-    public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip)
     {
-        if (Owner.CombatState is null || cardPlay.Card.Owner != Owner.Player)
+        if (Owner.CombatState is null || !ShouldModify(pip))
         {
             return;
         }

@@ -1,8 +1,8 @@
-﻿using DiceTheSpire.Shared.Listeners;
+﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -19,7 +19,6 @@ public class PoisonCrownPower : TheThiefPower, IModifyPipOnPlayListener
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    Player IModifyPipOnPlayListener.Owner => Owner.Player ?? throw new InvalidOperationException();
 
     public LocString PipDescription
     {
@@ -47,13 +46,15 @@ public class PoisonCrownPower : TheThiefPower, IModifyPipOnPlayListener
         }
     }
 
-    public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip)
     {
-        if (cardPlay.Card.Owner != Owner.Player)
+        if (!ShouldModify(pip))
         {
             return;
         }
 
         await PowerCmd.Apply<PoisonPower>(choiceContext, CombatState.Enemies, Amount, Owner, cardPlay.Card);
     }
+
+    public bool ShouldModify(Pip pip) => pip.Owner == Owner.Player;
 }
