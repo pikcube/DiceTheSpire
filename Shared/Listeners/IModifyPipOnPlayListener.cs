@@ -11,6 +11,5 @@ public interface IModifyPipOnPlayListener
     public bool ShouldModify(Pip pip);
     public LocString PipDescription { get; }
     public IEnumerable<IHoverTip> PipHoverTips { get; }
-
     public Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip);
 }
