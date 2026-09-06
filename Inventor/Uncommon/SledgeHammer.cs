@@ -14,8 +14,8 @@ namespace DiceTheSpire.Inventor.Uncommon;
 
 public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Ethereal];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, DamageProps.cardUnpowered), new PowerVar<VulnerablePower>(2)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable, CardKeyword.Innate, CardKeyword.Ethereal];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.cardUnpowered), new PowerVar<VulnerablePower>(2)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
 
@@ -37,6 +37,6 @@ public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Un
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(5);
-        DynamicVars.Vulnerable.UpgradeValueBy(1);
+        DynamicVars.Vulnerable.UpgradeValueBy(2);
     }
 }
