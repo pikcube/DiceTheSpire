@@ -117,7 +117,7 @@
   "DICETHESPIRE-REMOTE_CONTROL.title": "Remote Control",
   "DICETHESPIRE-RESISTOR.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold] this turn.",
   "DICETHESPIRE-RESISTOR.title": "Resistor",
-  "DICETHESPIRE-RESONANCE.description": "Whenever you would apply a debuff to yourself, apply a random debuff to all enemies.",
+  "DICETHESPIRE-RESONANCE.description": "Whenever you would apply a debuff to yourself, apply a random debuff to ALL enemies.",
   "DICETHESPIRE-RESONANCE.title": "Resonance",
   "DICETHESPIRE-ROCK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to a random enemy.",
   "DICETHESPIRE-ROCK.title": "Rock",

@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
 
@@ -14,7 +15,7 @@ public class SafetyGogglesPower : DiceTheSpireCorePower
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier,
         out decimal modifiedAmount)
     {
-        if (target != Owner || applier != Owner || canonicalPower.Type != PowerType.Debuff)
+        if (target != Owner || applier != Owner || canonicalPower.Type != PowerType.Debuff || amount == 0 || Owner.HasPower<ArtifactPower>())
         {
             modifiedAmount = amount;
             return false;

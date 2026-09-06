@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class Transformer() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class Transformer() : TheInventorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     private const int Base = 5;
 

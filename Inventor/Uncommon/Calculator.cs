@@ -16,7 +16,7 @@ public class Calculator() : TheInventorCard(1, CardType.Power, CardRarity.Uncomm
     public override string GetScrapId => nameof(Accelerate);
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
-        [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, new CardsVar(3)), HoverTipFactory.FromKeyword(BlinkModel.Blink), HoverTipFactory.ForEnergy(this)];
+        [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, new CardsVar(3)), HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new EnergyVar(1)];
 

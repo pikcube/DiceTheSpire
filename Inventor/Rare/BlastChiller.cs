@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -17,6 +18,8 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
         new ExtraDamageVar(1), 
         new CalculatedDamageVar(DamageProps.cardUnpowered).WithMultiplier((model, _) => model.Owner.Creature.Block)
     ];
+
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
 
     public override bool HasTurnEndInHandEffect => true;
 
