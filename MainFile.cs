@@ -1,3 +1,5 @@
+using System.Data;
+using System.Text.Json;
 using BaseLib.Utils;
 using DiceTheSpire.Inventor;
 using DiceTheSpire.Shared.Utility;
@@ -10,6 +12,7 @@ using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using Pikcube.Common.Utility;
 using SmartFormat;
+using FileAccess = Godot.FileAccess;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
 namespace DiceTheSpire;
@@ -33,11 +36,12 @@ public partial class MainFile : Node
 
         CustomLocTableManager.Register("gadgets.json");
 
+        LocAliasManager.LoadJson(ModId, "res://DiceTheSpire/locAliases.json");
 
-        LocAliasManager.Register(ModId, "cards", "cards.inventor", "cards.thief", "cards.warrior");
-        LocAliasManager.Register(ModId, "relics", "relics.inventor", "relics.thief", "relics.warrior");
-        LocAliasManager.Register(ModId, "potions", "potions.inventor", "potions.thief", "potions.warrior");
-        LocAliasManager.Register(ModId, "powers", "powers.inventor", "powers.thief", "powers.warrior");
+        //LocAliasManager.Register(ModId, "cards", "cards.inventor", "cards.thief", "cards.warrior");
+        //LocAliasManager.Register(ModId, "relics", "relics.inventor", "relics.thief", "relics.warrior");
+        //LocAliasManager.Register(ModId, "potions", "potions.inventor", "potions.thief", "potions.warrior");
+        //LocAliasManager.Register(ModId, "powers", "powers.inventor", "powers.thief", "powers.warrior");
         
         CustomCharacterUtils.TryOrderCustomCharacters<
             TheWarrior,
@@ -117,6 +121,16 @@ public static class LocAliasManager
             {
                 yield return alias;
             }
+        }
+    }
+
+    public static void LoadJson(string modId, string jsonPath)
+    {
+        string jsonString = FileAccess.GetFileAsString(jsonPath);
+        LocAliasInfo[] locInfos = JsonSerializer.Deserialize<LocAliasInfo[]>(jsonString) ?? throw new NoNullAllowedException();
+        foreach (LocAliasInfo locInfo in locInfos)
+        {
+            Register(modId, locInfo.BasePath, locInfo.AliasPaths);
         }
     }
 }
