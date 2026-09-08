@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class Wikipedia() : TheInventorCard(4, CardType.Power, CardRarity.Rare, TargetType.AllAllies)
+public class Wikipedia() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.AllAllies)
 {
     public override string GetScrapId => nameof(SharedInterest);
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(InventorStaticHoverTips.TemporaryGadget)];
