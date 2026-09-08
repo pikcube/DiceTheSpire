@@ -1,11 +1,13 @@
-﻿using MegaCrit.Sts2.Core.Context;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Shared.Powers;
 
@@ -14,21 +16,22 @@ public class PlasmaCannonPower : TheInventorPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<GrindstonePower>()];
-    public int UsesThisTurn { get; set; } = 0;
-
-    public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier,
-        CardModel? cardSource)
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(BlinkModel.Blink)];
+    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
-        if (applier != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff)
+        if (card.Owner.Creature != Owner || !card.Keywords.Contains(CardKeyword.Unplayable))
+        {
+            return;
+        }
+        int unplayableDrawn = CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>()
+            .Count(cde => cde.HappenedThisTurn(CombatState) && cde.Card.Owner.Creature == Owner && cde.Card.Keywords.Contains(CardKeyword.Unplayable));
+
+        if (unplayableDrawn > Amount)
         {
             return;
         }
 
-
-
-        HookPlayerChoiceContext choiceContext = new(Owner.Player, LocalContext.NetId ?? 0, GameActionType.Combat);
-
-        await GrindstonePower.ApplyAsync(choiceContext, Owner, Amount, Owner, cardSource);
+        await card.BlinkAsync(choiceContext);
+        await CardPileCmd.Draw(choiceContext, card.Owner);
     }
 }

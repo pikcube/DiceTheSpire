@@ -107,7 +107,7 @@
   "DICETHESPIRE-PILLOW_FORT.title": "Pillow Fort",
   "DICETHESPIRE-PLAGUE.description": "[gold]Held[/gold]: Apply a random debuffs to {IfUpgraded:show:|yourself and }ALL enemies at the start of next turn.",
   "DICETHESPIRE-PLAGUE.title": "Plague",
-  "DICETHESPIRE-PLASMA_CANNON.description": "Whenever you apply a debuff, gain {PlasmaCannonPower:diff()} [gold]Damage Up[/gold].",
+  "DICETHESPIRE-PLASMA_CANNON.description": "The first {PlasmaCannonPower:plural:time|{PlasmaCannonPower:diff()} times} you draw an [gold]Unplayable[/gold] card each turn, [gold]Blink[/gold] it and draw a card.",
   "DICETHESPIRE-PLASMA_CANNON.title": "Plasma Cannon",
   "DICETHESPIRE-PUPPY_PAWS.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Bump[/gold] {IfUpgraded:show:ALL cards|a card} in your [gold]Hand[/gold].",
   "DICETHESPIRE-PUPPY_PAWS.title": "Puppy Paws",

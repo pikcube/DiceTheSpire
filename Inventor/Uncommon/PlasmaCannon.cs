@@ -6,16 +6,17 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
+using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
 public class PlasmaCannon() : TheInventorCard(3, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(PowerUp);
+    public override string GetScrapId => nameof(BattleWrench);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlasmaCannonPower>(10)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlasmaCannonPower>(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<GrindstonePower>(DynamicVars.Power<PlasmaCannonPower>().IntValue)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(BlinkModel.Blink)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -24,6 +25,6 @@ public class PlasmaCannon() : TheInventorCard(3, CardType.Power, CardRarity.Unco
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<PlasmaCannonPower>().UpgradeValueBy(5);
+        DynamicVars.Power<PlasmaCannonPower>().UpgradeValueBy(1);
     }
 }
