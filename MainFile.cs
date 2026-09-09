@@ -34,7 +34,7 @@ public partial class MainFile : Node
 
         CustomLocTableManager.Register("gadgets.json");
 
-        LocAliasManager.LoadJson(ModId, "res://DiceTheSpire/locAliases.json");
+        LocAliasManager.LoadJson(ModId);
         
         CustomCharacterUtils.TryOrderCustomCharacters<
             TheWarrior,
@@ -108,9 +108,11 @@ public static class LocAliasManager
         }
     }
 
-    public static void LoadJson(string modId, string jsonPath)
+    public static void LoadJson(string modId)
     {
-        string jsonString = FileAccess.GetFileAsString(jsonPath);
+        using DirAccess dir = DirAccess.Open($"res://{modId}");
+        string[] allJson = [.. dir.GetFiles().Where(f => f.EndsWith(".json"))];
+        string jsonString = FileAccess.GetFileAsString(allJson.Single(f => f.EndsWith("locAliases.json")));
         LocAliasInfo[] locInfos = JsonSerializer.Deserialize<LocAliasInfo[]>(jsonString) ?? throw new NoNullAllowedException();
         foreach (LocAliasInfo locInfo in locInfos)
         {
