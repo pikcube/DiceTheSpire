@@ -49,8 +49,8 @@
   "DICETHESPIRE-MAGIC_REROLL.title": "Magic Reroll",
   "DICETHESPIRE-NAIL_BAT.description": "Deal {Damage:diff()} damage.\n[gold]Held[/gold]: Take {Recoil:diff()} damage.",
   "DICETHESPIRE-NAIL_BAT.title": "Nail Bat",
-  "DICETHESPIRE-RUMMAGE_STRIKE.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
-  "DICETHESPIRE-RUMMAGE_STRIKE.title": "Rummage Strike",
+  "DICETHESPIRE-BATTLE_AXE_STRIKE.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
+  "DICETHESPIRE-BATTLE_AXE_STRIKE.title": "Battle Axe Strike",
   "DICETHESPIRE-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies.",
   "DICETHESPIRE-BROADSWORD.title": "Broadsword",
   "DICETHESPIRE-DEFENSIVE_STANCE.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd two copies of this card to your [gold]Hand[/gold] when drawn.",
@@ -158,7 +158,7 @@
   "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal",
   "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\ndraw {Cards:diff()} cards.",
   "DICETHESPIRE-CARTWHEEL.title": "Cartwheel",
-  "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
+  "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
   "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training"
 
 }     

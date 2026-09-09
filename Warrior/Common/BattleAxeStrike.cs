@@ -8,8 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
-
-public class RummageStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
