@@ -1,4 +1,12 @@
 {
   "DICETHESPIRE-SCRAP.description": "This card is always offered as Scrap.",
-  "DICETHESPIRE-SCRAP.title": "Scrap"
+  "DICETHESPIRE-SCRAP.title": "Scrap",
+  "DICETHESPIRE-COUNTDOWN.description": "Countdown cards require discarding a certain number of cards to be played.\nThe value persists between turns.",
+  "DICETHESPIRE-COUNTDOWN.title": "Countdown",
+  "DICETHESPIRE-RETURN.description": "This card returns to your [gold]Hand[/gold] when played.",
+  "DICETHESPIRE-RETURN.title": "Return",
+  "DICETHESPIRE-SHOCKED.description": "This card can't be played due to [gold]Shock[/gold].",
+  "DICETHESPIRE-SHOCKED.title": "Shocked",
+  "DICETHESPIRE-RANGE.single": "[gold]Range[/gold] [lb]{RangeMin:diff()}[rb].",
+  "DICETHESPIRE-RANGE.double": "[gold]Range[/gold] [lb]{RangeMin:diff()}, {RangeMax:diff()}[rb]."
 }

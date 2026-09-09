@@ -1,9 +1,0 @@
-﻿using BaseLib.Abstracts;
-
-namespace DiceTheSpire.DiceTheSpireCode.Inventor.Gadgets;
-
-public class PersistenceOfMemory() : GadgetModel(nameof(PersistenceOfMemory))
-{
-    public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.None;
-    public override bool IsAllowedAsTempGadget => false;
-}

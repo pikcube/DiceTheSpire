@@ -14,14 +14,6 @@
     {
       "id": "Pikcube.Common",
       "min_version": "v0.3.8"
-    },
-    {
-      "id": "TheWarrior",
-      "min_version": "v0.0.0"
-    },
-    {
-      "id": "DiceTheSpireCore",
-      "min_version": "v0.0.0"
     }
   ],
   "affects_gameplay": true

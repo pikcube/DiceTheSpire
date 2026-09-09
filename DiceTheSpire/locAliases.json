@@ -1,0 +1,34 @@
+[
+  {
+    "BasePath": "cards",
+    "AliasPaths": [
+      "cards.inventor",
+      "cards.thief",
+      "cards.warrior"
+    ]
+  },
+  {
+    "BasePath": "relics",
+    "AliasPaths": [
+      "relics.inventor",
+      "relics.thief",
+      "relics.warrior"
+    ]
+  },
+  {
+    "BasePath": "potions",
+    "AliasPaths": [
+      "potions.inventor",
+      "potions.thief",
+      "potions.warrior"
+    ]
+  },
+  {
+    "BasePath": "powers",
+    "AliasPaths": [
+      "powers.inventor",
+      "powers.thief",
+      "powers.warrior"
+    ]
+  }
+]

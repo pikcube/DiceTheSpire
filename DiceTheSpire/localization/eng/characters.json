@@ -29,5 +29,20 @@
   "DICETHESPIRE-THE_THIEF.pronounPossessive": "his",
   "DICETHESPIRE-THE_THIEF.pronounSubject": "he",
   "DICETHESPIRE-THE_THIEF.title": "The Thief",
-  "DICETHESPIRE-THE_THIEF.titleObject": "The Thief"
+  "DICETHESPIRE-THE_THIEF.titleObject": "The Thief",
+
+  "DICETHESPIRE-THE_WARRIOR.aromaPrinciple": "Lore",
+  "DICETHESPIRE-THE_WARRIOR.banter.alive.endTurnPing": "Is it my turn yet?",
+  "DICETHESPIRE-THE_WARRIOR.banter.dead.endTurnPing": "...",
+  "DICETHESPIRE-THE_WARRIOR.cardsModifierDescription": "Warrior cards will now appear in rewards and shops.",
+  "DICETHESPIRE-THE_WARRIOR.cardsModifierTitle": "Warrior Cards",
+  "DICETHESPIRE-THE_WARRIOR.description": "The Warrior is here to win a monster truck and become the strongest man in the world.\nRerolls his equipment he gets exactly what he wants!",
+  "DICETHESPIRE-THE_WARRIOR.eventDeathPrevention": "Co-op survival line",
+  "DICETHESPIRE-THE_WARRIOR.goldMonologue": "A down payment on a monster truck could be made...",
+  "DICETHESPIRE-THE_WARRIOR.possessiveAdjective": "his",
+  "DICETHESPIRE-THE_WARRIOR.pronounObject": "him",
+  "DICETHESPIRE-THE_WARRIOR.pronounPossessive": "his",
+  "DICETHESPIRE-THE_WARRIOR.pronounSubject": "he",
+  "DICETHESPIRE-THE_WARRIOR.title": "The Warrior",
+  "DICETHESPIRE-THE_WARRIOR.titleObject": "The Warrior"
 }
