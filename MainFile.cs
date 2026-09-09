@@ -7,11 +7,9 @@ using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using Godot;
 using HarmonyLib;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using Pikcube.Common.Utility;
-using SmartFormat;
 using FileAccess = Godot.FileAccess;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
@@ -45,15 +43,6 @@ public partial class MainFile : Node
         >();
     }
 
-}
-
-[HarmonyPatch(typeof(LocManager), "LoadLocFormatters")]
-public static class StringFormatterPatches
-{
-    public static void Postfix()
-    {
-        Smart.Default.AddExtensions(new DiceIconFormatter());
-    }
 }
 
 [HarmonyPatch(typeof(ModManager), nameof(ModManager.GetModdedLocTables))]
