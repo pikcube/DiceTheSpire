@@ -155,5 +155,8 @@
   "DICETHESPIRE-SUPER_SET.description": "[gold]Rummage[/gold] {SuperSetRummagePower:diff()} cards.\nWhenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {SuperSetRummagePower:diff()} cards.",
   "DICETHESPIRE-SUPER_SET.title": "Super Set",
   "DICETHESPIRE-INVISIBLE_CRYSTAL.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].",
-  "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal"
+  "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal",
+  "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\ndraw {Cards:diff()} cards.",
+  "DICETHESPIRE-CARTWHEEL.title": "Cartwheel"
+
 }     

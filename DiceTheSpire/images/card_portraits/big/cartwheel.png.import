@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk0x8baidgksh"
-path="res://.godot/imported/flaming_sword_strike.png-cc7a384ef57e87487681d0e43cfd1152.ctex"
+uid="uid://dg1dim75b2mvo"
+path="res://.godot/imported/cartwheel.png-8947e09754ec159120f2c41fde29161c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/flaming_sword_strike.png"
-dest_files=["res://.godot/imported/flaming_sword_strike.png-cc7a384ef57e87487681d0e43cfd1152.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/cartwheel.png"
+dest_files=["res://.godot/imported/cartwheel.png-8947e09754ec159120f2c41fde29161c.ctex"]
 
 [params]
 
