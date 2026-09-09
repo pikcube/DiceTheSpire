@@ -20,13 +20,13 @@ public class Cartwheel() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, T
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
     }
-    public async Task AfterRerollAsync(CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration, PlayerChoiceContext choiceContext)
+    public async Task AfterRerollAsync(PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
         if (card == this)
         {
-            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
         }
     }
     protected override void OnUpgrade()
@@ -34,8 +34,4 @@ public class Cartwheel() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, T
         DynamicVars.Cards.UpgradeValueBy(1);
     }
 
-    public Task AfterRerollAsync(CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
-    {
-        throw new NotImplementedException();
-    }
 }

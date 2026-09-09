@@ -157,6 +157,8 @@
   "DICETHESPIRE-INVISIBLE_CRYSTAL.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].",
   "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal",
   "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\ndraw {Cards:diff()} cards.",
-  "DICETHESPIRE-CARTWHEEL.title": "Cartwheel"
+  "DICETHESPIRE-CARTWHEEL.title": "Cartwheel",
+  "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
+  "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training"
 
 }     
