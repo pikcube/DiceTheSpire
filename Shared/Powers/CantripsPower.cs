@@ -16,7 +16,7 @@ public class CantripsPower : DiceTheSpireCorePower, IAfterRerollListener
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public async Task AfterRerollAsync(CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
+    public async Task AfterRerollAsync(PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
         CantripsPower cantripsPower = this;
         IReadOnlyList<Creature> hittableEnemies = cantripsPower.CombatState.HittableEnemies;
@@ -26,7 +26,7 @@ public class CantripsPower : DiceTheSpireCorePower, IAfterRerollListener
             return;
         }
 
-        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), item, Amount, ValueProp.Unpowered | ValueProp.Unpowered, null, null, null);
+        await CreatureCmd.Damage(choiceContext, item, Amount, ValueProp.Unpowered | ValueProp.Unpowered, null, null, null);
     }
 
 }

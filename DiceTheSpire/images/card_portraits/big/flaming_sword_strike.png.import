@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
+uid="uid://bc0cdikphe1mk"
+path="res://.godot/imported/flaming_sword_strike.png-cc7a384ef57e87487681d0e43cfd1152.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+source_file="res://DiceTheSpire/images/card_portraits/big/flaming_sword_strike.png"
+dest_files=["res://.godot/imported/flaming_sword_strike.png-cc7a384ef57e87487681d0e43cfd1152.ctex"]
 
 [params]
 
