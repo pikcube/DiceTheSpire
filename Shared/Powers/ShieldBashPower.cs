@@ -1,5 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -23,7 +25,7 @@ public class ShieldBashPower : DiceTheSpireCorePower
         }
         ShieldBashPower shieldBashPower = this;
         shieldBashPower.Flash();
-        await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), shieldBashPower.Owner, Amount, Applier, null);
+        await PowerCmd.Apply<VigorPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), shieldBashPower.Owner, Amount, Applier, null);
     }
           
 }

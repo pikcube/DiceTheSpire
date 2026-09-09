@@ -23,7 +23,7 @@ public class PoisonParadisePower : TheThiefPower
             return;
         }
 
-        await PowerCmd.Apply<PoisonPower>(new ThrowingPlayerChoiceContext(), dealer, Amount, Owner, null);
+        await PowerCmd.Apply<PoisonPower>(choiceContext, dealer, Amount, Owner, null);
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)

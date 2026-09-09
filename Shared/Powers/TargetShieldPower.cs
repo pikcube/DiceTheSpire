@@ -20,7 +20,7 @@ namespace DiceTheSpire.Shared.Powers;
         {
             TargetShieldPower targetShieldPower = this;
             targetShieldPower.Flash(); 
-            await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), targetShieldPower.Owner, targetShieldPower.Amount, targetShieldPower.Owner, null);
+            await PowerCmd.Apply<DexterityPower>(choiceContext, targetShieldPower.Owner, targetShieldPower.Amount, targetShieldPower.Owner, null);
 
         }
     }

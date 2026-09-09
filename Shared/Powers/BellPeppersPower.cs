@@ -1,6 +1,8 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -15,7 +17,7 @@ public class BellPeppersPower : TheThiefPower
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        await PowerCmd.Apply<BellPeppersStrengthPower>(new ThrowingPlayerChoiceContext(), Owner, 2, Owner, null);
+        await PowerCmd.Apply<BellPeppersStrengthPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), Owner, 2, Owner, null);
     }
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
@@ -25,7 +27,7 @@ public class BellPeppersPower : TheThiefPower
             return;
         }
 
-        await PowerCmd.Apply<OverwhelmStrengthPower>(new ThrowingPlayerChoiceContext(), Owner, 2, Owner, null);
+        await PowerCmd.Apply<OverwhelmStrengthPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), Owner, 2, Owner, null);
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)

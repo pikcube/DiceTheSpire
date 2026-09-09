@@ -91,9 +91,13 @@ public static class PipPatches
         {
             int fontSize = val1 + (val2 - val1) / 2;
             if (fontSize == megaLabel.MaxFontSize || MegaLabelHelper.IsTooBig(cachedParagraph, megaLabel.Text, themeFont, fontSize, themeConstant, wrap, size))
+            {
                 val2 = fontSize - 1;
+            }
             else
+            {
                 val1 = fontSize + 1;
+            }
         }
 
         return Math.Min(val1, val2);
