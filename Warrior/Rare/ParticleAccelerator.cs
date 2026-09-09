@@ -18,7 +18,7 @@ public class ParticleAccelerator() : TheWarriorCard(4, CardType.Attack, CardRari
         DynamicVars.Damage.BaseValue = IsUpgraded ? 2 : 1;
         return Task.CompletedTask;
     }
-    public Task AfterRerollAsync(CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
+    public Task AfterRerollAsync(PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
         if (card == this)
         {

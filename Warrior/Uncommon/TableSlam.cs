@@ -25,7 +25,7 @@ public class TableSlam() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon
             }
 
             NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
-            await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
+            await RerollCmd.RerollAsync(choiceContext, card, RerollDuration.UntilEndOfTurnOrPlayed);
         }
         await PowerCmd.Apply<RetainHandPower>(choiceContext, Owner.Creature, DynamicVars.Power<RetainHandPower>().BaseValue, Owner.Creature, this);
     }

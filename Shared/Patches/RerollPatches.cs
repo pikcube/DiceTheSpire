@@ -19,13 +19,13 @@ public static class RerollPatches
     [HarmonyPatch(typeof(ConfusedPower), "AfterCardDrawn")]
     public static class ConfusedPatch
     {
-        public static bool Prefix(ref Task __result, ConfusedPower __instance, CardModel card)
+        public static bool Prefix(ref Task __result, PlayerChoiceContext choiceContext, ConfusedPower __instance, CardModel card)
         {
             if (!RangeVars.TryGet(card, out _, out _) || card.Owner != __instance.Owner.Player || card.EnergyCost.Canonical < 0)
             {
                 return true;
             }
-            __result = RerollCmd.RerollAsync(card, RerollDuration.Combat);
+            __result = RerollCmd.RerollAsync(choiceContext, card, RerollDuration.Combat);
             return false;
         }
     }
@@ -33,7 +33,7 @@ public static class RerollPatches
     [HarmonyPatch(typeof(Slither), "AfterCardDrawn")]
     public static class SlitherPatch
     {
-        public static bool Prefix(ref Task __result, Slither __instance, CardModel card)
+        public static bool Prefix(ref Task __result, PlayerChoiceContext choiceContext, Slither __instance, CardModel card)
         {
             if (!RangeVars.TryGet(card, out _, out _) || card != __instance.Card || __instance.Card.Pile?.Type != PileType.Hand)
             {
@@ -41,7 +41,7 @@ public static class RerollPatches
             }
 
            
-            __result = RerollCmd.RerollAsync(card, RerollDuration.Combat);
+            __result = RerollCmd.RerollAsync(choiceContext, card, RerollDuration.Combat);
             return false;
         }
     }
@@ -66,7 +66,7 @@ public static class RerollPatches
             await CardPileCmd.Draw(choiceContext, sneckoOil.DynamicVars.Cards.BaseValue, target.Player);
             foreach (CardModel card in PileType.Hand.GetPile(target.Player).Cards.Where(c => !c.EnergyCost.CostsX))
             {
-                await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
+                await RerollCmd.RerollAsync(choiceContext, card, RerollDuration.UntilEndOfTurnOrPlayed);
             }
         }
     }

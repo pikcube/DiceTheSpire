@@ -36,7 +36,7 @@ public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Un
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(5);
+        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.Vulnerable.UpgradeValueBy(2);
     }
 }

@@ -19,7 +19,7 @@ public class WarriorShriekPower : DiceTheSpireCorePower
         }
 
         Flash();
-        await PowerCmd.Apply<VigorPower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Applier, null);
+        await PowerCmd.Apply<VigorPower>(choiceContext, Owner, Amount, Applier, null);
     }
 
 }

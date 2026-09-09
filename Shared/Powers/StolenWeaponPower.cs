@@ -1,5 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -21,7 +23,7 @@ public class StolenWeaponPower : TheThiefPower, IAfterPowerRemovedListener
         }
 
         Flash();
-        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner, Math.Min(Amount, powerModel.Amount), Owner,
+        await PowerCmd.Apply<StrengthPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), Owner, Math.Min(Amount, powerModel.Amount), Owner,
             null);
     }
 
