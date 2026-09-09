@@ -37,11 +37,6 @@ public partial class MainFile : Node
         CustomLocTableManager.Register("gadgets.json");
 
         LocAliasManager.LoadJson(ModId, "res://DiceTheSpire/locAliases.json");
-
-        //LocAliasManager.Register(ModId, "cards", "cards.inventor", "cards.thief", "cards.warrior");
-        //LocAliasManager.Register(ModId, "relics", "relics.inventor", "relics.thief", "relics.warrior");
-        //LocAliasManager.Register(ModId, "potions", "potions.inventor", "potions.thief", "potions.warrior");
-        //LocAliasManager.Register(ModId, "powers", "powers.inventor", "powers.thief", "powers.warrior");
         
         CustomCharacterUtils.TryOrderCustomCharacters<
             TheWarrior,

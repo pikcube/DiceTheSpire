@@ -1,6 +1,7 @@
 ﻿using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
@@ -10,7 +11,7 @@ namespace DiceTheSpire.Shared.Commands;
 
 public static class RerollCmd
 {
-    public static async Task RerollAsync(CardModel card, RerollDuration duration)
+    public static async Task RerollAsync(PlayerChoiceContext choiceContext, CardModel card, RerollDuration duration)
     {
         ArgumentNullException.ThrowIfNull(card.RunState);
         int originalCost = card.EnergyCost.GetAmountToSpend();
@@ -45,7 +46,7 @@ public static class RerollCmd
             }));
         }
 
-        await DiceyHooks.OnRerollAsync(card.RunState, card, isFixed, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
+        await DiceyHooks.OnRerollAsync(choiceContext, card.RunState, card, isFixed, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
     }
 
     private static int NextEnergyCost(CardModel card, IRunState runState, out bool isFixed)

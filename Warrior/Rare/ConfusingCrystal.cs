@@ -25,7 +25,7 @@ public class ConfusingCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.R
             }
 
             NCard.FindOnTable(card)?.PlayRandomizeCostAnim();
-            await RerollCmd.RerollAsync(card, RerollDuration.UntilEndOfTurnOrPlayed);
+            await RerollCmd.RerollAsync(choiceContext, card, RerollDuration.UntilEndOfTurnOrPlayed);
         }
     }
     protected override void OnUpgrade()
