@@ -110,13 +110,28 @@ public static class LocAliasManager
 
     public static void LoadJson(string modId)
     {
-        using DirAccess dir = DirAccess.Open($"res://{modId}");
-        string[] allJson = [.. dir.GetFiles().Where(f => f.EndsWith(".json"))];
-        string jsonString = FileAccess.GetFileAsString(allJson.Single(f => f.EndsWith("locAliases.json")));
+        string jsonString = FileAccess.GetFileAsString(GetAllFilesRecursive($"res://{modId}").Single(f => f.EndsWith("locAliases.json")));
         LocAliasInfo[] locInfos = JsonSerializer.Deserialize<LocAliasInfo[]>(jsonString) ?? throw new NoNullAllowedException();
         foreach (LocAliasInfo locInfo in locInfos)
         {
             Register(modId, locInfo.BasePath, locInfo.AliasPaths);
+        }
+    }
+
+    private static IEnumerable<string> GetAllFilesRecursive(string directoryPath)
+    {
+        using DirAccess dir = DirAccess.Open(directoryPath);
+        foreach (string file in dir.GetFiles())
+        {
+            yield return $"{directoryPath}/{file}";
+        }
+
+        foreach (string subDirectory in dir.GetDirectories())
+        {
+            foreach (string file in GetAllFilesRecursive($"{directoryPath}/{subDirectory}"))
+            {
+                yield return file;
+            }
         }
     }
 }
