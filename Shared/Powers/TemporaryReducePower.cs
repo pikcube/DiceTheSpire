@@ -66,7 +66,10 @@ public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPow
         CardModel? cardSource)
     {
         if (amount == Amount || power != this)
+        {
             return;
+        }
+
         if (_shouldIgnoreNextInstance)
         {
             _shouldIgnoreNextInstance = false;

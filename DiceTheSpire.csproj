@@ -32,10 +32,10 @@
 
     <ItemGroup>
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.4.5" PrivateAssets="All" />
-        <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" />
-        <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="*" />
-        <PackageReference Include="Pikcube.Common" Version="0.3.8" />
-        <PackageReference Include="SmartFormat.NET" Version="3.6.1" />
+        <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" PrivateAssets="All"/>
+        <PackageReference Include="Pikcube.Alchyr.Sts2.ModAnalyzers" Version="0.2.9" PrivateAssets="All"/>
+        <PackageReference Include="Pikcube.Common" Version="0.3.10" PrivateAssets="All"/>
+        <PackageReference Include="SmartFormat.NET" Version="3.6.1" PrivateAssets="All"/>
         <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
         <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
         <AdditionalFiles Include="DiceTheSpire/localization/**/*.json" /> <!-- Used by analyzer -->
@@ -82,7 +82,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Warrior\Workouts\" />
+      <AdditionalFiles Include="DiceTheSpire\locAliases.json" />
     </ItemGroup>
     
     <Target Name="CheckDependencyPaths">

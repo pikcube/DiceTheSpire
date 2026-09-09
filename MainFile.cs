@@ -7,11 +7,9 @@ using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using Godot;
 using HarmonyLib;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using Pikcube.Common.Utility;
-using SmartFormat;
 using FileAccess = Godot.FileAccess;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
@@ -36,7 +34,7 @@ public partial class MainFile : Node
 
         CustomLocTableManager.Register("gadgets.json");
 
-        LocAliasManager.LoadJson(ModId, "res://DiceTheSpire/locAliases.json");
+        LocAliasManager.LoadJson(ModId);
         
         CustomCharacterUtils.TryOrderCustomCharacters<
             TheWarrior,
@@ -45,15 +43,6 @@ public partial class MainFile : Node
         >();
     }
 
-}
-
-[HarmonyPatch(typeof(LocManager), "LoadLocFormatters")]
-public static class StringFormatterPatches
-{
-    public static void Postfix()
-    {
-        Smart.Default.AddExtensions(new DiceIconFormatter());
-    }
 }
 
 [HarmonyPatch(typeof(ModManager), nameof(ModManager.GetModdedLocTables))]
@@ -119,13 +108,30 @@ public static class LocAliasManager
         }
     }
 
-    public static void LoadJson(string modId, string jsonPath)
+    public static void LoadJson(string modId)
     {
-        string jsonString = FileAccess.GetFileAsString(jsonPath);
+        string jsonString = FileAccess.GetFileAsString(GetAllFilesRecursive($"res://{modId}").Single(f => f.EndsWith("locAliases.json")));
         LocAliasInfo[] locInfos = JsonSerializer.Deserialize<LocAliasInfo[]>(jsonString) ?? throw new NoNullAllowedException();
         foreach (LocAliasInfo locInfo in locInfos)
         {
             Register(modId, locInfo.BasePath, locInfo.AliasPaths);
+        }
+    }
+
+    private static IEnumerable<string> GetAllFilesRecursive(string directoryPath)
+    {
+        using DirAccess dir = DirAccess.Open(directoryPath);
+        foreach (string file in dir.GetFiles())
+        {
+            yield return $"{directoryPath}/{file}";
+        }
+
+        foreach (string subDirectory in dir.GetDirectories())
+        {
+            foreach (string file in GetAllFilesRecursive($"{directoryPath}/{subDirectory}"))
+            {
+                yield return file;
+            }
         }
     }
 }

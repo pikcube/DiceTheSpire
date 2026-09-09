@@ -16,7 +16,10 @@ public class EnergyDownNextTurnPower : DiceTheSpireCorePower
     public override async Task AfterEnergyReset(Player player)
     {
         if (player != Owner.Player)
+        {
             return;
+        }
+
         await PlayerCmd.LoseEnergy(Amount, player);
         await PowerCmd.Remove(this);
     }
