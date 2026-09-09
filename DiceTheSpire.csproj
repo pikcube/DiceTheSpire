@@ -80,6 +80,14 @@
     <ItemGroup>
       <AdditionalFiles Remove="DiceTheSpire\localization\eng\card_selection.json" />
     </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="DiceTheSpire\locAliases.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="DiceTheSpire\locAliases.json" />
+    </ItemGroup>
     
     <Target Name="CheckDependencyPaths">
         <Error Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
