@@ -153,7 +153,7 @@
   "DICETHESPIRE-SILVER_DAGGER.title": "Silver Dagger Strike",
   "DICETHESPIRE-SIX_SHOOTER.description": "Deal {Damage:diff()} damage {Hits:diff()} times.",
   "DICETHESPIRE-SIX_SHOOTER.title": "Six Shooter",
-  "DICETHESPIRE-SLEDGE_HAMMER.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to ALL enemies.\nDeal {Damage:diff()} additional damage if you [gold]Blinked[/gold] a card this turn.",
+  "DICETHESPIRE-SLEDGE_HAMMER.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to ALL enemies.\nDecrease this card's damage by 1 for the rest of combat.",
   "DICETHESPIRE-SLEDGE_HAMMER.title": "Sledge Hammer",
   "DICETHESPIRE-SNOWFLAKE.description": "When this card is [gold]Blinked[/gold], gain {Block:diff()} [gold]Block[/gold].\n[gold]Held[/gold]: Next turn, gain {Block:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-SNOWFLAKE.title": "Snowflake",
