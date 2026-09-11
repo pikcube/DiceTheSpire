@@ -62,7 +62,7 @@ public class GadgetPower : TheInventorPower, IGadgetParent
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText)), new StringVar(nameof(GadgetName))];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText)), new StringVar(nameof(GadgetName), nameof(GadgetName))];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.Static(InventorStaticHoverTips.Gadget), HoverTipFactory.Static(InventorStaticHoverTips.Scrap)];

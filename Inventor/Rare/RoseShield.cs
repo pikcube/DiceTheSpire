@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Rare;
 
@@ -19,8 +18,6 @@ public class RoseShield() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, 
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(11, BlockProps.card), new PowerVar<ThornsPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block), HoverTipFactory.FromPower<ThornsPower>()];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
-
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

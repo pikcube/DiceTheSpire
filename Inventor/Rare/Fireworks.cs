@@ -1,4 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -17,12 +19,12 @@ public class Fireworks() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, 
 
     private static decimal Bonus(CardModel card, Creature? target)
     {
-        if (card is not Fireworks bd || bd.CombatState is null)
+        if (card is not Fireworks fireworks || fireworks.CombatState is null)
         {
             return 1;
         }
 
-        return bd.CombatState.Creatures.SelectMany(c => c.Powers).Count(p => p.Type == PowerType.Debuff);
+        return CombatManager.Instance.History.Entries.OfType<PowerReceivedEntry>().Count(pre => pre.Power.GetTypeForAmount(pre.Amount) is PowerType.Debuff);
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

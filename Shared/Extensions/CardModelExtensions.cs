@@ -21,7 +21,7 @@ public static class CardModelExtensions
             }
             else
             {
-                CardModel newCard = instance.CreateNewInstance(instance.Owner, instance.CombatState);
+                T newCard = instance.CreateNewInstance(instance.Owner, instance.CombatState);
                 PileType newPileType = destinationPile ?? instance.Pile?.Type ?? PileType.Hand;
                 if (newPileType is PileType.Draw)
                 {
@@ -37,11 +37,11 @@ public static class CardModelExtensions
             
         }
 
-        public CardModel CreateNewInstance(Player owner, ICombatState? combatState = null)
+        public T CreateNewInstance(Player owner, ICombatState? combatState = null)
         {
             return combatState is null
-                ? owner.RunState.CreateCard(instance.CanonicalInstance, owner)
-                : combatState.CreateCard(instance.CanonicalInstance, owner);
+                ? owner.RunState.CreateCard<T>(owner)
+                : combatState.CreateCard<T>(owner);
         }
 
         //public async Task NudgeAsync(PlayerChoiceContext choiceContext)

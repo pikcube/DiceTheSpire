@@ -39,6 +39,6 @@ public class Befuddle() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, Ta
 
         BefuddlePower? power = await BefuddlePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, this);
 
-        power?.SetCards(card);
+        power?.SetCard(card);
     }
 }

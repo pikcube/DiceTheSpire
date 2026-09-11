@@ -13,7 +13,7 @@ namespace DiceTheSpire.Inventor.Rare;
 
 
 [UsedImplicitly]
-public class Resistor() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Resistor() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override string GetScrapId => nameof(Protection);
 

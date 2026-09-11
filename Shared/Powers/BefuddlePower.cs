@@ -21,7 +21,7 @@ public class BefuddlePower : TheInventorPower
 
     public CardModel? Card { get; set; }
 
-    public void SetCards(CardModel card)
+    public void SetCard(CardModel card)
     {
         Card = card;
         CardCmd.ClearAffliction(card);
@@ -41,7 +41,6 @@ public class BefuddlePower : TheInventorPower
             for (int n = 0; n < Amount; ++n)
             {
                 clones.Add(Card.CreateClone());
-
             }
 
             await CardPileCmd.AddGeneratedCardsToCombat(clones, PileType.Hand, player);
