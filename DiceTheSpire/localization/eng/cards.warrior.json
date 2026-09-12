@@ -159,6 +159,8 @@
   "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\ndraw {Cards:diff()} cards.",
   "DICETHESPIRE-CARTWHEEL.title": "Cartwheel",
   "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
-  "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training"
+  "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training",
+  "DICETHESPIRE-SOMERSAULT.description": "Draw {Cards:diff()} cards.\n[gold]Rummage[/gold] {Cards:diff()} cards.",
+  "DICETHESPIRE-SOMERSAULT.title": "Somersault"
 
 }     

@@ -18,7 +18,7 @@ public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Co
         new DamageVar(8M, DamageProps.card), 
         new PowerVar<FuryPower>(1M), 
         new RepeatVar(2), 
-        .. RangeVars.Make(2, 4)
+        .. RangeVars.Make(1, 4)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
 
