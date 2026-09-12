@@ -28,7 +28,8 @@ public static class CardModelExtensions
             }
             else
             {
-                T newCard = instance.CreateNewInstance(instance.Owner, instance.CombatState);
+                CardModel newCard = instance.CanonicalInstance.ToMutable();
+                instance.CombatState?.AddCard(newCard, instance.Owner);
                 PileType newPileType = destinationPile ?? instance.Pile?.Type ?? PileType.Hand;
                 if (newPileType is PileType.Draw)
                 {
@@ -42,13 +43,6 @@ public static class CardModelExtensions
             }
 
             
-        }
-
-        public T CreateNewInstance(Player owner, ICombatState? combatState = null)
-        {
-            return combatState is null
-                ? owner.RunState.CreateCard<T>(owner)
-                : combatState.CreateCard<T>(owner);
         }
 
         public Task ShockAsync(PlayerChoiceContext choiceContext, bool skipVisuals = false) => ShockModel.ShockCardAsync(choiceContext, instance, skipVisuals);
