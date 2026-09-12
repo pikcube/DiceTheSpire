@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,7 +8,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -19,7 +19,7 @@ public class HiVisJacket() : TheInventorCard(1, CardType.Power, CardRarity.Uncom
     [
         HoverTipFactory.Static(BetterStaticHoverTips.Inspect,
             new CardsVar(DynamicVars.Power<HiVisJacketPower>().IntValue)), 
-        HoverTipFactory.FromKeyword(BlinkModel.Blink)
+        HoverTipFactory.FromKeyword(ShockModel.Shock)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

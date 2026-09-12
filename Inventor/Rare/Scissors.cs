@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -6,7 +7,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Rare;
 
@@ -18,7 +18,7 @@ public class Scissors() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, Ta
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

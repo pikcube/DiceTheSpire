@@ -5,7 +5,9 @@
   "DICETHESPIRE-COUNTDOWN.title": "Countdown",
   "DICETHESPIRE-RETURN.description": "This card returns to your [gold]Hand[/gold] when played.",
   "DICETHESPIRE-RETURN.title": "Return",
-  "DICETHESPIRE-SHOCKED.description": "This card can't be played due to [gold]Shock[/gold].",
+  "DICETHESPIRE-SHOCK.description": "Exhaust this card. At the end of this turn, return this card to your hand before discarding.",
+  "DICETHESPIRE-SHOCK.title": "Shock",
+  "DICETHESPIRE-SHOCKED.description": "At the end of this turn, return this card from your Exhaust Pile to your hand before discarding.",
   "DICETHESPIRE-SHOCKED.title": "Shocked",
   "DICETHESPIRE-RANGE.single": "[gold]Range[/gold] [lb]{RangeMin:diff()}[rb].",
   "DICETHESPIRE-RANGE.double": "[gold]Range[/gold] [lb]{RangeMin:diff()}, {RangeMax:diff()}[rb]."

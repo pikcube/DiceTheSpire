@@ -1,4 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
+using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -6,29 +8,27 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using Pikcube.Common.Keywords;
-using Pikcube.Common.Utility;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IOnBlinkListener
+public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IOnShockListener
 {
-    public int BlinkedThisCombat { get; set; }
+    public int ShockedThisCombat { get; set; }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(4, Bonus, 3)];
 
     private static decimal Bonus(CardModel arg1, Creature? arg2)
     {
-        return arg1 is not Electromagnet e ? 1 : e.BlinkedThisCombat;
+        return arg1 is not Electromagnet e ? 1 : e.ShockedThisCombat;
     }
 
     public override Task BeforeCombatStart()
     {
-        BlinkedThisCombat = 0;
+        ShockedThisCombat = 0;
         return Task.CompletedTask;
     }
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -42,14 +42,14 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
     }
 
     public override string GetScrapId => nameof(Fury);
-    public Task AfterCardBlinkedAsync(PlayerChoiceContext choiceContext, CardModel card)
+    public Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
         if (card.Owner != Owner)
         {
             return Task.CompletedTask;
         }
 
-        ++BlinkedThisCombat;
+        ++ShockedThisCombat;
         return Task.CompletedTask;
     }
 

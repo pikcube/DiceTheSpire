@@ -1,11 +1,11 @@
-﻿using DiceTheSpire.Shared.Listeners;
+﻿using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
+using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Shared.Relics;
 
@@ -15,7 +15,7 @@ public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(BlinkModel.Blink)
+        HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(ShockModel.Shock)
     ];
 
     public bool ModifyUnplayableBehavior(CardModel card)
@@ -49,7 +49,7 @@ public class Toolbelt : TheInventorRelic, IModifyUnplayableBehaviorListener
 
     private async Task NewOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await cardPlay.Card.BlinkAsync(choiceContext);
+        await cardPlay.Card.ShockAsync(choiceContext);
         Flash();
     }
 }

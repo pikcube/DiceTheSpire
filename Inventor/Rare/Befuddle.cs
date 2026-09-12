@@ -1,4 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -9,7 +11,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Rare;
 
@@ -19,7 +20,7 @@ public class Befuddle() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, Ta
     public override string GetScrapId => nameof(Replicate);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
     protected override void OnUpgrade()
     {
@@ -28,14 +29,14 @@ public class Befuddle() : TheInventorCard(2, CardType.Skill, CardRarity.Rare, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBlink, 1, 1);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, 1, 1);
         CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)).SingleOrDefault();
         if (card is null)
         {
             return;
         }
 
-        await card.BlinkAsync(choiceContext);
+        await card.ShockAsync(choiceContext);
 
         BefuddlePower? power = await BefuddlePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Cards.IntValue, Owner.Creature, this);
 

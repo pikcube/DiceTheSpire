@@ -1,11 +1,11 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Rare;
 
@@ -14,7 +14,7 @@ public class TabulaRasa() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare,
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
     protected override bool HasEnergyCostX => true;
 
@@ -27,7 +27,7 @@ public class TabulaRasa() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare,
         int energyGain = cardsInHand.Count;
         foreach (CardModel card in cardsInHand.ToArray())
         {
-            await BlinkModel.BlinkCardAsync(choiceContext, card);
+            await ShockModel.ShockCardAsync(choiceContext, card);
         }
 
         await CardPileCmd.Draw(choiceContext, drawNum, Owner);
@@ -37,6 +37,6 @@ public class TabulaRasa() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare,
     protected override void OnUpgrade()
     {
         RemoveKeyword(CardKeyword.Exhaust);
-        AddKeyword(BlinkModel.Blink);
+        AddKeyword(ShockModel.Shock);
     }
 }

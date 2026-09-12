@@ -1,11 +1,11 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Rare;
 
@@ -13,7 +13,7 @@ public class AirConditioner() : TheInventorCard(2, CardType.Skill, CardRarity.Ra
 {
     public override string GetScrapId => nameof(WallOfIce);
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
 

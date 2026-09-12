@@ -1,5 +1,7 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
+using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,12 +10,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Keywords;
-using Pikcube.Common.Utility;
 
 namespace DiceTheSpire.Inventor.Common;
 
-public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, TargetType.Self), IOnBlinkListener
+public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, TargetType.Self), IOnShockListener
 {
     public override string GetScrapId => nameof(WallOfIce);
 
@@ -24,7 +24,7 @@ public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common
         new BlockVar(5, BlockProps.card),
         new PowerVar<BlockNextTurnPower>(5)
     ];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(BlinkModel.Blink), HoverTipFactory.Static(StaticHoverTip.Block)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock), HoverTipFactory.Static(StaticHoverTip.Block)];
 
     public override bool HasTurnEndInHandEffect => true;
 
@@ -40,7 +40,7 @@ public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common
         DynamicVars.Power<BlockNextTurnPower>().UpgradeValueBy(2);
     }
 
-    public async Task AfterCardBlinkedAsync(PlayerChoiceContext choiceContext, CardModel card)
+    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
         if (card != this)
         {

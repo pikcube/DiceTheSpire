@@ -43,25 +43,6 @@ public static class DiceyHooks
         }
     }
 
-    public delegate void AfterCardShockedHandler(CardModel card);
-
-    public static event AfterCardShockedHandler? AfterCardShocked;
-
-
-    public static async Task OnCardShocked(PlayerChoiceContext choiceContext, ShockPower shock, CardModel card)
-    {
-        AfterCardShocked?.Invoke(card);
-        if (card.RunState is null)
-        {
-            return;
-        }
-
-        foreach (IAfterCardShockedListener listener in card.RunState.IterateHookListeners(card.CombatState).OfType<IAfterCardShockedListener>())
-        {
-            await listener.AfterCardShockedAsync(choiceContext, shock, card);
-        }
-
-    }
 
     public delegate void AfterBumpHandler(PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard);
 
@@ -183,6 +164,14 @@ public static class DiceyHooks
                      .OfType<IModifyFuryPlayCountListener>())
         {
             listener.ModifyFuryPlayCount(furyPower, card, ref furyCount);
+        }
+    }
+
+    public static async Task OnShockAsync(PlayerChoiceContext choiceContext, CardModel card)
+    { 
+        foreach (IOnShockListener listener in card.Owner.RunState.IterateHookListeners(card.Owner.Creature.CombatState).OfType<IOnShockListener>())
+        {
+            await listener.AfterCardShockedAsync(choiceContext, card);
         }
     }
 }

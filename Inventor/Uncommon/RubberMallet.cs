@@ -1,4 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -7,8 +9,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -16,7 +16,7 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, DamageProps.card), new EnergyVar(2), new CardsVar(2)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
 
     public override string GetScrapId => nameof(Efficiency);
 
@@ -35,9 +35,9 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBlink, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
-        await Task.WhenAll(results.Select(card => card.BlinkAsync(choiceContext)));
+        await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)

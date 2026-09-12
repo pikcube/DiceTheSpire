@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Inventor.Token;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,7 +9,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -46,7 +46,7 @@ public class EmptySlot() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
     protected override void OnUpgrade()
     {
         RemoveKeyword(CardKeyword.Exhaust);
-        AddKeyword(BlinkModel.Blink);
+        AddKeyword(ShockModel.Shock);
     }
 
     public override bool ModifyScrap()

@@ -1,6 +1,9 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
-using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Shared.DynamicVars;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -14,15 +17,15 @@ public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Com
 { 
     public override string GetScrapId => nameof(ShortCircuit);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), new PowerVar<ShockPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), new ShockVar(2)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(DynamicVars.Power<ShockPower>().IntValue)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         //ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        if (CombatState is null)
+        if (CombatState is null || RunState is null)
         {
             return;
         }
@@ -34,12 +37,11 @@ public class ElectricWhip() : TheInventorCard(1, CardType.Attack, CardRarity.Com
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<ShockPower>(choiceContext, Owner.Creature, DynamicVars.Power<ShockPower>().IntValue,
-            Owner.Creature, this);
+        await InventorHelperFunctions.ShockRandomAsync(choiceContext, Owner, RunState.Rng.CombatCardSelection, DynamicVars.Shock.IntValue);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<ShockPower>().UpgradeValueBy(-1);
+        DynamicVars.Shock.UpgradeValueBy(-1);
     }
 }

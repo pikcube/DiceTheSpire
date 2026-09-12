@@ -1,5 +1,4 @@
-﻿using DiceTheSpire.Shared.Listeners;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -9,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class SpikePower : TheInventorPower, IAfterCardShockedListener
+public class SpikePower : TheInventorPower
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -24,13 +23,5 @@ public class SpikePower : TheInventorPower, IAfterCardShockedListener
 
         HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
         await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
-    }
-
-    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, ShockPower _, CardModel card)
-    {
-        if (card.Owner.Creature == Owner && card.Pile?.Type == PileType.Hand)
-        {
-            await CreatureCmd.Damage(choiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
-        }
     }
 }

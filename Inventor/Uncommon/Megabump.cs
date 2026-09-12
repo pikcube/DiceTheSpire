@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,7 +11,6 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -55,6 +55,6 @@ public class Megabump() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
     protected override void OnUpgrade()
     {
         RemoveKeyword(CardKeyword.Exhaust);
-        AddKeyword(BlinkModel.Blink);
+        AddKeyword(ShockModel.Shock);
     }
 }

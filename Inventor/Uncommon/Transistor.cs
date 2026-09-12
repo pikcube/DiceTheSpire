@@ -1,6 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Listeners;
-using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,13 +12,13 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
-public class Transistor() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IAfterCardShockedListener
+public class Transistor() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IOnShockListener
 {
     public override string GetScrapId => nameof(ShortCircuit);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, DamageProps.card)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ShockPower>(1)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -37,16 +37,14 @@ public class Transistor() : TheInventorCard(2, CardType.Attack, CardRarity.Uncom
         DynamicVars.Damage.UpgradeValueBy(4);
     }
 
-    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, ShockPower shock, CardModel card)
+    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
         if (card != this)
         {
             return;
         }
 
-        shock.Cards.Remove(this);
-        card.RemoveTempKeywordEarly(CardKeyword.Unplayable);
-        card.RemoveKeyword(CardKeyword.Unplayable);
+        card.RemoveTempKeywordEarly(ShockModel.Shocked);
         await CardCmd.AutoPlay(choiceContext, this, null);
     }
 }

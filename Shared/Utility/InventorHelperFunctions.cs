@@ -1,12 +1,15 @@
-﻿using DiceTheSpire.Shared.Powers;
+﻿using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 
@@ -39,8 +42,8 @@ public static class InventorHelperFunctions
             case 6:
                 if (target.IsPlayer)
                 {
-                    power = ModelDb.Power<ShockPower>().StrongMutableClone();
-                    amount = 2;
+                    power = ModelDb.Power<NoDrawPower>().StrongMutableClone();
+                    amount = 1;
                 }
                 else
                 {
@@ -86,7 +89,7 @@ public static class InventorHelperFunctions
     /// <param name="player">Player whose draw pile we should play from.</param>
     /// <param name="count">Number of cards to play.</param>
     /// <param name="position">Position to play the cards from.</param>
-    public static async Task AutoPlayFromDrawPileAndBlink(
+    public static async Task AutoPlayFromDrawPileAndShock(
       PlayerChoiceContext choiceContext,
       Player player,
       int count,
@@ -124,16 +127,25 @@ public static class InventorHelperFunctions
         {
             if (card.Keywords.Contains(CardKeyword.Unplayable))
             {
-                await card.BlinkAsync(choiceContext);
+                await card.ShockAsync(choiceContext);
                 continue;
             }
 
             if (card.Type != CardType.Power)
             {
-                card.ShouldBlinkOnNextPlay = true;
+                card.ShouldShockOnNextPlay = true;
             }
 
             await CardCmd.AutoPlay(choiceContext, card, null);
+        }
+    }
+
+    public static async Task ShockRandomAsync(PlayerChoiceContext choiceContext, Player player, Rng rng, int count)
+    {
+        CardModel[] cardsToShock = [.. PileType.Hand.GetPile(player).Cards.TakeRandom(count, rng)];
+        foreach (CardModel card in cardsToShock)
+        {
+            await card.ShockAsync(choiceContext);
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Entities.Players;
+﻿using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 
@@ -15,7 +15,7 @@ public class BeeStingPower : TheInventorPower
     {
         if (Owner == player.Creature)
         {
-            await ShockPower.ApplyAsync(choiceContext, Owner, 1, Owner, null);
+            await InventorHelperFunctions.ShockRandomAsync(choiceContext, player, player.RunState.Rng.CombatCardSelection, Amount);
         }
     }
 }

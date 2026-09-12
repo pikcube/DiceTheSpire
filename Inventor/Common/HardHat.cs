@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,7 +8,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Common;
 
@@ -18,7 +18,7 @@ public class HardHat() : TheInventorCard(1, CardType.Skill, CardRarity.Common, T
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(8, BlockProps.card)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, DynamicVars.Cards), HoverTipFactory.FromKeyword(BlinkModel.Blink)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, DynamicVars.Cards), HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

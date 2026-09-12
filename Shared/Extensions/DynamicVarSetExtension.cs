@@ -16,5 +16,7 @@ public static class DynamicVarSetExtension
 
         public MinRangeVar MinRange => instance.Values.OfType<MinRangeVar>().Single();
         public MaxRangeVar MaxRange => instance.Values.OfType<MaxRangeVar>().Single();
+
+        public ShockVar Shock => instance.Values.OfType<ShockVar>().Single();
     }
 }

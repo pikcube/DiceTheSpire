@@ -4,7 +4,7 @@ namespace DiceTheSpire.Shared.Utility;
 
 public static class DiceySelection
 {
-    public static LocString ToBlink => new("card_selection", $"{MainFile.ModPrefix}-TO_BLINK");
+    public static LocString ToShock => new("card_selection", $"{MainFile.ModPrefix}-TO_SHOCK");
     public static LocString ToBump => new("card_selection", $"{MainFile.ModPrefix}-TO_BUMP");
     public static LocString ToNudge => new("card_selection", $"{MainFile.ModPrefix}-TO_NUDGE");
     public static LocString ToDupe => new("card_selection", $"{MainFile.ModPrefix}-TO_DUPE");

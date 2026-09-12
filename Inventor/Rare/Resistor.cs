@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Powers;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,7 +8,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Rare;
 
@@ -19,11 +19,11 @@ public class Resistor() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, Ta
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ReducePower>(9)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [BlinkModel.Blink];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [
-        HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue), HoverTipFactory.FromKeyword(BlinkModel.Blink)
+        HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue), HoverTipFactory.FromKeyword(ShockModel.Shock)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

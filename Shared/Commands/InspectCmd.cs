@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Listeners;
+﻿using DiceTheSpire.Shared.Keywords;
+using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
@@ -16,7 +17,6 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Runs;
-using Pikcube.Common.Keywords;
 using ICardSelector = MegaCrit.Sts2.Core.TestSupport.ICardSelector;
 
 namespace DiceTheSpire.Shared.Commands;
@@ -31,7 +31,7 @@ public static class InspectCmd
         foreach (CardModel card in selectedCards)
         {
             await CardPileCmd.Add(card, PileType.Draw, CardPilePosition.Top, skipVisuals: true);
-            await BlinkModel.BlinkCardAsync(choiceContext, card);
+            await ShockModel.ShockCardAsync(choiceContext, card);
         }
 
         foreach (IAfterInspectListener listener in player.RunState.IterateHookListeners(player.Creature.CombatState).OfType<IAfterInspectListener>())
@@ -101,7 +101,7 @@ public static class InspectCmd
     private static async Task<IEnumerable<CardModel>> DoLocalInspectAsync(uint choiceId, int count, Player player, List<CardModel> cards)
     {
         NPlayerHand.Instance?.CancelAllCardPlay();
-        NSimpleCardSelectScreen screen = NSimpleCardSelectScreen.Create(cards, new CardSelectorPrefs(DiceySelection.ToBlink, 0, count));
+        NSimpleCardSelectScreen screen = NSimpleCardSelectScreen.Create(cards, new CardSelectorPrefs(DiceySelection.ToShock, 0, count));
         NOverlayStack.Instance?.Push(screen);
         List<CardModel> result = [.. await screen.CardsSelected()];
         RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(player, choiceId, PlayerChoiceResult.FromIndexes([.. result.Select(c => cards.IndexOf(c))]));

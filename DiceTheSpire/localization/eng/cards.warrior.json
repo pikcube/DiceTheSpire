@@ -91,7 +91,7 @@
   "DICETHESPIRE-NUDGE_BLADE.title": "Nudge Blade",
   "DICETHESPIRE-TABLE_SLAM.description": "[gold]Reroll[/gold] your [gold]Hand[/gold].\n[gold]Retain[/gold] your [gold]Hand[/gold] this turn.",
   "DICETHESPIRE-TABLE_SLAM.title": "Table Slam",
-  "DICETHESPIRE-TAZER.description": "[gold]Shock[/gold] {ShockPower:diff()} {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] 10 cards.",
+  "DICETHESPIRE-TAZER.description": "[gold]Shock[/gold] {Shock:diff()} random {IfUpgraded:show:card|cards} in [gold]Hand[/gold].\nThen [gold]Rummage[/gold] 10 cards.",
   "DICETHESPIRE-TAZER.title": "Tazer",
   "DICETHESPIRE-SPARE_THREE.description": "Gain {Energy:diceIcons()}.\nYou cannot draw additional cards this turn.",
   "DICETHESPIRE-SPARE_THREE.title": "Spare Three",

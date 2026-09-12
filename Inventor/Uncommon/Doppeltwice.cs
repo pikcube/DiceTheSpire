@@ -1,11 +1,11 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Keywords;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -28,6 +28,6 @@ public class Doppeltwice() : TheInventorCard(1, CardType.Skill, CardRarity.Uncom
     protected override void OnUpgrade()
     {
         RemoveKeyword(CardKeyword.Exhaust);
-        AddKeyword(BlinkModel.Blink);
+        AddKeyword(ShockModel.Shock);
     }
 }

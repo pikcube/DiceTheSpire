@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Utility;
+﻿using DiceTheSpire.Shared.Keywords;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -12,6 +13,12 @@ public static class CardModelExtensions
 {
     extension<T>(T instance) where T : CardModel
     {
+        public bool ShouldShockOnNextPlay
+        {
+            get => ShockModel.ShouldShock(instance);
+            set => ShockModel.SetShouldShock(instance, value);
+        }
+
         public async Task BumpAsync(PlayerChoiceContext choiceContext, PileType? destinationPile = null)
         {
             if (instance.IsUpgradable)
@@ -43,6 +50,8 @@ public static class CardModelExtensions
                 ? owner.RunState.CreateCard<T>(owner)
                 : combatState.CreateCard<T>(owner);
         }
+
+        public Task ShockAsync(PlayerChoiceContext choiceContext, bool skipVisuals = false) => ShockModel.ShockCardAsync(choiceContext, instance, skipVisuals);
 
         //public async Task NudgeAsync(PlayerChoiceContext choiceContext)
         //{
