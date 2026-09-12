@@ -140,7 +140,7 @@
   "DICETHESPIRE-ICE_BREATH.title": "Ice Breath",
   "DICETHESPIRE-PICKAXE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].\nDraw {Cards:diff()} card.",
   "DICETHESPIRE-PICKAXE.title": "Pickaxe",
-  "DICETHESPIRE-BEST_DEFENSE.description": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next [gold]Attack[/gold] played this turn.",
+  "DICETHESPIRE-BEST_DEFENSE.description": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next [gold]Attack[/gold].",
   "DICETHESPIRE-BEST_DEFENSE.title": "Best Defense",
   "DICETHESPIRE-HAUNTED_SWORD.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-HAUNTED_SWORD.title": "Haunted Sword",
