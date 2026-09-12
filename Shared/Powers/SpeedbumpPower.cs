@@ -16,9 +16,14 @@ public class SpeedbumpPower : DiceTheSpireCorePower
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
     public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
+
         SpeedbumpPower speedbumpPower = this;
         speedbumpPower.Flash();
 
+        if(card.MaxUpgradeLevel == 0)
+        {
+            return;
+        }
         await card.BumpAsync(choiceContext);
     }
 
