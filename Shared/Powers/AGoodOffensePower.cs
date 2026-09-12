@@ -22,17 +22,9 @@ public class AGoodOffensePower : DiceTheSpireCorePower
         await PowerCmd.Remove(this);
     }
 
-    //public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    //{
 
-    //    if (cardPlay.Card.Type != CardType.Attack)
-    //    {
-    //        return;
-    //    }
+    //public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    //{
     //    await PowerCmd.Remove(this);
     //}
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
-    {
-        await PowerCmd.Remove(this);
-    }
 }

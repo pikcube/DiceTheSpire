@@ -1,11 +1,10 @@
 ﻿using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Extensions;
 
@@ -28,7 +27,9 @@ public static class CardModelExtensions
             }
             else
             {
-                CardModel newCard = instance.CanonicalInstance.ToMutable();
+                T newCard = instance.StrongMutableClone();
+                CardCmd.ClearAffliction(newCard);
+                CardCmd.ClearEnchantment(newCard);
                 instance.CombatState?.AddCard(newCard, instance.Owner);
                 PileType newPileType = destinationPile ?? instance.Pile?.Type ?? PileType.Hand;
                 if (newPileType is PileType.Draw)

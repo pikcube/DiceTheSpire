@@ -140,7 +140,7 @@
   "DICETHESPIRE-ICE_BREATH.title": "Ice Breath",
   "DICETHESPIRE-PICKAXE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].\nDraw {Cards:diff()} card.",
   "DICETHESPIRE-PICKAXE.title": "Pickaxe",
-  "DICETHESPIRE-BEST_DEFENSE.description": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next [gold]Attack[/gold] played this turn.",
+  "DICETHESPIRE-BEST_DEFENSE.description": "Gain [gold]Block[/gold] equal to the [gold]Unblocked[/gold] damage of the next [gold]Attack[/gold].",
   "DICETHESPIRE-BEST_DEFENSE.title": "Best Defense",
   "DICETHESPIRE-HAUNTED_SWORD.description": "Deal {Damage:diff()} damage. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-HAUNTED_SWORD.title": "Haunted Sword",
@@ -159,6 +159,10 @@
   "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\ndraw {Cards:diff()} cards.",
   "DICETHESPIRE-CARTWHEEL.title": "Cartwheel",
   "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
-  "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training"
+  "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training",
+  "DICETHESPIRE-SOMERSAULT.description": "Draw {Cards:diff()} cards.\n[gold]Rummage[/gold] {Cards:diff()} cards.",
+  "DICETHESPIRE-SOMERSAULT.title": "Somersault",
+  "DICETHESPIRE-REST_DAY.description": "When you [gold]Reroll[/gold] a card,\nit gains [gold]Retain[/gold].",
+  "DICETHESPIRE-REST_DAY.title": "Rest Day"
 
 }     
