@@ -13,7 +13,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Basic;
 
-public class Sword() : TheWarriorCard(3, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ITranscendenceCard
+public class Sword() : TheWarriorCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ITranscendenceCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new PowerVar<FuryPower>(1M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
