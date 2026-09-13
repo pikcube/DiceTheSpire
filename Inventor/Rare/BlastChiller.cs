@@ -37,7 +37,9 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
         }
         else
         {
-            await CreatureCmd.Damage(choiceContext, CombatState.Enemies.TakeRandom(1, RunState.Rng.CombatTargets), Owner.Creature.Block,
+            await CreatureCmd.Damage(choiceContext,
+                CombatState.Enemies.Where(e => e.IsHittable).TakeRandom(1, RunState.Rng.CombatTargets),
+                Owner.Creature.Block,
                 DamageProps.cardUnpowered, Owner.Creature, this, null);
         }
     }
