@@ -1,12 +1,10 @@
 ﻿using DiceTheSpire.Shared.Commands;
-using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;

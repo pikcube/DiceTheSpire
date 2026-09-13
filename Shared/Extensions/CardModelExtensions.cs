@@ -30,7 +30,6 @@ public static class CardModelExtensions
                 T newCard = instance.StrongMutableClone();
                 CardCmd.ClearAffliction(newCard);
                 CardCmd.ClearEnchantment(newCard);
-                instance.CombatState?.AddCard(newCard, instance.Owner);
                 PileType newPileType = destinationPile ?? instance.Pile?.Type ?? PileType.Hand;
                 if (newPileType is PileType.Draw)
                 {
