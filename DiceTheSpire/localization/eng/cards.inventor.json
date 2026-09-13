@@ -29,7 +29,7 @@
   "DICETHESPIRE-CHANGE_MACHINE.title": "Change Machine",
   "DICETHESPIRE-CLIPBOARD.description": "ALL players [gold]Inspect[/gold] {Cards:diff()}.",
   "DICETHESPIRE-CLIPBOARD.title": "Clipboard",
-  "DICETHESPIRE-CROSSBOW.description": "Deal {Damage:diff()} damage.\n[gold]Shock[/gold] a card in your [gold]Discard Pile[/gold].",
+  "DICETHESPIRE-CROSSBOW.description": "Deal {Damage:diff()} damage.\n[gold]Shock[/gold] a card in your [gold]Draw Pile[/gold] or [gold]Discard Pile[/gold].",
   "DICETHESPIRE-CROSSBOW.title": "Crossbow",
   "DICETHESPIRE-DAZZLER.description": "[gold]Inspect[/gold] {Cards:diff()}.\nApply a random debuff to ALL enemies for each card [gold]Shocked[/gold].",
   "DICETHESPIRE-DAZZLER.title": "Dazzler",

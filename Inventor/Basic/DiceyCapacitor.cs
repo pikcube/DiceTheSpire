@@ -24,7 +24,7 @@ public class DiceyCapacitor() : TheInventorCard(-1, CardType.Attack, CardRarity.
             {
                 return;
             }
-            await CreatureCmd.Damage(choiceContext, CombatState.Enemies.TakeRandom(1, RunState.Rng.CombatTargets),
+            await CreatureCmd.Damage(choiceContext, CombatState.Enemies.Where(e => e.IsHittable).TakeRandom(1, RunState.Rng.CombatTargets),
                 DynamicVars.Damage, Owner.Creature, this, null);
         }
     }
