@@ -105,7 +105,7 @@
   "DICETHESPIRE-FORTIFY.title": "Fortify",
   "DICETHESPIRE-INK_SPLAT.description": "[gold]Enchant[/gold] an attack in [gold]Hand[/gold] with [gold]Inky[/gold].",
   "DICETHESPIRE-INK_SPLAT.title": "Ink Splat",
-  "DICETHESPIRE-ECHO_BLAST.description": "Deal {SingleDamage} damage.\nDeal {AreaDamage} damage to all enemies.",
+  "DICETHESPIRE-ECHO_BLAST.description": "Deal {SingleDamage:diff()} damage.\nDeal {AreaDamage:diff()} damage to all enemies.",
   "DICETHESPIRE-ECHO_BLAST.title": "Echo Blast",
   "DICETHESPIRE-APPROACH.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold]{IfUpgraded:show: to all enemies|}.",
   "DICETHESPIRE-APPROACH.title": "Approach",
