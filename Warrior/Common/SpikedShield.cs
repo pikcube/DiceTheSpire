@@ -1,7 +1,9 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -13,6 +15,7 @@ public class SpikedShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Commo
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3M, BlockProps.card), new PowerVar<ThornsPower>(3M)];
     public override bool GainsBlock => true;
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ThornsPower>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
