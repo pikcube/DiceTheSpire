@@ -1,8 +1,6 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -32,7 +30,7 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
         }
         else
         {
-            await PowerCmd.Apply<ThornsPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), target,  amount, applier, cardSource, true);
+            await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), target,  amount, applier, cardSource, true);
         }
     }
 
