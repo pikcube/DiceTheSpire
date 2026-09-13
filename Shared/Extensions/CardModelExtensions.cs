@@ -28,7 +28,7 @@ public static class CardModelExtensions
             else
             {
                 CardModel newCard = instance.CanonicalInstance.ToMutable();
-                instance.Owner = null!;
+                newCard.Owner = null!;
                 CardCmd.ClearAffliction(newCard);
                 CardCmd.ClearEnchantment(newCard);
                 instance.CombatState?.AddCard(newCard, instance.Owner);
