@@ -16,7 +16,7 @@ public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Co
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         new DamageVar(8M, DamageProps.card), 
-        new PowerVar<FuryPower>(1M), 
+        new PowerVar<FuryPower>(2M), 
         new RepeatVar(2), 
         .. RangeVars.Make(1, 4)
     ];
@@ -35,7 +35,7 @@ public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Co
             .WithHitCount(DynamicVars.Repeat.IntValue)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, 2M, Owner.Creature, this);
+        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, DynamicVars.Power<FuryPower>().IntValue, Owner.Creature, this);
 
     }
     protected override void OnUpgrade()
