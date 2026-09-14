@@ -114,7 +114,7 @@
   "DICETHESPIRE-CANTRIPS.title": "Cantrips",
   "DICETHESPIRE-CRUNCH.description": "Deal {Damage:diff()} damage.\n{Cards:diff()} {IfUpgraded:show:|random }cards in [gold]Hand[/gold] cost 1 less the next time they are played this turn.",
   "DICETHESPIRE-CRUNCH.title": "Crunch",
-  "DICETHESPIRE-SPEEDBUMP.description": "Draw {Cards:diff()} card.\n[gold]Bump[/gold] all cards drawn this turn.",
+  "DICETHESPIRE-SPEEDBUMP.description": "The first {SpeedbumpPower:diff()} cards you\ndiscard each turn\n are [gold]Bumped[/gold].",
   "DICETHESPIRE-SPEEDBUMP.title": "Speedbump",
   "DICETHESPIRE-ACORN_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Nudge[/gold] {Cards:diff()} card in [gold]Hand[/gold].",
   "DICETHESPIRE-ACORN_SHIELD.title": "Acorn Shield",
