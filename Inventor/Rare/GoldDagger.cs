@@ -1,6 +1,5 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,7 +12,6 @@ public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare,
 {
     public override string GetScrapId => nameof(Harvest);
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
     public override IEnumerable<CardTag> Tags => [CardTag.Strike];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
