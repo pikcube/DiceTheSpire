@@ -20,7 +20,7 @@ public class RewardSetOfferPatches
             return true;
         }
 
-        __result = ScrapManager.DoScrapAsyncFor(__instance);
+        __result = ScrapManager.DoScrapForAsync(__instance);
         return false;
     }
 

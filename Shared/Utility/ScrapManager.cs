@@ -106,7 +106,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         return Task.CompletedTask;
     }
 
-    public static async Task DoScrapAsyncFor(RewardsSet rewardsSet)
+    public static async Task DoScrapForAsync(RewardsSet rewardsSet)
     {
         ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
 
