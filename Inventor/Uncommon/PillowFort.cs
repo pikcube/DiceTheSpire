@@ -9,7 +9,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
-public class PillowFort() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyAlly)
+public class PillowFort() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyAlly)
 {
     public override string GetScrapId => nameof(Protection);
 
@@ -18,7 +18,7 @@ public class PillowFort() : TheInventorCard(2, CardType.Skill, CardRarity.Uncomm
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ReducePower>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ReducePower>(2)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [
@@ -34,6 +34,6 @@ public class PillowFort() : TheInventorCard(2, CardType.Skill, CardRarity.Uncomm
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<ReducePower>().UpgradeValueBy(2);
+        DynamicVars.Power<ReducePower>().UpgradeValueBy(1);
     }
 }

@@ -17,7 +17,7 @@ public class ClosedToeShoes : TheInventorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Uncommon;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [.. HoverTipFactory.FromEnchantment<Swift>(1)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [.. HoverTipFactory.FromEnchantment<Swift>()];
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
