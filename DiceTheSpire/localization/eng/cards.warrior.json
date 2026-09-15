@@ -63,6 +63,8 @@
   "DICETHESPIRE-CRESCENT_MOON_BLADE.title": "Crescent Moon Blade",
   "DICETHESPIRE-MYSTERY_BOX.description": "Draw {Cards:diff()} cards.\n[gold]Reroll[/gold] their cost.",
   "DICETHESPIRE-MYSTERY_BOX.title": "Mystery Box",
+  "DICETHESPIRE-SMOKEY_CRYSTAL.description": "Draw {Cards:diff()} cards.\nThey cost {Energy:diceIcons()} more until the next time they are played.",
+  "DICETHESPIRE-SMOKEY_CRYSTAL.title": "Smokey Crystal",
   "DICETHESPIRE-SHIELD_BASH.description": "Gain {ShieldBashPower:diff()} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
   "DICETHESPIRE-SHIELD_BASH.title": "Shield Bash",
   "DICETHESPIRE-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",

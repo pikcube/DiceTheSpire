@@ -38,6 +38,38 @@ public static class NudgeCmd
         await DiceyHooks.OnNudgeAsync(card.RunState, card, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
     }
 
+    public static async Task AntiNudgeAsync(CardModel card, NudgeDuration duration)
+    {
+        if (card.EnergyCost.CostsX)
+        {
+            return;
+        }
+
+        ArgumentNullException.ThrowIfNull(card.RunState);
+        int originalCost = card.EnergyCost.GetAmountToSpend();
+
+        int nextEnergyCost = NextEnergyCost(card);
+
+        switch (duration)
+        {
+            case NudgeDuration.Combat:
+                card.EnergyCost.SetThisCombat(nextEnergyCost+2);
+                break;
+            case NudgeDuration.UntilPlayed:
+                card.EnergyCost.SetUntilPlayed(nextEnergyCost+2);
+                break;
+            case NudgeDuration.UntilEndOfTurn:
+                card.EnergyCost.SetThisTurn(nextEnergyCost+2);
+                break;
+            case NudgeDuration.UntilEndOfTurnOrPlayed:
+                card.EnergyCost.SetThisTurnOrUntilPlayed(nextEnergyCost+2);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(duration), duration, null);
+        }
+
+        await DiceyHooks.OnNudgeAsync(card.RunState, card, originalCost, card.EnergyCost.GetAmountToSpend()+2, duration);
+    }
     private static int NextEnergyCost(CardModel card)
     {
         return card.EnergyCost.CostsX 
@@ -45,6 +77,7 @@ public static class NudgeCmd
             : Math.Max(card.EnergyCost.GetAmountToSpend() - 1, 0);
     }
 }
+
 
 public enum NudgeDuration
 {
