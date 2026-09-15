@@ -124,7 +124,7 @@
   "DICETHESPIRE-SPEEDBUMP.title": "Speedbump",
   "DICETHESPIRE-ACORN_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Nudge[/gold] {Cards:diff()} card in [gold]Hand[/gold].",
   "DICETHESPIRE-ACORN_SHIELD.title": "Acorn Shield",
-  "DICETHESPIRE-FLAMING_SWORD_STRIKE.description": "Deal {Damage:diff()} damage.\nThis card does not consume [gold]Fury[/gold] when played.",
+  "DICETHESPIRE-FLAMING_SWORD_STRIKE.description": "Deal {Damage:diff()} damage.\nThis card does not consume [gold]Fury[/gold] or [gold]Vigor[/gold] when played.",
   "DICETHESPIRE-FLAMING_SWORD_STRIKE.title": "Flaming Sword Strike",
   "DICETHESPIRE-FLYING_DROPKICK.description": "Deal {Damage:diff()} damage.\nGain {FuryPower:diff()} [gold]Fury[/gold] if this is the last card in hand when played.",
   "DICETHESPIRE-FLYING_DROPKICK.title": "Flying Dropkick",

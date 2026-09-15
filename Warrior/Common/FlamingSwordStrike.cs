@@ -1,6 +1,7 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Shared.Utility;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -23,7 +24,7 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
     } = 0;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new PowerVar<FuryPower>(1M)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(), HoverTipFactory.FromPower<VigorPower>()];
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
