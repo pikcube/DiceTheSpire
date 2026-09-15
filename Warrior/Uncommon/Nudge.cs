@@ -15,7 +15,7 @@ public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, Ta
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
 
-    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
