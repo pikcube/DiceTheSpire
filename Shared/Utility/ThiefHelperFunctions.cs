@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Inventor;
+using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -23,6 +24,9 @@ public static class ThiefHelperFunctions
     [
         ModelDb.CardPool<TheWarriorCardPool>(), ModelDb.CardPool<TheInventorCardPool>()
     ];
+
+    public static IEnumerable<CardPoolModel> NonThiefCharacterPools =>
+        ModelDb.AllCharacterCardPools.Where(pool => pool is not TheThiefCardPool);
 
     /// <summary>
     /// Generates distinct cards of the provided character card pools for use in combat.
@@ -51,8 +55,11 @@ public static class ThiefHelperFunctions
     /// <param name="count">The number of cards to generate.</param>
     /// <param name="filter">If a filter is provided, will only generate cards where the filter returns true.</param>
     /// <returns>The CardCreationResult (must still be added to the reward list)</returns>
-    public static IEnumerable<CardCreationResult>? GetCardsOfClassForReward(Player player, IEnumerable<CardPoolModel> cardPools, int count, CardRarityOddsType rarityOdds, Func<CardModel, bool>? filter = null)
+    public static IEnumerable<CardCreationResult> GetCardsOfClassForReward(Player player, IEnumerable<CardPoolModel> cardPools, int count, CardRarityOddsType rarityOdds, Func<CardModel, bool>? filter = null)
     {
-        return CardFactory.CreateForReward(player, count, new CardCreationOptions(cardPools, CardCreationSource.Other, rarityOdds, filter));
+        CardCreationOptions options = new(cardPools, CardCreationSource.Other, rarityOdds, filter);
+        //Prevents a stack overflow from Stickyfingers modifying itself repeatedly
+        options.WithFlags(CardCreationFlags.NoModifyHooks);
+        return CardFactory.CreateForReward(player, count, options);
     }
 }
