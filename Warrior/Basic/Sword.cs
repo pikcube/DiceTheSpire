@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Warrior.Ancient;
 using MegaCrit.Sts2.Core.Commands;
@@ -13,8 +14,10 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Basic;
 
-public class Sword() : TheWarriorCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ITranscendenceCard
+public class Sword() : TheWarriorCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy), ITranscendenceCard, IFuryModifier
 {
+    public bool ShouldIgnoreFury => true;
+    public bool ShouldMaintainFury => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new PowerVar<FuryPower>(1M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

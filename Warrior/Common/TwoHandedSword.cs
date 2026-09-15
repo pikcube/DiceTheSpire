@@ -1,6 +1,7 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,8 +12,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
 
-public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IFuryModifier
 {
+    public bool ShouldIgnoreFury => true;
+    public bool ShouldMaintainFury => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         new DamageVar(8M, DamageProps.card), 

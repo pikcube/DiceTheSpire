@@ -3,9 +3,13 @@ using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
@@ -25,6 +29,24 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
             .Execute(choiceContext);
 
     }
+    //public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
+    // Creature? applier,
+    // out decimal modifiedAmount)
+    //{
+    //    if (canonicalPower == VigorPower || canonicalPower == FuryPower)
+    //    {
+    //        return false;
+    //    }
+    //}
+
+    //public override async Task AfterModifyingPowerAmountReceived(PowerModel power)
+    //{
+    //    if(power == VigorPower || power == FuryPower)
+    //    {
+    //        return false;
+    //    }
+    //}
+
 
     protected override void OnUpgrade()
     {

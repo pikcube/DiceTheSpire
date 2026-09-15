@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,8 +12,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Warrior.Uncommon;
 
 
-public class FlyingDropkick() : TheWarriorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class FlyingDropkick() : TheWarriorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IFuryModifier
 {
+    public bool ShouldIgnoreFury => true;
+    public bool ShouldMaintainFury => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(6M), new DamageVar(10M, DamageProps.card)];
     //new IntVar("FuryBonus", 1)
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];

@@ -26,7 +26,7 @@ public class FuryPower : DiceTheSpireCorePower
             return playCount;
         }
 
-        int furyCount = 1;
+        int furyCount = Amount; //1;
 
         DiceyHooks.ModifyFuryPlayCount(card.Owner.RunState, this, card, ref furyCount);
 
@@ -41,6 +41,7 @@ public class FuryPower : DiceTheSpireCorePower
         {
             return;
         }
-        await PowerCmd.Decrement(this);
+        //await PowerCmd.Decrement(this);
+        await PowerCmd.Remove(this);
     }
 }
