@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lcpjb13l18lt"
-path="res://.godot/imported/nudge_blade.png-b0fda2c68fd4b401c624181e8ace3ee4.ctex"
+uid="uid://ca6tr67jnmxcj"
+path="res://.godot/imported/bumpblade.png-622cd92fed70f2635f2505fac130c777.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/nudge_blade.png"
-dest_files=["res://.godot/imported/nudge_blade.png-b0fda2c68fd4b401c624181e8ace3ee4.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/bumpblade.png"
+dest_files=["res://.godot/imported/bumpblade.png-622cd92fed70f2635f2505fac130c777.ctex"]
 
 [params]
 

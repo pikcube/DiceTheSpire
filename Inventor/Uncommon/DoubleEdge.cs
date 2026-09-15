@@ -1,5 +1,4 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
-using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,8 +15,6 @@ public class DoubleEdge() : TheInventorCard(3, CardType.Attack, CardRarity.Uncom
 {
     public override string GetScrapId => nameof(PowerUp);
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(35, DamageProps.card), new PowerVar<StrengthPower>(2)];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

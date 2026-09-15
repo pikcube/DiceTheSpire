@@ -9,7 +9,6 @@ namespace DiceTheSpire.Warrior.Common;
 
 public class Tackle() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new PowerVar<ReboundPower>(1M), new PowerVar<EnergyNextTurnPower>(1M)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -32,7 +32,14 @@ public class Crossbow() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommo
             .Execute(choiceContext);
 
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, 1, 1);
-        IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, cardSelectorPrefs);
+        IEnumerable<CardModel> cards =
+        [
+            .. PileType.Draw.GetPile(Owner).Cards, 
+            .. PileType.Discard.GetPile(Owner).Cards
+        ];
+
+        IEnumerable<CardModel> results = await CardSelectCmd.FromSimpleGrid(choiceContext,
+            [.. cards.OrderBy(c => c.Rarity).ThenBy(c => c.Id)], Owner, cardSelectorPrefs);
         await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
     }
 

@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,8 +10,10 @@ using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class Matchstick() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Matchstick() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self), IFuryModifier
 {
+    public bool ShouldIgnoreFury => true;
+    public bool ShouldMaintainFury => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(1M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue), HoverTipFactory.FromCard<Burn>()];

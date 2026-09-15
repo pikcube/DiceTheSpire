@@ -5,7 +5,7 @@ namespace DiceTheSpire.Shared.Commands;
 
 public static class NudgeCmd
 {
-    public static async Task NudgeAsync(CardModel card, NudgeDuration duration)
+    public static async Task NudgeAsync(CardModel card, NudgeDuration duration, int amount = 1, bool ignoreHooks = false)
     {
         if (card.EnergyCost.CostsX)
         {
@@ -15,7 +15,7 @@ public static class NudgeCmd
         ArgumentNullException.ThrowIfNull(card.RunState);
         int originalCost = card.EnergyCost.GetAmountToSpend();
 
-        int nextEnergyCost = NextEnergyCost(card);
+        int nextEnergyCost = NextEnergyCost(card, amount);
 
         switch (duration)
         {
@@ -35,16 +35,22 @@ public static class NudgeCmd
                 throw new ArgumentOutOfRangeException(nameof(duration), duration, null);
         }
 
+        if (ignoreHooks)
+        {
+            return;
+        }
+
         await DiceyHooks.OnNudgeAsync(card.RunState, card, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
     }
 
-    private static int NextEnergyCost(CardModel card)
+    private static int NextEnergyCost(CardModel card, int amount)
     {
         return card.EnergyCost.CostsX 
             ? throw new ArgumentException("Cannot nudge X-Cost card", nameof(card)) 
-            : Math.Max(card.EnergyCost.GetAmountToSpend() - 1, 0);
+            : Math.Max(card.EnergyCost.GetAmountToSpend() - amount, 0);
     }
 }
+
 
 public enum NudgeDuration
 {

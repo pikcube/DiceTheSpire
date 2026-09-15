@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gnjedbpr1a6y"
-path="res://.godot/imported/deflect.png-c5344a4d7fc2c17249d9544477ae88ec.ctex"
+uid="uid://bnlh8uayffmke"
+path="res://.godot/imported/smokey_crystal.png-bf44da269cee7379e52c31517f28abd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/deflect.png"
-dest_files=["res://.godot/imported/deflect.png-c5344a4d7fc2c17249d9544477ae88ec.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/smokey_crystal.png"
+dest_files=["res://.godot/imported/smokey_crystal.png-bf44da269cee7379e52c31517f28abd5.ctex"]
 
 [params]
 

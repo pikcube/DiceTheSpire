@@ -8,12 +8,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
-public class FrozenSwordStrike() : TheWarriorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class FrozenSwordStrike() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new PowerVar<FrozenGashPower>(1)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FrozenGashPower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FrozenGashPower>(), HoverTipFactory.Static(StaticHoverTip.Block)];
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);

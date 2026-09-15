@@ -1,6 +1,7 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -11,12 +12,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
 
-public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IFuryModifier
 {
+    public bool ShouldIgnoreFury => true;
+    public bool ShouldMaintainFury => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         new DamageVar(8M, DamageProps.card), 
-        new PowerVar<FuryPower>(1M), 
+        new PowerVar<FuryPower>(2M), 
         new RepeatVar(2), 
         .. RangeVars.Make(1, 4)
     ];
@@ -35,7 +39,7 @@ public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Co
             .WithHitCount(DynamicVars.Repeat.IntValue)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, 2M, Owner.Creature, this);
+        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, DynamicVars.Power<FuryPower>().IntValue, Owner.Creature, this);
 
     }
     protected override void OnUpgrade()

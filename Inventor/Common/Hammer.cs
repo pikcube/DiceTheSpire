@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -28,7 +29,7 @@ public class Hammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
             .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.IntValue,
+        await PowerCmd.Apply<NextTurnVulnerablePower>(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.IntValue,
             Owner.Creature, cardPlay.Card);
     }
 

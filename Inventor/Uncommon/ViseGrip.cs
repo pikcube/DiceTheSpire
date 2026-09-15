@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,9 +11,10 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
-public class ViseGrip() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class ViseGrip() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     public override string GetScrapId => nameof(AutoBump);
 
@@ -29,6 +31,7 @@ public class ViseGrip() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        RemoveKeyword(CardKeyword.Exhaust);
+        AddKeyword(ShockModel.Shock);
     }
 }
