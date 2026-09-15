@@ -1,17 +1,13 @@
 ﻿using DiceTheSpire.Shared.Commands;
-using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Utility;
-using DiceTheSpire.Warrior;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using DiceTheSpire.Shared.Interfaces;
 
 namespace DiceTheSpire.Warrior.Common;
 public class Nudgeblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
