@@ -77,7 +77,7 @@
   "DICETHESPIRE-GOLD_DAGGER.title": "Gold Dagger Strike",
   "DICETHESPIRE-GRINDSTONE.description": "Lose {StrengthPower:diff()} [gold]Strength[/gold].\nYour attacks deal 50% additional damage.",
   "DICETHESPIRE-GRINDSTONE.title": "Grindstone",
-  "DICETHESPIRE-HAMMER.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "DICETHESPIRE-HAMMER.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold] at the start of next turn.",
   "DICETHESPIRE-HAMMER.title": "Hammer",
   "DICETHESPIRE-HARD_HAT.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Inspect[/gold] {Cards:diff()}.",
   "DICETHESPIRE-HARD_HAT.title": "Hard Hat",
