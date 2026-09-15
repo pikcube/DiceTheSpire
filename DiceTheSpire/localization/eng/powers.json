@@ -100,6 +100,9 @@
   "DICETHESPIRE-SUPER_SET_RUMMAGE_POWER.title": "Super Set",
   "DICETHESPIRE-REST_DAY_POWER.description": "",
   "DICETHESPIRE-REST_DAY_POWER.smartDescription": "When you [gold]Reroll[/gold] a card,\nit gains [gold]Retain[/gold]",
-  "DICETHESPIRE-REST_DAY_POWER.title": "Rest Day"
+  "DICETHESPIRE-REST_DAY_POWER.title": "Rest Day",
+  "DICETHESPIRE-DEFLECTION_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you take damage this turn.",
+  "DICETHESPIRE-DEFLECTION_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you take damage this turn.",
+  "DICETHESPIRE-DEFLECTION_POWER.title": "Deflection"
 
 }

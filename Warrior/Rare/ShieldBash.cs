@@ -11,7 +11,7 @@ namespace DiceTheSpire.Warrior.Rare;
 
 public class ShieldBash() : TheWarriorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShieldBashPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShieldBashPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>(), HoverTipFactory.Static(StaticHoverTip.Block)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gnjedbpr1a6y"
-path="res://.godot/imported/deflect.png-c5344a4d7fc2c17249d9544477ae88ec.ctex"
+path="res://.godot/imported/deflection.png-d6e0f6ca332e1ff455dfb09a3b290b36.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/deflect.png"
-dest_files=["res://.godot/imported/deflect.png-c5344a4d7fc2c17249d9544477ae88ec.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/deflection.png"
+dest_files=["res://.godot/imported/deflection.png-d6e0f6ca332e1ff455dfb09a3b290b36.ctex"]
 
 [params]
 
