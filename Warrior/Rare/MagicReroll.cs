@@ -15,6 +15,15 @@ public class MagicReroll() : TheWarriorCard(1, CardType.Power, CardRarity.Rare, 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (CombatState is null)
+        {
+            return;
+        }
+
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+
         await PowerCmd.Apply<MagicRerollPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
     }
 
