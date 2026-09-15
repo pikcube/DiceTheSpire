@@ -29,23 +29,6 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
             .Execute(choiceContext);
 
     }
-    //public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
-    // Creature? applier,
-    // out decimal modifiedAmount)
-    //{
-    //    if (canonicalPower == VigorPower || canonicalPower == FuryPower)
-    //    {
-    //        return false;
-    //    }
-    //}
-
-    //public override async Task AfterModifyingPowerAmountReceived(PowerModel power)
-    //{
-    //    if(power == VigorPower || power == FuryPower)
-    //    {
-    //        return false;
-    //    }
-    //}
 
 
     protected override void OnUpgrade()
