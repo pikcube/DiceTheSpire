@@ -89,6 +89,6 @@ public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPow
         }
         Flash();
         await PowerCmd.Remove(this);
-        await PowerCmd.Apply<ReducePower>(choiceContext, Owner, -Amount, Owner, null);
+        await PowerCmd.Apply<ReducePower>(choiceContext, Owner, -Amount, Owner, CardSource);
     }
 }
