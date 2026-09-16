@@ -8,5 +8,8 @@
   "DICETHESPIRE-TINY_TREBUCHET.description": "Pips now deal [blue]{Damage:diff()}[/blue] damage to a random enemy.",
   "DICETHESPIRE-TINY_TREBUCHET.flavor": "",
   "DICETHESPIRE-TINY_TREBUCHET.title": "Tiny Trebuchet",
-  "DICETHESPIRE-TINY_TREBUCHET.pipDescription": "Deal {Damage} damage to a random enemy."
+  "DICETHESPIRE-TINY_TREBUCHET.pipDescription": "Deal {Damage} damage to a random enemy.",
+  "DICETHESPIRE-BAG_OF_TRICKS.description": "At the start of each combat, add [blue]1[/blue] of [blue]{Cards}[/blue] random off-class cards into your [gold]Hand[/gold].",
+  "DICETHESPIRE-BAG_OF_TRICKS.flavor": "",
+  "DICETHESPIRE-BAG_OF_TRICKS.title": "Bag Of Tricks"
 }

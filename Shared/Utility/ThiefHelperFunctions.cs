@@ -37,9 +37,9 @@ public static class ThiefHelperFunctions
     {
         return cardPools.SelectMany(cardPool =>
             CardFactory.GetDistinctForCombat(player,
-                    cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint), count,
-                    rng)
-                .Where(c => filter is null || filter(c)));
+                cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
+                    .Where(c => filter is null || filter(c)), count,
+                rng));
     }
 
     /// <summary>
