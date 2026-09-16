@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
+using static BaseLib.Utils.BetaMainCompatibility;
 
 namespace DiceTheSpire.Shared.Utility;
 
@@ -40,11 +41,19 @@ public static class ThiefHelperFunctions
     /// <returns>The generated CardModels</returns>
     public static IEnumerable<CardModel> GetDistinctOfClassForCombat(Player player, IEnumerable<CardPoolModel> cardPools, int count, Rng rng, Func<CardModel, bool>? filter = null)
     {
-        return cardPools.SelectMany(cardPool =>
-            CardFactory.GetDistinctForCombat(player,
-                cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
-                    .Where(c => filter is null || filter(c)), count,
-                rng)).TakeRandom(count, rng);
+        return CardFactory.GetDistinctForCombat(player, cardPools.SelectMany(CollectionSelector), count, rng);
+
+        
+        IEnumerable<CardModel> CollectionSelector(CardPoolModel cardPool)
+        {
+            IEnumerable<CardModel> cardModels = cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);
+            if (filter is not null)
+            {
+                cardModels = cardModels.Where(filter);
+            }
+
+            return cardModels;
+        }
     }
 
     /// <summary>
