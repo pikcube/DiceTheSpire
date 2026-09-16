@@ -67,5 +67,5 @@ public class TheInventor : PlaceholderCharacterModel, ICustomEndTurnCharacter
     public override string CustomCharacterSelectIconPath => "charselect_inventor.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "charselect_unknown.png".CharacterUiPath();
     public override string CustomMapMarkerPath => "map_marker_the_inventor.png".CharacterUiPath();
-    public ICustomEndTurnPingMachine Create(Player player) => new SimpleEndTurnPingMachine(false);
+    public ICustomEndTurnPingMachine Create(Player player) => new SimpleEndTurnPingMachine(true);
 }

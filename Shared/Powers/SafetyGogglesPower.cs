@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
@@ -15,12 +16,14 @@ public class SafetyGogglesPower : DiceTheSpireCorePower
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier,
         out decimal modifiedAmount)
     {
-        if (target != Owner || applier != Owner || canonicalPower.Type != PowerType.Debuff || amount == 0 || Owner.HasPower<ArtifactPower>())
+        if (target != Owner || applier != Owner || canonicalPower.GetTypeForAmount(amount) != PowerType.Debuff || amount == 0 || Owner.HasPower<ArtifactPower>() || InventorHelperFunctions.IsDebuffBeingRemoved(canonicalPower, amount))
         {
             modifiedAmount = amount;
             return false;
         }
 
+
+        //todo: Powers that are not debuffs when negative but still have temporary variants
         modifiedAmount = 0;
         return true;
 

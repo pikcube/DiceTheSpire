@@ -17,12 +17,7 @@ public class ResonancePower : TheInventorPower
     public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner || target != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff)
-        {
-            return;
-        }
-
-        if (power.GetTypeForAmount(amount) == power.GetTypeForAmount(-amount) && amount < 0)
+        if (applier != Owner || target != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff || InventorHelperFunctions.IsDebuffBeingRemoved(power, amount))
         {
             return;
         }

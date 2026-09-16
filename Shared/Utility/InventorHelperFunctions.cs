@@ -148,4 +148,9 @@ public static class InventorHelperFunctions
             await card.ShockAsync(choiceContext);
         }
     }
+
+    public static bool IsDebuffBeingRemoved(PowerModel canonicalPower, decimal amount)
+    {
+        return canonicalPower.GetTypeForAmount(amount) == canonicalPower.GetTypeForAmount(-amount) && amount < 0;
+    }
 }
