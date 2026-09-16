@@ -3,6 +3,7 @@ using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -41,9 +42,9 @@ public static class ThiefHelperFunctions
     {
         return cardPools.SelectMany(cardPool =>
             CardFactory.GetDistinctForCombat(player,
-                    cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint), count,
-                    rng)
-                .Where(c => filter is null || filter(c)));
+                cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
+                    .Where(c => filter is null || filter(c)), count,
+                rng)).TakeRandom(count, rng);
     }
 
     /// <summary>
@@ -60,6 +61,6 @@ public static class ThiefHelperFunctions
         CardCreationOptions options = new(cardPools, CardCreationSource.Other, rarityOdds, filter);
         //Prevents a stack overflow from Stickyfingers modifying itself repeatedly
         options.WithFlags(CardCreationFlags.NoModifyHooks);
-        return CardFactory.CreateForReward(player, count, options);
+        return CardFactory.CreateForReward(player, count, options).Take(count);
     }
 }
