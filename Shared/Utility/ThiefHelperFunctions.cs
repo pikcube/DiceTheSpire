@@ -3,6 +3,7 @@ using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -43,7 +44,7 @@ public static class ThiefHelperFunctions
             CardFactory.GetDistinctForCombat(player,
                 cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
                     .Where(c => filter is null || filter(c)), count,
-                rng)).Take(count);
+                rng)).TakeRandom(count, rng);
     }
 
     /// <summary>
