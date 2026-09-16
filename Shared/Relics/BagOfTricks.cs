@@ -34,7 +34,7 @@ public class BagOfTricks : TheThiefRelic
         {
             return;
         }
-
+        card.SetToFreeThisTurn();
         await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, player);
     }
 }
