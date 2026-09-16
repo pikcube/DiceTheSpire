@@ -1,6 +1,9 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -9,7 +12,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Shared.Powers;
 
   
-public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPower
+public abstract class TemporaryThornsPower : DiceTheSpirePower, ITemporaryPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -24,13 +27,18 @@ public abstract class TemporaryThornsPower : DiceTheSpireCorePower, ITemporaryPo
         Creature? applier,
         CardModel? cardSource)
     {
+        Player? p = target.Player ?? applier?.Player ?? cardSource?.Owner ?? target.CombatState?.Players[0];
+        if (p is null)
+        {
+            return;
+        }
         if (_shouldIgnoreNextInstance)
         {
             _shouldIgnoreNextInstance = false;
         }
         else
         {
-            await PowerCmd.Apply<ThornsPower>(new ThrowingPlayerChoiceContext(), target,  amount, applier, cardSource, true);
+            await PowerCmd.Apply<ThornsPower>(new HookPlayerChoiceContext(p, LocalContext.NetId ?? 0, GameActionType.Combat), target,  amount, applier, cardSource, true);
         }
     }
 

@@ -13,7 +13,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class CampfirePower : TheThiefPower, IModifyPipOnPlayListener
+public class CampfirePower : DiceTheSpirePower, IModifyPipOnPlayListener
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

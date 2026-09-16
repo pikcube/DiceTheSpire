@@ -11,7 +11,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class WreckingBallPower : TheThiefPower, IModifyPipOnPlayListener
+public class WreckingBallPower : DiceTheSpirePower, IModifyPipOnPlayListener
 {
     public override PowerType Type => PowerType.Buff;
 

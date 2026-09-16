@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace DiceTheSpire.Shared.Powers;
 
   
-public class BouncePower : TheThiefPower
+public class BouncePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

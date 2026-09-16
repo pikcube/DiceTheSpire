@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class BefuddlePower : TheInventorPower
+public class BefuddlePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

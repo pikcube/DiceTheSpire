@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class ShieldBashPower : DiceTheSpireCorePower
+public class ShieldBashPower : DiceTheSpirePower
 {
 
     public override PowerType Type => PowerType.Buff;

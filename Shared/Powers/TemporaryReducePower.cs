@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPower
+public abstract class TemporaryReducePower: DiceTheSpirePower, ITemporaryPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -89,6 +89,6 @@ public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPow
         }
         Flash();
         await PowerCmd.Remove(this);
-        await PowerCmd.Apply<ReducePower>(choiceContext, Owner, -Amount, Owner, null);
+        await PowerCmd.Apply<ReducePower>(choiceContext, Owner, -Amount, Owner, CardSource);
     }
 }

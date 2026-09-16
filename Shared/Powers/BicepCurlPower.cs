@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Nodes.CommonUi;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class BicepCurlPower : DiceTheSpireCorePower, IAfterNudgeListener
+public class BicepCurlPower : DiceTheSpirePower, IAfterNudgeListener
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Shared.Powers;
 
 
-public class ReducePower : DiceTheSpireCorePower
+public class ReducePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

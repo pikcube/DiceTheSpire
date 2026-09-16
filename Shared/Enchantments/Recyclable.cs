@@ -11,8 +11,8 @@ public class Recyclable : CustomEnchantmentModel, IScrapCard
 {
     protected override string CustomIconPath => $"{MainFile.ResPath}/images/enchantments/{nameof(Recyclable).ToLowerInvariant()}.png";
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.Static(InventorStaticHoverTips.Scrap),
-        HoverTipFactory.Static(InventorStaticHoverTips.Gadget)
+        HoverTipFactory.Static(BetterStaticHoverTips.Scrap),
+        HoverTipFactory.Static(BetterStaticHoverTips.Gadget)
     ];
 
     public override bool CanEnchant(CardModel card)

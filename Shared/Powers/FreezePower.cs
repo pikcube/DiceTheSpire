@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Shared.Powers;
 
 [UsedImplicitly]
-public class FreezePower : DiceTheSpireCorePower
+public class FreezePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Single;

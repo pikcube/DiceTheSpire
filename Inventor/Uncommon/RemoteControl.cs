@@ -17,7 +17,7 @@ public class RemoteControl() : TheInventorCard(1, CardType.Attack, CardRarity.Un
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
-        [HoverTipFactory.Static(InventorStaticHoverTips.Gadget)];
+        [HoverTipFactory.Static(BetterStaticHoverTips.Gadget)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

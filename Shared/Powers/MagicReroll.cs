@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class MagicRerollPower : DiceTheSpireCorePower
+public class MagicRerollPower : DiceTheSpirePower
 {
 
     public override PowerType Type => PowerType.Buff;

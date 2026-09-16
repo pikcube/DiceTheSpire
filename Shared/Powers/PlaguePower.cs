@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class PlaguePower : TheInventorPower
+public class PlaguePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Debuff;
 

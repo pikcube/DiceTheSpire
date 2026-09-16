@@ -2,7 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
-public class FocusPower : TheInventorPower
+public class FocusPower : DiceTheSpirePower
 { 
     public override PowerType Type => PowerType.Buff;
 

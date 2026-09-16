@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class EnergyDownNextTurnPower : DiceTheSpireCorePower
+public class EnergyDownNextTurnPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Debuff;
 

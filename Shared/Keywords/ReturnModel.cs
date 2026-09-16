@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Patches.Content;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 
@@ -7,7 +8,7 @@ namespace DiceTheSpire.Shared.Keywords;
 
 public class ReturnModel() : CustomSingletonModel(HookType.Combat)
 {
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.After), UsedImplicitly]
     public static CardKeyword Return = 0;
 
     public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,

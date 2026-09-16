@@ -14,7 +14,7 @@ namespace DiceTheSpire.Inventor.Rare;
 public class Wikipedia() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.AllAllies)
 {
     public override string GetScrapId => nameof(SharedInterest);
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(InventorStaticHoverTips.TemporaryGadget)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.TemporaryGadget)];
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -19,7 +19,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Shared.Powers;
 
 [UsedImplicitly]
-public class GadgetPower : TheInventorPower, IGadgetParent
+public class GadgetPower : DiceTheSpirePower, IGadgetParent
 {
     static GadgetPower()
     {
@@ -65,7 +65,7 @@ public class GadgetPower : TheInventorPower, IGadgetParent
     protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText)), new StringVar(nameof(GadgetName), nameof(GadgetName))];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipFactory.Static(InventorStaticHoverTips.Gadget), HoverTipFactory.Static(InventorStaticHoverTips.Scrap)];
+        [HoverTipFactory.Static(BetterStaticHoverTips.Gadget), HoverTipFactory.Static(BetterStaticHoverTips.Scrap)];
 
     public string GadgetName
     {

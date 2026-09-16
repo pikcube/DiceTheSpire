@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace DiceTheSpire.Shared.Powers;
 
 
-public class CalculatorPower : TheInventorPower, IAfterInspectListener
+public class CalculatorPower : DiceTheSpirePower, IAfterInspectListener
 {
     public override PowerType Type => PowerType.Buff;
 

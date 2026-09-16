@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Shared.Powers;
 
 
-    public class TargetShieldPower : DiceTheSpireCorePower
+    public class TargetShieldPower : DiceTheSpirePower
     {
 
         protected override IEnumerable<IHoverTip> ExtraHoverTips => (IEnumerable<IHoverTip>)HoverTipFactory.FromPower<DexterityPower>();

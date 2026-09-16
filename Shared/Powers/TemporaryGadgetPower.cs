@@ -18,7 +18,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Shared.Powers;
 
 [UsedImplicitly]
-public class TemporaryGadgetPower : TheInventorPower, IGadgetParent
+public class TemporaryGadgetPower : DiceTheSpirePower, IGadgetParent
 {
     static TemporaryGadgetPower()
     {

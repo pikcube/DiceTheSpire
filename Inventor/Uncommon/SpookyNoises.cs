@@ -11,8 +11,10 @@ namespace DiceTheSpire.Inventor.Uncommon;
 
 public class SpookyNoises() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new PowerVar<ExhaustionPower>(2)];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ExhaustionPower>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new PowerVar<HauntPower>(1)];
+
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
+        [.. HoverTipFactory.FromPowerWithPowerHoverTips<HauntPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -23,14 +25,13 @@ public class SpookyNoises() : TheInventorCard(1, CardType.Skill, CardRarity.Unco
     {
         if (cardPlay.Card == this)
         {
-            await PowerCmd.Apply<ExhaustionPower>(choiceContext, Owner.Creature, DynamicVars.Power<ExhaustionPower>().IntValue, Owner.Creature, this);
+            await PowerCmd.Apply<HauntPower>(choiceContext, Owner.Creature, DynamicVars.Power<HauntPower>().IntValue, Owner.Creature, this);
         }
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Cards.UpgradeValueBy(1);
-        DynamicVars.Power<ExhaustionPower>().UpgradeValueBy(-1);
     }
 
     public override string GetScrapId => nameof(BattleWrench);

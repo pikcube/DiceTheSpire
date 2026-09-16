@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using DiceTheSpire.Shared.Utility;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
@@ -11,7 +12,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Shared.Powers;
 
 [UsedImplicitly]
-public class SawWavePower : TheInventorPower
+public class SawWavePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 
@@ -20,15 +21,11 @@ public class SawWavePower : TheInventorPower
     public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner || target != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff)
+        if (applier != Owner || target != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff || InventorHelperFunctions.IsDebuffBeingRemoved(power, amount))
         {
             return;
         }
 
-        if (power.GetTypeForAmount(amount) == power.GetTypeForAmount(-amount) && amount < 0)
-        {
-            return;
-        }
         HookPlayerChoiceContext choiceContext = new(Owner.Player, LocalContext.NetId ?? 0, GameActionType.Combat);
 
         await DexterityPower.ApplyAsync(choiceContext, Owner, Amount, Owner, cardSource);

@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class PoisonParadisePower : TheThiefPower
+public class PoisonParadisePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

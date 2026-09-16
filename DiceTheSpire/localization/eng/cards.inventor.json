@@ -167,7 +167,7 @@
   "DICETHESPIRE-SPARK.title": "Spark",
   "DICETHESPIRE-SPIKE.description": "Whenever you add an [gold]Unplayable[/gold] card to your [gold]Hand[/gold], deal {SpikePower:diff()} damage to ALL enemies.",
   "DICETHESPIRE-SPIKE.title": "Spike",
-  "DICETHESPIRE-SPOOKY_NOISES.description": "Draw {Cards:diff()} cards.\nWhenever you play a card this turn, take {ExhaustionPower:diff()} damage.",
+  "DICETHESPIRE-SPOOKY_NOISES.description": "Draw {Cards:diff()} cards.\nGain {HauntPower:diff()} [gold]Haunt[/gold].",
   "DICETHESPIRE-SPOOKY_NOISES.title": "Spooky Noises",
   "DICETHESPIRE-STAFF.description": "Deal {Damage:diff()} Damage.\nWhenever you play a card this turn, take {ExhaustionPower:diff()} damage.",
   "DICETHESPIRE-STAFF.title": "Staff",

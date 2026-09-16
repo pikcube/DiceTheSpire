@@ -14,7 +14,7 @@ public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.
 { 
     public override string GetScrapId => nameof(BurstOfKnowledge);
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(InventorStaticHoverTips.TemporaryGadget)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.TemporaryGadget)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

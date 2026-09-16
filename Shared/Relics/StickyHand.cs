@@ -18,16 +18,11 @@ public class StickyHand : TheThiefRelic
             return false;
         }
 
-        IEnumerable<CardCreationResult>? card = ThiefHelperFunctions.GetCardsOfClassForReward(player,
-            [.. ThiefHelperFunctions.BaseCharacterCardPools, .. ThiefHelperFunctions.DiceyNonThiefCardPools], 1,
+        IEnumerable<CardCreationResult> card = ThiefHelperFunctions.GetCardsOfClassForReward(player,
+            ThiefHelperFunctions.NonThiefCharacterPools, 1,
             creationOptions.RarityOdds);
 
-        if (card == null)
-        {
-            return false;
-        }
-
-        options.Add(card.First());
+        options.AddRange(card);
         return true;
     }
 }

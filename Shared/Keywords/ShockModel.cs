@@ -2,6 +2,7 @@
 using BaseLib.Patches.Content;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Utility;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -16,10 +17,10 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
 {
     private static List<CardModel> ShouldShockList { get; } = [];
 
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.After), UsedImplicitly]
     public static CardKeyword Shock = 0;
-    
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
+
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before), UsedImplicitly]
     public static CardKeyword Shocked = 0;
 
     /// <inheritdoc />
@@ -111,4 +112,19 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
         await Task.WhenAll(tasks);
     }
 
+    public static async Task ShockAndReplaceAsync(PlayerChoiceContext choiceContext, Player player, CardModel[] cardsToShock, int amountToDraw, bool skipVisuals = false)
+    {
+        foreach (CardModel card in cardsToShock)
+        {
+            await card.ExhaustAsync(choiceContext, false, skipVisuals);
+            card.AddPurpleKeyword(Shocked);
+        }
+
+        await CardPileCmd.Draw(choiceContext, amountToDraw, player);
+
+        foreach (CardModel card in cardsToShock)
+        {
+            await DiceyHooks.OnShockAsync(choiceContext, card);
+        }
+    }
 }

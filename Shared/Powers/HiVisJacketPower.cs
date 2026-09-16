@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class HiVisJacketPower : TheInventorPower
+public class HiVisJacketPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

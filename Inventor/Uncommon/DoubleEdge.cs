@@ -11,10 +11,10 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Inventor.Uncommon;
 
 
-public class DoubleEdge() : TheInventorCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class DoubleEdge() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(PowerUp);
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(35, DamageProps.card), new PowerVar<StrengthPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(31, DamageProps.card), new PowerVar<StrengthPower>(2)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class BeeStingPower : TheInventorPower
+public class BeeStingPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Debuff;
 

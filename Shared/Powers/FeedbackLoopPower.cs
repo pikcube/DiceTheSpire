@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class FeedbackLoopPower : DiceTheSpireCorePower, IOnShockListener
+public class FeedbackLoopPower : DiceTheSpirePower, IOnShockListener
 {
     public override PowerType Type => PowerType.Buff;
 
