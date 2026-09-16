@@ -37,7 +37,8 @@ public class TheWarrior : PlaceholderCharacterModel
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<CombatRoll>()
+        //ModelDb.Relic<CombatRoll>()  
+        ModelDb.Relic<AthleticSponsership>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<TheWarriorCardPool>();
