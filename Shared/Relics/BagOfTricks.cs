@@ -25,7 +25,7 @@ public class BagOfTricks : TheThiefRelic
         [
             .. ThiefHelperFunctions.GetDistinctOfClassForCombat(player,
                 [.. ThiefHelperFunctions.BaseCharacterCardPools, .. ThiefHelperFunctions.DiceyNonThiefCardPools],
-                DynamicVars.Cards.IntValue, player.RunState.Rng.CombatCardGeneration).Take(3)
+                DynamicVars.Cards.IntValue, player.RunState.Rng.CombatCardGeneration)
         ];
         Flash();
         CardModel? card = await CardSelectCmd.FromChooseACardScreen(

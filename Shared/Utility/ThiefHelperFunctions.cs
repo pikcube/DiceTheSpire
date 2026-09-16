@@ -43,7 +43,7 @@ public static class ThiefHelperFunctions
             CardFactory.GetDistinctForCombat(player,
                 cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
                     .Where(c => filter is null || filter(c)), count,
-                rng));
+                rng)).Take(count);
     }
 
     /// <summary>
@@ -60,6 +60,6 @@ public static class ThiefHelperFunctions
         CardCreationOptions options = new(cardPools, CardCreationSource.Other, rarityOdds, filter);
         //Prevents a stack overflow from Stickyfingers modifying itself repeatedly
         options.WithFlags(CardCreationFlags.NoModifyHooks);
-        return CardFactory.CreateForReward(player, count, options);
+        return CardFactory.CreateForReward(player, count, options).Take(count);
     }
 }
