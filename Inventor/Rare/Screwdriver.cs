@@ -11,7 +11,7 @@ namespace DiceTheSpire.Inventor.Rare;
 public class Screwdriver() : TheInventorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
-        [HoverTipFactory.Static(InventorStaticHoverTips.Gadget)];
+        [HoverTipFactory.Static(BetterStaticHoverTips.Gadget)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

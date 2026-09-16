@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class BackfirePower : TheInventorPower
+public class BackfirePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Debuff;
 

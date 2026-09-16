@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class GrindstonePower : TheInventorPower
+public class GrindstonePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class SafetyGogglesPower : DiceTheSpireCorePower
+public class SafetyGogglesPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

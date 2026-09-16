@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class HallOfMirrorsPower : DiceTheSpireCorePower
+public class HallOfMirrorsPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

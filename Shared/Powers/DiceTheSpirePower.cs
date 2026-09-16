@@ -4,9 +4,9 @@ using DiceTheSpire.Shared.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public abstract class TheInventorPower : CustomPowerModel
+public abstract class DiceTheSpirePower : CustomPowerModel
 {
-    //Loads from TheInventor/images/powers/your_power.png
+    //Loads from DiceTheSpireCore/images/powers/your_power.png
     public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
-    public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
+    public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
 }

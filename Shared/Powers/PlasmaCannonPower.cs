@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace DiceTheSpire.Shared.Powers;
 
 
-public class PlasmaCannonPower : TheInventorPower
+public class PlasmaCannonPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Shared.Powers;
 
 
-public class CantripsPower : DiceTheSpireCorePower, IAfterRerollListener
+public class CantripsPower : DiceTheSpirePower, IAfterRerollListener
 {
     public override PowerType Type => PowerType.Buff;
 

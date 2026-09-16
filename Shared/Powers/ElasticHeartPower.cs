@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Shared.Powers;
 
 
-public class ElasticHeartPower : DiceTheSpireCorePower
+public class ElasticHeartPower : DiceTheSpirePower
 {
     private const UnplayableReason ValidReasons = UnplayableReason.HasUnplayableKeyword | UnplayableReason.BlockedByHook;
     private static bool IsCardUnplayable(CardModel card)

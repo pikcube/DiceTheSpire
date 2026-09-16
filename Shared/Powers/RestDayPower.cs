@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class RestDayPower : DiceTheSpireCorePower, IAfterRerollListener
+public class RestDayPower : DiceTheSpirePower, IAfterRerollListener
 {
     public override PowerType Type => PowerType.Buff;
 

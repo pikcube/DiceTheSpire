@@ -12,7 +12,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class FuryPower : DiceTheSpireCorePower
+public class FuryPower : DiceTheSpirePower
 {
     private List<CardModel> _cardsThatShouldRemoveFury = [];
     private List<CardModel> _cardsThatNeedVigorRemoved = [];

@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace DiceTheSpire.Shared.Powers;
 
 [UsedImplicitly]
-public class StallOfMirrorsPower : TheInventorPower
+public class StallOfMirrorsPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

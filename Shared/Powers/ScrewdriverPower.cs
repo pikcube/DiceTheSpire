@@ -11,7 +11,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Shared.Powers;
 
 
-public class ScrewdriverPower : TheInventorPower, IGadgetPowerListener
+public class ScrewdriverPower : DiceTheSpirePower, IGadgetPowerListener
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;

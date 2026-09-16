@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
-public class SpeedbumpPower : DiceTheSpireCorePower
+public class SpeedbumpPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

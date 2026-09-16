@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class PipNextTurnPower : TheThiefPower
+public class PipNextTurnPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

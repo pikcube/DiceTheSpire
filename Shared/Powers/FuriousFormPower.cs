@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
-public class FuriousFormPower : DiceTheSpireCorePower, IModifyFuryPlayCountListener
+public class FuriousFormPower : DiceTheSpirePower, IModifyFuryPlayCountListener
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

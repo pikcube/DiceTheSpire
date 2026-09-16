@@ -12,7 +12,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Shared.Powers;
 
 [UsedImplicitly]
-public class SawWavePower : TheInventorPower
+public class SawWavePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
 

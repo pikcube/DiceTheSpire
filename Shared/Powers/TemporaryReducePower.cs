@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public abstract class TemporaryReducePower: DiceTheSpireCorePower, ITemporaryPower
+public abstract class TemporaryReducePower: DiceTheSpirePower, ITemporaryPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

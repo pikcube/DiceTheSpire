@@ -10,7 +10,7 @@ using Pikcube.Common.Utility;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class StolenWeaponPower : TheThiefPower, IAfterPowerRemovedListener
+public class StolenWeaponPower : DiceTheSpirePower, IAfterPowerRemovedListener
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

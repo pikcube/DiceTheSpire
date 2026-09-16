@@ -10,7 +10,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class NextTurnVulnerablePower : DiceTheSpireCorePower
+public class NextTurnVulnerablePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;

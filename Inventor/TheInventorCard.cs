@@ -69,8 +69,8 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
             yield break;
         }
 
-        yield return HoverTipFactory.Static(InventorStaticHoverTips.Scrap);
-        yield return HoverTipFactory.Static(InventorStaticHoverTips.Gadget);
+        yield return HoverTipFactory.Static(BetterStaticHoverTips.Scrap);
+        yield return HoverTipFactory.Static(BetterStaticHoverTips.Gadget);
     }
 
     public abstract string GetScrapId { get; }

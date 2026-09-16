@@ -7,7 +7,7 @@ using Pikcube.Common.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class BrokenMirrorPower : TheThiefPower
+public class BrokenMirrorPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Debuff;
 
