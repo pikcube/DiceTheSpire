@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class PowerCrystal() : TheWarriorCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class PowerCrystal() : TheWarriorCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PowerCrystalPower>(1M), new EnergyVar(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()]; //, HoverTipFactory.FromPower<PowerCrystalPower>(DynamicVars.Power<PowerCrystalPower>().IntValue)

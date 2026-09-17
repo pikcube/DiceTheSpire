@@ -1,6 +1,7 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,7 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class InvisibleCrystal() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class InvisibleCrystal() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self), ICrystalCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<IntangiblePower>(2M), .. RangeVars.Make(2, 3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];

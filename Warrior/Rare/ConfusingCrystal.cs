@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Shared.Commands;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,7 +11,7 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class ConfusingCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class ConfusingCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self), ICrystalCard
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return, CardKeyword.Sly];

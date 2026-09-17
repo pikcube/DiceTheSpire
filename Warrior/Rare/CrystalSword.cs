@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Shared.Interfaces;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class CrystalSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class CrystalSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), ICrystalCard
 {
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];

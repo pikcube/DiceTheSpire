@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Warrior.Uncommon;
 public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(6, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(5, BlockProps.card)];
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
 
