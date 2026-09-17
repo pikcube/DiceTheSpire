@@ -10,7 +10,7 @@ namespace DiceTheSpire.Shared.Patches;
 [HarmonyPatch(typeof(RunRngSet), MethodType.Constructor, typeof(string))]
 public static class CustomStringRngPatch
 {
-    public static void Postfix(RunRngSet __instance, string seed, Dictionary<RunRngType, Rng> ____rngs)
+    public static void Postfix(RunRngSet __instance, Dictionary<RunRngType, Rng> ____rngs)
     {
         foreach (RunRngType type in DiceyRng.All)
         {
@@ -22,7 +22,7 @@ public static class CustomStringRngPatch
 [HarmonyPatch(typeof(RunRngSet), MethodType.Constructor, typeof(Rng))]
 public static class CustomRngRngPatch
 {
-    public static void Postfix(RunRngSet __instance, Rng rng, Dictionary<RunRngType, Rng> ____rngs)
+    public static void Postfix(Rng rng, Dictionary<RunRngType, Rng> ____rngs)
     {
         foreach (RunRngType type in DiceyRng.All)
         {
