@@ -104,11 +104,11 @@
   "DICETHESPIRE-DEFLECTION_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you take damage this turn.",
   "DICETHESPIRE-DEFLECTION_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you take damage this turn.",
   "DICETHESPIRE-DEFLECTION_POWER.title": "Deflection",
-  "DICETHESPIRE-CRYSTALIZE_POWER.description": "At the start of each turn\ncreate {Amount} UPGRADED \"Crystal\"\ncards in [gold]Hand[/gold]",
-  "DICETHESPIRE-CRYSTALIZE_POWER.smartDescription": "At the start of each turn\ncreate {Amount} UPGRADED \"Crystal\"\ncards in [gold]Hand[/gold]",
+  "DICETHESPIRE-CRYSTALIZE_POWER.description": "At the start of each turn\ncreate {Amount} \"Crystal\"\ncards in [gold]Hand[/gold]",
+  "DICETHESPIRE-CRYSTALIZE_POWER.smartDescription": "At the start of each turn\ncreate {Amount} \"Crystal\"\ncards in [gold]Hand[/gold]",
   "DICETHESPIRE-CRYSTALIZE_POWER.title": "Crystalize",
-  "DICETHESPIRE-CRYSTALIZE_PLUS_POWER.description": "At the start of each turn\ncreate {Amount} UPGRADED \"Crystal\"\ncards in [gold]Hand[/gold]",
-  "DICETHESPIRE-CRYSTALIZE_PLUS_POWER.smartDescription": "At the start of each turn\ncreate {Amount} UPGRADED \"Crystal\"\ncards in [gold]Hand[/gold]",
+  "DICETHESPIRE-CRYSTALIZE_PLUS_POWER.description": "At the start of each turn\ncreate {Amount} [gold]Upgraded[/gold] \"Crystal\"\ncards in [gold]Hand[/gold]",
+  "DICETHESPIRE-CRYSTALIZE_PLUS_POWER.smartDescription": "At the start of each turn\ncreate {Amount} [gold]Upgraded[/gold] \"Crystal\"\ncards in [gold]Hand[/gold]",
   "DICETHESPIRE-CRYSTALIZE_PLUS_POWER.title": "Crystalize+"
 
 }
