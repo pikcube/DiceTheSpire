@@ -29,7 +29,7 @@ public class SingularityPower : DiceTheSpirePower
         }
 
         CardSelectorPrefs prefs = new(CardSelectorPrefs.TransformSelectionPrompt, Amount);
-        foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, Owner.Player, prefs, null, this))
+        foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, Owner.Player, prefs, (c => c is not Pip), this))
         {
             await CardCmd.Transform(card, CombatState.CreateCard<Pip>(Owner.Player));
         }
