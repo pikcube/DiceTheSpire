@@ -49,6 +49,11 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
             return;
         }
 
+        if (cardPlay.Card.IsDupe)
+        {
+            return;
+        }
+
         cardPlay.Card.AddPurpleKeyword(Shocked);
 
         await DiceyHooks.OnShockAsync(choiceContext, cardPlay.Card);
