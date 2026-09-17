@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
-public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class ElectricWhip() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(11, DamageProps.card), new EnergyVar(2), new CardsVar(2)];
 
@@ -27,7 +27,7 @@ public class RubberMallet() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
             modifiedCost = 0;
             return true;
         }
-        modifiedCost = originalCost; 
+        modifiedCost = originalCost;
         return false;
     }
 

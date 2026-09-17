@@ -10,17 +10,20 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Inventor.Common;
 
 
-public class Staff() :TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Staff() :TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, DamageProps.card), new PowerVar<ExhaustionPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), new PowerVar<ExhaustionPower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        if (CombatState is null)
+        {
+            return;
+        }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)
-            .Targeting(cardPlay.Target)
+            .TargetingAllOpponents(CombatState)
             .WithValueProp(DynamicVars.Damage.Props)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);

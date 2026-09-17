@@ -1,7 +1,5 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
-using DiceTheSpire.Shared.Utility;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

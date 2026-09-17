@@ -11,7 +11,7 @@ public interface IPipCard
     CardEnergyCost EnergyCost { get; }
 }
 
-public static class PipCard
+public static class IPipCard
 {
     public static Texture2D GetPipsForMod<T>(T card, string resPath, int? cost, bool isPretend, CardCostColor? energyCostColor = null) where T : CardModel, IPipCard
     {
