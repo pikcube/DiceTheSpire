@@ -32,10 +32,5 @@ public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Uncomm
         }
 
     }
-
-    protected override void OnUpgrade()
-    {
-        base.OnUpgrade();
-    }
 }
 

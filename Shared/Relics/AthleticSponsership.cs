@@ -9,8 +9,6 @@ using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpire.Shared.Relics;
 
-
-
 [UsedImplicitly]
 public class AthleticSponsership : TheWarriorRelic
 {
@@ -19,33 +17,29 @@ public class AthleticSponsership : TheWarriorRelic
     //private int procuredSponsershipFunds { get; set; } = 0;
     public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options)
     {
-        if (Owner != player || options.Source == CardCreationSource.Shop || options is null || cardRewards.ToList<CardCreationResult>() is null)
+        if (Owner != player || options.Source == CardCreationSource.Shop)
         {
             return false;
         }
 
-        if (player.RunState.BaseRoom?.RoomType == RoomType.Boss)
+        if (cardRewards.Count == 0)
         {
             return false;
         }
 
-
-        List<CardCreationResult> list = cardRewards.ToList<CardCreationResult>();
-        if (list.Count == 0)
-            return false;
-
-        if (player.RunState.BaseRoom?.RoomType == RoomType.Elite)
+        if (player.RunState.BaseRoom?.RoomType != RoomType.Elite)
         {
-            if (options.Flags.HasFlag(CardCreationFlags.NoHookUpgrades))
-            {
-                return false;
-            }
-
-            UpgradeValidCards(cardRewards, _ => true);
-
-            return true;
+            return false;
         }
-        return false;
+
+        if (options.Flags.HasFlag(CardCreationFlags.NoHookUpgrades))
+        {
+            return false;
+        }
+
+        UpgradeValidCards(cardRewards, _ => true);
+
+        return true;
 
         //CardCreationResult ?cardCreationResult = Owner.RunState.Rng.Niche.NextItem(list);
         //if (cardCreationResult == null)
