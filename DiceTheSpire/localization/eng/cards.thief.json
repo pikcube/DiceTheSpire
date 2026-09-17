@@ -97,8 +97,6 @@
   "DICETHESPIRE-CAMPFIRE.title": "Campfire",
   "DICETHESPIRE-ROSEPETAL_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold] twice.",
   "DICETHESPIRE-ROSEPETAL_SHIELD.title": "Rosepetal Shield",
-  "DICETHESPIRE-CACTUS_NEEDLE.description": "{IfUpgraded:show:Gain {ThornsPower:diff()} [gold]Thorns[/gold] this turn.\n|}Gain {CalculatedBlock:diff()} [gold]Block[/gold].\nGains extra [gold]Block[/gold] for each [gold]Thorns[/gold] you have.",
-  "DICETHESPIRE-CACTUS_NEEDLE.title": "Cactus Needle",
   "DICETHESPIRE-READY_OR_NOT.description": "Deal {Damage:diff()} damage.\n{IfUpgraded:show:Apply|If the enemy intends to attack, apply} {WeakPower:diff()} [gold]Weak[/gold]{IfUpgraded:show:\nand|.\nOtherwise, apply} {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "DICETHESPIRE-READY_OR_NOT.title": "Ready Or Not",
   "DICETHESPIRE-FORTIFY.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
@@ -146,5 +144,7 @@
   "DICETHESPIRE-SEIZE.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nEnemy loses {StrengthDownPower:diff()} [gold]Strength[/gold].",
   "DICETHESPIRE-SEIZE.title": "Seize",
   "DICETHESPIRE-KATANA.description": "Deal {CalculatedDamage:diff()} damage.\n[gold]Strength[/gold] effects this card {StrengthPower:diff()} times.",
-  "DICETHESPIRE-KATANA.title": "Katana"
+  "DICETHESPIRE-KATANA.title": "Katana",
+  "DICETHESPIRE-KALEIDOSCOPE.description": "Transform up to {Cards:diff()} cards in hand into cards of any color.",
+  "DICETHESPIRE-KALEIDOSCOPE.title": "Kaleidoscope"
 }

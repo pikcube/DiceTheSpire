@@ -1,21 +1,16 @@
-﻿using DiceTheSpire.Inventor.Gadgets;
-using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Inventor.Uncommon;
+namespace DiceTheSpire.Thief.Uncommon;
 
-public class Kaleidoscope() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Kaleidoscope() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    public override string GetScrapId => nameof(Replicate);
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
