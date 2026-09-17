@@ -3,13 +3,11 @@ using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
-using static BaseLib.Utils.BetaMainCompatibility;
 
 namespace DiceTheSpire.Shared.Utility;
 
