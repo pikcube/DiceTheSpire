@@ -21,9 +21,12 @@ public abstract class AbstractCrystalizePower : DiceTheSpirePower
             return;
         }
 
-        IEnumerable<CardModel> crystals = ModelDb.AllCards.Where(c => c is ICrystalCard).TakeRandom(Amount, player.RunState.Rng.CombatCardGeneration);
+        IEnumerable<CardModel> crystals = ModelDb.AllCards.Where(c => c is ICrystalCard);
 
-        foreach (CardModel canonicalCard in crystals)
+        IEnumerable<CardModel> randomCrystals = Enumerable.Range(0, Amount)
+            .Select(_ => crystals.TakeRandom(1, player.RunState.Rng.CombatCardGeneration).Single());
+
+        foreach (CardModel canonicalCard in randomCrystals)
         {
             CardModel card = CombatState.CreateCard(canonicalCard, player);
             if (ShouldUpgrade)
