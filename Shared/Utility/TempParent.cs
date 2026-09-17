@@ -24,7 +24,7 @@ internal class TempParent : IGadgetParent
     {
     }
 
-    public Task AfterRandomizedAsync()
+    public Task UpdateAndPreviewAsync()
     {
         return Task.CompletedTask;
     }

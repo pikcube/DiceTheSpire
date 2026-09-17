@@ -87,7 +87,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             p.InitialGadgetId = id;
 
             await PowerCmd.Apply(new BlockingPlayerChoiceContext(), p, player.Creature, 1, player.Creature, null);
-            tasks.Add(p.AfterRandomizedAsync());
+            tasks.Add(p.UpdateAndPreviewAsync());
         }
 
         await Task.WhenAll(tasks);
@@ -352,7 +352,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         foreach (IGadgetParent parent in gadgetParents)
         {
             parent.GadgetId = GetRandomCombatGadgetId(owner.RunState.Rng.CombatOrbGeneration);
-            await parent.AfterRandomizedAsync();
+            await parent.UpdateAndPreviewAsync();
         }
     }
 

@@ -127,7 +127,7 @@ public class TemporaryGadgetPower : DiceTheSpirePower, IGadgetParent
         }
 
         GadgetId = id;
-        await AfterRandomizedAsync();
+        await UpdateAndPreviewAsync();
     }
 
     public async Task RandomizeThisAsync()
@@ -139,10 +139,10 @@ public class TemporaryGadgetPower : DiceTheSpirePower, IGadgetParent
         }
 
         GadgetId = ScrapManager.GetRandomCombatGadgetId(Owner.Player.RunState.Rng.CombatOrbGeneration);
-        await AfterRandomizedAsync();
+        await UpdateAndPreviewAsync();
     }
 
-    public async Task AfterRandomizedAsync()
+    public async Task UpdateAndPreviewAsync()
     {
         await GadgetCard1.ShowAsync(LinkedGadgetModel);
     }

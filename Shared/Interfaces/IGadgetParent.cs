@@ -7,7 +7,7 @@ public interface IGadgetParent
     public string GadgetId { set; }
     public Player Owner { get; }
     public void Flash();
-    public Task AfterRandomizedAsync();
+    public Task UpdateAndPreviewAsync();
     public void Update();
     void SetValue(int display);
 }

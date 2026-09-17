@@ -138,7 +138,7 @@ public class GadgetPower : DiceTheSpirePower, IGadgetParent
         GadgetId = InitialGadgetId;
     }
 
-    public async Task AfterRandomizedAsync()
+    public async Task UpdateAndPreviewAsync()
     {
         Update();
         await GadgetCard1.ShowAsync(LinkedGadgetModel);
