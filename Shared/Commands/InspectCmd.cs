@@ -61,8 +61,13 @@ public static class InspectCmd
         await context.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
 
         //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
-        await CardPileCmd.ShuffleIfNecessary(context, player);
-        List<CardModel> cards = [.. PileType.Draw.GetPile(player).Cards.Take(count)];
+        CardPile drawPile = PileType.Draw.GetPile(player);
+        CardPile discard = PileType.Discard.GetPile(player);
+        if (drawPile.Cards.Count < count && discard.Cards.Count != 0)
+        {
+            await CardPileCmd.Shuffle(context, player);
+        }
+        List<CardModel> cards = [.. drawPile.Cards.Take(count)];
         List<CardModel> result = [.. await DispatchForInspectAsync(choiceId, count, cards, player)];
         
         await context.SignalPlayerChoiceEnded();
