@@ -51,6 +51,8 @@
   "DICETHESPIRE-EMPTY_SLOT.title": "Empty Slot",
   "DICETHESPIRE-ENCYCLOPEDIC_FORM.description": "Gain a [gold]Temporary Gadget[/gold].\nTrigger it immediately.{IfUpgraded:show:|\nAlways offered as [gold]Scrap[/gold].}",
   "DICETHESPIRE-ENCYCLOPEDIC_FORM.title": "Encyclopedic Form",
+  "DICETHESPIRE-EXECUTIONERS_AXE.description": "Deal {Damage:diff()} damage twice.\nGain {HauntPower:diff()} [gold]Haunt[/gold].",
+  "DICETHESPIRE-EXECUTIONERS_AXE.title": "Executioner's Axe",
   "DICETHESPIRE-FEEDBACK_LOOP.description": "Whenever you [gold]Shock[/gold] a card, gain {FeedbackLoopPower:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-FEEDBACK_LOOP.title": "Feedback Loop",
   "DICETHESPIRE-FIREWORKS.description": "Deal {ExtraDamage:diff()} damage for each unique debuff ANYONE has.{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
