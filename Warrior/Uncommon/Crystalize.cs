@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Rare, TargetType.Self), ICrystalCard
+public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
