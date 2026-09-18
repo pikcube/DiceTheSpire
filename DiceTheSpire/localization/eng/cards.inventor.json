@@ -187,8 +187,6 @@
   "DICETHESPIRE-TIDAL_BLADE.title": "Tidal Blade",
   "DICETHESPIRE-TOWER_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold] X times.",
   "DICETHESPIRE-TOWER_SHIELD.title": "Tower Shield",
-  "DICETHESPIRE-TRANSFORMER.description": "Gain {Block:diff()} [gold]Block[/gold].\nDeal {Damage:diff()} damage.\nPermanently increase this card's [gold]Block[/gold] and damage by {Increase:diff()}.",
-  "DICETHESPIRE-TRANSFORMER.title": "Transformer",
   "DICETHESPIRE-TRANSISTOR.description": "Deal {Damage:diff()} damage.\nIf this card would be [gold]Shocked[/gold], play it instead.",
   "DICETHESPIRE-TRANSISTOR.title": "Transistor",
   "DICETHESPIRE-UNCLE.description": "In {Delay:diff()} turns, ALL enemies lose {Damage:diff()} HP.",

@@ -146,5 +146,7 @@
   "DICETHESPIRE-KATANA.description": "Deal {CalculatedDamage:diff()} damage.\n[gold]Strength[/gold] effects this card {StrengthPower:diff()} times.",
   "DICETHESPIRE-KATANA.title": "Katana",
   "DICETHESPIRE-KALEIDOSCOPE.description": "Transform up to {Cards:diff()} cards in hand into cards of any color.",
-  "DICETHESPIRE-KALEIDOSCOPE.title": "Kaleidoscope"
+  "DICETHESPIRE-KALEIDOSCOPE.title": "Kaleidoscope",
+  "DICETHESPIRE-TRANSFORMER.description": "Deal {Damage:diff()} damage.\n[gold]Transform[/gold] 1 card into a copy of this card.",
+  "DICETHESPIRE-TRANSFORMER.title": "Transformer"
 }
