@@ -35,7 +35,7 @@
   "DICETHESPIRE-LAST_STAND.title": "Last Stand",
   "DICETHESPIRE-CANDLE.description": "Select any number\nof cards to [gold]Nudge[/gold].\nGain {Block:diff()} [gold]Block[/gold] for each card.\nAdd a [gold]Burn[/gold] to your\n[gold]Discard Pile[/gold].",
   "DICETHESPIRE-CANDLE.title": "Candle",
-  "DICETHESPIRE-MATCHSTICK.description": "Gain [gold]Fury[/gold].\nAdd a [gold]Burn[/gold] to the top\nof your [gold]Draw Pile[/gold].",
+  "DICETHESPIRE-MATCHSTICK.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].\nAdd a [gold]Burn[/gold] to the top\nof your [gold]Draw Pile[/gold].",
   "DICETHESPIRE-MATCHSTICK.title": "Matchstick",
   "DICETHESPIRE-IRON_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Rummage[/gold] {Cards:diff()} cards.",
   "DICETHESPIRE-IRON_SHIELD.title": "Iron Shield",
