@@ -4,11 +4,11 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Warrior.Rare;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(9, BlockProps.card), new DamageVar(12, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, BlockProps.card), new DamageVar(10, DamageProps.card)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     public override bool GainsBlock => true;
     protected override bool HasEnergyCostX => true;
