@@ -11,8 +11,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
-
-public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IFuryModifier
+public class TwoHandedSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IFuryModifier
 {
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => true;
@@ -22,7 +21,7 @@ public class TwoHandedSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Co
         new DamageVar(8M, DamageProps.card), 
         new PowerVar<FuryPower>(2M), 
         new RepeatVar(2), 
-        .. RangeVars.Make(1, 4)
+        .. RangeVars.Make(1, 3)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
 
