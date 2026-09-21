@@ -15,7 +15,7 @@ internal class TempParent : IGadgetParent
 
     public string GadgetId
     {
-        set {}
+        set { }
     }
     public Player Owner { get; }
     public GadgetModel LinkedGadgetModel { get; internal set; }

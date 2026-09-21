@@ -82,7 +82,7 @@ public static class CountdownPatch
 
         IEnumerable<CardModel> cards = await CardSelectCmd.FromHandForDiscard(choiceContext, instance.Owner, new CardSelectorPrefs(CardSelectorPrefs.DiscardSelectionPrompt,
                 0, countdown.CurrentCount), null, instance);
-        CardModel[] cardsDiscarded = [..cards];
+        CardModel[] cardsDiscarded = [.. cards];
         await CardCmd.Discard(choiceContext, cardsDiscarded);
         await countdown.DecrementCountAsync(cardsDiscarded.Length);
         if (countdown.CurrentCount > 0)

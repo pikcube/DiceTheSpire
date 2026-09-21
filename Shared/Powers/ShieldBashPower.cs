@@ -27,5 +27,5 @@ public class ShieldBashPower : DiceTheSpirePower
         shieldBashPower.Flash();
         await PowerCmd.Apply<VigorPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), shieldBashPower.Owner, Amount, Applier, null);
     }
-          
+
 }

@@ -22,7 +22,8 @@ public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Common,
         }
     } = 2;
 
-    public int CurrentCount {
+    public int CurrentCount
+    {
         get => DynamicVars[nameof(CurrentCount)].IntValue;
         set
         {

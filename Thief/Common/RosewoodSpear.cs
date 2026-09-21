@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Common;
 
-  
+
 public class RosewoodSpear() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6M, ValueProp.Move), new PowerVar<ThornsPower>(2)];

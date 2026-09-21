@@ -9,7 +9,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Inventor.Rare;
 
 public class StallOfMirrors() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
-{ 
+{
     public override string GetScrapId => nameof(MagicDice);
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 

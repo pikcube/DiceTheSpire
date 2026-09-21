@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
+
 public class NextTurnDoubleBlockPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;

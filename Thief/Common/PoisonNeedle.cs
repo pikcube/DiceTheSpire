@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Common;
 
-  
+
 public class PoisonNeedle() : TheThiefCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];

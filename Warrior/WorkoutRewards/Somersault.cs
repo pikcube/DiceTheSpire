@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
+
 public class Somersault() : TheWarriorCard(2, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];

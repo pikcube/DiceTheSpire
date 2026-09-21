@@ -40,7 +40,7 @@ public static class RerollPatches
                 return true;
             }
 
-           
+
             __result = RerollCmd.RerollAsync(choiceContext, card, RerollDuration.Combat);
             return false;
         }

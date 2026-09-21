@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
+
 public class DeflectionPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;

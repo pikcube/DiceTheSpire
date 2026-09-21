@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
 
-  
+
 public abstract class TemporaryThornsPower : DiceTheSpirePower, ITemporaryPower
 {
     public override PowerType Type => PowerType.Buff;
@@ -38,7 +38,7 @@ public abstract class TemporaryThornsPower : DiceTheSpirePower, ITemporaryPower
         }
         else
         {
-            await PowerCmd.Apply<ThornsPower>(new HookPlayerChoiceContext(p, LocalContext.NetId ?? 0, GameActionType.Combat), target,  amount, applier, cardSource, true);
+            await PowerCmd.Apply<ThornsPower>(new HookPlayerChoiceContext(p, LocalContext.NetId ?? 0, GameActionType.Combat), target, amount, applier, cardSource, true);
         }
     }
 

@@ -19,7 +19,7 @@ public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(5, BlockProps.card),
         new PowerVar<BlockNextTurnPower>(5)
@@ -30,7 +30,7 @@ public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        await PowerCmd.Apply<BlockNextTurnPower>(choiceContext, Owner.Creature, 
+        await PowerCmd.Apply<BlockNextTurnPower>(choiceContext, Owner.Creature,
             DynamicVars.Power<BlockNextTurnPower>().IntValue, Owner.Creature, this);
     }
 

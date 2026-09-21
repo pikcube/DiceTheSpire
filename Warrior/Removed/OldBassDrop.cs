@@ -44,5 +44,5 @@
 
 //"THEWARRIOR-BASS_DROP.description": "On {IfUpgraded:show:EVEN|ODD} turns,\napply {WeakPower:diff()} [gold]Weak[/gold] to EVERYONE.\nOn {IfUpgraded:show:ODD|EVEN} turns,\napply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to an enemy.",
 //"THEWARRIOR-BASS_DROP.title": "Bass Drop",
-    
+
 

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Rare;
+
 public class CopperShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<NextTurnDoubleBlockPower>(1M)];

@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class ParryingDagger(): TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class ParryingDagger() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(6, ValueProp.Move), new PowerVar<ReducePower>(2)];

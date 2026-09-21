@@ -16,7 +16,7 @@ public class Starpick() : TheThiefCard(1, CardType.Skill, CardRarity.Token, Targ
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>(), ..HoverTipFactory.FromEnchantment<Stellar>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>(), .. HoverTipFactory.FromEnchantment<Stellar>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
+
 public class AGoodOffensePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
@@ -13,9 +14,9 @@ public class AGoodOffensePower : DiceTheSpirePower
 
     public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
-        if(dealer != Owner)
-        {  
-            return; 
+        if (dealer != Owner)
+        {
+            return;
         }
         await CreatureCmd.GainBlock(Owner, result.UnblockedDamage, BlockProps.nonCardUnpowered, null);
         await PowerCmd.Remove(this);

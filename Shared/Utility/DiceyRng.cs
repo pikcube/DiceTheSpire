@@ -5,7 +5,7 @@ namespace DiceTheSpire.Shared.Utility;
 
 public static class DiceyRng
 {
-    public static IEnumerable<RunRngType> All => 
+    public static IEnumerable<RunRngType> All =>
     [
         CombatPowerGeneration
     ];

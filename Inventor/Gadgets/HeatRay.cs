@@ -29,7 +29,7 @@ public class HeatRay() : GadgetModel(nameof(HeatRay))
         }
 
         ICombatState? creatureCombatState = cardPlay.Card.Owner.Creature.CombatState;
-        
+
         if (creatureCombatState is null)
         {
             return;

@@ -34,7 +34,7 @@ public class Crossbow() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommo
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, 1, 1);
         IEnumerable<CardModel> cards =
         [
-            .. PileType.Draw.GetPile(Owner).Cards, 
+            .. PileType.Draw.GetPile(Owner).Cards,
             .. PileType.Discard.GetPile(Owner).Cards
         ];
 

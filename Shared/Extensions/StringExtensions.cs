@@ -4,7 +4,7 @@ namespace DiceTheSpire.Shared.Extensions;
 
 //Mostly utilities to get asset paths.
 public static class StringExtensions
-{ 
+{
     extension(string path)
     {
         public string ImagePath()

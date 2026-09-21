@@ -16,7 +16,7 @@ public class BarbedSpear() : TheInventorCard(1, CardType.Attack, CardRarity.Unco
 {
     public override string GetScrapId => nameof(Needle);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(10, Bonus, 10)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(10, Bonus, 10)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ThornsPower>()];
 

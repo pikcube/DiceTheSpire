@@ -14,7 +14,7 @@ public class CardboardHat : TheInventorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Shop;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [..HoverTipFactory.FromEnchantment<Recyclable>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [.. HoverTipFactory.FromEnchantment<Recyclable>()];
 
     public override async Task AfterObtained()
     {

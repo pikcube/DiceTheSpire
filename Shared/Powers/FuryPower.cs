@@ -55,7 +55,7 @@ public class FuryPower : DiceTheSpirePower
         DiceyHooks.ModifyFuryPlayCount(card.Owner.RunState, this, card, ref furyCount);
 
         return playCount + furyCount;
-        
+
     }
 
     public override async Task AfterModifyingCardPlayCount(CardModel card)

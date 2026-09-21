@@ -21,8 +21,8 @@ public class BerlinKey() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, 
         {
             return;
         }
-        
-        CardPileAddResult addedCard =  await CardPileCmd.AddGeneratedCardToCombat(original.CreateClone(), IsUpgraded ? PileType.Hand : PileType.Discard, Owner);
+
+        CardPileAddResult addedCard = await CardPileCmd.AddGeneratedCardToCombat(original.CreateClone(), IsUpgraded ? PileType.Hand : PileType.Discard, Owner);
         CardCmd.PreviewCardPileAdd(addedCard);
     }
 }

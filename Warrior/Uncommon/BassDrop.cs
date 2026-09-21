@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.Uncommon;
+
 public class BassDrop() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
@@ -30,5 +31,5 @@ public class BassDrop() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon,
 }
 
 
-    
+
 

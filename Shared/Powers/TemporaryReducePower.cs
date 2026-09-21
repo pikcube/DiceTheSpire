@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public abstract class TemporaryReducePower: DiceTheSpirePower, ITemporaryPower
+public abstract class TemporaryReducePower : DiceTheSpirePower, ITemporaryPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -19,7 +19,7 @@ public abstract class TemporaryReducePower: DiceTheSpirePower, ITemporaryPower
     private bool _shouldIgnoreNextInstance;
     public void IgnoreNextInstance() => _shouldIgnoreNextInstance = true;
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [..GetCardTip()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [.. GetCardTip()];
 
     private CardModel? CardSource { get; set; }
 

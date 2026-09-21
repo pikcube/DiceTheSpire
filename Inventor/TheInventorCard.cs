@@ -28,11 +28,11 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
 
     protected virtual IEnumerable<IHoverTip> ExtraInventorHoverTips => [];
 
-    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips => 
+    protected sealed override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        ..GetGadgetHoverTip() , 
-        ..GetHeldHoverTip(), 
-        ..ExtraInventorHoverTips, 
+        ..GetGadgetHoverTip() ,
+        ..GetHeldHoverTip(),
+        ..ExtraInventorHoverTips,
         ..GetScrapHoverTip()
     ];
 

@@ -17,7 +17,7 @@ public static class Countdown
 
         public async Task DecrementCountAsync(int decrementBy = 1)
         {
-            for (int i = decrementBy; i > 0 && card.CurrentCount >  0; --i)
+            for (int i = decrementBy; i > 0 && card.CurrentCount > 0; --i)
             {
                 --card.CurrentCount;
                 await DiceyHooks.OnAfterCardCountsDownAsync((RunState)card.Owner.RunState, card.Owner.Creature.CombatState, (CardModel)card);

@@ -49,7 +49,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, T
             {
                 await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);
             }
-        } 
+        }
         else
         {
             CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 1, 1);

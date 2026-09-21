@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
+
 public class DoubleBlockPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
@@ -19,9 +20,9 @@ public class DoubleBlockPower : DiceTheSpirePower
         }
         DoubleBlockPower doubleBlockPower = this;
         doubleBlockPower.Flash();
-        
+
     }
-    public override Decimal ModifyBlockMultiplicative(Creature target, Decimal block,ValueProp props,CardModel? cardSource,CardPlay? cardPlay)
+    public override Decimal ModifyBlockMultiplicative(Creature target, Decimal block, ValueProp props, CardModel? cardSource, CardPlay? cardPlay)
     {
         return target.IsMonster || !props.IsCardOrMonsterMove() || cardSource != null && cardSource.Owner.Creature != Owner ? 1M : 2M;
     }

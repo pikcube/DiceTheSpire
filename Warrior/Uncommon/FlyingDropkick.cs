@@ -23,7 +23,7 @@ public class FlyingDropkick() : TheWarriorCard(3, CardType.Attack, CardRarity.Un
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        CardModel[] cards = [..PileType.Hand.GetPile(Owner).Cards];
+        CardModel[] cards = [.. PileType.Hand.GetPile(Owner).Cards];
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .WithHitCount(1)

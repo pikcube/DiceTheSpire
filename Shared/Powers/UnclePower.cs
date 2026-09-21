@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
+
 public class UnclePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;

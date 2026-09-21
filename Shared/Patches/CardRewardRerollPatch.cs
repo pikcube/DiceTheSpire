@@ -18,7 +18,7 @@ public static class CardRewardRerollPatch
     {
         RunManager.Instance.RoomEntered -= InstanceOnRoomEntered;
         RunManager.Instance.RoomEntered += InstanceOnRoomEntered;
-        HijackMap[cardReward] = backupCards;  
+        HijackMap[cardReward] = backupCards;
     }
 
     private static void InstanceOnRoomEntered()

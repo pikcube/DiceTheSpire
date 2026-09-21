@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.Uncommon;
+
 public class FireBreath() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WarriorFireBreathPower>(6M), new PowerVar<FuryPower>(1M), new PowerVar<VigorPower>(4M)];

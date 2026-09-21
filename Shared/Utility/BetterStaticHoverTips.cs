@@ -6,7 +6,7 @@ namespace DiceTheSpire.Shared.Utility;
 
 public static class BetterStaticHoverTips
 {
-    [CustomEnum, UsedImplicitly] 
+    [CustomEnum, UsedImplicitly]
     public static StaticHoverTip Bump = 0;
 
     [CustomEnum, UsedImplicitly]
@@ -18,7 +18,7 @@ public static class BetterStaticHoverTips
     [CustomEnum, UsedImplicitly]
     public static StaticHoverTip Nudge = 0;
 
-    [CustomEnum, UsedImplicitly] 
+    [CustomEnum, UsedImplicitly]
     public static StaticHoverTip Inspect = 0;
 
     [CustomEnum, UsedImplicitly]

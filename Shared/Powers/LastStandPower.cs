@@ -16,29 +16,29 @@ public class LastStandPower : DiceTheSpirePower
 
     public override async Task AfterPreventingDeath(Creature creature)
     {
-            await CreatureCmd.Heal(Owner, 1M, false);
+        await CreatureCmd.Heal(Owner, 1M, false);
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
     IEnumerable<Creature> owner)
     {
-            if (side == Owner.Side)
-            {
-                return;
-            }
-            LastStandPower lastStandPower = this;
-            lastStandPower.Flash();
-            if (lastStandPower.Amount == 1)
-            {
-                await PowerCmd.Decrement(this);
-                await CreatureCmd.Kill(Owner);
-            }
-            else
-            {
-                await PowerCmd.Decrement(this);
-            }
-            lastStandPower.Flash();
-        
+        if (side == Owner.Side)
+        {
+            return;
+        }
+        LastStandPower lastStandPower = this;
+        lastStandPower.Flash();
+        if (lastStandPower.Amount == 1)
+        {
+            await PowerCmd.Decrement(this);
+            await CreatureCmd.Kill(Owner);
+        }
+        else
+        {
+            await PowerCmd.Decrement(this);
+        }
+        lastStandPower.Flash();
+
     }
 }
 

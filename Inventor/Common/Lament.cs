@@ -35,5 +35,5 @@ public class Lament() : TheInventorCard(2, CardType.Attack, CardRarity.Common, T
     }
 
     public override string GetScrapId => nameof(WallOfIce);
-    
+
 }

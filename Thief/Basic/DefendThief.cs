@@ -6,8 +6,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Basic;
 
-  
-  
+
+
 public class DefendThief() : TheThiefCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     public override bool GainsBlock => true;

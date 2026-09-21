@@ -10,7 +10,7 @@ public interface ICountdown
 {
     public int MaxCount { get; set; }
     public int CurrentCount { get; set; }
-    public Player Owner { get;}
+    public Player Owner { get; }
     public CardLocation PublicGetResultLocationForCardPlay();
     public Task<int> PublicGeneratePlayCount(ICombatState combatState, Creature? target);
     public Task PublicOnPlay(BranchingPlayerChoiceContext branchingPlayerChoiceContext, CardPlay cardPlay);

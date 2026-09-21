@@ -22,6 +22,6 @@ public class PowerCrystalPower : DiceTheSpirePower
         int xValue = cardPlay.Card.EnergyCost.GetAmountToSpend();
 
         PowerCrystalPower powerCrystalPower = this;
-        await PowerCmd.Apply<StrengthPower>(choiceContext, powerCrystalPower.Owner, xValue*Amount, cardPlay.Card.Owner.Creature, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, powerCrystalPower.Owner, xValue * Amount, cardPlay.Card.Owner.Creature, null);
     }
 }

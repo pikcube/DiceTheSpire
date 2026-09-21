@@ -17,7 +17,7 @@ public class GrindstonePower : DiceTheSpirePower
     {
         if (dealer == Owner && props.IsPoweredAttack())
         {
-            return 1 + Amount/100m;
+            return 1 + Amount / 100m;
         }
 
         return 1;

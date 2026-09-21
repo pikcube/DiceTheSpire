@@ -32,7 +32,7 @@ public partial class MainFile : Node
         CustomLocTableManager.Register("gadgets.json");
 
         LocAliasManager.LoadJson(ModId);
-        
+
         CustomCharacterUtils.TryOrderCustomCharacters<
             TheWarrior,
             TheThief,

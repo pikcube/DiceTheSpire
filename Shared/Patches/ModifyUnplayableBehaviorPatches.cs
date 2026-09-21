@@ -10,7 +10,7 @@ namespace DiceTheSpire.Shared.Patches;
 
 [HarmonyPatch(typeof(CardModel), nameof(CardModel.CanPlay), [typeof(UnplayableReason), typeof(AbstractModel)], [ArgumentType.Out, ArgumentType.Out])]
 public static class ModifyUnplayableBehaviorPatches
-{ 
+{
     public static bool Postfix(bool __result, CardModel __instance, ref UnplayableReason reason, ref AbstractModel? preventer)
     {
         if (__result || __instance.RunState is null || (reason ^ UnplayableReason.HasUnplayableKeyword) != 0)

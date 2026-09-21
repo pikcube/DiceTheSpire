@@ -48,6 +48,6 @@ public class PuppyPaws() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
 
     protected override void OnUpgrade()
     {
-        
+
     }
 }

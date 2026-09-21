@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
+
 public class StrengthTraining() : TheWarriorCard(3, CardType.Power, CardRarity.Token, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(2M), new PowerVar<DexterityPower>(2M)];

@@ -18,7 +18,7 @@
 //        ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
 //        int xValue = EnergyCost.GetAmountToSpend();
-        
+
 //        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
 //            .FromCard(this, cardPlay)
 //            .WithHitCount(xValue)

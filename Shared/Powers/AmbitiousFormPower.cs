@@ -25,7 +25,7 @@ public class AmbitiousFormPower : DiceTheSpirePower
         Data data = GetInternalData<Data>();
         data.CardsPlayed += 1;
         if (data.CardsPlayed >= Amount)
-        { 
+        {
             Flash();
             await PlayerCmd.GainEnergy(1, cardPlay.Card.Owner);
             data.CardsPlayed -= Amount;

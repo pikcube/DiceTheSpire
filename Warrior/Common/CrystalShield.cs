@@ -22,7 +22,7 @@ public class CrystalShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Comm
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         CrystalShield crystalShield = this;
-        await CreatureCmd.GainBlock(crystalShield.Owner.Creature, crystalShield.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target) + (crystalShield.EnergyCost.GetAmountToSpend()*2), crystalShield.DynamicVars.CalculatedBlock.Props, cardPlay);
+        await CreatureCmd.GainBlock(crystalShield.Owner.Creature, crystalShield.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target) + (crystalShield.EnergyCost.GetAmountToSpend() * 2), crystalShield.DynamicVars.CalculatedBlock.Props, cardPlay);
     }
 
     protected override void OnUpgrade()

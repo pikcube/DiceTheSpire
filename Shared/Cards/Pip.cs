@@ -66,7 +66,7 @@ public class Pip : DiceTheSpireCard
         }
 
         List<CardModel> pips = [];
-        
+
         for (int index = 0; index < count; ++index)
         {
             pips.Add(combatState.CreateCard<Pip>(owner));

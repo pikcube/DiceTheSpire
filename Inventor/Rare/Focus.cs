@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-  
+
 public class Focus() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];

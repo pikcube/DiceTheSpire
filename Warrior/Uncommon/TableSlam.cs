@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 
 namespace DiceTheSpire.Warrior.Uncommon;
+
 public class TableSlam() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];

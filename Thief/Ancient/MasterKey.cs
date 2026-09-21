@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Thief.Ancient;
 
-  
+
 public class MasterKey() : TheThiefCard(1, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new IntVar("PipCount", 2)];

@@ -19,7 +19,8 @@ public class WreckingBallPower : DiceTheSpirePower, IModifyPipOnPlayListener
 
     public bool ShouldModify(Pip pip) => pip.Owner == Owner.Player;
 
-    public LocString PipDescription {
+    public LocString PipDescription
+    {
         get
         {
             LocString l = new LocString("powers", Id.Entry + ".pipDescription").WithDynamicVars(DynamicVars);

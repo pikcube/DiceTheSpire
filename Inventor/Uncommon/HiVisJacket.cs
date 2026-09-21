@@ -18,7 +18,7 @@ public class HiVisJacket() : TheInventorCard(1, CardType.Power, CardRarity.Uncom
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
     [
         HoverTipFactory.Static(BetterStaticHoverTips.Inspect,
-            new CardsVar(DynamicVars.Power<HiVisJacketPower>().IntValue)), 
+            new CardsVar(DynamicVars.Power<HiVisJacketPower>().IntValue)),
         HoverTipFactory.FromKeyword(ShockModel.Shock)
     ];
 

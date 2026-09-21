@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Basic;
 
-  
+
 public class StrikeThief() : TheThiefCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];

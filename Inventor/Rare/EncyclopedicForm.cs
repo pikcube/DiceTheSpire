@@ -11,7 +11,7 @@ namespace DiceTheSpire.Inventor.Rare;
 
 
 public class EncyclopedicForm() : TheInventorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self), IScrapCard
-{ 
+{
     public override string GetScrapId => nameof(BurstOfKnowledge);
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.TemporaryGadget)];

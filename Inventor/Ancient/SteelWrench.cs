@@ -22,7 +22,7 @@ public class SteelWrench() : TheInventorCard(1, CardType.Skill, CardRarity.Ancie
         int handSize = PileType.Hand.GetPile(Owner).Cards.Count;
 
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, 0, handSize);
-        CardModel[] cards = [..await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
             await card.ShockAsync(choiceContext);

@@ -17,6 +17,6 @@ public class PermafrostRetentionPower : DiceTheSpirePower
         foreach (CardModel _ in retainedCards)
         {
             await CreatureCmd.GainBlock(Owner, Amount, BlockProps.nonCardUnpowered, null);
-        } 
+        }
     }
 }

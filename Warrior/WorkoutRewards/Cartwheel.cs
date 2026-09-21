@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
+
 public class Cartwheel() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self), IAfterRerollListener
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];

@@ -17,7 +17,7 @@ public class FourHandedSword() : TheWarriorCard(3, CardType.Skill, CardRarity.An
             return;
         }
         await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<AdjustGrip>(Owner), PileType.Hand, Owner);
-            
+
     }
 
     protected override void OnUpgrade()

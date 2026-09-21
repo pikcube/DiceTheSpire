@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Token;
+
 public class Omnistrike() : TheWarriorCard(3, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];

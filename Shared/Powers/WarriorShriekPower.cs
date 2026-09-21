@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
+
 public class WarriorShriekPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;

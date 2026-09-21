@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Rare;
+
 public class Shriek() : TheWarriorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WarriorShriekPower>(1M), .. RangeVars.Make(0, 2)];

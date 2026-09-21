@@ -64,7 +64,7 @@ public class RottenHatchRestSiteOption(Player player) : CustomRestSiteOption(pla
             await CardCmd.Transform(egg, scorp);
         }
 
-        List<RottenEgg> eggs = [..Owner.Deck.Cards.OfType<RottenEgg>()];
+        List<RottenEgg> eggs = [.. Owner.Deck.Cards.OfType<RottenEgg>()];
         foreach (RottenEgg e in eggs)
         {
             await CardPileCmd.RemoveFromDeck(e, false);

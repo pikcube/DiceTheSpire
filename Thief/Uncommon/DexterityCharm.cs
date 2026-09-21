@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-  
+
 public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int MaxCount

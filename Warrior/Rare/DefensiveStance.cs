@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Rare;
+
 public class DefensiveStance() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override bool GainsBlock => true;

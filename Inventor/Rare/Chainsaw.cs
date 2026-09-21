@@ -11,11 +11,11 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Inventor.Rare;
 
 public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
-{ 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(19, Bonus, 26)];
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(19, Bonus, 26)];
 
     private static decimal Bonus(CardModel card, Creature? target)
-    { 
+    {
         return target?.HasPower<MinionPower>() is true ? 1 : 0;
     }
 

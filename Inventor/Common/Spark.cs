@@ -25,7 +25,7 @@ public class Spark() : TheInventorCard(-1, CardType.Attack, CardRarity.Common, T
 
 
 
-        await CreatureCmd.Damage(choiceContext, [.. CombatState.Enemies], DynamicVars.Damage, 
+        await CreatureCmd.Damage(choiceContext, [.. CombatState.Enemies], DynamicVars.Damage,
             Owner.Creature, this, null);
     }
 

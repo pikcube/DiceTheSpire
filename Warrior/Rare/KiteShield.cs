@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Rare;
+
 public class KiteShield() : TheWarriorCard(6, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override bool GainsBlock => true;

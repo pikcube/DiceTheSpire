@@ -40,7 +40,7 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
             if (deck.Count < 6)
             {
                 //If your ally doesn't have at least 6 common, uncommon, or rares, we populate the rest with basics
-                CardModel[] add = 
+                CardModel[] add =
                 [
                     .. p.Deck.Cards.Where(c => c.Rarity == CardRarity.Basic)
                         .TakeRandom(6 - deck.Count, player.PlayerRng.Rewards)

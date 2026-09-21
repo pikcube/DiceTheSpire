@@ -15,7 +15,7 @@ public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Ra
 {
     public int ShockedThisCombat { get; set; }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(4, Bonus, 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(4, Bonus, 3)];
 
     private static decimal Bonus(CardModel arg1, Creature? arg2)
     {

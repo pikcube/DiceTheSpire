@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Thief.Common;
 
-  
+
 public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [new CardHoverTip(ModelDb.Card<Pip>())];

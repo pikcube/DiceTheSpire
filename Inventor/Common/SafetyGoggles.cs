@@ -14,7 +14,7 @@ namespace DiceTheSpire.Inventor.Common;
 public class SafetyGoggles() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override string GetScrapId => nameof(Protection);
-    protected override IEnumerable<DynamicVar> CanonicalVars => 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(7, BlockProps.card),
         new PowerVar<SafetyGogglesPower>(1)

@@ -168,7 +168,7 @@ public static class DiceyHooks
     }
 
     public static async Task OnShockAsync(PlayerChoiceContext choiceContext, CardModel card)
-    { 
+    {
         foreach (IOnShockListener listener in card.Owner.RunState.IterateHookListeners(card.Owner.Creature.CombatState).OfType<IOnShockListener>())
         {
             await listener.AfterCardShockedAsync(choiceContext, card);

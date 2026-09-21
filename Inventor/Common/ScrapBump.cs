@@ -13,15 +13,15 @@ using MegaCrit.Sts2.Core.Models;
 namespace DiceTheSpire.Inventor.Common;
 
 public class ScrapBump() : TheInventorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), IScrapCard
-{ 
+{
     public bool IsAlwaysOfferedAsScrap => true;
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => IsUpgraded ? [HoverTipFactory.Static(BetterStaticHoverTips.Bump)] : [];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        LocString locString = IsUpgraded ? 
-            DiceySelection.ToBump : 
+        LocString locString = IsUpgraded ?
+            DiceySelection.ToBump :
             CardSelectorPrefs.UpgradeSelectionPrompt;
         CardSelectorPrefs cardSelectorPrefs = new(locString, 1);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner,

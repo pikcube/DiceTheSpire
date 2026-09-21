@@ -18,7 +18,7 @@ public static class ThiefHelperFunctions
         ModelDb.CardPool<IroncladCardPool>(), ModelDb.CardPool<SilentCardPool>(), ModelDb.CardPool<RegentCardPool>(),
         ModelDb.CardPool<NecrobinderCardPool>(), ModelDb.CardPool<DefectCardPool>()
     ];
-    
+
 
     public static IEnumerable<CardPoolModel> DiceyNonThiefCardPools =>
     [
@@ -41,7 +41,7 @@ public static class ThiefHelperFunctions
     {
         return CardFactory.GetDistinctForCombat(player, cardPools.SelectMany(CollectionSelector), count, rng);
 
-        
+
         IEnumerable<CardModel> CollectionSelector(CardPoolModel cardPool)
         {
             IEnumerable<CardModel> cardModels = cardPool.GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint);

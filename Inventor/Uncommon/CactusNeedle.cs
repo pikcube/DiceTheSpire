@@ -30,6 +30,6 @@ public class CactusNeedle() : TheInventorCard(1, CardType.Skill, CardRarity.Unco
                 Owner.Creature, this);
         }
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.CalculatedBlock.Calculate(Owner.Creature), ValueProp.Move, cardPlay);
-        
+
     }
 }

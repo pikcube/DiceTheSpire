@@ -21,6 +21,6 @@ public class ElectricalGloves : TheInventorRelic, IOnShockListener
 
     public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
-        
+
     }
 }

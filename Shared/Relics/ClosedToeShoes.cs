@@ -26,7 +26,7 @@ public class ClosedToeShoes : TheInventorRelic
             return;
         }
 
-        
+
         CardModel? card = Owner.PlayerCombatState?.Hand.Cards
             .Where(Filter)
             .TakeRandom(1, Owner.RunState.Rng.CombatTargets).SingleOrDefault();

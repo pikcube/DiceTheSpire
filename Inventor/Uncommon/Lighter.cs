@@ -12,9 +12,9 @@ public class Lighter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon
 {
     public override string GetScrapId => nameof(Blowtorch);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => 
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(14, DamageProps.card), 
+        new DamageVar(14, DamageProps.card),
         new DamageVar("HeldDamage", 6, DamageProps.cardUnpowered)
     ];
 

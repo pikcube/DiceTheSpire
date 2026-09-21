@@ -14,8 +14,8 @@ public class BlastChiller() : TheInventorCard(-1, CardType.Attack, CardRarity.Ra
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new CalculationBaseVar(0), 
-        new ExtraDamageVar(1), 
+        new CalculationBaseVar(0),
+        new ExtraDamageVar(1),
         new CalculatedDamageVar(DamageProps.cardUnpowered).WithMultiplier((model, _) => model.Owner.Creature.Block)
     ];
 

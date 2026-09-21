@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 
 namespace DiceTheSpire.Warrior.Token;
+
 public class ReadjustGrip() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];

@@ -13,7 +13,7 @@ public class CrystalSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust,CardKeyword.Ethereal];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
 
     private static decimal Bonus(CardModel card, Creature? arg2)
     {

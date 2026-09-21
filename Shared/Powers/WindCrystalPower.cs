@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace DiceTheSpire.Shared.Powers;
+
 public class WindCrystalPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;

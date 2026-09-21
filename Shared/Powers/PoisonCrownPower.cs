@@ -24,7 +24,7 @@ public class PoisonCrownPower : DiceTheSpirePower, IModifyPipOnPlayListener
     {
         get
         {
-            LocString l = new LocString("powers", Id.Entry + ".pipDescription").WithDynamicVars(DynamicVars); 
+            LocString l = new LocString("powers", Id.Entry + ".pipDescription").WithDynamicVars(DynamicVars);
             l.Add("Amount", Amount);
             return l;
         }

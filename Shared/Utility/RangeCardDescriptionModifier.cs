@@ -13,7 +13,7 @@ public static class RangeCardDescriptionModifier
             return;
         }
 
-        if(min == 0 && max == 3)
+        if (min == 0 && max == 3)
         {
             return;
         }

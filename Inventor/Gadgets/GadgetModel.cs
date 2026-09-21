@@ -13,7 +13,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Inventor.Gadgets;
 
 public abstract class GadgetModel : AbstractModel, ICustomModel
-{ 
+{
     protected GadgetModel(string gadgetId)
     {
         GadgetId = gadgetId;

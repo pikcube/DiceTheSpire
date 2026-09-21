@@ -8,20 +8,20 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Shared.Powers;
 
 
-    public class TargetShieldPower : DiceTheSpirePower
+public class TargetShieldPower : DiceTheSpirePower
+{
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => (IEnumerable<IHoverTip>)HoverTipFactory.FromPower<DexterityPower>();
+    public override PowerType Type => PowerType.Buff;
+
+    public override PowerStackType StackType => PowerStackType.Counter;
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) //AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
+        TargetShieldPower targetShieldPower = this;
+        targetShieldPower.Flash();
+        await PowerCmd.Apply<DexterityPower>(choiceContext, targetShieldPower.Owner, targetShieldPower.Amount, targetShieldPower.Owner, null);
 
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => (IEnumerable<IHoverTip>)HoverTipFactory.FromPower<DexterityPower>();
-        public override PowerType Type => PowerType.Buff;
-
-        public override PowerStackType StackType => PowerStackType.Counter;
-
-        public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) //AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
-        {
-            TargetShieldPower targetShieldPower = this;
-            targetShieldPower.Flash(); 
-            await PowerCmd.Apply<DexterityPower>(choiceContext, targetShieldPower.Owner, targetShieldPower.Amount, targetShieldPower.Owner, null);
-
-        }
     }
+}
 

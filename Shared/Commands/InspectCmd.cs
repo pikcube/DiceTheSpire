@@ -24,7 +24,7 @@ namespace DiceTheSpire.Shared.Commands;
 public static class InspectCmd
 {
     public static async Task<int> InspectAsync(PlayerChoiceContext choiceContext, Player player, int cards)
-    { 
+    {
         CardModel[] selectedCards = [.. await FromGridForInspectAsync(choiceContext, cards, player)];
 
         await CardPileCmd.Add(selectedCards, PileType.Exhaust, skipVisuals: true);
@@ -69,9 +69,9 @@ public static class InspectCmd
         }
         List<CardModel> cards = [.. drawPile.Cards.Take(count)];
         List<CardModel> result = [.. await DispatchForInspectAsync(choiceId, count, cards, player)];
-        
+
         await context.SignalPlayerChoiceEnded();
-        
+
         return result;
     }
 
@@ -117,7 +117,7 @@ public static class InspectCmd
     private static async Task<IEnumerable<CardModel>> DoRemoteInspectAsync(uint choiceId, Player player, List<CardModel> cards)
     {
         PlayerChoiceResult remoteChoice = await RunManager.Instance.PlayerChoiceSynchronizer.WaitForRemoteChoice(player, choiceId);
-        List<CardModel> results = [..remoteChoice.AsIndexes().Select(i => cards[i])];
+        List<CardModel> results = [.. remoteChoice.AsIndexes().Select(i => cards[i])];
         Log.Info($"Player {player.NetId} chose cards [{string.Join(",", results.Select<CardModel, string>(c => c.Id.Entry))}]");
         return results;
     }

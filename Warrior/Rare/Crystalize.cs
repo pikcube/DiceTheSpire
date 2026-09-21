@@ -27,7 +27,7 @@ public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Rare, 
             await PowerCmd.Apply<CrystalizePlusPower>(choiceContext, Owner.Creature, xValue, Owner.Creature, this);
         }
         else
-        { 
+        {
             await PowerCmd.Apply<CrystalizePower>(choiceContext, Owner.Creature, xValue, Owner.Creature, this);
         }
 

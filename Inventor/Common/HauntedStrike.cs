@@ -19,7 +19,7 @@ public class HauntedStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Co
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, DamageProps.card), new PowerVar<HauntPower>(2)];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [..HoverTipFactory.FromPowerWithPowerHoverTips<HauntPower>()];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [.. HoverTipFactory.FromPowerWithPowerHoverTips<HauntPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

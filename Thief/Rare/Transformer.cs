@@ -23,7 +23,7 @@ public class Transformer() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, T
         {
             await CardCmd.Transform(card, CreateClone());
         }
-        
+
     }
 
     protected override void OnUpgrade()

@@ -47,7 +47,7 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Unco
 
             await PowerCmd.Apply<ReducePower>(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().IntValue, Owner.Creature, this);
         }
-    
+
     }
 
     protected override void OnUpgrade()

@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Inventor.Common;
 
 
-public class Staff() :TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Staff() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), new PowerVar<ExhaustionPower>(2)];
 

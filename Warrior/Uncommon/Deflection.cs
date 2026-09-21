@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Uncommon;
+
 public class Deflection() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12M, BlockProps.card), new PowerVar<DeflectionPower>(2M), new PowerVar<VigorPower>(2M)];

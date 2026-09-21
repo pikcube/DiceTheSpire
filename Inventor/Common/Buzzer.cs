@@ -11,7 +11,7 @@ namespace DiceTheSpire.Inventor.Common;
 
 
 public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
-{ 
+{
     public override string GetScrapId => nameof(ShortCircuit);
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];

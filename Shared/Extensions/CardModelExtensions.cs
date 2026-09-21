@@ -43,7 +43,7 @@ public static class CardModelExtensions
                 await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, newCard);
             }
 
-            
+
         }
 
         public Task ShockAsync(PlayerChoiceContext choiceContext, bool skipVisuals = false) => ShockModel.ShockCardAsync(choiceContext, instance, skipVisuals);

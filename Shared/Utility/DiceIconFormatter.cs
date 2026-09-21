@@ -20,17 +20,17 @@ public class DiceIconFormatter : IFormatter
             case < 0:
                 return false;
             case > 9:
-            {
-                string element = Path.Join("text", "Dicecon_1.png").ImagePath();
-                formattingInfo.Write($"{result}[img]{element}[/img]");
-                break;
-            }
+                {
+                    string element = Path.Join("text", "Dicecon_1.png").ImagePath();
+                    formattingInfo.Write($"{result}[img]{element}[/img]");
+                    break;
+                }
             default:
-            {
-                string element = Path.Join("text", $"Dicecon_{result}.png").ImagePath();
-                formattingInfo.Write($"[img]{element}[/img]");
-                break;
-            }
+                {
+                    string element = Path.Join("text", $"Dicecon_{result}.png").ImagePath();
+                    formattingInfo.Write($"[img]{element}[/img]");
+                    break;
+                }
         }
 
         return true;

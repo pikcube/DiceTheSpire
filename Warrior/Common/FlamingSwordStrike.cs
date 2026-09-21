@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Common;
+
 public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IFuryModifier
 {
     private int FlaimingSwordsBeingPlayed
@@ -35,7 +36,7 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
             return false;
         }
 
-        vigorPower.PrivateFieldWrapper<PowerModel, object>("_internalData").Value = 
+        vigorPower.PrivateFieldWrapper<PowerModel, object>("_internalData").Value =
             AccessTools.DeclaredMethod(typeof(VigorPower), "InitInternalData").Invoke(vigorPower, []);
 
         modifiedAmount = 0;

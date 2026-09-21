@@ -23,7 +23,7 @@ public class FortifyPower : DiceTheSpirePower
 
         foreach (CardModel _ in Owner.Player.PlayerCombatState.Hand.Cards.Where(c => c is Pip))
         {
-            await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered|ValueProp.Move, null);
+            await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered | ValueProp.Move, null);
         }
     }
 }

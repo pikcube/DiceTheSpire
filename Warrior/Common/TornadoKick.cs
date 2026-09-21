@@ -16,7 +16,7 @@ public class TornadoKick() : TheWarriorCard(1, CardType.Attack, CardRarity.Commo
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         int extraHits = Owner.Creature.GetPower<FlurryOfKicksPower>()?.Amount ?? 0;
-            
+
         int hitCount = 1 + extraHits;
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
@@ -34,7 +34,7 @@ public class TornadoKick() : TheWarriorCard(1, CardType.Attack, CardRarity.Commo
         }
     }
 
-  //"THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage twice.\nHits once more for each [gold]Battle Axe[/gold] played this combat.",
-  //"THEWARRIOR-BATTLE_AXE.title": "Battle Axe",
+    //"THEWARRIOR-BATTLE_AXE.description": "Deal {Damage:diff()} damage twice.\nHits once more for each [gold]Battle Axe[/gold] played this combat.",
+    //"THEWARRIOR-BATTLE_AXE.title": "Battle Axe",
 
 }

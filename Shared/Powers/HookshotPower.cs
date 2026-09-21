@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-  
+
 public class HookshotPower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;

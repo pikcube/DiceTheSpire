@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-  
+
 public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int MaxCount

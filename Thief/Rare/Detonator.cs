@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Rare;
 
-  
+
 public class Detonator() : TheThiefCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];

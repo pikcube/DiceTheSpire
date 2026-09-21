@@ -35,7 +35,7 @@ public static class PipCard
             case CardCostColor.Increased:
                 return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath, "Blue", $"ui_dice_dice{costText}.png"));
             case CardCostColor.Decreased:
-                return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath,"Green", $"ui_dice_dice{costText}.png"));
+                return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath, "Green", $"ui_dice_dice{costText}.png"));
             case CardCostColor.InsufficientResources when !isPretend:
                 return ResourceLoader.Load<Texture2D>(EnergyDiceconPath(resPath, "Red", $"ui_dice_dice{costText}.png"));
             default:

@@ -113,7 +113,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         bool canTravel = NMapScreen.Instance.IsTravelEnabled;
 
         if (LocalContext.IsMe(rewardsSet.Player))
-        { 
+        {
             NMapScreen.Instance.SetTravelEnabled(false);
         }
 

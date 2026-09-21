@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Rare;
+
 public class FuriousForm() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuriousFormPower>(1), new PowerVar<FuryPower>(1M), .. RangeVars.Make(3, 3)];

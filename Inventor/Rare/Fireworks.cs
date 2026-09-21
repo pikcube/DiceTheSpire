@@ -15,7 +15,7 @@ public class Fireworks() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, 
 {
     public override string GetScrapId => nameof(Burrower);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [..MakeCalculatedDamage(0, Bonus, 4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus, 4)];
 
     private static decimal Bonus(CardModel card, Creature? target)
     {

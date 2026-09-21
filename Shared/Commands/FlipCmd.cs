@@ -40,8 +40,8 @@ public static class FlipCmd
 
     private static int NextEnergyCost(CardModel card)
     {
-        return card.EnergyCost.CostsX 
-            ? throw new ArgumentException("Cannot flip X-Cost card", nameof(card)) 
+        return card.EnergyCost.CostsX
+            ? throw new ArgumentException("Cannot flip X-Cost card", nameof(card))
             : Math.Max(3 - card.EnergyCost.GetAmountToSpend(), 0);
     }
 }

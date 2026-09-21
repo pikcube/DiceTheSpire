@@ -48,8 +48,8 @@ public abstract class GadgetCard() : CustomCardModel(-1, CardType.Power, CardRar
         StringVar title = (StringVar)DynamicVars["GadgetTitle"];
         StringVar desc = (StringVar)DynamicVars["GadgetDescription"];
         title.StringValue = linkedGadgetModel.Title.GetFormattedText();
-        desc.StringValue = isForPopUp 
-            ? linkedGadgetModel.Description.GetFormattedText() 
+        desc.StringValue = isForPopUp
+            ? linkedGadgetModel.Description.GetFormattedText()
             : $"{linkedGadgetModel.Description.GetFormattedText()}\n{linkedGadgetModel.Duration.GetFormattedText()}";
     }
 
@@ -86,7 +86,7 @@ public abstract class GadgetCard() : CustomCardModel(-1, CardType.Power, CardRar
 
 [Pool(typeof(TokenCardPool))]
 public class GadgetCard1 : GadgetCard
-{ 
+{
     public static async Task ShowAsync(GadgetModel linkedGadgetModel)
     {
         if (linkedGadgetModel.Parent is null || LocalContext.IsMe(linkedGadgetModel.Parent.Owner))
@@ -100,7 +100,7 @@ public class GadgetCard1 : GadgetCard
 
 [Pool(typeof(TokenCardPool))]
 public class GadgetCard2 : GadgetCard
-{ 
+{
     public static async Task ShowAsync(GadgetModel linkedGadgetModel)
     {
         if (linkedGadgetModel.Parent is null || LocalContext.IsMe(linkedGadgetModel.Parent.Owner))
@@ -114,7 +114,7 @@ public class GadgetCard2 : GadgetCard
 
 [Pool(typeof(TokenCardPool))]
 public class GadgetCard3 : GadgetCard
-{ 
+{
     public static async Task ShowAsync(GadgetModel linkedGadgetModel)
     {
         if (linkedGadgetModel.Parent is null || LocalContext.IsMe(linkedGadgetModel.Parent.Owner))

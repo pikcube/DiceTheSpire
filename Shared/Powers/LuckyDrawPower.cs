@@ -13,7 +13,7 @@ public class LuckyDrawPower : DiceTheSpirePower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        
+
         if (cardPlay.Card.Owner != Owner.Player || cardPlay.Card.EnergyCost.GetResolved() != 1)
         {
             return;
