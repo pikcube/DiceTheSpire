@@ -13,4 +13,5 @@ public static class DiceySelection
     public static LocString ToCountdown => new("card_selection", $"{MainFile.ModPrefix}-TO_COUNTDOWN");
     public static LocString ToRandomize => new("card_selection", $"{MainFile.ModPrefix}-TO_RANDOMIZE");
     public static LocString ToFlip => new("card_selection", $"{MainFile.ModPrefix}-TO_FLIP");
+    public static LocString ToUnshock => new("card_selection", $"{MainFile.ModPrefix}-TO_UNSHOCK");
 }

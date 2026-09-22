@@ -102,18 +102,11 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
         }
 
         List<CardModel> shockedCards = [.. player.PlayerCombatState.AllCards.Where(c => c.Keywords.Contains(Shocked))];
-        List<Task> tasks = [];
-        foreach (CardModel card in shockedCards)
-        {
-            card.RemoveKeyword(Shocked);
-            if (card.Pile?.Type != PileType.Exhaust)
-            {
-                continue;
-            }
-
-            tasks.Add(CardPileCmd.Add(card, PileType.Hand));
-        }
-        tasks.Add(Task.Delay(TimeSpan.FromSeconds(0.15)));
+        List<Task> tasks =
+        [
+            .. shockedCards.Select(card => UnshockCardAsync(card)),
+            Task.Delay(TimeSpan.FromSeconds(0.15))
+        ];
         await Task.WhenAll(tasks);
     }
 
@@ -131,5 +124,21 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
         {
             await DiceyHooks.OnShockAsync(choiceContext, card);
         }
+    }
+
+    public static IReadOnlyList<CardModel> ShockedCards(Player owner, Predicate<CardModel> filter)
+    {
+        return [.. PileType.Exhaust.GetPile(owner).Cards.Where(card => card.Keywords.Contains(Shocked) && filter(card))];
+    }
+
+    public static async Task UnshockCardAsync(CardModel card, PileType destination = PileType.Hand)
+    {
+        card.RemoveKeyword(Shocked);
+        if (card.Pile?.Type != PileType.Exhaust)
+        {
+            return;
+        }
+
+        await CardPileCmd.Add(card, destination);
     }
 }

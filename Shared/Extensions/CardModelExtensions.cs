@@ -47,6 +47,7 @@ public static class CardModelExtensions
         }
 
         public Task ShockAsync(PlayerChoiceContext choiceContext, bool skipVisuals = false) => ShockModel.ShockCardAsync(choiceContext, instance, skipVisuals);
+        public Task UnshockAsync(PileType destination = PileType.Hand) => ShockModel.UnshockCardAsync(instance, destination);
 
         //public async Task NudgeAsync(PlayerChoiceContext choiceContext)
         //{
