@@ -35,8 +35,6 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     }
 
     public string GadgetId { get; }
-    public string GadgetText => string.Join(": ", GadgetLocStrings);
-    public virtual IEnumerable<string> GadgetLocStrings => [Title.GetFormattedText(), $"{Description.GetFormattedText()}"];
 
     public virtual decimal PowerBase => 1;
     public decimal PowerLevel => Parent?.Owner is null ? 1 : GetPower(Parent.Owner);
