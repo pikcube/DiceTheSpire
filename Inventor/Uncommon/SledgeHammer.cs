@@ -1,35 +1,50 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Keywords;
+using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
 
-public class SledgeHammer() : TheInventorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
+public class SledgeHammer() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.cardUnpowered)];
+    public override string GetScrapId => nameof(Hook);
 
-    public override bool HasTurnEndInHandEffect => true;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(13, DamageProps.card)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
-    public override string GetScrapId => nameof(ShortCircuit);
-
-    protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState is null || CombatState.Enemies.Count == 0)
-        {
-            return;
-        }
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner.Creature, this, null);
-        DynamicVars.Damage.UpgradeValueBy(-1);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
+            .FromCard(this, cardPlay)
+            .Targeting(cardPlay.Target)
+            .WithHitFx(VfxCmd.slashPath)
+            .Execute(choiceContext);
+
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, 1, 1);
+        IEnumerable<CardModel> cards =
+        [
+            .. PileType.Draw.GetPile(Owner).Cards,
+            .. PileType.Discard.GetPile(Owner).Cards
+        ];
+
+        IEnumerable<CardModel> results = await CardSelectCmd.FromSimpleGrid(choiceContext,
+            [.. cards.OrderBy(c => c.Rarity).ThenBy(c => c.Id)], Owner, cardSelectorPrefs);
+        await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

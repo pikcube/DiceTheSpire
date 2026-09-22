@@ -79,8 +79,6 @@
   "DICETHESPIRE-PAPER_LANTERN.title": "Paper Lantern",
   "DICETHESPIRE-CACTUS_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {ThornsPower:diff()} [gold]Thorns[/gold] this turn.",
   "DICETHESPIRE-CACTUS_SHIELD.title": "Cactus Shield",
-  "DICETHESPIRE-CACTUS_SPEAR.description": "Deal {CalculatedDamage:diff()} damage. Deals{IfUpgraded:show: 2 | }extra damage for each [gold]Thorns[/gold] you have.",
-  "DICETHESPIRE-CACTUS_SPEAR.title": "Cactus Spear",
   "DICETHESPIRE-PARRYING_DAGGER.description": "Gain {ReducePower:diff()} [gold]Reduce[/gold] this turn.\nDeal {Damage:diff()} damage.",
   "DICETHESPIRE-PARRYING_DAGGER.title": "Parrying Dagger",
   "DICETHESPIRE-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {Repeat:diff()} times.|.}",
