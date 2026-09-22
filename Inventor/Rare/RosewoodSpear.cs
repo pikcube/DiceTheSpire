@@ -15,7 +15,7 @@ namespace DiceTheSpire.Inventor.Rare;
 
 public class RosewoodSpear() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.card)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ThornsPower>()];
@@ -38,7 +38,6 @@ public class RosewoodSpear() : TheInventorCard(1, CardType.Attack, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
-        DynamicVars["ThornsPower"].UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }
