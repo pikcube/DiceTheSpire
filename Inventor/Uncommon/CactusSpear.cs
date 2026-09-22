@@ -2,38 +2,36 @@
 using DiceTheSpire.Inventor.Gadgets;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
-public class CactusSpear() : TheInventorCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class CactusSpear() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(4, DamageProps.cardUnpowered), new PowerVar<ThornsPower>(2)];
     public override string GetScrapId => nameof(Needle);
 
-    public override bool HasTurnEndInHandEffect => true;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(10, Bonus, 10)];
 
-    protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<ThornsPower>()];
+
+    private static decimal Bonus(CardModel card, Creature? target)
     {
-        if (CombatState is null)
-        {
-            //wut?
-            return;
-        }
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage, Owner.Creature, this, null);
-        await ThornsPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<ThornsPower>().IntValue, Owner.Creature, this);
+        return card.Owner.HasPower<ThornsPower>() ? card.IsUpgraded ? 2 : 1 : 0;
     }
 
-    protected override void OnUpgrade()
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.Power<ThornsPower>().UpgradeValueBy(1);
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage)
+            .FromCard(this, cardPlay)
+            .Targeting(cardPlay.Target)
+            .WithHitFx(VfxCmd.slashPath)
+            .Execute(choiceContext);
     }
 }

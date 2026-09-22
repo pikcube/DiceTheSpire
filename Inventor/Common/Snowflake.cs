@@ -19,9 +19,11 @@ public class Snowflake() : TheInventorCard(-1, CardType.Skill, CardRarity.Common
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
+    public override bool GainsBlock => false;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(5, BlockProps.card),
+        new BlockVar(5, BlockProps.cardUnpowered),
         new PowerVar<BlockNextTurnPower>(5)
     ];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock), HoverTipFactory.Static(StaticHoverTip.Block)];

@@ -1,4 +1,4 @@
-﻿using DiceTheSpire.Inventor.Rare;
+﻿using DiceTheSpire.Inventor.Uncommon;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;

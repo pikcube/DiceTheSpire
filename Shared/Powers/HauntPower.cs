@@ -19,6 +19,15 @@ public class HauntPower : DiceTheSpirePower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        if (Owner.Player is null)
+        {
+            //Nope, absolutely not, under no circumstances
+            await PowerCmd.Remove(this);
+        }
+    }
+
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         Player player = cardPlay.Player;

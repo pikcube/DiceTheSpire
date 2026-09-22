@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Keywords;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -7,7 +8,9 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
-public class MidnightCharm() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+
+[UsedImplicitly]
+public class Resistor() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(BattleWrench);
 
