@@ -175,6 +175,8 @@
   "DICETHESPIRE-DUMBBELL.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].",
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
   "DICETHESPIRE-BREATHING_EXERCISES.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
-  "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises"
+  "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises",
+  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {IfUpgraded:show:3|2} addition damage for\neach card [gold]Rerolled[/gold].",
+  "DICETHESPIRE-RUBBER_MALLET.title": "Rubber Mallet"
 
 }     
