@@ -127,7 +127,7 @@
   "DICETHESPIRE-ROCKPICK.title": "Rockpick",
   "DICETHESPIRE-ROSE_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you are attacked this turn, gain {ThornsPower:diff()} [gold]Thorns[/gold].",
   "DICETHESPIRE-ROSE_SHIELD.title": "Rose Shield",
-  "DICETHESPIRE-ROSEWOOD_SPEAR.description": "Deal {Damage:diff()} damage to ALL enemies for each [gold]Throns[/gold] you have.\nRemove all [gold]Thorns[/gold] from yourself.",
+  "DICETHESPIRE-ROSEWOOD_SPEAR.description": "Deal {Damage:diff()} damage to ALL enemies for each [gold]Thorns[/gold] you have.\nRemove all [gold]Thorns[/gold] from yourself.",
   "DICETHESPIRE-ROSEWOOD_SPEAR.title": "Rosewood Spear",
   "DICETHESPIRE-ROTTEN_EGG.description": "Can be hatched at a rest site.\nAlways offered as [gold]Scrap[/gold].",
   "DICETHESPIRE-ROTTEN_EGG.title": "Rotten Egg",
