@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class IceBreath() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class IceBreath() : TheWarriorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WarriorIceBreathPower>(16M), new PowerVar<FuryPower>(1M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue), HoverTipFactory.Static(StaticHoverTip.Block)];
