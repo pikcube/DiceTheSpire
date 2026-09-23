@@ -15,5 +15,8 @@
   "DICETHESPIRE-BAG_OF_TRICKS.title": "Bag Of Tricks",
   "DICETHESPIRE-POCKET_DICE.description": "At the start of combat, add [blue]{Cards}[/blue] [gold]Pips[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-POCKET_DICE.flavor": "",
-  "DICETHESPIRE-POCKET_DICE.title": "Pocket Dice"
+  "DICETHESPIRE-POCKET_DICE.title": "Pocket Dice",
+  "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.description": "The first time you apply a unique debuff each combat, gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.flavor": "",
+  "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.title": "Loud Bird's Mixtape"
 }
