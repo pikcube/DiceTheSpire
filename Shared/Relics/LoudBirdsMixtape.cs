@@ -1,5 +1,4 @@
-﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Combat.History.Entries;
+﻿using DiceTheSpire.Shared.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -17,31 +16,25 @@ public class LoudBirdsMixtape : TheThiefRelic
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(1)];
 
-    private List<PowerModel> triggeredPowers = new List<PowerModel>();
+    private List<PowerModel> _triggeredPowers = [];
 
     public override async Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner.Creature || power.Type != PowerType.Debuff) //Add check for if power is in list of triggered debuffs
+        if (applier != Owner.Creature || power.Type != PowerType.Debuff || _triggeredPowers.Contains(power.CanonicalInstance))
         {
             return;
         }
 
-        if (CombatManager.Instance.History.Entries.OfType<PowerReceivedEntry>().Any(entries =>
-                entries.Applier == Owner.Creature && entries.Power.Type == PowerType.Debuff &&
-                entries.Power.GetType() == power.GetType()))
-        {
-            return;
-        }
-
+        _triggeredPowers.Add(power.CanonicalInstance);
+        
+        Flash();
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue,
             Owner.Creature, null);
     }
 
-    public override Task BeforeCombatStart()
+    public override async Task BeforeCombatStart()
     {
-        //clear list of triggered debuffs
-
-        return base.BeforeCombatStart();
+        _triggeredPowers.Clear();
     }
 }
