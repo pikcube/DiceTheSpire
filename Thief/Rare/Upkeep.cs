@@ -6,12 +6,11 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Thief.Uncommon;
+namespace DiceTheSpire.Thief.Rare;
 
-public class Upkeep() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Upkeep() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
@@ -29,15 +28,17 @@ public class Upkeep() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Tar
         IEnumerable<CardModel> pips = Owner.PlayerCombatState.Hand.Cards.Where((c, _) => c is Pip);
         foreach (CardModel card in pips.ToArray())
         {
-            await CardCmd.Exhaust(choiceContext, card);
+            if (IsUpgraded)
+            {
+                await CardCmd.Discard(choiceContext, card);
+            }
+            else
+            {
+                await CardCmd.Exhaust(choiceContext, card);
+            }
             await PlayerCmd.GainEnergy(1, Owner);
             await Cmd.Wait(0.5f);
         }
 
-    }
-
-    protected override void OnUpgrade()
-    {
-        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

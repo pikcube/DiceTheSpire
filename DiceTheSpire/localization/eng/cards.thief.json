@@ -79,7 +79,7 @@
   "DICETHESPIRE-PARRYING_DAGGER.title": "Parrying Dagger",
   "DICETHESPIRE-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {Repeat:diff()} times.|.}",
   "DICETHESPIRE-TETRAPHOBIA.title": "Tetraphobia",
-  "DICETHESPIRE-UPKEEP.description": "[gold]Exhaust[/gold] all [gold]Pips[/gold] in your [gold]Hand[/gold].\nGain {Energy:diceIcons()} for each [gold]Pip[/gold] [gold]Exhausted[/gold].",
+  "DICETHESPIRE-UPKEEP.description": "[gold]{IfUpgraded:show:Discard|Exhaust}[/gold] all [gold]Pips[/gold] in your [gold]Hand[/gold].\nGain {Energy:diceIcons()} for each [gold]Pip[/gold] [gold]{IfUpgraded:show:Discarded|Exhausted}[/gold].",
   "DICETHESPIRE-UPKEEP.title": "Upkeep",
   "DICETHESPIRE-BROKEN_MIRROR.description": "Gain {Energy:diceIcons()} at the start of each turn.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
   "DICETHESPIRE-BROKEN_MIRROR.title": "Broken Mirror",
