@@ -3,7 +3,7 @@
   "DICETHESPIRE-AUTO_BUMP.title": "Auto Bump",
   "DICETHESPIRE-AUTO_BUMP.description": "At the start of each turn, [gold]Bump[/gold] {Power:plural:a card|[blue]{Power}[/blue] cards}.",
   "DICETHESPIRE-BATTLE_WRENCH.title": "Battle Wrench",
-  "DICETHESPIRE-BATTLE_WRENCH.description": "At the start of each turn, draw [blue]{Power}[/blue] cards.",
+  "DICETHESPIRE-BATTLE_WRENCH.description": "At the start of each turn, draw {Power:plural:a card|[blue]{Power}[/blue] cards}.",
   "DICETHESPIRE-BONK.title": "Bonk",
   "DICETHESPIRE-BONK.description": "At the start of each turn, deal [blue]{Power}[/blue] damage to a random enemy.",
   "DICETHESPIRE-BROKEN_GADGET.title": "Broken Gadget",

@@ -158,7 +158,7 @@
   "DICETHESPIRE-SPATULA.title": "Spatula",
   "DICETHESPIRE-PERMAFROST_RETENTION.description": "Gain {PermafrostRetentionPower:diff()} [gold]Block[/gold] whenever you [gold]Retain[/gold] a card.",
   "DICETHESPIRE-PERMAFROST_RETENTION.title": "Permafrost Retention",
-  "DICETHESPIRE-WIND_CRYSTAL.description": "[gold]Rummage[/gold] {WindCrystalPower:diff()} cards.\nWhenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {WindCrystalPower:diff()} cards.",
+  "DICETHESPIRE-WIND_CRYSTAL.description": "[gold]Rummage[/gold] {WindCrystalPower:diff()} {IfUpgraded:show:cards|card}.\nWhenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {WindCrystalPower:diff()} {IfUpgraded:show:cards|card}.",
   "DICETHESPIRE-WIND_CRYSTAL.title": "Wind Crystal",
   "DICETHESPIRE-INVISIBLE_CRYSTAL.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].",
   "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal",
@@ -175,6 +175,8 @@
   "DICETHESPIRE-DUMBBELL.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].",
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
   "DICETHESPIRE-BREATHING_EXERCISES.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
-  "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises"
+  "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises",
+  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {IfUpgraded:show:3|2} addition damage for\neach card [gold]Rerolled[/gold].",
+  "DICETHESPIRE-RUBBER_MALLET.title": "Rubber Mallet"
 
 }     
