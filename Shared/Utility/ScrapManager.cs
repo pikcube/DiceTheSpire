@@ -277,20 +277,22 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         DynamicVar? bestVar = choice.DynamicVars.Values.OrderBy(var => var switch //Lower value means higher priority var
         {
             PowerVar<PoisonPower> => 10,
-            PowerVar<ThornsPower> => 15,
-            PowerVar<VigorPower> => 20,
-            PowerVar<VulnerablePower> => 30,
-            PowerVar<WeakPower> => 40,
-            EnergyVar => 50,
-            CardsVar => 60,
-            DamageVar or CalculatedDamageVar => 70,
-            BlockVar or CalculatedBlockVar => 80,
-            _ => 100,
+            PowerVar<DoomPower> => 20,
+            PowerVar<ThornsPower> => 30,
+            PowerVar<VigorPower> => 40,
+            PowerVar<VulnerablePower> => 50,
+            PowerVar<WeakPower> => 60,
+            EnergyVar => 70,
+            CardsVar => 80,
+            DamageVar or CalculatedDamageVar => 90,
+            BlockVar or CalculatedBlockVar => 100,
+            _ => 1000,
         }).FirstOrDefault();
 
         return bestVar switch
         {
             PowerVar<PoisonPower> => nameof(PoisonArrow),
+            PowerVar<DoomPower> => nameof(OhNo),
             PowerVar<VigorPower> => nameof(PowerUp),
             PowerVar<ThornsPower> => nameof(Needle),
             PowerVar<VulnerablePower> => nameof(ShortCircuit),

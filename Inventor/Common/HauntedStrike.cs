@@ -13,7 +13,7 @@ namespace DiceTheSpire.Inventor.Common;
 
 public class HauntedStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    public override string GetScrapId => nameof(MagicSpanner);
+    public override string GetScrapId => nameof(OhNo);
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
