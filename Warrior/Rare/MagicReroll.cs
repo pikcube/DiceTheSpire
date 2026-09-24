@@ -20,9 +20,11 @@ public class MagicReroll() : TheWarriorCard(1, CardType.Power, CardRarity.Rare, 
             return;
         }
 
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+        for (int n = 0; n < 3; ++n)
+        {
+            RollAgain card = CombatState.CreateCard<RollAgain>(Owner);
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
+        }
 
         await PowerCmd.Apply<MagicRerollPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
     }

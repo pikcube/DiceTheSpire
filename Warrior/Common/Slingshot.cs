@@ -10,8 +10,8 @@ namespace DiceTheSpire.Warrior.Common;
 
 public class Slingshot() : TheWarriorCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(1M, DamageProps.card)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(4M, DamageProps.card)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
@@ -27,19 +27,27 @@ public class Slingshot() : TheWarriorCard(0, CardType.Attack, CardRarity.Common,
         {
             return;
         }
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
-        if (IsUpgraded)
+
+
+        for (int n = 0; n < 1; ++n)
         {
-            await Cmd.Wait(0.25f);
-            await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+            RollAgain card = CombatState.CreateCard<RollAgain>(Owner);
+            if (IsUpgraded)
+            {
+                CardCmd.Upgrade(card);
+            }
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
         }
+
+        //await Cmd.Wait(0.25f);
+        //await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+        
     }
 
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Cards.UpgradeValueBy(1);
-        DynamicVars.Damage.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 
 }

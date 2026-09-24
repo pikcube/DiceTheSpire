@@ -3,7 +3,7 @@
   "DICETHESPIRE-STRIKE_WARRIOR.title": "Strike",
   "DICETHESPIRE-DEFEND_WARRIOR.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-DEFEND_WARRIOR.title": "Defend",
-  "DICETHESPIRE-SLINGSHOT.description": "Deal {Damage:diff()} damage.\nAdd {IfUpgraded:show:2 copies of |}[gold]Roll Again[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-SLINGSHOT.description": "Deal {Damage:diff()} damage.\nAdd {IfUpgraded:show:[gold]Roll Again+[/gold]|[gold]Roll Again[/gold]} to your [gold]Hand[/gold].",
   "DICETHESPIRE-SLINGSHOT.title": "Slingshot",
   "DICETHESPIRE-BOOMERANG.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times. Then take {Recoil:diff()} damage.",
   "DICETHESPIRE-BOOMERANG.title": "Boomerang",
@@ -69,7 +69,7 @@
   "DICETHESPIRE-SMOKEY_CRYSTAL.title": "Smokey Crystal",
   "DICETHESPIRE-SHIELD_BASH.description": "Gain {ShieldBashPower:diff()} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
   "DICETHESPIRE-SHIELD_BASH.title": "Shield Bash",
-  "DICETHESPIRE-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold]. Then add {Cards:diff()} copies of [gold]Roll Again[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-THICK_SKIN.description": "Gain {Block:diff()} [gold]Block[/gold].\nThen add {Cards:diff()} copies of\n{IfUpgraded:show:[gold]Roll Again+[/gold]|[gold]Roll Again[/gold]} to your [gold]Hand[/gold].",
   "DICETHESPIRE-THICK_SKIN.title": "Thick Skin",
   "DICETHESPIRE-TORNADO_KICK.description": "Deal {Damage:diff()} damage.\nAll copies of Tornado Kick hit {IfUpgraded:show:two|one} more {IfUpgraded:show:times|time}.",
   "DICETHESPIRE-TORNADO_KICK.title": "Tornado Kick",
@@ -178,7 +178,7 @@
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
   "DICETHESPIRE-BREATHING_EXERCISES.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises",
-  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {IfUpgraded:show:3|2} addition damage for\neach card [gold]Rerolled[/gold].",
+  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {IfUpgraded:show:3|2} addition damage for\neach card [gold]Rerolled[/gold]\nthis combat..",
   "DICETHESPIRE-RUBBER_MALLET.title": "Rubber Mallet"
 
 }     
