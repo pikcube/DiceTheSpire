@@ -21,6 +21,8 @@
   "DICETHESPIRE-DISCO_BALL.title": "Disco Ball",
   "DICETHESPIRE-BOXING_GLOVES.description": "Deal {Damage:diff()} damage.\nIf this card costs 0,\nGain one {ReducePower:diff()} [gold]Reduce[/gold].",
   "DICETHESPIRE-BOXING_GLOVES.title": "Boxing Gloves",
+  "DICETHESPIRE-REROLL.description": "Add 3 copies of {IfUpgraded:show:[gold]Roll Again+[/gold]|[gold]Roll Again[/gold]} to your [gold]Hand[/gold]",
+  "DICETHESPIRE-REROLL.title": "Reroll",
   "DICETHESPIRE-BUCKLER.description": "[gold]Count:[/gold] {CurrentCount:diff()}\nGain {Block:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-BUCKLER.title": "Buckler",
   "DICETHESPIRE-TARGET_SHIELD.description": "Gain 1 [gold]Dexterity[/gold] at the start of each turn.{IfUpgraded:show:\nGain 1 [gold]Dexterity[/gold].|}",
