@@ -143,6 +143,6 @@
   "DICETHESPIRE-KALEIDOSCOPE.title": "Kaleidoscope",
   "DICETHESPIRE-TRANSFORMER.description": "Deal {Damage:diff()} damage.\n[gold]Transform[/gold] 1 card into a copy of this card.",
   "DICETHESPIRE-TRANSFORMER.title": "Transformer",
-  "DICETHESPIRE-MIDNIGHT_CHARM.description": "WIP.",
+  "DICETHESPIRE-MIDNIGHT_CHARM.description": "The next {Cards:diff()} cards you play this turn are free to play.",
   "DICETHESPIRE-MIDNIGHT_CHARM.title": "Midnight Charm"
 }
