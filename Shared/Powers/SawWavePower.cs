@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Shared.Utility;
 using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
@@ -21,7 +22,13 @@ public class SawWavePower : DiceTheSpirePower
     public override async Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier,
         CardModel? cardSource)
     {
-        if (applier != Owner || target != Owner || Owner.Player is null || power.GetTypeForAmount(amount) != PowerType.Debuff || InventorHelperFunctions.IsDebuffBeingRemoved(power, amount))
+        if (Owner.Player is null)
+        {
+            await PowerCmd.Remove(this);
+            return;
+        }
+
+        if (!InventorHelperFunctions.IsSelfDebuff(Owner, power, target, amount, applier) || power is ITemporaryPower)
         {
             return;
         }

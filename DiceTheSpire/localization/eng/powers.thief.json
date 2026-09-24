@@ -65,5 +65,8 @@
   "DICETHESPIRE-FORTIFY_POWER.title": "Fortify",
   "DICETHESPIRE-BELL_PEPPERS_POWER.description": "Gain 2 [gold]Strength[/gold] this turn for the next 3 turns.",
   "DICETHESPIRE-BELL_PEPPERS_POWER.smartDescription": "For the next {Amount} turns, gain [blue]2[/blue] [gold]Strength[/gold].",
-  "DICETHESPIRE-BELL_PEPPERS_POWER.title": "Bell Peppers"
+  "DICETHESPIRE-BELL_PEPPERS_POWER.title": "Bell Peppers",
+  "DICETHESPIRE-MIDNIGHT_CHARM_POWER.description": "The next 2 cards you play this turn are free to play.",
+  "DICETHESPIRE-MIDNIGHT_CHARM_POWER.smartDescription": "The next {Amount} cards you play this turn are free to play.",
+  "DICETHESPIRE-MIDNIGHT_CHARM_POWER.title": "Midnight Charm"
 }
