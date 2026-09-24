@@ -10,10 +10,8 @@ namespace DiceTheSpire.Warrior.Common;
 
 public class CrystalShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), ICrystalCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedBlock(0, Bonus)];
-
-    //protected override HashSet<CardTag> CanonicalTags => [CardTag.Crystal];
     public override bool GainsBlock => true;
     private static decimal Bonus(CardModel card, Creature? arg2)
     {

@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Commands;
+﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,13 +8,13 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Warrior.Common;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(6, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(8, DamageProps.card), new RepeatVar(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
 
 
@@ -27,20 +28,11 @@ public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.C
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        await RummageCmd.RummageAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
-
-        //CardSelectorPrefs cardSelectorPrefs = new(CardSelectorPrefs.DiscardSelectionPrompt, 0, DynamicVars.Cards.IntValue);
-        //CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
-        //foreach (CardModel card in cards)
-        //{
-        //    await CardCmd.Discard(choiceContext, card);
-        //}
-
-        //if (cards.Length == 0)
-        //{
-        //    return;
-        //}
-        //await CardPileCmd.Draw(choiceContext, cards.Length, Owner);
+        
+        for (int n = 0; n < DynamicVars.Repeat.IntValue; ++n)
+        {
+            await RummageCmd.RummageAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
+        }
 
     }
     protected override void OnUpgrade()

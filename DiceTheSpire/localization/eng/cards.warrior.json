@@ -53,7 +53,7 @@
   "DICETHESPIRE-MAGIC_REROLL.title": "Magic Reroll",
   "DICETHESPIRE-NAIL_BAT.description": "Deal {Damage:diff()} damage.\n[gold]Held[/gold]: Take {Recoil:diff()} damage.",
   "DICETHESPIRE-NAIL_BAT.title": "Nail Bat",
-  "DICETHESPIRE-BATTLE_AXE_STRIKE.description": "Deal {Damage:diff()} damage. Then [gold]Rummage[/gold] {Cards:diff()} cards.",
+  "DICETHESPIRE-BATTLE_AXE_STRIKE.description": "Deal {Damage:diff()} damage.\n[gold]Rummage[/gold] {Cards:diff()} cards twice.",
   "DICETHESPIRE-BATTLE_AXE_STRIKE.title": "Battle Axe Strike",
   "DICETHESPIRE-BROADSWORD.description": "Deal {Damage:diff()} damage to ALL enemies.",
   "DICETHESPIRE-BROADSWORD.title": "Broadsword",
@@ -178,7 +178,7 @@
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
   "DICETHESPIRE-BREATHING_EXERCISES.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises",
-  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {ExtraDamage:diff()} addition damage for\neach card [gold]Rerolled[/gold].",
+  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {ExtraDamage:diff()} addition damage for\neach card [gold]Rerolled[/gold] this combat.",
   "DICETHESPIRE-RUBBER_MALLET.title": "Rubber Mallet"
 
 }     
