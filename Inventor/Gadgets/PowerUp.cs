@@ -1,9 +1,9 @@
 ﻿using BaseLib.Abstracts;
 using JetBrains.Annotations;
-using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models.Powers;
-using Pikcube.Common.Extensions;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Gadgets;
 
@@ -11,22 +11,16 @@ namespace DiceTheSpire.Inventor.Gadgets;
 public class PowerUp() : GadgetModel(nameof(PowerUp))
 {
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Combat;
-    public override decimal PowerBase => 6;
+    public override decimal PowerBase => 50;
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer,
+        CardModel? cardSource, CardPlay? cardPlay)
     {
-        if (player != Parent?.Owner)
+        if (dealer == Parent?.Owner.Creature)
         {
-            return;
+            return (100 + Power) / 100m;
         }
 
-        Parent.Flash();
-        await VigorPower.ApplyAsync(choiceContext, player.Creature, Power, player.Creature, null);
-    }
-
-
-    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
-    {
-        return AfterPlayerTurnStart(choiceContext, player);
+        return 1;
     }
 }

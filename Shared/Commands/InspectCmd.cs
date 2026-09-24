@@ -60,13 +60,25 @@ public static class InspectCmd
         uint choiceId = RunManager.Instance.PlayerChoiceSynchronizer.ReserveChoiceId(player);
         await context.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
 
-        //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
+        //Shuffle if necessary while preserving the order of the draw pile
         CardPile drawPile = PileType.Draw.GetPile(player);
         CardPile discard = PileType.Discard.GetPile(player);
         if (drawPile.Cards.Count < count && discard.Cards.Count != 0)
         {
+            Stack<CardModel> existingDrawPile = [];
+            foreach (CardModel card in drawPile.Cards)
+            {
+                existingDrawPile.Push(card);
+            }
             await CardPileCmd.Shuffle(context, player);
+            while (existingDrawPile.Count > 0)
+            {
+                CardModel card = existingDrawPile.Pop();
+                await CardPileCmd.Add(card, PileType.Draw, CardPilePosition.Top, null, true);
+            }
         }
+
+        //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
         List<CardModel> cards = [.. drawPile.Cards.Take(count)];
         List<CardModel> result = [.. await DispatchForInspectAsync(choiceId, count, cards, player)];
 

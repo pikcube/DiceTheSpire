@@ -16,14 +16,12 @@ public class SafetyGogglesPower : DiceTheSpirePower
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier,
         out decimal modifiedAmount)
     {
-        if (target != Owner || applier != Owner || canonicalPower.GetTypeForAmount(amount) != PowerType.Debuff || amount == 0 || Owner.HasPower<ArtifactPower>() || InventorHelperFunctions.IsDebuffBeingRemoved(canonicalPower, amount))
+        if (!InventorHelperFunctions.IsSelfDebuff(Owner, canonicalPower, target, amount, applier) || Owner.HasPower<ArtifactPower>())
         {
             modifiedAmount = amount;
             return false;
         }
 
-
-        //todo: Powers that are not debuffs when negative but still have temporary variants
         modifiedAmount = 0;
         return true;
 
