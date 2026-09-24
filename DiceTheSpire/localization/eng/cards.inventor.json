@@ -16,7 +16,7 @@
   "DICETHESPIRE-BUZZER.description": "[gold]Held[/gold]: Apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies at the start of next turn.",
   "DICETHESPIRE-BUZZER.jinxDescription": "apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies.",
   "DICETHESPIRE-BUZZER.title": "Buzzer",
-  "DICETHESPIRE-CACTUS_NEEDLE.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to ALL enemies.\nGain {ThornsPower:diff()} [gold]Thorns[/gold].",
+  "DICETHESPIRE-CACTUS_NEEDLE.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to ALL enemies.\nDeal {ThornsPower:plural:|{ThornsPower:diff()} }additional damage for each [gold]Thorns[/gold] you have.",
   "DICETHESPIRE-CACTUS_NEEDLE.title": "Cactus Needle",
   "DICETHESPIRE-CACTUS_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nCosts 1 less {Energy:diceIcons()} for each [gold]Thorns[/gold] gained this combat.",
   "DICETHESPIRE-CACTUS_SHIELD.title": "Cactus Shield",

@@ -30,6 +30,15 @@ namespace DiceTheSpire.Shared.Utility;
 [UsedImplicitly]
 public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitializedListener, ICreatingNewRunListener
 {
+    public enum ScrapDebugMode
+    {
+        Default = 0,
+        Optional = 1,
+        Off = 2,
+    }
+
+    public static ScrapDebugMode DebugMode { get; set; } = ScrapDebugMode.Default;
+
     static ScrapManager()
     {
         ModHelper.SubscribeForRunStateHooks(MainFile.ModId, GetRunStateHooks);
@@ -97,7 +106,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     public static bool ScrapComplete(Player player)
     {
-        return Ignore.Contains(player);
+        return Ignore.Contains(player) || DebugMode == ScrapDebugMode.Off;
     }
 
     public override Task BeforeRoomEntered(AbstractRoom room)
@@ -146,7 +155,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
             }
 
-            CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p);
+            CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p, DebugMode == ScrapDebugMode.Optional);
             CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
 
             if (LocalContext.IsMe(p))

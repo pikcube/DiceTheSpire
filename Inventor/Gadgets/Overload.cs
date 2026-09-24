@@ -29,12 +29,11 @@ public class Overload() : GadgetModel(nameof(Overload))
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (Parent is null || Count > Power || cardPlay is null || cardPlay.Card.Owner != Parent.Owner)
+        if (Parent is null || Count > Power || cardSource is null || cardSource.Owner != Parent.Owner)
         {
             return 1;
         }
 
-        Parent?.Flash();
         return 2;
     }
 
@@ -47,7 +46,6 @@ public class Overload() : GadgetModel(nameof(Overload))
             return 1;
         }
 
-        Parent?.Flash();
         return 2;
     }
 
@@ -59,7 +57,7 @@ public class Overload() : GadgetModel(nameof(Overload))
         }
 
         ++Count;
-        Parent.SetValue(Power - Count > 0 ? Power - Count : 0);
+        Parent.SetValue(Math.Max(Power - Count, 0));
 
         return Task.CompletedTask;
     }
