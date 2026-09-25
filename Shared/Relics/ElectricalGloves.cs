@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Keywords;
+﻿using DiceTheSpire.Inventor.Uncommon;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -19,8 +20,13 @@ public class ElectricalGloves : TheInventorRelic, IOnShockListener
         HoverTipFactory.FromKeyword(ShockModel.Shock)
     ];
 
-    public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
+    public Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
-
+        if (card.HasTurnEndInHandEffect || card is Transistor)
+        {
+            return Task.CompletedTask;
+        }
+        card.GiveSingleTurnRetain();
+        return Task.CompletedTask;
     }
 }
