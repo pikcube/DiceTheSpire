@@ -61,7 +61,7 @@
   "DICETHESPIRE-PLAGUE_POWER.smartDescription": "At the start of next turn, gain [blue]{Amount:plural:a|{Amount}}[/blue] random debuff.",
   "DICETHESPIRE-PLAGUE_POWER.title": "Plague",
   "DICETHESPIRE-PLASMA_CANNON_POWER.description": "The first time you draw an [gold]Unplayable[/gold] card each turn, [gold]Shock[/gold] it and draw a card.",
-  "DICETHESPIRE-PLASMA_CANNON_POWER.smartDescription": "The first {Amount:plural:time|{Amount} times} you draw an [gold]Unplayable[/gold] card each turn, [gold]Shock[/gold] it and draw a card.",
+  "DICETHESPIRE-PLASMA_CANNON_POWER.smartDescription": "The first time you draw an [gold]Unplayable[/gold] card each turn, [gold]Shock[/gold] it and draw {Amount:plural:a card|{Amount} cards}.",
   "DICETHESPIRE-PLASMA_CANNON_POWER.title": "Plasma Cannon",
   "DICETHESPIRE-HAUNT_POWER.description": "Whenever you play a card this turn, [gold]Shock[/gold] a random card, then draw a card.",
   "DICETHESPIRE-HAUNT_POWER.smartDescription": "Whenever you play a card this turn, [gold]Shock[/gold] [blue]{Amount}[/blue] random {Amount:plural:card|cards}, then draw that many cards.",

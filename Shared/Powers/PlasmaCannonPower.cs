@@ -26,12 +26,12 @@ public class PlasmaCannonPower : DiceTheSpirePower
         int unplayableDrawn = CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>()
             .Count(cde => cde.HappenedThisTurn(CombatState) && cde.Card.Owner.Creature == Owner && cde.Card.Keywords.Contains(CardKeyword.Unplayable));
 
-        if (unplayableDrawn > Amount)
+        if (unplayableDrawn > 1)
         {
             return;
         }
 
         await card.ShockAsync(choiceContext);
-        await CardPileCmd.Draw(choiceContext, card.Owner);
+        await CardPileCmd.Draw(choiceContext, Amount, card.Owner);
     }
 }
