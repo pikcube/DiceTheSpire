@@ -120,39 +120,11 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     public static async Task DoScrapForThenOfferAsync(RewardsSet rewardsSet)
     {
-        ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
-
-        bool canTravel = NMapScreen.Instance.IsTravelEnabled;
-
-        if (LocalContext.IsMe(rewardsSet.Player))
-        {
-            NMapScreen.Instance.SetTravelEnabled(false);
-        }
-
-        try
-        {
-            Player p = rewardsSet.Player;
-            CardModel? choice = await SelectCardForScrapAsync(p);
-
-            if (choice is not null)
-            {
-                await CardPileCmd.RemoveFromDeck(choice);
-            }
-
-            await CreateGadgetAsync(rewardsSet.Rewards, choice, p);
-        }
-        finally
-        {
-            if (LocalContext.IsMe(rewardsSet.Player))
-            {
-                NMapScreen.Instance.SetTravelEnabled(canTravel);
-            }
-        }
-
+        await DoScrapForAsync(rewardsSet.Player, rewardsSet.Rewards);
         await RewardSetOfferPatches.OfferRewardAfterScrapAsync(rewardsSet);
     }
 
-    public static async Task DoScrapForThenResumeEvent(Player p)
+    public static async Task DoScrapForAsync(Player p, List<Reward>? rewards)
     {
         ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
 
@@ -172,7 +144,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 await CardPileCmd.RemoveFromDeck(choice);
             }
 
-            await CreateGadgetAsync(null, choice, p);
+            await CreateGadgetAsync(rewards, choice, p);
         }
         finally
         {

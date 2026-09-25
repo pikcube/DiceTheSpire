@@ -36,7 +36,7 @@ public class NoCombatRewardsPatch
             {
                 continue;
             }
-            allScrapTasks.Add(ScrapManager.DoScrapForThenResumeEvent(p));
+            allScrapTasks.Add(ScrapManager.DoScrapForAsync(p, null));
         }
 
         await Task.WhenAll(allScrapTasks);
