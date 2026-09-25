@@ -158,7 +158,7 @@
   "DICETHESPIRE-CONFUSING_CRYSTAL.title": "Confusing Crystal",
   "DICETHESPIRE-SPATULA.description": "[gold]Flip[/gold] a card in [gold]Hand[/gold].",
   "DICETHESPIRE-SPATULA.title": "Spatula",
-  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {ExtraDamage:diff()} addition damage for\neach card [gold]Rerolled[/gold] this combat.",
+  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {CalculatedDamage:diff()} damage.\nWhenever you [gold]Reroll[/gold] a card, increase this by {ExtraDamage:diff()} for the rest of combat.",
   "DICETHESPIRE-RUBBER_MALLET.title": "Rubber Mallet",
   "DICETHESPIRE-PERMAFROST_RETENTION.description": "Gain {PermafrostRetentionPower:diff()} [gold]Block[/gold] whenever you [gold]Retain[/gold] a card.",
   "DICETHESPIRE-PERMAFROST_RETENTION.title": "Permafrost Retention",
