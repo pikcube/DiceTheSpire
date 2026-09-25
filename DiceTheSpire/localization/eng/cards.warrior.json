@@ -158,6 +158,8 @@
   "DICETHESPIRE-CONFUSING_CRYSTAL.title": "Confusing Crystal",
   "DICETHESPIRE-SPATULA.description": "[gold]Flip[/gold] a card in [gold]Hand[/gold].",
   "DICETHESPIRE-SPATULA.title": "Spatula",
+  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {ExtraDamage:diff()} addition damage for\neach card [gold]Rerolled[/gold] this combat.",
+  "DICETHESPIRE-RUBBER_MALLET.title": "Rubber Mallet",
   "DICETHESPIRE-PERMAFROST_RETENTION.description": "Gain {PermafrostRetentionPower:diff()} [gold]Block[/gold] whenever you [gold]Retain[/gold] a card.",
   "DICETHESPIRE-PERMAFROST_RETENTION.title": "Permafrost Retention",
   "DICETHESPIRE-WIND_CRYSTAL.description": "[gold]Rummage[/gold] {WindCrystalPower:diff()} {IfUpgraded:show:cards|card}.\nWhenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {WindCrystalPower:diff()} {IfUpgraded:show:cards|card}.",
@@ -178,7 +180,7 @@
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
   "DICETHESPIRE-BREATHING_EXERCISES.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises",
-  "DICETHESPIRE-RUBBER_MALLET.description": "Deal {Damage:diff()} damage.\nDeal {ExtraDamage:diff()} addition damage for\neach card [gold]Rerolled[/gold] this combat.",
-  "DICETHESPIRE-RUBBER_MALLET.title": "Rubber Mallet"
+  "DICETHESPIRE-PILEDRIVER.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "DICETHESPIRE-PILEDRIVER.title": "Piledriver"
 
 }     
