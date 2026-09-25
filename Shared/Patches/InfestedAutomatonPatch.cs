@@ -36,7 +36,7 @@ public class InfestedAutomatonPatch
 
     private static async Task OnChosen(InfestedAutomaton instance, Player p, TheInventor _)
     {
-        ScrapManager.GadgetId.Set(p, nameof(HeatRay));
+        ScrapManager.SetGadgetInfo(p, nameof(HeatRay), false);
 
         AccessTools.DeclaredMethod(typeof(EventModel), "SetEventFinished").Invoke(instance,
         [

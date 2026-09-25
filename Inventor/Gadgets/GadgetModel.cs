@@ -102,7 +102,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
 
         if (Parent is TempParent tp)
         {
-            ScrapManager.GadgetId.Set(tp.Owner, nameof(BrokenGadget));
+            ScrapManager.SetGadgetInfo(tp.Owner, nameof(BrokenGadget), false);
             tp.GadgetId = nameof(BrokenGadget);
             tp.LinkedGadgetModel = ScrapManager.AllGadgets[nameof(BrokenGadget)].GetMutable(tp);
         }

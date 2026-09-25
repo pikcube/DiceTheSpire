@@ -25,7 +25,7 @@ public class SetGadgetCmd : AbstractConsoleCmd
             return new CmdResult(false, "Gadgets only work on The Inventor");
         }
 
-        ScrapManager.GadgetId.Set(issuingPlayer, gadgetId);
+        ScrapManager.SetGadgetInfo(issuingPlayer, gadgetId, false);
 
         return new CmdResult(true, "Gadget set");
     }
