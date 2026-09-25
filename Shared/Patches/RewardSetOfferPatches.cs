@@ -25,7 +25,7 @@ public static class RewardSetOfferPatches
         return false;
     }
 
-    private static bool IsEndOfRun(IRunState runState, CombatRoom room)
+    internal static bool IsEndOfRun(IRunState runState, CombatRoom room)
     {
         return room.RoomType == RoomType.Boss && runState.CurrentActIndex >= runState.Acts.Count - 1;
     }

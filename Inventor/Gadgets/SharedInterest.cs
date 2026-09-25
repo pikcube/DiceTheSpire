@@ -18,6 +18,8 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
 
     public override bool IsAllowedAsTempGadget => false;
 
+    public override bool ModifiesRewards => true;
+
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (player != Parent?.Owner)

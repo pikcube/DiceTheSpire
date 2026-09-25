@@ -8,6 +8,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Gadgets;
@@ -72,6 +74,8 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
             return description;
         }
     }
+
+    public virtual bool ModifiesRewards => false;
 
     public GadgetModel GetMutable(IGadgetParent gadget)
     {

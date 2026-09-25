@@ -21,6 +21,7 @@ using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
@@ -101,7 +102,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 return;
             }
 
-            string id = GadgetId(player) ?? nameof(BrokenGadget);
+            string id = GadgetId(player);
             if (AllGadgets[id].HookType != HookType.Combat)
             {
                 id = nameof(BrokenGadget);
@@ -151,7 +152,38 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         await RewardSetOfferPatches.OfferRewardAfterScrapAsync(rewardsSet);
     }
 
-    private static async Task CreateGadgetAsync(List<Reward> rewards, CardModel? choice, Player p)
+    public static async Task DoScrapForThenResumeEvent(Player p)
+    {
+        ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
+
+        bool canTravel = NMapScreen.Instance.IsTravelEnabled;
+
+        if (LocalContext.IsMe(p))
+        {
+            NMapScreen.Instance.SetTravelEnabled(false);
+        }
+
+        try
+        {
+            CardModel? choice = await SelectCardForScrapAsync(p);
+
+            if (choice is not null)
+            {
+                await CardPileCmd.RemoveFromDeck(choice);
+            }
+
+            await CreateGadgetAsync(null, choice, p);
+        }
+        finally
+        {
+            if (LocalContext.IsMe(p))
+            {
+                NMapScreen.Instance.SetTravelEnabled(canTravel);
+            }
+        }
+    }
+
+    private static async Task CreateGadgetAsync(List<Reward>? rewards, CardModel? choice, Player p)
     {
         if (choice is TheInventorCard scrapCard)
         {
@@ -169,11 +201,24 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             SetGadgetInfo(p, gadgetId, true);
         }
 
-        string newScrapId = GadgetId(p) ?? nameof(DefaultGadget);
+        string newScrapId = GadgetId(p);
 
         TempParent parent = new(p, AllGadgets[newScrapId]);
         await parent.LinkedGadgetModel.OnPickupAsync();
-        parent.LinkedGadgetModel.TryModifyRewards(p, rewards, p.RunState.CurrentRoom);
+        
+        if (!parent.LinkedGadgetModel.ModifiesRewards)
+        {
+            return;
+        }
+
+        if (rewards is null)
+        {
+            await RewardsCmd.OfferCustom(p, []);
+        }
+        else
+        {
+            parent.LinkedGadgetModel.TryModifyRewards(p, rewards, p.RunState.CurrentRoom);
+        }
 
         
     }
