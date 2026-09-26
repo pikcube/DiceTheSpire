@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Rngs;
 
 namespace DiceTheSpire.Shared.Utility;
 
+/*
 public static class DiceyRng
 {
     public static IEnumerable<RunRngType> All =>
@@ -13,3 +14,4 @@ public static class DiceyRng
     [CustomEnum]
     public static RunRngType CombatPowerGeneration = 0;
 }
+*/

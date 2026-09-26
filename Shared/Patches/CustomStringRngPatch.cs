@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpire.Shared.Patches;
+/*
 
 [HarmonyPatch(typeof(RunRngSet), MethodType.Constructor, typeof(string))]
 public static class CustomStringRngPatch
@@ -30,3 +31,4 @@ public static class CustomRngRngPatch
         }
     }
 }
+*/
