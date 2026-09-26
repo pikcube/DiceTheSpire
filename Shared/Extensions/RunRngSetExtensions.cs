@@ -8,7 +8,7 @@ public static class RunRngSetExtensions
 {
     extension(RunRngSet instance)
     {
-        public Rng CombatPowerGeneration => instance.GetRng(DiceyRng.CombatPowerGeneration);
+        //public Rng CombatPowerGeneration => instance.GetRng(DiceyRng.CombatPowerGeneration);
 
     }
 }
