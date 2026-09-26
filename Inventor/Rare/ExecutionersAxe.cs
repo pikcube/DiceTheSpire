@@ -63,4 +63,9 @@ public class ExecutionersAxe() : TheInventorCard(1, CardType.Attack, CardRarity.
         base.AfterCloned();
         CountDictionary = [];
     }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(4);
+    }
 }
