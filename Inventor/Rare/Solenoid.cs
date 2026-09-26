@@ -33,14 +33,12 @@ public class Solenoid() : TheInventorCard(3, CardType.Skill, CardRarity.Rare, Ta
         foreach (Player p in CombatState.Players)
         {
             await CardPileCmd.DrawWithoutBlockingOnOtherPlayers(choiceContext, DynamicVars.Cards.IntValue, p, this);
-            if (p != Owner)
-            {
-                continue;
-            }
-
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, DynamicVars.Shock.IntValue, DynamicVars.Shock.IntValue);
-            IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
-            await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
+        }
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, DynamicVars.Shock.IntValue, DynamicVars.Shock.IntValue);
+        IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
+        foreach (CardModel card in results)
+        {
+            await card.ShockAsync(choiceContext);
         }
     }
 
