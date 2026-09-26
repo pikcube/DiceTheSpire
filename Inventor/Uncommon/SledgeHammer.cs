@@ -40,7 +40,10 @@ public class SledgeHammer() : TheInventorCard(1, CardType.Attack, CardRarity.Unc
 
         IEnumerable<CardModel> results = await CardSelectCmd.FromSimpleGrid(choiceContext,
             [.. cards.OrderBy(c => c.Rarity).ThenBy(c => c.Id)], Owner, cardSelectorPrefs);
-        await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
+        foreach (CardModel card in results)
+        {
+            await card.ShockAsync(choiceContext);
+        }
     }
 
     protected override void OnUpgrade()

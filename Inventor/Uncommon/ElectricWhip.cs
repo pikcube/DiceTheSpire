@@ -37,7 +37,10 @@ public class ElectricWhip() : TheInventorCard(2, CardType.Attack, CardRarity.Unc
 
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
-        await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
+        foreach (CardModel card in results)
+        {
+            await card.ShockAsync(choiceContext);
+        }
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCard(this, cardPlay)

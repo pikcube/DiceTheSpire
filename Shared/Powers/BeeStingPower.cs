@@ -23,7 +23,10 @@ public class BeeStingPower : DiceTheSpirePower
         {
             CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, Amount, Amount);
             IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, player, cardSelectorPrefs, null, this);
-            await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
+            foreach (CardModel card in results)
+            {
+                await card.ShockAsync(choiceContext);
+            }
         }
     }
 }

@@ -33,7 +33,10 @@ public class Spannersword() : TheInventorCard(1, CardType.Attack, CardRarity.Com
 
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
-        await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
+        foreach (CardModel card in results)
+        {
+            await card.ShockAsync(choiceContext);
+        }
         IEnumerable<CardModel> toRetrive = PileType.Discard.GetPile(Owner).Cards
             .TakeRandom(DynamicVars.Cards.IntValue, Owner.RunState.Rng.CombatCardSelection);
         await CardPileCmd.Add(toRetrive, PileType.Hand, CardPilePosition.Bottom, this);

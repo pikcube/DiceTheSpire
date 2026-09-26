@@ -23,7 +23,10 @@ public class ChangeMachine() : TheInventorCard(1, CardType.Skill, CardRarity.Com
     {
         CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, 1, 1);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
-        await Task.WhenAll(results.Select(card => card.ShockAsync(choiceContext)));
+        foreach (CardModel c in results)
+        {
+            await c.ShockAsync(choiceContext);
+        }
 
         CardSelectorPrefs prefs = new(SelectionScreenPrompt, 1);
         CardModel? card = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, prefs)).FirstOrDefault();
