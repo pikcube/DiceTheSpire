@@ -35,8 +35,11 @@ public class HauntedStrike() : TheInventorCard(1, CardType.Attack, CardRarity.Co
 
     public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await HauntPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<HauntPower>().IntValue,
-            Owner.Creature, this);
+        if (cardPlay.Card == this)
+        {
+            await HauntPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<HauntPower>().IntValue,
+                Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()
