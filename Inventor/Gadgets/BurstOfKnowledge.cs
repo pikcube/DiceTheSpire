@@ -13,6 +13,8 @@ public class BurstOfKnowledge() : GadgetModel(nameof(BurstOfKnowledge))
 
     public override decimal PowerBase => 2;
 
+    public override bool ModifiesRewards => true;
+
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (Parent?.Owner != player)

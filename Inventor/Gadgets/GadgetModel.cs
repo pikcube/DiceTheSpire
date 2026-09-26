@@ -8,6 +8,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Gadgets;
@@ -73,6 +75,8 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
         }
     }
 
+    public virtual bool ModifiesRewards => false;
+
     public GadgetModel GetMutable(IGadgetParent gadget)
     {
         GadgetModel newGadgetModel = (GadgetModel)MutableClone();
@@ -102,7 +106,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
 
         if (Parent is TempParent tp)
         {
-            ScrapManager.GadgetId.Set(tp.Owner, nameof(BrokenGadget));
+            ScrapManager.SetGadgetInfo(tp.Owner, nameof(BrokenGadget), false);
             tp.GadgetId = nameof(BrokenGadget);
             tp.LinkedGadgetModel = ScrapManager.AllGadgets[nameof(BrokenGadget)].GetMutable(tp);
         }

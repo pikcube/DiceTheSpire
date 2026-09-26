@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -15,7 +14,7 @@ public class CactusNeedle() : TheInventorCard(0, CardType.Attack, CardRarity.Unc
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(4, DamageProps.cardUnpowered), new PowerVar<ThornsPower>(2)];
+        [new DamageVar(4, DamageProps.cardUnpowered), new PowerVar<ThornsPower>(1)];
     public override string GetScrapId => nameof(Needle);
 
     public override bool HasTurnEndInHandEffect => true;
@@ -27,8 +26,7 @@ public class CactusNeedle() : TheInventorCard(0, CardType.Attack, CardRarity.Unc
             //wut?
             return;
         }
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage, Owner.Creature, this, null);
-        await ThornsPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<ThornsPower>().IntValue, Owner.Creature, this);
+        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage.BaseValue + DynamicVars.Power<ThornsPower>().BaseValue * Owner.Creature.GetPowerAmount<ThornsPower>(), DynamicVars.Damage.Props, Owner.Creature, this, null);
     }
 
     protected override void OnUpgrade()

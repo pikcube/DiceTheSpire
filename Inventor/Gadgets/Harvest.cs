@@ -10,6 +10,7 @@ public class Harvest() : GadgetModel(nameof(Harvest))
     public override CustomSingletonModel.HookType HookType => CustomSingletonModel.HookType.Run;
     public override bool IsAllowedAsTempGadget => false;
 
+    public override bool ModifiesRewards => true;
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
         if (Parent?.Owner != player)

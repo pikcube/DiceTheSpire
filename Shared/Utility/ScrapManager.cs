@@ -3,6 +3,7 @@ using BaseLib.Utils;
 using DiceTheSpire.Inventor;
 using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Patches;
 using DiceTheSpire.Shared.Powers;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
@@ -20,7 +21,6 @@ using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
@@ -30,6 +30,15 @@ namespace DiceTheSpire.Shared.Utility;
 [UsedImplicitly]
 public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitializedListener, ICreatingNewRunListener
 {
+    public enum ScrapDebugMode
+    {
+        Default = 0,
+        Optional = 1,
+        Off = 2,
+    }
+
+    public static ScrapDebugMode DebugMode { get; set; } = ScrapDebugMode.Default;
+
     static ScrapManager()
     {
         ModHelper.SubscribeForRunStateHooks(MainFile.ModId, GetRunStateHooks);
@@ -37,7 +46,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
     private static IEnumerable<GadgetModel> GetRunStateHooks(RunState runState)
     {
-        foreach ((Player p, string? gadgetId) in runState.Players.Where(p => p.Character is TheInventor).Select(p => (p, GadgetId.Get(p))))
+        foreach ((Player p, string? gadgetId) in runState.Players.Where(p => p.Character is TheInventor).Select(p => (p, GadgetId(p))))
         {
             if (gadgetId is null)
             {
@@ -56,7 +65,22 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
     }
 
-    public static readonly SavedSpireField<Player, string> GadgetId = new(() => nameof(DefaultGadget), $"{MainFile.ModId}_{nameof(GadgetId)}");
+    public static string GadgetId(Player p) => CurrentGadgetId.Get(p) ?? nameof(DefaultGadget);
+    public static int GadgetOrigin(Player p) => LastScrapLocation.Get(p);
+
+    public static void SetGadgetInfo(Player p, string gadgetId, bool isFromScrapScreen)
+    {
+        CurrentGadgetId.Set(p, gadgetId);
+        if (isFromScrapScreen)
+        {
+            LastScrapLocation.Set(p, p.RunState.TotalFloor);
+        }
+    }
+
+    private static readonly SavedSpireField<Player, string> CurrentGadgetId = new(() => nameof(DefaultGadget), $"{MainFile.ModId}_{nameof(GadgetId)}");
+
+    private static readonly SavedSpireField<Player, int> LastScrapLocation =
+        new(() => -1, $"{MainFile.ModId}_{nameof(LastScrapLocation)}");
 
     public static Dictionary<string, GadgetModel> AllGadgets { get; } = [];
 
@@ -77,7 +101,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
                 return;
             }
 
-            string id = GadgetId.Get(player) ?? nameof(BrokenGadget);
+            string id = GadgetId(player);
             if (AllGadgets[id].HookType != HookType.Combat)
             {
                 id = nameof(BrokenGadget);
@@ -93,106 +117,126 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         await Task.WhenAll(tasks);
     }
 
-    private static List<Player> Ignore { get; set; } = [];
-
-    public static bool ScrapComplete(Player player)
+    public static async Task DoScrapForThenOfferAsync(RewardsSet rewardsSet)
     {
-        return Ignore.Contains(player);
+        await DoScrapForAsync(rewardsSet.Player, rewardsSet.Rewards);
+        await RewardSetOfferPatches.OfferRewardAfterScrapAsync(rewardsSet);
     }
 
-    public override Task BeforeRoomEntered(AbstractRoom room)
-    {
-        Ignore.Clear();
-        return Task.CompletedTask;
-    }
-
-    public static async Task DoScrapForAsync(RewardsSet rewardsSet)
+    public static async Task DoScrapForAsync(Player p, List<Reward>? rewards)
     {
         ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
 
         bool canTravel = NMapScreen.Instance.IsTravelEnabled;
 
-        if (LocalContext.IsMe(rewardsSet.Player))
+        if (LocalContext.IsMe(p))
         {
             NMapScreen.Instance.SetTravelEnabled(false);
         }
 
         try
         {
-            Player p = rewardsSet.Player;
-            List<CardModel> cards = [.. p.Deck.Cards.Where(CanScrapCard)];
-
-            CreateScrapLists(cards, p, out List<CardModel> scrapCards, out List<CardModel> otherCards);
-
-            DiceyHooks.OnModifyScrapPriority(p.RunState, p, ref scrapCards, ref otherCards);
-
-            cards.Clear();
-            cards.AddRange(scrapCards);
-            cards.AddRange(otherCards);
-
-            CardModel[] cardModels = [.. cards.Take(3)];
-            if (cardModels.Length == 0)
-            {
-                //Well shit, the player's deck is literally empty except for Eternal cards.
-                //Hope they aren't totally boned right now.
-                GadgetId.Set(p, nameof(BrokenGadget));
-            }
-
-            CardModel[] choiceClones = [.. cardModels.Select(c => (CardModel)c.ClonePreservingMutability())];
-
-            if (LocalContext.IsMe(p))
-            {
-                BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
-                TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
-            }
-
-            CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p);
-            CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
-
-            if (LocalContext.IsMe(p))
-            {
-                foreach (CardModel c in choiceClones)
-                {
-                    TheInventorCard.EnableTipsOnCards.Remove(c);
-                }
-                BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
-            }
+            CardModel? choice = await SelectCardForScrapAsync(p);
 
             if (choice is not null)
             {
                 await CardPileCmd.RemoveFromDeck(choice);
             }
 
-            if (choice is TheInventorCard scrapCard)
-            {
-                if (!scrapCard.ModifyScrap())
-                {
-                    GadgetId.Set(p, scrapCard.GetScrapId);
-                    await scrapCard.OnScrapAsync();
-                    TempParent parent = new(p, AllGadgets[scrapCard.GetScrapId]);
-                    await parent.LinkedGadgetModel.OnPickupAsync();
-                    parent.LinkedGadgetModel.TryModifyRewards(p, rewardsSet.Rewards, p.RunState.CurrentRoom);
-                }
-            }
-            else
-            {
-                string gadgetId = GetDefaultGadget(choice);
-                GadgetId.Set(p, gadgetId);
-                TempParent parent = new(p, AllGadgets[gadgetId]);
-                await parent.LinkedGadgetModel.OnPickupAsync();
-            }
-
-            Ignore.Add(rewardsSet.Player);
+            await CreateGadgetAsync(rewards, choice, p);
         }
         finally
         {
-            if (LocalContext.IsMe(rewardsSet.Player))
+            if (LocalContext.IsMe(p))
             {
                 NMapScreen.Instance.SetTravelEnabled(canTravel);
             }
         }
+    }
 
-        await rewardsSet.Offer();
+    private static async Task CreateGadgetAsync(List<Reward>? rewards, CardModel? choice, Player p)
+    {
+        if (choice is TheInventorCard scrapCard)
+        {
+            if (scrapCard.ModifyScrap())
+            {
+                return;
+            }
+
+            SetGadgetInfo(p, scrapCard.GetScrapId, true);
+            await scrapCard.OnScrapAsync();
+        }
+        else
+        {
+            string gadgetId = GetDefaultGadget(choice);
+            SetGadgetInfo(p, gadgetId, true);
+        }
+
+        string newScrapId = GadgetId(p);
+
+        TempParent parent = new(p, AllGadgets[newScrapId]);
+        await parent.LinkedGadgetModel.OnPickupAsync();
+        
+        if (!parent.LinkedGadgetModel.ModifiesRewards)
+        {
+            return;
+        }
+
+        if (rewards is null)
+        {
+            await RewardsCmd.OfferCustom(p, []);
+        }
+        else
+        {
+            parent.LinkedGadgetModel.TryModifyRewards(p, rewards, p.RunState.CurrentRoom);
+        }
+
+        
+    }
+
+    private static async Task<CardModel?> SelectCardForScrapAsync(Player p)
+    {
+        List<CardModel> cards = [.. p.Deck.Cards.Where(CanScrapCard)];
+
+        CreateScrapLists(cards, p, out List<CardModel> scrapCards, out List<CardModel> otherCards);
+
+        DiceyHooks.OnModifyScrapPriority(p.RunState, p, ref scrapCards, ref otherCards);
+
+        cards.Clear();
+        cards.AddRange(scrapCards);
+        cards.AddRange(otherCards);
+
+        CardModel[] cardModels = [.. cards.Take(3)];
+        if (cardModels.Length == 0)
+        {
+            //Well shit, the player's deck is literally empty except for Eternal cards.
+            //Hope they aren't totally boned right now.
+            return null;
+        }
+
+        CardModel[] choiceClones = [.. cardModels.Select(c => (CardModel)c.ClonePreservingMutability())];
+
+        if (LocalContext.IsMe(p))
+        {
+            BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
+            TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
+        }
+
+        CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p, DebugMode == ScrapDebugMode.Optional);
+        CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
+
+        if (!LocalContext.IsMe(p))
+        {
+            return choice;
+        }
+
+        foreach (CardModel c in choiceClones)
+        {
+            TheInventorCard.EnableTipsOnCards.Remove(c);
+        }
+        BetterHooks.ModifyCardSelectionScreenTitle -= BetterHooksOnModifyCardSelectionScreenTitle;
+
+        return choice;
     }
 
     public static bool CanScrapCard(CardModel card)
@@ -368,12 +412,17 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
     {
         foreach (Player p in players.Where(p => p.Character is TheInventor))
         {
-            GadgetId.Set(p, ascensionLevel > 5 ? nameof(Efficiency) : nameof(HeatRay));
+            SetGadgetInfo(p, ascensionLevel > 5 ? nameof(Efficiency) : nameof(HeatRay), false);
         }
     }
 
     public static bool HasGadget(Player targetPlayer)
     {
         return GetGadgetParents(targetPlayer).Count > 0;
+    }
+
+    public static bool GadgetIsFromThisFloor(Player player)
+    {
+        return GadgetOrigin(player) == player.RunState.TotalFloor;
     }
 }
