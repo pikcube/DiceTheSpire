@@ -8,38 +8,15 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-public class SmogCloud() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), ICountdown
+public class SmogCloud() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), ICountdown
 {
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
-    } = 3;
+        set;
+    } = 2;
 
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(5), new PowerVar<WeakPower>(1), new IntVar("CurrentCount", 3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(6), new PowerVar<WeakPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>(), HoverTipFactory.FromPower<WeakPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -57,7 +34,7 @@ public class SmogCloud() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Poison.UpgradeValueBy(3);
+        DynamicVars.Poison.UpgradeValueBy(2);
         DynamicVars.Weak.UpgradeValueBy(1);
     }
 }
