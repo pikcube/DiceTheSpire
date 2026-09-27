@@ -11,7 +11,7 @@ namespace DiceTheSpire.Thief.Uncommon;
 
 public class Rat() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

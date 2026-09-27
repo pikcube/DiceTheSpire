@@ -10,7 +10,7 @@ namespace DiceTheSpire.Thief.Rare;
 
 public class Blight() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

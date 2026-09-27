@@ -108,7 +108,7 @@
   "DICETHESPIRE-DEFLECTION.title": "Deflection",
   "DICETHESPIRE-SHRIEK.description": "Gain {WarriorShriekPower:diff()} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
   "DICETHESPIRE-SHRIEK.title": "Shriek",
-  "DICETHESPIRE-CHOCOLATE_COOKIE.description": "[gold]Count:[/gold] {MaxCount}\nGain {FuryPower:diff()} [gold]Fury[/gold].",
+  "DICETHESPIRE-CHOCOLATE_COOKIE.description": "[gold]Count:[/gold] {BaseCount}\nGain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
   "DICETHESPIRE-HEALING_CRYSTAL.description": "Heal {Heal:diff()} health. Can only be played if your [gold]Hand[/gold] costs less than {Energy:diceIcons()}.",
   "DICETHESPIRE-HEALING_CRYSTAL.title": "Healing Crystal",

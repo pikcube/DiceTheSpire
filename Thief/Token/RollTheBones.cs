@@ -13,7 +13,7 @@ namespace DiceTheSpire.Thief.Token;
 [Pool(typeof(TokenCardPool))]
 public class RollTheBones() : TheThiefCard(0, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

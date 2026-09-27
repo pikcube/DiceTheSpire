@@ -13,7 +13,7 @@ public class ChocolateCookie() : TheWarriorCard(0, CardType.Skill, CardRarity.Un
 {
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => true;
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

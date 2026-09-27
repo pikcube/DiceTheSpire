@@ -10,7 +10,7 @@ namespace DiceTheSpire.Thief.Common;
 
 public class PoisonSlingshot() : TheThiefCard(0, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

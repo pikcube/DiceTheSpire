@@ -10,7 +10,7 @@ namespace DiceTheSpire.Thief.Uncommon;
 
 public class SpikySneeze() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

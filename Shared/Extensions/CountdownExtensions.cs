@@ -5,14 +5,22 @@ using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpire.Shared.Extensions;
 
-//TODO: implement free to play for Countdown cards
-public static class Countdown
+
+public static class CountdownExtensions
 {
     extension(ICountdown card)
     {
         public void UpgradeCountdownBy(int addend)
         {
-            card.MaxCount += addend;
+            card.BaseCount += addend;
+        }
+
+        public int Count
+        {
+            get
+            {
+                return card.BaseCount;
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DiceTheSpire.Thief.Uncommon;
 
 public class DexterityCharm() : TheThiefCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

@@ -45,7 +45,7 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
     {
         if (this is ICountdown countdown)
         {
-            description.Add(nameof(countdown.MaxCount), countdown.MaxCount);
+            description.Add(nameof(countdown.BaseCount), countdown.Count);
         }
         AddExtraDiceyArgsToDescription(description);
     }
@@ -63,7 +63,7 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
             return true;
         }
 
-        return hand.Cards.Count(c => c != this) >= countdown.MaxCount;
+        return hand.Cards.Count(c => c != this) >= countdown.Count;
     }
 
     public async Task<(int, int)> DiceySpendResourcesAsync(PlayerChoiceContext choiceContext)
@@ -71,7 +71,7 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         (int, int) spent = await SpendResources();
         if (this is ICountdown countdown)
         {
-            await DoCountdownAsync(choiceContext, countdown.MaxCount);
+            await DoCountdownAsync(choiceContext, countdown.Count);
         }
         return spent;
     }

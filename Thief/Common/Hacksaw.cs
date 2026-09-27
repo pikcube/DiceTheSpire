@@ -8,7 +8,7 @@ namespace DiceTheSpire.Thief.Common;
 
 public class Hacksaw() : TheThiefCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

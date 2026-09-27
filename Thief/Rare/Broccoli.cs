@@ -10,7 +10,7 @@ namespace DiceTheSpire.Thief.Rare;
 
 public class Broccoli() : TheThiefCard(1, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

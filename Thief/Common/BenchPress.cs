@@ -12,7 +12,7 @@ namespace DiceTheSpire.Thief.Common;
 
 public class BenchPress() : TheThiefCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;

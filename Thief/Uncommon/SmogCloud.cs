@@ -10,7 +10,7 @@ namespace DiceTheSpire.Thief.Uncommon;
 
 public class SmogCloud() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), ICountdown
 {
-    public int MaxCount
+    public int BaseCount
     {
         get;
         set;
