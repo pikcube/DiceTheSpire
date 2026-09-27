@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Rare;
 
-public class Blight() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy), ICountdown
+public class Blight() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {
@@ -20,7 +20,7 @@ public class Blight() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, Target
             field = value;
             CurrentCount += changeBy;
         }
-    } = 6;
+    } = 4;
 
     public int CurrentCount
     {
@@ -39,7 +39,7 @@ public class Blight() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, Target
             }
         }
     }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -55,6 +55,6 @@ public class Blight() : TheThiefCard(-1, CardType.Skill, CardRarity.Rare, Target
 
     protected override void OnUpgrade()
     {
-        this.UpgradeCountdown(-2);
+        this.UpgradeCountdown(-1);
     }
 }

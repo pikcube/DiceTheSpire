@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class Carrots() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
+public class Carrots() : TheThiefCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
 {
     public int MaxCount
     {

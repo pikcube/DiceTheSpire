@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class BenchPress() : TheThiefCard(-1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
+public class BenchPress() : TheThiefCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {

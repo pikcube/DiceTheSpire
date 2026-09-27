@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace DiceTheSpire.Thief.Uncommon;
 
 
-public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
+public class Bounce() : TheThiefCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -21,7 +21,7 @@ public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, Ta
             field = value;
             CurrentCount += changeBy;
         }
-    } = 4;
+    } = 2;
 
     public int CurrentCount
     {
@@ -42,7 +42,7 @@ public class Bounce() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, Ta
     }
 
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("CurrentCount", 4), new PowerVar<BouncePower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("CurrentCount", 2), new PowerVar<BouncePower>(1M)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-public class SpikySneeze() : TheThiefCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
+public class SpikySneeze() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {

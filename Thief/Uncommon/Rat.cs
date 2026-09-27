@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-public class Rat() : TheThiefCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
+public class Rat() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {

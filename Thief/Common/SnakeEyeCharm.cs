@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class SnakeEyeCharm() : TheThiefCard(-1, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
+public class SnakeEyeCharm() : TheThiefCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
 {
     public int MaxCount
     {

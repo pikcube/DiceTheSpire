@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Thief.Uncommon;
 
 
-public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
+public class DexterityCharm() : TheThiefCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -21,7 +21,7 @@ public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Unco
             field = value;
             CurrentCount += changeBy;
         }
-    } = 4;
+    } = 3;
 
     public int CurrentCount
     {
@@ -42,7 +42,7 @@ public class DexterityCharm() : TheThiefCard(-1, CardType.Power, CardRarity.Unco
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<DexterityPower>(3M), new IntVar("CurrentCount", 4)];
+        [new PowerVar<DexterityPower>(3M), new IntVar("CurrentCount", 3)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DexterityPower>()];
 

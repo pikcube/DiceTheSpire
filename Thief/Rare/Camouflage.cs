@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Thief.Rare;
 
-public class Camouflage() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
+public class Camouflage() : TheThiefCard(0, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -19,7 +19,7 @@ public class Camouflage() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, Ta
             field = value;
             CurrentCount += changeBy;
         }
-    } = 4;
+    } = 3;
 
     public int CurrentCount
     {
@@ -39,7 +39,7 @@ public class Camouflage() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, Ta
         }
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ReducePower>(3), new IntVar(nameof(CurrentCount), 4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ReducePower>(3), new IntVar(nameof(CurrentCount), 3)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>()];
 

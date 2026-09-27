@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class Peashooter() : TheThiefCard(-1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
+public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {

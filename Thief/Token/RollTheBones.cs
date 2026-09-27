@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Thief.Token;
 
 [Pool(typeof(TokenCardPool))]
-public class RollTheBones() : TheThiefCard(-1, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy), ICountdown
+public class RollTheBones() : TheThiefCard(0, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy), ICountdown
 {
     public int MaxCount
     {

@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Rare;
 
-public class Broccoli() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
+public class Broccoli() : TheThiefCard(1, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
 {
     public int MaxCount
     {
@@ -19,7 +19,7 @@ public class Broccoli() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, Targ
             field = value;
             CurrentCount += changeBy;
         }
-    } = 4;
+    } = 3;
 
     public int CurrentCount
     {
@@ -41,7 +41,7 @@ public class Broccoli() : TheThiefCard(-1, CardType.Power, CardRarity.Rare, Targ
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<DexterityPower>(1), new PowerVar<ThornsPower>(3), new IntVar(nameof(CurrentCount), 4)
+        new PowerVar<DexterityPower>(1), new PowerVar<ThornsPower>(3), new IntVar(nameof(CurrentCount), 3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
