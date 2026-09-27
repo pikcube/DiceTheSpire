@@ -15,6 +15,7 @@ public static class PlayCardActionPatch
 {
     [UsedImplicitly]
 #pragma warning disable CA1859 // Use concrete types when possible for improved performance
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
     private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         CodeMatcher matcher = new(instructions);
@@ -40,19 +41,16 @@ public static class PlayCardActionPatch
             .RemoveInstruction();
 
         //Match and replace call to SpendResources with CreateChoiceAndSpendResourcesAsync
-
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         matcher
             .MatchStartBackwards(CodeMatch.Calls(() => default(CardModel)!.SpendResources()))
             .ThrowIfInvalid("Could not find SpendResourcesCall")
             .RemoveInstruction()
             .InsertAndAdvance(CodeInstruction.LoadLocal(1))
-            .InsertAndAdvance(
-                CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            .InsertAndAdvance(CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
 
         return matcher.Instructions();
     }
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 #pragma warning restore CA1859 // Use concrete types when possible for improved performance
 
 
