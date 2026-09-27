@@ -21,7 +21,7 @@ public class HealingCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Unc
             await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.IntValue);
         }
     }
-    protected override bool IsPlayable => Owner.PlayerCombatState?.Hand.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) <= DynamicVars.Energy.IntValue;
+    protected override bool IsDiceyPlayable => Owner.PlayerCombatState?.Hand.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) <= DynamicVars.Energy.IntValue;
     protected override bool ShouldGlowGoldInternal => IsPlayable;
     protected override void OnUpgrade()
     {

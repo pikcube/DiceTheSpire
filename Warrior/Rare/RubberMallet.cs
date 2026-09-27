@@ -1,5 +1,4 @@
-﻿using DiceTheSpire.Inventor.Rare;
-using DiceTheSpire.Shared.Commands;
+﻿using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
@@ -9,7 +8,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Rare;
 public class RubberMallet() : TheWarriorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IAfterRerollListener
