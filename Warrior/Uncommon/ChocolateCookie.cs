@@ -22,7 +22,7 @@ public class ChocolateCookie() : TheWarriorCard(-1, CardType.Skill, CardRarity.U
             field = value;
             CurrentCount += changeBy;
         }
-    } = 4;
+    } = 3;
 
     public int CurrentCount
     {
@@ -41,7 +41,7 @@ public class ChocolateCookie() : TheWarriorCard(-1, CardType.Skill, CardRarity.U
             }
         }
     }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 4), new PowerVar<FuryPower>(2M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new PowerVar<FuryPower>(1M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

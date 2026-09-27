@@ -11,6 +11,7 @@ namespace DiceTheSpire.Warrior.Common
     {
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
+        public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded)];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {

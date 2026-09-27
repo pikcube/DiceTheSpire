@@ -11,7 +11,7 @@ namespace DiceTheSpire.Warrior.WorkoutRewards;
 public class Piledriver() : TheWarriorCard(3, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(30M, DamageProps.card), new PowerVar<VulnerablePower>(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(25M, DamageProps.card), new PowerVar<VulnerablePower>(5)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

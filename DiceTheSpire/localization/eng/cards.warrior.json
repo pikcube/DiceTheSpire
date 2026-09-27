@@ -181,6 +181,10 @@
   "DICETHESPIRE-BREATHING_EXERCISES.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises",
   "DICETHESPIRE-PILEDRIVER.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
-  "DICETHESPIRE-PILEDRIVER.title": "Piledriver"
+  "DICETHESPIRE-PILEDRIVER.title": "Piledriver",
+  "DICETHESPIRE-LIGHTNING_KICK.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.",
+  "DICETHESPIRE-LIGHTNING_KICK.title": "Lightning Kick",
+  "DICETHESPIRE-DEEP_FREEZE.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Freeze[/gold] all enemies.",
+  "DICETHESPIRE-DEEP_FREEZE.title": "Deep Freeze"
 
 }     

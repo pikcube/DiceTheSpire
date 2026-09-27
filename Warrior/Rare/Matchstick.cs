@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class Matchstick() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self), IFuryModifier
+public class Matchstick() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self), IFuryModifier
 {
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => true;
@@ -32,7 +32,7 @@ public class Matchstick() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, T
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        EnergyCost.UpgradeBy(-1);
     }
 
 }
