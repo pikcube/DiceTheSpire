@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Cards;
@@ -35,6 +36,19 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
     protected virtual bool IsDiceyPlayable => true;
 
     protected sealed override bool IsPlayable => IsCountdownPlayable() && IsDiceyPlayable;
+
+    protected virtual void AddExtraDiceyArgsToDescription(LocString description)
+    {
+    }
+
+    protected sealed override void AddExtraArgsToDescription(LocString description)
+    {
+        if (this is ICountdown countdown)
+        {
+            description.Add(nameof(countdown.MaxCount), countdown.MaxCount);
+        }
+        AddExtraDiceyArgsToDescription(description);
+    }
 
     private bool IsCountdownPlayable()
     {
