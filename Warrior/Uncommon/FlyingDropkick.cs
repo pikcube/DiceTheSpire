@@ -16,14 +16,13 @@ public class FlyingDropkick() : TheWarriorCard(3, CardType.Attack, CardRarity.Un
 {
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => true;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(6M), new DamageVar(10M, DamageProps.card)];
-    //new IntVar("FuryBonus", 1)
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(2M), new DamageVar(14M, DamageProps.card)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        CardModel[] cards = [.. PileType.Hand.GetPile(Owner).Cards];
+        //CardModel[] cards = [.. PileType.Hand.GetPile(Owner).Cards];
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .WithHitCount(1)
@@ -32,13 +31,17 @@ public class FlyingDropkick() : TheWarriorCard(3, CardType.Attack, CardRarity.Un
             .Targeting(cardPlay.Target)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, (cards.Length == 0 ? DynamicVars.Power<FuryPower>().IntValue : 0), Owner.Creature, this);
+        //await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, (cards.Length == 0 ? DynamicVars.Power<FuryPower>().IntValue : 0), Owner.Creature, this);
 
+        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, DynamicVars.Power<FuryPower>().IntValue, Owner.Creature, this);
+
+        PlayerCmd.EndTurn(Owner, false);
     }
 
     //protected override bool ShouldGlowGoldInternal => Owner is null ? false : ([..PileType.Hand.GetPile(Owner).Cards?.Count] == 1 ? true : false);
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<FuryPower>().UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Power<FuryPower>().UpgradeValueBy(1);
     }
 }

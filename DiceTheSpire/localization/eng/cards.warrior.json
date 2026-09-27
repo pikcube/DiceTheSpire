@@ -128,7 +128,7 @@
   "DICETHESPIRE-ACORN_SHIELD.title": "Acorn Shield",
   "DICETHESPIRE-FLAMING_SWORD_STRIKE.description": "Deal {Damage:diff()} damage.\nThis card does not consume [gold]Fury[/gold] or [gold]Vigor[/gold] when played.",
   "DICETHESPIRE-FLAMING_SWORD_STRIKE.title": "Flaming Sword Strike",
-  "DICETHESPIRE-FLYING_DROPKICK.description": "Deal {Damage:diff()} damage.\nGain {FuryPower:diff()} [gold]Fury[/gold] if this is the last card in hand when played.",
+  "DICETHESPIRE-FLYING_DROPKICK.description": "Deal {Damage:diff()} damage.\nGain {FuryPower:diff()} [gold]Fury[/gold].\nEnd your turn.",
   "DICETHESPIRE-FLYING_DROPKICK.title": "Flying Dropkick",
   "DICETHESPIRE-KNUCKLE_DUSTER.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].\n[gold]Rummage[/gold] {Cards:diff()} cards.",
   "DICETHESPIRE-KNUCKLE_DUSTER.title": "Knuckle Duster",
