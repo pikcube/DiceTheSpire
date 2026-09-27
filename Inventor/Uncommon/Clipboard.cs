@@ -20,7 +20,6 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
     public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
         [HoverTipFactory.Static(BetterStaticHoverTips.Inspect, DynamicVars.Cards), HoverTipFactory.FromKeyword(ShockModel.Shock)];
@@ -37,16 +36,13 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
 
         List<Task> tasks = [];
 
-        foreach (Player p in CombatState.Players)
+        foreach (Player p in CombatState.Players.Where(p => p != Owner))
         {
             BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
-            tasks.Add(bpcc.AssignTaskAndWaitForPauseOrCompletion(p.InspectAsync(bpcc, cards)));
+            await bpcc.AssignTaskAndWaitForPauseOrCompletion(p.InspectAsync(bpcc, cards));
         }
 
-        foreach (Task task in tasks)
-        {
-            await task;
-        }
+        await Owner.InspectAsync(choiceContext, cards);
     }
 
     protected override void OnUpgrade()

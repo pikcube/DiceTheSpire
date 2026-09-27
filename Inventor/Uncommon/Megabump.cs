@@ -31,15 +31,13 @@ public class Megabump() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
             return;
         }
 
-        List<Task> tasks = [];
-
-        foreach (Player p in CombatState.Players)
+        foreach (Player p in CombatState.Players.Where(p => p != Owner))
         {
             BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
-            tasks.Add(bpcc.AssignTaskAndWaitForPauseOrCompletion(DoBumpAsync(bpcc, p)));
+            await bpcc.AssignTaskAndWaitForPauseOrCompletion(DoBumpAsync(bpcc, p));
         }
 
-        await Task.WhenAll(tasks);
+        await DoBumpAsync(choiceContext, Owner);
     }
 
     private async Task DoBumpAsync(PlayerChoiceContext choiceContext, Player p)
