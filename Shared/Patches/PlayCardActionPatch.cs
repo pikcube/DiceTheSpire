@@ -1,0 +1,69 @@
+﻿using System.Reflection.Emit;
+using DiceTheSpire.Shared.Cards;
+using HarmonyLib;
+using MegaCrit.Sts2.Core.GameActions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
+
+namespace DiceTheSpire.Shared.Patches;
+
+
+[HarmonyPatch(typeof(PlayCardAction), "ExecuteAction", MethodType.Async)]
+public static class PlayCardActionPatch
+{
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        CodeMatcher matcher = new(instructions);
+
+        //Match and remove setting of PCC
+        matcher.MatchStartForward(CodeMatch.Calls(typeof(PlayCardAction).DeclaredProperty("PlayerChoiceContext").SetMethod))
+            .ThrowIfInvalid("Could not find where PCC is set")
+            .RemoveInstruction();
+
+        //Match and remove creation of PCC which is consumed by set PCC
+        matcher.MatchStartBackwards(CodeMatch.WithOpcodes([OpCodes.Newobj]))
+            .ThrowIfInvalid("Could not find where PCC is created")
+            .RemoveInstruction();
+
+        //Match and remove load of `this` which is consumed by set PCC
+        matcher.MatchStartBackwards(CodeMatch.WithOpcodes([OpCodes.Ldloc_1]))
+            .ThrowIfInvalid("Could not find load of 'this' to evaluation stack.")
+            .RemoveInstruction();
+
+        //Match and remove load of `this` which is consumed by set PCC. This isn't an error, there's two ldloc.1 instructions to remove
+        matcher.MatchStartBackwards(CodeMatch.WithOpcodes([OpCodes.Ldloc_1]))
+            .ThrowIfInvalid("Could not find load of 'this' to evaluation stack")
+            .RemoveInstruction();
+
+        //Match and replace call to SpendResources with CreateChoiceAndSpendResources
+        matcher
+            .MatchStartBackwards(CodeMatch.Calls(() => default(CardModel)!.SpendResources()))
+            .ThrowIfInvalid("Could not find SpendResourcesCall")
+            .RemoveInstruction()
+            .InsertAndAdvance(CodeInstruction.LoadLocal(1))
+            .InsertAndAdvance(
+                CodeInstruction.Call(() => CreateChoiceAndSpendResources(null!, null!)));
+
+        return matcher.Instructions();
+    }
+
+
+    public static async Task<(int, int)> CreateChoiceAndSpendResources(object instance, PlayCardAction action)
+    {
+        if (instance is not CardModel card)
+        {
+            throw new InvalidOperationException();
+        }
+
+        GameActionPlayerChoiceContext pcc = new(action);
+        action.PrivatePropertyWrapper<PlayCardAction, PlayerChoiceContext>("PlayerChoiceContext").Value = pcc;
+
+        if (card is DiceTheSpireCard diceyCard)
+        {
+            return await diceyCard.DiceySpendResources(pcc);
+        }
+
+        return await card.SpendResources();
+    }
+}

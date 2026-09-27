@@ -3,7 +3,10 @@ using BaseLib.Extensions;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Interfaces;
 using Godot;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Cards;
 
@@ -25,4 +28,34 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
 
     public virtual Texture2D GetPips(int? cost, bool isPretend, CardCostColor? energyCostColor = null) =>
         PipCard.GetPipsForMod(this, MainFile.ResPath, cost, isPretend, energyCostColor);
+
+    protected virtual bool IsDiceyPlayable => true;
+
+    protected sealed override bool IsPlayable => IsCountdownPlayable() && IsDiceyPlayable;
+
+    private bool IsCountdownPlayable()
+    {
+        if (this is not ICountdown countdown)
+        {
+            return true;
+        }
+
+        CardPile? hand = Owner.PlayerCombatState?.Hand;
+        if (hand is null)
+        {
+            return true;
+        }
+
+        return hand.Cards.Count(c => c != this) >= countdown.MaxCount;
+    }
+
+    public async Task<(int, int)> DiceySpendResources(PlayerChoiceContext choiceContext)
+    {
+        (int, int) spent = await SpendResources();
+        if (this is ICountdown countdown)
+        {
+            //todo: Pay cost
+        }
+        return spent;
+    }
 }

@@ -37,7 +37,7 @@ public class PolarStar() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommo
      * (CombatState.RoundNumber % 2 == 0 && !IsUpgraded) ||
      * (CombatState.RoundNumber % 2 != 0 && IsUpgraded)
      */
-    protected override bool IsPlayable => CombatState?.RoundNumber % 2 == 0 != IsUpgraded;
+    protected override bool IsDiceyPlayable => CombatState?.RoundNumber % 2 == 0 != IsUpgraded;
 
 
     //protected override bool IsPlayable
