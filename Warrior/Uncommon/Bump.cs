@@ -15,8 +15,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class Bump() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(4)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -25,15 +24,20 @@ public class Bump() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, Tar
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this)];
         foreach (CardModel card in cards)
         {
-            await card.BumpAsync(choiceContext);
+            if(IsUpgraded)
+            {
+                await card.BumpAsync(choiceContext);
+            }
+            else
+            {
+                CardCmd.Upgrade(card);
+            }
         }
     }
 
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Cards.UpgradeValueBy(2);
-        //RemoveKeyword(CardKeyword.Exhaust);
     }
 
 }
