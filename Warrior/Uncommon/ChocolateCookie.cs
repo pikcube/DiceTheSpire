@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class ChocolateCookie() : TheWarriorCard(-1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICountdown, IFuryModifier
+public class ChocolateCookie() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICountdown, IFuryModifier
 {
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => true;
