@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
-public class Megabump() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllAllies)
+public class Megabump() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllAllies)
 {
     public override string GetScrapId => nameof(AutoBump);
 
