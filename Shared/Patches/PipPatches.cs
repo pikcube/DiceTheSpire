@@ -39,7 +39,7 @@ public static class PipPatches
 
         if (__instance.Model is ICountdown countdown)
         {
-            ____energyLabel.SetTextAutoSize($"{countdown.CurrentCount}");
+            ____energyLabel.SetTextAutoSize($"{countdown.MaxCount}");
             ____energyLabel.LabelSettings = CountdownLabelSettings;
             ____energyLabel.LabelSettings.FontSize = Adjust(____energyLabel, ____energyLabel.LabelSettings.Font);
             ____energyIcon.Visible = true;
