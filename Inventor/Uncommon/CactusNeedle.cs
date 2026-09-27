@@ -32,6 +32,5 @@ public class CactusNeedle() : TheInventorCard(0, CardType.Attack, CardRarity.Unc
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.Power<ThornsPower>().UpgradeValueBy(1);
     }
 }
