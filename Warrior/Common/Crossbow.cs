@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
 
-public class Broadsword() : TheWarriorCard(3, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Crossbow() : TheWarriorCard(3, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];

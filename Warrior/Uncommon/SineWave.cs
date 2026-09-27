@@ -8,9 +8,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Warrior.Common;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
