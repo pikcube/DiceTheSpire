@@ -1,5 +1,4 @@
-﻿using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -14,34 +13,11 @@ public class SpikySneeze() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommo
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 2;
 
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(9, ValueProp.Move), new IntVar("CountdownVar", 2), new IntVar("CurrentCount", 2)];
+        [new DamageVar(9, ValueProp.Move), new IntVar("CountdownVar", 2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -54,13 +30,14 @@ public class SpikySneeze() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommo
         {
             if (c is ICountdown count)
             {
-                return count.CurrentCount > 0;
+                return true;
             }
             return false;
         }));
         if (card is ICountdown countdownCard)
         {
-            await countdownCard.DecrementCountAsync(2);
+            //implement decreasing count by 2 temporarily.
+            return;
         }
     }
 

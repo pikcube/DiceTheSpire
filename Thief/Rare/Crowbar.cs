@@ -1,5 +1,4 @@
-﻿using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -29,7 +28,7 @@ public class Crowbar() : TheThiefCard(0, CardType.Skill, CardRarity.Rare, Target
         {
             if (card is ICountdown countdown)
             {
-                await countdown.DecrementCountAsync(xvalue);
+                //decrement cards in hand by x
             }
         }
     }

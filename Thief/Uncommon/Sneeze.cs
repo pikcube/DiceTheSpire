@@ -1,5 +1,4 @@
-﻿using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -24,7 +23,7 @@ public class Sneeze() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Tar
         {
             if (card is ICountdown countdown)
             {
-                await countdown.DecrementCountAsync();
+                //decrement counts in hand
             }
         }
     }

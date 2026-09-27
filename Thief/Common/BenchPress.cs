@@ -15,33 +15,10 @@ public class BenchPress() : TheThiefCard(0, CardType.Attack, CardRarity.Common, 
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 2;
 
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2), new PowerVar<StrengthPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7M, ValueProp.Move), new PowerVar<StrengthPower>(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

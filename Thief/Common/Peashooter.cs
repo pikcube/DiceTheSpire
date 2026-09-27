@@ -14,33 +14,10 @@ public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Common, 
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 2;
 
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new IntVar(nameof(CurrentCount), 2), new PersistVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new PersistVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

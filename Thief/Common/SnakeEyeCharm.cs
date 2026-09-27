@@ -13,32 +13,9 @@ public class SnakeEyeCharm() : TheThiefCard(0, CardType.Skill, CardRarity.Common
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 3;
-
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CurrentCount), 3), new EnergyVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -53,6 +30,6 @@ public class SnakeEyeCharm() : TheThiefCard(0, CardType.Skill, CardRarity.Common
 
     protected override void OnUpgrade()
     {
-        this.UpgradeCountdown(-1);
+        this.UpgradeCountdownBy(-1);
     }
 }

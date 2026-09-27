@@ -1,5 +1,4 @@
-﻿using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,13 +26,13 @@ public class WreckingBall() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, 
         {
             if (c is ICountdown count)
             {
-                return count.CurrentCount > 0;
+                return true;
             }
             return false;
         }));
         if (card is ICountdown countdown)
         {
-            await countdown.DecrementCountAsync(countdown.CurrentCount);
+            //decrement count to 0
         }
     }
 

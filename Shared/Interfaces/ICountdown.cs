@@ -5,6 +5,5 @@ namespace DiceTheSpire.Shared.Interfaces;
 public interface ICountdown
 {
     public int MaxCount { get; set; }
-    public int CurrentCount { get; set; }
     public Player Owner { get; }
 }

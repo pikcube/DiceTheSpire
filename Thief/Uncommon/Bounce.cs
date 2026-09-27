@@ -15,34 +15,11 @@ public class Bounce() : TheThiefCard(1, CardType.Power, CardRarity.Uncommon, Tar
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 2;
 
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
 
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("CurrentCount", 2), new PowerVar<BouncePower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BouncePower>(1M)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -51,6 +28,6 @@ public class Bounce() : TheThiefCard(1, CardType.Power, CardRarity.Uncommon, Tar
 
     protected override void OnUpgrade()
     {
-        this.UpgradeCountdown(-1);
+        this.UpgradeCountdownBy(-1);
     }
 }

@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -13,33 +14,10 @@ public class Rat() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, Target
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 2;
 
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new PowerVar<PoisonPower>(5), new IntVar("CurrentCount", 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new PowerVar<PoisonPower>(5)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -54,6 +32,6 @@ public class Rat() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, Target
     protected override void OnUpgrade()
     {
         DynamicVars.Poison.UpgradeValueBy(1);
-        DynamicVars.Cards.UpgradeValueBy(1);
+        this.UpgradeCountdownBy(-1);
     }
 }

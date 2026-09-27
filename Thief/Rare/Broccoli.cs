@@ -13,35 +13,12 @@ public class Broccoli() : TheThiefCard(1, CardType.Power, CardRarity.Rare, Targe
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 3;
-
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<DexterityPower>(1), new PowerVar<ThornsPower>(3), new IntVar(nameof(CurrentCount), 3)
+        new PowerVar<DexterityPower>(1), new PowerVar<ThornsPower>(3)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

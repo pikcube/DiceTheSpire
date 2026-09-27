@@ -15,32 +15,9 @@ public class StolenWeapon() : TheThiefCard(1, CardType.Power, CardRarity.Rare, T
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 2;
-
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StolenWeaponPower>(1), new IntVar(nameof(CurrentCount), 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StolenWeaponPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -50,6 +27,6 @@ public class StolenWeapon() : TheThiefCard(1, CardType.Power, CardRarity.Rare, T
 
     protected override void OnUpgrade()
     {
-        this.UpgradeCountdown(-1);
+        this.UpgradeCountdownBy(-1);
     }
 }

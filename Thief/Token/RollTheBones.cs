@@ -16,35 +16,12 @@ public class RollTheBones() : TheThiefCard(0, CardType.Skill, CardRarity.Token, 
     public int MaxCount
     {
         get;
-        set
-        {
-            int changeBy = value - field;
-            field = value;
-            CurrentCount += changeBy;
-        }
+        set;
     } = 3;
-
-    public int CurrentCount
-    {
-        get => DynamicVars[nameof(CurrentCount)].IntValue;
-        set
-        {
-            DynamicVars[nameof(CurrentCount)].BaseValue = value;
-            if (DynamicVars[nameof(CurrentCount)].BaseValue < 0)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = 0;
-            }
-
-            if (DynamicVars[nameof(CurrentCount)].BaseValue > MaxCount)
-            {
-                DynamicVars[nameof(CurrentCount)].BaseValue = MaxCount;
-            }
-        }
-    }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new IntVar(nameof(CurrentCount), 3), new SummonVar(5), new PowerVar<DoomPower>(8)
+        new SummonVar(5), new PowerVar<DoomPower>(8)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.SummonDynamic, DynamicVars.Summon), HoverTipFactory.FromPower<DoomPower>()];
