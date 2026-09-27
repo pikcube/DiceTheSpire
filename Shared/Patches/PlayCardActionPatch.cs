@@ -1,6 +1,7 @@
 ﻿using System.Reflection.Emit;
 using DiceTheSpire.Shared.Cards;
 using HarmonyLib;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.GameActions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -12,7 +13,9 @@ namespace DiceTheSpire.Shared.Patches;
 [HarmonyPatch(typeof(PlayCardAction), "ExecuteAction", MethodType.Async)]
 public static class PlayCardActionPatch
 {
-    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [UsedImplicitly]
+#pragma warning disable CA1859 // Use concrete types when possible for improved performance
+    private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
     {
         CodeMatcher matcher = new(instructions);
 
@@ -36,20 +39,24 @@ public static class PlayCardActionPatch
             .ThrowIfInvalid("Could not find load of 'this' to evaluation stack")
             .RemoveInstruction();
 
-        //Match and replace call to SpendResources with CreateChoiceAndSpendResources
+        //Match and replace call to SpendResources with CreateChoiceAndSpendResourcesAsync
+
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         matcher
             .MatchStartBackwards(CodeMatch.Calls(() => default(CardModel)!.SpendResources()))
             .ThrowIfInvalid("Could not find SpendResourcesCall")
             .RemoveInstruction()
             .InsertAndAdvance(CodeInstruction.LoadLocal(1))
             .InsertAndAdvance(
-                CodeInstruction.Call(() => CreateChoiceAndSpendResources(null!, null!)));
+                CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
         return matcher.Instructions();
     }
+#pragma warning restore CA1859 // Use concrete types when possible for improved performance
 
 
-    public static async Task<(int, int)> CreateChoiceAndSpendResources(object instance, PlayCardAction action)
+    public static async Task<(int, int)> CreateChoiceAndSpendResourcesAsync(object instance, PlayCardAction action)
     {
         if (instance is not CardModel card)
         {
@@ -61,7 +68,7 @@ public static class PlayCardActionPatch
 
         if (card is DiceTheSpireCard diceyCard)
         {
-            return await diceyCard.DiceySpendResources(pcc);
+            return await diceyCard.DiceySpendResourcesAsync(pcc);
         }
 
         return await card.SpendResources();

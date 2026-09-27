@@ -2,9 +2,14 @@
 using BaseLib.Extensions;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Utility;
 using Godot;
+using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Cards;
 
@@ -47,13 +52,23 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         return hand.Cards.Count(c => c != this) >= countdown.MaxCount;
     }
 
-    public async Task<(int, int)> DiceySpendResources(PlayerChoiceContext choiceContext)
+    public async Task<(int, int)> DiceySpendResourcesAsync(PlayerChoiceContext choiceContext)
     {
         (int, int) spent = await SpendResources();
         if (this is ICountdown countdown)
         {
-            //todo: Pay cost
+            await DoCountdownAsync(choiceContext, countdown.MaxCount);
         }
         return spent;
+    }
+
+    private async Task DoCountdownAsync(PlayerChoiceContext choiceContext, int count)
+    {
+        choiceContext.PushModel(this);
+        await CombatManager.Instance.WaitForUnpause();
+        CardSelectorPrefs prefs = new(DiceySelection.ToCountdown, count, count);
+        IEnumerable<CardModel> cards = await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c != this, this);
+        await CardCmd.Discard(choiceContext, cards);
+        choiceContext.PopModel(this);
     }
 }
