@@ -64,11 +64,16 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
 
     private async Task DoCountdownAsync(PlayerChoiceContext choiceContext, int count)
     {
+        //Model registration since our PCC is brand new. Do not remove.
         choiceContext.PushModel(this);
         await CombatManager.Instance.WaitForUnpause();
+
+        //Count down code
         CardSelectorPrefs prefs = new(DiceySelection.ToCountdown, count, count);
         IEnumerable<CardModel> cards = await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c != this, this);
         await CardCmd.Discard(choiceContext, cards);
+
+        //Model deregistration since we're all done. Do not remove.
         choiceContext.PopModel(this);
     }
 }
