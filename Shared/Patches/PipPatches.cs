@@ -37,16 +37,6 @@ public static class PipPatches
 
         int? withModifiers = c.EnergyCost.GetWithModifiers(CostModifiers.All);
 
-        if (__instance.Model is ICountdown countdown)
-        {
-            ____energyLabel.SetTextAutoSize($"{countdown.MaxCount}");
-            ____energyLabel.LabelSettings = CountdownLabelSettings;
-            ____energyLabel.LabelSettings.FontSize = Adjust(____energyLabel, ____energyLabel.LabelSettings.Font);
-            ____energyIcon.Visible = true;
-            ____energyIcon.Texture = c.GetPips(0, ____pretendCardCanBePlayed);
-            return;
-
-        }
 
         if (__instance.Model.Keywords.Contains(CardKeyword.Unplayable))
         {
