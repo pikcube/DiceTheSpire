@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -34,10 +35,9 @@ public class SpikySneeze() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommo
             }
             return false;
         }));
-        if (card is ICountdown countdownCard)
+        if (card is ICountdown countdown)
         {
-            //implement decreasing count by 2 temporarily.
-            return;
+            countdown.AddCountThisTurnOrUntilPlayed(-2);
         }
     }
 
