@@ -30,7 +30,7 @@ public static class FreeToPlayCardThisTurnPatches
     }
 }
 
-[HarmonyPatch(typeof(CardModel), nameof(CardEnergyCost.EndOfTurnCleanup))]
+[HarmonyPatch(typeof(CardEnergyCost), nameof(CardEnergyCost.EndOfTurnCleanup))]
 public static class EndOfTurnCleanupPatches
 {
     public static bool Postfix(bool __result, CardModel __instance)
@@ -44,7 +44,7 @@ public static class EndOfTurnCleanupPatches
     }
 }
 
-[HarmonyPatch(typeof(CardModel), nameof(CardEnergyCost.AfterCardPlayedCleanup))]
+[HarmonyPatch(typeof(CardEnergyCost), nameof(CardEnergyCost.AfterCardPlayedCleanup))]
 public static class AfterPlayCleanupPatches
 {
     public static bool Postfix(bool __result, CardModel __instance)
