@@ -3,6 +3,8 @@ using DiceTheSpire.Shared.Interfaces;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
+using static Godot.HttpRequest;
 
 namespace DiceTheSpire.Shared.Patches;
 
@@ -33,9 +35,9 @@ public static class FreeToPlayCardThisTurnPatches
 [HarmonyPatch(typeof(CardEnergyCost), nameof(CardEnergyCost.EndOfTurnCleanup))]
 public static class EndOfTurnCleanupPatches
 {
-    public static bool Postfix(bool __result, CardModel __instance)
+    public static bool Postfix(bool __result, CardEnergyCost __instance)
     {
-        if (__instance is ICountdown countdown)
+        if (__instance.PrivateFieldWrapper<CardEnergyCost, CardModel>("_card").Value is ICountdown countdown)
         {
             countdown.CountdownCostModifiers.RemoveAll(mod => mod.Expiration.HasFlag(LocalCostModifierExpiration.EndOfTurn));
         }
@@ -47,9 +49,9 @@ public static class EndOfTurnCleanupPatches
 [HarmonyPatch(typeof(CardEnergyCost), nameof(CardEnergyCost.AfterCardPlayedCleanup))]
 public static class AfterPlayCleanupPatches
 {
-    public static bool Postfix(bool __result, CardModel __instance)
+    public static bool Postfix(bool __result, CardEnergyCost __instance)
     {
-        if (__instance is ICountdown countdown)
+        if (__instance.PrivateFieldWrapper<CardEnergyCost, CardModel>("_card").Value is ICountdown countdown)
         {
             countdown.CountdownCostModifiers.RemoveAll(mod => mod.Expiration.HasFlag(LocalCostModifierExpiration.WhenPlayed));
         }
