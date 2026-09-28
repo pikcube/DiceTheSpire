@@ -57,7 +57,7 @@
   "DICETHESPIRE-STOLEN_WEAPON.title": "Stolen Weapon",
   "DICETHESPIRE-POISON_SLINGSHOT.description": "[gold]Count:[/gold] {BaseCount}\nApply {PoisonPower:diff()} [gold]Poison[/gold].",
   "DICETHESPIRE-POISON_SLINGSHOT.title": "Poison Slingshot",
-  "DICETHESPIRE-WRECKING_BALL.description": "Deal {Damage:diff()} damage.\nReduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] to 0.",
+  "DICETHESPIRE-WRECKING_BALL.description": "Deal {Damage:diff()} damage.\nSet a random [gold]Countdown[/gold] in [gold]Hand[/gold] to 0 until played.",
   "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball",
   "DICETHESPIRE-SPIKY_SNEEZE.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage. Reduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] by {CountdownVar:diff()}.",
   "DICETHESPIRE-SPIKY_SNEEZE.title": "Spiky Sneeze",
