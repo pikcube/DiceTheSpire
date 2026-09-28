@@ -58,3 +58,18 @@ public static class AfterPlayCleanupPatches
         return __result;
     }
 }
+
+[HarmonyPatch(typeof(CardModel), nameof(CardModel.CostsEnergyOrStars))]
+public static class CostsEnergyOrStarsPatch
+{
+    public static bool Postfix(bool __result, CardModel __instance)
+    {
+
+        if (__instance is ICountdown countdown)
+        {
+            return __result || countdown.Count > 0;
+        }
+
+        return __result;
+    }
+}
