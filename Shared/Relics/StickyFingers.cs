@@ -14,7 +14,7 @@ public class StickyFingers : TheThiefRelic
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
         CardCreationOptions creationOptions)
     {
-        if (Owner != player || creationOptions.Source == CardCreationSource.Shop)
+        if (Owner != player || creationOptions.Source != CardCreationSource.Encounter)
         {
             return false;
         }
