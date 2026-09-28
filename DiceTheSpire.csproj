@@ -42,12 +42,16 @@
     </ItemGroup>
 
     <ItemGroup>
+        <AdditionalFiles Remove="addons\**" />
+        <AdditionalFiles Remove="src\**" />
         <AdditionalFiles Remove="Warrior\Keywords\**" />
         <AdditionalFiles Remove="DiceTheSpireCore\**" />
         <AdditionalFiles Remove="TheInventor\**" />
         <AdditionalFiles Remove="TheThief\**" />
         <AdditionalFiles Remove="TheWarrior\**" />
+        <Compile Remove="addons\**" />
         <Compile Remove="DiceTheSpire/**" />
+        <Compile Remove="src\**" />
         <Compile Remove="Warrior\Keywords\**" />
         <Compile Remove="DiceTheSpireCore\**" />
         <Compile Remove="materials/**" />
@@ -56,7 +60,9 @@
         <Compile Remove="TheInventor\**" />
         <Compile Remove="TheThief\**" />
         <Compile Remove="TheWarrior\**" />
+        <EmbeddedResource Remove="addons\**" />
         <EmbeddedResource Remove="DiceTheSpire/**" />
+        <EmbeddedResource Remove="src\**" />
         <EmbeddedResource Remove="Warrior\Keywords\**" />
         <EmbeddedResource Remove="DiceTheSpireCore\**" />
         <EmbeddedResource Remove="materials/**" />

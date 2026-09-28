@@ -62,7 +62,7 @@ public class TheInventor : PlaceholderCharacterModel, ICustomEndTurnCharacter
     }
 
 
-    public override string CustomMerchantAnimPath => Path.Join(MainFile.ResPath, "merchant.tscn");
+    public override string CustomMerchantAnimPath => Path.Join(MainFile.ResPath, "scenes", "merchant_inventor.tscn");
     public override string CustomIconTexturePath => "character_icon_the_inventor.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "charselect_inventor.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "charselect_unknown.png".CharacterUiPath();
