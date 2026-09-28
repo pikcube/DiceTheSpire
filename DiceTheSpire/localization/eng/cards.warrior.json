@@ -187,6 +187,8 @@
   "DICETHESPIRE-DEEP_FREEZE.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Freeze[/gold] all enemies.",
   "DICETHESPIRE-DEEP_FREEZE.title": "Deep Freeze",
   "DICETHESPIRE-CORE_TRAINING.description": "Gain {PlatingPower:diff()} [gold]Plating[/gold].",
-  "DICETHESPIRE-CORE_TRAINING.title": "Core Training"
+  "DICETHESPIRE-CORE_TRAINING.title": "Core Training",
+  "DICETHESPIRE-KNOCKOUT_PUNCH.description": "Deal {CalculatedDamage:diff()} damage.\nDeal triple damage on [gold]Boss[/gold]\nor [gold]Elite[/gold] floors.",
+  "DICETHESPIRE-KNOCKOUT_PUNCH.title": "Knockout Punch"
 
 }     
