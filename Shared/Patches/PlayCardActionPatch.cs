@@ -2,6 +2,7 @@
 using DiceTheSpire.Shared.Cards;
 using HarmonyLib;
 using JetBrains.Annotations;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;

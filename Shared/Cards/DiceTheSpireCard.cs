@@ -89,7 +89,18 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
 
         //Count down code
         CardSelectorPrefs prefs = new(DiceySelection.ToCountdown, count, count);
+        CardPile? original = Pile;
+        CardPile secretPile = new CardPile(PileType.Exhaust);
+        await CardPileCmd.Add(this, secretPile, skipVisuals: true);
         IEnumerable<CardModel> cards = await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c != this, this);
+        if (original is not null)
+        {
+            await CardPileCmd.Add(this, original, skipVisuals: true);
+        }
+        else
+        {
+            await CardPileCmd.Add(this, PileType.Hand, skipVisuals: true);
+        }
         await CardCmd.Discard(choiceContext, cards);
 
         //Model deregistration since we're all done. Do not remove.
