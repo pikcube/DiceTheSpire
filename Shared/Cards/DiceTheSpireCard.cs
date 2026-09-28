@@ -89,10 +89,18 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
 
         //Count down code
         CardSelectorPrefs prefs = new(DiceySelection.ToCountdown, count, count);
+
+        //Okay, so apparently trying to open a card select screen from within Spend Resources causes a use after free bug,
+        //but if we move the card we are currently playing to another pile, that doesn't happen
+        //I don't know why it doesn't happen, but it works and I'm too tired to fix it
         CardPile? original = Pile;
-        CardPile secretPile = new CardPile(PileType.Exhaust);
+        CardPile secretPile = new(PileType.Exhaust);
         await CardPileCmd.Add(this, secretPile, skipVisuals: true);
+
+
         IEnumerable<CardModel> cards = await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c != this, this);
+
+        //Don't forget to put the card back when you are finished with it
         if (original is not null)
         {
             await CardPileCmd.Add(this, original, skipVisuals: true);
