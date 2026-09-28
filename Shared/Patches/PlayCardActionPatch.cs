@@ -20,6 +20,14 @@ public static class PlayCardActionPatch
     {
         CodeMatcher matcher = new(instructions);
 
+        //Match and replace call to SpendResources with CreateChoiceAndSpendResourcesAsync
+        matcher
+            .MatchStartForward(CodeMatch.Calls(() => default(CardModel)!.SpendResources()))
+            .ThrowIfInvalid("Could not find SpendResourcesCall")
+            .RemoveInstruction()
+            .InsertAndAdvance(CodeInstruction.LoadLocal(1))
+            .InsertAndAdvance(CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
+
         //Match and remove setting of PCC
         matcher.MatchStartForward(CodeMatch.Calls(typeof(PlayCardAction).DeclaredProperty("PlayerChoiceContext").SetMethod))
             .ThrowIfInvalid("Could not find where PCC is set")
@@ -39,14 +47,6 @@ public static class PlayCardActionPatch
         matcher.MatchStartBackwards(CodeMatch.WithOpcodes([OpCodes.Ldloc_1]))
             .ThrowIfInvalid("Could not find load of 'this' to evaluation stack")
             .RemoveInstruction();
-
-        //Match and replace call to SpendResources with CreateChoiceAndSpendResourcesAsync
-        matcher
-            .MatchStartBackwards(CodeMatch.Calls(() => default(CardModel)!.SpendResources()))
-            .ThrowIfInvalid("Could not find SpendResourcesCall")
-            .RemoveInstruction()
-            .InsertAndAdvance(CodeInstruction.LoadLocal(1))
-            .InsertAndAdvance(CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
 
         return matcher.Instructions();
     }
