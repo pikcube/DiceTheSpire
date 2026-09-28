@@ -79,6 +79,10 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
 
     private async Task DoCountdownAsync(PlayerChoiceContext choiceContext, int count)
     {
+        if (count == 0)
+        {
+            return;
+        }
         //Model registration since our PCC is brand new. Do not remove.
         choiceContext.PushModel(this);
         await CombatManager.Instance.WaitForUnpause();

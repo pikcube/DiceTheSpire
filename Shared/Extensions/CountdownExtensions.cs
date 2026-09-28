@@ -32,7 +32,7 @@ public static class CountdownExtensions
 
         public void SetCountUntilPlayed(int cost, bool reduceOnly = false)
         {
-            if (cost == 0)
+            if (cost == 0 && instance.BaseCount < 0)
             {
                 return;
             }
@@ -41,7 +41,7 @@ public static class CountdownExtensions
 
         public void SetCountThisTurnOrUntilPlayed(int cost, bool reduceOnly = false)
         {
-            if (cost == 0)
+            if (cost == 0 && instance.BaseCount < 0)
             {
                 return;
             }
@@ -50,7 +50,7 @@ public static class CountdownExtensions
 
         public void SetCountThisTurn(int cost, bool reduceOnly = false)
         {
-            if (cost == 0)
+            if (cost == 0 && instance.BaseCount < 0)
             {
                 return;
             }
@@ -59,7 +59,7 @@ public static class CountdownExtensions
 
         public void SetCountThisCombat(int cost, bool reduceOnly = false)
         {
-            if (cost == 0)
+            if (cost == 0 && instance.BaseCount < 0)
             {
                 return;
             }
