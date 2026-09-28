@@ -2,6 +2,8 @@
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -37,4 +39,6 @@ public class WallOfIce() : GadgetModel(nameof(WallOfIce))
         Parent?.Flash();
         return Task.CompletedTask;
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 }

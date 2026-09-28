@@ -3,6 +3,7 @@ using DiceTheSpire.Shared.Patches;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Rewards;
@@ -101,4 +102,6 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
         BreakMe();
         return true;
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 }

@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
@@ -37,4 +38,6 @@ public class BurstOfKnowledge() : GadgetModel(nameof(BurstOfKnowledge))
         BreakMe();
         return true;
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 }
