@@ -17,6 +17,7 @@ public class StolenWeapon() : TheThiefCard(1, CardType.Power, CardRarity.Rare, T
         get;
         set;
     } = 2;
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StolenWeaponPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 

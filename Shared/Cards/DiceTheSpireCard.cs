@@ -17,6 +17,7 @@ namespace DiceTheSpire.Shared.Cards;
 public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target), IPipCard
 {
+    public List<LocalCostModifier> CountdownCostModifiers { get; set; } = [];
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
     //Full art: 606x852
@@ -90,4 +91,12 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         //Model deregistration since we're all done. Do not remove.
         choiceContext.PopModel(this);
     }
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+        CountdownCostModifiers = [];
+    }
+
+    public CardModel AsCardModel() => this;
 }

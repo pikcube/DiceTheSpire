@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Shared.Cards;
 using DiceTheSpire.Shared.Commands;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Combat;
@@ -173,5 +174,11 @@ public static class DiceyHooks
         {
             await listener.AfterCardShockedAsync(choiceContext, card);
         }
+    }
+
+    public static int ModifCountdownCost(ICombatState? combatState, ICountdown countdown, CardModel cardModel, int cost)
+    {
+        return combatState?.IterateHookListeners().OfType<ICountdownCostListener>()
+            .Aggregate(cost, (current, listener) => listener.ModifyCost(countdown, cardModel, current)) ?? cost;
     }
 }
