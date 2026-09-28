@@ -14,20 +14,22 @@ public static class CountdownExtensions
             instance.BaseCount += addend;
         }
 
-        public int Count
+        public int Count => instance.GetCount(true);
+
+        public int GetCount(bool includeGlobal)
         {
-            get
+            int modCost = instance.BaseCount;
+            foreach (LocalCostModifier modifier in instance.CountdownCostModifiers)
             {
-                int modCost = instance.BaseCount;
-                foreach (LocalCostModifier modifier in instance.CountdownCostModifiers)
-                {
-                    modCost = modifier.Modify(modCost);
-                }
-
-                modCost = DiceyHooks.ModifCountdownCost(instance.AsCardModel().CombatState, instance, instance.AsCardModel(), modCost);
-
-                return modCost;
+                modCost = modifier.Modify(modCost);
             }
+
+            if (includeGlobal)
+            {
+                modCost = DiceyHooks.ModifCountdownCost(instance.AsCardModel().CombatState, instance, instance.AsCardModel(), modCost);
+            }
+
+            return modCost;
         }
 
         public void SetCountUntilPlayed(int cost, bool reduceOnly = false)

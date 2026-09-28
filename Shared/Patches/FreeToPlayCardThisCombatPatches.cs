@@ -62,12 +62,12 @@ public static class AfterPlayCleanupPatches
 [HarmonyPatch(typeof(CardModel), nameof(CardModel.CostsEnergyOrStars))]
 public static class CostsEnergyOrStarsPatch
 {
-    public static bool Postfix(bool __result, CardModel __instance)
+    public static bool Postfix(bool __result, CardModel __instance, bool includeGlobalModifiers)
     {
 
         if (__instance is ICountdown countdown)
         {
-            return __result || countdown.Count > 0;
+            return __result || countdown.GetCount(includeGlobalModifiers) > 0;
         }
 
         return __result;
