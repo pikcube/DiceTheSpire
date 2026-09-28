@@ -1,122 +1,121 @@
 ﻿<Project Sdk="Godot.NET.Sdk/4.5.1" InitialTargets="CheckDependencyPaths">
-    <Import Project=".\Sts2PathDiscovery.props" />
-    <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>true</ImplicitUsings>
-        <Nullable>enable</Nullable> <!--Makes code analysis regarding null values stricter.-->
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <DefaultItemExcludes>packages/**</DefaultItemExcludes>
-        <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
-        <PathMap>$(AppOutputBase)=.\</PathMap>
-        <LangVersion>14</LangVersion>
-    </PropertyGroup>
+	<Import Project=".\Sts2PathDiscovery.props" />
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>true</ImplicitUsings>
+		<Nullable>enable</Nullable> <!--Makes code analysis regarding null values stricter.-->
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<DefaultItemExcludes>packages/**</DefaultItemExcludes>
+		<AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
+		<PathMap>$(AppOutputBase)=.\</PathMap>
+		<LangVersion>14</LangVersion>
+	</PropertyGroup>
 
-    <PropertyGroup>
-        <!-- Diasble architecture mismatch warning; mods are ideally built for all platforms (MSIL)
-             while your local StS2 version will be for your specific platform. -->
-        <NoWarn>$(NoWarn);MSB3270</NoWarn>
-        <RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
-        <RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild> 
-    </PropertyGroup>
+	<PropertyGroup>
+		<!-- Diasble architecture mismatch warning; mods are ideally built for all platforms (MSIL)
+			 while your local StS2 version will be for your specific platform. -->
+		<NoWarn>$(NoWarn);MSB3270</NoWarn>
+		<RunAnalyzersDuringLiveAnalysis>True</RunAnalyzersDuringLiveAnalysis>
+		<RunAnalyzersDuringBuild>False</RunAnalyzersDuringBuild> 
+	</PropertyGroup>
 
-    <ItemGroup Condition="Exists('$(Sts2DataDir)')">
-        <Reference Include="0Harmony">
-            <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="sts2">
-            <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-    </ItemGroup>
+	<ItemGroup Condition="Exists('$(Sts2DataDir)')">
+		<Reference Include="0Harmony">
+			<HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="sts2">
+			<HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.4.7" PrivateAssets="All" />
-        <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" PrivateAssets="All" />
-        <PackageReference Include="Pikcube.Alchyr.Sts2.ModAnalyzers" Version="0.2.9" PrivateAssets="All" />
-        <PackageReference Include="Pikcube.Common" Version="0.3.12" PrivateAssets="All" />
-        <PackageReference Include="SmartFormat.NET" Version="3.6.1" PrivateAssets="All" />
-        <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
-        <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
-        <AdditionalFiles Include="DiceTheSpire/localization/**/*.json" /> <!-- Used by analyzer -->
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.4.7" PrivateAssets="All" />
+		<PackageReference Include="JetBrains.Annotations" Version="2026.2.0" PrivateAssets="All" />
+		<PackageReference Include="Pikcube.Alchyr.Sts2.ModAnalyzers" Version="0.2.9" PrivateAssets="All" />
+		<PackageReference Include="Pikcube.Common" Version="0.3.12" PrivateAssets="All" />
+		<PackageReference Include="SmartFormat.NET" Version="3.6.1" PrivateAssets="All" />
+		<!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
+		<!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
+		<AdditionalFiles Include="DiceTheSpire/localization/**/*.json" /> <!-- Used by analyzer -->
+	</ItemGroup>
 
-    <ItemGroup>
-        <AdditionalFiles Remove="addons\**" />
-        <AdditionalFiles Remove="src\**" />
-        <AdditionalFiles Remove="Warrior\Keywords\**" />
-        <AdditionalFiles Remove="DiceTheSpireCore\**" />
-        <AdditionalFiles Remove="TheInventor\**" />
-        <AdditionalFiles Remove="TheThief\**" />
-        <AdditionalFiles Remove="TheWarrior\**" />
-        <Compile Remove="addons\**" />
-        <Compile Remove="DiceTheSpire/**" />
-        <Compile Remove="src\**" />
-        <Compile Remove="Warrior\Keywords\**" />
-        <Compile Remove="DiceTheSpireCore\**" />
-        <Compile Remove="materials/**" />
-        <Compile Remove="shaders/**" />
-        <Compile Remove="images/**" />
-        <Compile Remove="TheInventor\**" />
-        <Compile Remove="TheThief\**" />
-        <Compile Remove="TheWarrior\**" />
-        <EmbeddedResource Remove="addons\**" />
-        <EmbeddedResource Remove="DiceTheSpire/**" />
-        <EmbeddedResource Remove="src\**" />
-        <EmbeddedResource Remove="Warrior\Keywords\**" />
-        <EmbeddedResource Remove="DiceTheSpireCore\**" />
-        <EmbeddedResource Remove="materials/**" />
-        <EmbeddedResource Remove="shaders/**" />
-        <EmbeddedResource Remove="images/**" />
-        <EmbeddedResource Remove="TheInventor\**" />
-        <EmbeddedResource Remove="TheThief\**" />
-        <EmbeddedResource Remove="TheWarrior\**" />
-    </ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Remove="addons\**" />
+		<AdditionalFiles Remove="src\**" />
+		<AdditionalFiles Remove="Warrior\Keywords\**" />
+		<AdditionalFiles Remove="DiceTheSpireCore\**" />
+		<AdditionalFiles Remove="TheInventor\**" />
+		<AdditionalFiles Remove="TheThief\**" />
+		<AdditionalFiles Remove="TheWarrior\**" />
+		<Compile Remove="addons\**" />
+		<Compile Remove="DiceTheSpire/**" />
+		<Compile Remove="src\**" />
+		<Compile Remove="Warrior\Keywords\**" />
+		<Compile Remove="DiceTheSpireCore\**" />
+		<Compile Remove="materials/**" />
+		<Compile Remove="shaders/**" />
+		<Compile Remove="images/**" />
+		<Compile Remove="TheInventor\**" />
+		<Compile Remove="TheThief\**" />
+		<Compile Remove="TheWarrior\**" />
+		<EmbeddedResource Remove="addons\**" />
+		<EmbeddedResource Remove="DiceTheSpire/**" />
+		<EmbeddedResource Remove="src\**" />
+		<EmbeddedResource Remove="Warrior\Keywords\**" />
+		<EmbeddedResource Remove="DiceTheSpireCore\**" />
+		<EmbeddedResource Remove="materials/**" />
+		<EmbeddedResource Remove="shaders/**" />
+		<EmbeddedResource Remove="images/**" />
+		<EmbeddedResource Remove="TheInventor\**" />
+		<EmbeddedResource Remove="TheThief\**" />
+		<EmbeddedResource Remove="TheWarrior\**" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <None Include=".editorconfig" />
-        <None Include="Credits.md" />
-        <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props" />
-        <None Include=".gitignore" />
-        <None Include="DiceTheSpire.json" />
-        <None Include="project.godot" />
-        <None Include="DiceTheSpire/**" />
-    </ItemGroup>
+	<ItemGroup>
+		<None Include=".editorconfig" />
+		<None Include="Credits.md" />
+		<None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props" />
+		<None Include=".gitignore" />
+		<None Include="DiceTheSpire.json" />
+		<None Include="project.godot" />
+		<None Include="DiceTheSpire/**" />
+	</ItemGroup>
 
-    <ItemGroup>
-      <AdditionalFiles Remove="DiceTheSpire\localization\eng\card_selection.json" />
-    </ItemGroup>
+	<ItemGroup>
+	  <AdditionalFiles Remove="DiceTheSpire\localization\eng\card_selection.json" />
+	</ItemGroup>
 
-    <ItemGroup>
-      <AdditionalFiles Include="DiceTheSpire\locAliases.json" />
-    </ItemGroup>
-    
-    <Target Name="CheckDependencyPaths">
-        <Error Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
-    </Target>
-
-    <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
-        <Message Text="Copying .dll and manifest to mods folder." Importance="high" />
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
-        <Copy SourceFiles="$(TargetPath)/../$(MSBuildProjectName).pdb" DestinationFiles="$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pdb" />
-        <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
-    </Target>
-
-    <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
-        <Message Text="Copying quick .pck to mods folder." Importance="high" />
-        <Copy SourceFiles="$(PckPackerOutputPath)" DestinationFolder="$(ModsPath)/$(MSBuildProjectName)" />
-    </Target>
-
-    <Target Name="NeedGodotForPublish" BeforeTargets="Publish">
-        <Error Text=" Godot path must be set up before publishing; Godot not found at path '$(GodotPath)'. Check Directory.Build.props file." Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')" />
-
-    </Target>
-    <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
-		<Message Text="Exporting Godot .pck to mods folder for Dice the Spire" Importance="high" />
-		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="WarnAndContinue" />
-		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" ContinueOnError="ErrorAndStop" />
+	<ItemGroup>
+	  <AdditionalFiles Include="DiceTheSpire\locAliases.json" />
+	</ItemGroup>
+	
+	<Target Name="CheckDependencyPaths">
+		<Error Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
 	</Target>
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-      <Exec Command="CloseSts2.exe" />
-    </Target>
+
+	<Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
+		<Message Text="Copying .dll and manifest to mods folder." Importance="high" />
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+		<Copy SourceFiles="$(TargetPath)/../$(MSBuildProjectName).pdb" DestinationFiles="$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pdb" />
+		<Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/" />
+	</Target>
+
+	<Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
+		<Message Text="Copying quick .pck to mods folder." Importance="high" />
+		<Copy SourceFiles="$(PckPackerOutputPath)" DestinationFolder="$(ModsPath)/$(MSBuildProjectName)" />
+	</Target>
+
+	<Target Name="NeedGodotForPublish" BeforeTargets="Publish">
+		<Error Text=" Godot path must be set up before publishing; Godot not found at path '$(GodotPath)'. Check Directory.Build.props file." Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')" />
+
+	</Target>
+	<Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
+		<Message Text="Exporting Godot .pck to mods folder for Dice the Spire" Importance="high" />
+		<Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;" EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1" IgnoreExitCode="false" IgnoreStandardErrorWarningFormat="true" />
+	</Target>
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+	  <Exec Command="CloseSts2.exe" />
+	</Target>
 </Project>
