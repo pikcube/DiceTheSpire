@@ -13,7 +13,7 @@ public class Carrots() : TheThiefCard(0, CardType.Skill, CardRarity.Common, Targ
     {
         get;
         set;
-    } = 3;
+    } = 2;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new BlockVar(9, ValueProp.Move)];

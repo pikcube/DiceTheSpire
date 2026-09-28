@@ -61,7 +61,7 @@
   "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball",
   "DICETHESPIRE-SPIKY_SNEEZE.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage. Reduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] by {CountdownVar:diff()}.",
   "DICETHESPIRE-SPIKY_SNEEZE.title": "Spiky Sneeze",
-  "DICETHESPIRE-SMOG_CLOUD.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold] and {WeakPower:diff()} [gold]Weak[/gold] to all enemies.",
+  "DICETHESPIRE-SMOG_CLOUD.description": "[gold]Count:[/gold] {BaseCount}\nApply {PoisonPower:diff()} [gold]Poison[/gold] and {WeakPower:diff()} [gold]Weak[/gold] to all enemies.",
   "DICETHESPIRE-SMOG_CLOUD.title": "Smog Cloud",
   "DICETHESPIRE-POISON_PARADISE.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you are attacked this turn, apply {PoisonPower:diff()} [gold]Poison[/gold] to the attacker.",
   "DICETHESPIRE-POISON_PARADISE.title": "Poison Paradise",

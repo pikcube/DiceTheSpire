@@ -15,7 +15,7 @@ public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Common, 
     {
         get;
         set;
-    } = 2;
+    } = 1;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new PersistVar(2)];
 
@@ -28,7 +28,7 @@ public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Common, 
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3M);
+        DynamicVars.Damage.UpgradeValueBy(2M);
         DynamicVars.Var<PersistVar>().UpgradeValueBy(2);
     }
 }
