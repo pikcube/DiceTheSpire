@@ -4,7 +4,6 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
-using static Godot.HttpRequest;
 
 namespace DiceTheSpire.Shared.Patches;
 
@@ -54,6 +53,21 @@ public static class AfterPlayCleanupPatches
         if (__instance.PrivateFieldWrapper<CardEnergyCost, CardModel>("_card").Value is ICountdown countdown)
         {
             countdown.CountdownCostModifiers.RemoveAll(mod => mod.Expiration.HasFlag(LocalCostModifierExpiration.WhenPlayed));
+        }
+
+        return __result;
+    }
+}
+
+[HarmonyPatch(typeof(CardModel), nameof(CardModel.CostsEnergyOrStars))]
+public static class CostsEnergyOrStarsPatch
+{
+    public static bool Postfix(bool __result, CardModel __instance)
+    {
+
+        if (__instance is ICountdown countdown)
+        {
+            return __result || countdown.Count > 0;
         }
 
         return __result;
