@@ -17,42 +17,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 public class KnockoutPunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
 {
-    public int Mult { get; set; }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(12, Bonus, Mult)];
-    private static decimal Bonus(CardModel arg1, Creature? arg2)
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(12, Bonus, 12)];
+
+    private static decimal Bonus(CardModel card, Creature? target)
     {
-        return 0;
+        return card.RunState?.CurrentRoom?.RoomType is RoomType.Boss or RoomType.Elite ? 3 : 1;
     }
 
-    public override async Task AfterRoomEntered(AbstractRoom room)
-    {
-        if(room is null)
-        {
-            Mult = 1;
-        }
-
-        if (Owner.RunState.BaseRoom?.RoomType == RoomType.Elite || Owner.RunState.BaseRoom?.RoomType == RoomType.Boss)
-        {
-            Mult = 3;
-        }
-        else
-        {
-            Mult = 1;
-        }
-
-    }
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-
-        if (Owner.RunState.BaseRoom?.RoomType == RoomType.Elite || Owner.RunState.BaseRoom?.RoomType == RoomType.Boss)
-        {
-            Mult = 3;
-        }
-        else
-        {
-            Mult = 1;
-        }
-
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
             await DamageCmd.Attack(DynamicVars.CalculatedDamage.IntValue)
@@ -60,34 +33,8 @@ public class KnockoutPunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Tok
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
-        
 
     }
-
-    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
-    {
-        if (Owner.RunState.BaseRoom?.RoomType == RoomType.Elite || Owner.RunState.BaseRoom?.RoomType == RoomType.Boss)
-        {
-            Mult = 3;
-        }
-        else
-        {
-            Mult = 1;
-        }
-    }
-
-    //protected override void AfterCloned()
-    //{     
-    //    if (Owner.RunState.BaseRoom?.RoomType == RoomType.Elite || Owner.RunState.BaseRoom?.RoomType == RoomType.Boss)
-    //    {
-    //        Mult = 3;
-    //    }
-    //    else
-    //    {
-    //        Mult = 1;
-    //    }
-    //}
-
     protected override void OnUpgrade()
     {
         DynamicVars.CalculationBase.UpgradeValueBy(2);
