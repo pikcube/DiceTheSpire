@@ -15,14 +15,29 @@ public class MidnightCharmPower : DiceTheSpirePower
 
     public override bool TryModifyEnergyCostInCombatLate(CardModel card, decimal originalCost, out decimal modifiedCost)
     {
-        if (card.Owner.Creature != Owner || card.Pile?.Type != PileType.Hand)
+        if (!ShouldModify(card))
         {
             modifiedCost = originalCost;
             return false;
         }
-
         modifiedCost = 0;
         return true;
+    }
+
+    public override bool TryModifyStarCost(CardModel card, decimal originalCost, out decimal modifiedCost)
+    {
+        if (!ShouldModify(card))
+        {
+            modifiedCost = originalCost;
+            return false;
+        }
+        modifiedCost = 0;
+        return true;
+    }
+
+    private bool ShouldModify(CardModel card)
+    {
+        return card.Owner.Creature == Owner && card.Pile?.Type is PileType.Play or PileType.Hand;
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
