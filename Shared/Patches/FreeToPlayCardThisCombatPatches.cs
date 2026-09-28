@@ -4,7 +4,6 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
-using static Godot.HttpRequest;
 
 namespace DiceTheSpire.Shared.Patches;
 
