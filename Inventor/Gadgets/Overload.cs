@@ -63,4 +63,10 @@ public class Overload() : GadgetModel(nameof(Overload))
     }
 
     public override bool IsAllowedAsTempGadget => false;
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player)
+    {
+        Count = 0;
+        return Task.CompletedTask;
+    }
 }

@@ -31,4 +31,6 @@ public class QuickerAttack() : GadgetModel(nameof(QuickerAttack))
         Parent.Flash();
         await CardCmd.AutoPlay(choiceContext, card.CreateDupe(card.Owner), null);
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => AfterAutoPrePlayPhaseEntered(choiceContext, player);
 }

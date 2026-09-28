@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Factories;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Rewards;
 
@@ -32,4 +33,6 @@ public class Dig() : GadgetModel(nameof(Dig))
 
         return true;
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 }

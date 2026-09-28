@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 
@@ -33,4 +34,5 @@ public class Harvest() : GadgetModel(nameof(Harvest))
         BreakMe();
         return true;
     }
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 }

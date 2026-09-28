@@ -82,7 +82,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
         return newGadgetModel;
     }
 
-    public virtual Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
+    public abstract Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player);
 
     protected static decimal GetPower(Player player)
     {

@@ -1,5 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace DiceTheSpire.Inventor.Gadgets;
@@ -26,4 +28,5 @@ public class ByrdNuggets() : GadgetModel(nameof(ByrdNuggets))
     }
 
     public override bool IsAllowedAsTempGadget => false;
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) => Task.CompletedTask;
 }

@@ -20,4 +20,7 @@ public class Blowtorch() : GadgetModel(nameof(Blowtorch))
                 DamageProps.nonCardUnpowered, player.Creature, null, null);
         }
     }
+
+    public override Task OnRechargeAsync(PlayerChoiceContext choiceContext, Player player) =>
+        AfterPlayerTurnStart(choiceContext, player);
 }
