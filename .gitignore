@@ -13,7 +13,6 @@ Directory.Build.props
 /addons
 /animations
 /banks/desktop
-/build
 /debug_audio
 /fonts
 /images
