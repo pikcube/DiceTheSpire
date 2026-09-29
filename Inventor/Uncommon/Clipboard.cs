@@ -34,8 +34,6 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
 
         int cards = DynamicVars.Cards.IntValue;
 
-        List<Task> tasks = [];
-
         foreach (Player p in CombatState.Players.Where(p => p != Owner))
         {
             BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);

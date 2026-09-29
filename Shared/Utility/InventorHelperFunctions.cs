@@ -102,7 +102,6 @@ public static class InventorHelperFunctions
             return;
         }
 
-        List<CardModel> cards = new(count);
         CardPile drawPile = PileType.Draw.GetPile(player);
         for (int i = 0; i < count; ++i)
         {
@@ -122,11 +121,6 @@ public static class InventorHelperFunctions
                 break;
             }
 
-            cards.Add(card);
-            await CardPileCmd.Add(card, PileType.Play);
-        }
-        foreach (CardModel card in cards.TakeWhile(card => !card.Owner.Creature.IsDead))
-        {
             if (card.Keywords.Contains(CardKeyword.Unplayable))
             {
                 await card.ShockAsync(choiceContext);
