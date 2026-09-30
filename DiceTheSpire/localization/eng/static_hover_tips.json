@@ -5,7 +5,7 @@
   "DICETHESPIRE-TEMPORARY_GADGET.title": "Temporary Gadget",
   "DICETHESPIRE-GADGET.description": "Items that passively provide you with powerful abilities, but are destroyed after a period of time.",
   "DICETHESPIRE-GADGET.title": "Gadget",
-  "DICETHESPIRE-BUMP.description": "Upgrade the card if possible, otherwise create an unupgraded copy.",
+  "DICETHESPIRE-BUMP.description": "Upgrade the card if possible, otherwise add a downgraded copy to your [gold]Discard Pile[/gold].",
   "DICETHESPIRE-BUMP.title": "Bump",
   "DICETHESPIRE-RUMMAGE.description": "Discard a chosen number of cards. Draw that many.",
   "DICETHESPIRE-RUMMAGE.title": "Rummage",
