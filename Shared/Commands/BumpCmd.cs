@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Commands;
 
@@ -17,7 +18,8 @@ public static class BumpCmd
         }
         else
         {
-            CardModel newCard = instance.CanonicalInstance.ToMutable();
+            CardModel newCard = instance.StrongMutableClone();
+            newCard.DowngradeInternal();
             newCard.Owner = null!;
             CardCmd.ClearAffliction(newCard);
             CardCmd.ClearEnchantment(newCard);
