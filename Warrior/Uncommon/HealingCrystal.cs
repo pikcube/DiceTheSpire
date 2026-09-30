@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class HealingCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class FirstAidKit() : TheWarriorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3), new HealVar(7M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];

@@ -11,7 +11,7 @@ namespace DiceTheSpire.Warrior.Rare;
 
 public class BicepCurl() : TheWarriorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    public override bool GainsBlock => true;
+    //public override bool GainsBlock => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BicepCurlPower>(2M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
