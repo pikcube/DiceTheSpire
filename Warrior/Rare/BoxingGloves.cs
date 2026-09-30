@@ -22,8 +22,8 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Rare
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
-        int xValue = EnergyCost.GetAmountToSpend();
-
+        //int xValue = EnergyCost.GetAmountToSpend();
+        //
         //if (xValue != 0)
         //{
         //    ArgumentNullException.ThrowIfNull(cardPlay.Target);

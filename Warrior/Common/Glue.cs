@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
@@ -20,8 +19,8 @@ public class Glue() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
         Glue glue = this;
-        CardSelectorPrefs prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1);
-        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, (Func<CardModel, bool>)(c => !c.Keywords.Contains(CardKeyword.Retain)), (AbstractModel)glue)).FirstOrDefault<CardModel>();
+        CardSelectorPrefs prefs = new(SelectionScreenPrompt, 1);
+        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, (Func<CardModel, bool>)(c => !c.Keywords.Contains(CardKeyword.Retain)), glue)).FirstOrDefault();
         if (card == null)
             return;
         CardCmd.ApplyKeyword(card, CardKeyword.Retain);
