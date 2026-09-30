@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -11,7 +12,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 public class HauntedSword() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, DamageProps.card), new CardsVar(3)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

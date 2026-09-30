@@ -6,11 +6,11 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Warrior.Common;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class CrystalShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), ICrystalCard
+public class CrystalShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedBlock(0, Bonus)];
     public override bool GainsBlock => true;
     private static decimal Bonus(CardModel card, Creature? arg2)
