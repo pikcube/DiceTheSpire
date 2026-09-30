@@ -14,7 +14,7 @@ namespace DiceTheSpire.Inventor.Uncommon;
 
 public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), IOnShockListener, IScrapCard
 {
-    public override string GetScrapId => nameof(MagicDice);
+    public override string GetScrapId => nameof(Recyclomancy);
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
