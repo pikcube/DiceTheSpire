@@ -22,21 +22,8 @@ public static class BumpCmd
             CardCmd.ClearAffliction(newCard);
             CardCmd.ClearEnchantment(newCard);
             instance.CombatState?.AddCard(newCard, instance.Owner);
-            PileType newPileType = DefaultPile(instance.Pile?.Type);
-            if (newPileType is PileType.Draw)
-            {
-                await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Draw, instance.Owner, CardPilePosition.Random);
-            }
-            else
-            {
-                await CardPileCmd.AddGeneratedCardToCombat(newCard, newPileType, instance.Owner);
-            }
+            await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Discard, instance.Owner);
             await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, newCard);
         }
-    }
-
-    private static PileType DefaultPile(PileType? originType)
-    {
-        return PileType.Discard;
     }
 }
