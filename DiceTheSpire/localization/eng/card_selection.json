@@ -7,6 +7,7 @@
   //"TO_TRANSFORM": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Transform[/gold].",
   //"TO_UPGRADE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Upgrade[/gold].",
   //"VIEW_UPGRADES": "View Upgrades"
+  "DICETHESPIRE-TO_RETAIN": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to add [gold]Retain[/gold] to.",
   "DICETHESPIRE-TO_SHOCK": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Shock[/gold].",
   "DICETHESPIRE-TO_BUMP": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Bump[/gold].",
   "DICETHESPIRE-TO_NUDGE": "Choose {Amount:plural:a card|[blue]{}[/blue] cards} to [gold]Nudge[/gold].",
