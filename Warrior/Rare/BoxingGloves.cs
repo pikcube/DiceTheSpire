@@ -10,13 +10,13 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Warrior.Uncommon;
+namespace DiceTheSpire.Warrior.Rare;
 
 [UsedImplicitly]
-public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     //public override TargetType TargetType => EnergyCost.GetAmountToSpend() > 0 ? TargetType.AnyEnemy : TargetType.Self;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card), new PowerVar<ReducePower>(1), .. RangeVars.Make(0, 1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.card), new PowerVar<ReducePower>(1), .. RangeVars.Make(1, 1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -24,18 +24,17 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Unco
 
         int xValue = EnergyCost.GetAmountToSpend();
 
-        if (xValue != 0)
-        {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
-            await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
-                .FromCard(this, cardPlay)
-                .Targeting(cardPlay.Target)
-                .WithHitFx(VfxCmd.slashPath)
-                .Execute(choiceContext);
-        }
-        else
-        {
+        //if (xValue != 0)
+        //{
+        //    ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        //    await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
+        //        .FromCard(this, cardPlay)
+        //        .Targeting(cardPlay.Target)
+        //        .WithHitFx(VfxCmd.slashPath)
+        //        .Execute(choiceContext);
+        //}
+        //else
+        //{
 
             ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
@@ -46,14 +45,15 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Unco
                 .Execute(choiceContext);
 
             await PowerCmd.Apply<ReducePower>(choiceContext, Owner.Creature, DynamicVars.Power<ReducePower>().IntValue, Owner.Creature, this);
-        }
+        //}
 
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(1);
         DynamicVars.MaxRange.UpgradeValueBy(-1);
+        DynamicVars.MinRange.UpgradeValueBy(-1);
     }
 
 }
