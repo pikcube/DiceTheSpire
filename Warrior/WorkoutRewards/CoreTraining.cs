@@ -11,7 +11,7 @@ namespace DiceTheSpire.Warrior.WorkoutRewards;
 
 public class CoreTraining() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(5M), .. RangeVars.Make(0, 0)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(4M), .. RangeVars.Make(0, 0)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PlatingPower>(DynamicVars.Power<PlatingPower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
