@@ -22,7 +22,7 @@ public static class BumpCmd
             CardCmd.ClearAffliction(newCard);
             CardCmd.ClearEnchantment(newCard);
             instance.CombatState?.AddCard(newCard, instance.Owner);
-            await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Discard, instance.Owner);
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Discard, instance.Owner));
             await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, newCard);
         }
     }
