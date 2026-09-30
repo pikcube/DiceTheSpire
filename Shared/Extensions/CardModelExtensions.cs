@@ -1,6 +1,5 @@
-﻿using DiceTheSpire.Shared.Keywords;
-using DiceTheSpire.Shared.Utility;
-using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Shared.Commands;
+using DiceTheSpire.Shared.Keywords;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -17,51 +16,12 @@ public static class CardModelExtensions
             set => ShockModel.SetShouldShock(instance, value);
         }
 
-        public async Task BumpAsync(PlayerChoiceContext choiceContext, PileType? destinationPile = null)
+        public async Task BumpAsync(PlayerChoiceContext choiceContext)
         {
-            if (instance.IsUpgradable)
-            {
-                CardCmd.Upgrade(instance);
-                await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, null);
-            }
-            else
-            {
-                CardModel newCard = instance.CanonicalInstance.ToMutable();
-                newCard.Owner = null!;
-                CardCmd.ClearAffliction(newCard);
-                CardCmd.ClearEnchantment(newCard);
-                instance.CombatState?.AddCard(newCard, instance.Owner);
-                PileType newPileType = destinationPile ?? instance.Pile?.Type ?? PileType.Hand;
-                if (newPileType is PileType.Draw)
-                {
-                    await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Draw, instance.Owner, CardPilePosition.Random);
-                }
-                else
-                {
-                    await CardPileCmd.AddGeneratedCardToCombat(newCard, newPileType, instance.Owner);
-                }
-                await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, newCard);
-            }
-
-
+            await BumpCmd.BumpAsync(choiceContext, instance);
         }
 
         public Task ShockAsync(PlayerChoiceContext choiceContext, bool skipVisuals = false) => ShockModel.ShockCardAsync(choiceContext, instance, skipVisuals);
         public Task UnshockAsync(PileType destination = PileType.Hand) => ShockModel.UnshockCardAsync(instance, destination);
-
-        //public async Task NudgeAsync(PlayerChoiceContext choiceContext)
-        //{
-        //    if (instance.CurrentUpgradeLevel <= 0)
-        //    {
-        //        await instance.ExhaustAsync(choiceContext, true);
-        //        await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, true);
-        //    }
-        //    else
-        //    {
-        //        CardCmd.Downgrade(instance);
-        //        await DiceyHooks.OnAfterNudgeAsync(choiceContext, instance, false);
-        //    }
-        //}
-
     }
 }
