@@ -27,14 +27,7 @@ public class SpikySneeze() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommo
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath).Execute(choiceContext);
 
-        CardModel? card = Owner.RunState.Rng.CombatCardSelection.NextItem(PileType.Hand.GetPile(Owner).Cards.Where(c =>
-        {
-            if (c is ICountdown count)
-            {
-                return true;
-            }
-            return false;
-        }));
+        CardModel? card = Owner.RunState.Rng.CombatCardSelection.NextItem(PileType.Hand.GetPile(Owner).Cards.Where(c => c is ICountdown));
         if (card is ICountdown countdown)
         {
             countdown.AddCountThisTurnOrUntilPlayed(-2);

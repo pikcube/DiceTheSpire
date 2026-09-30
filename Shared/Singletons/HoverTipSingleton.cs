@@ -8,9 +8,9 @@ using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
 
-namespace DiceTheSpire.Shared.Patches;
+namespace DiceTheSpire.Shared.Singletons;
 
-public class HoverTipPatch() : CustomSingletonModel(HookType.Run), IModifyHoverTipsListener
+public class HoverTipSingleton() : CustomSingletonModel(HookType.Run), IModifyHoverTipsListener
 {
     public void ModifyCardHoverTips(CardModel sender, HoverTipEventArgs e)
     {

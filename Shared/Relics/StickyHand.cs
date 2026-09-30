@@ -13,7 +13,7 @@ public class StickyHand : TheThiefRelic
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> options,
         CardCreationOptions creationOptions)
     {
-        if (Owner != player || creationOptions.Source != CardCreationSource.Encounter)
+        if (Owner != player || !creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward))
         {
             return false;
         }

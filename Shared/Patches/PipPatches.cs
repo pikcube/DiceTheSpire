@@ -68,30 +68,6 @@ public static class PipPatches
 
         ____energyIcon.Texture = c.GetPips(withModifiers, ____pretendCardCanBePlayed);
     }
-
-    private static int Adjust(MegaLabel megaLabel, Font themeFont)
-    {
-        TextParagraph cachedParagraph = (TextParagraph?)AccessTools.DeclaredField(typeof(MegaLabel), "_cachedParagraph").GetValue(null) ?? new TextParagraph();
-        float themeConstant = megaLabel.GetThemeConstant(ThemeConstants.Label.LineSpacing, (StringName)"Label");
-        Vector2 size = megaLabel.GetRect().Size;
-        bool wrap = megaLabel.AutowrapMode != 0;
-        int val1 = megaLabel.MinFontSize;
-        int val2 = megaLabel.MaxFontSize;
-        while (val2 >= val1)
-        {
-            int fontSize = val1 + (val2 - val1) / 2;
-            if (fontSize == megaLabel.MaxFontSize || MegaLabelHelper.IsTooBig(cachedParagraph, megaLabel.Text, themeFont, fontSize, themeConstant, wrap, size))
-            {
-                val2 = fontSize - 1;
-            }
-            else
-            {
-                val1 = fontSize + 1;
-            }
-        }
-
-        return Math.Min(val1, val2);
-    }
 }
 
 [HarmonyPatch(typeof(NCard), nameof(NCard.PlayRandomizeCostAnim))]

@@ -1,0 +1,18 @@
+<Project>
+    <PropertyGroup>
+        <!-- Path to your Godot executable -->
+        <GodotPath>C:\megadot\MegaDot_v4.5.1-stable_mono_win64.exe</GodotPath>
+        <!-- Path to your Steam library's steamapps folder -->
+        <SteamLibraryPath>C:\Program Files (x86)\Steam\steamapps</SteamLibraryPath>
+        <!-- Path to your GDRE extracted Slay the Spire 2 assets folder -->
+        <AssetSourcePath>C:\Users\Michael\Desktop\Slay the Spire 2</AssetSourcePath>
+         <!-- Enabled Characters -->
+       
+        <!-- Uncomment to build a separately-installable mod (e.g. a single-character beta) that
+             can be loaded alongside a normal full Downfall install without colliding with it.
+             Leave both unset for a normal release build (defaults to ModId/ModName "Downfall"). -->
+        <!--<Submods>Downfall;Collector</Submods>-->
+        <!--<ModId>DownfallCollectorBeta</ModId>-->
+        <!--<ModName>Downfall - Collector (Beta)</ModName>-->
+    </PropertyGroup>
+</Project>

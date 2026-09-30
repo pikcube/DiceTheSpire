@@ -21,6 +21,6 @@ public class BicepCurl() : TheWarriorCard(2, CardType.Power, CardRarity.Rare, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<PermafrostRetentionPower>().UpgradeValueBy(1);
+        DynamicVars.Power<BicepCurlPower>().UpgradeValueBy(1);
     }
 }

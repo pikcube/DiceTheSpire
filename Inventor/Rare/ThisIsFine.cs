@@ -2,7 +2,6 @@
 using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 
@@ -14,23 +13,11 @@ public class ThisIsFine() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare,
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
-    public int Triggers { get; set; } = 0;
+    public int Triggers { get; set; }
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        ++Triggers;
-    }
-
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    {
-        if (Owner == player)
-        {
-            while (Triggers > 0)
-            {
-                await InventorHelperFunctions.AutoPlayFromDrawPileAndShock(choiceContext, Owner, IsUpgraded ? 2 : 1, CardPilePosition.Top);
-                --Triggers;
-            }
-        }
+        await InventorHelperFunctions.AutoPlayFromDrawPileAndShock(choiceContext, Owner, IsUpgraded ? 2 : 1, CardPilePosition.Top);
     }
 
     public override string GetScrapId => nameof(Fury);

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ycnf2pik0yw"]
+
+[ext_resource type="Script" uid="uid://b2ww8leotjikm" path="res://src/Core/Nodes/Screens/Shops/NMerchantCharacter.cs" id="1_jrc21"]
+[ext_resource type="Texture2D" uid="uid://dygsufm4m74w5" path="res://DiceTheSpire/images/inventor.png" id="2_enlwv"]
+
+[node name="Merchant" type="Node2D"]
+script = ExtResource("1_jrc21")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -146.0
+offset_top = -276.0
+offset_right = 148.0
+offset_bottom = 38.91214
+texture = ExtResource("2_enlwv")
