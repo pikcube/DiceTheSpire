@@ -23,7 +23,7 @@
   "DICETHESPIRE-BLENDER.title": "Blender",
   "DICETHESPIRE-TOXIC_CLAW.description": "Deal {Damage:diff()} damage.\nApply {PoisonPower:diff()} [gold]Poison[/gold].",
   "DICETHESPIRE-TOXIC_CLAW.title": "Toxic Claw",
-  "DICETHESPIRE-CLOAK.description": "[gold]Count:[/gold] {BaseCount}\nGain {ReducePower:diff()} [gold]Reduce[/gold] this turn.",
+  "DICETHESPIRE-CLOAK.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold] this turn.",
   "DICETHESPIRE-CLOAK.title": "Cloak",
   "DICETHESPIRE-DEXTERITY_CHARM.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].",
   "DICETHESPIRE-DEXTERITY_CHARM.title": "Dexterity Charm",
