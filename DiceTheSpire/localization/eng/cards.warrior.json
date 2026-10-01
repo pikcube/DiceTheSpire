@@ -181,7 +181,7 @@
   "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training",
   "DICETHESPIRE-SOMERSAULT.description": "Draw {Cards:diff()} cards.\n[gold]Rummage[/gold] {Cards:diff()} cards.",
   "DICETHESPIRE-SOMERSAULT.title": "Somersault",
-  "DICETHESPIRE-REST_DAY.description": "When you [gold]Reroll[/gold] a card,\nit gains [gold]Retain[/gold].",
+  "DICETHESPIRE-REST_DAY.description": "An enemy loses {RestDayStrengthDownPower:diff()} [gold]Stregnth[/gold] this turn.",
   "DICETHESPIRE-REST_DAY.title": "Rest Day",
   "DICETHESPIRE-DUMBBELL.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].",
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
