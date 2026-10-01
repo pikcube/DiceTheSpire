@@ -1,5 +1,13 @@
 [
   {
+    "BasePath": "ancients",
+    "AliasPaths": [
+      "ancients.inventor",
+      "ancients.thief",
+      "ancients.warrior"
+    ]
+  },
+  {
     "BasePath": "cards",
     "AliasPaths": [
       "cards.inventor",

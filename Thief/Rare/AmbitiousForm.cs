@@ -9,16 +9,20 @@ namespace DiceTheSpire.Thief.Rare;
 
 public class AmbitiousForm() : TheThiefCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [EnergyHoverTip];
 
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<AmbitiousFormPower>(choiceContext, Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
-    }
+        if (CombatState is null)
+        {
+            return;
+        }
 
-    protected override void OnUpgrade()
-    {
-        DynamicVars.Cards.UpgradeValueBy(-1);
+        if (IsUpgraded)
+        {
+            await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
+        }
+        await PowerCmd.Apply<AmbitiousFormPower>(choiceContext, Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
     }
 }

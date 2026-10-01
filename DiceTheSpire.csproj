@@ -84,6 +84,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AdditionalFiles Remove="DiceTheSpire\localization\eng\ancients.inventor.json" />
 	  <AdditionalFiles Remove="DiceTheSpire\localization\eng\card_selection.json" />
 	</ItemGroup>
 
