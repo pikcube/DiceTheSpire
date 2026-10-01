@@ -8,6 +8,14 @@
     ]
   },
   {
+    "BasePath": "characters",
+    "AliasPaths": [
+      "characters.inventor",
+      "characters.thief",
+      "characters.warrior"
+    ]
+  },
+  {
     "BasePath": "cards",
     "AliasPaths": [
       "cards.inventor",
