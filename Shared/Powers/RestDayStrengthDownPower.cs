@@ -1,5 +1,4 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.Warrior.Uncommon;
 using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
