@@ -52,6 +52,24 @@
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-7r.ancient": "I grow tiered of your antics. I am going to dispose of you now.",
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-7r.next": "Retaliate",
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-8r.char": "Not if I can help it!",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-attack": "Both"
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-attack": "Both",
+
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-startattack": "Player",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-0r.char": "You are a lot tougher than the rest of Lady Luck's minions.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-0r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-1r.ancient": "What is your problem! There is no wheel to spin and I have no intention of fulfilling your heart's desire.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-1r.next": "Listen",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-2r.ancient": "Can't you see I have a spire to restore. I don't have time for this.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-2r.next": "Question",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-3r.char": "So there isn't a prize for defeating this dungeon?",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-3r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-4r.ancient": "Absolutely not! Do I need to remove you by force again?",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-4r.next": "Reject",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-5r.char": "You just want me to leave so we don't have to fight.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-5r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-6r.ancient": "Yes! I want you to leave!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-6r.next": "Retaliate",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-7r.char": "I will not let you talk me out of my victory!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.3-attack": "Both"
 
 }
