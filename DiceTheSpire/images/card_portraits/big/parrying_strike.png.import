@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5hor5cyyii4b"
-path="res://.godot/imported/dagger.png-914afc5e6dddfafe001509ec5794f0a3.ctex"
+uid="uid://pal7c2y6xvla"
+path="res://.godot/imported/parrying_strike.png-d03e22b2881ba340ab325da3de789bb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/dagger.png"
-dest_files=["res://.godot/imported/dagger.png-914afc5e6dddfafe001509ec5794f0a3.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/parrying_strike.png"
+dest_files=["res://.godot/imported/parrying_strike.png-d03e22b2881ba340ab325da3de789bb3.ctex"]
 
 [params]
 
