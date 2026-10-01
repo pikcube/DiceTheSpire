@@ -9,8 +9,29 @@
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_THIEF.0-1r.ancient": "You die",
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_THIEF.0-attack": "Both",
 
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-0r.char": "I want to spin the wheel",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-0r.next": "Continue",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-1r.ancient": "You die",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-attack": "Both"
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-0.char": "I am here to spin the wheel!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-0.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-1.ancient": "You are here to do what?",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-1.next": "Respond",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-2.char": "I am here to spin the wheel!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-2.next": "Clarify",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-3.char": "You know. The prize for clearing the dungeon. I am going to win this time!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-3.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-4.ancient": "You seem confused. You are disturbing very important work.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-4.next": "Respond...",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-5.ancient": "Do not return here.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.0-attack": "Architect",
+
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-startattack": "Player",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-0r.char": "I will not be defeaed so easily this time!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-0r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-1r.char": "You can't trick me twice!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-1r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-2r.ancient": "You struck me?! In my own chamber?! I thought I told you not to return.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-2r.next": "Clarify",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-3r.char": "Well it was my turn, and clearly you're the final boss. I need to defeat you so I can spin the wheel...",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-3r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-4r.ancient": "Unacceptable! I won't tollerate this intrusion.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-endattack": "Architect"
+
 }
