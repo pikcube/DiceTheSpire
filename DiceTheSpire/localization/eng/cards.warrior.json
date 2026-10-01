@@ -173,6 +173,8 @@
   "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal",
   "DICETHESPIRE-CRYSTALIZE.description": "At the start of each turn\ncreate X {IfUpgraded:show:[gold]Upgraded[/gold] |}\"Crystal\" cards in [gold]Hand[/gold].",
   "DICETHESPIRE-CRYSTALIZE.title": "Crystalize",
+  "DICETHESPIRE-ROUNDHOUSE_KICK.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\nMove this card to your [gold]Discard Pile[/gold], whenever you [gold]Discard[/gold] a card.",
+  "DICETHESPIRE-ROUNDHOUSE_KICK.title": "Roundhouse Kick",
   "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\ndraw {Cards:diff()} cards.",
   "DICETHESPIRE-CARTWHEEL.title": "Cartwheel",
   "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
@@ -197,5 +199,6 @@
   "DICETHESPIRE-KNOCKOUT_PUNCH.title": "Knockout Punch",
   "DICETHESPIRE-ENDURANCE_TRAINING.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold].",
   "DICETHESPIRE-ENDURANCE_TRAINING.title": "Endurance Training"
+
 
 }     
