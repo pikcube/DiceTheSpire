@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-public class MoodChange() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class MoodChange() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
