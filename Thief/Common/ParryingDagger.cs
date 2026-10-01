@@ -12,7 +12,7 @@ namespace DiceTheSpire.Thief.Common;
 public class ParryingDagger() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(6, ValueProp.Move), new PowerVar<ReducePower>(1)];
+        [new DamageVar(6, ValueProp.Move), new PowerVar<StrengthPower>(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
