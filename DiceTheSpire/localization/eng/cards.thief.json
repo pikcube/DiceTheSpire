@@ -43,7 +43,7 @@
   "DICETHESPIRE-BERLIN_KEY.title": "Berlin Key",
   "DICETHESPIRE-MASTER_KEY.description": "Discard {Cards:diff()} cards.\nDraw {Cards:diff()} cards.\nAdd {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-MASTER_KEY.title": "Master Key",
-  "DICETHESPIRE-AMBITIOUS_FORM.description": "Every {Cards:diff()} 1-cost cards you play, gain {Energy:diceIcons()}.",
+  "DICETHESPIRE-AMBITIOUS_FORM.description": "{IfUpgraded:show:Gain {Energy:diceIcons()}.\n|}When you play a card, gain {Energy:diceIcons()} and increase its cost by {Energy:diff()} this turn.",
   "DICETHESPIRE-AMBITIOUS_FORM.title": "Ambitious Form",
   "DICETHESPIRE-LUCKY_DRAW.description": "When you play a 1-cost card, draw {Cards:plural:a card|{diff} cards}.",
   "DICETHESPIRE-LUCKY_DRAW.title": "Lucky Draw",
