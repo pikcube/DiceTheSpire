@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5hor5cyyii4b"
-path="res://.godot/imported/dagger.png-914afc5e6dddfafe001509ec5794f0a3.ctex"
+path="res://.godot/imported/dagger_strike.png-d478cc76304931baa5d02309b4630c27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/dagger.png"
-dest_files=["res://.godot/imported/dagger.png-914afc5e6dddfafe001509ec5794f0a3.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/dagger_strike.png"
+dest_files=["res://.godot/imported/dagger_strike.png-d478cc76304931baa5d02309b4630c27.ctex"]
 
 [params]
 
