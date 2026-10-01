@@ -32,6 +32,26 @@
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-3r.char": "Well it was my turn, and clearly you're the final boss. I need to defeat you so I can spin the wheel...",
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-3r.next": "Continue",
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-4r.ancient": "Unacceptable! I won't tollerate this intrusion.",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-endattack": "Architect"
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.1-endattack": "Architect",
+
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-startattack": "Player",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-0r.char": "I have been training since we last met.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-0r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-1r.ancient": "Training? For what? I am just going to kill you again.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-1r.next": "Respond",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-2r.char": "Not this time! This time I will defeat you and my wish will be granted by Lady Luck!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-2r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-3r.ancient": "I thought you wanted to spin a wheel? Make up your mind.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-3r.next": "Clarify",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-4r.char": "Well, the prize for completing this dungeon is a spin of the wheel and a chance to win your heart's greatest desire!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-4r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-5r.ancient": "And you're not worried the prize from the wheel will be a gremlin backstabbing you instead?",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-5r.next": "Respond",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-6r.char": "...I wasn't until you said that...",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-6r.next": "Continue",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-7r.ancient": "I grow tiered of your antics. I am going to dispose of you now.",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-7r.next": "Retaliate",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-8r.char": "Not if I can help it!",
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_WARRIOR.2-attack": "Both"
 
 }
