@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using BaseLib.Abstracts;
-using DiceTheSpire.Shared.Patches;
+using DiceTheSpire.Shared.Utility;
 using HarmonyLib;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -51,10 +51,13 @@ public class Recyclomancy() : GadgetModel(nameof(Recyclomancy))
 
         List<CardModel> backupCards = deck[3..];
 
-        CardReward cardReward = new(deck[..3], CardCreationSource.Encounter, player, new CardCreationOptions([], CardCreationSource.Encounter, CardRarityOddsType.Uniform));
+        RiggedCardReward cardReward = new(deck[..3], CardCreationSource.Encounter, player, backupCards);
         cardReward.Populate();
+        if (rewards.Any(r => r is CardReward { CanReroll: true }))
+        {
+            cardReward.CanReroll = true;
+        }
         rewards.Add(cardReward);
-        CardRewardRerollPatch.HijackReroll(cardReward, backupCards);
 
         BreakMe();
         return true;

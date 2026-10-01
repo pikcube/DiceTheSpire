@@ -1,5 +1,5 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.Shared.Patches;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
@@ -93,10 +93,13 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
 
             List<CardModel> backupCards = deck[3..];
 
-            CardReward cardReward = new(deck[..3], CardCreationSource.Encounter, player, new CardCreationOptions([], CardCreationSource.Encounter, CardRarityOddsType.Uniform));
+            RiggedCardReward cardReward = new(deck[..3], CardCreationSource.Encounter, player, backupCards);
             cardReward.Populate();
+            if (rewards.Any(r => r is CardReward { CanReroll: true }))
+            {
+                cardReward.CanReroll = true;
+            }
             rewards.Add(cardReward);
-            CardRewardRerollPatch.HijackReroll(cardReward, backupCards);
         }
 
         BreakMe();
