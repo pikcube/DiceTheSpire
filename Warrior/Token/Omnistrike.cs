@@ -8,7 +8,6 @@ namespace DiceTheSpire.Warrior.Token;
 
 public class Omnistrike() : TheWarriorCard(3, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(200M, DamageProps.card)];
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
