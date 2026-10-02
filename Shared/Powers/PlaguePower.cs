@@ -12,6 +12,8 @@ public class PlaguePower : DiceTheSpirePower
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Applier?.IsPlayer is true && player.Creature != Applier)
@@ -19,9 +21,13 @@ public class PlaguePower : DiceTheSpirePower
             return;
         }
 
-        while (Amount > 0)
+        if (Amount == 1)
         {
             await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, Owner, Applier, null);
+            await PowerCmd.Remove(this);
+        }
+        else
+        {
             await PowerCmd.Decrement(this);
         }
     }

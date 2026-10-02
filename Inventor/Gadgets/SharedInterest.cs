@@ -93,7 +93,7 @@ public class SharedInterest() : GadgetModel(nameof(SharedInterest))
 
             List<CardModel> backupCards = deck[3..];
 
-            RiggedCardReward cardReward = new(deck[..3], CardCreationSource.Encounter, player, backupCards);
+            PredeterminedCardReward cardReward = new(deck[..3], CardCreationSource.Encounter, player, backupCards);
             cardReward.Populate();
             if (rewards.Any(r => r is CardReward { CanReroll: true }))
             {

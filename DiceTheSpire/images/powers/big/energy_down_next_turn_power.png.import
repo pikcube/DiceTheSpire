@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdokcsokyt6bx"
-path="res://.godot/imported/energy_down_next_turn.png-be88bc8f96c59ac34adc450b0c331d6a.ctex"
+uid="uid://dw4twmp14puds"
+path="res://.godot/imported/energy_down_next_turn_power.png-c51c2e352b6e955dd53ae95c961bcc34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/powers/energy_down_next_turn.png"
-dest_files=["res://.godot/imported/energy_down_next_turn.png-be88bc8f96c59ac34adc450b0c331d6a.ctex"]
+source_file="res://DiceTheSpire/images/powers/big/energy_down_next_turn_power.png"
+dest_files=["res://.godot/imported/energy_down_next_turn_power.png-c51c2e352b6e955dd53ae95c961bcc34.ctex"]
 
 [params]
 
