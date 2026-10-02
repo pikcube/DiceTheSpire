@@ -20,9 +20,9 @@ public static class BumpCmd
         {
             CardModel newCard = instance.StrongMutableClone();
             newCard.DowngradeInternal();
-            newCard.Owner = null!;
             CardCmd.ClearAffliction(newCard);
             CardCmd.ClearEnchantment(newCard);
+            newCard.Owner = null!;
             instance.CombatState?.AddCard(newCard, instance.Owner);
             CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Discard, instance.Owner));
             await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, newCard);
