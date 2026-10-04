@@ -17,14 +17,23 @@ public class StolenWeaponPower : DiceTheSpirePower, IAfterPowerRemovedListener
 
     public async Task AfterPowerRemovedAsync(PowerModel powerModel, Creature? oldOwner)
     {
-        if (oldOwner != Owner || powerModel is not StrengthPower)
+        if (oldOwner != Owner || powerModel is not StrengthPower or DexterityPower)
         {
             return;
         }
 
         Flash();
-        await PowerCmd.Apply<StrengthPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), Owner, Math.Min(Amount, powerModel.Amount), Owner,
-            null);
+        switch (powerModel)
+        {
+            case StrengthPower:
+                await PowerCmd.Apply<StrengthPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), Owner, Math.Min(Amount, powerModel.Amount), Owner,
+                    null);
+                break;
+            case DexterityPower:
+                await PowerCmd.Apply<DexterityPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), Owner, Math.Min(Amount, powerModel.Amount), Owner,
+                    null);
+                break;
+        }
     }
 
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier,
@@ -44,6 +53,14 @@ public class StolenWeaponPower : DiceTheSpirePower, IAfterPowerRemovedListener
                 modifiedAmount = amount + amountToReduceBy;
                 return true;
             case TemporaryStrengthPower { Type: PowerType.Debuff }:
+                Flash();
+                modifiedAmount = amount - amountToReduceBy;
+                return true;
+            case DexterityPower when canonicalPower.GetTypeForAmount(amount) == PowerType.Debuff:
+                Flash();
+                modifiedAmount = amount + amountToReduceBy;
+                return true;
+            case TemporaryDexterityPower { Type: PowerType.Debuff }:
                 Flash();
                 modifiedAmount = amount - amountToReduceBy;
                 return true;

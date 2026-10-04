@@ -53,7 +53,7 @@
   "DICETHESPIRE-LOCK.title": "Lock",
   "DICETHESPIRE-OVERWHELM.description": "When you play an attack, gain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "DICETHESPIRE-OVERWHELM.title": "Overwhelm",
-  "DICETHESPIRE-STOLEN_WEAPON.description": "[gold]Count:[/gold] {BaseCount}\nWhen you would lose [gold]Strength[/gold], lose {StolenWeaponPower:diff()} less.",
+  "DICETHESPIRE-STOLEN_WEAPON.description": "[gold]Count:[/gold] {BaseCount}\nWhen you would lose [gold]Strength[/gold] or [gold]Dexterity[/gold], lose {StolenWeaponPower:diff()} less.",
   "DICETHESPIRE-STOLEN_WEAPON.title": "Stolen Weapon",
   "DICETHESPIRE-POISON_SLINGSHOT.description": "[gold]Count:[/gold] {BaseCount}\nApply {PoisonPower:diff()} [gold]Poison[/gold].",
   "DICETHESPIRE-POISON_SLINGSHOT.title": "Poison Slingshot",
