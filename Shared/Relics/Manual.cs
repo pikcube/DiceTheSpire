@@ -1,13 +1,17 @@
-﻿using JetBrains.Annotations;
+﻿using DiceTheSpire.Inventor;
+using DiceTheSpire.Shared.Listeners;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Saves;
 
 namespace DiceTheSpire.Shared.Relics;
 
 [UsedImplicitly]
-public class Manual : TheInventorRelic
+public class Manual : TheInventorRelic, IModifyFlavorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
@@ -26,5 +30,22 @@ public class Manual : TheInventorRelic
     public override RelicModel GetUpgradeReplacement()
     {
         return ModelDb.Relic<Blueprint>();
+    }
+
+    public void ModifyFlavor(ref LocString locString)
+    {
+        CharacterStats? stats = SaveManager.Instance.Progress.GetStatsForCharacter(ModelDb.Character<TheInventor>().Id);
+        int index = stats?.TotalWins ?? 0;
+        switch (index)
+        {
+            case <=0:
+                return;
+            case < 5:
+                locString = new LocString("relics", $"{Id.Entry}.flavor{index}");
+                return;
+            case >= 5:
+                locString = new LocString("relics", $"{Id.Entry}.flavor5");
+                return;
+        }
     }
 }

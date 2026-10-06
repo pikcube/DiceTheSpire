@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
@@ -180,5 +181,15 @@ public static class DiceyHooks
     {
         return combatState?.IterateHookListeners().OfType<ICountdownCostListener>()
             .Aggregate(cost, (current, listener) => listener.ModifyCost(countdown, cardModel, current)) ?? cost;
+    }
+
+    public static LocString ModifyRelicFlavor(LocString locString, RelicModel relicModel)
+    {
+        if (relicModel is IModifyFlavorRelic listener)
+        {
+            listener.ModifyFlavor(ref locString);
+        }
+
+        return locString;
     }
 }
