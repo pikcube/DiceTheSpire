@@ -13,6 +13,8 @@ public class EnergyDownNextTurnPower : DiceTheSpirePower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
 
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+
     public override async Task AfterEnergyReset(Player player)
     {
         if (player != Owner.Player)
@@ -20,7 +22,13 @@ public class EnergyDownNextTurnPower : DiceTheSpirePower
             return;
         }
 
-        await PlayerCmd.LoseEnergy(Amount, player);
-        await PowerCmd.Remove(this);
+        if (Amount == 1)
+        {
+            await PlayerCmd.LoseEnergy(1, player);
+            await PowerCmd.Remove(this);
+            return;
+        }
+
+        await PowerCmd.Decrement(this);
     }
 }

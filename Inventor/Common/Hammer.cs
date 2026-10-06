@@ -29,8 +29,11 @@ public class Hammer() : TheInventorCard(1, CardType.Attack, CardRarity.Common, T
             .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
 
-        await PowerCmd.Apply<NextTurnVulnerablePower>(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.IntValue,
-            Owner.Creature, cardPlay.Card);
+        for (int n = 0; n < DynamicVars.Vulnerable.IntValue; ++n)
+        {
+            await PowerCmd.Apply<NextTurnVulnerablePower>(choiceContext, cardPlay.Target, 1,
+                Owner.Creature, cardPlay.Card);
+        }
     }
 
     protected override void OnUpgrade()

@@ -53,7 +53,7 @@
   "DICETHESPIRE-LOCK.title": "Lock",
   "DICETHESPIRE-OVERWHELM.description": "When you play an attack, gain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "DICETHESPIRE-OVERWHELM.title": "Overwhelm",
-  "DICETHESPIRE-STOLEN_WEAPON.description": "[gold]Count:[/gold] {BaseCount}\nWhen you would lose [gold]Strength[/gold], lose {StolenWeaponPower:diff()} less.",
+  "DICETHESPIRE-STOLEN_WEAPON.description": "[gold]Count:[/gold] {BaseCount}\nWhen you would lose [gold]Strength[/gold] or [gold]Dexterity[/gold], lose {StolenWeaponPower:diff()} less.",
   "DICETHESPIRE-STOLEN_WEAPON.title": "Stolen Weapon",
   "DICETHESPIRE-POISON_SLINGSHOT.description": "[gold]Count:[/gold] {BaseCount}\nApply {PoisonPower:diff()} [gold]Poison[/gold].",
   "DICETHESPIRE-POISON_SLINGSHOT.title": "Poison Slingshot",
@@ -144,5 +144,9 @@
   "DICETHESPIRE-TRANSFORMER.description": "Deal {Damage:diff()} damage.\n[gold]Transform[/gold] 1 card into a copy of this card.",
   "DICETHESPIRE-TRANSFORMER.title": "Transformer",
   "DICETHESPIRE-MIDNIGHT_CHARM.description": "The next {Cards:diff()} cards you play this turn are free to play.",
-  "DICETHESPIRE-MIDNIGHT_CHARM.title": "Midnight Charm"
+  "DICETHESPIRE-MIDNIGHT_CHARM.title": "Midnight Charm",
+  "DICETHESPIRE-PICKPOCKET.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage.\nGain [gold]Gold[/gold] equal to unblocked damage dealt.",
+  "DICETHESPIRE-PICKPOCKET.title": "Pickpocket",
+  "DICETHESPIRE-RAINBOW_STRIKE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each color of card in your [gold]Deck[/gold].",
+  "DICETHESPIRE-RAINBOW_STRIKE.title": "Rainbow Strike"
 }

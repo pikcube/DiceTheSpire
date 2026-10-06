@@ -63,7 +63,7 @@
   "DICETHESPIRE-FLAMETHROWER.title": "Flamethrower",
   "DICETHESPIRE-FOCUS.description": "At the start of each turn, draw {Cards:diff()} cards.",
   "DICETHESPIRE-FOCUS.title": "Focus",
-  "DICETHESPIRE-FROST_HAMMER.description": "[gold]Freeze[/gold] the enemy.\nDeal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "DICETHESPIRE-FROST_HAMMER.description": "[gold]Freeze[/gold] the enemy.\nDeal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold] at the start of next turn.",
   "DICETHESPIRE-FROST_HAMMER.title": "Frost Hammer",
   "DICETHESPIRE-GADGET_CARD.description": "{GadgetDescription.StringValue}",
   "DICETHESPIRE-GADGET_CARD.title": "{GadgetTitle.StringValue}",

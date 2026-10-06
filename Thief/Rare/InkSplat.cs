@@ -34,6 +34,6 @@ public class InkSplat() : TheThiefCard(0, CardType.Skill, CardRarity.Rare, Targe
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }

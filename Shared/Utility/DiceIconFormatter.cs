@@ -8,11 +8,10 @@ namespace DiceTheSpire.Shared.Utility;
 public class DiceIconFormatter : IFormatter
 {
     public string Name { get; set; } = "diceIcons";
-    public bool CanAutoDetect { get; set; } = false;
+    public bool CanAutoDetect { get; set; } = true;
 
     public bool TryEvaluateFormat(IFormattingInfo formattingInfo)
     {
-        ArgumentNullException.ThrowIfNull(formattingInfo.CurrentValue);
         int result = GetValue(formattingInfo.CurrentValue);
 
         switch (result)
@@ -36,7 +35,7 @@ public class DiceIconFormatter : IFormatter
         return true;
     }
 
-    private static int GetValue(object value)
+    private static int GetValue(object? value)
     {
         return value switch
         {
@@ -45,7 +44,8 @@ public class DiceIconFormatter : IFormatter
             DynamicVar dynamicVar => Convert.ToInt32(dynamicVar.PreviewValue),
             decimal decimalNum => Convert.ToInt32(decimalNum),
             int intNum => intNum,
-            string stringValue => int.Parse(stringValue),
+            string stringValue => int.TryParse(stringValue, out int val) ? val : 1,
+            null => 1,
             _ => throw new LocException($"Unknown value='{value}' type={value.GetType()}")
         };
     }

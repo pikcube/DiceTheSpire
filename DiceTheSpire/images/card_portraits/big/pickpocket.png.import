@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdokcsokyt6bx"
-path="res://.godot/imported/energy_down_next_turn.png-be88bc8f96c59ac34adc450b0c331d6a.ctex"
+uid="uid://bwup5uijonipv"
+path="res://.godot/imported/pickpocket.png-e11a5e97af935aa05c4c428d2a9f36ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/powers/energy_down_next_turn.png"
-dest_files=["res://.godot/imported/energy_down_next_turn.png-be88bc8f96c59ac34adc450b0c331d6a.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/pickpocket.png"
+dest_files=["res://.godot/imported/pickpocket.png-e11a5e97af935aa05c4c428d2a9f36ff.ctex"]
 
 [params]
 

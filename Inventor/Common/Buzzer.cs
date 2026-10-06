@@ -27,7 +27,10 @@ public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, T
             return;
         }
 
-        await NextTurnVulnerablePower.ApplyAsync(choiceContext, CombatState.Enemies, DynamicVars.Vulnerable.IntValue, Owner.Creature, this);
+        for (int n = 0; n < DynamicVars.Vulnerable.IntValue; ++n)
+        {
+            await NextTurnVulnerablePower.ApplyAsync(choiceContext, CombatState.Enemies, 1, Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()
