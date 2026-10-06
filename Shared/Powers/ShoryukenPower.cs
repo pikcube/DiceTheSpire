@@ -1,14 +1,8 @@
-﻿using DiceTheSpire.Shared.Commands;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
@@ -26,7 +20,7 @@ public class ShoryukenPower : DiceTheSpirePower
             return;
         }
         Flash();
-        await PowerCmd.Apply<VigorPower>(new HookPlayerChoiceContext(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat), Owner, Amount, Applier, null);
+        await PowerCmd.Apply<VigorPower>(choiceContext, Owner, Amount, Applier, null);
     }
 
 }
