@@ -2,9 +2,9 @@
 using BaseLib.Utils;
 using DiceTheSpire.Inventor;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Patches;
-using DiceTheSpire.Shared.Powers;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;

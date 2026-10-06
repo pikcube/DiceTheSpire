@@ -1,6 +1,6 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;

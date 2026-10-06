@@ -14,7 +14,7 @@ public abstract class TheWarriorRelic : CustomRelicModel
     {
         get
         {
-            var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath();
+            string path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath();
             return ResourceLoader.Exists(path) ? path : "relic.png".RelicImagePath();
         }
     }
@@ -23,7 +23,7 @@ public abstract class TheWarriorRelic : CustomRelicModel
     {
         get
         {
-            var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".RelicImagePath();
+            string path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".RelicImagePath();
             return ResourceLoader.Exists(path) ? path : "relic_outline.png".RelicImagePath();
         }
     }
@@ -32,7 +32,7 @@ public abstract class TheWarriorRelic : CustomRelicModel
     {
         get
         {
-            var path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath();
+            string path = $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath();
             return ResourceLoader.Exists(path) ? path : "relic.png".BigRelicImagePath();
         }
     }

@@ -20,7 +20,7 @@ public class Countvalanche() : TheThiefCard(2, CardType.Attack, CardRarity.Rare,
         }
 
         IReadOnlyList<CardModel> cards = Owner.PlayerCombatState.Hand.Cards;
-        var num = cards.Count;
+        int num = cards.Count;
         await CardCmd.Discard(choiceContext, cards);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitCount(num).Execute(choiceContext);

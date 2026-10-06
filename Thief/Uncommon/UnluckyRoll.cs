@@ -17,7 +17,7 @@ public class UnluckyRoll() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommo
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
 
-        var cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        IEnumerable<CardModel> cards = await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         foreach (CardModel card in cards)
         {
             if (card.EnergyCost.GetResolved() != 1)

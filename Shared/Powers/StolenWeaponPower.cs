@@ -17,7 +17,7 @@ public class StolenWeaponPower : DiceTheSpirePower, IAfterPowerRemovedListener
 
     public async Task AfterPowerRemovedAsync(PowerModel powerModel, Creature? oldOwner)
     {
-        if (oldOwner != Owner || powerModel is not StrengthPower or DexterityPower)
+        if (oldOwner != Owner || powerModel is not StrengthPower and not DexterityPower)
         {
             return;
         }
@@ -45,7 +45,7 @@ public class StolenWeaponPower : DiceTheSpirePower, IAfterPowerRemovedListener
             return false;
         }
 
-        var amountToReduceBy = Math.Min(Amount, Math.Abs(amount));
+        decimal amountToReduceBy = Math.Min(Amount, Math.Abs(amount));
         switch (canonicalPower)
         {
             case StrengthPower when canonicalPower.GetTypeForAmount(amount) == PowerType.Debuff:
