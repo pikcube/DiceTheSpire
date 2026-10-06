@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards
 {
-    public class RestDay() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)
+    public class RestDay() : TheWarriorCard(2, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<RestDayStrengthDownPower>(99)];
         protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];

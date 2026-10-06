@@ -198,7 +198,9 @@
   "DICETHESPIRE-KNOCKOUT_PUNCH.description": "Deal {CalculatedDamage:diff()} damage.\nDeal triple damage on [gold]Boss[/gold]\nor [gold]Elite[/gold] floors.",
   "DICETHESPIRE-KNOCKOUT_PUNCH.title": "Knockout Punch",
   "DICETHESPIRE-ENDURANCE_TRAINING.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold].",
-  "DICETHESPIRE-ENDURANCE_TRAINING.title": "Endurance Training"
+  "DICETHESPIRE-ENDURANCE_TRAINING.title": "Endurance Training",
+  "DICETHESPIRE-SHORYUKEN.description": "Gain {ShoryukenPower:diff()} [gold]Vigor[/gold] each time you play a card.",
+  "DICETHESPIRE-SHORYUKEN.title": "Shoryuken"
 
 
 }     
