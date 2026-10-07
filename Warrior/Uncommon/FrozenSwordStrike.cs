@@ -1,4 +1,5 @@
 ﻿using BaseLib.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,8 +11,10 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class FrozenSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class FrozenSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IFuryModifier
 {
+    public bool ShouldIgnoreFury => true;
+    public bool ShouldMaintainFury => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new PowerVar<FreezePower>(1), new PowerVar<NextTurnFuryPower>(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(), HoverTipFactory.FromPower<FreezePower>(), HoverTipFactory.Static(StaticHoverTip.Block)];
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
