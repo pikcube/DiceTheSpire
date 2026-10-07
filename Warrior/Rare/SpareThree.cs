@@ -9,9 +9,9 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
-namespace DiceTheSpire.Warrior.Uncommon;
+namespace DiceTheSpire.Warrior.Rare;
 
-public class SpareThree() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class SpareThree() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override string Title => IsUpgraded ? UpgradedTitleLocString.GetFormattedText() : TitleLocString.GetFormattedText();
     public LocString UpgradedTitleLocString
