@@ -2,7 +2,6 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Common;
 
@@ -12,11 +11,10 @@ public class RainbowStrike() : TheThiefCard(1, CardType.Attack, CardRarity.Commo
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) =>
+        ..MakeCalculatedDamage(5, (card, _) =>
         {
-            return card.Owner.Deck.Cards.DistinctBy(c => c.Pool.Title).Count();
-        }),
-        new CalculationBaseVar(5), new ExtraDamageVar(2)
+            return card.Owner.Deck.Cards.DistinctBy(c => c.Pool.Id).Count();
+        }, 2)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

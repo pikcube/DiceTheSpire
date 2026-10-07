@@ -19,7 +19,7 @@ public class Speedbump() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommon
     }
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Sly);
     }
 }
 

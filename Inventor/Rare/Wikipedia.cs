@@ -1,5 +1,5 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
-using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;

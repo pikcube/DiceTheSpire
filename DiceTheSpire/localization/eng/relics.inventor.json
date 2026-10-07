@@ -1,7 +1,12 @@
 {
   "SEA_GLASS.DICETHESPIRE-THE_INVENTOR.title": "Encyclopedic Glass",
   "DICETHESPIRE-MANUAL.description": "At the start of each turn, gain {Energy:diceIcons()} and draw [blue]1[/blue] [red]less card[/red].",
-  "DICETHESPIRE-MANUAL.flavor": "\"Chapter 11: Maintaining a Spire's Heart...\"",
+  "DICETHESPIRE-MANUAL.flavor": "\"Chapter 1: What is a Spire?...\"",
+  "DICETHESPIRE-MANUAL.flavor1": "\"Chapter 11: Maintaining a Spire's Heart...\"",
+  "DICETHESPIRE-MANUAL.flavor2": "\"Chapter 15: Tales of The Blight...\"",
+  "DICETHESPIRE-MANUAL.flavor3": "\"Chapter 16: What is The Blight...\"",
+  "DICETHESPIRE-MANUAL.flavor4": "\"Chapter 24: Potency vs Contagion...\"",
+  "DICETHESPIRE-MANUAL.flavor5": "\"Chapter 43: Salting a Land of Dreams and Imagination...\"",
   "DICETHESPIRE-MANUAL.title": "The Manual",
   "DICETHESPIRE-BLUEPRINT.description": "At the start of each turn, gain {Energy:diceIcons()} and draw [blue]1[/blue] [red]less card[/red].",
   "DICETHESPIRE-BLUEPRINT.flavor": "\"I was expecting something more elegant than this...\"",

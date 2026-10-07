@@ -12,27 +12,10 @@ public class CrystalSword() : TheWarriorCard(4, CardType.Attack, CardRarity.Rare
 {
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];
-
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
-
     private static decimal Bonus(CardModel card, Creature? arg2)
     {
-
-        if (card.Owner.PlayerCombatState is null)
-        {
-            return 0;
-        }
-
-        int damage = 0;
-
-        List<CardModel> allCards = [.. card.Owner.PlayerCombatState.AllCards];
-        foreach (CardModel c in allCards)
-        {
-            int xValue = c.EnergyCost.GetAmountToSpend();
-
-            damage += xValue;
-        }
-        return damage;
+        return card.Owner.PlayerCombatState?.AllCards.Sum(c => c.EnergyCost.GetAmountToSpend()) ?? 0;
     }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

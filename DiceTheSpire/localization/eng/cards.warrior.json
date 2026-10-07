@@ -111,7 +111,7 @@
   "DICETHESPIRE-POWER_CRYSTAL.title": "Power Crystal",
   "DICETHESPIRE-DEFLECTION.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {DeflectionPower:diff()} [gold]Vigor[/gold] each time you take damage this turn.",
   "DICETHESPIRE-DEFLECTION.title": "Deflection",
-  "DICETHESPIRE-SHRIEK.description": "Gain {WarriorShriekPower:diff()} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
+  "DICETHESPIRE-SHRIEK.description": "{IfUpgraded:show:All enemies lose|An enemy loses} {ShriekStrengthDownPower:diff()} [gold]Stregnth[/gold] this turn. Next turn you are [gold]Cursed[/gold].",
   "DICETHESPIRE-SHRIEK.title": "Shriek",
   "DICETHESPIRE-CHOCOLATE_COOKIE.description": "[gold]Count:[/gold] {BaseCount}\nGain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
@@ -143,7 +143,7 @@
   "DICETHESPIRE-FURIOUS_FORM.title": "Furious Form",
   "DICETHESPIRE-BASS_DROP.description": "Apply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to EVERYONE.",
   "DICETHESPIRE-BASS_DROP.title": "Bass Drop",
-  "DICETHESPIRE-FROZEN_SWORD_STRIKE.description": "Deal {Damage:diff()} damage.\nApply {FrozenGashPower:diff()} [gold]Frozen Gash[/gold].",
+  "DICETHESPIRE-FROZEN_SWORD_STRIKE.description": "Deal {Damage:diff()} damage.\nApply {FreezePower:diff()} [gold]Freze[/gold].\nNext turn, gain {NextTurnFuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-FROZEN_SWORD_STRIKE.title": "Frozen Sword Strike",
   "DICETHESPIRE-FIRE_BREATH.description": "Whenever you gain [gold]Fury[/gold], gain {WarriorFireBreathPower:diff()} [gold]Vigor[/gold].",
   "DICETHESPIRE-FIRE_BREATH.title": "Fire Breath",
@@ -175,13 +175,15 @@
   "DICETHESPIRE-CRYSTALIZE.title": "Crystalize",
   "DICETHESPIRE-ROUNDHOUSE_KICK.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\nMove this card to your [gold]Discard Pile[/gold], whenever you [gold]Discard[/gold] a card.",
   "DICETHESPIRE-ROUNDHOUSE_KICK.title": "Roundhouse Kick",
-  "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\ndraw {Cards:diff()} cards.",
+  "DICETHESPIRE-SHIELD_CHARGE.description": "Apply {ShieldChargePower:Diff} [gold]Charge!!![/gold]\nDraw {Cards:diff()} {IfUpgraded:show:cards|card}.",
+  "DICETHESPIRE-SHIELD_CHARGE.title": "Shield Charge",
+  "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\nDraw {Cards:diff()} cards.",
   "DICETHESPIRE-CARTWHEEL.title": "Cartwheel",
   "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
   "DICETHESPIRE-STRENGTH_TRAINING.title": "Strength Training",
   "DICETHESPIRE-SOMERSAULT.description": "Draw {Cards:diff()} cards.\n[gold]Rummage[/gold] {Cards:diff()} cards.",
   "DICETHESPIRE-SOMERSAULT.title": "Somersault",
-  "DICETHESPIRE-REST_DAY.description": "An enemy loses {RestDayStrengthDownPower:diff()} [gold]Stregnth[/gold] this turn.",
+  "DICETHESPIRE-REST_DAY.description": "Gain {BlockNextTurnPower:diff()} [gold]Block[/gold] next turn.",
   "DICETHESPIRE-REST_DAY.title": "Rest Day",
   "DICETHESPIRE-DUMBBELL.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].",
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
@@ -198,7 +200,11 @@
   "DICETHESPIRE-KNOCKOUT_PUNCH.description": "Deal {CalculatedDamage:diff()} damage.\nDeal triple damage on [gold]Boss[/gold]\nor [gold]Elite[/gold] floors.",
   "DICETHESPIRE-KNOCKOUT_PUNCH.title": "Knockout Punch",
   "DICETHESPIRE-ENDURANCE_TRAINING.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold].",
-  "DICETHESPIRE-ENDURANCE_TRAINING.title": "Endurance Training"
+  "DICETHESPIRE-ENDURANCE_TRAINING.title": "Endurance Training",
+  "DICETHESPIRE-SHORYUKEN.description": "Gain {ShoryukenPower:diff()} [gold]Vigor[/gold] each time you play a card.",
+  "DICETHESPIRE-SHORYUKEN.title": "Shoryuken",
+  "DICETHESPIRE-STUNLOCK.description": "[gold]Stun[/gold] an enemy.",
+  "DICETHESPIRE-STUNLOCK.title": "Stunlock"
 
 
 }     

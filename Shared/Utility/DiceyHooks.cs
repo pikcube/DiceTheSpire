@@ -2,11 +2,11 @@
 using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Listeners;
-using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
@@ -159,15 +159,6 @@ public static class DiceyHooks
         }
     }
 
-    public static void ModifyFuryPlayCount(IRunState runState, FuryPower furyPower, CardModel card, ref int furyCount)
-    {
-        foreach (IModifyFuryPlayCountListener listener in runState.IterateHookListeners(card.CombatState)
-                     .OfType<IModifyFuryPlayCountListener>())
-        {
-            listener.ModifyFuryPlayCount(furyPower, card, ref furyCount);
-        }
-    }
-
     public static async Task OnShockAsync(PlayerChoiceContext choiceContext, CardModel card)
     {
         foreach (IOnShockListener listener in card.Owner.RunState.IterateHookListeners(card.Owner.Creature.CombatState).OfType<IOnShockListener>())
@@ -180,5 +171,15 @@ public static class DiceyHooks
     {
         return combatState?.IterateHookListeners().OfType<ICountdownCostListener>()
             .Aggregate(cost, (current, listener) => listener.ModifyCost(countdown, cardModel, current)) ?? cost;
+    }
+
+    public static LocString ModifyRelicFlavor(LocString locString, RelicModel relicModel)
+    {
+        if (relicModel is IModifyFlavorRelic listener)
+        {
+            listener.ModifyFlavor(ref locString);
+        }
+
+        return locString;
     }
 }

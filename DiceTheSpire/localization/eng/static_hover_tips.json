@@ -9,7 +9,7 @@
   "DICETHESPIRE-BUMP.title": "Bump",
   "DICETHESPIRE-RUMMAGE.description": "Discard a chosen number of cards. Draw that many.",
   "DICETHESPIRE-RUMMAGE.title": "Rummage",
-  "DICETHESPIRE-REROLL.description": "Randomize the cost of a card between 0 and 3 this turn.\nSome exceptions apply.",
+  "DICETHESPIRE-REROLL.description": "Randomize a card to cost from 0 to 3 [gold]Energy[/gold] this turn.\nSome exceptions apply.",
   "DICETHESPIRE-REROLL.title": "Reroll",
   "DICETHESPIRE-NUDGE.description": "Reduce a card's cost by 1 until the next time it is played.",
   "DICETHESPIRE-NUDGE.title": "Nudge",

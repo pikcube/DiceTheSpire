@@ -10,10 +10,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Warrior.Rare;
-public class RubberMallet() : TheWarriorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IAfterRerollListener
+public class RubberMallet() : TheWarriorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IAfterRerollListener
 {
     public int RerolledThisCombat { get; set; }
-    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(6, Bonus, 2)]; 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(4, Bonus, 2)]; 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
 
     private static decimal Bonus(CardModel arg1, Creature? arg2)
@@ -45,7 +45,7 @@ public class RubberMallet() : TheWarriorCard(2, CardType.Attack, CardRarity.Rare
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(3);
+        //DynamicVars.CalculationBase.UpgradeValueBy(3);
         DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Keywords;
-using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;

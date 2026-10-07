@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Extensions;
+﻿using DiceTheSpire.Inventor.Powers;
+using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Patches;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Combat;

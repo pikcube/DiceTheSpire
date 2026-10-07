@@ -16,7 +16,7 @@ namespace DiceTheSpire.Warrior.Rare;
 public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     //public override TargetType TargetType => EnergyCost.GetAmountToSpend() > 0 ? TargetType.AnyEnemy : TargetType.Self;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.card), new PowerVar<ReducePower>(1), .. RangeVars.Make(1, 1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card), new PowerVar<ReducePower>(1), .. RangeVars.Make(1, 1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ReducePower>(DynamicVars.Power<ReducePower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -51,7 +51,7 @@ public class BoxingGloves() : TheWarriorCard(1, CardType.Attack, CardRarity.Rare
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1);
+        DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.MaxRange.UpgradeValueBy(-1);
         DynamicVars.MinRange.UpgradeValueBy(-1);
     }

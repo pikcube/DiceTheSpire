@@ -13,7 +13,7 @@ namespace DiceTheSpire.Warrior.Rare;
 
 public class ConfusingCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self), ICrystalCard
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll), HoverTipFactory.ForEnergy(this)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return, CardKeyword.Sly];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

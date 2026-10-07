@@ -1,6 +1,6 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
-using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Inventor.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
