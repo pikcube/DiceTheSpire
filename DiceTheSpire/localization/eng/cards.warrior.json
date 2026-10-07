@@ -200,7 +200,9 @@
   "DICETHESPIRE-ENDURANCE_TRAINING.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold].",
   "DICETHESPIRE-ENDURANCE_TRAINING.title": "Endurance Training",
   "DICETHESPIRE-SHORYUKEN.description": "Gain {ShoryukenPower:diff()} [gold]Vigor[/gold] each time you play a card.",
-  "DICETHESPIRE-SHORYUKEN.title": "Shoryuken"
+  "DICETHESPIRE-SHORYUKEN.title": "Shoryuken",
+  "DICETHESPIRE-STUNLOCK.description": "[gold]Stun[/gold] an enemy.",
+  "DICETHESPIRE-STUNLOCK.title": "Stunlock"
 
 
 }     
