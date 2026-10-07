@@ -8,12 +8,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Shared.Powers;
 
 
-public class FrozenGashPower : DiceTheSpirePower
+public class ShieldChargePower : DiceTheSpirePower
 {
 
     public override PowerType Type => PowerType.Debuff;
     public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
 
     public override async Task AfterSideTurnEnd(
@@ -25,7 +25,10 @@ public class FrozenGashPower : DiceTheSpirePower
         {
             return;
         }
-        await CreatureCmd.Damage(choiceContext, Owner, Applier.Player.Creature.Block, DamageProps.nonCardHpLoss, null, null);
+        for (int i = 0; i < Amount; i++)
+        {
+            await CreatureCmd.Damage(choiceContext, Owner, Applier.Player.Creature.Block, DamageProps.nonCardHpLoss, null, null);
+        }
     }
 
 }

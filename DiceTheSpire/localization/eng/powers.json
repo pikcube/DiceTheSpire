@@ -77,9 +77,9 @@
   "DICETHESPIRE-FURIOUS_FORM_POWER.description": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
   "DICETHESPIRE-FURIOUS_FORM_POWER.smartDescription": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
   "DICETHESPIRE-FURIOUS_FORM_POWER.title": "Furious Form",
-  "DICETHESPIRE-FROZEN_GASH_POWER.description": "This creature takes damage equal to your remaining [gold]Block[/gold] at the end of their turn. Does not stack.",
-  "DICETHESPIRE-FROZEN_GASH_POWER.smartDescription": "This creature takes damage equal to your remaining [gold]Block[/gold] at the end of their turn. Does not stack.",
-  "DICETHESPIRE-FROZEN_GASH_POWER.title": "Frozen Gash",
+  "DICETHESPIRE-SHIELD_CHARGE_POWER.description": "This creature takes damage equal to your remaining [gold]Block[/gold] at the end of the enemy turn (hits one time per stack).",
+  "DICETHESPIRE-SHIELD_CHARGE_POWER.smartDescription": "This creature takes damage equal to your remaining [gold]Block[/gold] at the end of the enemy turn {Amount} {Amount:plural:time|times}.",
+  "DICETHESPIRE-SHIELD_CHARGE_POWER.title": "Charge!!!",
   "DICETHESPIRE-WARRIOR_FIRE_BREATH_POWER.description": "When you gain [gold]Fury[/gold], gain {Amount} [gold]Vigor[/gold].",
   "DICETHESPIRE-WARRIOR_FIRE_BREATH_POWER.smartDescription": "When you gain [gold]Fury[/gold], gain {Amount} [gold]Vigor[/gold].",
   "DICETHESPIRE-WARRIOR_FIRE_BREATH_POWER.title": "Fire Breath",
@@ -109,6 +109,9 @@
   "DICETHESPIRE-CRYSTALIZE_PLUS_POWER.title": "Crystalize+",
   "DICETHESPIRE-SHORYUKEN_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you play a card.",
   "DICETHESPIRE-SHORYUKEN_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you play a card.",
-  "DICETHESPIRE-SHORYUKEN_POWER.title": "Shoryuken"
+  "DICETHESPIRE-SHORYUKEN_POWER.title": "Shoryuken",
+  "DICETHESPIRE-NEXT_TURN_FURY_POWER.description": "Next turn, gain [gold]Fury[/gold].",
+  "DICETHESPIRE-NEXT_TURN_FURY_POWER.smartDescription": "Next turn, gain {Amount} [gold]Fury[/gold].",
+  "DICETHESPIRE-NEXT_TURN_FURY_POWER.title": "Next Turn Fury"
 
 }

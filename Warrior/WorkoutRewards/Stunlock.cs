@@ -16,7 +16,7 @@ namespace DiceTheSpire.Warrior.WorkoutRewards;
 public class Stunlock() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [StunIntent.GetStaticHoverTip()];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [.. RangeVars.Make(1, 1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [.. RangeVars.Make(0, 2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,8 +27,7 @@ public class Stunlock() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars.MaxRange.UpgradeValueBy(-1);
-        DynamicVars.MinRange.UpgradeValueBy(-1);
+        DynamicVars.MaxRange.UpgradeValueBy(-2);
     }
 
 }
