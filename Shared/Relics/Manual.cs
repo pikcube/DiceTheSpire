@@ -40,10 +40,19 @@ public class Manual : TheInventorRelic, IModifyFlavorRelic
         {
             case <=0:
                 return;
-            case < 5:
-                locString = new LocString("relics", $"{Id.Entry}.flavor{index}");
+            case 1:
+                locString = new LocString("relics", $"{Id.Entry}.flavor1");
                 return;
-            case >= 5:
+            case 2:
+                locString = new LocString("relics", $"{Id.Entry}.flavor2");
+                return;
+            case < 5:
+                locString = new LocString("relics", $"{Id.Entry}.flavor3");
+                return;
+            case < 9:
+                locString = new LocString("relics", $"{Id.Entry}.flavor4");
+                return;
+            case >= 9:
                 locString = new LocString("relics", $"{Id.Entry}.flavor5");
                 return;
         }
