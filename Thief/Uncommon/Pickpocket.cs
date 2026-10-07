@@ -6,11 +6,11 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Thief.Rare;
+namespace DiceTheSpire.Thief.Uncommon;
 
-public class Pickpocket() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), ICountdown
+public class Pickpocket() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     public int BaseCount { get; set; } = 1;
 
@@ -27,6 +27,6 @@ public class Pickpocket() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(5);
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 }
