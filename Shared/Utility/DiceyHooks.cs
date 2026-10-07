@@ -2,7 +2,6 @@
 using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Listeners;
-using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -157,15 +156,6 @@ public static class DiceyHooks
         foreach (IAfterRerollListener listener in runState.IterateHookListeners(card.CombatState).OfType<IAfterRerollListener>())
         {
             await listener.AfterRerollAsync(choiceContext, card, isFixed, originalCost, getAmountToSpend, duration);
-        }
-    }
-
-    public static void ModifyFuryPlayCount(IRunState runState, FuryPower furyPower, CardModel card, ref int furyCount)
-    {
-        foreach (IModifyFuryPlayCountListener listener in runState.IterateHookListeners(card.CombatState)
-                     .OfType<IModifyFuryPlayCountListener>())
-        {
-            listener.ModifyFuryPlayCount(furyPower, card, ref furyCount);
         }
     }
 
