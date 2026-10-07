@@ -9,20 +9,18 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards
 {
-    public class RestDay() : TheWarriorCard(2, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)
+    public class RestDay() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<RestDayStrengthDownPower>(99)];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BlockNextTurnPower>(50)];
+        public override bool GainsBlock => true;
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
-            ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
-            await PowerCmd.Apply<RestDayStrengthDownPower>(choiceContext, cardPlay.Target, DynamicVars.Power<RestDayStrengthDownPower>().IntValue, Owner.Creature, cardPlay.Card);
+            await PowerCmd.Apply<BlockNextTurnPower>(choiceContext, Owner.Creature, DynamicVars.Power<BlockNextTurnPower>().IntValue, Owner.Creature, this);
 
         }
         protected override void OnUpgrade()
         {
-            EnergyCost.UpgradeBy(-1);
+            DynamicVars.Power<BlockNextTurnPower>().UpgradeValueBy(10);
         }
     }
 }

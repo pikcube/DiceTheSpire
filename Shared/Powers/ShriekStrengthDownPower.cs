@@ -1,13 +1,13 @@
 ﻿using BaseLib.Abstracts;
-using DiceTheSpire.Warrior.WorkoutRewards;
+using DiceTheSpire.Warrior.Rare;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class RestDayStrengthDownPower : TemporaryStrengthPower, ICustomPower
+public class ShriekStrengthDownPower : TemporaryStrengthPower, ICustomPower
 {
-    public override AbstractModel OriginModel => ModelDb.Card<RestDay>();
+    public override AbstractModel OriginModel => ModelDb.Card<Shriek>();
 
     protected override bool IsPositive => false;
 }

@@ -4,6 +4,7 @@ using DiceTheSpire.Shared.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -23,8 +24,7 @@ public class SpareThree() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommo
     }
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3), new PowerVar<NoDrawPower>(1M), new StringVar("Title"), .. RangeVars.Make(0, 0)];
-
-    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PlayerCmd.GainEnergy(DynamicVars.Energy.IntValue, Owner);

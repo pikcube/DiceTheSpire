@@ -1,0 +1,30 @@
+﻿//using MegaCrit.Sts2.Core.Commands;
+//using MegaCrit.Sts2.Core.Entities.Powers;
+//using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+//using MegaCrit.Sts2.Core.Models;
+//using MegaCrit.Sts2.Core.Models.Powers;
+
+//namespace DiceTheSpire.Shared.Powers;
+
+//public class WarriorShriekPower : DiceTheSpirePower
+//{
+//    public override PowerType Type => PowerType.Buff;
+
+//    public override PowerStackType StackType => PowerStackType.Counter;
+
+//    public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)
+//    {
+//        if (Owner.Player?.PlayerCombatState is null)
+//        {
+//            return;
+//        }
+
+//        Flash();
+//        await PowerCmd.Apply<VigorPower>(choiceContext, Owner, Amount, Applier, null);
+//    }
+
+//}
+
+//"DICETHESPIRE-WARRIOR_SHRIEK_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
+//  "DICETHESPIRE-WARRIOR_SHRIEK_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you [gold]Exhaust[/gold] a card.",
+//  "DICETHESPIRE-WARRIOR_SHRIEK_POWER.title": "Shriek",

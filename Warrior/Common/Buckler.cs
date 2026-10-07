@@ -10,7 +10,7 @@ namespace DiceTheSpire.Warrior.Common;
 public class Buckler() : TheWarriorCard(3, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, BlockProps.card), .. RangeVars.Make(0, 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(10, BlockProps.card), .. RangeVars.Make(0, 2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

@@ -45,7 +45,7 @@ public class RubberMallet() : TheWarriorCard(2, CardType.Attack, CardRarity.Rare
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(3);
+        //DynamicVars.CalculationBase.UpgradeValueBy(3);
         DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

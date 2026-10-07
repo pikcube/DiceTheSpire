@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,7 +13,7 @@ public class ThickSkin() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, 
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(4M, BlockProps.card)];
     public override bool GainsBlock => true;
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
