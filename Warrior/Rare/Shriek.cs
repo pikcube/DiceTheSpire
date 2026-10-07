@@ -1,5 +1,4 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -35,11 +34,5 @@ public class Shriek() : TheWarriorCard(2, CardType.Skill, CardRarity.Rare, Targe
     }
 
     public override TargetType TargetType => IsUpgraded ? TargetType.AllEnemies : TargetType.AnyEnemy;
-
-
-    protected override void OnUpgrade()
-    {
-        base.OnUpgrade();
-    }
 }
 

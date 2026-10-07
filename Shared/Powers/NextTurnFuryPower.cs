@@ -3,7 +3,6 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Powers;
 
 namespace DiceTheSpire.Shared.Powers;
 public class NextTurnFuryPower : DiceTheSpirePower
