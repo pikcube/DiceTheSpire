@@ -165,7 +165,7 @@
   "DICETHESPIRE-SOLENOID.title": "Solenoid",
   "DICETHESPIRE-SPANNER.description": "[gold]Shock[/gold] 2 cards.\nAdd {Cards:diff()} random cards from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-SPANNER.title": "Spanner",
-  "DICETHESPIRE-SPANNERSWORD.description": "Deal {Damage:diff()} damage.\n[gold]Shock[/gold] {Cards:plural:a card|{Cards:diff()} cards}.\nAdd {Cards:plural:a random card|{Cards:diff()} random cards} from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-SPANNERSWORD.description": "Deal {Damage:diff()} damage.\n[gold]Shock[/gold] {Shock:plural:a card|{Shock:diff()} cards}.\nAdd {Cards:plural:a random card|{Cards:diff()} random cards} from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-SPANNERSWORD.title": "Spannersword",
   "DICETHESPIRE-SPARK.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to ALL enemies.",
   "DICETHESPIRE-SPARK.title": "Spark",

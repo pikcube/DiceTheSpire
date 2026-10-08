@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
@@ -18,7 +19,7 @@ public class Spannersword() : TheInventorCard(1, CardType.Attack, CardRarity.Com
 {
     public override string GetScrapId => nameof(Hook);
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), new CardsVar(1), new ShockVar(1)];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -31,7 +32,7 @@ public class Spannersword() : TheInventorCard(1, CardType.Attack, CardRarity.Com
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, DynamicVars.Cards.IntValue, DynamicVars.Cards.IntValue);
+        CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToShock, DynamicVars.Shock.IntValue, DynamicVars.Shock.IntValue);
         IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
         foreach (CardModel card in results)
         {
