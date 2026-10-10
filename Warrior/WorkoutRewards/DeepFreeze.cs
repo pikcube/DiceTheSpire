@@ -12,7 +12,7 @@ public class DeepFreeze() : TheWarriorCard(2, CardType.Skill, CardRarity.Token, 
 {
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FreezePower>()];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(20, BlockProps.card), .. RangeVars.Make(1, 1), new PowerVar<FreezePower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(25, BlockProps.card), .. RangeVars.Make(1, 1), new PowerVar<FreezePower>(1)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
