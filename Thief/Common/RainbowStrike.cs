@@ -1,17 +1,20 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Shared.Interfaces;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class RainbowStrike() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class RainbowStrike() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
+    public int BaseCount { get; set; } = 1;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        ..MakeCalculatedDamage(5, (card, _) =>
+        ..MakeCalculatedDamage(6, (card, _) =>
         {
             return card.Owner.Deck.Cards.DistinctBy(c => c.Pool.Id).Count();
         }, 2)
@@ -27,7 +30,6 @@ public class RainbowStrike() : TheThiefCard(1, CardType.Attack, CardRarity.Commo
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(1);
         DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

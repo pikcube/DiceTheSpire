@@ -145,9 +145,9 @@
   "DICETHESPIRE-TRANSFORMER.title": "Transformer",
   "DICETHESPIRE-MIDNIGHT_CHARM.description": "The next {Cards:diff()} cards you play this turn are free to play.",
   "DICETHESPIRE-MIDNIGHT_CHARM.title": "Midnight Charm",
-  "DICETHESPIRE-PICKPOCKET.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage.\nGain [gold]Gold[/gold] equal to unblocked damage dealt.",
+  "DICETHESPIRE-PICKPOCKET.description": "Deal {Damage:diff()} damage.\nGain [gold]Gold[/gold] equal to unblocked damage dealt.",
   "DICETHESPIRE-PICKPOCKET.title": "Pickpocket",
-  "DICETHESPIRE-RAINBOW_STRIKE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each color of card in your [gold]Deck[/gold].",
+  "DICETHESPIRE-RAINBOW_STRIKE.description": "[gold]Count:[/gold] {BaseCount}\nDeal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each color of card in your [gold]Deck[/gold].",
   "DICETHESPIRE-RAINBOW_STRIKE.title": "Rainbow Strike",
   "DICETHESPIRE-ANTIDOTE.description": "Remove any negative [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-ANTIDOTE.title": "Antidote"
