@@ -39,8 +39,8 @@ public class HauntPower : DiceTheSpirePower
 
         CardPile hand = PileType.Hand.GetPile(player);
 
-        CardModel[] cardsToShock = [.. hand.Cards.TakeRandom(Amount, player.RunState.Rng.CombatCardSelection)];
-        await ShockModel.ShockAndReplaceAsync(choiceContext, player, cardsToShock, cardsToShock.Length);
+        CardModel[] cardsToDiscard = [.. hand.Cards.TakeRandom(Amount, player.RunState.Rng.CombatCardSelection)];
+        await CardCmd.DiscardAndDraw(choiceContext, cardsToDiscard, cardsToDiscard.Length);
     }
 
     public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
