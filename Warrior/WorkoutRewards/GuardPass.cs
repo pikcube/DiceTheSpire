@@ -13,7 +13,7 @@ public class GuardPass() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, T
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ShieldChargePower>()];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShieldChargePower>(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShieldChargePower>(2)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
@@ -21,7 +21,7 @@ public class GuardPass() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, T
         {
             return;
         }
-        await PowerCmd.Apply<ShieldChargePower>(choiceContext, CombatState.Enemies, 4, Owner.Creature, cardPlay.Card);
+        await PowerCmd.Apply<ShieldChargePower>(choiceContext, CombatState.Enemies, 2, Owner.Creature, cardPlay.Card);
 
     }
 

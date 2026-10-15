@@ -12,9 +12,9 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 
-namespace DiceTheSpire.Warrior.Common;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), IFuryModifier
+public class FlamingSwordStrike() : TheWarriorCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IFuryModifier
 {
     private int FlaimingSwordsBeingPlayed
     {
@@ -60,7 +60,7 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 
     public bool ShouldIgnoreFury => false;
