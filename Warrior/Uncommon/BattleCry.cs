@@ -6,12 +6,13 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using DiceTheSpire.Shared.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
 public class BattleCry() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(6M), new PowerVar<VulnerablePower>(2), .. RangeVars.Make(0, 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(8M), new PowerVar<VulnerablePower>(2), .. RangeVars.Make(0, 2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -24,8 +25,9 @@ public class BattleCry() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
-        DynamicVars.Vulnerable.UpgradeValueBy(1);
+        //DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
+        //DynamicVars.Vulnerable.UpgradeValueBy(1);
+        DynamicVars.MaxRange.UpgradeValueBy(-2);
     }
 
 }
