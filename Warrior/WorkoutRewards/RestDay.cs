@@ -9,7 +9,7 @@ namespace DiceTheSpire.Warrior.WorkoutRewards
 {
     public class RestDay() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
     {
-        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BlockNextTurnPower>(50)];
+        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BlockNextTurnPower>(40)];
         public override bool GainsBlock => true;
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
