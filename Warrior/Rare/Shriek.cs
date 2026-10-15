@@ -10,9 +10,9 @@ using Pikcube.Common.Powers;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class Shriek() : TheWarriorCard(2, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
+public class Shriek() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShriekStrengthDownPower>(99M), new PowerVar<BrokenMirrorPower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShriekStrengthDownPower>(15M), new PowerVar<BrokenMirrorPower>(1M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.FromPower<CursedPower>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

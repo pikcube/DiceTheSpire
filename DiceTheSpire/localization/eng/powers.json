@@ -112,6 +112,8 @@
   "DICETHESPIRE-SHORYUKEN_POWER.title": "Shoryuken",
   "DICETHESPIRE-NEXT_TURN_FURY_POWER.description": "Next turn, gain [gold]Fury[/gold].",
   "DICETHESPIRE-NEXT_TURN_FURY_POWER.smartDescription": "Next turn, gain {Amount} [gold]Fury[/gold].",
-  "DICETHESPIRE-NEXT_TURN_FURY_POWER.title": "Next Turn Fury"
-
+  "DICETHESPIRE-NEXT_TURN_FURY_POWER.title": "Next Turn Fury",
+  "DICETHESPIRE-EQUILIBRIUM_POWER.description": "Deal [blue]{Amount:cond:<1?50|{Amount}}%[/blue] additional damage.",
+  "DICETHESPIRE-EQUILIBRIUM_POWER.smartDescription": "Deal [blue]{Amount}%[/blue] additional damage.",
+  "DICETHESPIRE-EQUILIBRIUM_POWER.title": "Equilibrium"
 }

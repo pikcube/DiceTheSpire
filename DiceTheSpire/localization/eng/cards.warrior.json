@@ -175,6 +175,8 @@
   "DICETHESPIRE-CRYSTALIZE.title": "Crystalize",
   "DICETHESPIRE-ROUNDHOUSE_KICK.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\nMove this card to your [gold]Discard Pile[/gold], whenever you [gold]Discard[/gold] a card.",
   "DICETHESPIRE-ROUNDHOUSE_KICK.title": "Roundhouse Kick",
+  "DICETHESPIRE-HOLLOW_CRYSTAL.description": "Deal {Damage:diff()} damage {HitCount:diff()} {HitCount:plural:time|times}.\nHits one additional time for each \"Crystal\" cards in [gold]Hand[/gold].",
+  "DICETHESPIRE-HOLLOW_CRYSTAL.title": "Hollow Crystal",
   "DICETHESPIRE-SHIELD_CHARGE.description": "Apply {ShieldChargePower:Diff} [gold]Charge!!![/gold]\nDraw {Cards:diff()} {IfUpgraded:show:cards|card}.",
   "DICETHESPIRE-SHIELD_CHARGE.title": "Shield Charge",
   "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\nDraw {Cards:diff()} cards.",
@@ -204,7 +206,11 @@
   "DICETHESPIRE-SHORYUKEN.description": "Gain {ShoryukenPower:diff()} [gold]Vigor[/gold] each time you play a card.",
   "DICETHESPIRE-SHORYUKEN.title": "Shoryuken",
   "DICETHESPIRE-STUNLOCK.description": "[gold]Stun[/gold] an enemy.",
-  "DICETHESPIRE-STUNLOCK.title": "Stunlock"
+  "DICETHESPIRE-STUNLOCK.title": "Stunlock",
+  "DICETHESPIRE-EQUILIBRIUM.description": "Your attacks deal {EquilibriumPower:diff()}% additional damage.",
+  "DICETHESPIRE-EQUILIBRIUM.title": "Equilibrium",
+  "DICETHESPIRE-GUARD_PASS.description": "Apply {ShieldChargePower:Diff} [gold]Charge!!![/gold] to all enemies.",
+  "DICETHESPIRE-GUARD_PASS.title": "Guard Pass"
 
 
 }     
