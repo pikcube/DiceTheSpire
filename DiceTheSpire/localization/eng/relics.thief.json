@@ -18,5 +18,8 @@
   "DICETHESPIRE-POCKET_DICE.title": "Pocket Dice",
   "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.description": "The first time you apply a unique debuff each combat, gain {StrengthPower:diff()} [gold]Strength[/gold].",
   "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.flavor": "",
-  "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.title": "Loud Bird's Mixtape"
+  "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.title": "Loud Bird's Mixtape",
+  "DICETHESPIRE-WINDOW_PUNCH.description": "The Count of the first [gold]Countdown[/gold] card you draw each turn is reduced by 1 until played.",
+  "DICETHESPIRE-WINDOW_PUNCH.flavor": "A must-have tool for making a quick exit.\n...Mind the glass.",
+  "DICETHESPIRE-WINDOW_PUNCH.title": "Window Punch"
 }
