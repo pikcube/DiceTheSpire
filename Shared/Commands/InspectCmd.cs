@@ -30,7 +30,6 @@ namespace DiceTheSpire.Shared.Commands;
 [HarmonyPatch]
 public static class InspectCmd
 {
-    private static List<Func<CardModel, bool>> Filters { get; set; } = [];
     public static async Task<int> InspectAsync(PlayerChoiceContext choiceContext, Player player, int cards)
     {
         CardPile drawPile = PileType.Draw.GetPile(player);
