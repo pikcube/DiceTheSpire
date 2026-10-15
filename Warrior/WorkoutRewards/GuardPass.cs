@@ -1,11 +1,9 @@
-﻿using DiceTheSpire.Shared.DynamicVars;
-using DiceTheSpire.Shared.Powers;
+﻿using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 public class GuardPass() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.AllEnemies)

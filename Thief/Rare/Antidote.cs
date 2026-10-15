@@ -22,8 +22,8 @@ public class Antidote() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, Targe
             return;
         }
 
-        var strength = Owner.Creature.GetPowerAmount<StrengthPower>();
-        var dexterity = Owner.Creature.GetPowerAmount<DexterityPower>();
+        int strength = Owner.Creature.GetPowerAmount<StrengthPower>();
+        int dexterity = Owner.Creature.GetPowerAmount<DexterityPower>();
         if (strength < 0)
         {
             await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, -strength, Owner.Creature, this);

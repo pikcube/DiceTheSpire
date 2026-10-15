@@ -1,6 +1,8 @@
-﻿using DiceTheSpire.Shared.Keywords;
+﻿using System.Data;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Utility;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -8,24 +10,31 @@ using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Multiplayer.Game;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Runs;
-using ICardSelector = MegaCrit.Sts2.Core.TestSupport.ICardSelector;
+using MegaCrit.Sts2.Core.TestSupport;
+using Godot;
+using MegaCrit.Sts2.Core.Nodes.Cards;
+using MegaCrit.Sts2.Core.Nodes.Screens.CardLibrary;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Commands;
 
+[HarmonyPatch]
 public static class InspectCmd
 {
+    private static List<Func<CardModel, bool>> Filters { get; set; } = [];
     public static async Task<int> InspectAsync(PlayerChoiceContext choiceContext, Player player, int cards)
     {
-        CardModel[] selectedCards = [.. await FromGridForInspectAsync(choiceContext, cards, player)];
+        CardPile drawPile = PileType.Draw.GetPile(player);
+        CardModel[] selectedCards = [.. await InspectFromCombatPile(choiceContext, drawPile, player, new CardSelectorPrefs(DiceySelection.ToShock, 0, cards), c => drawPile.Cards.IndexOf(c) < cards)];
 
         await CardPileCmd.Add(selectedCards, PileType.Exhaust, skipVisuals: true);
         foreach (CardModel card in selectedCards)
@@ -41,90 +50,112 @@ public static class InspectCmd
 
         return selectedCards.Length;
     }
-
-    private static async Task<IEnumerable<CardModel>> FromGridForInspectAsync(PlayerChoiceContext context, int count, Player player)
+    //Thanks lamali
+    //todo: swap with baselib version when that is released.
+    private static async Task<IEnumerable<CardModel>> InspectFromCombatPile(PlayerChoiceContext context, CardPile pile,
+        Player player, CardSelectorPrefs prefs, Func<CardModel, bool>? filter)
     {
-        //Don't select anything if combat is ending or if the total to inspect is 0
-        if (CombatManager.Instance.IsEnding || count < 1)
+        if (CombatManager.Instance.IsEnding)
         {
             return [];
         }
 
-        //In case of Vakuu, let him take the wheel
-        if (CardSelectCmd.Selector is not null)
+        if (!pile.IsCombatPile)
         {
-            return await DoSelectorInspectAsync(CardSelectCmd.Selector, player, count);
+            throw new InvalidOperationException("Cannot perform on a non combat pile");
         }
 
-        //Start a choice and run the inspection
-        uint choiceId = RunManager.Instance.PlayerChoiceSynchronizer.ReserveChoiceId(player);
-        await context.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
+        if (CombatManager.Instance.IsPlayerReadyToEndTurn(player)
+            && player.Creature.CombatState is { CurrentSide: CombatSide.Player })
+        {
+            CombatManager.Instance.UndoReadyToEndTurn(player);
+        }
 
-        //Shuffle if necessary while preserving the order of the draw pile
-        await CardPileCmd.ShuffleIfNecessary(context, player);
+        uint? choiceId = null;
+        if (CardSelectCmd.Selector == null)
+        {
+            choiceId = RunManager.Instance.PlayerChoiceSynchronizer.ReserveChoiceId(player);
+            await context.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
+        }
 
-        //Warning! Do not enumerate this until after the player choice has begun or you will get multiplayer weirdness
-        CardPile drawPile = PileType.Draw.GetPile(player);
-        List<CardModel> cards = [.. drawPile.Cards.Take(count)];
-        List<CardModel> result = [.. await DispatchForInspectAsync(choiceId, count, cards, player)];
+        List<CardModel> cards = [.. filter == null ? pile.Cards : pile.Cards.Where(filter)];
+        List<CardModel> result;
+        if (cards.Count == 0)
+        {
+            result = [];
+        }
+        else if (!prefs.RequireManualConfirmation && cards.Count <= prefs.MinSelect)
+        {
+            result = cards;
+        }
+        else if (CardSelectCmd.Selector != null)
+        {
+            result = [.. await CardSelectCmd.Selector.GetSelectedCards(cards, prefs.MinSelect, prefs.MaxSelect)];
+        }
+        else if (TestMode.IsOn)
+        {
+            result = [.. cards.Take(prefs.MinSelect)];
+        }
+        else if (LocalContext.IsMe(player) && RunManager.Instance.NetService.Type != NetGameType.Replay)
+        {
+            NPlayerHand.Instance?.CancelAllCardPlay();
+            NCombatPileCardSelectScreen screen = NCombatPileCardSelectScreen.Create(pile, prefs, filter);
+            NOverlayStack.Instance?.Push(screen);
+            Action? stopKeepingOrder = null;
+            try
+            {
+                if (pile.Type == PileType.Draw)
+                {
+                    stopKeepingOrder = KeepPileOrder(screen, pile, filter);
+                }
 
-        await context.SignalPlayerChoiceEnded();
+                result = [.. await screen.CardsSelected()];
+            }
+            finally
+            {
+                stopKeepingOrder?.Invoke();
+            }
+            RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(player, choiceId!.Value,
+                PlayerChoiceResult.FromMutableCombatCards(result));
+        }
+        else
+        {
+            result = [..(await RunManager.Instance.PlayerChoiceSynchronizer.WaitForRemoteChoice(player, choiceId!.Value)).AsCombatCards()];
+        }
+
+        if (choiceId.HasValue)
+        {
+            await context.SignalPlayerChoiceEnded();
+        }
 
         return result;
     }
 
-    private static async Task<IEnumerable<CardModel>> DispatchForInspectAsync(uint choiceId, int count, List<CardModel> cards, Player player)
+    private static Action KeepPileOrder(NCombatPileCardSelectScreen screen, CardPile pile, Func<CardModel, bool>? filter)
     {
-        if (cards.Count < 1)
+        NCardGrid grid = screen.PrivateFieldWrapper<NCardGridSelectionScreen, NCardGrid>("_grid").Value ?? throw new NoNullAllowedException();
+        Reorder();
+        pile.ContentsChanged += Reorder;
+        return () => pile.ContentsChanged -= Reorder;
+
+        void Reorder()
         {
-            return [];
+            if (!GodotObject.IsInstanceValid(grid))
+            {
+                return;
+            }
+
+            List<CardModel> cards = [.. filter == null ? pile.Cards : pile.Cards.Where(filter)];
+            if (cards.Count == 0)
+            {
+                return;
+            }
+
+            grid.SetCards(cards, pile.Type, [SortingOrders.Ascending]);
+            foreach (CardModel card in screen.PrivateFieldWrapper<NCombatPileCardSelectScreen, HashSet<CardModel>>("_selectedCards").Value?.Where(cards.Contains) ?? [])
+            {
+                grid.HighlightCard(card);
+            }
         }
-
-        if (cards.Count < count)
-        {
-            count = cards.Count;
-        }
-
-        //If we aren't the local player, we just listen for the choice to come in over the network
-        if (!LocalContext.IsMe(player) || RunManager.Instance.NetService.Type == NetGameType.Replay)
-        {
-            return await DoRemoteInspectAsync(choiceId, player, cards);
-        }
-
-        //This will never trigger unless Megacrit runs their test suite with my mod loaded, but it was easy enough to add in
-        if (CardSelectCmd.LocalSelector is not null)
-        {
-            return await DoSelectorInspectAsync(CardSelectCmd.LocalSelector, player, count);
-        }
-
-        //Otherwise Pull up the card selection UI
-        return await DoLocalInspectAsync(choiceId, count, player, cards);
-    }
-
-    private static async Task<IEnumerable<CardModel>> DoLocalInspectAsync(uint choiceId, int count, Player player, List<CardModel> cards)
-    {
-        NPlayerHand.Instance?.CancelAllCardPlay();
-        NSimpleCardSelectScreen screen = NSimpleCardSelectScreen.Create(cards, new CardSelectorPrefs(DiceySelection.ToShock, 0, count));
-        NOverlayStack.Instance?.Push(screen);
-        List<CardModel> result = [.. await screen.CardsSelected()];
-        RunManager.Instance.PlayerChoiceSynchronizer.SyncLocalChoice(player, choiceId, PlayerChoiceResult.FromIndexes([.. result.Select(c => cards.IndexOf(c))]));
-        Log.Info($"Player {player.NetId} chose cards [{string.Join(",", result.Select<CardModel, string>(c => c.Id.Entry))}]");
-        return result;
-    }
-
-    private static async Task<IEnumerable<CardModel>> DoRemoteInspectAsync(uint choiceId, Player player, List<CardModel> cards)
-    {
-        PlayerChoiceResult remoteChoice = await RunManager.Instance.PlayerChoiceSynchronizer.WaitForRemoteChoice(player, choiceId);
-        List<CardModel> results = [.. remoteChoice.AsIndexes().Select(i => cards[i])];
-        Log.Info($"Player {player.NetId} chose cards [{string.Join(",", results.Select<CardModel, string>(c => c.Id.Entry))}]");
-        return results;
-    }
-
-    private static async Task<IEnumerable<CardModel>> DoSelectorInspectAsync(ICardSelector selector, Player player, int count)
-    {
-        IEnumerable<CardModel> result = await selector.GetSelectedCards(PileType.Draw.GetPile(player).Cards.Take(count), 0, count);
-        List<CardModel> inspectWithSelectorAsync = result as List<CardModel> ?? [.. result];
-        Log.Info($"Player {player.NetId} chose cards [{string.Join(",", inspectWithSelectorAsync.Select<CardModel, string>(c => c.Id.Entry))}]");
-        return inspectWithSelectorAsync;
     }
 }
