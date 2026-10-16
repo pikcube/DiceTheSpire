@@ -1,5 +1,6 @@
-﻿namespace DiceTheSpire.Inventor.Rare;
-/*
+﻿/*
+namespace DiceTheSpire.Inventor.Rare;
+
 public class ExecutionersAxe() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(DialUpSounds);
