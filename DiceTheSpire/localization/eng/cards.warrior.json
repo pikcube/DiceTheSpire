@@ -209,7 +209,7 @@
   "DICETHESPIRE-STUNLOCK.title": "Stunlock",
   "DICETHESPIRE-EQUILIBRIUM.description": "Your attacks deal {EquilibriumPower:diff()}% additional damage.",
   "DICETHESPIRE-EQUILIBRIUM.title": "Equilibrium",
-  "DICETHESPIRE-GUARD_PASS.description": "Apply {ShieldChargePower:Diff} [gold]Charge!!![/gold] to all enemies.",
+  "DICETHESPIRE-GUARD_PASS.description": "Deal damage equal to four times your [gold]Block[/gold].\n(Currently {CalculatedDamage:diff()})",
   "DICETHESPIRE-GUARD_PASS.title": "Guard Pass"
 
 

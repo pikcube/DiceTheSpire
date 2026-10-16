@@ -10,7 +10,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class RoundhouseKick() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new RepeatVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new RepeatVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -36,7 +36,7 @@ public class RoundhouseKick() : TheWarriorCard(2, CardType.Attack, CardRarity.Un
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(5);
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 
 }
