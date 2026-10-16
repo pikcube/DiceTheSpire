@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bknoc06kluchx"
-path="res://.godot/imported/plasma_canon_power.png-ccf45d34a1f86b998e2f38bd3afcd6ce.ctex"
+uid="uid://dhrwo8ckhum48"
+path="res://.godot/imported/plasma_cannon_power.png-16fb19617afe149e0104053912a012e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/powers/plasma_canon_power.png"
-dest_files=["res://.godot/imported/plasma_canon_power.png-ccf45d34a1f86b998e2f38bd3afcd6ce.ctex"]
+source_file="res://DiceTheSpire/images/powers/big/plasma_cannon_power.png"
+dest_files=["res://.godot/imported/plasma_cannon_power.png-16fb19617afe149e0104053912a012e3.ctex"]
 
 [params]
 

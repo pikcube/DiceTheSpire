@@ -77,9 +77,10 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         }
     }
 
-    private static readonly SavedSpireField<Player, string> CurrentGadgetId = new(() => nameof(DefaultGadget), $"{MainFile.ModId}_{nameof(GadgetId)}");
+    public static readonly SavedSpireField<Player, string> CurrentGadgetId = new(() => nameof(DefaultGadget), $"{MainFile.ModId}_{nameof(GadgetId)}");
+    public static readonly SavedSpireField<Player, int> ScrapQuantityModifications = new(() => -1, $"{MainFile.ModId}_{nameof(ScrapQuantityModifications)}");
 
-    private static readonly SavedSpireField<Player, int> LastScrapLocation =
+    public static readonly SavedSpireField<Player, int> LastScrapLocation =
         new(() => -1, $"{MainFile.ModId}_{nameof(LastScrapLocation)}");
 
     public static Dictionary<string, GadgetModel> AllGadgets { get; } = [];
@@ -206,7 +207,13 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         cards.AddRange(scrapCards);
         cards.AddRange(otherCards);
 
-        CardModel[] cardModels = [.. cards.Take(3)];
+        int scrapAmount = 3;
+        if (ScrapQuantityModifications[p] == p.RunState.TotalFloor)
+        {
+            scrapAmount = 2;
+        }
+
+        CardModel[] cardModels = [.. cards.Take(scrapAmount)];
         if (cardModels.Length == 0)
         {
             //Well shit, the player's deck is literally empty except for Eternal cards.
@@ -221,7 +228,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             BetterHooks.ModifyCardSelectionScreenTitle += BetterHooksOnModifyCardSelectionScreenTitle;
             TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
         }
-
+        
         CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p, DebugMode == ScrapDebugMode.Optional);
         CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
 
@@ -424,5 +431,10 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
     public static bool GadgetIsFromThisFloor(Player player)
     {
         return GadgetOrigin(player) == player.RunState.TotalFloor;
+    }
+
+    public static void DecreaseModification(Player ownerPlayer)
+    {
+        ScrapQuantityModifications[ownerPlayer] = ownerPlayer.RunState.TotalFloor;
     }
 }

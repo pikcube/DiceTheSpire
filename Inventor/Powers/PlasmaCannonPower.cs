@@ -1,38 +1,22 @@
-﻿using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Keywords;
-using DiceTheSpire.Shared.Powers;
-using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Combat.History.Entries;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
 
 namespace DiceTheSpire.Inventor.Powers;
 
 
 public class PlasmaCannonPower : DiceTheSpirePower
 {
-    public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Counter;
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Unplayable), HoverTipFactory.FromKeyword(ShockModel.Shock)];
-    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+    public override PowerType Type => PowerType.Debuff;
+    public override PowerStackType StackType => PowerStackType.Single;
+    public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (card.Owner.Creature != Owner || !card.Keywords.Contains(CardKeyword.Unplayable))
+        if (Owner.Player is not null)
         {
-            return;
-        }
-        int unplayableDrawn = CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>()
-            .Count(cde => cde.HappenedThisTurn(CombatState) && cde.Card.Owner.Creature == Owner && cde.Card.Keywords.Contains(CardKeyword.Unplayable));
-
-        if (unplayableDrawn > 1)
-        {
-            return;
+            ScrapManager.DecreaseModification(Owner.Player);
         }
 
-        await card.ShockAsync(choiceContext);
-        await CardPileCmd.Draw(choiceContext, Amount, card.Owner);
+        return Task.CompletedTask;
     }
 }

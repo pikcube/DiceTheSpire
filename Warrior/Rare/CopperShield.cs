@@ -1,5 +1,4 @@
 ﻿using DiceTheSpire.Shared.Powers;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -13,7 +12,7 @@ public class CopperShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare,
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<NextTurnDoubleBlockPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
+        await NextTurnDoubleBlockPower.ApplyAsync(choiceContext, Owner.Creature, 1, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
