@@ -9,7 +9,7 @@ namespace DiceTheSpire.Warrior.Common;
 
 public class Crossbow() : TheWarriorCard(3, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card), .. RangeVars.Make(0, 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Sly];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

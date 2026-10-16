@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using DiceTheSpire.Shared.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
@@ -24,8 +25,9 @@ public class Tazer() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon, Ta
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
-        DynamicVars.Vulnerable.UpgradeValueBy(1);
+        //DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
+        //DynamicVars.Weak.UpgradeValueBy(1);
+        DynamicVars.MaxRange.UpgradeValueBy(-2);
     }
 
 }
