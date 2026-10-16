@@ -118,5 +118,8 @@
   "DICETHESPIRE-EQUILIBRIUM_POWER.title": "Equilibrium",
   "DICETHESPIRE-CONFUSING_CRYSTAL_POWER.description": "Whenever you play a card {Amount:plural:this turn|the next {Amount} turns}, [gold]Reroll[/gold] your [gold]Hand[/gold].",
   "DICETHESPIRE-CONFUSING_CRYSTAL_POWER.smartDescription": "Whenever you play a card {Amount:plural:this turn|the next {Amount} turns}, [gold]Reroll[/gold] your [gold]Hand[/gold].",
-  "DICETHESPIRE-CONFUSING_CRYSTAL_POWER.title": "Confusing Crystal"
+  "DICETHESPIRE-CONFUSING_CRYSTAL_POWER.title": "Confusing Crystal",
+  "DICETHESPIRE-LUCKY_ROLL_POWER.description": "Cards cannot [gold]Reroll[/gold] to cost more.",
+  "DICETHESPIRE-LUCKY_ROLL_POWER.smartDescription": "Cards cannot [gold]Reroll[/gold] to cost more.",
+  "DICETHESPIRE-LUCKY_ROLL_POWER.title": "Lucky Roll"
 }

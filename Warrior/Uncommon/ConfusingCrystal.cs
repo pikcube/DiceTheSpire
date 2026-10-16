@@ -34,7 +34,7 @@ public class ConfusingCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.U
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Energy.UpgradeValueBy(-1);
+        EnergyCost.UpgradeBy(-1);
     }
 
 }

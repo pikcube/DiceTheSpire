@@ -21,6 +21,7 @@
 //public class NightmareCrystal() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 //{
 
+////==> LOOK AT INVENTOR BefuddlePower <==////
 
 //    protected override IEnumerable<string> ExtraRunAssetPaths => NNightmareHandsVfx.AssetPaths;
 
