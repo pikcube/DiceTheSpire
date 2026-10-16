@@ -62,15 +62,11 @@ public static class RerollCmd
 
         DiceyHooks.OnModifyRerollRange(runState, card, ref minimum, ref maximum);
 
+        maximum = Math.Max(minimum, maximum);
+
         isFixed = minimum == maximum;
 
-        if (minimum > maximum)
-        {
-            (minimum, maximum) = (maximum, minimum);
-        }
-
         return runState.Rng.CombatEnergyCosts.NextInt(minimum, maximum + 1);
-
     }
 }
 

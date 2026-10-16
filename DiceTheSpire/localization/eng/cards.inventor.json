@@ -179,6 +179,8 @@
   "DICETHESPIRE-STALL_OF_MIRRORS.title": "Stall of Mirrors",
   "DICETHESPIRE-STEEL_WRENCH.description": "[gold]Shock[/gold] any number of cards.\nAdd that many cards from your [gold]Discard Pile[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-STEEL_WRENCH.title": "Steel Wrench",
+  "DICETHESPIRE-STEINWAY_AXE.description": "Deal {Damage:diff()} damage.\nAt the start of the next 3 turns, deal {Damage:diff()} damage.",
+  "DICETHESPIRE-STEINWAY_AXE.title": "Steinway Axe",
   "DICETHESPIRE-STRIKE_INVENTOR.description": "Deal {Damage:diff()} damage.",
   "DICETHESPIRE-STRIKE_INVENTOR.title": "Strike",
   "DICETHESPIRE-TABULA_RASA.description": "[gold]Shock[/gold] your [gold]Hand[/gold].\nGain {Energy:diceIcons()} per card [gold]Shocked[/gold].\nDraw X cards.",

@@ -1,16 +1,5 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Inventor.Gadgets;
-using DiceTheSpire.Inventor.Powers;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
-
-namespace DiceTheSpire.Inventor.Rare;
-
+﻿namespace DiceTheSpire.Inventor.Rare;
+/*
 public class ExecutionersAxe() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     public override string GetScrapId => nameof(DialUpSounds);
@@ -69,3 +58,4 @@ public class ExecutionersAxe() : TheInventorCard(1, CardType.Attack, CardRarity.
         DynamicVars.Damage.UpgradeValueBy(4);
     }
 }
+*/
