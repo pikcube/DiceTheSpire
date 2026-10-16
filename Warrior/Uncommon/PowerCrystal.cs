@@ -16,7 +16,14 @@ public class PowerCrystal() : TheWarriorCard(0, CardType.Power, CardRarity.Uncom
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.ForEnergy(this)]; 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<PowerCrystalPower>(choiceContext, Owner.Creature, DynamicVars.Power<PowerCrystalPower>().IntValue, Owner.Creature, this);
+
+    }
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card == this)
+        {
+            await PowerCmd.Apply<PowerCrystalPower>(choiceContext, Owner.Creature, DynamicVars.Power<PowerCrystalPower>().IntValue, Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()

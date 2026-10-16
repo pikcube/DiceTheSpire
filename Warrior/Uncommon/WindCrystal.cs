@@ -17,8 +17,14 @@ public class WindCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Uncomm
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<WindCrystalPower>(choiceContext, Owner.Creature, DynamicVars.Power<WindCrystalPower>().IntValue, Owner.Creature, this);
-        //await PowerCmd.Apply<SuperSetDrawPower>(choiceContext, Owner.Creature, DynamicVars.Power<SuperSetDrawPower>().IntValue, Owner.Creature, this);
+
+    }
+    public override async Task AfterCardPlayedLate(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card == this)
+        {
+            await PowerCmd.Apply<WindCrystalPower>(choiceContext, Owner.Creature, DynamicVars.Power<WindCrystalPower>().IntValue, Owner.Creature, this);
+        }
     }
     protected override void OnUpgrade()
     {

@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class SineWave() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge), HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
@@ -24,7 +24,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon,
         //List<CardModel> handPile = [.. Owner.PlayerCombatState.Hand.Cards];
         if (!IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 1, 1);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 0, 2);
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {
@@ -33,7 +33,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon,
         }
         else
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 1, 1);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 0, 2);
             IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
             foreach (CardModel card in results)
             {
@@ -43,8 +43,8 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon,
 
         if (!IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 1, 1);
-            IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 0, 2);
+            IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {
                 await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);
@@ -52,7 +52,7 @@ public class SineWave() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon,
         }
         else
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 1, 1);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 0, 2);
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {
