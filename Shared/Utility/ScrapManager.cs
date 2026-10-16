@@ -191,8 +191,6 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         {
             parent.LinkedGadgetModel.TryModifyRewards(p, rewards, p.RunState.CurrentRoom);
         }
-
-        
     }
 
     private static async Task<CardModel?> SelectCardForScrapAsync(Player p)
