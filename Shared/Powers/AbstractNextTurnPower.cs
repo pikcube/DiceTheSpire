@@ -12,13 +12,24 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public abstract class NextTurnPower : DiceTheSpirePower, IHasSecondAmount
+public abstract class AbstractNextTurnPower : DiceTheSpirePower, IHasSecondAmount
 {
     public abstract TickTime Tick { get; }
     public abstract CombatSide TickSide { get; }
     protected virtual IEnumerable<DynamicVar> ExtraCanonicalVars => [];
     protected sealed override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("Delay", 1), .. ExtraCanonicalVars];
-    public string GetSecondAmount() => $"{DynamicVars["Delay"].IntValue}";
+    
+    public int Delay
+    {
+        get => DynamicVars["Delay"].IntValue;
+        set
+        {
+            DynamicVars["Delay"].BaseValue = value;
+            this.InvokeSecondAmountChanged();
+        }
+    }
+
+    public string GetSecondAmount() => Delay.ToString();
 
     public sealed override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
@@ -46,15 +57,14 @@ public abstract class NextTurnPower : DiceTheSpirePower, IHasSecondAmount
 
     private async Task TickDownAsync(PlayerChoiceContext choiceContext)
     {
-        if (DynamicVars["Delay"].IntValue == 1)
+        if (Delay == 1)
         {
             await OnDelayOverAsync(choiceContext);
             await PowerCmd.Remove(this);
         }
         else
         {
-            --DynamicVars["Delay"].BaseValue;
-            this.InvokeSecondAmountChanged();
+            --Delay;
         }
     }
 
@@ -70,7 +80,7 @@ public enum TickTime
 
 public static class NextTurnPowerExtensions
 {
-    extension<T>(T) where T : NextTurnPower
+    extension<T>(T) where T : AbstractNextTurnPower
     {
         public static async Task ApplyAsync(PlayerChoiceContext choiceContext,
             IEnumerable<Creature> targets,
@@ -94,7 +104,7 @@ public static class NextTurnPowerExtensions
             CardModel? cardSource,
             bool silent = false)
         {
-            T? existing = target.Powers.OfType<T>().FirstOrDefault(p => p.DynamicVars["Delay"].IntValue == delay && p.Applier == applier);
+            T? existing = target.Powers.OfType<T>().FirstOrDefault(p => p.Delay == delay && p.Applier == applier);
             if (existing is not null && existing.NextTurnInstanceType == PowerInstanceType.InstancedPerApplier)
             {
                 await PowerCmd.ModifyAmount(choiceContext, existing, amount, applier, cardSource, silent);
@@ -102,8 +112,7 @@ public static class NextTurnPowerExtensions
             else
             {
                 T? power = await PowerCmd.Apply<T>(choiceContext, target, amount, applier, cardSource, silent);
-                power?.DynamicVars["Delay"].BaseValue = delay;
-                power?.InvokeSecondAmountChanged();
+                power?.Delay = delay;
             }
         }
     }
