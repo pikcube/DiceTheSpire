@@ -1,15 +1,19 @@
-﻿//using BaseLib.Extensions;
-//using DiceTheSpire.Inventor.Powers;
-//using DiceTheSpire.Shared.DynamicVars;
-//using MegaCrit.Sts2.Core.Entities.Cards;
-//using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-//using MegaCrit.Sts2.Core.HoverTips;
-//using MegaCrit.Sts2.Core.Localization.DynamicVars;
-//using Pikcube.Common.Extensions;
+﻿using BaseLib.Extensions;
+using DiceTheSpire.Inventor.Powers;
+using DiceTheSpire.Shared.DynamicVars;
+using DiceTheSpire.Shared.Interfaces;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 
-
-//namespace DiceTheSpire.Warrior.WorkoutRewards;
-
+namespace DiceTheSpire.Warrior.WorkoutQuests;
+public class EquilibriumQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+{
+    public CardModel RewardCard => throw new NotImplementedException();
+}
 
 //public class EquilibriumQuest() : TheWarriorCard(3, CardType.Power, CardRarity.Token, TargetType.Self)
 //{

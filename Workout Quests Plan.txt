@@ -1,0 +1,16 @@
+BreathingExercises : Add a card to your deck that is already in your deck.
+Cartwheel : Add 5 cards to your deck
+CoreTraining : Add 4 skills to your deck
+DeepFreeze : Skip 2 card rewards
+Dumbbell : Add 3 common cards to your deck
+EnduranceTraining : Climb 8 floors
+Equilibrium : Win a combat without taking damage
+KnockoutPunch : Defeat an Elite
+LightningKick : Clear 5 combats
+Piledriver : Add 4 attacks to your deck
+RestDay : Rest at a restsite
+Shoryuken : Smith at a restsite
+Somersault : Enter 4 ? rooms
+StrengthTraining : Add 3 powers to your deck
+Stunlock : Remove this card
+GuardPass : Win a combat without blocking any damage
