@@ -1,20 +1,13 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Commands;
-using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Keywords;
+﻿using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
-using Pikcube.Common.Powers;
 
 namespace DiceTheSpire.Warrior.Rare;
 public class NightmareCrystal() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self), ICrystalCard

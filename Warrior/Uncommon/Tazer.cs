@@ -1,5 +1,4 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
 using MegaCrit.Sts2.Core.Commands;
@@ -8,7 +7,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 

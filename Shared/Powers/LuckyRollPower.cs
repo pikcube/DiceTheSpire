@@ -1,8 +1,4 @@
-﻿using DiceTheSpire.Shared.Cards;
-using DiceTheSpire.Shared.Listeners;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
+﻿using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 
