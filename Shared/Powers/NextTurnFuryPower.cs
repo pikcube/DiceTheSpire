@@ -1,24 +1,17 @@
-﻿using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Players;
+﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
-public class NextTurnFuryPower : DiceTheSpirePower
+public class NextTurnFuryPower : AbstractNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;
-
     public override PowerStackType StackType => PowerStackType.Counter;
-
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    public override TickTime Tick => TickTime.Start;
+    public override CombatSide TickSide => CombatSide.Player;
+    public override async Task OnDelayOverAsync(PlayerChoiceContext choiceContext)
     {
-        if (Owner != player.Creature)
-        {
-            return;
-        }
-
         await FuryPower.ApplyAsync(choiceContext, Owner, Amount, Owner, null);
-        await PowerCmd.Remove(this);
     }
 }

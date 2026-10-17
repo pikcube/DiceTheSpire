@@ -30,7 +30,7 @@ public class FrozenSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity
 
         await FreezePower.ApplyAsync(choiceContext, cardPlay.Target, 1, Owner.Creature, this);
 
-        await PowerCmd.Apply<NextTurnFuryPower>(choiceContext, Owner.Creature, DynamicVars.Power<NextTurnFuryPower>().IntValue, Owner.Creature, this);
+        await NextTurnFuryPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<NextTurnFuryPower>().IntValue, 1, Owner.Creature, this);
 
     }
 

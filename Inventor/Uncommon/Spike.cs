@@ -7,10 +7,10 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
 
-namespace DiceTheSpire.Inventor.Rare;
+namespace DiceTheSpire.Inventor.Uncommon;
 
 
-public class Spike() : TheInventorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Spike() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(Rockslide);
 

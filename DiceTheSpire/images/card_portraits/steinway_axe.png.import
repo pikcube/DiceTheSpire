@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bknoc06kluchx"
-path="res://.godot/imported/plasma_canon_power.png-d9ee19972791648e180ec1aaea5e3617.ctex"
+uid="uid://nuwxe6w0yxif"
+path="res://.godot/imported/steinway_axe.png-14a027ef4f09d36ccb961b17d426b76c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/powers/big/plasma_canon_power.png"
-dest_files=["res://.godot/imported/plasma_canon_power.png-d9ee19972791648e180ec1aaea5e3617.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/steinway_axe.png"
+dest_files=["res://.godot/imported/steinway_axe.png-14a027ef4f09d36ccb961b17d426b76c.ctex"]
 
 [params]
 
