@@ -121,5 +121,8 @@
   "DICETHESPIRE-CONFUSING_CRYSTAL_POWER.title": "Confusing Crystal",
   "DICETHESPIRE-LUCKY_ROLL_POWER.description": "Cards cannot [gold]Reroll[/gold] to cost more.",
   "DICETHESPIRE-LUCKY_ROLL_POWER.smartDescription": "Cards cannot [gold]Reroll[/gold] to cost more.",
-  "DICETHESPIRE-LUCKY_ROLL_POWER.title": "Lucky Roll"
+  "DICETHESPIRE-LUCKY_ROLL_POWER.title": "Lucky Roll",
+  "DICETHESPIRE-NIGHTMARE_CRYSTAL_POWER.description": "Add clones of a chosen card to your [gold]Hand[/gold] next turn.",
+  "DICETHESPIRE-NIGHTMARE_CRYSTAL_POWER.smartDescription": "Next turn, add {Amount:plural:a copy|{Amount} copies} of {CardName.StringValue} to your hand.",
+  "DICETHESPIRE-NIGHTMARE_CRYSTAL_POWER.title": "Nightmare Crystal"
 }

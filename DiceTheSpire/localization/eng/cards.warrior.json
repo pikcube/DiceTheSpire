@@ -173,6 +173,8 @@
   "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal",
   "DICETHESPIRE-CRYSTALIZE.description": "At the start of each turn\ncreate X {IfUpgraded:show:[gold]Upgraded[/gold] |}\"Crystal\" cards in [gold]Hand[/gold].",
   "DICETHESPIRE-CRYSTALIZE.title": "Crystalize",
+  "DICETHESPIRE-NIGHTMARE_CRYSTAL.description": "Choose a card,\nit costs {Energy:diceIcons()} more.\nNext turn, add {Cards:plural:a copy|{Cards:diff()} copies}\nto your [gold]Hand[/gold].",
+  "DICETHESPIRE-NIGHTMARE_CRYSTAL.title": "Nightmare Crystal",
   "DICETHESPIRE-ROUNDHOUSE_KICK.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\nMove this card to your [gold]Discard Pile[/gold], whenever you [gold]Discard[/gold] a card.",
   "DICETHESPIRE-ROUNDHOUSE_KICK.title": "Roundhouse Kick",
   "DICETHESPIRE-HOLLOW_CRYSTAL.description": "Deal {Damage:diff()} damage {HitCount:diff()} {HitCount:plural:time|times}.\nHits one additional time for each \"Crystal\" cards in [gold]Hand[/gold].",
