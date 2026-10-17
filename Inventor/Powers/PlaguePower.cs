@@ -1,35 +1,28 @@
 ﻿using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace DiceTheSpire.Inventor.Powers;
 
-public class PlaguePower : DiceTheSpirePower
+public class PlaguePower : AbstractNextTurnPower
 {
     public override PowerType Type => PowerType.Debuff;
-
     public override PowerStackType StackType => PowerStackType.Counter;
+    public override TickTime Tick => TickTime.Start;
+    public override CombatSide TickSide => CombatSide.Player;
 
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
-
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    public override async Task OnDelayOverAsync(PlayerChoiceContext choiceContext)
     {
-        if (Applier?.IsPlayer is true && player.Creature != Applier)
+        if (Owner.CombatState?.RunState is null)
         {
             return;
         }
 
-        if (Amount == 1)
+        for(int n = 0; n < Amount; ++n)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, Owner, Applier, null);
-            await PowerCmd.Remove(this);
-        }
-        else
-        {
-            await PowerCmd.Decrement(this);
+            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, Owner.CombatState.RunState, Owner, Applier, null);
         }
     }
 }

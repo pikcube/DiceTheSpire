@@ -9,28 +9,19 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Powers;
 
-public class UnclePower : DiceTheSpirePower
+public class UnclePower : AbstractNextTurnPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new IntVar("Delay", 5), new DamageVar(90, DamageProps.nonCardHpLoss)];
+    public override TickTime Tick => TickTime.End;
+    public override CombatSide TickSide => CombatSide.Player;
 
-    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    protected override IEnumerable<DynamicVar> ExtraCanonicalVars =>
+        [new DamageVar(90, DamageProps.nonCardHpLoss)];
+
+    public override async Task OnDelayOverAsync(PlayerChoiceContext choiceContext)
     {
-        if (side != Owner.Side)
-        {
-            return;
-        }
-        if (Amount == 1)
-        {
-            await CreatureCmd.Damage(choiceContext, CombatState.Enemies, DynamicVars.Damage, Owner, null, null);
-            await PowerCmd.Remove(this);
-            return;
-        }
-
-        await PowerCmd.Decrement(this);
+        await CreatureCmd.Damage(choiceContext, CombatState.Enemies, Amount, DynamicVars.Damage.Props, Owner, null, null);
     }
 }
