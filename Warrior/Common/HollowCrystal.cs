@@ -16,7 +16,10 @@ public class HollowCrystal() : TheWarriorCard(1, CardType.Attack, CardRarity.Com
     private static decimal BonusFunc(CardModel card, Creature? target)
     {
         if (card.Owner.PlayerCombatState is null)
+        {
             return 1;
+        }
+
         return (decimal)card.Owner.PlayerCombatState.Hand.Cards.Count(c => c is ICrystalCard) - 1;
     }
 

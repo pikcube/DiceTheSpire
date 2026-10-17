@@ -19,7 +19,10 @@ public class Shriek() : TheWarriorCard(0, CardType.Skill, CardRarity.Rare, Targe
         if (IsUpgraded)
         {
             if (CombatState is null)
+            {
                 return;
+            }
+
             await PowerCmd.Apply<ShriekStrengthDownPower>(choiceContext, CombatState.Enemies, DynamicVars.Power<ShriekStrengthDownPower>().IntValue, Owner.Creature, cardPlay.Card);
         }
         else

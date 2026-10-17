@@ -22,7 +22,10 @@ public class Glue() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
         CardSelectorPrefs prefs = new(SelectionScreenPrompt, 1);
         CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, (Func<CardModel, bool>)(c => !c.Keywords.Contains(CardKeyword.Retain)), glue)).FirstOrDefault();
         if (card == null)
+        {
             return;
+        }
+
         CardCmd.ApplyKeyword(card, CardKeyword.Retain);
     }
 
