@@ -27,7 +27,6 @@ public class FirstAidKit() : TheWarriorCard(1, CardType.Power, CardRarity.Uncomm
     protected override bool ShouldGlowGoldInternal => IsPlayable;
     protected override void OnUpgrade()
     {
-        DynamicVars.Heal.UpgradeValueBy(2);
         DynamicVars.Energy.UpgradeValueBy(1);
     }
 }
