@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.DynamicVars;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,9 +9,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
 
-public class Slingshot() : TheWarriorCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(4M, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(6M, DamageProps.card), .. RangeVars.Make(1, 1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

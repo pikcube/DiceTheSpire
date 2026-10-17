@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class PowerCrystal() : TheWarriorCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICrystalCard
+public class PowerCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PowerCrystalPower>(1M), new EnergyVar(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.ForEnergy(this)]; 

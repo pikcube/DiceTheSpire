@@ -11,8 +11,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Warrior.Common;
 public class HollowCrystal() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICrystalCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, DamageProps.card), .. MakeCalculatedVar("HitCount", 1, BonusFunc)];
-
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card), .. MakeCalculatedVar("HitCount", 1, BonusFunc)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
     private static decimal BonusFunc(CardModel card, Creature? target)
     {
         if (card.Owner.PlayerCombatState is null)
