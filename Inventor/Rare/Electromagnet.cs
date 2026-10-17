@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class Electromagnet() : TheInventorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IOnShockListener
+public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IOnShockListener
 {
     public int ShockedThisCombat { get; set; }
 
