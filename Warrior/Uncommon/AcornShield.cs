@@ -18,7 +18,6 @@ public class AcornShield() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncomm
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(5, BlockProps.card)];
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
-
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ReturnModel.Return];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

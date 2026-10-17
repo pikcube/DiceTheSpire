@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Utility;
+﻿using DiceTheSpire.Shared.Commands;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -9,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class Javelin() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class Javelin() : TheWarriorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15, DamageProps.card)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Flip)];
@@ -23,9 +24,9 @@ public class Javelin() : TheWarriorCard(3, CardType.Attack, CardRarity.Rare, Tar
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX && c.EnergyCost.GetAmountToSpend() == 3))
+        foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => !c.EnergyCost.CostsX)) //&& c.EnergyCost.GetAmountToSpend() == 3
         {
-            card.EnergyCost.SetThisTurnOrUntilPlayed(0);
+            await FlipCmd.FlipAsync(card,FlipDuration.UntilEndOfTurnOrPlayed);
         }
     }
 
