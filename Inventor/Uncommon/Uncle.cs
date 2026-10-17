@@ -1,10 +1,10 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Inventor.Powers;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -18,7 +18,7 @@ public class Uncle() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon, T
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await UnclePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars["Delay"].IntValue, Owner.Creature, this);
+        await UnclePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Damage.IntValue, DynamicVars["Delay"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

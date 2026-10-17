@@ -1,9 +1,9 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Inventor.Powers;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -24,12 +24,12 @@ public class Plague() : TheInventorCard(-1, CardType.Skill, CardRarity.Uncommon,
 
         if (!IsUpgraded)
         {
-            await PlaguePower.ApplyAsync(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+            await PlaguePower.ApplyAsync(choiceContext, Owner.Creature, 1, 1, Owner.Creature, this);
         }
 
         foreach (Creature c in CombatState.HittableEnemies)
         {
-            await PlaguePower.ApplyAsync(choiceContext, c, 1, Owner.Creature, this);
+            await PlaguePower.ApplyAsync(choiceContext, c, 1, 1, Owner.Creature, this);
         }
     }
 }

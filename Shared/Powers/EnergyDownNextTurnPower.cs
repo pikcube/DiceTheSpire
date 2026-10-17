@@ -1,11 +1,12 @@
-﻿using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Players;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class EnergyDownNextTurnPower : DiceTheSpirePower
+public class EnergyDownNextTurnPower : AbstractNextTurnPower
 {
     public override PowerType Type => PowerType.Debuff;
 
@@ -13,22 +14,15 @@ public class EnergyDownNextTurnPower : DiceTheSpirePower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
 
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    public override async Task AfterEnergyReset(Player player)
+    public override TickTime Tick => TickTime.Start;
+    public override CombatSide TickSide => CombatSide.Player;
+
+    public override async Task OnDelayOverAsync(PlayerChoiceContext choiceContext)
     {
-        if (player != Owner.Player)
+        if (Owner.Player is not null)
         {
-            return;
+            await PlayerCmd.LoseEnergy(Amount, Owner.Player);
         }
-
-        if (Amount == 1)
-        {
-            await PlayerCmd.LoseEnergy(1, player);
-            await PowerCmd.Remove(this);
-            return;
-        }
-
-        await PowerCmd.Decrement(this);
     }
 }

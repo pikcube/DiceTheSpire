@@ -29,6 +29,8 @@ public class PlasmaCannon() : TheInventorCard(3, CardType.Power, CardRarity.Rare
                 .TakeRandom(2, Owner.RunState.Rng.CombatCardSelection) ?? []
         ];
 
+        await PlasmaCannonPower.ApplyAsync(choiceContext, Owner, DynamicVars.Power<PlasmaCannonPower>().IntValue, Owner, this);
+
         foreach (CardModel card in cards)
         {
             await CardPileCmd.Add(card, PileType.Play);
@@ -38,8 +40,6 @@ public class PlasmaCannon() : TheInventorCard(3, CardType.Power, CardRarity.Rare
         {
             await CardCmd.AutoPlay(choiceContext, card, null);
         }
-        
-        await PlasmaCannonPower.ApplyAsync(choiceContext, Owner, DynamicVars.Power<PlasmaCannonPower>().IntValue, Owner, this);
     }
 
     protected override void OnUpgrade()
