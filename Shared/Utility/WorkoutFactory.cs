@@ -15,7 +15,7 @@ public static class WorkoutFactory
         List<CardModel> quests =
         [
             .. Workouts.Where(w =>
-                player.Deck.Cards.Any(c =>
+                !player.Deck.Cards.Any(c =>
                     c.CanonicalInstance == w.AsCardModel() || c.CanonicalInstance == w.RewardCard))
                 .Select(w => w.AsCardModel())
         ];

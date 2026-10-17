@@ -17,7 +17,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Ancient;
 
-public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.Self), ITomeCard, IScrapCard
+public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), ITomeCard, IScrapCard
 {
     public override string GetScrapId => nameof(StinkyGadget);
     public bool IsAlwaysOfferedAsScrap => true;
