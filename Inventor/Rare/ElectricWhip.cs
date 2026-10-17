@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class Solenoid() : TheInventorCard(3, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
+public class ElectricWhip() : TheInventorCard(3, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
 {
     public override string GetScrapId => nameof(BattleWrench);
 

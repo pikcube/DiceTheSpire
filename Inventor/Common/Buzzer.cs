@@ -5,7 +5,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
-using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Common;
 
@@ -27,10 +26,7 @@ public class Buzzer() : TheInventorCard(-1, CardType.Skill, CardRarity.Common, T
             return;
         }
 
-        for (int n = 0; n < DynamicVars.Vulnerable.IntValue; ++n)
-        {
-            await NextTurnVulnerablePower.ApplyAsync(choiceContext, CombatState.Enemies, 1, Owner.Creature, this);
-        }
+        await NextTurnVulnerablePower.ApplyAsync(choiceContext, CombatState.Enemies, 1, DynamicVars.Vulnerable.IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

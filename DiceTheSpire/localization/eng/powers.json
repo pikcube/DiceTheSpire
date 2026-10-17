@@ -45,7 +45,7 @@
   "DICETHESPIRE-HALL_OF_MIRRORS_POWER.smartDescription": "At the start of each turn, gain {Amount:diceIcons()}.",
   "DICETHESPIRE-HALL_OF_MIRRORS_POWER.title": "Hall Of Mirrors",
   "DICETHESPIRE-NEXT_TURN_VULNERABLE_POWER.description": "At the start of next turn, gain [gold]Vulnerable[/gold].",
-  "DICETHESPIRE-NEXT_TURN_VULNERABLE_POWER.smartDescription": "{Amount:plural:At the start of next turn|In {Amount} turns}, gain [gold]Vulnerable[/gold].",
+  "DICETHESPIRE-NEXT_TURN_VULNERABLE_POWER.smartDescription": "{Amount:plural:At the start of next turn|In {Amount} turns}, gain {VulnerablePower:plural:|[blue]{VulnerablePower:diff()}[/blue] }[gold]Vulnerable[/gold].",
   "DICETHESPIRE-NEXT_TURN_VULNERABLE_POWER.title": "Next Turn Vulnerable",
   "DICETHESPIRE-SHIELD_BASH_POWER.description": "Gain {Amount} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",
   "DICETHESPIRE-SHIELD_BASH_POWER.smartDescription": "Gain {Amount} [gold]Vigor[/gold] each time you gain [gold]Block[/gold]",

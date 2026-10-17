@@ -32,10 +32,7 @@ public class FrostHammer() : TheInventorCard(2, CardType.Attack, CardRarity.Unco
             .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
 
-        for (int n = 0; n < DynamicVars.Vulnerable.IntValue; ++n)
-        {
-            await NextTurnVulnerablePower.ApplyAsync(choiceContext, cardPlay.Target, 1, Owner.Creature, this);
-        }
+        await NextTurnVulnerablePower.ApplyAsync(choiceContext, cardPlay.Target, 1, DynamicVars.Vulnerable.IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
