@@ -6,22 +6,6 @@ namespace DiceTheSpire.Warrior.WorkoutQuests;
 
 public class CoreTrainingQuest() : WorkoutQuestCard
 {
+    //Add 4 skills to your deck
     public override CardModel RewardCard => CoreTraining.Create();
 }
-
-
-//public class CoreTrainingQuest() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
-//{
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(4M), .. RangeVars.Make(0, 0)];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PlatingPower>(DynamicVars.Power<PlatingPower>().IntValue)];
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature, DynamicVars.Power<PlatingPower>().IntValue, Owner.Creature, this);
-//    }
-//    protected override void OnUpgrade()
-//    {
-//        DynamicVars.Power<PlatingPower>().UpgradeValueBy(1);
-//    }
-
-//}
