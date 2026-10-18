@@ -2,6 +2,7 @@
 using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Listeners;
+using DiceTheSpire.Shared.Patches;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -181,5 +182,25 @@ public static class DiceyHooks
         }
 
         return locString;
+    }
+
+    public static bool ShouldInterruptRemoval(CardModel card,
+        out IInterruptRemovalListener? interruptRemovalListener)
+    {
+        interruptRemovalListener = null;
+
+        foreach (IInterruptRemovalListener listener in card.RunState?.IterateHookListeners(card.CombatState)
+                     .OfType<IInterruptRemovalListener>() ?? [])
+        {
+            if (!listener.TryInterruptRemoval(card))
+            {
+                continue;
+            }
+
+            interruptRemovalListener = listener;
+            return true;
+        }
+
+        return false;
     }
 }
