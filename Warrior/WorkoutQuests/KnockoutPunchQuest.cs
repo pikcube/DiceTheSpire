@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class KnockoutPunchQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class KnockoutPunchQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => KnockoutPunch.Create();
+    public override CardModel RewardCard => KnockoutPunch.Create();
 }
 
 //public class KnockoutPunchQuest() : TheWarriorCard(1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)

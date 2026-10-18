@@ -1,13 +1,11 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
-using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class RestDayQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class RestDayQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => RestDay.Create();
+    public override CardModel RewardCard => RestDay.Create();
 }
 
 //{

@@ -11,7 +11,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
 
-public class Equilibrium() : TheWarriorCard(3, CardType.Power, CardRarity.Token, TargetType.Self)
+public class Equilibrium() : WorkoutCard(3, CardType.Power, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<EquilibriumPower>(30), .. RangeVars.Make(0, 2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<EquilibriumPower>()];

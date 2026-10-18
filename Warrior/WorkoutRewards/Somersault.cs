@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
-public class Somersault() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
+public class Somersault() : WorkoutCard(1, CardType.Skill, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];

@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class PiledriverQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class PiledriverQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => Piledriver.Create();
+    public override CardModel RewardCard => Piledriver.Create();
 }
 
 //public class PiledriverQuest() : TheWarriorCard(3, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)

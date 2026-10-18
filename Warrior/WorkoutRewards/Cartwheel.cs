@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
-public class Cartwheel() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self), IAfterRerollListener
+public class Cartwheel() : WorkoutCard(3, CardType.Skill, TargetType.Self), IAfterRerollListener
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];

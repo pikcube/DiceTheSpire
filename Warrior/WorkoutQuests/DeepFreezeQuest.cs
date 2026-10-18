@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class DeepFreezeQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class DeepFreezeQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => DeepFreeze.Create();
+    public override CardModel RewardCard => DeepFreeze.Create();
 }
 
 //public class DeepFreezeQuest() : TheWarriorCard(2, CardType.Skill, CardRarity.Token, TargetType.AllEnemies)

@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class SomersaultQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class SomersaultQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => Somersault.Create();
+    public override CardModel RewardCard => Somersault.Create();
 }
 
 //public class SomersaultQuest() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)

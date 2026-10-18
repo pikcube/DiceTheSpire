@@ -1,0 +1,30 @@
+﻿using BaseLib.Utils;
+using DiceTheSpire.Shared.Interfaces;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using Pikcube.Common.Extensions;
+
+namespace DiceTheSpire.Warrior;
+
+[Pool(typeof(QuestCardPool))]
+public abstract class WorkoutQuestCard() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+{
+    public abstract CardModel RewardCard { get; }
+
+    public async Task OnWorkoutComplete()
+    {
+        if (DeckVersion is not null)
+        {
+            return;
+        }
+
+        if (Pile?.Type != PileType.Deck)
+        {
+            return;
+        }
+
+        await CardCmd.Transform(this, RewardCard.CreateNewInstance(Owner));
+    }
+}

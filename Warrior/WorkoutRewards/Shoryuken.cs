@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
-public class Shoryuken() : TheWarriorCard(1, CardType.Power, CardRarity.Token, TargetType.Self)
+public class Shoryuken() : WorkoutCard(1, CardType.Power, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ShoryukenPower>(1M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()];

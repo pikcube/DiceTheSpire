@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class ShoryukenQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class ShoryukenQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => Shoryuken.Create();
+    public override CardModel RewardCard => Shoryuken.Create();
 }
 
 //public class ShoryukenQuest() : TheWarriorCard(1, CardType.Power, CardRarity.Token, TargetType.Self)

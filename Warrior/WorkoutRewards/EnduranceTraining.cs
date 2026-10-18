@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
-public class EnduranceTraining() : TheWarriorCard(0, CardType.Power, CardRarity.Token, TargetType.Self)
+public class EnduranceTraining() : WorkoutCard(0, CardType.Power, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(2M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];

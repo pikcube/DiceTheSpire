@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class BreathingExercisesQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class BreathingExercisesQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => BreathingExercises.Create();
+    public override CardModel RewardCard => BreathingExercises.Create();
 }
 
 //public class BreathingExercisesQuest() : TheWarriorCard(0, CardType.Skill, CardRarity.Token, TargetType.Self), IFuryModifier

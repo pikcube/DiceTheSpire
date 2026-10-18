@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards
 {
-    public class RestDay() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
+    public class RestDay() : WorkoutCard(3, CardType.Skill, TargetType.Self)
     {
         protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BlockNextTurnPower>(40)];
         public override bool GainsBlock => true;

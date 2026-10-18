@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
-public class CoreTraining() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
+public class CoreTraining() : WorkoutCard(1, CardType.Skill, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(4M), .. RangeVars.Make(0, 0)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PlatingPower>(DynamicVars.Power<PlatingPower>().IntValue)];

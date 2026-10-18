@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
-public class DeepFreeze() : TheWarriorCard(2, CardType.Skill, CardRarity.Token, TargetType.AllEnemies)
+public class DeepFreeze() : WorkoutCard(2, CardType.Skill, TargetType.AllEnemies)
 {
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FreezePower>()];

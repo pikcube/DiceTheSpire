@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class EquilibriumQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class EquilibriumQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => Equilibrium.Create();
+    public override CardModel RewardCard => Equilibrium.Create();
 }
 
 //public class EquilibriumQuest() : TheWarriorCard(3, CardType.Power, CardRarity.Token, TargetType.Self)

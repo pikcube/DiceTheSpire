@@ -1,14 +1,12 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Models;
-using DiceTheSpire.Shared.Interfaces;
+﻿using MegaCrit.Sts2.Core.Models;
 using DiceTheSpire.Warrior.WorkoutRewards;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
 
-public class CartwheelQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class CartwheelQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => Cartwheel.Create();
+    public override CardModel RewardCard => Cartwheel.Create();
 }
 
 

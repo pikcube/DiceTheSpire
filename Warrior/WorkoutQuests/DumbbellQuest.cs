@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class DumbbellQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class DumbbellQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => Dumbbell.Create();
+    public override CardModel RewardCard => Dumbbell.Create();
 }
 
 //public class DumbbellQuest() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)

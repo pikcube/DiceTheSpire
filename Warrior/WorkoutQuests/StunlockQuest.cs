@@ -1,13 +1,11 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior.WorkoutRewards;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Models;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class StunlockQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class StunlockQuest() : WorkoutQuestCard
 {
-    public CardModel RewardCard => Stunlock.Create();
+    public override CardModel RewardCard => Stunlock.Create();
 }
 
 //public class StunlockQuest() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)

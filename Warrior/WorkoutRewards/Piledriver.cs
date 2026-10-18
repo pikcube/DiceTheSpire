@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
-public class Piledriver() : TheWarriorCard(3, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
+public class Piledriver() : WorkoutCard(3, CardType.Attack, TargetType.AnyEnemy)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(25M, DamageProps.card), new PowerVar<VulnerablePower>(5)];
