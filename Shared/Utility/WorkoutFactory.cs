@@ -10,7 +10,11 @@ namespace DiceTheSpire.Shared.Utility;
 public static class WorkoutFactory
 {
     private static IReadOnlyList<IWorkoutQuest> Workouts { get; } = [.. ModelDb.AllCards.OfType<IWorkoutQuest>()];
-    public static PredeterminedCardReward CreateWorkoutReward(CardCreationSource source, Player player, int count, PlayerChoiceSynchronizer? synchronizer = null)
+    public static PredeterminedCardReward CreateWorkoutReward(
+        CardCreationSource source, 
+        Player player, int count, 
+        PlayerChoiceSynchronizer? synchronizer = null
+        )
     {
         List<CardModel> quests =
         [
