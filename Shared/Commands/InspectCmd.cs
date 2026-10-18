@@ -51,7 +51,7 @@ public static class InspectCmd
     }
     //Thanks lamali
     //todo: swap with baselib version when that is released.
-    private static async Task<IEnumerable<CardModel>> InspectFromCombatPile(PlayerChoiceContext context, CardPile pile,
+    private static async Task<IEnumerable<CardModel>> InspectFromCombatPile(PlayerChoiceContext choiceContext, CardPile pile,
         Player player, CardSelectorPrefs prefs, Func<CardModel, bool>? filter)
     {
         if (CombatManager.Instance.IsEnding)
@@ -74,9 +74,10 @@ public static class InspectCmd
         if (CardSelectCmd.Selector == null)
         {
             choiceId = RunManager.Instance.PlayerChoiceSynchronizer.ReserveChoiceId(player);
-            await context.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
+            await choiceContext.SignalPlayerChoiceBegun(player, PlayerChoiceOptions.None);
         }
 
+        await CardPileCmd.ShuffleIfNecessary(choiceContext, player);
         List<CardModel> cards = [.. filter == null ? pile.Cards : pile.Cards.Where(filter)];
         List<CardModel> result;
         if (cards.Count == 0)
@@ -124,7 +125,7 @@ public static class InspectCmd
 
         if (choiceId.HasValue)
         {
-            await context.SignalPlayerChoiceEnded();
+            await choiceContext.SignalPlayerChoiceEnded();
         }
 
         return result;
