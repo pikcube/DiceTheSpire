@@ -91,6 +91,10 @@
 	<ItemGroup>
 	  <AdditionalFiles Include="DiceTheSpire\locAliases.json" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Workout Quests Plan.txt" />
+	</ItemGroup>
 	
 	<Target Name="CheckDependencyPaths">
 		<Error Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
