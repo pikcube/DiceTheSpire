@@ -25,7 +25,8 @@ public class FireCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncomm
             await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, this);
         }
     }
-    protected override bool IsDiceyPlayable => Owner.PlayerCombatState?.Hand.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) >= DynamicVars.Energy.IntValue;
+    protected override bool IsDiceyPlayable => Owner.PlayerCombatState?.Hand.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) + Owner.PlayerCombatState?.PlayPile.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) >= DynamicVars.Energy.IntValue;
+
     protected override bool ShouldGlowGoldInternal => IsPlayable;
     protected override void OnUpgrade()
     {
