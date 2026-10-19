@@ -15,15 +15,7 @@ using MegaCrit.Sts2.Core.Runs;
 namespace DiceTheSpire.Shared.Utility;
 
 public static class DiceyHooks
-{ 
-    internal static async Task OnAfterCardCountsDownAsync(IRunState runState, ICombatState? combatState, CardModel countdownCard)
-    {
-        foreach (IAfterCardCountsDownListener listener in runState.IterateHookListeners(combatState).OfType<IAfterCardCountsDownListener>())
-        {
-            await listener.AfterCardCountsDownAsync(runState, countdownCard);
-        }
-    }
-
+{
     internal static async Task OnModifyPipOnPlayAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip)
     {
         foreach (IModifyPipOnPlayListener listener in runState.IterateHookListeners(combatState)
