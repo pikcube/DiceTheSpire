@@ -21,5 +21,8 @@
   "DICETHESPIRE-LOUD_BIRDS_MIXTAPE.title": "Loud Bird's Mixtape",
   "DICETHESPIRE-WINDOW_PUNCH.description": "The Count of the first [gold]Countdown[/gold] card you draw each turn is reduced by 1 until played.",
   "DICETHESPIRE-WINDOW_PUNCH.flavor": "A must-have tool for making a quick exit.\n...Mind the glass.",
-  "DICETHESPIRE-WINDOW_PUNCH.title": "Window Punch"
+  "DICETHESPIRE-WINDOW_PUNCH.title": "Window Punch",
+  "DICETHESPIRE-COUNTERFEIT_COIN_PURSE.description": "Once at each shop, you may steal something you can't afford.",
+  "DICETHESPIRE-COUNTERFEIT_COIN_PURSE.flavor": "",
+  "DICETHESPIRE-COUNTERFEIT_COIN_PURSE.title": "Counterfeit Coin Purse"
 }

@@ -4,6 +4,7 @@ using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
@@ -13,7 +14,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Utility;
 
-public static class DiceyHooks
+public static partial class DiceyHooks
 {
     public delegate void AfterCardCountsDownHandler(IRunState runState, CardModel countdownCard);
 
@@ -198,6 +199,22 @@ public static class DiceyHooks
 
             interruptRemovalListener = listener;
             return true;
+        }
+
+        return false;
+    }
+
+    public static bool ShouldIgnoreMerchantCost(MerchantEntry entry, MerchantInventory? inventory, out IIgnoreMerchantCostListener? ignoreMerchantCostListener)
+    {
+        ignoreMerchantCostListener = null;
+        foreach (IIgnoreMerchantCostListener listener in inventory?.Player.RunState?.IterateHookListeners(null)
+                     .OfType<IIgnoreMerchantCostListener>() ?? [])
+        {
+            if (listener.TryIgnoreCost(entry, inventory))
+            {
+                ignoreMerchantCostListener = listener;
+                return true;
+            }
         }
 
         return false;
