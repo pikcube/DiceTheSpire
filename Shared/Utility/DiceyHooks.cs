@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
@@ -31,8 +32,23 @@ public static class DiceyHooks
             await listener.ModifyPipOnPlayAsync(choiceContext, cardPlay, pip);
         }
     }
+    internal static IEnumerable<string> ModifyPipDescription(IRunState runState, ICombatState? combatState, Pip pip)
+    {
+        return runState.IterateHookListeners(combatState)
+            .OfType<IModifyPipOnPlayListener>()
+            .Where(listener => listener.ShouldModify(pip))
+            .Select(listener => (listener.PipDescription.GetFormattedText()));
+    }
 
-    public static async Task OnAfterBumpAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard)
+    internal static IEnumerable<IHoverTip> ModifyPipHoverTips(IRunState runState, ICombatState? combatState, Pip pip)
+    {
+        return runState.IterateHookListeners(combatState)
+            .OfType<IModifyPipOnPlayListener>()
+            .Where(listener => listener.ShouldModify(pip))
+            .SelectMany(listener => listener.PipHoverTips);
+    }
+
+    internal static async Task OnAfterBumpAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard)
     {
         foreach (IAfterBumpListener listener in runState.IterateHookListeners(combatState).OfType<IAfterBumpListener>())
         {
@@ -40,7 +56,7 @@ public static class DiceyHooks
         }
     }
 
-    public static async Task OnNudgeAsync(IRunState runState, ICombatState? combatState, CardModel card, int originalCost, int getAmountToSpend, NudgeDuration duration)
+    internal static async Task OnNudgeAsync(IRunState runState, ICombatState? combatState, CardModel card, int originalCost, int getAmountToSpend, NudgeDuration duration)
     {
         foreach (IAfterNudgeListener listener in runState.IterateHookListeners(combatState).OfType<IAfterNudgeListener>())
         {
@@ -48,7 +64,7 @@ public static class DiceyHooks
         }
     }
 
-    public static async Task OnFlipAsync(IRunState runState, ICombatState? combatState, CardModel card, int originalCost, int getAmountToSpend, FlipDuration duration)
+    internal static async Task OnFlipAsync(IRunState runState, ICombatState? combatState, CardModel card, int originalCost, int getAmountToSpend, FlipDuration duration)
     {
         foreach (IAfterFlipListener listener in runState.IterateHookListeners(combatState).OfType<IAfterFlipListener>())
         {
@@ -56,7 +72,7 @@ public static class DiceyHooks
         }
     }
 
-    public static void OnModifyRerollRange(IRunState runState, ICombatState? combatState, CardModel card, ref int minimum, ref int maximum)
+    internal static void OnModifyRerollRange(IRunState runState, ICombatState? combatState, CardModel card, ref int minimum, ref int maximum)
     {
         foreach (IModifyRerollListener listener in runState.IterateHookListeners(combatState).OfType<IModifyRerollListener>())
         {
@@ -64,7 +80,7 @@ public static class DiceyHooks
         }
     }
 
-    public static void OnModifyScrapPriority(IRunState runState, ICombatState? combatState, Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
+    internal static void OnModifyScrapPriority(IRunState runState, ICombatState? combatState, Player player, ref List<CardModel> scrapCards, ref List<CardModel> otherCards)
     {
         foreach (IModifyScrapPriorityListener listener in runState.IterateHookListeners(combatState).OfType<IModifyScrapPriorityListener>())
         {
@@ -72,14 +88,14 @@ public static class DiceyHooks
         }
     }
 
-    public static bool OnModifyUnplayableBehavior(IRunState runState, ICombatState? combatState, CardModel card)
+    internal static bool OnModifyUnplayableBehavior(IRunState runState, ICombatState? combatState, CardModel card)
     {
         return runState.IterateHookListeners(combatState)
             .OfType<IModifyUnplayableBehaviorListener>()
             .Any(listener => listener.ModifyUnplayableBehavior(card));
     }
 
-    public static bool OnModifyTargetType(IRunState runState, ICombatState? combatState, CardModel card, ref TargetType targetType)
+    internal static bool OnModifyTargetType(IRunState runState, ICombatState? combatState, CardModel card, ref TargetType targetType)
     {
         bool isModified = false;
         foreach (IModifyUnplayableBehaviorListener listener in runState.IterateHookListeners(combatState).OfType<IModifyUnplayableBehaviorListener>())
@@ -93,7 +109,7 @@ public static class DiceyHooks
         return isModified;
     }
 
-    public static bool TryModifyUnplayableOnPlay(IRunState runState, ICombatState? combatState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task> task)
+    internal static bool TryModifyUnplayableOnPlay(IRunState runState, ICombatState? combatState, CardModel card, out Func<PlayerChoiceContext, CardPlay, Task> task)
     {
         bool isModified = false;
         task = (_, _) => Task.CompletedTask;
@@ -108,7 +124,7 @@ public static class DiceyHooks
         return isModified;
     }
 
-    public static async Task OnRerollAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
+    internal static async Task OnRerollAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
         foreach (IAfterRerollListener listener in runState.IterateHookListeners(combatState).OfType<IAfterRerollListener>())
         {
@@ -116,7 +132,7 @@ public static class DiceyHooks
         }
     }
 
-    public static async Task OnShockAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card)
+    internal static async Task OnShockAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card)
     {
         foreach (IOnShockListener listener in runState.IterateHookListeners(combatState).OfType<IOnShockListener>())
         {
@@ -124,13 +140,13 @@ public static class DiceyHooks
         }
     }
 
-    public static int ModifCountdownCost(ICombatState combatState, ICountdown countdown, CardModel cardModel, int cost)
+    internal static int ModifCountdownCost(ICombatState combatState, ICountdown countdown, CardModel cardModel, int cost)
     {
         return combatState.IterateHookListeners().OfType<ICountdownCostListener>()
             .Aggregate(cost, (current, listener) => listener.ModifyCost(countdown, cardModel, current));
     }
 
-    public static LocString ModifyRelicFlavor(LocString locString, RelicModel relicModel)
+    internal static LocString ModifyRelicFlavor(LocString locString, RelicModel relicModel)
     {
         if (relicModel is IModifyFlavorRelic listener)
         {
@@ -140,7 +156,7 @@ public static class DiceyHooks
         return locString;
     }
 
-    public static bool ShouldInterruptRemoval(IRunState runState, ICombatState? combatState, CardModel card,
+    internal static bool ShouldInterruptRemoval(IRunState runState, ICombatState? combatState, CardModel card,
         out IInterruptRemovalListener? interruptRemovalListener)
     {
         interruptRemovalListener = null;
@@ -160,7 +176,7 @@ public static class DiceyHooks
         return false;
     }
 
-    public static bool ShouldIgnoreMerchantCost(IRunState runState, ICombatState? combatState, MerchantEntry entry, MerchantInventory? inventory, out IIgnoreMerchantCostListener? ignoreMerchantCostListener)
+    internal static bool ShouldIgnoreMerchantCost(IRunState runState, ICombatState? combatState, MerchantEntry entry, MerchantInventory? inventory, out IIgnoreMerchantCostListener? ignoreMerchantCostListener)
     {
         ignoreMerchantCostListener = null;
         foreach (IIgnoreMerchantCostListener listener in runState.IterateHookListeners(combatState)
@@ -178,7 +194,7 @@ public static class DiceyHooks
         return false;
     }
 
-    public static async Task BetterAfterRestingAsync(IRunState runState, ICombatState? combatState, Player player)
+    internal static async Task BetterAfterRestingAsync(IRunState runState, ICombatState? combatState, Player player)
     {
         foreach (IAfterRestingListener listener in runState.IterateHookListeners(combatState)
                      .OfType<IAfterRestingListener>())
