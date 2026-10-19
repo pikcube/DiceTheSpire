@@ -36,6 +36,6 @@ public class PiledriverQuest : WorkoutQuestCard
             return;
         }
 
-        await OnWorkoutComplete();
+        await OnWorkoutCompleteAsync();
     }
 }

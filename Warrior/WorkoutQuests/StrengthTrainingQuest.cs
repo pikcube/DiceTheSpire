@@ -37,6 +37,6 @@ public class StrengthTrainingQuest : WorkoutQuestCard
             return;
         }
 
-        await OnWorkoutComplete();
+        await OnWorkoutCompleteAsync();
     }
 }

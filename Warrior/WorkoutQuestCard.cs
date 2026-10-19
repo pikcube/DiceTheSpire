@@ -23,7 +23,7 @@ public abstract class WorkoutQuestCard() : TheWarriorCard(-1, CardType.Quest, Ca
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
     protected virtual IEnumerable<IHoverTip> ExtraWorkoutHoverTips => [];
 
-    public async Task OnWorkoutComplete()
+    public async Task OnWorkoutCompleteAsync()
     {
         if (DeckVersion is not null)
         {
@@ -34,6 +34,8 @@ public abstract class WorkoutQuestCard() : TheWarriorCard(-1, CardType.Quest, Ca
         {
             return;
         }
+
+        PlayerCmd.CompleteQuest(this);
 
         await CardCmd.Transform(this, RewardCard.CreateNewInstance(Owner), CardPreviewStyle.GridLayout);
     }

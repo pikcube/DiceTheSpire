@@ -17,7 +17,7 @@ public class BreathingExercisesQuest : WorkoutQuestCard
 
         if (Owner.Deck.Cards.Any(c => c != card && c.CanonicalInstance == card.CanonicalInstance))
         {
-            await OnWorkoutComplete();
+            await OnWorkoutCompleteAsync();
         }
     }
 }

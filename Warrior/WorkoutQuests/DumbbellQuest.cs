@@ -37,6 +37,6 @@ public class DumbbellQuest : WorkoutQuestCard
             return;
         }
 
-        await OnWorkoutComplete();
+        await OnWorkoutCompleteAsync();
     }
 }

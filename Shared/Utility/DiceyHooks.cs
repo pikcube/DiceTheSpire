@@ -219,4 +219,13 @@ public static partial class DiceyHooks
 
         return false;
     }
+
+    public static async Task BetterAfterRestingAsync(Player player)
+    {
+        foreach (IAfterRestingListener listener in player.RunState.IterateHookListeners(null)
+                     .OfType<IAfterRestingListener>())
+        {
+            await listener.BetterAfterRestingAsync(player);
+        }
+    }
 }

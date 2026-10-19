@@ -18,7 +18,7 @@ public class StunlockQuest : WorkoutQuestCard, IInterruptRemovalListener
     {
         if (card == this)
         {
-            await OnWorkoutComplete();
+            await OnWorkoutCompleteAsync();
         }
     }
 }

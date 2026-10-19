@@ -38,6 +38,6 @@ public class CartwheelQuest : WorkoutQuestCard
             return;
         }
 
-        await OnWorkoutComplete();
+        await OnWorkoutCompleteAsync();
     }
 }
