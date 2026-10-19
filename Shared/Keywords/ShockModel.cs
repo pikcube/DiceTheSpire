@@ -108,7 +108,7 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
         ];
         if (tasks.Count > 0)
         {
-            tasks.Add(Task.Delay(TimeSpan.FromSeconds(0.15)));
+            tasks.Add(Cmd.Wait(0.15f));
         }
         await Task.WhenAll(tasks);
     }
