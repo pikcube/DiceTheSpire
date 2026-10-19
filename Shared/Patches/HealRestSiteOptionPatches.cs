@@ -17,7 +17,7 @@ public class HealRestSiteOptionPatches
 
         if (p is not null)
         {
-            await DiceyHooks.BetterAfterRestingAsync(p);
+            await DiceyHooks.BetterAfterRestingAsync(p.RunState, p.Creature.CombatState, p);
         }
 
         return result;

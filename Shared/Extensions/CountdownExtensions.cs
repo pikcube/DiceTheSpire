@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 
 namespace DiceTheSpire.Shared.Extensions;
@@ -24,9 +25,11 @@ public static class CountdownExtensions
                 modCost = modifier.Modify(modCost);
             }
 
-            if (includeGlobal)
+            ICombatState? combatState = instance.AsCardModel().CombatState;
+
+            if (includeGlobal && combatState is not null)
             {
-                modCost = DiceyHooks.ModifCountdownCost(instance.AsCardModel().CombatState, instance, instance.AsCardModel(), modCost);
+                modCost = DiceyHooks.ModifCountdownCost(combatState, instance, instance.AsCardModel(), modCost);
             }
 
             return modCost;

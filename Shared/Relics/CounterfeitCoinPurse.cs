@@ -1,11 +1,11 @@
-﻿using DiceTheSpire.Shared.Utility;
+﻿using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Entities.Merchant;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Rooms;
 
 namespace DiceTheSpire.Shared.Relics;
 
-public class CounterfeitCoinPurse : TheThiefRelic, DiceyHooks.IIgnoreMerchantCostListener
+public class CounterfeitCoinPurse : TheThiefRelic, IIgnoreMerchantCostListener
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
 

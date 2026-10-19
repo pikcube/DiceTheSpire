@@ -11,10 +11,14 @@ public static class BumpCmd
 {
     public static async Task BumpAsync(PlayerChoiceContext choiceContext, CardModel instance)
     {
+        if (instance.RunState is null || instance.CombatState is null)
+        {
+            return;
+        }
         if (instance.IsUpgradable)
         {
             CardCmd.Upgrade(instance);
-            await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, null);
+            await DiceyHooks.OnAfterBumpAsync(instance.RunState, instance.CombatState, choiceContext, instance, null);
         }
         else
         {
@@ -25,7 +29,7 @@ public static class BumpCmd
             newCard.Owner = null!;
             instance.CombatState?.AddCard(newCard, instance.Owner);
             CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Discard, instance.Owner));
-            await DiceyHooks.OnAfterBumpAsync(choiceContext, instance, newCard);
+            await DiceyHooks.OnAfterBumpAsync(instance.RunState, instance.CombatState, choiceContext, instance, newCard);
         }
     }
 }

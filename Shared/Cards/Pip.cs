@@ -52,7 +52,7 @@ public class Pip : DiceTheSpireCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DiceyHooks.OnModifyPipOnPlayAsync(choiceContext, cardPlay, this);
+        await DiceyHooks.OnModifyPipOnPlayAsync(cardPlay.Player.RunState, cardPlay.Player.Creature.CombatState, choiceContext, cardPlay, this);
     }
 
     public static async Task<IEnumerable<CardModel>> CreateInHandAsync(

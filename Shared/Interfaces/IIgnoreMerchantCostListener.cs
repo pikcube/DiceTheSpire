@@ -1,13 +1,10 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Merchant;
 
-namespace DiceTheSpire.Shared.Utility;
+namespace DiceTheSpire.Shared.Interfaces;
 
-public static partial class DiceyHooks
+public interface IIgnoreMerchantCostListener
 {
-    public interface IIgnoreMerchantCostListener
-    {
-        public bool TryIgnoreCost(MerchantEntry entry, MerchantInventory? inventory);
+    public bool TryIgnoreCost(MerchantEntry entry, MerchantInventory? inventory);
 
-        public Task AfterCostIgnored(MerchantEntry entry, MerchantInventory? inventory, bool wasPurchaseSuccessful);
-    }
+    public Task AfterCostIgnored(MerchantEntry entry, MerchantInventory? inventory, bool wasPurchaseSuccessful);
 }

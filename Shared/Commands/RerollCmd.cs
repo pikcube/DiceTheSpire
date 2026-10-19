@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
@@ -16,7 +17,7 @@ public static class RerollCmd
         ArgumentNullException.ThrowIfNull(card.RunState);
         int originalCost = card.EnergyCost.GetAmountToSpend();
 
-        int nextEnergyCost = NextEnergyCost(card, card.RunState, out bool isFixed);
+        int nextEnergyCost = NextEnergyCost(card, card.RunState, card.CombatState, out bool isFixed);
 
         switch (duration)
         {
@@ -46,10 +47,10 @@ public static class RerollCmd
             }));
         }
 
-        await DiceyHooks.OnRerollAsync(choiceContext, card.RunState, card, isFixed, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
+        await DiceyHooks.OnRerollAsync(card.RunState, card.CombatState, choiceContext, card, isFixed, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
     }
 
-    private static int NextEnergyCost(CardModel card, IRunState runState, out bool isFixed)
+    private static int NextEnergyCost(CardModel card, IRunState runState, ICombatState? combatState, out bool isFixed)
     {
         int minimum = 0;
         int maximum = 3;
@@ -60,7 +61,7 @@ public static class RerollCmd
             maximum = max;
         }
 
-        DiceyHooks.OnModifyRerollRange(runState, card, ref minimum, ref maximum);
+        DiceyHooks.OnModifyRerollRange(runState, combatState, card, ref minimum, ref maximum);
 
         maximum = Math.Max(minimum, maximum);
 

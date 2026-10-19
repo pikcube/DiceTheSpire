@@ -16,7 +16,11 @@ public static class RemoveFromDeckPatches
         {
             cards = [..cards.Where(c =>
             {
-                bool isRemovalAllowed = !DiceyHooks.ShouldInterruptRemoval(c, out IInterruptRemovalListener? listener);
+                if (c.RunState is null)
+                {
+                    return true;
+                }
+                bool isRemovalAllowed = !DiceyHooks.ShouldInterruptRemoval(c.RunState, c.CombatState, c, out IInterruptRemovalListener? listener);
                 if (!isRemovalAllowed && listener is not null)
                 {
                     RemovalsInterrupted.Add((c, listener));
