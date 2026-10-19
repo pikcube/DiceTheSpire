@@ -10,11 +10,14 @@ public class BreathingExercisesQuest : WorkoutQuestCard
     public override CardModel RewardCard => BreathingExercises.Create();
     public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
     {
-        if (card.Owner != Owner || card.Pile?.Type != PileType.Deck || Owner.Deck.Cards.All(c => c.CanonicalInstance != card.CanonicalInstance))
+        if (card.Owner != Owner || card.Pile?.Type != PileType.Deck)
         {
             return;
         }
 
-        await OnWorkoutComplete();
+        if (Owner.Deck.Cards.Any(c => c != card && c.CanonicalInstance == card.CanonicalInstance))
+        {
+            await OnWorkoutComplete();
+        }
     }
 }

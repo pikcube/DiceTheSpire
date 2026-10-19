@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior;
@@ -34,6 +35,6 @@ public abstract class WorkoutQuestCard() : TheWarriorCard(-1, CardType.Quest, Ca
             return;
         }
 
-        await CardCmd.Transform(this, RewardCard.CreateNewInstance(Owner));
+        await CardCmd.Transform(this, RewardCard.CreateNewInstance(Owner), CardPreviewStyle.GridLayout);
     }
 }

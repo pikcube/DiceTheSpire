@@ -2,7 +2,6 @@
 using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Listeners;
-using DiceTheSpire.Shared.Patches;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;

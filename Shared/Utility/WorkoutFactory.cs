@@ -24,6 +24,8 @@ public static class WorkoutFactory
                 .Select(w => w.AsCardModel())
         ];
 
+        player.PlayerRng.Rewards.Shuffle(quests);
+
         for (int n = 0; n < quests.Count; ++n)
         {
             CardModel card = quests[n];
