@@ -23,6 +23,7 @@ public class RottenEgg() : TheInventorCard(-1, CardType.Quest, CardRarity.Quest,
     public bool IsAlwaysOfferedAsScrap => true;
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [.. HoverTipFactory.FromEnchantment<Stinky>()];
+    public override bool CanBeGeneratedInCombat => false;
     public override int MaxUpgradeLevel => 0;
 
     public override async Task OnScrapAsync()
