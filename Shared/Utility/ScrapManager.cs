@@ -404,6 +404,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         {
             parent.GadgetId = GetRandomCombatGadgetId(owner.RunState.Rng.CombatOrbGeneration);
             await parent.UpdateAndPreviewAsync();
+            await parent.LinkedGadgetModel.OnRechargeAsync(choiceContext, owner);
         }
     }
 
