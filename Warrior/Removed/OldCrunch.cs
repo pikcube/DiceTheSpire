@@ -10,6 +10,8 @@
 
 //namespace DiceTheSpire.Warrior.Common;
 
+//"DICETHESPIRE-CRUNCH.description": "Deal {Damage:diff()} damage.\n{Cards:diff()} {IfUpgraded:show:|random }cards in [gold]Hand[/gold] cost 1 less the next time they are played this turn.",
+//  "DICETHESPIRE-CRUNCH.title": "Crunch",
 
 //public class Crunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 //{

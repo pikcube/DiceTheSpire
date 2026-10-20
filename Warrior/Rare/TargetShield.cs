@@ -7,9 +7,9 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
-namespace DiceTheSpire.Warrior.Uncommon;
+namespace DiceTheSpire.Warrior.Rare;
 
-public class TargetShield() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class TargetShield() : TheWarriorCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(0M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DexterityPower>(DynamicVars.Power<DexterityPower>().IntValue)];
