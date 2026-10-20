@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Exceptions;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Inventor.Gadgets;
@@ -97,21 +98,18 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     protected void BreakMe()
     {
         AssertMutable();
+        if (Parent?.Owner is null)
+        {
+            throw new MutableModelException(typeof(GadgetModel));
+        }
         if (IsAllowedAsTempGadget)
         {
             throw new InvalidProgramException("Breakable Gadgets cannot be temporary");
         }
 
-        if (Parent is TempParent tp)
-        {
-            ScrapManager.SetGadgetInfo(tp.Owner, nameof(BrokenGadget), false);
-            tp.GadgetId = nameof(BrokenGadget);
-            tp.LinkedGadgetModel = ScrapManager.AllGadgets[nameof(BrokenGadget)].GetMutable(tp);
-        }
-        else
-        {
-            Parent?.GadgetId = nameof(BrokenGadget);
-        }
+        ScrapManager.SetGadgetInfo(Parent.Owner, nameof(BrokenGadget), false);
+
+        Parent?.GadgetId = nameof(BrokenGadget);
     }
 
     public virtual void OnFirstCharge()

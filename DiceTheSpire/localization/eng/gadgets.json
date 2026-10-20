@@ -1,4 +1,5 @@
 ﻿{
+  "DICETHESPIRE-GADGET.type": "Gadget Relic",
   "DICETHESPIRE-ACCELERATE.description": "At the start of each turn, [gold]Inspect[/gold] [blue]{Power}[/blue].",
   "DICETHESPIRE-ACCELERATE.title": "Accelerate",
   "DICETHESPIRE-AUTO_BUMP.description": "At the start of each turn, [gold]Bump[/gold] {Power:plural:a card|[blue]{Power}[/blue] cards}.",

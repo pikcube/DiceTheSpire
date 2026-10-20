@@ -4,7 +4,7 @@ using DiceTheSpire.Shared.Extensions;
 
 namespace DiceTheSpire.Shared.Relics;
 
-public abstract class DiceTheSpireCoreRelic : CustomRelicModel
+public abstract class DiceTheSpireRelic : CustomRelicModel
 {
     //DiceTheSpireCore/images/relics
     public override string PackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath();
