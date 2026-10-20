@@ -56,7 +56,7 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
 
         cardPlay.Card.AddPurpleKeyword(Shocked);
 
-        await DiceyHooks.OnShockAsync(choiceContext, cardPlay.Card);
+        await DiceyHooks.OnShockAsync(cardPlay.Player.RunState, cardPlay.Player.Creature.CombatState, choiceContext, cardPlay.Card);
         cardPlay.Card.ShouldShockOnNextPlay = false;
     }
 
@@ -64,7 +64,7 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
     {
         await card.ExhaustAsync(choiceContext, false, skipVisuals);
         card.AddPurpleKeyword(Shocked);
-        await DiceyHooks.OnShockAsync(choiceContext, card);
+        await DiceyHooks.OnShockAsync(card.Owner.RunState, card.Owner.Creature.CombatState, choiceContext, card);
     }
 
     internal static bool ShouldShock<T>(T instance) where T : CardModel
@@ -105,8 +105,11 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
         List<Task> tasks =
         [
             .. shockedCards.Select(card => UnshockCardAsync(card)),
-            Task.Delay(TimeSpan.FromSeconds(0.15))
         ];
+        if (tasks.Count > 0)
+        {
+            tasks.Add(Cmd.Wait(0.15f));
+        }
         await Task.WhenAll(tasks);
     }
 
@@ -122,7 +125,7 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
 
         foreach (CardModel card in cardsToShock)
         {
-            await DiceyHooks.OnShockAsync(choiceContext, card);
+            await DiceyHooks.OnShockAsync(player.RunState, player.Creature.CombatState, choiceContext, card);
         }
     }
 

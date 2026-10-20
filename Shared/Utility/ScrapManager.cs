@@ -5,6 +5,7 @@ using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Patches;
+using DiceTheSpire.Shared.Relics;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
@@ -13,7 +14,6 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -21,6 +21,7 @@ using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
@@ -38,32 +39,6 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
     }
 
     public static ScrapDebugMode DebugMode { get; set; } = ScrapDebugMode.Default;
-
-    static ScrapManager()
-    {
-        ModHelper.SubscribeForRunStateHooks(MainFile.ModId, GetRunStateHooks);
-    }
-
-    private static IEnumerable<GadgetModel> GetRunStateHooks(RunState runState)
-    {
-        foreach ((Player p, string? gadgetId) in runState.Players.Where(p => p.Character is TheInventor).Select(p => (p, GadgetId(p))))
-        {
-            if (gadgetId is null)
-            {
-                continue;
-            }
-
-            GadgetModel gadget = AllGadgets[gadgetId];
-            if (gadget.HookType != HookType.Run)
-            {
-                continue;
-            }
-
-            TempParent parent = new(p, gadget);
-            GadgetModel mutableGadgetModel = parent.LinkedGadgetModel;
-            yield return mutableGadgetModel;
-        }
-    }
 
     public static string GadgetId(Player p) => CurrentGadgetId.Get(p) ?? nameof(DefaultGadget);
     public static int GadgetOrigin(Player p) => LastScrapLocation.Get(p);
@@ -99,10 +74,12 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         {
             if (player.Character is not TheInventor)
             {
-                return;
+                continue;
             }
 
+            Gadget gadgetRelic = player.GetRelic<Gadget>() ?? await RelicCmd.Obtain<Gadget>(player);
             string id = GadgetId(player);
+            gadgetRelic.GadgetId = id;
             if (AllGadgets[id].HookType != HookType.Combat)
             {
                 id = nameof(BrokenGadget);
@@ -110,8 +87,8 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
             GadgetPower p = (GadgetPower)ModelDb.Power<GadgetPower>().ToMutable();
             p.InitialGadgetId = id;
-
             await PowerCmd.Apply(new BlockingPlayerChoiceContext(), p, player.Creature, 1, player.Creature, null);
+
             tasks.Add(p.UpdateAndPreviewAsync());
         }
 
@@ -175,7 +152,8 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
         string newScrapId = GadgetId(p);
 
-        TempParent parent = new(p, AllGadgets[newScrapId]);
+        Gadget parent = p.GetRelic<Gadget>() ?? await RelicCmd.Obtain<Gadget>(p);
+        parent.GadgetId = newScrapId;
         await parent.LinkedGadgetModel.OnPickupAsync();
         
         if (!parent.LinkedGadgetModel.ModifiesRewards)
@@ -199,7 +177,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
         CreateScrapLists(cards, p, out List<CardModel> scrapCards, out List<CardModel> otherCards);
 
-        DiceyHooks.OnModifyScrapPriority(p.RunState, p, ref scrapCards, ref otherCards);
+        DiceyHooks.OnModifyScrapPriority(p.RunState, p.Creature.CombatState, p, ref scrapCards, ref otherCards);
 
         cards.Clear();
         cards.AddRange(scrapCards);
@@ -404,6 +382,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         {
             parent.GadgetId = GetRandomCombatGadgetId(owner.RunState.Rng.CombatOrbGeneration);
             await parent.UpdateAndPreviewAsync();
+            await parent.LinkedGadgetModel.OnRechargeAsync(choiceContext, owner);
         }
     }
 
@@ -418,6 +397,30 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         foreach (Player p in players.Where(p => p.Character is TheInventor))
         {
             SetGadgetInfo(p, ascensionLevel > 5 ? nameof(Efficiency) : nameof(HeatRay), false);
+        }
+    }
+
+    public override async Task BeforeRoomEntered(AbstractRoom room)
+    {
+        RunState? runState = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
+        if (runState is null)
+        {
+            return;
+        }
+        foreach (Player player in runState.Players ?? [])
+        {
+            if (player.Character is not TheInventor)
+            {
+                continue;
+            }
+
+            if (player.GetRelic<Gadget>() is not null)
+            {
+                continue;
+            }
+
+            Gadget gadget = await RelicCmd.Obtain<Gadget>(player);
+            gadget.GadgetId = GadgetId(player);
         }
     }
 

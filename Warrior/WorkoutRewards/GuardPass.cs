@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
-public class GuardPass() : TheWarriorCard(2, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
+public class GuardPass() : WorkoutCard(2, CardType.Attack, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];

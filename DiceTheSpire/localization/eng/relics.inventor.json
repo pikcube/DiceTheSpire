@@ -31,5 +31,8 @@
   "DICETHESPIRE-CLOSED_TOE_SHOES.title": "Closed Toe Shoes",
   "DICETHESPIRE-TOOLBELT.description": "[gold]Unplayable[/gold] cards can now be played. Playing an [gold]Unplayable[/gold] card [gold]Shocks[/gold] it.",
   "DICETHESPIRE-TOOLBELT.flavor": "\"You can never have too many pockets, and a toolbelt is just pockets!\"",
-  "DICETHESPIRE-TOOLBELT.title": "Toolbelt"
+  "DICETHESPIRE-TOOLBELT.title": "Toolbelt",
+  "DICETHESPIRE-GADGET.description": "{GadgetText.StringValue}\nAt the end of combat, [gold]Scrap[/gold] a card.",
+  "DICETHESPIRE-GADGET.flavor": "\"This will do for now...\"",
+  "DICETHESPIRE-GADGET.title": "{GadgetName.StringValue}"
 }

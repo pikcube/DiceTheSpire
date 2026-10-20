@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
-public class LightningKick() : TheWarriorCard(2, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
+public class LightningKick() : WorkoutCard(2, CardType.Attack, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1M, DamageProps.card), new RepeatVar(8)];
 

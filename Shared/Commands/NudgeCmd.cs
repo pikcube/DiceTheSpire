@@ -40,7 +40,7 @@ public static class NudgeCmd
             return;
         }
 
-        await DiceyHooks.OnNudgeAsync(card.RunState, card, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
+        await DiceyHooks.OnNudgeAsync(card.RunState, card.CombatState, card, originalCost, card.EnergyCost.GetAmountToSpend(), duration);
     }
 
     private static int NextEnergyCost(CardModel card, int amount)

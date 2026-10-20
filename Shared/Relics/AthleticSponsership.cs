@@ -1,9 +1,9 @@
-﻿using JetBrains.Annotations;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Shared.Utility;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 
@@ -14,75 +14,22 @@ public class AthleticSponsership : TheWarriorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    //private int procuredSponsershipFunds { get; set; } = 0;
-    public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options)
+    public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
-        if (Owner != player || options.Source == CardCreationSource.Shop)
+        if (room?.RoomType != RoomType.Elite)
         {
             return false;
         }
 
-        if (cardRewards.Count == 0)
-        {
-            return false;
-        }
-
-        if (player.RunState.BaseRoom?.RoomType != RoomType.Elite)
-        {
-            return false;
-        }
-
-        if (options.Flags.HasFlag(CardCreationFlags.NoHookUpgrades))
-        {
-            return false;
-        }
-
-        UpgradeValidCards(cardRewards, _ => true);
-
+        rewards.Add(WorkoutFactory.CreateWorkoutReward(CardCreationSource.Encounter, Owner, 2));
         return true;
-
-        //CardCreationResult ?cardCreationResult = Owner.RunState.Rng.Niche.NextItem(list);
-        //if (cardCreationResult == null)
-        //    return false;
-        //CardModel card = this.Owner.RunState.CloneCard(cardCreationResult.Card);
-        //if(procuredSponsershipFunds <= 2)
-        //{
-        //    procuredSponsershipFunds++;
-        //    return false;
-        //}
-        //else
-        //{
-        //    CardCmd.Upgrade(card);
-        //    cardCreationResult.ModifyCard(card, (RelicModel)this);
-        //    if (player.RunState.CurrentActIndex == 0)
-        //    {
-        //        procuredSponsershipFunds -= 2;
-        //    }
-        //    else if (player.RunState.CurrentActIndex == 1)
-        //    {
-        //        procuredSponsershipFunds -= 1;
-        //    }
-        //    else
-        //    {
-        //        procuredSponsershipFunds = 3;
-        //    }
-        //}
 
     }
 
-    //public override Task AfterActEntered()
-    //{
-    //    procuredSponsershipFunds++;
-    //    return base.AfterActEntered();
-    //}
-    private static void UpgradeValidCards(IEnumerable<CardCreationResult> cards, Predicate<CardModel> filter)
+    public override Task AfterModifyingRewards()
     {
-        foreach (CardCreationResult cardCreationResult in cards.Where(c => c.Card.IsUpgradable && filter(c.Card)))
-        {
-            CardModel card = cardCreationResult.Card.Owner.RunState.CloneCard(cardCreationResult.Card);
-            CardCmd.Upgrade(card);
-            cardCreationResult.ModifyCard(card);
-        }
+        Flash();
+        return Task.CompletedTask;
     }
 
     public override RelicModel GetUpgradeReplacement()

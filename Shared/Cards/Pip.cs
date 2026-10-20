@@ -1,5 +1,4 @@
 ﻿using BaseLib.Utils;
-using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -27,7 +26,7 @@ public class Pip : DiceTheSpireCard
         base.AfterCreated();
         ExecutionFinished -= Pip_ExecutionFinished;
         ExecutionFinished += Pip_ExecutionFinished;
-        UpdatePips();
+        UpdatePipText();
     }
 
     protected override void AfterCloned()
@@ -35,16 +34,26 @@ public class Pip : DiceTheSpireCard
         base.AfterCloned();
         ExecutionFinished -= Pip_ExecutionFinished;
         ExecutionFinished += Pip_ExecutionFinished;
-        UpdatePips();
+        UpdatePipText();
     }
 
-    private void Pip_ExecutionFinished(AbstractModel obj)
+    private void Pip_ExecutionFinished(AbstractModel _)
     {
-        UpdatePips();
+        UpdatePipText();
     }
 
     public override int MaxUpgradeLevel => 0;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar("PipDescription")];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(PipDescription))];
+    public string PipDescription
+    {
+        get => ((StringVar)DynamicVars[nameof(PipDescription)]).StringValue;
+        set
+        {
+            AssertMutable();
+            ((StringVar)DynamicVars[nameof(PipDescription)]).StringValue = value;
+        }
+    }
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Sly, CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => MutableHoverTips;
@@ -52,7 +61,7 @@ public class Pip : DiceTheSpireCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DiceyHooks.OnModifyPipOnPlayAsync(choiceContext, cardPlay, this);
+        await DiceyHooks.OnModifyPipOnPlayAsync(cardPlay.Player.RunState, cardPlay.Player.Creature.CombatState, choiceContext, cardPlay, this);
     }
 
     public static async Task<IEnumerable<CardModel>> CreateInHandAsync(
@@ -77,18 +86,15 @@ public class Pip : DiceTheSpireCard
         return pips;
     }
 
-    private void UpdatePips()
+    private void UpdatePipText()
     {
-        if (RunState is null)
+        if (CanonicalInstance == this || RunState is null)
         {
             return;
         }
 
-        IEnumerable<string> descriptions = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>().Where(p => p.ShouldModify(this)).Select(listener => listener.PipDescription.GetFormattedText());
-        StringVar pipDescription = (StringVar)DynamicVars["PipDescription"];
-        pipDescription.StringValue = string.Join("\n", descriptions);
-        MutableHoverTips = RunState.IterateHookListeners(CombatState).OfType<IModifyPipOnPlayListener>()
-            .Where(p => p.ShouldModify(this))
-            .SelectMany(listener => listener.PipHoverTips);
+        PipDescription = string.Join("\n", DiceyHooks.ModifyPipDescription(RunState, CombatState, this));
+        
+        MutableHoverTips = DiceyHooks.ModifyPipHoverTips(RunState, CombatState, this);
     }
 }

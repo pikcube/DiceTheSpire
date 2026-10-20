@@ -1,42 +1,43 @@
-﻿using DiceTheSpire.Shared.Commands;
-using DiceTheSpire.Shared.Listeners;
-using DiceTheSpire.Shared.Utility;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Models;
+using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
 
-public class CartwheelQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class CartwheelQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Add 5 cards to your deck
+    public override CardModel RewardCard => Cartwheel.Create();
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CardsRemaining), 5)];
+
+    [SavedProperty]
+    public int CardsRemaining
+    {
+        get => DynamicVars[nameof(CardsRemaining)].IntValue;
+        set
+        {
+            AssertMutable();
+            DynamicVars[nameof(CardsRemaining)].BaseValue = value;
+        }
+    }
+
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
+    {
+        if (card.Owner != Owner || card.Pile?.Type != PileType.Deck)
+        {
+            return;
+        }
+
+        --CardsRemaining;
+        if (CardsRemaining > 0)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-
-//public class CartwheelQuest() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self), IAfterRerollListener
-//{
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
-//    }
-//    public async Task AfterRerollAsync(PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
-//    {
-//        if (card == this)
-//        {
-//            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
-//        }
-//    }
-//    protected override void OnUpgrade()
-//    {
-//        DynamicVars.Cards.UpgradeValueBy(1);
-//    }
-
-//}

@@ -1,44 +1,41 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class PiledriverQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class PiledriverQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Add 4 attacks to your deck
+    public override CardModel RewardCard => Piledriver.Create();
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(AttacksRemaining), 4)];
+
+    [SavedProperty]
+    public int AttacksRemaining
+    {
+        get => DynamicVars[nameof(AttacksRemaining)].IntValue;
+        set
+        {
+            AssertMutable();
+            DynamicVars[nameof(AttacksRemaining)].BaseValue = value;
+        }
+    }
+
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
+    {
+        if (card.Owner != Owner || card.Pile?.Type != PileType.Deck || card.Type != CardType.Attack)
+        {
+            return;
+        }
+
+        --AttacksRemaining;
+        if (AttacksRemaining > 0)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-//public class PiledriverQuest() : TheWarriorCard(3, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
-//{
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VulnerablePower>()];
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(25M, DamageProps.card), new PowerVar<VulnerablePower>(5)];
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
-//        await DamageCmd.Attack(DynamicVars.Damage.IntValue)
-//            .FromCard(this, cardPlay)
-//            .Targeting(cardPlay.Target)
-//            .WithHitFx(VfxCmd.bluntPath)
-//            .Execute(choiceContext);
-
-//        await PowerCmd.Apply<VulnerablePower>(choiceContext, cardPlay.Target, DynamicVars.Vulnerable.IntValue,
-//            Owner.Creature, cardPlay.Card);
-
-//    }
-
-//    protected override void OnUpgrade()
-//    {
-//        DynamicVars.Damage.UpgradeValueBy(5);
-//        DynamicVars.Vulnerable.UpgradeValueBy(2);
-
-//    }
-
-//}

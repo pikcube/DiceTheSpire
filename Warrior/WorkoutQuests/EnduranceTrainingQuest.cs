@@ -1,32 +1,55 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Interfaces;
-using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class EnduranceTrainingQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class EnduranceTrainingQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Climb 8 floors
+    public override CardModel RewardCard => EnduranceTraining.Create();
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(FloorsRemaining), 8)];
+
+    [SavedProperty]
+    public int FloorsRemaining
+    {
+        get => DynamicVars[nameof(FloorsRemaining)].IntValue;
+        set
+        {
+            AssertMutable();
+            DynamicVars[nameof(FloorsRemaining)].BaseValue = value;
+        }
+    }
+
+    [SavedProperty] public int LastFloor { get; set; } = -1;
+
+    public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
+    {
+        if (card == this)
+        {
+            LastFloor = Owner.RunState.TotalFloor;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (Owner.RunState.TotalFloor > LastFloor)
+        {
+            --FloorsRemaining;
+            LastFloor = Owner.RunState.TotalFloor;
+        }
+
+        if (FloorsRemaining > 0)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-//public class EnduranceTrainingQuest() : TheWarriorCard(0, CardType.Power, CardRarity.Token, TargetType.Self)
-//{
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(2M)];
-//    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<DexterityPower>(DynamicVars.Power<DexterityPower>().IntValue)];
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue, Owner.Creature, this);
-//    }
-
-//    protected override void OnUpgrade()
-//    {
-//        DynamicVars.Dexterity.UpgradeValueBy(1);
-//    }
-//}

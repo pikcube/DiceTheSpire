@@ -18,7 +18,7 @@ public static class ModifyUnplayableBehaviorPatches
             return __result;
         }
 
-        bool shouldModify = DiceyHooks.OnModifyUnplayableBehavior(__instance.RunState, __instance);
+        bool shouldModify = DiceyHooks.OnModifyUnplayableBehavior(__instance.RunState, __instance.CombatState, __instance);
 
         if (!shouldModify)
         {
@@ -64,13 +64,12 @@ public static class ModifyCardOnPlay
             return true;
         }
 
-        if (!DiceyHooks.TryModifyUnplayableOnPlay(__instance.RunState, __instance, out Func<PlayerChoiceContext, CardPlay, Task> newOnPlay))
+        if (!DiceyHooks.TryModifyUnplayableOnPlay(__instance.RunState, __instance.CombatState, __instance, out Func<PlayerChoiceContext, CardPlay, Task> newOnPlay))
         {
             return true;
         }
 
         __result = newOnPlay(choiceContext, cardPlay);
         return false;
-
     }
 }

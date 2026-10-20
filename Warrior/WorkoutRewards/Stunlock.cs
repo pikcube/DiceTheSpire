@@ -9,7 +9,7 @@ using DiceTheSpire.Shared.Extensions;
 
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
-public class Stunlock() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.AnyEnemy)
+public class Stunlock() : WorkoutCard(3, CardType.Skill, TargetType.AnyEnemy)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [StunIntent.GetStaticHoverTip()];
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. RangeVars.Make(0, 2)];

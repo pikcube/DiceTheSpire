@@ -1,32 +1,58 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Inventor.Powers;
-using DiceTheSpire.Shared.DynamicVars;
-using DiceTheSpire.Shared.Interfaces;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class EquilibriumQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class EquilibriumQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Win a combat without taking damage
+    public override CardModel RewardCard => Equilibrium.Create();
+
+    [SavedProperty]
+    public bool DamageTaken
+    {
+        get;
+        set
+        {
+            AssertMutable();
+            field = value;
+        }
+    }
+
+    public override Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is CombatRoom)
+        {
+            DamageTaken = false;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result,
+        ValueProp props,
+        Creature? dealer, CardModel? cardSource)
+    {
+        if (result.UnblockedDamage > 0 && result.Receiver == Owner.Creature)
+        {
+            DamageTaken = true;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterCombatVictory(CombatRoom room)
+    {
+        if (DamageTaken)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-//public class EquilibriumQuest() : TheWarriorCard(3, CardType.Power, CardRarity.Token, TargetType.Self)
-//{
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<EquilibriumPower>(30), .. RangeVars.Make(0, 2)];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<EquilibriumPower>()];
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        await EquilibriumPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<EquilibriumPower>().IntValue, Owner.Creature, this);
-//    }
-//    protected override void OnUpgrade()
-//    {
-//        DynamicVars.Power<EquilibriumPower>().UpgradeValueBy(10);
-//    }
-
-//}

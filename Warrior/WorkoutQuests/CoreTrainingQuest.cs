@@ -1,35 +1,42 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.DynamicVars;
-using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
-using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Warrior;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
 
-public class CoreTrainingQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class CoreTrainingQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Add 4 skills to your deck
+    public override CardModel RewardCard => CoreTraining.Create();
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(SkillsRemaining), 4)];
+
+    [SavedProperty]
+    public int SkillsRemaining
+    {
+        get => DynamicVars[nameof(SkillsRemaining)].IntValue;
+        set
+        {
+            AssertMutable();
+            DynamicVars[nameof(SkillsRemaining)].BaseValue = value;
+        }
+    }
+
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
+    {
+        if (card.Owner != Owner || card.Pile?.Type != PileType.Deck || card.Type != CardType.Skill)
+        {
+            return;
+        }
+
+        --SkillsRemaining;
+        if (SkillsRemaining > 0)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-
-//public class CoreTrainingQuest() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
-//{
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(4M), .. RangeVars.Make(0, 0)];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PlatingPower>(DynamicVars.Power<PlatingPower>().IntValue)];
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        await PowerCmd.Apply<PlatingPower>(choiceContext, Owner.Creature, DynamicVars.Power<PlatingPower>().IntValue, Owner.Creature, this);
-//    }
-//    protected override void OnUpgrade()
-//    {
-//        DynamicVars.Power<PlatingPower>().UpgradeValueBy(1);
-//    }
-
-//}

@@ -1,43 +1,52 @@
-﻿using DiceTheSpire.Shared.DynamicVars;
-using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Powers;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
+using MegaCrit.Sts2.Core.Entities.CardRewardAlternatives;
+using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Rewards;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.ValueProps;
+using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class DeepFreezeQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class DeepFreezeQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Skip 2 card rewards
+    public override CardModel RewardCard => DeepFreeze.Create();
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(RewardsLeft), 2)];
+
+    [SavedProperty]
+    public int RewardsLeft
+    {
+        get => DynamicVars[nameof(RewardsLeft)].IntValue;
+        set
+        {
+            AssertMutable();
+            DynamicVars[nameof(RewardsLeft)].BaseValue = value;
+        }
+    }
+
+    public override bool TryModifyCardRewardAlternatives(Player player, CardReward cardReward,
+        List<CardRewardAlternative> alternatives)
+    {
+        if (Owner != player)
+        {
+            return false;
+        }
+
+        alternatives.Add(new CardRewardAlternative($"{MainFile.ModId}_{nameof(DeepFreezeQuest)}", AfterSkip, PostAlternateCardRewardAction.EndSelectionAndCompleteReward));
+        return true;
+    }
+
+    public async Task AfterSkip()
+    {
+        --RewardsLeft;
+        if (RewardsLeft > 0)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-//public class DeepFreezeQuest() : TheWarriorCard(2, CardType.Skill, CardRarity.Token, TargetType.AllEnemies)
-//{
-//    public override bool GainsBlock => true;
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FreezePower>()];
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(25, BlockProps.card), .. RangeVars.Make(1, 1), new PowerVar<FreezePower>(1)];
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-
-//        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-
-//        if (RunState is null || CombatState is null)
-//        {
-//            return;
-//        }
-//        await PowerCmd.Apply<FreezePower>(choiceContext, CombatState.Enemies, 1, Owner.Creature, cardPlay.Card);
-
-//    }
-
-//    protected override void OnUpgrade()
-//    {
-//        base.OnUpgrade();
-//        DynamicVars.Block.UpgradeValueBy(5);
-
-//    }
-
-//}

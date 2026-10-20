@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Players;
+﻿using DiceTheSpire.Inventor.Gadgets;
+using MegaCrit.Sts2.Core.Entities.Players;
 
 namespace DiceTheSpire.Shared.Interfaces;
 
@@ -6,6 +7,7 @@ public interface IGadgetParent
 {
     public string GadgetId { set; }
     public Player Owner { get; }
+    public GadgetModel LinkedGadgetModel { get; }
     public void Flash();
     public Task UpdateAndPreviewAsync();
     public void Update();

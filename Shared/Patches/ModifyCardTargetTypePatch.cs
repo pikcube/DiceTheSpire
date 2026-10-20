@@ -40,7 +40,7 @@ public static class ModifyCardTargetTypePatch
         }
         if (__instance.RunState is not null)
         {
-            DiceyHooks.OnModifyTargetType(__instance.RunState, __instance, ref __result);
+            DiceyHooks.OnModifyTargetType(__instance.RunState, __instance.CombatState, __instance, ref __result);
         }
         return __result;
     }

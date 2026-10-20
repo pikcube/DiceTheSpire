@@ -1,33 +1,20 @@
-﻿using BaseLib.Extensions;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
-using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Warrior.WorkoutRewards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class RestDayQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class RestDayQuest : WorkoutQuestCard, IAfterRestingListener
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Rest at a restsite
+    public override CardModel RewardCard => RestDay.Create();
+
+    public async Task BetterAfterRestingAsync(Player player)
+    {
+        if (player == Owner)
+        {
+            await OnWorkoutCompleteAsync();
+        }
+    }
 }
-
-//{
-//    public class RestDayQuest() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
-//    {
-//        protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BlockNextTurnPower>(40)];
-//        public override bool GainsBlock => true;
-//        protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//        {
-//            await PowerCmd.Apply<BlockNextTurnPower>(choiceContext, Owner.Creature, DynamicVars.Power<BlockNextTurnPower>().IntValue, Owner.Creature, this);
-
-//        }
-//        protected override void OnUpgrade()
-//        {
-//            DynamicVars.Power<BlockNextTurnPower>().UpgradeValueBy(10);
-//        }
-//    }
-//}
-
-

@@ -1,56 +1,57 @@
-﻿using DiceTheSpire.Shared.Powers;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
-using DiceTheSpire.Shared.Interfaces;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class GuardPassQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class GuardPassQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Win a combat without blocking any damage
+    public override CardModel RewardCard => GuardPass.Create();
+    [SavedProperty]
+    public bool DamageBlocked
+    {
+        get;
+        set
+        {
+            AssertMutable();
+            field = value;
+        }
+    }
+
+    public override Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is CombatRoom)
+        {
+            DamageBlocked = false;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result,
+        ValueProp props,
+        Creature? dealer, CardModel? cardSource)
+    {
+        if (result.BlockedDamage > 0 && result.Receiver == Owner.Creature)
+        {
+            DamageBlocked = true;
+        }
+
+        return Task.CompletedTask;
+    }
+
+    public override async Task AfterCombatVictory(CombatRoom room)
+    {
+        if (DamageBlocked)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-//public class GuardPassQuest() : TheWarriorCard(2, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
-//{
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus)];
-//    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
-//    private static decimal Bonus(CardModel card, Creature? arg2)
-//    {
-
-//        if (card.Owner.PlayerCombatState is null)
-//        {
-//            return 0;
-//        }
-
-//        int damage = card.Owner.Creature.Block * 4;
-
-//        return damage;
-//    }
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        if (Owner.PlayerCombatState is null || cardPlay.Target is null)
-//        {
-//            return;
-//        }
-
-//        await DamageCmd.Attack(DynamicVars.CalculatedDamage)
-//            .FromCard(this, cardPlay)
-//            .Targeting(cardPlay.Target)
-//            .WithHitFx(VfxCmd.slashPath)
-//            .Execute(choiceContext);
-
-//    }
-
-//    protected override void OnUpgrade()
-//    {
-//        EnergyCost.UpgradeBy(-1);
-//    }
-
-//}

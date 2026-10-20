@@ -10,7 +10,7 @@ namespace DiceTheSpire.Shared.Relics;
 
 public class PocketDice : TheThiefRelic
 {
-    public override RelicRarity Rarity => RelicRarity.Rare;
+    public override RelicRarity Rarity => RelicRarity.Common;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>()];
 

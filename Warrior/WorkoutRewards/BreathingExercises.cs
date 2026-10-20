@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
-public class BreathingExercises() : TheWarriorCard(0, CardType.Skill, CardRarity.Token, TargetType.Self), IFuryModifier
+public class BreathingExercises() : WorkoutCard(0, CardType.Skill, TargetType.Self), IFuryModifier
 {
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => true;

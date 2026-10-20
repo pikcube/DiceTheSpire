@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
-public class KnockoutPunch() : TheWarriorCard(1, CardType.Attack, CardRarity.Token, TargetType.AnyEnemy)
+public class KnockoutPunch() : WorkoutCard(1, CardType.Attack, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(12, Bonus, 12)];
 

@@ -1,31 +1,42 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Interfaces;
-using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Warrior.WorkoutRewards;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Saves.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
-public class DumbbellQuest() : TheWarriorCard(-1, CardType.Quest, CardRarity.Quest, TargetType.None), IWorkoutQuest
+public class DumbbellQuest : WorkoutQuestCard
 {
-    public CardModel RewardCard => throw new NotImplementedException();
+    //Add 3 common cards to your deck
+    public override CardModel RewardCard => Dumbbell.Create();
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(CommonsRemaining), 3)];
+
+    [SavedProperty]
+    public int CommonsRemaining
+    {
+        get => DynamicVars[nameof(CommonsRemaining)].IntValue;
+        set
+        {
+            AssertMutable();
+            DynamicVars[nameof(CommonsRemaining)].BaseValue = value;
+        }
+    }
+
+    public override async Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
+    {
+        if (card.Owner != Owner || card.Pile?.Type != PileType.Deck || card.Rarity == CardRarity.Common)
+        {
+            return;
+        }
+
+        --CommonsRemaining;
+        if (CommonsRemaining > 0)
+        {
+            return;
+        }
+
+        await OnWorkoutCompleteAsync();
+    }
 }
-
-//public class DumbbellQuest() : TheWarriorCard(1, CardType.Skill, CardRarity.Token, TargetType.Self)
-//{
-//    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(12M)];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
-
-//    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-//    {
-//        await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, this);
-//    }
-//    protected override void OnUpgrade()
-//    {
-//        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
-//    }
-
-//}
