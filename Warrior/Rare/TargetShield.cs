@@ -17,7 +17,7 @@ public class TargetShield() : TheWarriorCard(2, CardType.Power, CardRarity.Rare,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         TargetShield cardSource = this;
-        await PowerCmd.Apply<TargetShieldPower>(choiceContext, Owner.Creature, 1M,
+        await PowerCmd.Apply<TargetShieldPower>(choiceContext, Owner.Creature, 5M,
             Owner.Creature, this);
         await PowerCmd.Apply<DexterityPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars.Dexterity.BaseValue, cardSource.Owner.Creature, cardSource);
         //await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity, Owner.Creature, this);

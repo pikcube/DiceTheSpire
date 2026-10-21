@@ -11,7 +11,7 @@ namespace DiceTheSpire.Shared.Powers;
 public class TargetShieldPower : DiceTheSpirePower
 {
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => (IEnumerable<IHoverTip>)HoverTipFactory.FromPower<DexterityPower>();
+    //protected override IEnumerable<IHoverTip> ExtraHoverTips => (IEnumerable<IHoverTip>)HoverTipFactory.FromPower<DexterityPower>();
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
@@ -20,8 +20,9 @@ public class TargetShieldPower : DiceTheSpirePower
     {
         TargetShieldPower targetShieldPower = this;
         targetShieldPower.Flash();
-        await PowerCmd.Apply<DexterityPower>(choiceContext, targetShieldPower.Owner, targetShieldPower.Amount, targetShieldPower.Owner, null);
+        await PowerCmd.Apply<DexterityPower>(choiceContext, targetShieldPower.Owner, 1M, targetShieldPower.Owner, null);
 
+        await PowerCmd.Decrement(this);
     }
 }
 
