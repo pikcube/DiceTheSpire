@@ -181,6 +181,8 @@
   "DICETHESPIRE-ROUNDHOUSE_KICK.title": "Roundhouse Kick",
   "DICETHESPIRE-SHIELD_CHARGE.description": "Damage all enemies equal to your unused [gold]Block[/gold].\nDraw {Cards:diff()} {IfUpgraded:show:cards|card}.",
   "DICETHESPIRE-SHIELD_CHARGE.title": "Shield Charge",
+  "DICETHESPIRE-UNSTOPPABLE_FORM.description": "At the start of your turn [gold]Rummage[/gold] or something IDK...",
+  "DICETHESPIRE-UNSTOPPABLE_FORM.title": "Unstoppable Form",
   "DICETHESPIRE-CARTWHEEL.description": "Draw {Cards:diff()} cards.\nWhen this card is [gold]Rerolled[/gold],\nDraw {Cards:diff()} cards.",
   "DICETHESPIRE-CARTWHEEL.title": "Cartwheel",
   "DICETHESPIRE-STRENGTH_TRAINING.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nAdd a copy of [gold]Strength Training[/gold] to your [gold]Discard Pile[/gold].",
