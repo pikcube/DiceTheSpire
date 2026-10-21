@@ -191,7 +191,7 @@ public static class DiceyHooks
         foreach (IAfterRestingListener listener in runState.IterateHookListeners(combatState)
                      .OfType<IAfterRestingListener>())
         {
-            await listener.BetterAfterRestingAsync(player);
+            await listener.BetterAfterRestSiteHealAsync(player);
         }
     }
 }

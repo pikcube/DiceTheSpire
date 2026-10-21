@@ -4,5 +4,5 @@ namespace DiceTheSpire.Shared.Interfaces;
 
 public interface IAfterRestingListener
 {
-    public Task BetterAfterRestingAsync(Player player);
+    public Task BetterAfterRestSiteHealAsync(Player player);
 }

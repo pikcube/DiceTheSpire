@@ -68,9 +68,19 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
         get
         {
             string key = LocString.Exists("gadgets", Id.Entry + ".duration") ? Id.Entry + ".duration" : $"{MainFile.ModPrefix}-DEFAULT.duration";
-            LocString description = new LocString("gadgets", key).WithDynamicVars(DynamicVars);
-            description.Add(nameof(Power), Power);
-            return description;
+            LocString duration = new LocString("gadgets", key).WithDynamicVars(DynamicVars);
+            duration.Add(nameof(Power), Power);
+            return duration;
+        }
+    }
+
+    public LocString Flavor
+    {
+        get
+        {
+            LocString flavor = new LocString("gadgets", Id.Entry + ".flavor").WithDynamicVars(DynamicVars);
+            flavor.Add(nameof(Power), Power);
+            return flavor;
         }
     }
 

@@ -5,6 +5,7 @@ using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Inventor.Token;
 using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization;
@@ -17,7 +18,7 @@ using Pikcube.Common.Extensions;
 namespace DiceTheSpire.Shared.Relics;
 
 [Pool(typeof(SharedRelicPool))]
-public class Gadget : DiceTheSpireRelic, IGadgetParent
+public class Gadget : DiceTheSpireRelic, IGadgetParent, IModifyFlavorRelic
 {
     static Gadget()
     {
@@ -94,8 +95,14 @@ public class Gadget : DiceTheSpireRelic, IGadgetParent
         GadgetText = LinkedGadgetModel.Description.GetFormattedText();
     }
 
-    public void SetValue(int display)
+    public void SetValue(int _)
     {
-        
+        //Intentionally blank since combat gadgets are controlled by a power, and that power should display the counter.
+        //If we add out of combat gadgets that require a counter we can revisit this logic.
+    }
+
+    public void ModifyFlavor(ref LocString locString)
+    {
+        locString = LinkedGadgetModel.Flavor;
     }
 }

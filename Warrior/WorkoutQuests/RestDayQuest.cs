@@ -10,7 +10,7 @@ public class RestDayQuest : WorkoutQuestCard, IAfterRestingListener
     //Rest at a restsite
     public override CardModel RewardCard => RestDay.Create();
 
-    public async Task BetterAfterRestingAsync(Player player)
+    public async Task BetterAfterRestSiteHealAsync(Player player)
     {
         if (player == Owner)
         {
