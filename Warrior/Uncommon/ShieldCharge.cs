@@ -1,12 +1,9 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Powers;
-using DiceTheSpire.Warrior.Removed;
+﻿using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 public class ShieldCharge() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)

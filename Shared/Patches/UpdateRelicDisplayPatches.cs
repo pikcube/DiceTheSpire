@@ -28,6 +28,7 @@ public static class UpdateRelicDisplayPatches
     }
 #pragma warning restore CA1859 // Use concrete types when possible for improved performance
 
+    [UsedImplicitly]
     private static LocString CreateLocString(string table, string entry, RelicModel relic)
     {
         return relic is Gadget ? new LocString("gadgets", "DICETHESPIRE-GADGET.type") : new LocString(table, entry);

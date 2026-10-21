@@ -407,7 +407,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         {
             return;
         }
-        foreach (Player player in runState.Players ?? [])
+        foreach (Player player in runState.Players)
         {
             if (player.Character is not TheInventor)
             {
