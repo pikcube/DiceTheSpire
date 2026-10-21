@@ -1,10 +1,11 @@
 ﻿using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Inventor.Token;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Utility;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -20,21 +21,16 @@ public class Gadget : DiceTheSpireRelic, IGadgetParent
 {
     static Gadget()
     {
-        ModHelper.SubscribeForCombatStateHooks("TheInventor.GadgetRelic", CombatStateHooks);
+        ModHelper.SubscribeForRunStateHooks("TheInventor.GadgetRelic", RunStateHooks);
     }
 
     public override bool HasUponPickupEffect => true;
 
     private static GadgetModel[] RunStateHooks(RunState state)
     {
-        return [.. state.Players.SelectMany(p => p.Relics.OfType<Gadget>())
-            .Select(g => g.LinkedGadgetModel)
-            .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)];
-    }
-
-    private static GadgetModel[] CombatStateHooks(CombatState state)
-    {
-        return [.. state.Players.SelectMany(p => p.Relics.OfType<Gadget>())
+        return [.. state.Players
+            .Where(p => !p.HasPower<GadgetPower>())
+            .SelectMany(p => p.Relics.OfType<Gadget>())
             .Select(g => g.LinkedGadgetModel)
             .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)];
     }
