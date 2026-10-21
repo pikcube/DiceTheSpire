@@ -1,8 +1,13 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using DiceTheSpire.Shared.Commands;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
@@ -11,8 +16,7 @@ namespace DiceTheSpire.Shared.Powers;
 public class ShieldChargePower : DiceTheSpirePower
 {
 
-    public override PowerType Type => PowerType.Debuff;
-    public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
+    public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
 
@@ -21,14 +25,25 @@ public class ShieldChargePower : DiceTheSpirePower
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        if (side != CombatSide.Enemy || Applier?.Player is null)
+        if (side != CombatSide.Enemy)
         {
             return;
         }
-        for (int i = 0; i < Amount; i++)
+
+        IReadOnlyList<Creature> hittableEnemies = this.CombatState.HittableEnemies;
+        if (hittableEnemies.Count == 0 || Owner.Player is null)
         {
-            await CreatureCmd.Damage(choiceContext, Owner, Applier.Player.Creature.Block, DamageProps.nonCardHpLoss, null, null);
+            return;
         }
+
+        await CreatureCmd.Damage(choiceContext, hittableEnemies, Owner.Player.Creature.Block, ValueProp.Unpowered | ValueProp.Unpowered, null, null, null);
+
+        //HookPlayerChoiceContext hookPlayerChoiceContext = new(this, card.Owner.NetId, CombatState, GameActionType.Combat);
+        //await CreatureCmd.Damage(hookPlayerChoiceContext, CombatState.Enemies, Amount, DamageProps.nonCardUnpowered, Owner, null, null);
+
+        await PowerCmd.Decrement(this);
+
     }
+
 
 }
