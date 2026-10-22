@@ -150,5 +150,7 @@
   "DICETHESPIRE-RAINBOW_STRIKE.description": "[gold]Count:[/gold] {BaseCount}\nDeal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each color of card in your [gold]Deck[/gold].",
   "DICETHESPIRE-RAINBOW_STRIKE.title": "Rainbow Strike",
   "DICETHESPIRE-ANTIDOTE.description": "Remove any negative [gold]Strength[/gold] and [gold]Dexterity[/gold].",
-  "DICETHESPIRE-ANTIDOTE.title": "Antidote"
+  "DICETHESPIRE-ANTIDOTE.title": "Antidote",
+  "DICETHESPIRE-BEAR_FORM.description": "Heal {Heal:diff()} HP.\nBecome a Bear for the rest of combat.",
+  "DICETHESPIRE-BEAR_FORM.title": "Bear Form"
 }
