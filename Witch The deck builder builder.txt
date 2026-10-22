@@ -1,0 +1,33 @@
+Witch: The deck builder builder
+
+Philosophy: Witch as a Dicey character is unique in her ability to create equipment on the fly in any combination. Porting over the spell book itself is a terrible idea, but I want to capture this feeling of "you are making the deck on the fly to win the current combat"
+
+I also want to capture the way upgraded slots play, where you can swap out which equipment is upgraded over time.
+
+Mechanics: Scroll Cards
+
+Scroll cards are cards that create other cards. Each scroll correspond to a normal spire card that you can create by playing it from your hand and paying its casting cost.
+
+Casting a scroll doesn't have an energy cost, instead requiring you to select a certain number of cards from your draw pile to exhaust (burn).
+
+When a scroll is burned, it contributes a number of points (tentatively called mana) to the casting. If the cards you burn meet or exceed the scroll's mana requirements, the scroll creates an upgraded version of the card. Otherwise it creates the base version.
+
+Upgrading scroll could modify the casting requirements, the mana given, or just result in the cards always being upgraded. Needs experimentation. Importantly, the scroll's upgrade should be separate from the upgrade of the card it creates.
+
+------------
+
+Design considerations:
+
+Complexity: This is really complicated, arguably too complicated. It doesn't matter how cool the character is if everyone is scared off immediately.
+
+Draw manipulation: Witch will need a way to bury cards she wants to burn in her draw pile, so a variant of Scry that puts the cards on the bottom of the draw pile is likely in order. I'll call it Surveil for now, because that's funny.
+
+Power concerns: Much like Inventor, Witch is going to have very strong deck thinning by the nature of casting. This may necessitate changes to energy and draw on the character if there are not other ways to reign her consistency in.
+
+Non Witch cards: Non witch cards aren't going to suddenly be scrolls. I should consider how the tradeoff between a scroll's flexibility and a non scroll's card immediate utility changes their valuation. Maybe you shouldn't be able to burn non scrolls?
+
+Curses: There needs to be a reason to not burn curses. The cursed debuff is a quick and dirty answer, but not allowing it might be more elegant.
+
+Difficulty of prototyping: Unlike Inventor, where I could throw together a custom run modifier and immediately see how scrapping changes existing characters, there isn't a good way to prototype this quickly (I guess I could use AI but that's gross). I don't want to burn a ton of development time on something that isn't fun, but I also don't have a better idea for Witch at the moment that plays into the theme of constant card creation and destruction.
+
+Mana: Mana is also just a mechanic on the Witch in Dicey, and it works kinda similar to stars except the cost is only paid if you can afford it and provides a bonus if paid. Adding that in feels appropriate, but that's another layer of complexity on a character that is already a nightmare.
