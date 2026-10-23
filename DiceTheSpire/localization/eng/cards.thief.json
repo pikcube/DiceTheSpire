@@ -149,6 +149,6 @@
   "DICETHESPIRE-RAINBOW_STRIKE.title": "Rainbow Strike",
   "DICETHESPIRE-ANTIDOTE.description": "Remove any negative [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-ANTIDOTE.title": "Antidote",
-  "DICETHESPIRE-BEAR_FORM.description": "Heal {Heal:diff()} HP.\nBecome a Bear for the rest of combat.",
+  "DICETHESPIRE-BEAR_FORM.description": "Heal {Heal:diff()} HP.\nGain {Energy:diceIcons()} and add a Bear Maul to your [gold]Hand[/gold] at the start of each turn.",
   "DICETHESPIRE-BEAR_FORM.title": "Bear Form"
 }

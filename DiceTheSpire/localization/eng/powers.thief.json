@@ -66,7 +66,7 @@
   "DICETHESPIRE-MIDNIGHT_CHARM_POWER.description": "The next 2 cards you play this turn are free to play.",
   "DICETHESPIRE-MIDNIGHT_CHARM_POWER.smartDescription": "The next {Amount} cards you play this turn are free to play.",
   "DICETHESPIRE-MIDNIGHT_CHARM_POWER.title": "Midnight Charm",
-  "DICETHESPIRE-BEAR_FORM_POWER.description": "At the start of your turn, add a Bear card to your hand. It costs 1 less this combat.",
-  "DICETHESPIRE-BEAR_FORM_POWER.smartDescription": "At the start of your turn, add a Bear card to your hand. It costs {Energy:diff()} less this combat.",
+  "DICETHESPIRE-BEAR_FORM_POWER.description": "At the start of your turn, add a Bear Maul to your hand.",
+  "DICETHESPIRE-BEAR_FORM_POWER.smartDescription": "At the start of your turn, add {Amount} {Amount:plural:Bear Maul|Bear Mauls} to your hand.",
   "DICETHESPIRE-BEAR_FORM_POWER.title": "Bear Form"
 }

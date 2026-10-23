@@ -8,7 +8,7 @@ namespace DiceTheSpire.Thief.Rare;
 
 public class BearForm() : TheThiefCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(12)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(12), new EnergyVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -18,6 +18,8 @@ public class BearForm() : TheThiefCard(3, CardType.Power, CardRarity.Rare, Targe
         }
 
         await CreatureCmd.Heal(Owner.Creature, DynamicVars.Heal.BaseValue);
+        await PowerCmd.Apply<HallOfMirrorsPower>(choiceContext, Owner.Creature, DynamicVars.Energy.BaseValue,
+            Owner.Creature, this);
         await PowerCmd.Apply<BearFormPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
