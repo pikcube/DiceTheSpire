@@ -2,6 +2,7 @@
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
+using Godot;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
@@ -11,6 +12,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -46,6 +48,26 @@ public class Megabump() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
         foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, p, prefs, null, this))
         {
             await card.BumpAsync(choiceContext);
+            if (p == Owner || card.Pile is null)
+            {
+                continue;
+            }
+
+            (Tween? tween, bool _) = CardPileCmd.GetTweenForCardsChangingPiles([new CardPileAddResult
+            {
+                cardAdded = card,
+                oldPile = card.Pile,
+                success = true,
+                targetPile = card.Pile.Type,
+                modifyingModels = []
+            }], false);
+
+            if (tween is null)
+            {
+                continue;
+            }
+
+            await tween.AwaitFinished(CancellationToken.None);
         }
     }
 

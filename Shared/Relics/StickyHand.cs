@@ -18,8 +18,8 @@ public class StickyHand : TheThiefRelic
             return false;
         }
 
-        IEnumerable<CardCreationResult> card = ThiefHelperFunctions.GetCardsOfClassForReward(player,
-            ThiefHelperFunctions.NonThiefCharacterPools, 1,
+        IEnumerable<CardCreationResult> card = DiceyHelperFunctions.GetCardsOfClassForReward(player,
+            DiceyHelperFunctions.NonThiefCharacterPools, 1,
             creationOptions.RarityOdds);
 
         options.AddRange(card);

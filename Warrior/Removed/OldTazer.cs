@@ -22,7 +22,7 @@
 //            return;
 //        }
 
-//        await InventorHelperFunctions.ShockRandomAsync(choiceContext, Owner, RunState.Rng.CombatCardSelection, DynamicVars.Shock.IntValue);
+//        await DiceyHelperFunctions.ShockRandomAsync(choiceContext, Owner, RunState.Rng.CombatCardSelection, DynamicVars.Shock.IntValue);
 
 //        await RummageCmd.RummageAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
 //    }

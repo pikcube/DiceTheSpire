@@ -17,7 +17,7 @@ public class ThisIsFine() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare,
 
     protected override async Task OnTurnEndInHand(PlayerChoiceContext choiceContext)
     {
-        await InventorHelperFunctions.AutoPlayFromDrawPileAndShock(choiceContext, Owner, IsUpgraded ? 2 : 1, CardPilePosition.Top);
+        await DiceyHelperFunctions.AutoPlayFromDrawPileAndShock(choiceContext, Owner, IsUpgraded ? 2 : 1, CardPilePosition.Top);
     }
 
     public override string GetScrapId => nameof(Fury);

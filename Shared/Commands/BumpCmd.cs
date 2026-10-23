@@ -11,7 +11,7 @@ public static class BumpCmd
 {
     public static async Task BumpAsync(PlayerChoiceContext choiceContext, CardModel instance)
     {
-        if (instance.RunState is null || instance.CombatState is null)
+        if (instance.RunState is null || instance.CombatState is null || instance.Pile is null)
         {
             return;
         }

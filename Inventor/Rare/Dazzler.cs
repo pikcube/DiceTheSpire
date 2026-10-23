@@ -33,7 +33,7 @@ public class Dazzler() : TheInventorCard(1, CardType.Skill, CardRarity.Rare, Tar
         {
             foreach (Creature c in CombatState.Enemies)
             {
-                await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, c, Owner.Creature, this);
+                await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, c, Owner.Creature, this);
             }
         }
     }

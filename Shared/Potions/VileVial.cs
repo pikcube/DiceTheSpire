@@ -23,7 +23,7 @@ public class VileVial : TheInventorPotion
         }
         for (int n = 0; n < DynamicVars["DebuffCount"].IntValue; ++n)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, Owner.RunState, target, Owner.Creature, null);
+            await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, Owner.RunState, target, Owner.Creature, null);
         }
     }
 }

@@ -29,7 +29,7 @@ public class SawWavePower : DiceTheSpirePower
             return;
         }
 
-        if (!InventorHelperFunctions.IsSelfDebuff(Owner, power, target, amount, applier) || power is ITemporaryPower)
+        if (!DiceyHelperFunctions.IsSelfDebuff(Owner, power, target, amount, applier) || power is ITemporaryPower)
         {
             return;
         }
