@@ -25,7 +25,7 @@ public class ResonancePower : DiceTheSpirePower
             return;
         }
 
-        if (!InventorHelperFunctions.IsSelfDebuff(Owner, power, target, amount, applier) || power is ITemporaryPower)
+        if (!DiceyHelperFunctions.IsSelfDebuff(Owner, power, target, amount, applier) || power is ITemporaryPower)
         {
             return;
         }
@@ -36,7 +36,7 @@ public class ResonancePower : DiceTheSpirePower
         {
             for (int n = 0; n < Amount; ++n)
             {
-                await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, CombatState.RunState, creature, Owner, null);
+                await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, CombatState.RunState, creature, Owner, null);
             }
         }
     }

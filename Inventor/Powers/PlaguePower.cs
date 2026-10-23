@@ -22,7 +22,7 @@ public class PlaguePower : AbstractNextTurnPower
 
         for(int n = 0; n < Amount; ++n)
         {
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, Owner.CombatState.RunState, Owner, Applier, null);
+            await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, Owner.CombatState.RunState, Owner, Applier, null);
         }
     }
 }

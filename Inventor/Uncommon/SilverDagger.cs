@@ -32,7 +32,7 @@ public class SilverDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Unc
                 return;
             }
 
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, cardPlay.Target, Owner.Creature, this);
+            await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, cardPlay.Target, Owner.Creature, this);
         }
     }
 

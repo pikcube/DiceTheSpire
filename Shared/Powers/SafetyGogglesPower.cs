@@ -16,7 +16,7 @@ public class SafetyGogglesPower : DiceTheSpirePower
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount, Creature? applier,
         out decimal modifiedAmount)
     {
-        if (!InventorHelperFunctions.IsSelfDebuff(Owner, canonicalPower, target, amount, applier) || Owner.HasPower<ArtifactPower>())
+        if (!DiceyHelperFunctions.IsSelfDebuff(Owner, canonicalPower, target, amount, applier) || Owner.HasPower<ArtifactPower>())
         {
             modifiedAmount = amount;
             return false;
