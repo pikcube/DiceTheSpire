@@ -36,6 +36,7 @@ public class FreezePower : DiceTheSpirePower
         }
         else
         {
+            //Since this is occuring on an enemy, this needs to be blocking.
             await Hook.AfterBlockBroken(CombatState, new BlockingPlayerChoiceContext(), Owner, null);
         }
     }

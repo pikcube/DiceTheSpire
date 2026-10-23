@@ -10,6 +10,7 @@ using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -87,7 +88,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
             GadgetPower p = (GadgetPower)ModelDb.Power<GadgetPower>().ToMutable();
             p.InitialGadgetId = id;
-            await PowerCmd.Apply(new BlockingPlayerChoiceContext(), p, player.Creature, 1, player.Creature, null);
+            await PowerCmd.Apply(new HookPlayerChoiceContext(player, LocalContext.NetId ?? 0, GameActionType.Combat), p, player.Creature, 1, player.Creature, null);
 
             tasks.Add(p.UpdateAndPreviewAsync());
         }
@@ -205,6 +206,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
         }
         
+        //This can be blocking because we are not in combat and there is nothing to block
         CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p, DebugMode == ScrapDebugMode.Optional);
         CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
 

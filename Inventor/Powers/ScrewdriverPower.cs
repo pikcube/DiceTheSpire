@@ -2,7 +2,9 @@
 using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -33,7 +35,7 @@ public class ScrewdriverPower : DiceTheSpirePower, IGadgetPowerListener
 
         if (gadgetParents.Count == 0)
         {
-            TemporaryGadgetPower? p = await TemporaryGadgetPower.ApplyAsync(new BlockingPlayerChoiceContext(), Owner, 1, Owner, cardSource);
+            TemporaryGadgetPower? p = await TemporaryGadgetPower.ApplyAsync(new HookPlayerChoiceContext(this, Owner.Player, LocalContext.NetId ?? 0, GameActionType.Combat), Owner, 1, Owner, cardSource);
             if (p is null)
             {
                 return;
