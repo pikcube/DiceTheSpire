@@ -11,8 +11,6 @@
   "DICETHESPIRE-PEASHOOTER.title": "Peashooter",
   "DICETHESPIRE-SINGULARITY.description": "At the start of your turn,\ndraw 1 card and choose 1 card in your [gold]Hand[/gold] to [gold]Transform[/gold] into a [gold]Pip[/gold].",
   "DICETHESPIRE-SINGULARITY.title": "Singularity",
-  "DICETHESPIRE-COLLAPSE.description": "Deal {Damage:diff()} damage.",
-  "DICETHESPIRE-COLLAPSE.title": "Collapse",
   "DICETHESPIRE-CHISEL.description": "Reduce the cost of a card in your [gold]Hand[/gold] by 1 this turn.\nAdd a [gold]Pip[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-CHISEL.title": "Chisel",
   "DICETHESPIRE-DETONATOR.description": "Deal damage equal to the amount of [gold]Poison[/gold] on the enemy.",

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbwxvr28eavky"
-path="res://.godot/imported/collapse.png-0f9303babff52fc64536f6cb36d545bd.ctex"
+uid="uid://bvcvlom2cyjar"
+path="res://.godot/imported/bear_form.png-69ed1baa5e512e9289328ad2fec4874e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/collapse.png"
-dest_files=["res://.godot/imported/collapse.png-0f9303babff52fc64536f6cb36d545bd.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/bear_form.png"
+dest_files=["res://.godot/imported/bear_form.png-69ed1baa5e512e9289328ad2fec4874e.ctex"]
 
 [params]
 
