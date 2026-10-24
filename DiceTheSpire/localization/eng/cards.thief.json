@@ -150,5 +150,7 @@
   "DICETHESPIRE-ANTIDOTE.description": "Remove any negative [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-ANTIDOTE.title": "Antidote",
   "DICETHESPIRE-BEAR_FORM.description": "Heal {Heal:diff()} HP.\nGain {Energy:diceIcons()} and add a Bear Maul to your [gold]Hand[/gold] at the start of each turn.",
-  "DICETHESPIRE-BEAR_FORM.title": "Bear Form"
+  "DICETHESPIRE-BEAR_FORM.title": "Bear Form",
+  "DICETHESPIRE-BEAR_SWIPE.description": "Deal {Damage:diff()} damage.\nIf this is the first attack you play this turn, gain {Energy:diceIcons()} and draw {Cards:diff()} card.",
+  "DICETHESPIRE-BEAR_SWIPE.title": "Bear Swipe"
 }
