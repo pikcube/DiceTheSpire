@@ -9,10 +9,16 @@ using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.UI;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Cards;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
+using System.Data;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -42,32 +48,12 @@ public class Megabump() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
         await DoBumpAsync(choiceContext, Owner);
     }
 
-    private async Task DoBumpAsync(PlayerChoiceContext choiceContext, Player p)
+    public async Task DoBumpAsync(PlayerChoiceContext choiceContext, Player p)
     {
         CardSelectorPrefs prefs = new(DiceySelection.ToBump, 1, 1);
         foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, p, prefs, null, this))
         {
             await card.BumpAsync(choiceContext);
-            if (p == Owner || card.Pile is null)
-            {
-                continue;
-            }
-
-            (Tween? tween, bool _) = CardPileCmd.GetTweenForCardsChangingPiles([new CardPileAddResult
-            {
-                cardAdded = card,
-                oldPile = card.Pile,
-                success = true,
-                targetPile = card.Pile.Type,
-                modifyingModels = []
-            }], false);
-
-            if (tween is null)
-            {
-                continue;
-            }
-
-            await tween.AwaitFinished(CancellationToken.None);
         }
     }
 
