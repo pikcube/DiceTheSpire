@@ -1,8 +1,10 @@
 ﻿using DiceTheSpire.Inventor;
 using DiceTheSpire.Shared.Listeners;
+using DiceTheSpire.Shared.Utility;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -16,6 +18,7 @@ public class Manual : TheInventorRelic, IModifyFlavorRelic
     public override RelicRarity Rarity => RelicRarity.Starter;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(1)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Gadget)];
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {

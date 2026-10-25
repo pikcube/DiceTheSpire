@@ -1,6 +1,6 @@
 {
   "SEA_GLASS.DICETHESPIRE-THE_INVENTOR.title": "Encyclopedic Glass",
-  "DICETHESPIRE-MANUAL.description": "At the start of each turn, gain {Energy:diceIcons()} and draw [blue]1[/blue] [red]less card[/red].",
+  "DICETHESPIRE-MANUAL.description": "At the start of each turn, gain {Energy:diceIcons()} and draw [blue]1[/blue] [red]less card[/red].\nOn pickup, craft a [gold]Gadget[/gold].",
   "DICETHESPIRE-MANUAL.flavor": "\"Chapter 1: What is a Spire?...\"",
   "DICETHESPIRE-MANUAL.flavor1": "\"Chapter 11: Maintaining a Spire's Heart...\"",
   "DICETHESPIRE-MANUAL.flavor2": "\"Chapter 15: Tales of The Blight...\"",
