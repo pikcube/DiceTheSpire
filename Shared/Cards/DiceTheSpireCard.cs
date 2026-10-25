@@ -67,14 +67,12 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         return hand.Cards.Count(c => c != this) >= countdown.Count;
     }
 
-    public async Task<(int, int)> DiceySpendResourcesAsync(PlayerChoiceContext choiceContext)
+    public async Task DiceySpendResourcesAsync(PlayerChoiceContext choiceContext)
     {
-        (int, int) spent = await SpendResources();
         if (this is ICountdown countdown)
         {
             await DoCountdownAsync(choiceContext, countdown.Count);
         }
-        return spent;
     }
 
     private async Task DoCountdownAsync(PlayerChoiceContext choiceContext, int count)

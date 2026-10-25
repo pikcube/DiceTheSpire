@@ -1,4 +1,5 @@
-﻿using System.Reflection.Emit;
+﻿using System.Data;
+using System.Reflection.Emit;
 using DiceTheSpire.Shared.Cards;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -11,6 +12,7 @@ namespace DiceTheSpire.Shared.Patches;
 
 
 [HarmonyPatch(typeof(PlayCardAction), "ExecuteAction", MethodType.Async)]
+[HarmonyPriority(int.MaxValue)]
 public static class PlayCardActionPatch
 {
     [UsedImplicitly]
@@ -22,9 +24,8 @@ public static class PlayCardActionPatch
 
         //Match and replace call to SpendResources with CreateChoiceAndSpendResourcesAsync
         matcher
-            .MatchStartForward(CodeMatch.Calls(() => default(CardModel)!.SpendResources()))
-            .ThrowIfInvalid("Could not find SpendResourcesCall")
-            .RemoveInstruction()
+            .MatchStartForward(CodeMatch.Calls(() => default(Task<(int, int)>)!.GetAwaiter()))
+            .ThrowIfInvalid("Could not find get awaiter")
             .InsertAndAdvance(CodeInstruction.LoadLocal(1))
             .InsertAndAdvance(CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
 
@@ -54,21 +55,19 @@ public static class PlayCardActionPatch
 #pragma warning restore CA1859 // Use concrete types when possible for improved performance
 
 
-    public static async Task<(int, int)> CreateChoiceAndSpendResourcesAsync(object instance, PlayCardAction action)
+    public static async Task<(int, int)> CreateChoiceAndSpendResourcesAsync(Task<(int, int)> instance, PlayCardAction action)
     {
-        if (instance is not CardModel card)
-        {
-            throw new InvalidOperationException();
-        }
+        (int, int) result = await instance;
+        CardModel card = action.PrivateFieldWrapper<PlayCardAction, CardModel>("_card").Value ?? throw new NoNullAllowedException();
 
         GameActionPlayerChoiceContext pcc = new(action);
         action.PrivatePropertyWrapper<PlayCardAction, PlayerChoiceContext>("PlayerChoiceContext").Value = pcc;
 
         if (card is DiceTheSpireCard diceyCard)
         {
-            return await diceyCard.DiceySpendResourcesAsync(pcc);
+            await diceyCard.DiceySpendResourcesAsync(pcc);
         }
 
-        return await card.SpendResources();
+        return result;
     }
 }
