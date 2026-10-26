@@ -18,7 +18,7 @@
   "DICETHESPIRE-BUZZER.title": "Buzzer",
   "DICETHESPIRE-CACTUS_NEEDLE.description": "[gold]Held[/gold]: Deal {Damage:diff()} damage to ALL enemies.\nDeal {ThornsPower:plural:|{ThornsPower:diff()} }additional damage for each [gold]Thorns[/gold] you have.",
   "DICETHESPIRE-CACTUS_NEEDLE.title": "Cactus Needle",
-  "DICETHESPIRE-CACTUS_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nCosts 1 less {Energy:diceIcons()} for each [gold]Thorns[/gold] gained this combat.",
+  "DICETHESPIRE-CACTUS_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold].\nCosts 1 less {Energy:diceIcons()} for each [gold]Thorns[/gold] you have.",
   "DICETHESPIRE-CACTUS_SHIELD.title": "Cactus Shield",
   "DICETHESPIRE-CACTUS_SPEAR.description": "Deal {CalculatedDamage:diff()} damage.\n{IfUpgraded:show:Triple|Double} if you have [gold]Thorns[/gold].",
   "DICETHESPIRE-CACTUS_SPEAR.title": "Cactus Spear",
