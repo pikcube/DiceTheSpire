@@ -23,10 +23,11 @@ public static class PlayCardActionPatch
         CodeMatcher matcher = new(instructions);
 
         //Match and replace call to SpendResources with CreateChoiceAndSpendResourcesAsync
-        matcher
-            .MatchStartForward(CodeMatch.Calls(() => default(Task<(int, int)>)!.GetAwaiter()))
+        matcher.MatchStartForward(CodeMatch.Calls(() => default(Task<(int, int)>)!.GetAwaiter()))
             .ThrowIfInvalid("Could not find get awaiter")
+            //Load PlayCardAction to the evaluation stack
             .InsertAndAdvance(CodeInstruction.LoadLocal(1))
+            //Consume Task<(int, int)> and PlayCardAction, load Task<(int, int)> to the stack 
             .InsertAndAdvance(CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
 
         //Match and remove setting of PCC
@@ -39,12 +40,12 @@ public static class PlayCardActionPatch
             .ThrowIfInvalid("Could not find where PCC is created")
             .RemoveInstruction();
 
-        //Match and remove load of `this` which is consumed by set PCC
+        //Match and remove load of this which is consumed by set PCC
         matcher.MatchStartBackwards(CodeMatch.WithOpcodes([OpCodes.Ldloc_1]))
             .ThrowIfInvalid("Could not find load of 'this' to evaluation stack.")
             .RemoveInstruction();
 
-        //Match and remove load of `this` which is consumed by set PCC. This isn't an error, there's two ldloc.1 instructions to remove
+        //Match and remove load of this which is consumed by set PCC. This isn't an error, there's two ldloc.1 instructions to remove
         matcher.MatchStartBackwards(CodeMatch.WithOpcodes([OpCodes.Ldloc_1]))
             .ThrowIfInvalid("Could not find load of 'this' to evaluation stack")
             .RemoveInstruction();

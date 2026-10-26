@@ -1,10 +1,13 @@
-﻿using DiceTheSpire.Inventor;
+﻿using System.Data;
+using System.Reflection;
+using DiceTheSpire.Inventor;
 using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Patches;
 using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -271,5 +274,32 @@ public static class DiceyHelperFunctions
         //Prevents a stack overflow from Stickyfingers modifying itself repeatedly
         options.WithFlags(CardCreationFlags.NoModifyHooks);
         return CardFactory.CreateForReward(player, count, options).Take(count);
+    }
+
+    public static Type AsyncTypeOf<T>()
+    {
+        return AsyncTypeOf(typeof(T));
+    }
+
+    public static Type AsyncTypeOf(Type t)
+    {
+        Type? patchTypeTarget = null;
+        string? methodName = null;
+        MethodType? methodType = null;
+
+        foreach (HarmonyPatch attribute in t.GetCustomAttributes<HarmonyPatch>())
+        {
+            patchTypeTarget ??= attribute.info.declaringType;
+            methodName ??= attribute.info.methodName;
+            methodType ??= attribute.info.methodType;
+        }
+
+        if (patchTypeTarget is null || methodName is null || methodType is not MethodType.Async)
+        {
+            throw new NoNullAllowedException();
+        }
+
+        MethodInfo asyncMethodBeingPatched = AccessTools.DeclaredMethod(patchTypeTarget, methodName);
+        return AccessTools.AsyncMoveNext(asyncMethodBeingPatched).DeclaringType ?? throw new NoNullAllowedException();
     }
 }
