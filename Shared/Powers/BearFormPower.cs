@@ -12,9 +12,9 @@ public class BearFormPower : DiceTheSpirePower
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        for (int i = 0; i < Amount; i++)
-        {
-            //add Bear Maul to hand
-        }
+        //for (int i = 0; i < Amount; i++)
+        //{
+            //todo add Bear Maul to hand
+        //}
     }
 }

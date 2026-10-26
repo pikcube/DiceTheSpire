@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
 using System.Reflection;
+using JetBrains.Annotations;
 
 namespace DiceTheSpire.Shared.Patches;
 
@@ -32,6 +33,7 @@ public static class WhisperingEarringsPatch
     }
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
+    [UsedImplicitly]
     private static async Task<(int, int)> SpendDiceyResourcesAsync(Task<(int, int)> result, CardModel card, PlayerChoiceContext context)
     {
         (int, int) spent = await result;
