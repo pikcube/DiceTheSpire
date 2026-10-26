@@ -160,6 +160,6 @@
   "DICETHESPIRE-PICNIC_BASKET.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd [gold]Replay[/gold] to a card in your [gold]Hand[/gold].",
   "DICETHESPIRE-PICNIC_BASKET.title": "Picnic Basket",
   "DICETHESPIRE-PICNIC_BASKET.selectionScreenPrompt": "Select a card to add [gold]Retain[/gold] to.",
-  "DICETHESPIRE-BEAR_ROAR.description": "[gold]Count:[/gold] {BaseCount}\nApply {WeakPower:diff()} [gold]Weak[/gold] to all enemies.",
+  "DICETHESPIRE-BEAR_ROAR.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold].",
   "DICETHESPIRE-BEAR_ROAR.title": "Bear Roar"
 }

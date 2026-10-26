@@ -1,32 +1,31 @@
-﻿using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Interfaces;
+﻿using DiceTheSpire.Shared.Interfaces;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Potions;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class BearRoar() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), ICountdown
+public class BearRoar() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
-    public int BaseCount { get; set; } = 3;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WeakPower>(2)];
+    public int BaseCount { get; set; } = 2;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DexterityPower>(1), new PowerVar<WeakPower>(2)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState is null)
-        {
-            return;
-        }
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        await PowerCmd.Apply<WeakPower>(choiceContext, CombatState.HittableEnemies, DynamicVars.Weak.BaseValue,
+        await PowerCmd.Apply<DexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue,
+            Owner.Creature, this);
+        await PowerCmd.Apply<WeakPower>(choiceContext, cardPlay.Target, DynamicVars.Weak.BaseValue,
             Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        this.UpgradeCountdownBy(-1);
+        DynamicVars.Dexterity.UpgradeValueBy(1);
+        DynamicVars.Weak.UpgradeValueBy(1);
     }
 }
