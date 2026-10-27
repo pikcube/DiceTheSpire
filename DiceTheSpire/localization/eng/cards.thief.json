@@ -157,11 +157,13 @@
   "DICETHESPIRE-BEAR_HUG.title": "Bear Hug",
   "DICETHESPIRE-BEAR_CHARGE.description": "[gold]Count:[/gold] {BaseCount}\nThe next card you play is played an additional time.",
   "DICETHESPIRE-BEAR_CHARGE.title": "Bear Charge",
-  "DICETHESPIRE-PICNIC_BASKET.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd [gold]Retain[/gold] to a card in your [gold]Hand[/gold].",
+  "DICETHESPIRE-PICNIC_BASKET.description": "Gain {Energy:diceIcons()}.\nAdd {Pips:diff()} [gold]{Pips:plural:Pip|Pips}[/gold] to your [gold]Hand[/gold].\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
   "DICETHESPIRE-PICNIC_BASKET.title": "Picnic Basket",
   "DICETHESPIRE-PICNIC_BASKET.selectionScreenPrompt": "Select a card to add [gold]Retain[/gold] to.",
   "DICETHESPIRE-BEAR_ROAR.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold].",
   "DICETHESPIRE-BEAR_ROAR.title": "Bear Roar",
   "DICETHESPIRE-BEAR_TRAP.description": "[gold]Count:[/gold] {BaseCount}\nEnemy loses {StrengthPower:diff()} [gold]Strength[/gold].",
-  "DICETHESPIRE-BEAR_TRAP.title": "Bear Trap"
+  "DICETHESPIRE-BEAR_TRAP.title": "Bear Trap",
+  "DICETHESPIRE-HONEY.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd [gold]Retain[/gold] to a card in your [gold]Hand[/gold].",
+  "DICETHESPIRE-HONEY.title": "Honey"
 }
