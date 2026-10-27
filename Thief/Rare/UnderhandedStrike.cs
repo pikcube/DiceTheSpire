@@ -32,5 +32,6 @@ public class UnderhandedStrike() : TheThiefCard(1, CardType.Attack, CardRarity.R
     protected override void OnUpgrade()
     {
         DynamicVars.ExtraDamage.UpgradeValueBy(1);
+        DynamicVars.CalculationBase.UpgradeValueBy(1);
     }
 }

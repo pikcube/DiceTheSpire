@@ -17,7 +17,7 @@
   "DICETHESPIRE-DETONATOR.title": "Detonator",
   "DICETHESPIRE-POISON_NEEDLE.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\n[gold]Persist[/gold] {Persist:diff()}.",
   "DICETHESPIRE-POISON_NEEDLE.title": "Poison Needle",
-  "DICETHESPIRE-BLENDER.description": "[gold]Exhaust[/gold] a card.\nAdd [gold]Pips[/gold] to your [gold]Hand[/gold] equal to that card's cost{IfUpgraded:show: plus 1}.",
+  "DICETHESPIRE-BLENDER.description": "[gold]Exhaust[/gold] a card.\nAdd [gold]Pips[/gold] to your [gold]Hand[/gold] equal to that card's cost.",
   "DICETHESPIRE-BLENDER.title": "Blender",
   "DICETHESPIRE-TOXIC_CLAW.description": "Deal {Damage:diff()} damage.\nApply {PoisonPower:diff()} [gold]Poison[/gold].",
   "DICETHESPIRE-TOXIC_CLAW.title": "Toxic Claw",
