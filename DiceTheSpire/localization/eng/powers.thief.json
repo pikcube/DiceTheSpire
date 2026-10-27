@@ -68,5 +68,8 @@
   "DICETHESPIRE-MIDNIGHT_CHARM_POWER.title": "Midnight Charm",
   "DICETHESPIRE-BEAR_FORM_POWER.description": "At the start of your turn, add a Bear Maul to your hand.",
   "DICETHESPIRE-BEAR_FORM_POWER.smartDescription": "At the start of your turn, add {Amount} {Amount:plural:Bear Maul|Bear Mauls} to your hand.",
-  "DICETHESPIRE-BEAR_FORM_POWER.title": "Bear Form"
+  "DICETHESPIRE-BEAR_FORM_POWER.title": "Bear Form",
+  "DICETHESPIRE-MARMALADE_POWER.description": "1-cost attacks deal 4 additional damage.",
+  "DICETHESPIRE-MARMALADE_POWER.smartDescription": "1-cost attacks deal {Amount} additional damage.",
+  "DICETHESPIRE-MARMALADE_POWER.title": "Marmalade"
 }

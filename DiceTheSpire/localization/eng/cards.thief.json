@@ -165,5 +165,7 @@
   "DICETHESPIRE-BEAR_TRAP.description": "[gold]Count:[/gold] {BaseCount}\nEnemy loses {StrengthPower:diff()} [gold]Strength[/gold].",
   "DICETHESPIRE-BEAR_TRAP.title": "Bear Trap",
   "DICETHESPIRE-HONEY.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd [gold]Retain[/gold] to a card in your [gold]Hand[/gold].",
-  "DICETHESPIRE-HONEY.title": "Honey"
+  "DICETHESPIRE-HONEY.title": "Honey",
+  "DICETHESPIRE-MARMALADE.description": "1-cost Attacks deal {MarmaladePower:diff()} additional damage.",
+  "DICETHESPIRE-MARMALADE.title": "Marmalade"
 }
