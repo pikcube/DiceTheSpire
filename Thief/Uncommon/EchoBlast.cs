@@ -4,9 +4,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Thief.Rare;
+namespace DiceTheSpire.Thief.Uncommon;
 
-public class EchoBlast() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class EchoBlast() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
