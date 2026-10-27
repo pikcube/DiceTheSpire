@@ -9,7 +9,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Blender() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust), HoverTipFactory.FromCard<Pip>()];
 
@@ -26,22 +26,14 @@ public class Blender() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, Ta
             return;
         }
 
-        int cost = card.EnergyCost.CostsX ? Owner.PlayerCombatState.Energy : card.EnergyCost.Canonical;
+        var cost = card.EnergyCost.CostsX ? Owner.PlayerCombatState.Energy : card.EnergyCost.Canonical;
 
-        if (IsUpgraded)
-        {
-            cost += 1;
-        }
         await card.ExhaustAsync(choiceContext);
-
-        //You wrote a function for this, you should use it
-        //List<Pip> list = [];
-        //for (int i = 0; i < cost; i++)
-        //{
-        //    list.Add(new Pip());
-        //}
-
-        //await CardPileCmd.AddGeneratedCardsToCombat(list, PileType.Hand, Owner);
         await Pip.CreateInHandAsync(Owner, cost, CombatState);
+    }
+
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
     }
 }

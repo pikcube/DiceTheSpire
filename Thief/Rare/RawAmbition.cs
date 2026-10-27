@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Thief.Rare;
 
-public class AmbitiousForm() : TheThiefCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class RawAmbition() : TheThiefCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [EnergyHoverTip];
@@ -18,11 +18,11 @@ public class AmbitiousForm() : TheThiefCard(3, CardType.Power, CardRarity.Rare, 
         {
             return;
         }
+        await PowerCmd.Apply<RawAmbitionPower>(choiceContext, Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
+    }
 
-        if (IsUpgraded)
-        {
-            await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
-        }
-        await PowerCmd.Apply<AmbitiousFormPower>(choiceContext, Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
     }
 }

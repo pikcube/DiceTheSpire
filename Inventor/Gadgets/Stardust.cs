@@ -29,7 +29,7 @@ public class Stardust() : GadgetModel(nameof(Stardust))
                 return;
             }
 
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, target, player.Creature, null);
+            await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, player.RunState, target, player.Creature, null);
         }
     }
 

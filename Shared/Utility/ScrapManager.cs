@@ -10,6 +10,7 @@ using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -21,7 +22,6 @@ using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Map;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Rewards;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 using Pikcube.Common.Utility;
@@ -87,7 +87,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
 
             GadgetPower p = (GadgetPower)ModelDb.Power<GadgetPower>().ToMutable();
             p.InitialGadgetId = id;
-            await PowerCmd.Apply(new BlockingPlayerChoiceContext(), p, player.Creature, 1, player.Creature, null);
+            await PowerCmd.Apply(new HookPlayerChoiceContext(player, LocalContext.NetId ?? 0, GameActionType.Combat), p, player.Creature, 1, player.Creature, null);
 
             tasks.Add(p.UpdateAndPreviewAsync());
         }
@@ -205,6 +205,7 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
             TheInventorCard.EnableTipsOnCards.AddRange(choiceClones);
         }
         
+        //This can be blocking because we are not in combat and there is nothing to block
         CardModel? clone = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), choiceClones, p, DebugMode == ScrapDebugMode.Optional);
         CardModel? choice = cardModels.ElementAtOrDefault(choiceClones.IndexOf(clone));
 
@@ -397,30 +398,10 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         foreach (Player p in players.Where(p => p.Character is TheInventor))
         {
             SetGadgetInfo(p, ascensionLevel > 5 ? nameof(Efficiency) : nameof(HeatRay), false);
-        }
-    }
-
-    public override async Task BeforeRoomEntered(AbstractRoom room)
-    {
-        RunState? runState = RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value;
-        if (runState is null)
-        {
-            return;
-        }
-        foreach (Player player in runState.Players)
-        {
-            if (player.Character is not TheInventor)
-            {
-                continue;
-            }
-
-            if (player.GetRelic<Gadget>() is not null)
-            {
-                continue;
-            }
-
-            Gadget gadget = await RelicCmd.Obtain<Gadget>(player);
-            gadget.GadgetId = GadgetId(player);
+            
+            //Never do this, I can prove this runs syncronously but that's exceptionally rare
+            Gadget gadget = RelicCmd.Obtain<Gadget>(p).GetAwaiter().GetResult();
+            gadget.GadgetId = GadgetId(p);
         }
     }
 

@@ -23,8 +23,8 @@ public class BagOfTricks : TheThiefRelic
         }
         IReadOnlyList<CardModel> cards =
         [
-            .. ThiefHelperFunctions.GetDistinctOfClassForCombat(player,
-                [.. ThiefHelperFunctions.BaseCharacterCardPools, .. ThiefHelperFunctions.DiceyNonThiefCardPools],
+            .. DiceyHelperFunctions.GetDistinctOfClassForCombat(player,
+                [.. DiceyHelperFunctions.BaseCharacterCardPools, .. DiceyHelperFunctions.DiceyNonThiefCardPools],
                 DynamicVars.Cards.IntValue, player.RunState.Rng.CombatCardGeneration)
         ];
         Flash();

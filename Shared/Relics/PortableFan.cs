@@ -25,7 +25,7 @@ public class PortableFan : TheInventorRelic
         foreach (Creature c in Owner.Creature.CombatState.Enemies)
         {
             HookPlayerChoiceContext context = new(Owner, LocalContext.NetId ?? 0, GameActionType.Combat);
-            await InventorHelperFunctions.ApplyRandomDebuffAsync(context, Owner.RunState, c, Owner.Creature, null);
+            await DiceyHelperFunctions.ApplyRandomDebuffAsync(context, Owner.RunState, c, Owner.Creature, null);
         }
     }
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7yomtk7vgx26"
-path="res://.godot/imported/ambitious_form.png-93063acb707c6f48b7fc5166a19b3544.ctex"
+uid="uid://d3xb5byxk6qpb"
+path="res://.godot/imported/bear_roar.png-d35012e000f0cceb57d4dbb1b6e0c6c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/ambitious_form.png"
-dest_files=["res://.godot/imported/ambitious_form.png-93063acb707c6f48b7fc5166a19b3544.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/bear_roar.png"
+dest_files=["res://.godot/imported/bear_roar.png-d35012e000f0cceb57d4dbb1b6e0c6c5.ctex"]
 
 [params]
 

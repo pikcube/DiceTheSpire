@@ -40,7 +40,7 @@ public class Megabump() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
         await DoBumpAsync(choiceContext, Owner);
     }
 
-    private async Task DoBumpAsync(PlayerChoiceContext choiceContext, Player p)
+    public async Task DoBumpAsync(PlayerChoiceContext choiceContext, Player p)
     {
         CardSelectorPrefs prefs = new(DiceySelection.ToBump, 1, 1);
         foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, p, prefs, null, this))
