@@ -22,7 +22,7 @@ public static class PlayCardActionPatch
     {
         CodeMatcher matcher = new(instructions);
 
-        //Match and replace call to SpendResources with CreateChoiceAndSpendResourcesAsync
+        //Match SpendResources's awaiter and prepend with call to CreateChoiceAndSpendResourcesAsync
         matcher.MatchStartForward(CodeMatch.Calls(() => default(Task<(int, int)>)!.GetAwaiter()))
             .ThrowIfInvalid("Could not find get awaiter")
             //Load PlayCardAction to the evaluation stack
