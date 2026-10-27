@@ -11,7 +11,7 @@ namespace DiceTheSpire.Thief.Uncommon;
 public class BearTrap() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
     public int BaseCount { get; set; } = 1;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(1)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
