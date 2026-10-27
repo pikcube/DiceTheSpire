@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Powers;
 
-public class FortifyPower : DiceTheSpirePower
+public class HibernatePower : DiceTheSpirePower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;

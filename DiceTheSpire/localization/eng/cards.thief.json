@@ -91,7 +91,7 @@
   "DICETHESPIRE-ROSEPETAL_SHIELD.title": "Rosepetal Shield",
   "DICETHESPIRE-READY_OR_NOT.description": "Deal {Damage:diff()} damage.\n{IfUpgraded:show:Apply|If the enemy intends to attack, apply} {WeakPower:diff()} [gold]Weak[/gold]{IfUpgraded:show:\nand|.\nOtherwise, apply} {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
   "DICETHESPIRE-READY_OR_NOT.title": "Ready Or Not",
-  "DICETHESPIRE-FORTIFY.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
+  "DICETHESPIRE-FORTIFY.description": "[gold]Count:[/gold] {BaseCount}\nGain {PlatingPower:diff()} [gold]Plating[/gold].",
   "DICETHESPIRE-FORTIFY.title": "Fortify",
   "DICETHESPIRE-INK_SPLAT.description": "[gold]Enchant[/gold] an Attack in [gold]Hand[/gold] with [gold]Inky[/gold].",
   "DICETHESPIRE-INK_SPLAT.title": "Ink Splat",
@@ -167,5 +167,7 @@
   "DICETHESPIRE-HONEY.description": "Gain {Block:diff()} [gold]Block[/gold].\nAdd [gold]Retain[/gold] to a card in your [gold]Hand[/gold].",
   "DICETHESPIRE-HONEY.title": "Honey",
   "DICETHESPIRE-MARMALADE.description": "1-cost Attacks deal {MarmaladePower:diff()} additional damage.",
-  "DICETHESPIRE-MARMALADE.title": "Marmalade"
+  "DICETHESPIRE-MARMALADE.title": "Marmalade",
+  "DICETHESPIRE-HIBERNATE.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
+  "DICETHESPIRE-HIBERNATE.title": "Hibernate"
 }
