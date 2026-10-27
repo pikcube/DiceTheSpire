@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Rare;
 
-public class UnderhandedStrike() : TheThiefCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class UnderhandedStrike() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
@@ -31,6 +31,6 @@ public class UnderhandedStrike() : TheThiefCard(2, CardType.Attack, CardRarity.R
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }
