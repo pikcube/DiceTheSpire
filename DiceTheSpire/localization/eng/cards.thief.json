@@ -171,5 +171,7 @@
   "DICETHESPIRE-HIBERNATE.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
   "DICETHESPIRE-HIBERNATE.title": "Hibernate",
   "DICETHESPIRE-BEAR_MAUL.description": "Deal {Damage:diff()} damage.",
-  "DICETHESPIRE-BEAR_MAUL.title": "Bear Maul"
+  "DICETHESPIRE-BEAR_MAUL.title": "Bear Maul",
+  "DICETHESPIRE-BEARPICK.description": "Add {Cards:diff()} [gold]Bear Mauls[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-BEARPICK.title": "Bearpick"
 }
