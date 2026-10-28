@@ -169,5 +169,7 @@
   "DICETHESPIRE-MARMALADE.description": "1-cost Attacks deal {MarmaladePower:diff()} additional damage.",
   "DICETHESPIRE-MARMALADE.title": "Marmalade",
   "DICETHESPIRE-HIBERNATE.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
-  "DICETHESPIRE-HIBERNATE.title": "Hibernate"
+  "DICETHESPIRE-HIBERNATE.title": "Hibernate",
+  "DICETHESPIRE-BEAR_MAUL.description": "Deal {Damage:diff()} damage.",
+  "DICETHESPIRE-BEAR_MAUL.title": "Bear Maul"
 }
