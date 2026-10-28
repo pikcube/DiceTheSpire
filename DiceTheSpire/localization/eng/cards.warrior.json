@@ -169,7 +169,7 @@
   "DICETHESPIRE-WIND_CRYSTAL.title": "Wind Crystal",
   "DICETHESPIRE-INVISIBLE_CRYSTAL.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].",
   "DICETHESPIRE-INVISIBLE_CRYSTAL.title": "Invisible Crystal",
-  "DICETHESPIRE-CRYSTALIZE.description": "At the start of each turn\ncreate X {IfUpgraded:show:[gold]Upgraded[/gold] |}\"Crystal\" cards in [gold]Hand[/gold].",
+  "DICETHESPIRE-CRYSTALIZE.description": "At the start of each turn\ncreate X {IfUpgraded:show:[gold]Upgraded[/gold] |}\"Crystal\" card in [gold]Hand[/gold].",
   "DICETHESPIRE-CRYSTALIZE.title": "Crystalize",
   "DICETHESPIRE-NIGHTMARE_CRYSTAL.description": "Choose a card,\nit costs {Energy:diceIcons()} more.\nNext turn, add {Cards:plural:a copy|{Cards:diff()} copies}\nto your [gold]Hand[/gold].",
   "DICETHESPIRE-NIGHTMARE_CRYSTAL.title": "Nightmare Crystal",
