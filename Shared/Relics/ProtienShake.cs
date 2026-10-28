@@ -11,7 +11,7 @@ namespace DiceTheSpire.Shared.Relics;
 [UsedImplicitly]
 public class ProteinShake : TheWarriorRelic
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     public override async Task AfterPotionUsed(PotionModel potion, Creature? target)
     {
