@@ -130,5 +130,9 @@
   "DICETHESPIRE-WIND_CRYSTAL_POWER.title": "Wind Crystal",
   "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.description": "At the start of your turn, [gold]Dodge[/gold] cards.",
   "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.smartDescription": "At the start of your turn, [gold]Dodge[/gold] {Amount} {Amount:plural:card|cards}.",
-  "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.title": "Unstoppable Form"
+  "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.title": "Unstoppable Form",
+  "DICETHESPIRE-ACORN_SHIELD_POWER.description": "Whenever you play a card with a modified cost, gain [gold]Block[/gold].",
+  "DICETHESPIRE-ACORN_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Block[/gold] when you play a card with a modified cost.",
+  "DICETHESPIRE-ACORN_SHIELD_POWER.title": "Acorn Shield"
+
 }
