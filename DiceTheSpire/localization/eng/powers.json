@@ -47,7 +47,7 @@
   "DICETHESPIRE-FURIOUS_FORM_POWER.description": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
   "DICETHESPIRE-FURIOUS_FORM_POWER.smartDescription": "[gold]Fury[/gold] replays cards {Amount} additional {Amount:plural:time|times}.",
   "DICETHESPIRE-FURIOUS_FORM_POWER.title": "Furious Form",
-  "DICETHESPIRE-FURY_POWER.description": "The next card (without [gold]Fury[/gold]) is played an additional {Amount} {Amount:plural:time|times}.",
+  "DICETHESPIRE-FURY_POWER.description": "The next card (without [gold]Fury[/gold]) is played an additional time.",
   "DICETHESPIRE-FURY_POWER.smartDescription": "The next card (without [gold]Fury[/gold]) is played {Amount} additional {Amount:plural:time|times}.",
   "DICETHESPIRE-FURY_POWER.title": "Fury",
   "DICETHESPIRE-HALL_OF_MIRRORS_POWER.description": "At the start of each turn, gain {energyPrefix:diceIcons(1)}.",
