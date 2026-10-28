@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Reflection.Emit;
+﻿using System.Reflection.Emit;
 using DiceTheSpire.Shared.Cards;
 using HarmonyLib;
 using JetBrains.Annotations;

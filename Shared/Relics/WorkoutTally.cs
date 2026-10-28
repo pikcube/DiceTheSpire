@@ -1,13 +1,7 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Utility;
+﻿using DiceTheSpire.Shared.Utility;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Relics;
-using MegaCrit.Sts2.Core.Rewards;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpire.Shared.Relics;
@@ -18,7 +12,7 @@ public class WorkoutTally : TheWarriorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Common;
 
-    public override bool HasUponPickupEffect => base.HasUponPickupEffect;
+    public override bool HasUponPickupEffect => true;
 
     public override async Task AfterObtained()
     {
@@ -31,8 +25,10 @@ public class WorkoutTally : TheWarriorRelic
         //for (int index = 0; index < 1; ++index)
         //    rewards.Add((Reward)new WorkoutFactory.CreateWorkoutReward(CardCreationSource.Other, Owner, 3)
         //await RewardsCmd.OfferCustom(Owner, rewards);
+
         Flash();
 
+        await RewardsCmd.OfferCustom(Owner, [WorkoutFactory.CreateWorkoutReward(CardCreationSource.Other, Owner, 3)]);
     }
 
 }
