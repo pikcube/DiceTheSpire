@@ -133,6 +133,9 @@
   "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.title": "Unstoppable Form",
   "DICETHESPIRE-ACORN_SHIELD_POWER.description": "Whenever you play a card with a modified cost, gain [gold]Block[/gold].",
   "DICETHESPIRE-ACORN_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Block[/gold] when you play a card with a modified cost.",
-  "DICETHESPIRE-ACORN_SHIELD_POWER.title": "Acorn Shield"
+  "DICETHESPIRE-ACORN_SHIELD_POWER.title": "Acorn Shield",
+  "DICETHESPIRE-BUMP_SHIELD_POWER.description": "Whenever you [gold]Bump[/gold] a card, gain [gold]Block[/gold].",
+  "DICETHESPIRE-BUMP_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Block[/gold] when you [gold]Bump[/gold] a card.",
+  "DICETHESPIRE-BUMP_SHIELD_POWER.title": "Bump Shield"
 
 }
