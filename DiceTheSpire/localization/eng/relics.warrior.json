@@ -11,5 +11,11 @@
   "DICETHESPIRE-COMBAT_SPATULA.title": "Combat Spatula",
   "DICETHESPIRE-ATHLETIC_SPONSERSHIP.description": "Elites drop [gold]Workouts[/gold].",
   "DICETHESPIRE-ATHLETIC_SPONSERSHIP.flavor": "Elites drop [gold]Workouts[/gold].",
-  "DICETHESPIRE-ATHLETIC_SPONSERSHIP.title": "Athletic Sponsership"
+  "DICETHESPIRE-ATHLETIC_SPONSERSHIP.title": "Athletic Sponsership",
+  "DICETHESPIRE-HEADBAND.description": "Heal {Heal:diff()} health when you complete a [gold]Workout[/gold].",
+  "DICETHESPIRE-HEADBAND.flavor": "It reminds you of Audrey... Mostly the smell.",
+  "DICETHESPIRE-HEADBAND.title": "Headband",
+  "DICETHESPIRE-WORKOUT_TALLY.description": "Upon pickup, choose one of three incomplete [gold]Workouts[/gold] to add to your deck.",
+  "DICETHESPIRE-WORKOUT_TALLY.flavor": "One-one-thousand! Two-one-thousand! Three-one-thousand!",
+  "DICETHESPIRE-WORKOUT_TALLY.title": "Workout Tally"
 }

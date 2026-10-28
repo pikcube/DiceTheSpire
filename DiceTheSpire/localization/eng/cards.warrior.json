@@ -228,7 +228,7 @@
   "DICETHESPIRE-ENDURANCE_TRAINING_QUEST.description": "After climbing {FloorsRemaining} more {FloorsRemaining:plural:floor|floors}, transforms into a [gold]Endurance Training[/gold].",
   "DICETHESPIRE-ENDURANCE_TRAINING_QUEST.title": "Endurance Training Workout",
   "DICETHESPIRE-EQUILIBRIUM_QUEST.description": "After finishing combat without taking damage, transforms into an [gold]Equilibrium[/gold].",
-  "DICETHESPIRE-EQUILIBRIUM_QUEST.title": "Equilibrium Workout",
+  "DICETHESPIRE-EQUILIBRIUM_QUEST.title": "Justice Workout",
   "DICETHESPIRE-GUARD_PASS_QUEST.description": "After finishing combat without blocking damage, transforms into a [gold]Guard Pass[/gold].",
   "DICETHESPIRE-GUARD_PASS_QUEST.title": "Guard Pass Workout",
   "DICETHESPIRE-KNOCKOUT_PUNCH_QUEST.description": "After defeating an [gold]Elite[/gold], transforms into a [gold]Knockout Punch[/gold].",
