@@ -4,6 +4,7 @@ using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Thief.Rare;
@@ -12,6 +13,7 @@ public class BearCharge() : TheThiefCard(0, CardType.Skill, CardRarity.Rare, Tar
 {
     public int BaseCount { get; set; } = 3;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(1)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>()];
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => false;
 
