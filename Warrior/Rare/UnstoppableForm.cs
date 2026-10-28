@@ -11,7 +11,7 @@ namespace DiceTheSpire.Warrior.Rare;
 public class UnstoppableForm() : TheWarriorCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<UnstoppableFormPower>(5M)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await PowerCmd.Apply<UnstoppableFormPower>(choiceContext, Owner.Creature, DynamicVars.Power<UnstoppableFormPower>().IntValue, Owner.Creature, this);

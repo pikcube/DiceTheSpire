@@ -12,7 +12,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class Tazer() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new RepeatVar(3), new PowerVar<WeakPower>(2), .. RangeVars.Make(0, 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new RepeatVar(4), new PowerVar<WeakPower>(2), .. RangeVars.Make(0, 2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>(DynamicVars.Power<WeakPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

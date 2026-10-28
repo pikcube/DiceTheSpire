@@ -6,9 +6,9 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Commands;
 
-public static class RummageCmd
+public static class DodgeCmd
 {
-    public static async Task RummageAsync(PlayerChoiceContext choiceContext, Player player, int amount, AbstractModel source)
+    public static async Task DodgeAsync(PlayerChoiceContext choiceContext, Player player, int amount, AbstractModel source)
     {
         CardSelectorPrefs cardSelectorPrefs = new(CardSelectorPrefs.DiscardSelectionPrompt, 0, amount);
         CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, player, cardSelectorPrefs, null, source)];

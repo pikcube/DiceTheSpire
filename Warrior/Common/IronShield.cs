@@ -14,7 +14,7 @@ public class IronShield() : TheWarriorCard(2, CardType.Skill, CardRarity.Common,
 {
     public override bool GainsBlock => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new BlockVar(11, BlockProps.card)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);

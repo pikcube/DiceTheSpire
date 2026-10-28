@@ -13,7 +13,7 @@ public class Glue() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
 {
     public override bool GainsBlock => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new BlockVar(6, BlockProps.card)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain), HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Retain), HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);

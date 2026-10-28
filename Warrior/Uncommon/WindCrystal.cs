@@ -14,7 +14,7 @@ public class WindCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Uncomm
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WindCrystalPower>(1M)];
     //PowerVar<SuperSetDrawPower>(1M);
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 

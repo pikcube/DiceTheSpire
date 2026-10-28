@@ -10,7 +10,7 @@ public static class BetterStaticHoverTips
     public static StaticHoverTip Bump = 0;
 
     [CustomEnum, UsedImplicitly]
-    public static StaticHoverTip Rummage = 0;
+    public static StaticHoverTip Dodge = 0;
 
     [CustomEnum, UsedImplicitly]
     public static StaticHoverTip Reroll = 0;

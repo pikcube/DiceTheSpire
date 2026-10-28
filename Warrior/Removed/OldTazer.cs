@@ -13,7 +13,7 @@
 //public class OLDTazer() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 //{
 //    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(10), new ShockVar(2)];
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage), HoverTipFactory.FromKeyword(ShockModel.Shocked)];
+//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge), HoverTipFactory.FromKeyword(ShockModel.Shocked)];
 //    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 //    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 //    {
@@ -24,7 +24,7 @@
 
 //        await DiceyHelperFunctions.ShockRandomAsync(choiceContext, Owner, RunState.Rng.CombatCardSelection, DynamicVars.Shock.IntValue);
 
-//        await RummageCmd.RummageAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
+//        await DodgeCmd.DodgeAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
 //    }
 
 //    protected override void OnUpgrade()

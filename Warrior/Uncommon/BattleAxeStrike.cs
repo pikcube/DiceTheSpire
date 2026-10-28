@@ -14,7 +14,7 @@ public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.U
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(8, DamageProps.card), new RepeatVar(2)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Rummage)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -30,7 +30,7 @@ public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.U
         
         for (int n = 0; n < DynamicVars.Repeat.IntValue; ++n)
         {
-            await RummageCmd.RummageAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
+            await DodgeCmd.DodgeAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
         }
 
     }

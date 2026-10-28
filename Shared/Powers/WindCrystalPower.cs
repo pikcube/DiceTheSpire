@@ -16,6 +16,6 @@ public class WindCrystalPower : DiceTheSpirePower
         {
             return;
         }
-        await RummageCmd.RummageAsync(choiceContext, Owner.Player, Amount, this);
+        await DodgeCmd.DodgeAsync(choiceContext, Owner.Player, Amount, this);
     }
 }
