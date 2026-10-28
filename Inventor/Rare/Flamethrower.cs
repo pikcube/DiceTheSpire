@@ -44,7 +44,16 @@ public class Flamethrower() : TheInventorCard(2, CardType.Attack, CardRarity.Rar
             })
             .Execute(choiceContext);
 
-        foreach (Creature c in CombatState.Enemies.Where(c => c.CurrentHp <= DynamicVars[Judge].IntValue).ToArray())
+        Creature[] creaturesToDie = [.. CombatState.Enemies.Where(c => c.CurrentHp <= DynamicVars[Judge].IntValue)];
+
+        if (creaturesToDie.Length == 0)
+        {
+            return;
+        }
+
+        await Cmd.CustomScaledWait(0.5f, 1.5f);
+
+        foreach (Creature c in creaturesToDie)
         {
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NGroundFireVfx.Create(c));
             NCombatRoom.Instance?.CombatVfxContainer.AddChildSafely(NFireBurstVfx.Create(c, 1));

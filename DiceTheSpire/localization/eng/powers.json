@@ -125,7 +125,10 @@
   "DICETHESPIRE-WARRIOR_ICE_BREATH_POWER.description": "When you end your turn with [gold]Fury[/gold], gain {Amount} [gold]Block[/gold].",
   "DICETHESPIRE-WARRIOR_ICE_BREATH_POWER.smartDescription": "When you end your turn with [gold]Fury[/gold], gain {Amount} [gold]Block[/gold].",
   "DICETHESPIRE-WARRIOR_ICE_BREATH_POWER.title": "Ice Breath",
-  "DICETHESPIRE-WIND_CRYSTAL_POWER.description": "Whenever you play a [gold]Power[/gold], [gold]Rummage[/gold] {Amount} {Amount:plural:card|cards}.",
-  "DICETHESPIRE-WIND_CRYSTAL_POWER.smartDescription": "Whenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {Amount} {Amount:plural:time|cards}.",
-  "DICETHESPIRE-WIND_CRYSTAL_POWER.title": "Wind Crystal"
+  "DICETHESPIRE-WIND_CRYSTAL_POWER.description": "Whenever you play a [gold]Power[/gold], [gold]Rummage[/gold] cards.",
+  "DICETHESPIRE-WIND_CRYSTAL_POWER.smartDescription": "Whenever you\nplay a [gold]Power[/gold],\n[gold]Rummage[/gold] {Amount} {Amount:plural:card|cards}.",
+  "DICETHESPIRE-WIND_CRYSTAL_POWER.title": "Wind Crystal",
+  "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.description": "At the start of your turn, [gold]Rummage[/gold] cards.",
+  "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.smartDescription": "At the start of your turn, [gold]Rummage[/gold] {Amount} {Amount:plural:card|cards}.",
+  "DICETHESPIRE-UNSTOPPABLE_FORM_POWER.title": "Unstoppable Form"
 }

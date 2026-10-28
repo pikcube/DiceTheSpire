@@ -13,7 +13,7 @@
   "DICETHESPIRE-SINGULARITY.title": "Singularity",
   "DICETHESPIRE-CHISEL.description": "Reduce the cost of a card in your [gold]Hand[/gold] by 1 this turn.\nAdd a [gold]Pip[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-CHISEL.title": "Chisel",
-  "DICETHESPIRE-DETONATOR.description": "Deal damage equal to the amount of [gold]Poison[/gold] on the enemy.",
+  "DICETHESPIRE-DETONATOR.description": "Deal damage equal to the amount of [gold]Poison[/gold] on the enemy.{InCombat:\n(Deals {CalculatedDamage:diff()} damage.)|}",
   "DICETHESPIRE-DETONATOR.title": "Detonator",
   "DICETHESPIRE-POISON_NEEDLE.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\n[gold]Persist[/gold] {Persist:diff()}.",
   "DICETHESPIRE-POISON_NEEDLE.title": "Poison Needle",

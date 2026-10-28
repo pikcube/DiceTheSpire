@@ -57,7 +57,7 @@
   "DICETHESPIRE-EXECUTIONERS_AXE.title": "Executioner's Axe",
   "DICETHESPIRE-FEEDBACK_LOOP.description": "Whenever you [gold]Shock[/gold] a card, gain {FeedbackLoopPower:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-FEEDBACK_LOOP.title": "Feedback Loop",
-  "DICETHESPIRE-FIREWORKS.description": "Deal {ExtraDamage:diff()} damage for each unique debuff ANYONE has.{InCombat:\n(Deals {CalculatedDamage:diff()} damage)|}",
+  "DICETHESPIRE-FIREWORKS.description": "Deal {ExtraDamage:diff()} damage for each unique debuff ANYONE has.{InCombat:\n(Deals {CalculatedDamage:diff()} damage.)|}",
   "DICETHESPIRE-FIREWORKS.title": "Fireworks",
   "DICETHESPIRE-FLAMETHROWER.description": "Deal {Damage:diff()} damage to ALL enemies.\nIf any enemies have {JudgeVar:diff()} or less HP, set their HP to 0.",
   "DICETHESPIRE-FLAMETHROWER.title": "Flamethrower",
