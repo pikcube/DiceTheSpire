@@ -17,5 +17,8 @@
   "DICETHESPIRE-HEADBAND.title": "Headband",
   "DICETHESPIRE-WORKOUT_TALLY.description": "Upon pickup, choose one of three incomplete [gold]Workouts[/gold] to add to your deck.",
   "DICETHESPIRE-WORKOUT_TALLY.flavor": "One-one-thousand! Two-one-thousand! Three-one-thousand!",
-  "DICETHESPIRE-WORKOUT_TALLY.title": "Workout Tally"
+  "DICETHESPIRE-WORKOUT_TALLY.title": "Workout Tally",
+  "DICETHESPIRE-RED_SCARF.description": "The first time you lose HP each combat, gain [gold]Fury[/gold].",
+  "DICETHESPIRE-RED_SCARF.flavor": "A gift from the Wolf Puppy for helping reunite them with their mother.",
+  "DICETHESPIRE-RED_SCARF.title": "Red Scarf"
 }
