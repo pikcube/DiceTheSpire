@@ -66,9 +66,9 @@
   "DICETHESPIRE-MIDNIGHT_CHARM_POWER.description": "The next 2 cards you play this turn are free to play.",
   "DICETHESPIRE-MIDNIGHT_CHARM_POWER.smartDescription": "The next {Amount} cards you play this turn are free to play.",
   "DICETHESPIRE-MIDNIGHT_CHARM_POWER.title": "Midnight Charm",
-  "DICETHESPIRE-BEAR_FORM_REPLAY_POWER.description": "Attacks have [gold]Replay[/gold] 1.",
-  "DICETHESPIRE-BEAR_FORM_REPLAY_POWER.smartDescription": "Attacks have [gold]Replay[/gold] {Amount}.",
-  "DICETHESPIRE-BEAR_FORM_REPLAY_POWER.title": "Bear Form",
+  "DICETHESPIRE-BEAR_FORM_POWER.description": "Each turn, the Bear plays the first card for you.",
+  "DICETHESPIRE-BEAR_FORM_POWER.smartDescription": "Each turn, the Bear plays the first {Amount:plural:card|{Amount} cards} for you.",
+  "DICETHESPIRE-BEAR_FORM_POWER.title": "Bear Form",
   "DICETHESPIRE-MARMALADE_POWER.description": "1-cost attacks deal 4 additional damage.",
   "DICETHESPIRE-MARMALADE_POWER.smartDescription": "1-cost attacks deal {Amount} additional damage.",
   "DICETHESPIRE-MARMALADE_POWER.title": "Marmalade"
