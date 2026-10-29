@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Reflection.Emit;
+﻿using System.Reflection.Emit;
 using DiceTheSpire.Shared.Cards;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -59,7 +58,7 @@ public static class PlayCardActionPatch
     public static async Task<(int, int)> CreateChoiceAndSpendResourcesAsync(Task<(int, int)> instance, PlayCardAction action)
     {
         (int, int) result = await instance;
-        CardModel card = action.PrivateFieldWrapper<PlayCardAction, CardModel>("_card").Value ?? throw new NoNullAllowedException();
+        CardModel card = action.PrivateFieldWrapper<PlayCardAction, CardModel>("_card").Value ?? throw new NullReferenceException();
 
         GameActionPlayerChoiceContext pcc = new(action);
         action.PrivatePropertyWrapper<PlayCardAction, PlayerChoiceContext>("PlayerChoiceContext").Value = pcc;

@@ -149,7 +149,7 @@
   "DICETHESPIRE-RAINBOW_STRIKE.title": "Rainbow Strike",
   "DICETHESPIRE-ANTIDOTE.description": "Remove any negative [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-ANTIDOTE.title": "Antidote",
-  "DICETHESPIRE-BEAR_FORM.description": "Your Attacks gain [gold]Replay[/gold] 1.\nEach turn, the bear plays the first {Cards:plural:card|{Cards:diff()} cards} for you.",
+  "DICETHESPIRE-BEAR_FORM.description": "Your Attacks gain [gold]Replay[/gold] 1 this combat.\nEach turn, the bear plays the first {Cards:plural:card|{Cards:diff()} cards} for you.",
   "DICETHESPIRE-BEAR_FORM.title": "Bear Form",
   "DICETHESPIRE-BEAR_SWIPE.description": "Deal {Damage:diff()} damage.\nIf this is the first Attack you play this turn, gain {Energy:diceIcons()} and draw {Cards:diff()} card.",
   "DICETHESPIRE-BEAR_SWIPE.title": "Bear Swipe",

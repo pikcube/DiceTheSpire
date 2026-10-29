@@ -194,4 +194,13 @@ public static class DiceyHooks
             await listener.BetterAfterRestSiteHealAsync(player);
         }
     }
+
+    public static async Task OnWorkoutCompleteAsync(IRunState runState, CardModel card)
+    {
+        foreach (IAfterWorkoutCompletedListener listener in runState.IterateHookListeners(null)
+                     .OfType<IAfterWorkoutCompletedListener>())
+        {
+            await listener.AfterWorkoutCompleteAsync(card);
+        }
+    }
 }

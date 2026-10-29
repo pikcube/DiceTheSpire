@@ -10,7 +10,7 @@ public class BearFormPower : DiceTheSpirePower
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
+    public override async Task AfterAutoPrePlayPhaseEnteredLate(PlayerChoiceContext choiceContext, Player player)
     {
         if (player.Creature != Owner)
         {

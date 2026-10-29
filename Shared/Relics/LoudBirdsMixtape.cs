@@ -33,8 +33,16 @@ public class LoudBirdsMixtape : TheThiefRelic
             Owner.Creature, null);
     }
 
-    public override async Task BeforeCombatStart()
+    public override Task BeforeCombatStart()
     {
         _triggeredPowers.Clear();
+        return Task.CompletedTask;
+    }
+
+    protected override void AfterCloned()
+    {
+        base.AfterCloned();
+
+        _triggeredPowers = [];
     }
 }

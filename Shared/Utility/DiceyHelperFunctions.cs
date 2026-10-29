@@ -32,7 +32,8 @@ public static class DiceyHelperFunctions
     {
         PowerModel power;
         decimal amount;
-        switch (runState.Rng.CombatOrbGeneration.NextInt(target.HasPower<FreezePower>() ? 8 : 9))
+
+        switch (runState.Rng.CombatOrbGeneration.NextInt(target.HasPower<FreezePower>() || target.IsPlayer ? 8 : 9))
         {
             case 8:
                 power = ModelDb.Power<FreezePower>().StrongMutableClone(); //This is the only debuff in this table that doesn't stack

@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -25,18 +26,20 @@ public abstract class WorkoutQuestCard() : TheWarriorCard(-1, CardType.Quest, Ca
 
     public async Task OnWorkoutCompleteAsync()
     {
-        if (DeckVersion is not null)
-        {
-            return;
-        }
-
-        if (Pile?.Type != PileType.Deck)
+        if (DeckVersion is not null || Pile?.Type is not PileType.Deck || RunState is null)
         {
             return;
         }
 
         PlayerCmd.CompleteQuest(this);
 
-        await CardCmd.Transform(this, RewardCard.CreateNewInstance(Owner), CardPreviewStyle.GridLayout);
+        CardPileAddResult? result = await CardCmd.Transform(this, RewardCard.CreateNewInstance(Owner), CardPreviewStyle.GridLayout);
+
+        if (result is null)
+        {
+            return;
+        }
+
+        await DiceyHooks.OnWorkoutCompleteAsync(RunState, result.Value.cardAdded);
     }
 }
