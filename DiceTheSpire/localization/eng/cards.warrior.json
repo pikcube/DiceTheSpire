@@ -84,7 +84,7 @@
   "DICETHESPIRE-CRYSTAL_SHIELD.title": "Shield Crystal",
   "DICETHESPIRE-FISTS.description": "[gold]Dodge[/gold] {Cards:diff()} cards.",
   "DICETHESPIRE-FISTS.title": "Fists",
-  "DICETHESPIRE-BICEP_CURL.description": "Gain {BicepCurlPower:diff()} [gold]Block[/gold] each time you [gold]Bump[/gold] or [gold]Nudge[/gold] a card.",
+  "DICETHESPIRE-BICEP_CURL.description": "[gold]Nudge[/gold] your [gold]Hand[/gold].\n[gold]Held[/gold]: [gold]Bump[/gold] your [gold]Hand[/gold].",
   "DICETHESPIRE-BICEP_CURL.title": "Bicep Curl",
   "DICETHESPIRE-JAVELIN.description": "Deal {Damage:diff()} damage.\n[gold]Flip[/gold] all cards in [gold]Hand[/gold].",
   "DICETHESPIRE-JAVELIN.title": "Javelin",
