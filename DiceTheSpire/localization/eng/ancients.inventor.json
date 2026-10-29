@@ -41,7 +41,5 @@
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.2-attack": "Both",
 
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-0r.char": "Catch!", //Inventor throws a bomb at the Architect
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-attack": "Both"
-
-
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-attack": "Both" //During the attck, play a stock explosion sound
 }

@@ -179,7 +179,7 @@ public static class DiceyHelperFunctions
     /// <param name="power">The power we are applying.</param>
     /// <param name="amount">The amount we are applying.</param>
     /// <returns>True if we should consider this a debuff at this amount.</returns>
-    private static bool IsDebuffAtAmount(PowerModel power, decimal amount)
+    public static bool IsDebuffAtAmount(PowerModel power, decimal amount)
     {
         if (amount == 0)
         {

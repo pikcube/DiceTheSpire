@@ -203,4 +203,12 @@ public static class DiceyHooks
             await listener.AfterWorkoutCompleteAsync(card);
         }
     }
+
+    public static async Task OnInspectAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, Player player, int cards, CardModel[] selectedCards)
+    {
+        foreach (IAfterInspectListener listener in runState.IterateHookListeners(combatState).OfType<IAfterInspectListener>())
+        {
+            await listener.AfterInspectAsync(choiceContext, cards, selectedCards, player);
+        }
+    }
 }

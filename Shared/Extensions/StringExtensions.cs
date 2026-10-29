@@ -15,73 +15,37 @@ public static class StringExtensions
         public string CardImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "card_portraits", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find card image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "card_portraits", "card.png");
+            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "card_portraits", "card.png");
         }
 
         public string BigCardImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "card_portraits", "big", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find big card image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "card_portraits", "big", "card.png");
+            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "card_portraits", "big", "card.png");
         }
 
         public string PowerImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "powers", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find power image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "powers", "power.png");
+            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "powers", "power.png");
         }
 
         public string BigPowerImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "powers", "big", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find big power image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "powers", "big", "power.png");
+            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "powers", "big", "power.png");
         }
 
         public string RelicImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "relics", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find relic image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "relics", "relic.png");
+            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "relics", "relic.png");
         }
 
         public string BigRelicImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "relics", "big", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find big relic image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "relics", "big", "relic.png");
+            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "relics", "big", "relic.png");
         }
 
         public string CharacterUiPath()
@@ -92,13 +56,7 @@ public static class StringExtensions
         public string PotionImagePath()
         {
             path = Path.Join(MainFile.ResPath, "images", "potions", path);
-            if (ResourceLoader.Exists(path))
-            {
-                return path;
-            }
-
-            MainFile.Logger.Info("Could not find potion image path: " + path);
-            return Path.Join(MainFile.ResPath, "images", "potions", "potion.png");
+            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "potions", "potion.png");
         }
     }
 }
