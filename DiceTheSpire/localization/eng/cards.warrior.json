@@ -88,6 +88,8 @@
   "DICETHESPIRE-BICEP_CURL.title": "Bicep Curl",
   "DICETHESPIRE-JAVELIN.description": "Deal {Damage:diff()} damage.\n[gold]Flip[/gold] all cards in [gold]Hand[/gold].",
   "DICETHESPIRE-JAVELIN.title": "Javelin",
+  "DICETHESPIRE-SPATULASWORD.description": "Deal {Damage:diff()} damage.\n[gold]Flip[/gold] all cards in [gold]Hand[/gold].",
+  "DICETHESPIRE-SPATULASWORD.title": "Spatulasword",
   "DICETHESPIRE-FOUR_HANDED_SWORD.description": "Add [gold]Adjust Grip[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-FOUR_HANDED_SWORD.title": "Four Handed Sword",
   "DICETHESPIRE-ADJUST_GRIP.description": "Add [gold]Readjust Grip[/gold] to your [gold]Hand[/gold].",
