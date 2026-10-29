@@ -44,7 +44,9 @@ public class BearCardSelector : ICardSelector
         while (count > 0 && !CombatManager.Instance.IsOverOrEnding && !CombatManager.Instance.IsPlayerReadyToEndTurn(player))
         {
             --count;
-            CardModel? card = player.PlayerCombatState?.Hand.Cards.OrderByDescending(c => c.Type == CardType.Attack).FirstOrDefault();
+            CardModel? card = player.PlayerCombatState?.Hand.Cards
+                .OrderByDescending(c => c.Type == CardType.Attack)
+                .FirstOrDefault(c => c.CanPlay());
             if (card is null)
             {
                 return;
