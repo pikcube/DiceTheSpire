@@ -16,7 +16,7 @@ public class AcornShieldPower : DiceTheSpirePower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner.Player?.PlayerCombatState is null)
+        if (Owner.Player?.PlayerCombatState is null || cardPlay.Card.Owner.Creature != Owner)
         {
             return;
         }

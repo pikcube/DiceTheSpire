@@ -15,7 +15,7 @@ public class UnstoppableFormPower : DiceTheSpirePower
 
     public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) 
     {
-        if (Owner.Player is null)
+        if (Owner.Player is null || Owner.Player != player)
         {
             return;
         }

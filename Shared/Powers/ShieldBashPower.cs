@@ -19,7 +19,7 @@ public class ShieldBashPower : DiceTheSpirePower
 
     public override async Task AfterBlockGained(Creature creature, decimal amount, ValueProp props, CardModel? cardSource)
     {
-        if (Owner.Player?.PlayerCombatState is null)
+        if (creature != Owner || Owner.Player?.PlayerCombatState is null)
         {
             return;
         }

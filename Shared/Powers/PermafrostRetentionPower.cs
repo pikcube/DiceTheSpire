@@ -14,6 +14,11 @@ public class PermafrostRetentionPower : DiceTheSpirePower
     public override PowerStackType StackType => PowerStackType.Counter;
     public override async Task AfterFlush(PlayerChoiceContext choiceContext, Player player, IReadOnlyCollection<CardModel> flushedCards, IReadOnlyCollection<CardModel> retainedCards)
     {
+        if (Owner != player.Creature)
+        {
+            return;
+        }
+
         foreach (CardModel _ in retainedCards)
         {
             await CreatureCmd.GainBlock(Owner, Amount, BlockProps.nonCardUnpowered, null);

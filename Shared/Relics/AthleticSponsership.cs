@@ -16,7 +16,7 @@ public class AthleticSponsership : TheWarriorRelic
 
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
     {
-        if (room?.RoomType != RoomType.Elite)
+        if (room?.RoomType != RoomType.Elite || player == Owner)
         {
             return false;
         }

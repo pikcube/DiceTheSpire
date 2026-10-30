@@ -16,7 +16,10 @@ public class RestDayPower : DiceTheSpirePower, IAfterRerollListener
 
     public async Task AfterRerollAsync(PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
-        CardCmd.ApplyKeyword(card, CardKeyword.Retain);
+        if (Owner == card.Owner.Creature)
+        {
+            CardCmd.ApplyKeyword(card, CardKeyword.Retain);
+        }
     }
 
 }

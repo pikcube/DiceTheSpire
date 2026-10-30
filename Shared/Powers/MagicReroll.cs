@@ -16,7 +16,7 @@ public class MagicRerollPower : DiceTheSpirePower
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        if (Owner.Player is null || Owner.Player.PlayerCombatState is null)
+        if (Owner.Player?.PlayerCombatState is null)
         {
             return;
         }
