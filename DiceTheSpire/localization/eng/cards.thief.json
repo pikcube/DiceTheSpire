@@ -29,7 +29,7 @@
   "DICETHESPIRE-BOUNCE.title": "Bounce",
   "DICETHESPIRE-SNAKE_EYE_CHARM.description": "[gold]Count:[/gold] {BaseCount}\nGain  {Energy:diceIcons()}.",
   "DICETHESPIRE-SNAKE_EYE_CHARM.title": "Snake Eye Charm",
-  "DICETHESPIRE-CROWBAR.description": "Reduce all [gold]Countdowns[/gold] in [gold]Hand[/gold] by {IfUpgraded:show:X+1|X}.",
+  "DICETHESPIRE-CROWBAR.description": "Reduce the count{IfUpgraded:show: and {Energy:diceIcons()} cost | }of all [gold]Countdown[/gold] cards in [gold]Hand[/gold] by X this turn.",
   "DICETHESPIRE-CROWBAR.title": "Crowbar",
   "DICETHESPIRE-BLIGHT.description": "[gold]Count:[/gold] {BaseCount}\nDouble an enemy's [gold]Poison[/gold].",
   "DICETHESPIRE-BLIGHT.title": "Blight",
@@ -175,5 +175,7 @@
   "DICETHESPIRE-BEARPICK.description": "Add {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].\nThey have [gold]Replay[/gold] 1.",
   "DICETHESPIRE-BEARPICK.title": "Bearpick",
   "DICETHESPIRE-DETERMINATION.description": "[gold]Count:[/gold] {BaseCount}\nWhen you are attacked, gain {DeterminationPower:diff()} [gold]Dexterity[/gold] this turn.",
-  "DICETHESPIRE-DETERMINATION.title": "Determination"
+  "DICETHESPIRE-DETERMINATION.title": "Determination",
+  "DICETHESPIRE-SKELETON_KEY.description": "",
+  "DICETHESPIRE-SKELETON_KEY.title": "Skeleton Key"
 }
