@@ -176,6 +176,6 @@
   "DICETHESPIRE-BEARPICK.title": "Bearpick",
   "DICETHESPIRE-DETERMINATION.description": "[gold]Count:[/gold] {BaseCount}\nWhen you are attacked, gain {DeterminationPower:diff()} [gold]Dexterity[/gold] this turn.",
   "DICETHESPIRE-DETERMINATION.title": "Determination",
-  "DICETHESPIRE-SKELETON_KEY.description": "",
+  "DICETHESPIRE-SKELETON_KEY.description": "Add X off-class cards to your [gold]Hand[/gold].\nThey gain [gold]Retain[/gold], [gold]Sly[/gold], and [gold]Exhaust[/gold].",
   "DICETHESPIRE-SKELETON_KEY.title": "Skeleton Key"
 }
