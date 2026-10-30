@@ -135,7 +135,7 @@
   "DICETHESPIRE-ROTTEN_EGG.title": "Rotten Egg",
   "DICETHESPIRE-SAFETY_GOGGLES.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Negate[/gold] the next debuff you apply to yourself.",
   "DICETHESPIRE-SAFETY_GOGGLES.title": "Safety Goggles",
-  "DICETHESPIRE-SAW_WAVE.description": "Take 25% less damage while you are debuffed.\nApply 2 random debuffs to yourself and ALL enemies.",
+  "DICETHESPIRE-SAW_WAVE.description": "Whenever you would apply a debuff to yourself, gain {Energy:diceIcons()} next turn.",
   "DICETHESPIRE-SAW_WAVE.title": "Saw Wave",
   "DICETHESPIRE-SCISSORS.description": "[gold]Exhaust[/gold] a card.\nDraw cards equal to its cost.",
   "DICETHESPIRE-SCISSORS.title": "Scissors",

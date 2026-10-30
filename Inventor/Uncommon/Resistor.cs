@@ -28,10 +28,14 @@ public class Resistor() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+        if (Owner.PlayerCombatState is null)
+        {
+            return;
+        }
         CardSelectorPrefs prefs = new(DiceySelection.ToUnshock, 1, 1);
         CardModel[] cardsToUnshock =
         [
-            .. await CardSelectCmd.FromSimpleGrid(choiceContext, ShockModel.ShockedCards(Owner, c => c is not Resistor), Owner, prefs)
+            .. await CardSelectCmd.FromCombatPile(choiceContext, Owner.PlayerCombatState.ExhaustPile, Owner, prefs, c => c is not Resistor)
         ];
         foreach (CardModel card in cardsToUnshock)
         {
