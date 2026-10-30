@@ -115,7 +115,7 @@
   "DICETHESPIRE-DEFLECTION.title": "Deflection",
   "DICETHESPIRE-SHRIEK.description": "{IfUpgraded:show:All enemies lose|An enemy loses} {ShriekStrengthDownPower:diff()} [gold]Stregnth[/gold] this turn. Next turn you are [gold]Cursed[/gold].",
   "DICETHESPIRE-SHRIEK.title": "Shriek",
-  "DICETHESPIRE-CHOCOLATE_COOKIE.description": "[gold]Count:[/gold] {BaseCount}\nGain {FuryPower:diff()} [gold]Fury[/gold].",
+  "DICETHESPIRE-CHOCOLATE_COOKIE.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-CHOCOLATE_COOKIE.title": "Chocolate Cookie",
   "DICETHESPIRE-FIRST_AID_KIT.description": "Heal {Heal:diff()} health. Can only be played if your [gold]Hand[/gold] costs less than {Energy:diceIcons()}.",
   "DICETHESPIRE-FIRST_AID_KIT.title": "First Aid Kit",
