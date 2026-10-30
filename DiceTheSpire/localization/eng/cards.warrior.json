@@ -86,7 +86,7 @@
   "DICETHESPIRE-FISTS.title": "Fists",
   "DICETHESPIRE-BICEP_CURL.description": "[gold]Nudge[/gold] your [gold]Hand[/gold].\n[gold]Held[/gold]: [gold]Bump[/gold] your [gold]Hand[/gold].",
   "DICETHESPIRE-BICEP_CURL.title": "Bicep Curl",
-  "DICETHESPIRE-JAVELIN.description": "Deal {Damage:diff()} damage.\n[gold]Flip[/gold] all cards in [gold]Hand[/gold].",
+  "DICETHESPIRE-JAVELIN.description": "Play {Cards:diff()} cards in your [gold]Discard Pile[/gold].\nShuffle them into your [gold]Draw Pile[/gold].",
   "DICETHESPIRE-JAVELIN.title": "Javelin",
   "DICETHESPIRE-SPATULASWORD.description": "Deal {Damage:diff()} damage.\n[gold]Flip[/gold] all cards in [gold]Hand[/gold].",
   "DICETHESPIRE-SPATULASWORD.title": "Spatulasword",
