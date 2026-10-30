@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 
 namespace DiceTheSpire.Shared.Powers;
 
@@ -26,7 +27,23 @@ public class FuryPower : DiceTheSpirePower
 
     public override Task AfterModifyingCardPlayCount(CardModel card)
     {
+
+        if (card.Owner.Creature != Owner || card is IFuryModifier { ShouldMaintainFury: true } or IFuryModifier { ShouldIgnoreFury: true })
+        {
+            return Task.CompletedTask;
+        }
+
         Flash();
+
+        //if (cardPlay.IsLastInSeries)
+        //{
+        //    await PowerCmd.Remove(this);
+        //}
+        //else if (Amount > 0)
+        //{
+        //    await PowerCmd.Decrement(this);
+        //}
+
         return Task.CompletedTask;
     }
 
