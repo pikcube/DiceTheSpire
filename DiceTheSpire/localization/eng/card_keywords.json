@@ -1,7 +1,7 @@
 {
   "DICETHESPIRE-SCRAP.description": "This card is always offered as Scrap.",
   "DICETHESPIRE-SCRAP.title": "Scrap",
-  "DICETHESPIRE-COUNTDOWN.description": "Countdown cards require discarding a certain number of cards to be played.\nThe value persists between turns.",
+  "DICETHESPIRE-COUNTDOWN.description": "Countdown cards require discarding a certain number of cards to be played.",
   "DICETHESPIRE-COUNTDOWN.title": "Countdown",
   "DICETHESPIRE-RETURN.description": "This card returns to your [gold]Hand[/gold] when played.",
   "DICETHESPIRE-RETURN.title": "Return",
