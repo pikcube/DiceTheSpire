@@ -32,6 +32,11 @@ public static class CountdownExtensions
                 modCost = DiceyHooks.ModifCountdownCost(combatState, instance, instance.AsCardModel(), modCost);
             }
 
+            if (modCost < 0)
+            {
+                modCost = 0;
+            }
+
             return modCost;
         }
 
