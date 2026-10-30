@@ -1,7 +1,9 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Inventor.Powers;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -20,11 +22,22 @@ public class SawWave() : TheInventorCard(2, CardType.Power, CardRarity.Uncommon,
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        if (RunState == null || CombatState is null)
+        {
+            return;
+        }
         await SawWavePower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<SawWavePower>().IntValue, Owner.Creature, this);
+
+        await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, Owner.Creature, Owner.Creature, this);
+        await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, Owner.Creature, Owner.Creature, this);
+        foreach (Creature creature in CombatState.HittableEnemies)
+        {
+            await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, creature, Owner.Creature, this);
+            await DiceyHelperFunctions.ApplyRandomDebuffAsync(choiceContext, RunState, creature, Owner.Creature, this);
+        }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<SawWavePower>().UpgradeValueBy(1);
     }
 }

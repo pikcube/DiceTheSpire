@@ -40,16 +40,6 @@
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.2-12.char": "You said you wanted to be left alone? Don't worry, I can make sure you don't see anyone ever again.",
   "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.2-attack": "Both",
 
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-0r.ancient": "Oh, the book box returns.",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-0r.next": "Work Fast",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-1r.char": "That heart is beating at 15 BPM, your attempting to pump it twice as fast.",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-1r.next": "Continue",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-2r.ancient": "What are you mumbling about.",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-2r.next": "Keep Working",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-3r.char": "Amplification would require the heart to be at full strength, so any infections now would remain localized.",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-3r.next": "Continue",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-4r.ancient": "Your grip on that book isn't very tight.",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-5r.next": "Keep Working",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-6r.char": "And you didn't notice the gift I left you the first time I sneaked in here.",
-  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-attack": "Both"
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-0r.char": "Catch!", //Inventor throws a bomb at the Architect
+  "THE_ARCHITECT.talk.DICETHESPIRE-THE_INVENTOR.3-attack": "Both" //During the attck, play a stock explosion sound
 }

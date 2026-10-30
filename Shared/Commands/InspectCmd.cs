@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using DiceTheSpire.Shared.Keywords;
-using DiceTheSpire.Shared.Listeners;
 using DiceTheSpire.Shared.Utility;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -42,13 +41,11 @@ public static class InspectCmd
             await ShockModel.ShockCardAsync(choiceContext, card);
         }
 
-        foreach (IAfterInspectListener listener in player.RunState.IterateHookListeners(player.Creature.CombatState).OfType<IAfterInspectListener>())
-        {
-            await listener.AfterInspectAsync(choiceContext, cards, selectedCards, player);
-        }
+        await DiceyHooks.OnInspectAsync(player.RunState, player.Creature.CombatState, choiceContext, player, cards, selectedCards);
 
         return selectedCards.Length;
     }
+
     //Thanks lamali
     //todo: swap with baselib version when that is released.
     private static async Task<IEnumerable<CardModel>> InspectFromCombatPile(PlayerChoiceContext choiceContext, CardPile pile,
