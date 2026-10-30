@@ -71,5 +71,9 @@
   "DICETHESPIRE-BEAR_FORM_POWER.title": "Bear Form",
   "DICETHESPIRE-MARMALADE_POWER.description": "1-cost attacks deal 4 additional damage.",
   "DICETHESPIRE-MARMALADE_POWER.smartDescription": "1-cost attacks deal {Amount} additional damage.",
-  "DICETHESPIRE-MARMALADE_POWER.title": "Marmalade"
+  "DICETHESPIRE-MARMALADE_POWER.title": "Marmalade",
+  "DICETHESPIRE-DETERMINATION_POWER.description": "When you are attacked, gain 1 [gold]Dexterity[/gold] this turn.",
+  "DICETHESPIRE-DETERMINATION_POWER.smartDescription": "When you are attacked, gain {Amount} [gold]Dexterity[/gold] this turn.",
+  "DICETHESPIRE-DETERMINATION_POWER.title": "Determination"
+
 }

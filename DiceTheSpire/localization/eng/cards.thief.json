@@ -173,5 +173,7 @@
   "DICETHESPIRE-BEAR_MAUL.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each other card in your [gold]Hand[/gold].",
   "DICETHESPIRE-BEAR_MAUL.title": "Bear Maul",
   "DICETHESPIRE-BEARPICK.description": "Add {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].\nThey have [gold]Replay[/gold] 1.",
-  "DICETHESPIRE-BEARPICK.title": "Bearpick"
+  "DICETHESPIRE-BEARPICK.title": "Bearpick",
+  "DICETHESPIRE-DETERMINATION.description": "[gold]Count:[/gold] {BaseCount}\nWhen you are attacked, gain {DeterminationPower:diff()} [gold]Dexterity[/gold] this turn.",
+  "DICETHESPIRE-DETERMINATION.title": "Determination"
 }
