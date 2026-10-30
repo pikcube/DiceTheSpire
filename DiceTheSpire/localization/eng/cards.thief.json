@@ -172,6 +172,6 @@
   "DICETHESPIRE-HIBERNATE.title": "Hibernate",
   "DICETHESPIRE-BEAR_MAUL.description": "Deal {Damage:diff()} damage.",
   "DICETHESPIRE-BEAR_MAUL.title": "Bear Maul",
-  "DICETHESPIRE-BEARPICK.description": "Add {Cards:diff()} [gold]Bear Mauls[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-BEARPICK.description": "Add {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].\nThey have [gold]Replay[/gold] 1.",
   "DICETHESPIRE-BEARPICK.title": "Bearpick"
 }
