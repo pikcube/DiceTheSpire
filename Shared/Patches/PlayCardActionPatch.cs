@@ -55,9 +55,9 @@ public static class PlayCardActionPatch
 #pragma warning restore CA1859 // Use concrete types when possible for improved performance
 
 
-    public static async Task<(int, int)> CreateChoiceAndSpendResourcesAsync(Task<(int, int)> instance, PlayCardAction action)
+    public static async Task<(int, int)> CreateChoiceAndSpendResourcesAsync(Task<(int, int)> originalTask, PlayCardAction action)
     {
-        (int, int) result = await instance;
+        (int, int) result = await originalTask;
         CardModel card = action.PrivateFieldWrapper<PlayCardAction, CardModel>("_card").Value ?? throw new NullReferenceException();
 
         GameActionPlayerChoiceContext pcc = new(action);

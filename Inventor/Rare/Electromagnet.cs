@@ -1,30 +1,30 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Listeners;
+using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IOnShockListener
+public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), ISimpleCalculatedDamageCard
 {
-    public int ShockedThisCombat { get; set; }
+    public int BaseDamage => 4;
+    public int ExtraDamageMultiplier => 3;
+    public ValueProp DamageType => DamageProps.card;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(4, Bonus, 3)];
-
-    private static decimal Bonus(CardModel arg1, Creature? arg2)
+    public decimal CalculateDamage(Creature? target)
     {
-        return arg1 is not Electromagnet e ? 1 : e.ShockedThisCombat;
+        return CombatManager.Instance.History.Entries.OfType<CardShockedEntry>().Count(cse => cse.Card.Owner == Owner);
     }
 
     public override Task BeforeCombatStart()
     {
-        ShockedThisCombat = 0;
         return Task.CompletedTask;
     }
 
@@ -42,16 +42,6 @@ public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Ra
     }
 
     public override string GetScrapId => nameof(Fury);
-    public Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
-    {
-        if (card.Owner != Owner)
-        {
-            return Task.CompletedTask;
-        }
-
-        ++ShockedThisCombat;
-        return Task.CompletedTask;
-    }
 
     protected override void OnUpgrade()
     {
