@@ -1,10 +1,13 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace DiceTheSpire.Warrior.Token;
 
+[Pool(typeof(TokenCardPool))]
 public class ReadjustGrip() : TheWarriorCard(3, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
