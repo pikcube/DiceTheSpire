@@ -10,7 +10,7 @@ namespace DiceTheSpire.Shared.Relics;
 [UsedImplicitly]
 public class Headband : TheWarriorRelic, IAfterWorkoutCompletedListener
 {
-    public override RelicRarity Rarity => RelicRarity.Rare;
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(10M)];
 
     public async Task AfterWorkoutCompleteAsync(CardModel card)
