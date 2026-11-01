@@ -24,10 +24,11 @@ public class GargoylesMenacingPedestal : TheWarriorRelic
     {
         if (shuffler != Owner)
             return;
+        Flash();
         CardModel[] cards =
             [
                     ..PileType.Draw.GetPile(Owner).Cards
-                    .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable) && !c.EnergyCost.CostsX)
+                    .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable) && !c.EnergyCost.CostsX && !c.EnergyCost.Equals(0))
                     .TakeRandom((int)DynamicVars.Cards.BaseValue, Owner.RunState.Rng.CombatCardSelection)
             ];
         foreach (CardModel card in cards)
