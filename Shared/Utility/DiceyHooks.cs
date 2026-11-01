@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Shared.Cards;
 using DiceTheSpire.Shared.Commands;
+using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Combat;
@@ -126,6 +127,7 @@ public static class DiceyHooks
 
     internal static async Task OnShockAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card)
     {
+        CombatManager.Instance.History.AddShockEntry(card);
         foreach (IOnShockListener listener in runState.IterateHookListeners(combatState).OfType<IOnShockListener>())
         {
             await listener.AfterCardShockedAsync(choiceContext, card);

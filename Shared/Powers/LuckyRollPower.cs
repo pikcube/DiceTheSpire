@@ -12,6 +12,11 @@ public class LuckyRollPower : DiceTheSpirePower, IModifyRerollListener
 
     public void ModifyRerollRange(CardModel card, ref int minimum, ref int maximum)
     {
+        if (card.Owner.Creature != Owner)
+        {
+            return;
+        }
+
         maximum = Math.Min(maximum, card.EnergyCost.GetAmountToSpend());
         maximum = Math.Max(maximum, minimum);
     }

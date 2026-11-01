@@ -1,16 +1,12 @@
-﻿using DiceTheSpire.Shared.Commands;
-using DiceTheSpire.Shared.DynamicVars;
+﻿using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Rare;
 
@@ -34,7 +30,7 @@ public class Javelin() : TheWarriorCard(3, CardType.Skill, CardRarity.Rare, Targ
         ResourceInfo resources,
         CardLocation cardLocation)
     {
-        return CardsInAutoplay.Contains(card) && isAutoPlay == true && cardLocation.pileType == PileType.Discard ? new CardLocation(cardLocation.player, PileType.Draw, CardPilePosition.Random) : cardLocation;
+        return CardsInAutoplay.Contains(card) && isAutoPlay && cardLocation.pileType == PileType.Discard ? new CardLocation(cardLocation.player, PileType.Draw, CardPilePosition.Random) : cardLocation;
     }
     protected override void OnUpgrade()
     {

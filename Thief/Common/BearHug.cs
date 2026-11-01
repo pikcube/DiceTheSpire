@@ -9,7 +9,7 @@ namespace DiceTheSpire.Thief.Common;
 
 public class BearHug() : TheThiefCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy), ICountdown
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(14, ValueProp.Move), new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(16, ValueProp.Move), new CardsVar(1)];
     public int BaseCount { get; set; } = 1;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

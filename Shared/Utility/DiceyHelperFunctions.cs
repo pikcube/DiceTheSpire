@@ -33,11 +33,11 @@ public static class DiceyHelperFunctions
         PowerModel power;
         decimal amount;
 
-        switch (runState.Rng.CombatOrbGeneration.NextInt(target.HasPower<FreezePower>() || target.IsPlayer ? 8 : 9))
+        switch (GetNextRngForRandomDebuffs(runState, target, 9))
         {
             case 8:
                 power = ModelDb.Power<FreezePower>().StrongMutableClone(); //This is the only debuff in this table that doesn't stack
-                amount = 1;                                                //So we exclude it if the target is already frozen
+                amount = 1;                                                //So we exclude it if the target is already frozen or if the target is a player
                 break;
             case 7:
                 if (target.IsPlayer)
@@ -90,6 +90,16 @@ public static class DiceyHelperFunctions
         }
 
         await PowerCmd.Apply(choiceContext, power, target, amount, applier, cardSource, silent);
+    }
+
+    private static int GetNextRngForRandomDebuffs(IRunState runState, Creature target, int max)
+    {
+        if (target.HasPower<FreezePower>() || target.IsPlayer)
+        {
+            --max; //Freeze doesn't stack and realistically shouldn't be applied to the player, so we remove that index
+            //todo: Write a struct of some sort for this so we don't need to keep track of IDs like we're writing Assembly
+        }
+        return runState.Rng.CombatOrbGeneration.NextInt(max); //todo: swap this for a less stupid rng function
     }
 
     /// <summary>
