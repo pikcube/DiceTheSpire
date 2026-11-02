@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Runs;
 namespace DiceTheSpire.Shared.Utility;
 
 /// <summary>
-/// DoNotUseThisDirectly case of CardReward where both the cards to offer and the cards to offer if rerolled are set in the constructor.
+/// Special case of CardReward where both the cards to offer and the cards to offer if rerolled are set in the constructor.
 /// </summary>
 /// <param name="cardsToOffer">List of cards to offer as rewards.</param>
 /// <param name="source">The source of the reward.</param>
