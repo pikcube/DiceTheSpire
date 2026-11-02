@@ -33,7 +33,7 @@ public class Glue() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
     {
         base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(1);
-        DynamicVars.Block.UpgradeValueBy(2);
+        //DynamicVars.Block.UpgradeValueBy(2);
     }
 
 }
