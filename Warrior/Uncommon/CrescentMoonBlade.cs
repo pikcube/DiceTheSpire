@@ -6,13 +6,16 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
+//On {IfUpgraded:show:ODD|EVEN} turns deal {Damage:diff()} damage X times.\nOn {IfUpgraded:show:EVEN|ODD} turns gain {Block:diff()} [gold]Block[/gold] X times.
 public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, BlockProps.card), new DamageVar(10, DamageProps.card)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, BlockProps.card), new DamageVar(5, DamageProps.card)];
+    
+    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     public override bool GainsBlock => true;
     protected override bool HasEnergyCostX => true;
-    public override TargetType TargetType => (CombatState?.RoundNumber % 2 == 0 != IsUpgraded) ? TargetType.AnyEnemy : TargetType.Self;
+
+    //public override TargetType TargetType => (CombatState?.RoundNumber % 2 == 0 != IsUpgraded) ? TargetType.AnyEnemy : TargetType.Self;
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
@@ -22,8 +25,8 @@ public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarit
 
         int xValue = cardPlay.Card.ResolveEnergyXValue();
 
-        if (CombatState?.RoundNumber % 2 == 0 != IsUpgraded)
-        {
+        //if (CombatState?.RoundNumber % 2 == 0 != IsUpgraded)
+        //{
             for (int n = 0; n < xValue; ++n)
             {
                 ArgumentNullException.ThrowIfNull(cardPlay.Target);
@@ -34,19 +37,19 @@ public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarit
                     .WithHitFx(VfxCmd.slashPath)
                     .Execute(choiceContext);
             }
-        }
-        else
-        {
+        //}
+        //else
+        //{
             for (int n = 0; n < xValue; ++n)
             {
                 await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
             }
-        }
+        //}
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Block.UpgradeValueBy(2);
-        DynamicVars.Damage.UpgradeValueBy(4);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }

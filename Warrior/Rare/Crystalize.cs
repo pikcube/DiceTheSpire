@@ -4,9 +4,12 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 
 namespace DiceTheSpire.Warrior.Rare;
+
+//  "DICETHESPIRE-CRYSTALIZE.description": "At the start of each turn\ncreate X {IfUpgraded:show:[gold]Upgraded[/gold] |}\"Crystal\" card in [gold]Hand[/gold].",
 
 public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Rare, TargetType.Self), ICrystalCard
 {
@@ -24,11 +27,11 @@ public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Rare, 
 
         if (IsUpgraded)
         {
-            await PowerCmd.Apply<CrystalizePlusPower>(choiceContext, Owner.Creature, xValue, Owner.Creature, this);
+            await PowerCmd.Apply<MachineLearningPower>(choiceContext, Owner.Creature, xValue + 1, Owner.Creature, this);
         }
         else
         {
-            await PowerCmd.Apply<CrystalizePower>(choiceContext, Owner.Creature, xValue, Owner.Creature, this);
+            await PowerCmd.Apply<MachineLearningPower>(choiceContext, Owner.Creature, xValue, Owner.Creature, this);
         }
 
     }
