@@ -9,7 +9,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 //On {IfUpgraded:show:ODD|EVEN} turns deal {Damage:diff()} damage X times.\nOn {IfUpgraded:show:EVEN|ODD} turns gain {Block:diff()} [gold]Block[/gold] X times.
 public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, BlockProps.card), new DamageVar(5, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(4, BlockProps.card), new DamageVar(4, DamageProps.card)];
     
     //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     public override bool GainsBlock => true;

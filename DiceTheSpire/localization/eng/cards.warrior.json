@@ -13,7 +13,7 @@
   "DICETHESPIRE-BUMP.title": "Bump",
   "DICETHESPIRE-NITRO_BUMP.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].\n[gold]Bump[/gold] {Cards:diff()} cards.",
   "DICETHESPIRE-NITRO_BUMP.title": "Nitro Bump",
-  "DICETHESPIRE-BUMPBLADE.description": "Deal {Damage:diff()} damage.\n[gold]{IfUpgraded:show:Bump|Upgrade}[/gold] a card.",
+  "DICETHESPIRE-BUMPBLADE.description": "Deal {Damage:diff()} damage.\n[gold]Bump[/gold] {IfUpgraded:show:2 cards|a card}.",
   "DICETHESPIRE-BUMPBLADE.title": "Bumpblade",
   "DICETHESPIRE-NUDGE.description": "[gold]Nudge[/gold] up to {Cards:diff()} cards.",
   "DICETHESPIRE-NUDGE.title": "Nudge",
