@@ -34,7 +34,7 @@ public class SetGadgetCmd : AbstractConsoleCmd
     {
         if (args.Length >= 1)
         {
-            return new CompletionResult()
+            return new CompletionResult
             {
                 Type = CompletionType.Argument,
                 ArgumentContext = CmdName

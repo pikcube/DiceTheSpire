@@ -22,6 +22,9 @@ public class PortableFan : TheInventorRelic
         {
             return;
         }
+
+        Flash();
+
         foreach (Creature c in Owner.Creature.CombatState.Enemies)
         {
             HookPlayerChoiceContext context = new(Owner, LocalContext.NetId ?? 0, GameActionType.Combat);

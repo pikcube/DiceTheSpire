@@ -1,10 +1,10 @@
-﻿using DiceTheSpire.Shared.Cards;
+﻿using System.Reflection;
+using DiceTheSpire.Shared.Cards;
 using HarmonyLib;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
-using System.Reflection;
-using JetBrains.Annotations;
 
 namespace DiceTheSpire.Shared.Patches;
 

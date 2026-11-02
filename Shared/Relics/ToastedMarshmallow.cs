@@ -22,10 +22,10 @@ public class ToastedMarshmallow : TheInventorRelic
 
         int count = player.PlayerCombatState?.Energy ?? 0;
 
+        Flash();
         for (int n = 0; n < count; ++n)
         {
             await CreatureCmd.GainBlock(player.Creature, 2, BlockProps.nonCardUnpowered, null);
         }
-        Flash();
     }
 }

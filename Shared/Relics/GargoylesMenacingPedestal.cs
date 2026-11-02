@@ -18,7 +18,10 @@ public class GargoylesMenacingPedestal : TheWarriorRelic
     public override async Task AfterShuffle(PlayerChoiceContext choiceContext, Player shuffler)
     {
         if (shuffler != Owner)
+        {
             return;
+        }
+
         Flash();
         CardModel[] cards =
             [
@@ -29,12 +32,6 @@ public class GargoylesMenacingPedestal : TheWarriorRelic
         foreach (CardModel card in cards)
         {
             await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);            
-            //card.EnergyCost.SetThisTurnOrUntilPlayed(card.EnergyCost.GetAmountToSpend() - 1);
         }
-
-
     }
-
-
-
 }

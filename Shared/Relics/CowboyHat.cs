@@ -19,7 +19,10 @@ public class CowboyHat : TheWarriorRelic
     public async Task AfterRerollAsync(PlayerChoiceContext choiceContext, CardModel card, bool isFixed, int originalCost, int getAmountToSpend, RerollDuration duration)
     {
         if (!CombatManager.Instance.IsInProgress || Owner.Creature.CombatState is null)
+        {
             return;
+        }
+
         IReadOnlyList<Creature> hittableEnemies = Owner.Creature.CombatState.HittableEnemies;
         Creature? item = Owner.Creature.Player?.RunState.Rng.CombatTargets.NextItem(hittableEnemies);
         if (hittableEnemies.Count == 0 || Owner.Creature.Player is null || item is null)

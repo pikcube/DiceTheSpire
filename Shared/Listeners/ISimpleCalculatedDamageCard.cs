@@ -1,11 +1,11 @@
-﻿using BaseLib.Abstracts;
+﻿using System.Reflection;
+using BaseLib.Abstracts;
 using HarmonyLib;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using System.Reflection;
-using JetBrains.Annotations;
 
 namespace DiceTheSpire.Shared.Listeners;
 

@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
 public class Somersault() : WorkoutCard(1, CardType.Skill, TargetType.Self)

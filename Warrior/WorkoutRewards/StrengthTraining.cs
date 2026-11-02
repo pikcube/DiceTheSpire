@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
-
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
 public class StrengthTraining() : WorkoutCard(3, CardType.Power, TargetType.Self)

@@ -8,7 +8,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
 public class Cartwheel() : WorkoutCard(3, CardType.Skill, TargetType.Self), IAfterRerollListener
