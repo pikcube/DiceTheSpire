@@ -1,9 +1,9 @@
-﻿using JetBrains.Annotations;
+﻿using DiceTheSpire.Shared.Listeners;
+using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using DiceTheSpire.Shared.Listeners;
 
 namespace DiceTheSpire.Shared.Relics;
 

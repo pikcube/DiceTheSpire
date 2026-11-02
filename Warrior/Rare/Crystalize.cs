@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
-
 namespace DiceTheSpire.Warrior.Rare;
 
 //  "DICETHESPIRE-CRYSTALIZE.description": "At the start of each turn\ncreate X {IfUpgraded:show:[gold]Upgraded[/gold] |}\"Crystal\" card in [gold]Hand[/gold].",

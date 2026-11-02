@@ -13,6 +13,8 @@ namespace DiceTheSpire.Inventor.Uncommon;
 public class Solenoid() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     private const int BaseDamage = 16;
+    private const int Decay = 1;
+    private const int UpgradeDamage = 8;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(BaseDamage, DamageProps.card)];
 
     [SavedProperty]
@@ -35,7 +37,7 @@ public class Solenoid() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommo
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(8);
+        DynamicVars.Damage.UpgradeValueBy(UpgradeDamage);
     }
 
     public override Task AfterCombatVictory(CombatRoom room)
@@ -53,7 +55,7 @@ public class Solenoid() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommo
 
     private void UpdateValues()
     {
-        DynamicVars.Damage.BaseValue = Math.Max(BaseDamage - 2 * CombatsWonWithCard + (IsUpgraded ? 8 : 0), 0);
+        DynamicVars.Damage.BaseValue = Math.Max(BaseDamage - Decay * CombatsWonWithCard + (IsUpgraded ? UpgradeDamage : 0), 0);
     }
 
     protected override void AfterCloned()

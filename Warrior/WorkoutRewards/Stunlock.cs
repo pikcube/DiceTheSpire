@@ -1,12 +1,11 @@
 ﻿using DiceTheSpire.Shared.DynamicVars;
+using DiceTheSpire.Shared.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
-using DiceTheSpire.Shared.Extensions;
-
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 public class Stunlock() : WorkoutCard(3, CardType.Skill, TargetType.AnyEnemy)

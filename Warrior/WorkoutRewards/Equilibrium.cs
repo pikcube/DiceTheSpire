@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using Pikcube.Common.Extensions;
 
-
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
 

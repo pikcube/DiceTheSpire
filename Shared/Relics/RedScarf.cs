@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Shared.Relics;
@@ -15,28 +16,30 @@ namespace DiceTheSpire.Shared.Relics;
 public class RedScarf : TheWarriorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
-    private bool _usedThisCombat;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(1M)];
-    public bool UsedThisCombat
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(1)];
+
+    public override Task BeforeCombatStart()
     {
-        get => this._usedThisCombat;
-        private set
-        {
-            if (this._usedThisCombat == value)
-                return;
-            this.AssertMutable();
-            this._usedThisCombat = value;
-        }
+        Status = RelicStatus.Active;
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterCombatEnd(CombatRoom room)
+    {
+        Status = RelicStatus.Normal;
+        return Task.CompletedTask;
     }
 
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (!CombatManager.Instance.IsInProgress || target != Owner.Creature || result.UnblockedDamage <= 0 || UsedThisCombat)
+        if (!CombatManager.Instance.IsInProgress || target != Owner.Creature || result.UnblockedDamage <= 0 || Status == RelicStatus.Active)
+        {
             return;
+        }
+
         Flash();
-        UsedThisCombat = true;
+        Status = RelicStatus.Normal;
 
         await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, null);
     }
-
 }

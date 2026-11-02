@@ -25,7 +25,7 @@ public class ShieldChargePower : DiceTheSpirePower
             return;
         }
 
-        IReadOnlyList<Creature> hittableEnemies = this.CombatState.HittableEnemies;
+        IReadOnlyList<Creature> hittableEnemies = CombatState.HittableEnemies;
         if (hittableEnemies.Count == 0 || Owner.Player is null)
         {
             return;
