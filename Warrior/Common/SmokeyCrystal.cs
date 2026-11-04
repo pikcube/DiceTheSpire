@@ -7,13 +7,14 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Warrior.Uncommon;
+namespace DiceTheSpire.Warrior.Common;
 
 
-public class SmokeyCrystal() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICrystalCard
+public class SmokeyCrystal() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), ICrystalCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(3)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+
+    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

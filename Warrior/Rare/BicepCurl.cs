@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Warrior.Rare;
 
-public class BicepCurl() : TheWarriorCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class BicepCurl() : TheWarriorCard(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     public override bool HasTurnEndInHandEffect => true;
