@@ -28,13 +28,11 @@ public class Bumpblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        LocString locString = IsUpgraded ?
-            DiceySelection.ToBump :
-            CardSelectorPrefs.UpgradeSelectionPrompt;
+        LocString locString = DiceySelection.ToBump;
         CardSelectorPrefs cardSelectorPrefs = new(locString, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner,
             cardSelectorPrefs,
-            model => IsUpgraded || model.IsUpgradable, this);
+            model => model.IsUpgraded || model.IsUpgradable, this);
 
         foreach (CardModel card in result)
         {
