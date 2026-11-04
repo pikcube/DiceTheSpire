@@ -28,7 +28,6 @@ public class DeepFreeze() : WorkoutCard(2, CardType.Skill, TargetType.AllEnemies
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(5);
 
     }

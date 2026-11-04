@@ -30,7 +30,6 @@ public class NitroBump() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(1);
         DynamicVars.Power<VigorPower>().UpgradeValueBy(1);
     }

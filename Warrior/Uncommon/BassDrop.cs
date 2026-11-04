@@ -25,7 +25,6 @@ public class BassDrop() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon,
     }
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         RemoveKeyword(CardKeyword.Exhaust);
     }
 }

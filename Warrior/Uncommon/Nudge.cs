@@ -29,7 +29,6 @@ public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, Ta
     }
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(2);
 
     }

@@ -29,7 +29,6 @@ public class StrikeInventor() : TheInventorCard(1, CardType.Attack, CardRarity.B
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Damage.UpgradeValueBy(3);
     }
 

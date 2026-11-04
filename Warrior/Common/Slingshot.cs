@@ -47,7 +47,6 @@ public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Damage.UpgradeValueBy(2);
     }
 

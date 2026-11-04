@@ -30,7 +30,6 @@ public class DefensiveStance() : TheWarriorCard(0, CardType.Skill, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(1);
 
     }

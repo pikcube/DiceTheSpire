@@ -28,7 +28,6 @@ public class StrikeWarrior() : TheWarriorCard(1, CardType.Attack, CardRarity.Bas
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Damage.UpgradeValueBy(3);
     }
 

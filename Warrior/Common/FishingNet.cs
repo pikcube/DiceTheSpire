@@ -40,7 +40,6 @@ public class FishingNet() : TheWarriorCard(2, CardType.Skill, CardRarity.Common,
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(3);
         DynamicVars.Weak.UpgradeValueBy(1);
 

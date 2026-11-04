@@ -30,7 +30,6 @@ public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, Tar
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(2);
     }
 

@@ -57,7 +57,6 @@ public class PolarStar() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommo
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Damage.UpgradeValueBy(3);
     }
 
