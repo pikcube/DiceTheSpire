@@ -10,7 +10,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class CrystalShield() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedBlock(0, Bonus)];
     public override bool GainsBlock => true;
     private static decimal Bonus(CardModel card, Creature? arg2)
