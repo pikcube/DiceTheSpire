@@ -14,7 +14,7 @@ namespace DiceTheSpire.Warrior.Common;
 public class IronShield() : TheWarriorCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(11, BlockProps.card), .. RangeVars.Make(0, 0)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12, BlockProps.card), .. RangeVars.Make(0, 0)];
 
     //protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

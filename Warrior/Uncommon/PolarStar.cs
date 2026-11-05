@@ -8,7 +8,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class PolarStar() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, DamageProps.card), new RepeatVar(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, DamageProps.card), new RepeatVar(4)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -58,7 +58,7 @@ public class PolarStar() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommo
     protected override void OnUpgrade()
     {
         base.OnUpgrade();
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(1);
     }
 
 }

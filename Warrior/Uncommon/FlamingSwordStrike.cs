@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Interfaces;
+﻿using BaseLib.Extensions;
+using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
@@ -14,7 +15,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class FlamingSwordStrike() : TheWarriorCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IFuryModifier
+public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) //, IFuryModifier
 {
     private int FlaimingSwordsBeingPlayed
     {
@@ -22,7 +23,7 @@ public class FlamingSwordStrike() : TheWarriorCard(0, CardType.Attack, CardRarit
         set => field = value < 0 ? 0 : value;
     } = 0;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new PowerVar<FuryPower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7M, DamageProps.card), new PowerVar<FuryPower>(1M), new PowerVar<VigorPower>(4M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(), HoverTipFactory.FromPower<VigorPower>()];
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
@@ -55,14 +56,15 @@ public class FlamingSwordStrike() : TheWarriorCard(0, CardType.Attack, CardRarit
             .Execute(choiceContext);
         --FlaimingSwordsBeingPlayed;
 
+        await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, this);
     }
 
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
     }
 
-    public bool ShouldIgnoreFury => false;
+    //public bool ShouldIgnoreFury => false;
     public bool ShouldMaintainFury => true;
 }
