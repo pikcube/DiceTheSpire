@@ -39,7 +39,7 @@
 
 //    protected override void OnUpgrade()
 //    {
-//        base.OnUpgrade();
+//        this.
 //        DynamicVars.Cards.UpgradeValueBy(1);
 //        DynamicVars.Block.UpgradeValueBy(3);
 //    }

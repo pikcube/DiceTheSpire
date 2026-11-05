@@ -44,7 +44,6 @@ public class TwoHandedSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Co
     }
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Damage.UpgradeValueBy(2);
         DynamicVars.MinRange.UpgradeValueBy(-1);
         DynamicVars.MaxRange.UpgradeValueBy(-1);

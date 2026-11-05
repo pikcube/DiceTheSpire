@@ -23,7 +23,6 @@ public class ScrapDefend() : TheInventorCard(1, CardType.Skill, CardRarity.Commo
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(3);
     }
 

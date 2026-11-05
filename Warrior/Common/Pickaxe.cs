@@ -31,7 +31,6 @@ public class Pickaxe() : TheWarriorCard(2, CardType.Attack, CardRarity.Common, T
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Damage.UpgradeValueBy(3);
         DynamicVars.Vulnerable.UpgradeValueBy(1);
 

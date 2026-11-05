@@ -49,7 +49,7 @@
 
 //    protected override void OnUpgrade()
 //    {
-//        base.OnUpgrade();
+//        this.
 //        DynamicVars.Block.UpgradeValueBy(3);
 //    }
 

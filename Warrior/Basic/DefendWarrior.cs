@@ -20,7 +20,6 @@ public class DefendWarrior() : TheWarriorCard(1, CardType.Skill, CardRarity.Basi
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(3);
     }
 

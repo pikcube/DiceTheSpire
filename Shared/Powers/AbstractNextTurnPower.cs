@@ -17,8 +17,8 @@ public abstract class AbstractNextTurnPower : DiceTheSpirePower, IHasSecondAmoun
     public abstract TickTime Tick { get; }
     public abstract CombatSide TickSide { get; }
     protected virtual IEnumerable<DynamicVar> ExtraCanonicalVars => [];
-    protected sealed override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("Delay", 1), .. ExtraCanonicalVars];
-    
+    protected sealed override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(nameof(Delay), 1), .. ExtraCanonicalVars];
+
     public int Delay
     {
         get => DynamicVars["Delay"].IntValue;
@@ -29,12 +29,12 @@ public abstract class AbstractNextTurnPower : DiceTheSpirePower, IHasSecondAmoun
         }
     }
 
+
     public string GetSecondAmount() => Delay.ToString();
 
     public sealed override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     public virtual PowerInstanceType NextTurnInstanceType => PowerInstanceType.InstancedPerApplier;
-
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants,
         ICombatState combatState)
@@ -111,8 +111,9 @@ public static class NextTurnPowerExtensions
             }
             else
             {
-                T? power = await PowerCmd.Apply<T>(choiceContext, target, amount, applier, cardSource, silent);
-                power?.Delay = delay;
+                T power = (T)ModelDb.Power<T>().ToMutable();
+                await PowerCmd.Apply(choiceContext, power, target, amount, applier, cardSource, silent);
+                power.Delay = delay;
             }
         }
     }

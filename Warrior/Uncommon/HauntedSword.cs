@@ -43,7 +43,6 @@ public class HauntedSword() : TheWarriorCard(1, CardType.Attack, CardRarity.Unco
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(1);
     }
 

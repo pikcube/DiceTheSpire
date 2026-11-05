@@ -1,11 +1,9 @@
-﻿using DiceTheSpire.Shared.Extensions;
-using DiceTheSpire.Shared.Utility;
+﻿using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -33,7 +31,6 @@ public class Glue() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         //DynamicVars.Cards.UpgradeValueBy(1);
         DynamicVars.Block.UpgradeValueBy(2);
     }

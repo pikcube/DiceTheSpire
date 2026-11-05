@@ -1,13 +1,6 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Commands;
-using DiceTheSpire.Shared.DynamicVars;
-using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Powers;
-using DiceTheSpire.Shared.Utility;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -34,7 +27,6 @@ public class Fists() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Tar
     }
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Repeat.UpgradeValueBy(1);
     }
 
