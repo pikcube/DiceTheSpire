@@ -133,7 +133,7 @@
   "DICETHESPIRE-ACORN_SHIELD.title": "Acorn Shield",
   "DICETHESPIRE-BUMP_SHIELD.description": "Gain {BumpShieldPower:diff()} [gold]Block[/gold] when you [gold]Bump[/gold] a card.",
   "DICETHESPIRE-BUMP_SHIELD.title": "Bump Shield",
-  "DICETHESPIRE-FLAMING_SWORD_STRIKE.description": "Deal {Damage:diff()} damage.\nGain {VigorPower:diff()} [gold]Vigor[/gold].\nThis card does not consume [gold]Vigor[/gold].",
+  "DICETHESPIRE-FLAMING_SWORD_STRIKE.description": "Deal {Damage:diff()} damage.\nGain {VigorPower:diff()} [gold]Vigor[/gold].\nThis card does not\nconsume [gold]Vigor[/gold].",
   "DICETHESPIRE-FLAMING_SWORD_STRIKE.title": "Flaming Sword Strike",
   "DICETHESPIRE-FLYING_DROPKICK.description": "Deal {Damage:diff()} damage.\nGain {FuryPower:diff()} [gold]Fury[/gold].\nEnd your turn.",
   "DICETHESPIRE-FLYING_DROPKICK.title": "Flying Dropkick",
