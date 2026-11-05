@@ -14,7 +14,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class NitroBump() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new PowerVar<VigorPower>(5M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new PowerVar<VigorPower>(6M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump), HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
