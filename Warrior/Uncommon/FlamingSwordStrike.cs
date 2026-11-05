@@ -62,7 +62,4 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
     {
         DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
     }
-
-    //public bool ShouldIgnoreFury => false;
-    public bool ShouldMaintainFury => true;
 }
