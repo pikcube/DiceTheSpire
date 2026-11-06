@@ -15,7 +15,7 @@
   "DICETHESPIRE-CHISEL.title": "Chisel",
   "DICETHESPIRE-DETONATOR.description": "Deal damage equal to the amount of [gold]Poison[/gold] on the enemy.{InCombat:\n(Deals {CalculatedDamage:diff()} damage.)|}",
   "DICETHESPIRE-DETONATOR.title": "Detonator",
-  "DICETHESPIRE-POISON_NEEDLE.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold].\n[gold]Persist[/gold] {Persist:diff()}.",
+  "DICETHESPIRE-POISON_NEEDLE.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold] X{IfUpgraded:show:+1|} times.",
   "DICETHESPIRE-POISON_NEEDLE.title": "Poison Needle",
   "DICETHESPIRE-BLENDER.description": "[gold]Exhaust[/gold] a card.\nAdd [gold]Pips[/gold] to your [gold]Hand[/gold] equal to that card's cost.",
   "DICETHESPIRE-BLENDER.title": "Blender",
