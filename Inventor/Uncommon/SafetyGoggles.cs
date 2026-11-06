@@ -16,7 +16,7 @@ public class SafetyGoggles() : TheInventorCard(1, CardType.Skill, CardRarity.Unc
     public override string GetScrapId => nameof(Protection);
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(7, BlockProps.card),
+        new BlockVar(6, BlockProps.card),
         new PowerVar<SafetyGogglesPower>(1)
     ];
 
@@ -28,6 +28,6 @@ public class SafetyGoggles() : TheInventorCard(1, CardType.Skill, CardRarity.Unc
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3);
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 }
