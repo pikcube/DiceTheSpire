@@ -11,7 +11,7 @@ namespace DiceTheSpire.Thief.Common;
 public class Wail() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(5, ValueProp.Move), new PowerVar<WeakPower>(1)];
+        [new DamageVar(4, ValueProp.Move), new PowerVar<WeakPower>(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>()];
 
