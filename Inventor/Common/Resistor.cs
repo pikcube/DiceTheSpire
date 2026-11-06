@@ -15,10 +15,10 @@ namespace DiceTheSpire.Inventor.Common;
 
 
 [UsedImplicitly]
-public class Resistor() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), IOnShockListener
+public class Resistor() : TheInventorCard(2, CardType.Skill, CardRarity.Common, TargetType.Self), IOnShockListener
 {
     public override string GetScrapId => nameof(WallOfIce);
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(12, BlockProps.card)];
 
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
@@ -29,7 +29,7 @@ public class Resistor() : TheInventorCard(1, CardType.Skill, CardRarity.Common, 
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3);
+        DynamicVars.Block.UpgradeValueBy(4);
     }
 
     public async Task AfterCardShockedAsync(PlayerChoiceContext choiceContext, CardModel card)
