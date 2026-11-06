@@ -41,7 +41,6 @@ public class Chainsaw() : TheInventorCard(3, CardType.Attack, CardRarity.Rare, T
         {
             return 2;
         }
-
         return 1;
     }
 

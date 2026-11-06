@@ -20,5 +20,11 @@
   "DICETHESPIRE-WORKOUT_TALLY.title": "Workout Tally",
   "DICETHESPIRE-RED_SCARF.description": "The first time you lose HP each combat, gain [gold]Fury[/gold].",
   "DICETHESPIRE-RED_SCARF.flavor": "A gift from the Wolf Puppy for helping reunite them with their mother.",
-  "DICETHESPIRE-RED_SCARF.title": "Red Scarf"
+  "DICETHESPIRE-RED_SCARF.title": "Red Scarf",
+  "DICETHESPIRE-COWBOY_HAT.description": "If you [gold]Reroll[/gold] a card that costs {Energy:diceIcons()} or more, deal 10 damage to a random enemy.",
+  "DICETHESPIRE-COWBOY_HAT.flavor": "This tower ain't big enough for the two of us.",
+  "DICETHESPIRE-COWBOY_HAT.title": "Cowboy Hat",
+  "DICETHESPIRE-GARGOYLES_MENACING_PEDESTAL.description": "When you shuffle your deck, [gold]Nudge[/gold] three cards in your [gold]Draw Pile[/gold].",
+  "DICETHESPIRE-GARGOYLES_MENACING_PEDESTAL.flavor": "Holding this pedestal is a workout in itself.",
+  "DICETHESPIRE-GARGOYLES_MENACING_PEDESTAL.title": "Gargoyle's Menacing Pedestal"
 }

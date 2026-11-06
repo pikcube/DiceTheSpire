@@ -36,7 +36,6 @@ public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.U
     }
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(1);
         DynamicVars.Damage.UpgradeValueBy(2);
     }

@@ -35,7 +35,6 @@ public class ThickSkin() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, 
     }
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(2);
     }
 }

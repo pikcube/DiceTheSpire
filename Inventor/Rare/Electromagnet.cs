@@ -17,7 +17,6 @@ public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Ra
     public int BaseDamage => 4;
     public int ExtraDamageMultiplier => 3;
     public ValueProp DamageType => DamageProps.card;
-
     public decimal CalculateDamage(Creature? target)
     {
         return CombatManager.Instance.History.Entries.OfType<CardShockedEntry>().Count(cse => cse.Card.Owner == Owner);

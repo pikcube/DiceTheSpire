@@ -19,7 +19,7 @@ public class Glue() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
         Glue glue = this;
-        CardSelectorPrefs prefs = new(SelectionScreenPrompt, 1);
+        CardSelectorPrefs prefs = new(SelectionScreenPrompt, DynamicVars.Cards.IntValue);
         CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, (Func<CardModel, bool>)(c => !c.Keywords.Contains(CardKeyword.Retain)), glue)).FirstOrDefault();
         if (card == null)
         {
@@ -31,8 +31,7 @@ public class Glue() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, Targe
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
-        DynamicVars.Cards.UpgradeValueBy(1);
+        //DynamicVars.Cards.UpgradeValueBy(1);
         DynamicVars.Block.UpgradeValueBy(2);
     }
 

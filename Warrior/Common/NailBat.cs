@@ -45,7 +45,7 @@ public class NailBat() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, T
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(6);
-        DynamicVars["Recoil"].UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(4);
+        //DynamicVars["Recoil"].UpgradeValueBy(2);
     }
 }

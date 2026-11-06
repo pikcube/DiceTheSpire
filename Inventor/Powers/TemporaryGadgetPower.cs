@@ -33,7 +33,7 @@ public class TemporaryGadgetPower : DiceTheSpirePower, IGadgetParent
             .Where(g => g.HookType == CustomSingletonModel.HookType.Combat)];
     }
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText)), new StringVar(nameof(GadgetName))];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new StringVar(nameof(GadgetText)), new StringVar(nameof(GadgetName), "Temporary Gadget")];
 
     public string GadgetName
     {

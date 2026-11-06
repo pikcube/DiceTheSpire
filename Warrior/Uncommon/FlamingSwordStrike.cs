@@ -1,5 +1,4 @@
-﻿using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Powers;
+﻿using BaseLib.Extensions;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -14,7 +13,7 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class FlamingSwordStrike() : TheWarriorCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IFuryModifier
+public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy) //, IFuryModifier
 {
     private int FlaimingSwordsBeingPlayed
     {
@@ -22,8 +21,8 @@ public class FlamingSwordStrike() : TheWarriorCard(0, CardType.Attack, CardRarit
         set => field = value < 0 ? 0 : value;
     } = 0;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10M, DamageProps.card), new PowerVar<FuryPower>(1M)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(), HoverTipFactory.FromPower<VigorPower>()];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7M, DamageProps.card),  new PowerVar<VigorPower>(4M)]; //new PowerVar<FuryPower>(1M),
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()]; //HoverTipFactory.FromPower<FuryPower>(), 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
@@ -55,14 +54,12 @@ public class FlamingSwordStrike() : TheWarriorCard(0, CardType.Attack, CardRarit
             .Execute(choiceContext);
         --FlaimingSwordsBeingPlayed;
 
+        await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, this);
     }
 
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
     }
-
-    public bool ShouldIgnoreFury => false;
-    public bool ShouldMaintainFury => true;
 }

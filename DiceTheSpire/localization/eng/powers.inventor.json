@@ -62,7 +62,7 @@
   "DICETHESPIRE-STALL_OF_MIRRORS_POWER.title": "Stall of Mirrors",
   "DICETHESPIRE-TEMPORARY_GADGET_POWER.description": "Gain a Gadget for the rest of combat.",
   "DICETHESPIRE-TEMPORARY_GADGET_POWER.smartDescription": "{GadgetText.StringValue}",
-  "DICETHESPIRE-TEMPORARY_GADGET_POWER.title": "Temporary Gadget",
+  "DICETHESPIRE-TEMPORARY_GADGET_POWER.title": "{GadgetName.StringValue}",
   "DICETHESPIRE-UNCLE_POWER.description": "In [blue]5[/blue] turns, ALL enemies lose [blue]90[/blue] HP.",
   "DICETHESPIRE-UNCLE_POWER.smartDescription": "In [blue]{Delay}[/blue] turns, ALL enemies lose [blue]{Amount}[/blue] HP.",
   "DICETHESPIRE-UNCLE_POWER.title": "Uncle"

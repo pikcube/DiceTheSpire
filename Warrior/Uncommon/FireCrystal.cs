@@ -10,8 +10,8 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Warrior.Uncommon;
 public class FireCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(6), new PowerVar<VigorPower>(10M)];
+    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(6), new PowerVar<VigorPower>(8M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

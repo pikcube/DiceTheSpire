@@ -8,10 +8,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using Pikcube.Common.Extensions;
 
-namespace DiceTheSpire.Inventor.Common;
+namespace DiceTheSpire.Inventor.Uncommon;
 
 
-public class SafetyGoggles() : TheInventorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class SafetyGoggles() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     public override string GetScrapId => nameof(Protection);
     protected override IEnumerable<DynamicVar> CanonicalVars =>

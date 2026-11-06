@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck0ktqmnbygkv"
-path="res://.godot/imported/haunted_sword.png-949257d709f25727d9040dc1e6b1e985.ctex"
+path="res://.godot/imported/haunted_sword_strike.png-eefead91b20888569ceb441b210772d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/haunted_sword.png"
-dest_files=["res://.godot/imported/haunted_sword.png-949257d709f25727d9040dc1e6b1e985.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/haunted_sword_strike.png"
+dest_files=["res://.godot/imported/haunted_sword_strike.png-eefead91b20888569ceb441b210772d8.ctex"]
 
 [params]
 

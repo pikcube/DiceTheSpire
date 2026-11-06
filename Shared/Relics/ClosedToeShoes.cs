@@ -19,11 +19,11 @@ public class ClosedToeShoes : TheInventorRelic
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [.. HoverTipFactory.FromEnchantment<Swift>()];
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
         if (Owner != player)
         {
-            return;
+            return Task.CompletedTask;
         }
 
 
@@ -33,7 +33,7 @@ public class ClosedToeShoes : TheInventorRelic
 
         if (card is null)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         CardCmd.Enchant<Swift>(card, 1);
@@ -42,6 +42,10 @@ public class ClosedToeShoes : TheInventorRelic
         {
             NRun.Instance?.GlobalUi.CardPreviewContainer.AddChildSafely(child);
         }
+
+        Flash();
+
+        return Task.CompletedTask;
     }
 
     private static bool Filter(CardModel card)

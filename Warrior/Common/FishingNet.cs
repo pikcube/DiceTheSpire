@@ -12,7 +12,7 @@ public class FishingNet() : TheWarriorCard(2, CardType.Skill, CardRarity.Common,
 {
     public override bool GainsBlock => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>()];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(8, BlockProps.card), new CardsVar(1), new PowerVar<WeakPower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, BlockProps.card), new CardsVar(1), new PowerVar<WeakPower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -40,7 +40,6 @@ public class FishingNet() : TheWarriorCard(2, CardType.Skill, CardRarity.Common,
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Block.UpgradeValueBy(3);
         DynamicVars.Weak.UpgradeValueBy(1);
 

@@ -15,7 +15,8 @@ namespace DiceTheSpire.Warrior.Common;
 public class Bumpblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(6, DamageProps.card)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => IsUpgraded ? [HoverTipFactory.Static(BetterStaticHoverTips.Bump)] : [];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
+    //IsUpgraded ? [HoverTipFactory.Static(BetterStaticHoverTips.Bump)] : [];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -27,13 +28,11 @@ public class Bumpblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
-        LocString locString = IsUpgraded ?
-            DiceySelection.ToBump :
-            CardSelectorPrefs.UpgradeSelectionPrompt;
-        CardSelectorPrefs cardSelectorPrefs = new(locString, 1);
+        LocString locString = DiceySelection.ToBump;
+        CardSelectorPrefs cardSelectorPrefs = new(locString, DynamicVars.Cards.IntValue);
         IEnumerable<CardModel> result = await CardSelectCmd.FromHand(choiceContext, Owner,
             cardSelectorPrefs,
-            model => IsUpgraded || model.IsUpgradable, this);
+            model => model.IsUpgraded || model.IsUpgradable, this);
 
         foreach (CardModel card in result)
         {
@@ -42,7 +41,8 @@ public class Bumpblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        //DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 
 }

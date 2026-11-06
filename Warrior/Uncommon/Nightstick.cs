@@ -12,7 +12,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class Nightstick() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, DamageProps.card), new PowerVar<NightstickStrengthDownPower>(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, DamageProps.card), new PowerVar<NightstickStrengthDownPower>(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -34,6 +34,6 @@ public class Nightstick() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncomm
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<NightstickStrengthDownPower>().UpgradeValueBy(1);
+        DynamicVars.Power<NightstickStrengthDownPower>().UpgradeValueBy(2);
     }
 }

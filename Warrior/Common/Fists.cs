@@ -1,23 +1,33 @@
-﻿using DiceTheSpire.Shared.Commands;
-using DiceTheSpire.Shared.DynamicVars;
-using DiceTheSpire.Shared.Utility;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Common;
 
-public class Fists() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Fists() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), .. RangeVars.Make(0, 0)];
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new DamageVar(1M, DamageProps.card),
+        new RepeatVar(4)
+    ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await DodgeCmd.DodgeAsync(choiceContext, Owner, DynamicVars.Cards.IntValue, this);
-    }
 
-    protected override void OnUpgrade() => DynamicVars.Cards.UpgradeValueBy(1);
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
+        await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
+            .FromCard(this, cardPlay)
+            .Targeting(cardPlay.Target)
+            .WithHitFx(VfxCmd.slashPath)
+            .WithHitCount(DynamicVars.Repeat.IntValue)
+            .Execute(choiceContext);
+    }
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Repeat.UpgradeValueBy(1);
+    }
 
 }

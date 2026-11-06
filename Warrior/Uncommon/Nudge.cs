@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class Nudge() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
 
@@ -29,7 +29,6 @@ public class Nudge() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, Ta
     }
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(2);
 
     }

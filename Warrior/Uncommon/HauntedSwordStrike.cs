@@ -9,8 +9,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class HauntedSword() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class HauntedSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
+    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, DamageProps.card), new CardsVar(4)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
@@ -43,7 +44,6 @@ public class HauntedSword() : TheWarriorCard(1, CardType.Attack, CardRarity.Unco
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
         DynamicVars.Cards.UpgradeValueBy(1);
     }
 
