@@ -29,7 +29,7 @@
   "DICETHESPIRE-BOUNCE.title": "Bounce",
   "DICETHESPIRE-SNAKE_EYE_CHARM.description": "[gold]Count:[/gold] {BaseCount}\nGain  {Energy:diceIcons()}.",
   "DICETHESPIRE-SNAKE_EYE_CHARM.title": "Snake Eye Charm",
-  "DICETHESPIRE-CROWBAR.description": "Reduce the count{IfUpgraded:show: and {Energy:diceIcons()} cost | }of all [gold]Countdown[/gold] cards in [gold]Hand[/gold] by X this turn.",
+  "DICETHESPIRE-CROWBAR.description": "[gold]Countdown[/gold] cards in your [gold]Hand[/gold] are free to play this turn.",
   "DICETHESPIRE-CROWBAR.title": "Crowbar",
   "DICETHESPIRE-BLIGHT.description": "[gold]Count:[/gold] {BaseCount}\nDouble an enemy's [gold]Poison[/gold].",
   "DICETHESPIRE-BLIGHT.title": "Blight",
