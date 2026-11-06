@@ -11,6 +11,8 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
+using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Shared.Cards;
 
@@ -48,7 +50,19 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         {
             description.Add(nameof(countdown.BaseCount), countdown.Count);
         }
+
         AddExtraDiceyArgsToDescription(description);
+
+        IRunState? state = RunManager.Instance.DebugOnlyGetState();
+        string switchValue = state?.CardMultiplayerConstraint == CardMultiplayerConstraint.MultiplayerOnly
+            ? "multi"
+            : "single";
+        LocString? multiDescription = LocString.GetIfExists("cards", $"DICETHESPIRE-RESISTOR.description.{switchValue}");
+        if (multiDescription is null)
+        {
+            return;
+        }
+        description.Add("MultiplayerSwitch", multiDescription.WithDynamicVars(DynamicVars).GetFormattedText());
     }
 
     private bool IsCountdownPlayable()
