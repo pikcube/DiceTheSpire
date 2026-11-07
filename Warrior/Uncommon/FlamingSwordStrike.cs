@@ -1,6 +1,4 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.Interfaces;
-using DiceTheSpire.Shared.Powers;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -64,7 +62,4 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
     {
         DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
     }
-
-    //public bool ShouldIgnoreFury => false;
-    public bool ShouldMaintainFury => true;
 }

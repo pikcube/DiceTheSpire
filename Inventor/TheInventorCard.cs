@@ -5,6 +5,7 @@ using DiceTheSpire.Inventor.Token;
 using DiceTheSpire.Shared.Cards;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -33,7 +34,8 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
         ..GetGadgetHoverTip() ,
         ..GetHeldHoverTip(),
         ..ExtraInventorHoverTips,
-        ..GetScrapHoverTip()
+        ..GetScrapHoverTip(),
+        ..GetExhaustTip(),
     ];
 
     private IEnumerable<IHoverTip> GetGadgetHoverTip()
@@ -71,6 +73,23 @@ public abstract class TheInventorCard(int cost, CardType type, CardRarity rarity
 
         yield return HoverTipFactory.Static(BetterStaticHoverTips.Scrap);
         yield return HoverTipFactory.Static(BetterStaticHoverTips.Gadget);
+    }
+
+    private IEnumerable<IHoverTip> GetExhaustTip()
+    {
+        if (!ExtraInventorHoverTips.Contains(HoverTipFactory.FromKeyword(ShockModel.Shock)))
+        {
+            yield break;
+        }
+
+        IHoverTip exhaustTip = HoverTipFactory.FromKeyword(CardKeyword.Exhaust);
+
+        if (ExtraInventorHoverTips.Contains(exhaustTip))
+        {
+            yield break;
+        }
+
+        yield return exhaustTip;
     }
 
     public abstract string GetScrapId { get; }

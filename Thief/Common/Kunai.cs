@@ -10,28 +10,25 @@ using Pikcube.Common.Extensions;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class Kunai() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Kunai() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(6, ValueProp.Move)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
         if (CombatState is null)
         {
             return;
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).TargetingAllOpponents(CombatState)
             .Execute(choiceContext);
         await Pip.CreateInHandAsync(Owner, 1, CombatState);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1);
-        DynamicVars.PrivateFieldWrapper<DynamicVarSet, Dictionary<string, DynamicVar>>("_vars").Value?[PersistVar.Key] =
-            new PersistVar(2);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }
