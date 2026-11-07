@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace DiceTheSpire.Warrior.Common;
 public class Flight() : TheWarriorCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), .. RangeVars.Make(0, 0)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

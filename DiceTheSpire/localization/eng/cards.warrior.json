@@ -84,6 +84,8 @@
   "DICETHESPIRE-FISTS.title": "Fists",
   "DICETHESPIRE-FLIGHT.description": "[gold]Dodge[/gold] {Cards:diff()} cards.",
   "DICETHESPIRE-FLIGHT.title": "Flight",
+  "DICETHESPIRE-DODGE_ROLL.description": "[gold]Dodge[/gold] {Cards:diff()} cards.\nAdd {Cards:diff()} copies of\n[gold]Roll Again[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-DODGE_ROLL.title": "Dodge Roll",
   "DICETHESPIRE-BICEP_CURL.description": "[gold]Nudge[/gold] your [gold]Hand[/gold].\n[gold]Held[/gold]: [gold]Bump[/gold] your [gold]Hand[/gold].",
   "DICETHESPIRE-BICEP_CURL.title": "Bicep Curl",
   "DICETHESPIRE-JAVELIN.description": "Play {Cards:diff()} cards in your [gold]Discard Pile[/gold].\nShuffle them into your [gold]Draw Pile[/gold].",
