@@ -18,14 +18,14 @@ public static class CountdownExtensions
 
         public int Count => instance.GetCount(true);
 
-        public int ResolveCountdownXValue()
-        {
-            PlayerCombatState? combatState = instance.AsCardModel().Owner.PlayerCombatState;
-            return combatState is null ? 0 : combatState.Hand.Cards.Count;
-        }
-
         public int GetCount(bool includeGlobal)
         {
+            if (instance.HasCountdownCostX)
+            {
+                PlayerCombatState? playerCombatState = instance.AsCardModel().Owner.PlayerCombatState;
+                return playerCombatState is null ? 0 : playerCombatState.Hand.Cards.Count(c => c != instance.AsCardModel());
+            }
+
             int modCost = instance.BaseCount;
             foreach (LocalCostModifier modifier in instance.CountdownCostModifiers)
             {
