@@ -27,7 +27,6 @@ public class SignalJammer() : TheThiefCard(1, CardType.Skill, CardRarity.Common,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(2);
-        DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 }
