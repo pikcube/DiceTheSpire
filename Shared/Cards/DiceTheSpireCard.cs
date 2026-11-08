@@ -19,6 +19,9 @@ namespace DiceTheSpire.Shared.Cards;
 public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target), IPipCard
 {
+    public int? CountSpent { get; set; }
+    public int? CountValue { get; set; }
+
     public List<LocalCostModifier> CountdownCostModifiers { get; set; } = [];
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
@@ -93,6 +96,8 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
     {
         if (count == 0)
         {
+            CountSpent = 0;
+            CountValue = 0;
             return;
         }
         //Model registration since our PCC is brand new. Do not remove.
@@ -109,8 +114,7 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         CardPile secretPile = new(PileType.Exhaust);
         await CardPileCmd.Add(this, secretPile, skipVisuals: true);
 
-
-        IEnumerable<CardModel> cards = await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c != this, this);
+        CardModel[] cards = [.. await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c != this, this)];
 
         //Don't forget to put the card back when you are finished with it
         if (original is not null)
@@ -122,6 +126,9 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
             await CardPileCmd.Add(this, PileType.Hand, skipVisuals: true);
         }
         await CardCmd.Discard(choiceContext, cards);
+
+        CountSpent = cards.Length;
+        CountValue = cards.Length;
 
         //Model deregistration since we're all done. Do not remove.
         choiceContext.PopModel(this);

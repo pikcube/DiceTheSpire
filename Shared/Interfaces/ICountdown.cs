@@ -7,6 +7,8 @@ public interface ICountdown
 {
     public int BaseCount { get; set; }
     public bool HasCountdownCostX { get; }
+    public int? CountSpent { get; set; }
+    public int? CountValue { get; set; }
     public List<LocalCostModifier> CountdownCostModifiers { get; set; }
 
     public CardModel AsCardModel();
