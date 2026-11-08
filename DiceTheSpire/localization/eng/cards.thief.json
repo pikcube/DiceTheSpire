@@ -103,7 +103,7 @@
   "DICETHESPIRE-SIGNAL_JAMMER.title": "Signal Jammer",
   "DICETHESPIRE-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrement each [gold]Countdown[/gold] in your [gold]Hand[/gold] by 1.",
   "DICETHESPIRE-SNEEZE.title": "Sneeze",
-  "DICETHESPIRE-COUNTVALANCHE.description": "Discard your [gold]Hand[/gold].\nDeal {Damage:diff()} damage for each card discarded.",
+  "DICETHESPIRE-COUNTVALANCHE.description": "[gold]Count: X[/gold].\nDeal {Damage:diff()} damage X times.",
   "DICETHESPIRE-COUNTVALANCHE.title": "Countvalanche",
   "DICETHESPIRE-CAMOUFLAGE.description": "[gold]Count:[/gold] {BaseCount}\nGain {ReducePower:diff()} [gold]Reduce[/gold].",
   "DICETHESPIRE-CAMOUFLAGE.title": "Camouflage",

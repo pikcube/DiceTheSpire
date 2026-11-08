@@ -1,14 +1,16 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using DiceTheSpire.Shared.Interfaces;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Thief.Rare;
+namespace DiceTheSpire.Thief.Uncommon;
 
-public class Countvalanche() : TheThiefCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class Countvalanche() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
+    public int BaseCount { get; set; } = 0;
+    public override bool HasCountdownCostX => true;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5, ValueProp.Move)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -19,11 +21,8 @@ public class Countvalanche() : TheThiefCard(2, CardType.Attack, CardRarity.Rare,
             return;
         }
 
-        IReadOnlyList<CardModel> cards = Owner.PlayerCombatState.Hand.Cards;
-        int num = cards.Count;
-        await CardCmd.Discard(choiceContext, cards);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
-            .WithHitCount(num).Execute(choiceContext);
+            .WithHitCount(CountValue ?? 0).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
