@@ -12,7 +12,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 
@@ -53,7 +52,14 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
     {
         if (this is ICountdown countdown)
         {
-            description.Add(nameof(countdown.BaseCount), countdown.Count);
+            if (countdown.HasCountdownCostX)
+            {
+                description.Add(nameof(countdown.BaseCount), "X");
+            }
+            else
+            {
+                description.Add(nameof(countdown.BaseCount), countdown.Count);
+            }
         }
 
         AddExtraDiceyArgsToDescription(description);
