@@ -62,7 +62,7 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         string switchValue = state?.CardMultiplayerConstraint == CardMultiplayerConstraint.MultiplayerOnly
             ? "multi"
             : "single";
-        LocString? multiDescription = LocString.GetIfExists("cards", $"DICETHESPIRE-RESISTOR.description.{switchValue}");
+        LocString? multiDescription = LocString.GetIfExists("cards", $"{Id.Entry}.description.{switchValue}");
         if (multiDescription is null)
         {
             return;
