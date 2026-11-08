@@ -41,14 +41,6 @@ public class RosewoodSpear() : TheInventorCard(1, CardType.Attack, CardRarity.Ra
             .Execute(choiceContext);
     }
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (cardPlay.Card == this && cardPlay.IsLastInSeries)
-        {
-            await PowerCmd.Remove<ThornsPower>(Owner.Creature);
-        }
-    }
-
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);

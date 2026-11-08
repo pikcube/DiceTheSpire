@@ -1,31 +1,33 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
+using DiceTheSpire.Shared.Listeners;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class Fireworks() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class Fireworks() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), ISimpleCalculatedDamageCard
 {
-    public override string GetScrapId => nameof(Burrower);
+    public int BaseDamage => 0;
+    public int ExtraDamageMultiplier => 4;
+    public ValueProp DamageType => DamageProps.card;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedDamage(0, Bonus, 4)];
-
-    private static decimal Bonus(CardModel card, Creature? target)
+    public decimal CalculateDamage(Creature? target)
     {
-        if (card is not Fireworks fireworks || fireworks.CombatState is null)
+        if (CombatState is null)
         {
             return 1;
         }
 
-        return CombatManager.Instance.History.Entries.OfType<PowerReceivedEntry>().Count(pre => pre.Power.GetTypeForAmount(pre.Amount) is PowerType.Debuff);
+        return CombatManager.Instance.History.Entries.OfType<PowerReceivedEntry>()
+            .Count(pre => DiceyHelperFunctions.IsDebuffAtAmount(pre.Power, pre.Amount) && pre.Applier == Owner.Creature);
     }
+    public override string GetScrapId => nameof(Burrower);
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

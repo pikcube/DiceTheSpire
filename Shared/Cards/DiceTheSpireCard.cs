@@ -9,8 +9,10 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Extensions;
 
@@ -94,6 +96,7 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
 
     private async Task DoCountdownAsync(PlayerChoiceContext choiceContext, int count)
     {
+        ArgumentNullException.ThrowIfNull(CombatState);
         if (count == 0)
         {
             CountSpent = 0;
@@ -128,7 +131,7 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
         await CardCmd.Discard(choiceContext, cards);
 
         CountSpent = cards.Length;
-        CountValue = cards.Length;
+        CountValue = HasCountdownCostX ? Hook.ModifyXValue(CombatState, this, cards.Length) : cards.Length;
 
         //Model deregistration since we're all done. Do not remove.
         choiceContext.PopModel(this);
