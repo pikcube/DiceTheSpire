@@ -134,4 +134,6 @@ public abstract class DiceTheSpireCard(int cost, CardType type, CardRarity rarit
     }
 
     public CardModel AsCardModel() => this;
+
+    public virtual bool HasCountdownCostX => false;
 }

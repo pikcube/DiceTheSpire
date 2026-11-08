@@ -2,6 +2,7 @@
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 
 namespace DiceTheSpire.Shared.Extensions;
 
@@ -16,6 +17,12 @@ public static class CountdownExtensions
         }
 
         public int Count => instance.GetCount(true);
+
+        public int ResolveCountdownXValue()
+        {
+            PlayerCombatState? combatState = instance.AsCardModel().Owner.PlayerCombatState;
+            return combatState is null ? 0 : combatState.Hand.Cards.Count;
+        }
 
         public int GetCount(bool includeGlobal)
         {
@@ -42,7 +49,7 @@ public static class CountdownExtensions
 
         public void SetCountUntilPlayed(int cost, bool reduceOnly = false)
         {
-            if (cost == 0 && instance.BaseCount < 0)
+            if ((cost == 0 && instance.BaseCount < 0) || instance.HasCountdownCostX)
             {
                 return;
             }
@@ -51,7 +58,7 @@ public static class CountdownExtensions
 
         public void SetCountThisTurnOrUntilPlayed(int cost, bool reduceOnly = false)
         {
-            if (cost == 0 && instance.BaseCount < 0)
+            if ((cost == 0 && instance.BaseCount < 0) || instance.HasCountdownCostX)
             {
                 return;
             }
@@ -60,7 +67,7 @@ public static class CountdownExtensions
 
         public void SetCountThisTurn(int cost, bool reduceOnly = false)
         {
-            if (cost == 0 && instance.BaseCount < 0)
+            if ((cost == 0 && instance.BaseCount < 0) || instance.HasCountdownCostX)
             {
                 return;
             }
@@ -69,7 +76,7 @@ public static class CountdownExtensions
 
         public void SetCountThisCombat(int cost, bool reduceOnly = false)
         {
-            if (cost == 0 && instance.BaseCount < 0)
+            if ((cost == 0 && instance.BaseCount < 0) || instance.HasCountdownCostX)
             {
                 return;
             }
@@ -78,7 +85,7 @@ public static class CountdownExtensions
 
         public void AddCountUntilPlayed(int amount, bool reduceOnly = false)
         {
-            if (amount == 0)
+            if (amount == 0 || instance.HasCountdownCostX)
             {
                 return;
             }
@@ -87,7 +94,7 @@ public static class CountdownExtensions
 
         public void AddCountThisTurnOrUntilPlayed(int amount, bool reduceOnly = false)
         {
-            if (amount == 0)
+            if (amount == 0 || instance.HasCountdownCostX)
             {
                 return;
             }
@@ -96,7 +103,7 @@ public static class CountdownExtensions
 
         public void AddCountThisTurn(int amount, bool reduceOnly = false)
         {
-            if (amount == 0)
+            if (amount == 0 || instance.HasCountdownCostX)
             {
                 return;
             }
@@ -105,7 +112,7 @@ public static class CountdownExtensions
 
         public void AddCountThisCombat(int amount, bool reduceOnly = false)
         {
-            if (amount == 0)
+            if (amount == 0 || instance.HasCountdownCostX)
             {
                 return;
             }

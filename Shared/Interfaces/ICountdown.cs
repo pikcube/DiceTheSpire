@@ -6,6 +6,7 @@ namespace DiceTheSpire.Shared.Interfaces;
 public interface ICountdown
 {
     public int BaseCount { get; set; }
+    public bool HasCountdownCostX { get; }
     public List<LocalCostModifier> CountdownCostModifiers { get; set; }
 
     public CardModel AsCardModel();
