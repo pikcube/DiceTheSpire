@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Powers;
+﻿using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,10 +9,11 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Thief.Common;
 
-public class BellPeppers() : TheThiefCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class BellPeppers() : TheThiefCard(0, CardType.Skill, CardRarity.Common, TargetType.Self), ICountdown
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(2), new IntVar("Turns", 3)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
+    public int BaseCount { get; set; } = 1;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(2), new PowerVar<DexterityPower>(2)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.FromPower<DexterityPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -20,12 +22,15 @@ public class BellPeppers() : TheThiefCard(0, CardType.Skill, CardRarity.Common, 
             return;
         }
 
-        await PowerCmd.Apply<BellPeppersPower>(choiceContext, Owner.Creature, DynamicVars["Turns"].BaseValue,
+        await PowerCmd.Apply<BellPeppersStrengthPower>(choiceContext, Owner.Creature, DynamicVars.Strength.BaseValue,
+            Owner.Creature, this);
+        await PowerCmd.Apply<BellPeppersDexterityPower>(choiceContext, Owner.Creature, DynamicVars.Dexterity.BaseValue,
             Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        DynamicVars.Strength.UpgradeValueBy(1);
+        DynamicVars.Dexterity.UpgradeValueBy(1);
     }
 }

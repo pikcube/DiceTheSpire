@@ -125,7 +125,7 @@
   "DICETHESPIRE-WAKIZASHI.title": "Wakizashi",
   "DICETHESPIRE-CARROTS.description": "[gold]Count:[/gold] {BaseCount}\nGain {Block:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-CARROTS.title": "Carrots",
-  "DICETHESPIRE-BELL_PEPPERS.description": "For the next {Turns:diff()} turns, gain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "DICETHESPIRE-BELL_PEPPERS.description": "[gold]Count:[/gold] {BaseCount}\nGain {StrengthPower:diff()} [gold]Strength[/gold] and {DexterityPower:diff()} [gold]Dexterity[/gold] this turn.",
   "DICETHESPIRE-BELL_PEPPERS.title": "Bell Peppers",
   "DICETHESPIRE-BROCCOLI.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nGain {ThornsPower:diff()} [gold]Thorns[/gold].",
   "DICETHESPIRE-BROCCOLI.title": "Broccoli",
