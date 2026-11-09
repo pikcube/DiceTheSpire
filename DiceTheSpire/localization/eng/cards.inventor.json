@@ -198,7 +198,7 @@
   "DICETHESPIRE-UNCLE.description": "In {Delay:diff()} turns, ALL enemies lose {Damage:diff()} HP.",
   "DICETHESPIRE-UNCLE.jinxDescription": "ALL enemies lose [blue]{Damage:diff()}[/blue] HP.",
   "DICETHESPIRE-UNCLE.title": "Uncle",
-  "DICETHESPIRE-VISE_GRIP.description": "Put two cards from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].\n[gold]Bump[/gold] them.",
+  "DICETHESPIRE-VISE_GRIP.description": "Put {Cards:diff()} cards from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].\n[gold]Bump[/gold] them.",
   "DICETHESPIRE-VISE_GRIP.title": "Vise Grip",
   "DICETHESPIRE-WHIP.description": "Deal {Damage:diff()} damage to ALL enemies.{IfUpgraded:show:\nDraw a card.|}",
   "DICETHESPIRE-WHIP.title": "Whip",
