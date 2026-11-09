@@ -74,6 +74,9 @@
   "DICETHESPIRE-MARMALADE_POWER.title": "Marmalade",
   "DICETHESPIRE-DETERMINATION_POWER.description": "When you are attacked, gain 1 [gold]Dexterity[/gold] this turn.",
   "DICETHESPIRE-DETERMINATION_POWER.smartDescription": "When you are attacked, gain {Amount} [gold]Dexterity[/gold] this turn.",
-  "DICETHESPIRE-DETERMINATION_POWER.title": "Determination"
+  "DICETHESPIRE-DETERMINATION_POWER.title": "Determination",
+  "DICETHESPIRE-SKELETON_KEY_POWER.description": "Gain an additional card reward of a specific color after combat.",
+  "DICETHESPIRE-SKELETON_KEY_POWER.smartDescription": "Gain an additional card reward of a specific color after combat.",
+  "DICETHESPIRE-SKELETON_KEY_POWER.title": "Skeleton Key"
 
 }

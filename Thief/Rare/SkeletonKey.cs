@@ -1,47 +1,60 @@
-﻿using DiceTheSpire.Shared.Utility;
+﻿using DiceTheSpire.Shared.Powers;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpire.Thief.Rare;
 
-public class SkeletonKey() : TheThiefCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class SkeletonKey() : TheThiefCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override bool HasEnergyCostX => true;
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromKeyword(CardKeyword.Retain), HoverTipFactory.FromKeyword(CardKeyword.Sly)
-    ];
-
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState is null)
+        if (CombatState?.RunState.CurrentRoom is not CombatRoom combatRoom)
         {
             return;
         }
 
-        IEnumerable<CardModel> cards = DiceyHelperFunctions.GetDistinctOfClassForCombat(Owner,
-            DiceyHelperFunctions.NonThiefCharacterPools,
-            ResolveEnergyXValue(),
-            Owner.RunState.Rng.CombatCardGeneration);
-        IEnumerable<CardModel> cardModels = cards as CardModel[] ?? [.. cards];
-        foreach (CardModel card in cardModels)
+        CardSelectorPrefs prefs = new (CardSelectorPrefs.ExhaustSelectionPrompt, 1);
+        IEnumerable<CardModel> cards = await CardSelectCmd.FromHand(choiceContext, Owner, prefs,
+            (c => ModelDb.AllCharacterCardPools.Contains(c.Pool) || c.Pool is ColorlessCardPool), this);
+        CardModel? card = cards.FirstOrDefault();
+        if (card is null)
         {
-            card.AddKeyword(CardKeyword.Retain);
-            card.AddKeyword(CardKeyword.Sly);
-            card.AddKeyword(CardKeyword.Exhaust);
+            return;
         }
+        await CardCmd.Exhaust(choiceContext, card);
 
-        await CardPileCmd.AddGeneratedCardsToCombat(cardModels, PileType.Hand, Owner);
+        CardRarityOddsType odds;
+        switch (combatRoom.RoomType)
+        {
+            case RoomType.Monster:
+                odds = CardRarityOddsType.RegularEncounter;
+                break;
+            case RoomType.Elite:
+                odds = CardRarityOddsType.EliteEncounter;
+                break;
+            case RoomType.Boss:
+                odds = CardRarityOddsType.BossEncounter;
+                break;
+            default:
+                odds = CardRarityOddsType.RegularEncounter;
+                break;
+        }
+        combatRoom.AddExtraReward(Owner,
+            new CardReward(new CardCreationOptions([card.Pool], CardCreationSource.Other, odds), 3, Owner));
+
+        await PowerCmd.Apply<SkeletonKeyPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        EnergyCost.UpgradeBy(-1);
     }
 }
