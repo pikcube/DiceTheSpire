@@ -11,7 +11,7 @@ public class TowerShield() : TheInventorCard(-1, CardType.Skill, CardRarity.Unco
 {
     protected override bool HasEnergyCostX => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, BlockProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, BlockProps.card)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
