@@ -4,6 +4,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+using Pikcube.Common.Utility;
 
 namespace DiceTheSpire.Shared.Patches;
 
@@ -11,26 +12,8 @@ namespace DiceTheSpire.Shared.Patches;
 public static class ModifyCardTargetTypePatch
 {
     [UsedImplicitly]
-    static IEnumerable<MethodBase> TargetMethods()
-    {
-        MethodInfo? onPlayMethod = typeof(CardModel).GetProperty(nameof(CardModel.TargetType))?.GetMethod;
-        if (onPlayMethod is not null)
-        {
-            yield return onPlayMethod;
-        }
-
-        foreach (Type? type in AccessTools.AllTypes()
-                     .Where(t => t.IsSubclassOf(typeof(CardModel)) && !t.IsAbstract))
-        {
-            MethodInfo? method = type.GetProperty(nameof(CardModel.MutableClone),
-                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)?.GetMethod;
-
-            if (method != null && method.DeclaringType != typeof(CardModel))
-            {
-                yield return method;
-            }
-        }
-    }
+    static IEnumerable<MethodBase> TargetMethods() =>
+        PatchingUtilities.TargetGetterOverrides(typeof(CardModel), nameof(CardModel.TargetType));
 
     public static TargetType Postfix(TargetType __result, CardModel __instance)
     {
