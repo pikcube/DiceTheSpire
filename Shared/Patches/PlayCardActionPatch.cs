@@ -11,7 +11,6 @@ namespace DiceTheSpire.Shared.Patches;
 
 
 [HarmonyPatch(typeof(PlayCardAction), "ExecuteAction", MethodType.Async)]
-[HarmonyPriority(int.MaxValue)]
 public static class PlayCardActionPatch
 {
     [UsedImplicitly]
