@@ -35,7 +35,7 @@ public class DeepFreezeQuest : WorkoutQuestCard
             return false;
         }
 
-        alternatives.Add(new CardRewardAlternative($"{MainFile.ModId}_{nameof(DeepFreezeQuest)}", AfterSkip, PostAlternateCardRewardAction.EndSelectionAndCompleteReward));
+        alternatives.Add(new CardRewardAlternative($"{Shared.MainFile.ModId}_{nameof(DeepFreezeQuest)}", AfterSkip, PostAlternateCardRewardAction.EndSelectionAndCompleteReward));
         return true;
     }
 

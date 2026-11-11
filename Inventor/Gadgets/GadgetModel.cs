@@ -67,7 +67,7 @@ public abstract class GadgetModel : AbstractModel, ICustomModel
     {
         get
         {
-            string key = LocString.Exists("gadgets", Id.Entry + ".duration") ? Id.Entry + ".duration" : $"{MainFile.ModPrefix}-DEFAULT.duration";
+            string key = LocString.Exists("gadgets", Id.Entry + ".duration") ? Id.Entry + ".duration" : $"{Shared.MainFile.ModPrefix}-DEFAULT.duration";
             LocString duration = new LocString("gadgets", key).WithDynamicVars(DynamicVars);
             duration.Add(nameof(Power), Power);
             return duration;

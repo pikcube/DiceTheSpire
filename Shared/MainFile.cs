@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Modding;
 using Pikcube.Common.Code.Utility;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 
-namespace DiceTheSpire;
+namespace DiceTheSpire.Shared;
 
 //You're recommended but not required to keep all your code in this package and all your assets in the DiceTheSpire folder.
 [ModInitializer(nameof(Initialize))]

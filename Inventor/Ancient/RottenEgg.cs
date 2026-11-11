@@ -74,7 +74,7 @@ public class RottenHatchRestSiteOption(Player player) : CustomRestSiteOption(pla
         return true;
     }
 
-    public override string OptionId => $"{MainFile.ModPrefix}-HATCH";
+    public override string OptionId => $"{Shared.MainFile.ModPrefix}-HATCH";
 
     public override string CustomIconPath => "rest_site/hatch.png".ImagePath();
 }
