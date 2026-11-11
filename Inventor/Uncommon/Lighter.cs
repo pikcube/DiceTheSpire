@@ -20,8 +20,6 @@ public class Lighter() : TheInventorCard(1, CardType.Attack, CardRarity.Uncommon
         new PowerVar<ExhaustionPower>(3)
     ];
 
-    public override bool HasTurnEndInHandEffect => true;
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);

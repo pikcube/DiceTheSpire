@@ -19,7 +19,10 @@ public class ScrapBook() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommo
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
 
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.ForEnergy(this)];
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
+    [
+        HoverTipFactory.ForEnergy(this), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)
+    ];
 
     protected override void OnUpgrade()
     {

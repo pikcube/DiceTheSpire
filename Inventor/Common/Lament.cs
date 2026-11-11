@@ -14,7 +14,9 @@ namespace DiceTheSpire.Inventor.Common;
 public class Lament() : TheInventorCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, DamageProps.card), new PowerVar<FreezePower>(1)];
-    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromPower<FreezePower>()];
+
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
+        [.. HoverTipFactory.FromPowerWithPowerHoverTips<FreezePower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -3,6 +3,7 @@ using DiceTheSpire.Inventor.Gadgets;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -16,6 +17,9 @@ public class CactusNeedle() : TheInventorCard(0, CardType.Attack, CardRarity.Unc
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(4, DamageProps.cardUnpowered), new PowerVar<ThornsPower>(1)];
     public override string GetScrapId => nameof(Needle);
+
+    protected override IEnumerable<IHoverTip> ExtraInventorHoverTips =>
+        [.. HoverTipFactory.FromPowerWithPowerHoverTips<ThornsPower>()];
 
     public override bool HasTurnEndInHandEffect => true;
 
