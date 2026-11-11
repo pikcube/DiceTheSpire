@@ -14,8 +14,8 @@ namespace DiceTheSpire.Inventor.Rare;
 
 public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), ISimpleCalculatedDamageCard
 {
-    public int BaseDamage => 4;
-    public int ExtraDamageMultiplier => 3;
+    public int BaseDamage => 7;
+    public int ExtraDamageMultiplier => 4;
     public ValueProp DamageType => DamageProps.card;
     public decimal CalculateDamage(Creature? target)
     {
@@ -44,7 +44,7 @@ public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(3);
-        DynamicVars.ExtraDamage.UpgradeValueBy(1);
+        DynamicVars.CalculationBase.UpgradeValueBy(4);
+        DynamicVars.ExtraDamage.UpgradeValueBy(2);
     }
 }

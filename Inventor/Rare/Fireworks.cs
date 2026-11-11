@@ -14,7 +14,7 @@ namespace DiceTheSpire.Inventor.Rare;
 public class Fireworks() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), ISimpleCalculatedDamageCard
 {
     public int BaseDamage => 0;
-    public int ExtraDamageMultiplier => 4;
+    public int ExtraDamageMultiplier => 3;
     public ValueProp DamageType => DamageProps.card;
 
     public decimal CalculateDamage(Creature? target)
@@ -42,6 +42,6 @@ public class Fireworks() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, 
 
     protected override void OnUpgrade()
     {
-        DynamicVars.ExtraDamage.UpgradeValueBy(1);
+        DynamicVars.ExtraDamage.UpgradeValueBy(2);
     }
 }
