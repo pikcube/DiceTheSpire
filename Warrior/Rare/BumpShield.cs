@@ -1,5 +1,4 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
@@ -8,7 +7,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
-using DiceTheSpire.Shared.Extensions;
 
 namespace DiceTheSpire.Warrior.Rare;
 public class BumpShield() : TheWarriorCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
