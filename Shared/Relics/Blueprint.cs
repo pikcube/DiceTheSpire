@@ -1,5 +1,6 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Shared.Relics;
@@ -9,6 +10,8 @@ public class Blueprint : TheInventorRelic
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2), new CardsVar(1)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {

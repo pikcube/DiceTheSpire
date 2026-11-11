@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -12,6 +13,8 @@ public class ToastedMarshmallow : TheInventorRelic
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
     public override RelicRarity Rarity => RelicRarity.Uncommon;
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)]; 
 
     public override async Task AfterAutoPostPlayPhaseEntered(PlayerChoiceContext choiceContext, Player player)
     {

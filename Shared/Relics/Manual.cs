@@ -18,7 +18,11 @@ public class Manual : TheInventorRelic, IModifyFlavorRelic
     public override RelicRarity Rarity => RelicRarity.Starter;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1), new CardsVar(1)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Gadget)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.Static(BetterStaticHoverTips.Gadget), HoverTipFactory.ForEnergy(this)
+    ];
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
