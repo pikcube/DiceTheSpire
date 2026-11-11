@@ -21,7 +21,7 @@ public class FlamingSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
         set => field = value < 0 ? 0 : value;
     } = 0;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(7M, DamageProps.card),  new PowerVar<VigorPower>(4M)]; //new PowerVar<FuryPower>(1M),
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card),  new PowerVar<VigorPower>(4M)]; //new PowerVar<FuryPower>(1M),
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()]; //HoverTipFactory.FromPower<FuryPower>(), 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 

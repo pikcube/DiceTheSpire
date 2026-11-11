@@ -5,9 +5,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace DiceTheSpire.Warrior.Rare;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class BestDefense() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class BestDefense() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<AGoodOffensePower>(1M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
