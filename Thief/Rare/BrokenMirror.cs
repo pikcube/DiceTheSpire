@@ -3,8 +3,8 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using Pikcube.Common.Extensions;
-using Pikcube.Common.Powers;
+using Pikcube.Common.Code.Extensions;
+using Pikcube.Common.Code.Powers;
 
 namespace DiceTheSpire.Thief.Rare;
 

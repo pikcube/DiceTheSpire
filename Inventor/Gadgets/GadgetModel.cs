@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Exceptions;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Inventor.Gadgets;
 

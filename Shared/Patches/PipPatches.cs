@@ -7,8 +7,8 @@ using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Random;
-using Pikcube.Common.Extensions;
-using Pikcube.Common.Utility;
+using Pikcube.Common.Code.Extensions;
+using Pikcube.Common.Code.Utility;
 
 namespace DiceTheSpire.Shared.Patches;
 

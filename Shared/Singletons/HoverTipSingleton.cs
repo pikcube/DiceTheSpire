@@ -5,8 +5,8 @@ using DiceTheSpire.Inventor.Token;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using Pikcube.Common.Extensions;
-using Pikcube.Common.Utility;
+using Pikcube.Common.Code.Extensions;
+using Pikcube.Common.Code.Utility;
 
 namespace DiceTheSpire.Shared.Singletons;
 

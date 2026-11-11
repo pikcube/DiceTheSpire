@@ -2,7 +2,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.RestSite;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Patches;
 

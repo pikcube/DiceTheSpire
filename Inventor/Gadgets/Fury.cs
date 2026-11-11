@@ -3,7 +3,7 @@ using DiceTheSpire.Shared.Powers;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Inventor.Gadgets;
 

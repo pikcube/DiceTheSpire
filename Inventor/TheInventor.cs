@@ -8,8 +8,8 @@ using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
-using Pikcube.Common.Extensions;
-using Pikcube.Common.Utility;
+using Pikcube.Common.Code.Extensions;
+using Pikcube.Common.Code.Utility;
 
 namespace DiceTheSpire.Inventor;
 

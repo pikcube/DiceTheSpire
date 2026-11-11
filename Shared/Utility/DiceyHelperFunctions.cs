@@ -5,6 +5,7 @@ using DiceTheSpire.Inventor.Powers;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Patches;
 using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Shared.Unions;
 using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using HarmonyLib;
@@ -22,13 +23,13 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Runs;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Utility;
 
 public static class DiceyHelperFunctions
 {
-    public static async Task ApplyRandomDebuffAsync(PlayerChoiceContext choiceContext, IRunState runState, Creature target, Creature? applier, CardModel? cardSource, bool silent = false)
+    public static async Task ApplyRandomDebuffAsync(PlayerChoiceContext choiceContext, IRunState runState, Participant target, Participant? applier, CardModel? cardSource, bool silent = false)
     {
         PowerModel power;
         decimal amount;

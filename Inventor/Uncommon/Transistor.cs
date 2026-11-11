@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 

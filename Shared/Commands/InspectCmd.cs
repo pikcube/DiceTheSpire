@@ -22,7 +22,7 @@ using MegaCrit.Sts2.Core.Nodes.Screens.CardSelection;
 using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.TestSupport;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Commands;
 

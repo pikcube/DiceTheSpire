@@ -1,7 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 

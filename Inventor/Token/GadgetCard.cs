@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Vfx.Cards;
 using MegaCrit.Sts2.Core.Saves;
 using MegaCrit.Sts2.Core.Settings;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Inventor.Token;
 

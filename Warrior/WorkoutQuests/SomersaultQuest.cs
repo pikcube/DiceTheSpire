@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
 public class SomersaultQuest : WorkoutQuestCard

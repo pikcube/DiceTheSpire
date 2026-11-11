@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Saves.Runs;
-using Pikcube.Common.Extensions;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Warrior.WorkoutQuests;
 public class DeepFreezeQuest : WorkoutQuestCard

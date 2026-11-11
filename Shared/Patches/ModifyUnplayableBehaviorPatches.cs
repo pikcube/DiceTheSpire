@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using Pikcube.Common.Utility;
+using Pikcube.Common.Code.Utility;
 
 namespace DiceTheSpire.Shared.Patches;
 
