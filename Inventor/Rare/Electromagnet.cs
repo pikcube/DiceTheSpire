@@ -44,7 +44,7 @@ public class Electromagnet() : TheInventorCard(1, CardType.Attack, CardRarity.Ra
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationBase.UpgradeValueBy(4);
-        DynamicVars.ExtraDamage.UpgradeValueBy(2);
+        DynamicVars.CalculationBase.UpgradeValueBy(5);
+        DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }
