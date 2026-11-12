@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.TestSupport;
 
 namespace DiceTheSpire.Shared.Utility;
@@ -39,7 +40,7 @@ public class BearCardSelector : ICardSelector
             return;
         }
 
-        using IDisposable _ = CardSelectCmd.PushSelector(new BearCardSelector());
+        using IDisposable _ = RunManager.Instance.CardSelectorStack.PushSelector(player, new BearCardSelector());
 
         while (count > 0 && !CombatManager.Instance.IsOverOrEnding && !CombatManager.Instance.IsPlayerReadyToEndTurn(player))
         {

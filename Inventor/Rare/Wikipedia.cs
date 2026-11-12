@@ -4,7 +4,6 @@ using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -25,7 +24,7 @@ public class Wikipedia() : TheInventorCard(3, CardType.Power, CardRarity.Rare, T
         }
         foreach (Player target in CombatState.Players.Where(p => p != Owner))
         {
-            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
+            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, choiceContext);
             Task task = GainGadgetAsync(bpcc, target);
             await bpcc.AssignTaskAndWaitForPauseOrCompletion(task);
         }

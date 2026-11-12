@@ -28,7 +28,7 @@ public class Dig() : GadgetModel(nameof(Dig))
 
         for (int n = 0; n < Power; ++n)
         {
-            rewards.Add(new RelicReward(RelicFactory.PullNextRelicFromFront(Parent.Owner).ToMutable(), Parent.Owner));
+            rewards.Add(new RelicReward(RelicFactory.PullNextRelicForRewardFromFront(Parent.Owner).ToMutable(), Parent.Owner));
         }
 
         return true;

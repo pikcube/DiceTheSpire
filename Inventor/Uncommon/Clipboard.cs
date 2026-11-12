@@ -4,7 +4,6 @@ using DiceTheSpire.Shared.Keywords;
 using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -36,7 +35,7 @@ public class Clipboard() : TheInventorCard(1, CardType.Skill, CardRarity.Uncommo
 
         foreach (Player p in CombatState.Players.Where(p => p != Owner))
         {
-            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
+            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, choiceContext);
             await bpcc.AssignTaskAndWaitForPauseOrCompletion(p.InspectAsync(bpcc, cards));
         }
 

@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -33,7 +32,7 @@ public class Megabump() : TheInventorCard(2, CardType.Skill, CardRarity.Uncommon
 
         foreach (Player p in CombatState.Players.Where(p => p != Owner))
         {
-            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, GameActionType.CombatPlayPhaseOnly, choiceContext);
+            BranchingPlayerChoiceContext bpcc = new(LocalContext.NetId ?? 0, choiceContext);
             await bpcc.AssignTaskAndWaitForPauseOrCompletion(DoBumpAsync(bpcc, p));
         }
 

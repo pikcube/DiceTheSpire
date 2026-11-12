@@ -47,7 +47,7 @@ public class BackfirePower : DiceTheSpirePower
             HookPlayerChoiceContext context = new(this, LocalContext.NetId ?? 0, CombatState, GameActionType.Combat);
             StupidStack.Push(IsStupid);
             IsStupid = true;
-            await CreatureCmd.LoseMaxHp(context, Owner, amount, false);
+            await CreatureCmd.LoseMaxHp(context, Owner, amount, null);
             IsStupid = StupidStack.Pop();
         }
     }

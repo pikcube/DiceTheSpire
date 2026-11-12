@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Runs;
 
 namespace DiceTheSpire.Shared.Patches;
 
-[HarmonyPatch(typeof(MerchantEntry), nameof(MerchantEntry.OnTryPurchaseWrapper))]
+[HarmonyPatch(typeof(MerchantEntry), nameof(MerchantEntry.OnTryPurchaseUnsynchronized))]
 public class OnTryPurchaseWrapperPatches() : CustomSingletonModel(HookType.Run)
 {
     public override Task BeforeRoomEntered(AbstractRoom room)
