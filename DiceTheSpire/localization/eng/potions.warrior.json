@@ -1,0 +1,8 @@
+{
+  "DICETHESPIRE-BUMP_BREW.description": "[gold]Bump[/gold] up to {Cards:diff()} cards.",
+  "DICETHESPIRE-BUMP_BREW.title": "Bump Brew",
+  "DICETHESPIRE-POTION_OF_INSPIRATION.description": "Randomize your [gold]Gadget[/gold].",
+  "DICETHESPIRE-POTION_OF_INSPIRATION.title": "Potion Of Inspiration",
+  "DICETHESPIRE-RAGE_POTION.description": "Double your [gold]Fury[/gold].",
+  "DICETHESPIRE-RAGE_POTION.title": "Rage Potion"
+}
