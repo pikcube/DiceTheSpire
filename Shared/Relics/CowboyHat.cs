@@ -1,4 +1,5 @@
 ﻿using DiceTheSpire.Shared.Commands;
+using DiceTheSpire.Shared.Listeners;
 using JetBrains.Annotations;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Shared.Relics;
 
 [UsedImplicitly]
-public class CowboyHat : TheWarriorRelic
+public class CowboyHat : TheWarriorRelic, IAfterRerollListener
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
@@ -29,7 +30,7 @@ public class CowboyHat : TheWarriorRelic
         {
             return;
         }
-        if (card.EnergyCost.GetAmountToSpend() < 3)
+        if (originalCost < 3)
         {
             return;
         }
