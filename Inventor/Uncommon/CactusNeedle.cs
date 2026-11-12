@@ -1,12 +1,13 @@
-﻿using BaseLib.Extensions;
-using DiceTheSpire.Inventor.Gadgets;
+﻿using DiceTheSpire.Inventor.Gadgets;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Inventor.Uncommon;
 
@@ -30,7 +31,11 @@ public class CactusNeedle() : TheInventorCard(0, CardType.Attack, CardRarity.Unc
             //wut?
             return;
         }
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage.BaseValue + DynamicVars.Power<ThornsPower>().BaseValue * Owner.Creature.GetPowerAmount<ThornsPower>(), DynamicVars.Damage.Props, Owner.Creature, this, null);
+        IEnumerable<DamageResult> results = await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage.BaseValue, DynamicVars.Damage.Props, Owner.Creature, this, null);
+        foreach (DamageResult _ in results.Where(r => r.TotalDamage > 0))
+        {
+            await ThornsPower.ApplyAsync(choiceContext, Owner, 1, Owner, this);
+        }
     }
 
     protected override void OnUpgrade()

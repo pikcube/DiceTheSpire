@@ -20,13 +20,13 @@ public static class PlayCardActionPatch
     {
         CodeMatcher matcher = new(instructions);
 
-        //Match SpendResources's awaiter and prepend with call to CreateChoiceAndSpendResourcesAsync
+        //Match SpendResources's awaiter and prepend with call to CreateChoiceAndSpendDiceyResourcesAsync
         matcher.MatchStartForward(CodeMatch.Calls(() => default(Task<(int, int)>)!.GetAwaiter()))
             .ThrowIfInvalid("Could not find get awaiter")
             //Load PlayCardAction to the evaluation stack
             .InsertAndAdvance(CodeInstruction.LoadLocal(1))
             //Consume Task<(int, int)> and PlayCardAction, load Task<(int, int)> to the stack 
-            .InsertAndAdvance(CodeInstruction.Call(() => CreateChoiceAndSpendResourcesAsync(null!, null!)));
+            .InsertAndAdvance(CodeInstruction.Call(() => CreateChoiceAndSpendDiceyResourcesAsync(null!, null!)));
 
         //Match and remove setting of PCC
         matcher.MatchStartForward(CodeMatch.Calls(typeof(PlayCardAction).DeclaredProperty("PlayerChoiceContext").SetMethod))
@@ -54,7 +54,7 @@ public static class PlayCardActionPatch
 #pragma warning restore CA1859 // Use concrete types when possible for improved performance
 
 
-    public static async Task<(int, int)> CreateChoiceAndSpendResourcesAsync(Task<(int, int)> originalTask, PlayCardAction action)
+    public static async Task<(int, int)> CreateChoiceAndSpendDiceyResourcesAsync(Task<(int, int)> originalTask, PlayCardAction action)
     {
         (int, int) result = await originalTask;
         CardModel card = action.PrivateFieldWrapper<PlayCardAction, CardModel>("_card").Value ?? throw new NullReferenceException();
