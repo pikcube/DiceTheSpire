@@ -24,11 +24,11 @@ public class GargoylesMenacingPedestal : TheWarriorRelic
 
         Flash();
         CardModel[] cards =
-            [
-                    ..PileType.Draw.GetPile(Owner).Cards
-                    .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable) && !c.EnergyCost.CostsX && !c.EnergyCost.Equals(0))
-                    .TakeRandom((int)DynamicVars.Cards.BaseValue, Owner.RunState.Rng.CombatCardSelection)
-            ];
+        [
+            ..PileType.Draw.GetPile(Owner).Cards
+                .Where(c => !c.Keywords.Contains(CardKeyword.Unplayable) && !c.EnergyCost.CostsX && c.EnergyCost.GetAmountToSpend() > 0)
+                .TakeRandom((int)DynamicVars.Cards.BaseValue, Owner.RunState.Rng.CombatCardSelection)
+        ];
         foreach (CardModel card in cards)
         {
             await NudgeCmd.NudgeAsync(card, NudgeDuration.UntilPlayed);            
