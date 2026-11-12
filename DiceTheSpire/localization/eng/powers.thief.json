@@ -77,6 +77,9 @@
   "DICETHESPIRE-DETERMINATION_POWER.title": "Determination",
   "DICETHESPIRE-SKELETON_KEY_POWER.description": "Gain an additional card reward of a specific color after combat.",
   "DICETHESPIRE-SKELETON_KEY_POWER.smartDescription": "Gain an additional card reward of a specific color after combat.",
-  "DICETHESPIRE-SKELETON_KEY_POWER.title": "Skeleton Key"
+  "DICETHESPIRE-SKELETON_KEY_POWER.title": "Skeleton Key",
+  "DICETHESPIRE-HONEY_POWER.description": "The effect of the next cost [gold]X[/gold] card you play is increased by 1",
+  "DICETHESPIRE-HONEY_POWER.smartDescription": "The effect of the next cost [gold]X[/gold] card you play is increased by {Amount}",
+  "DICETHESPIRE-HONEY_POWER.title": "Honey"
 
 }
