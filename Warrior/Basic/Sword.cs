@@ -40,6 +40,6 @@ public class Sword() : TheWarriorCard(2, CardType.Attack, CardRarity.Basic, Targ
         DynamicVars.Damage.UpgradeValueBy(5);
     }
 
-    public CardModel GetTranscendenceTransformedCard() => FourHandedSword.Create();
+    public CardModel GetTranscendenceTransformedCard() => DivineSword.Create();
 
 }

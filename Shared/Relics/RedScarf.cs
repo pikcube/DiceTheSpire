@@ -32,7 +32,7 @@ public class RedScarf : TheWarriorRelic
 
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (!CombatManager.Instance.IsInProgress || target != Owner.Creature || result.UnblockedDamage <= 0 || Status == RelicStatus.Active)
+        if (!CombatManager.Instance.IsInProgress || target != Owner.Creature || result.UnblockedDamage <= 0 || Status == RelicStatus.Normal)
         {
             return;
         }

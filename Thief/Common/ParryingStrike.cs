@@ -12,7 +12,7 @@ namespace DiceTheSpire.Thief.Common;
 public class ParryingStrike() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(6, ValueProp.Move), new PowerVar<StrengthPower>(1)];
+        [new DamageVar(9, ValueProp.Move), new PowerVar<StrengthPower>(1)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
@@ -29,7 +29,7 @@ public class ParryingStrike() : TheThiefCard(1, CardType.Attack, CardRarity.Comm
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(1);
         DynamicVars.Strength.UpgradeValueBy(1);
     }
 }

@@ -252,7 +252,9 @@
   "DICETHESPIRE-STRENGTH_TRAINING_QUEST.description": "After adding {PowersRemaining} more {PowersRemaining:plural:power|powers} to your deck, transforms into a [gold]Strength Training[/gold].",
   "DICETHESPIRE-STRENGTH_TRAINING_QUEST.title": "Strength Training Workout",
   "DICETHESPIRE-STUNLOCK_QUEST.description": "Removing this card from your deck transforms it into a [gold]Stunlock[/gold] instead.",
-  "DICETHESPIRE-STUNLOCK_QUEST.title": "Stunlock Workout"
+  "DICETHESPIRE-STUNLOCK_QUEST.title": "Stunlock Workout",
+  "DICETHESPIRE-DIVINE_SWORD.description": "Deal {Damage:diff()} damage.\nGain {FuryPower:diff()} [gold]Fury[/gold].",
+  "DICETHESPIRE-DIVINE_SWORD.title": "Divine Sword"
 
 
 }     

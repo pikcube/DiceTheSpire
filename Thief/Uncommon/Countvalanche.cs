@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
-public class Countvalanche() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
+public class Countvalanche() : TheThiefCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), ICountdown
 {
     public int BaseCount { get; set; } = 0;
     public override bool HasCountdownCostX => true;
