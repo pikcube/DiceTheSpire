@@ -3,6 +3,6 @@
   "DICETHESPIRE-BUMP_BREW.title": "Bump Brew",
   "DICETHESPIRE-POTION_OF_INSPIRATION.description": "Randomize your [gold]Gadget[/gold].",
   "DICETHESPIRE-POTION_OF_INSPIRATION.title": "Potion Of Inspiration",
-  "DICETHESPIRE-REDUCE_POTION.description": "Gain [blue]{ReducePower:diff()}[/blue] [gold]Reduce[/gold].",
-  "DICETHESPIRE-REDUCE_POTION.title": "Reduce Potion"
+  "DICETHESPIRE-RAGE_POTION.description": "Double your [gold]Fury[/gold].",
+  "DICETHESPIRE-RAGE_POTION.title": "Rage Potion"
 }
