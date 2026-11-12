@@ -15,20 +15,22 @@ public class Peashooter() : TheThiefCard(0, CardType.Attack, CardRarity.Common, 
     {
         get;
         set;
-    } = 1;
+    } = 0;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move), new PersistVar(2)];
+    public override bool HasCountdownCostX => true;
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(2M, ValueProp.Move)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
+
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+            .WithHitCount(CountValue ?? 0).Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2M);
-        DynamicVars.Var<PersistVar>().UpgradeValueBy(2);
     }
 }
