@@ -121,7 +121,7 @@
   "DICETHESPIRE-KUNAI.title": "Kunai",
   "DICETHESPIRE-MOOD_CHANGE.description": "Swap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-MOOD_CHANGE.title": "Mood Change",
-  "DICETHESPIRE-WAKIZASHI.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} card.{IfUpgraded:show:\n[gold]Persist[/gold] {Persist:diff()}.|}",
+  "DICETHESPIRE-WAKIZASHI.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.",
   "DICETHESPIRE-WAKIZASHI.title": "Wakizashi",
   "DICETHESPIRE-CARROTS.description": "[gold]Count:[/gold] {BaseCount}\nGain {Block:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-CARROTS.title": "Carrots",
