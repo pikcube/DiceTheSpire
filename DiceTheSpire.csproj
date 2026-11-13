@@ -124,4 +124,5 @@
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 	  <Exec Command="CloseSts2.exe" />
 	</Target>
+	<Import Project="addons/sentry/dotnet/Sentry.Godot.props" Condition="Exists('addons/sentry/dotnet/Sentry.Godot.props')" />
 </Project>

@@ -34,3 +34,7 @@ project/assembly_name="DiceTheSpire"
 
 renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.0923724, 0.122398, 0.116929, 1)
+
+[sentry]
+
+schema_version=4
