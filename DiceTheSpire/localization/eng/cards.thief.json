@@ -150,8 +150,6 @@
   "DICETHESPIRE-SNAKE_EYE_CHARM.title": "Snake Eye Charm",
   "DICETHESPIRE-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrease each [gold]Countdown[/gold] in your [gold]Hand[/gold] by 1 this turn.",
   "DICETHESPIRE-SNEEZE.title": "Sneeze",
-  "DICETHESPIRE-SPIKY_SNEEZE.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage. Reduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] by {CountdownVar:diff()}.",
-  "DICETHESPIRE-SPIKY_SNEEZE.title": "Spiky Sneeze",
   "DICETHESPIRE-STARPICK.description": "Add {Cards:diff()} [gold]Stellar Pips[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-STARPICK.title": "Starpick",
   "DICETHESPIRE-STOLEN_WEAPON.description": "[gold]Count:[/gold] {BaseCount}\nWhen you would lose [gold]Strength[/gold] or [gold]Dexterity[/gold], lose {StolenWeaponPower:diff()} less.",
