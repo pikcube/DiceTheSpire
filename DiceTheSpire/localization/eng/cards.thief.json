@@ -148,7 +148,7 @@
   "DICETHESPIRE-SMOG_CLOUD.title": "Smog Cloud",
   "DICETHESPIRE-SNAKE_EYE_CHARM.description": "[gold]Count:[/gold] {BaseCount}\nGain  {Energy:diceIcons()}.",
   "DICETHESPIRE-SNAKE_EYE_CHARM.title": "Snake Eye Charm",
-  "DICETHESPIRE-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrement each [gold]Countdown[/gold] in your [gold]Hand[/gold] by 1.",
+  "DICETHESPIRE-SNEEZE.description": "Draw {Cards:diff()} cards.\nDecrease each [gold]Countdown[/gold] in your [gold]Hand[/gold] by 1 this turn.",
   "DICETHESPIRE-SNEEZE.title": "Sneeze",
   "DICETHESPIRE-SPIKY_SNEEZE.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage. Reduce a random [gold]Countdown[/gold] in [gold]Hand[/gold] by {CountdownVar:diff()}.",
   "DICETHESPIRE-SPIKY_SNEEZE.title": "Spiky Sneeze",
