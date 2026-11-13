@@ -7,9 +7,9 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Thief.Rare;
+namespace DiceTheSpire.Thief.Common;
 
-public class WreckingBall() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class WreckingBall() : TheThiefCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9, ValueProp.Move)];
 
@@ -23,10 +23,10 @@ public class WreckingBall() : TheThiefCard(1, CardType.Attack, CardRarity.Rare, 
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .Execute(choiceContext);
-        CardModel? card = Owner.RunState.Rng.CombatCardSelection.NextItem(PileType.Hand.GetPile(Owner).Cards.Where(c => c is ICountdown));
-        if (card is ICountdown countdown)
+        CardModel? card = Owner.RunState.Rng.CombatCardSelection.NextItem(PileType.Draw.GetPile(Owner).Cards.Where(c => c is ICountdown));
+        if (card is not null)
         {
-            countdown.SetCountThisTurnOrUntilPlayed(0);
+            await CardPileCmd.Add(card, Owner.PlayerCombatState.Hand);
         }
     }
 

@@ -176,6 +176,6 @@
   "DICETHESPIRE-WAIL.title": "Wail",
   "DICETHESPIRE-WAKIZASHI.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.",
   "DICETHESPIRE-WAKIZASHI.title": "Wakizashi",
-  "DICETHESPIRE-WRECKING_BALL.description": "Deal {Damage:diff()} damage.\nSet a random [gold]Countdown[/gold] in [gold]Hand[/gold] to 0 until played.",
+  "DICETHESPIRE-WRECKING_BALL.description": "Deal {Damage:diff()} damage.\nAdd random [gold]Countdown[/gold] from your [gold]Draw Pile[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball"
 }
