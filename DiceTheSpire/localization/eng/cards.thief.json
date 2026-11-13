@@ -73,7 +73,7 @@
   "DICETHESPIRE-HACKSAW.title": "Hacksaw",
   "DICETHESPIRE-HIBERNATE.description": "At the end of your turn, gain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
   "DICETHESPIRE-HIBERNATE.title": "Hibernate",
-  "DICETHESPIRE-HONEY.description": "Gain {Block:diff()} [gold]Block[/gold].\nThe effect of your next cost [gold]X[/gold] card is increased by {Xcost:diff()}.",
+  "DICETHESPIRE-HONEY.description": "Gain {Block:diff()} [gold]Block[/gold].\nThe effect of your next cost [gold]X[/gold] card is increased by {HoneyPower:diff()}.",
   "DICETHESPIRE-HONEY.title": "Honey",
   "DICETHESPIRE-HOOKSHOT.description": "Deal {Damage:diff()} damage.\nPut the next card you play back into your [gold]Hand[/gold].",
   "DICETHESPIRE-HOOKSHOT.title": "Hookshot",

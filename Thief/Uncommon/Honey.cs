@@ -10,7 +10,7 @@ namespace DiceTheSpire.Thief.Uncommon;
 
 public class Honey() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, ValueProp.Move), new PowerVar<HoneyPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(6, ValueProp.Move), new PowerVar<HoneyPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -26,6 +26,6 @@ public class Honey() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Targ
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3);
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 }
