@@ -1,7 +1,9 @@
-﻿using DiceTheSpire.Shared.Utility;
+﻿using DiceTheSpire.Inventor.Rare;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
@@ -15,14 +17,24 @@ public class BerlinKey() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, 
         {
             return;
         }
-        CardSelectorPrefs prefs = new(DiceySelection.ToDupe, 1);
-        CardModel? original = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
-        if (original == null)
+        CardSelectorPrefs prefs = new(CardSelectorPrefs.TransformSelectionPrompt, 1);
+        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
+        if (card == null)
         {
             return;
         }
 
-        CardPileAddResult addedCard = await CardPileCmd.AddGeneratedCardToCombat(original.CreateClone(), IsUpgraded ? PileType.Hand : PileType.Discard, Owner);
-        CardCmd.PreviewCardPileAdd(addedCard);
+        TransformIntoAfterPlay = card.CreateClone();
+    }
+
+    public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
+        CardLocation cardLocation)
+    {
+        if (card != this || !IsUpgraded || cardLocation.pileType == PileType.Exhaust)
+        {
+            return cardLocation;
+        }
+
+        return new CardLocation(cardLocation.player, PileType.Hand, CardPilePosition.Bottom);
     }
 }

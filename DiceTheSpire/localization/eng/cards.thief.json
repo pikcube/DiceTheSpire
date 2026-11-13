@@ -27,7 +27,7 @@
   "DICETHESPIRE-BELL_PEPPERS.title": "Bell Peppers",
   "DICETHESPIRE-BENCH_PRESS.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage.\nGain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "DICETHESPIRE-BENCH_PRESS.title": "Bench Press",
-  "DICETHESPIRE-BERLIN_KEY.description": "Choose a card in your [gold]Hand[/gold] to {IfUpgraded:show:copy|add a copy to your [gold]Discard pile[/gold]}.",
+  "DICETHESPIRE-BERLIN_KEY.description": "[gold]Transform[/gold] this card into a card in [gold]Hand[/gold].{IfUpgraded:show:\nReturn this card to your [gold]Hand[/gold].|}",
   "DICETHESPIRE-BERLIN_KEY.title": "Berlin Key",
   "DICETHESPIRE-BLENDER.description": "[gold]Exhaust[/gold] a card.\nAdd [gold]Pips[/gold] to your [gold]Hand[/gold] equal to that card's cost.",
   "DICETHESPIRE-BLENDER.title": "Blender",
