@@ -10,11 +10,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Warrior.Common;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class Bumpblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Bumpblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(6, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(10, DamageProps.card)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
     //IsUpgraded ? [HoverTipFactory.Static(BetterStaticHoverTips.Bump)] : [];
 

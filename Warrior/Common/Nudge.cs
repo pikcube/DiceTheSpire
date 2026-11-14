@@ -8,9 +8,9 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Warrior.Uncommon;
+namespace DiceTheSpire.Warrior.Common;
 
-public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Nudge() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
 
