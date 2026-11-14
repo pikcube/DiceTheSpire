@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxscd3j7i4q4u"
-path="res://.godot/imported/roll_again.png-67822238c247e78c352cfb79bdd0f2b6.ctex"
+path="res://.godot/imported/combat_roll.png-2b040656ceaa52bbf2f25fe730439b54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/card_portraits/big/roll_again.png"
-dest_files=["res://.godot/imported/roll_again.png-67822238c247e78c352cfb79bdd0f2b6.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/combat_roll.png"
+dest_files=["res://.godot/imported/combat_roll.png-2b040656ceaa52bbf2f25fe730439b54.ctex"]
 
 [params]
 

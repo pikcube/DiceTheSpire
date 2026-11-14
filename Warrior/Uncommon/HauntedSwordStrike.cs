@@ -13,7 +13,7 @@ public class HauntedSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, DamageProps.card), new CardsVar(4)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<CombatRoll>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -31,13 +31,13 @@ public class HauntedSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarit
             return;
         }
 
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<CombatRoll>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<CombatRoll>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<CombatRoll>(Owner), PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<CombatRoll>(Owner), PileType.Hand, Owner);
         if (IsUpgraded)
         {
-            await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+            await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<CombatRoll>(Owner), PileType.Hand, Owner);
         }
 
     }

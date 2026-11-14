@@ -1,7 +1,7 @@
 {
   "DICETHESPIRE-BUMP_BREW.description": "[gold]Bump[/gold] up to {Cards:diff()} cards.",
   "DICETHESPIRE-BUMP_BREW.title": "Bump Brew",
-  "DICETHESPIRE-DICEY_DRINK.description": "Add 3 copies of [gold]Roll Again[/gold] to your hand.",
+  "DICETHESPIRE-DICEY_DRINK.description": "Add 3 copies of [gold]Combat Roll[/gold] to your hand.",
   "DICETHESPIRE-DICEY_DRINK.title": "Dicey Drink",
   "DICETHESPIRE-BOTTLED_RAGE.description": "Double your [gold]Fury[/gold].",
   "DICETHESPIRE-BOTTLED_RAGE.title": "Bottled Rage"

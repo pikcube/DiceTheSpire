@@ -1,5 +1,4 @@
 ﻿using DiceTheSpire.Shared.Powers;
-using DiceTheSpire.Warrior;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,7 +6,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Shared.Cards;
 
-public class LastStand() : TheWarriorCard(3, CardType.Power, CardRarity.None, TargetType.Self)
+public class LastStand() : DiceTheSpireCard(3, CardType.Power, CardRarity.None, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<LastStandPower>(3M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];

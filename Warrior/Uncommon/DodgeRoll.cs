@@ -15,7 +15,7 @@ public class DodgeRoll() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), .. RangeVars.Make(0, 0)];
 
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge), HoverTipFactory.FromCard<RollAgain>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge), HoverTipFactory.FromCard<CombatRoll>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
 
@@ -27,7 +27,7 @@ public class DodgeRoll() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon
 
             for (int n = 0; n < DynamicVars.Cards.IntValue; ++n)
             {
-                RollAgain card = CombatState.CreateCard<RollAgain>(Owner);
+                CombatRoll card = CombatState.CreateCard<CombatRoll>(Owner);
                 //if (IsUpgraded)
                 //{
                 //    CardCmd.Upgrade(card);

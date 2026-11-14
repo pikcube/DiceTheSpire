@@ -12,9 +12,8 @@ using MegaCrit.Sts2.Core.Models.CardPools;
 
 namespace DiceTheSpire.Shared.Cards;
 
-
 [Pool(typeof(TokenCardPool))]
-public class RollAgain() : DiceTheSpireCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
+public class CombatRoll() : DiceTheSpireCard(0, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];

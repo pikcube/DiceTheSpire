@@ -13,7 +13,7 @@ public class ThickSkin() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, 
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new BlockVar(6M, BlockProps.card)];
     public override bool GainsBlock => true;
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<CombatRoll>(IsUpgraded), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
@@ -23,7 +23,7 @@ public class ThickSkin() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, 
         }
         for (int n = 0; n < 2; ++n)
         {
-            RollAgain card = CombatState.CreateCard<RollAgain>(Owner);
+            CombatRoll card = CombatState.CreateCard<CombatRoll>(Owner);
             if (IsUpgraded)
             {
                 CardCmd.Upgrade(card);

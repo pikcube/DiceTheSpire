@@ -13,7 +13,7 @@ namespace DiceTheSpire.Warrior.Common
 
         protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
         public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
-        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+        protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<CombatRoll>(IsUpgraded), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
         protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
         {
 
@@ -25,7 +25,7 @@ namespace DiceTheSpire.Warrior.Common
 
             for (int n = 0; n < 3; ++n)
             {
-                RollAgain card = CombatState.CreateCard<RollAgain>(Owner);
+                CombatRoll card = CombatState.CreateCard<CombatRoll>(Owner);
                 if (IsUpgraded)
                 {
                     CardCmd.Upgrade(card);

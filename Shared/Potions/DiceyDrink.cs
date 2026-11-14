@@ -19,7 +19,7 @@ public class DiceyDrink : TheWarriorPotion
     public override PotionUsage Usage => PotionUsage.CombatOnly;
     public override TargetType TargetType => TargetType.AnyPlayer;
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
-    public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
+    public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<CombatRoll>(), HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
         while (target?.Player is null)
@@ -35,7 +35,7 @@ public class DiceyDrink : TheWarriorPotion
 
         for (int n = 0; n < 3; ++n)
         {
-            RollAgain card = Owner.Creature.CombatState.CreateCard<RollAgain>(Owner);
+            CombatRoll card = Owner.Creature.CombatState.CreateCard<CombatRoll>(Owner);
             await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
         }
 
