@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Potions;
-public class RagePotion : TheWarriorPotion
+public class BottledRage : TheWarriorPotion
 {
     public override PotionRarity Rarity => PotionRarity.Rare;
     public override PotionUsage Usage => PotionUsage.CombatOnly;
