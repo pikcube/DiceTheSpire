@@ -1,7 +1,10 @@
 ﻿using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Powers;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 
@@ -13,6 +16,7 @@ public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Rare, 
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     protected override bool HasEnergyCostX => true;
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -25,11 +29,11 @@ public class Crystalize() : TheWarriorCard(-1, CardType.Power, CardRarity.Rare, 
 
         if (IsUpgraded)
         {
-            await PowerCmd.Apply<MachineLearningPower>(choiceContext, Owner.Creature, xValue + 1, Owner.Creature, this);
+            await PowerCmd.Apply<CrystalizationPower>(choiceContext, Owner.Creature, xValue + 1, Owner.Creature, this);
         }
         else
         {
-            await PowerCmd.Apply<MachineLearningPower>(choiceContext, Owner.Creature, xValue, Owner.Creature, this);
+            await PowerCmd.Apply<CrystalizationPower>(choiceContext, Owner.Creature, xValue, Owner.Creature, this);
         }
 
     }

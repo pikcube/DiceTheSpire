@@ -136,6 +136,9 @@
   "DICETHESPIRE-ACORN_SHIELD_POWER.title": "Acorn Shield",
   "DICETHESPIRE-BUMP_SHIELD_POWER.description": "Whenever you [gold]Bump[/gold] a card, gain temporary [gold]Dexterity[/gold].",
   "DICETHESPIRE-BUMP_SHIELD_POWER.smartDescription": "Gain {Amount} [gold]Dexterity[/gold] this turn for each card [gold]Bumped[/gold].",
-  "DICETHESPIRE-BUMP_SHIELD_POWER.title": "Bump Shield"
+  "DICETHESPIRE-BUMP_SHIELD_POWER.title": "Bump Shield",
+  "DICETHESPIRE-CRYSTALIZATION_POWER.description": "Draw extra cards each turn.\n[gold]Reroll[/gold] them.",
+  "DICETHESPIRE-CRYSTALIZATION_POWER.smartDescription": "Draw {Amount} cards at the start of each turn,\n[gold]Reroll[/gold] the first {Amount} cards drawn.",
+  "DICETHESPIRE-CRYSTALIZATION_POWER.title": "Crystalize"
 
 }
