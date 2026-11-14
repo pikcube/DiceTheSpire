@@ -20,13 +20,15 @@ public class Spare1() : TheThiefCard(0, CardType.Skill, CardRarity.Rare, TargetT
             return;
         }
 
-        await PlayerCmd.GainEnergy(1, Owner);
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         await Pip.CreateInHandAsync(Owner, DynamicVars["Pips"].IntValue, CombatState);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        DynamicVars.Cards.UpgradeValueBy(1);
+        DynamicVars.Energy.UpgradeValueBy(1);
+        DynamicVars["Pips"].UpgradeValueBy(1);
     }
 }
