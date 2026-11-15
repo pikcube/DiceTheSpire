@@ -99,7 +99,7 @@
   "DICETHESPIRE-MASTER_KEY.title": "Master Key",
   "DICETHESPIRE-MIDNIGHT_CHARM.description": "The effects of your cost [gold]X[/gold] cards are increased by {Xcost:diff()}.",
   "DICETHESPIRE-MIDNIGHT_CHARM.title": "Midnight Charm",
-  "DICETHESPIRE-MOOD_CHANGE.description": "Swap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
+  "DICETHESPIRE-MOOD_CHANGE.description": "Gain {Block:diff()} [gold]Block[/gold].\nSwap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-MOOD_CHANGE.title": "Mood Change",
   "DICETHESPIRE-OVERWHELM.description": "When you play an Attack, gain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "DICETHESPIRE-OVERWHELM.title": "Overwhelm",
