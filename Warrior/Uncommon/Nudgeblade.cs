@@ -9,11 +9,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace DiceTheSpire.Warrior.Common;
+namespace DiceTheSpire.Warrior.Uncommon;
 
-public class Nudgeblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Nudgeblade() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(6, DamageProps.card)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(10, DamageProps.card)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Nudge)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

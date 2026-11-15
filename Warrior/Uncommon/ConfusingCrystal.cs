@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class ConfusingCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICrystalCard
+public class ConfusingCrystal() : TheWarriorCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Ethereal];

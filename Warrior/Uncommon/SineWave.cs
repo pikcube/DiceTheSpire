@@ -24,7 +24,7 @@ public class SineWave() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon,
         //List<CardModel> handPile = [.. Owner.PlayerCombatState.Hand.Cards];
         if (!IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 0, 2);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 0, 3);
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {
@@ -33,7 +33,7 @@ public class SineWave() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon,
         }
         else
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 0, 2);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToBump, 0, 3);
             IEnumerable<CardModel> results = await CardSelectCmd.FromHand(choiceContext, Owner, cardSelectorPrefs, null, this);
             foreach (CardModel card in results)
             {
@@ -43,7 +43,7 @@ public class SineWave() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon,
 
         if (!IsUpgraded)
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 0, 2);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 0, 3);
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {
@@ -52,7 +52,7 @@ public class SineWave() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon,
         }
         else
         {
-            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 0, 2);
+            CardSelectorPrefs cardSelectorPrefs = new(DiceySelection.ToNudge, 0, 3);
             IEnumerable<CardModel> results = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, cardSelectorPrefs);
             foreach (CardModel card in results)
             {

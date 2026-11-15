@@ -12,7 +12,7 @@ namespace DiceTheSpire.Warrior.Common;
 public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new DamageVar(6M, DamageProps.card), .. RangeVars.Make(1, 1)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<RollAgain>(IsUpgraded)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<CombatRoll>(IsUpgraded)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
 
@@ -32,7 +32,7 @@ public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
 
         for (int n = 0; n < 1; ++n)
         {
-            RollAgain card = CombatState.CreateCard<RollAgain>(Owner);
+            CombatRoll card = CombatState.CreateCard<CombatRoll>(Owner);
             if (IsUpgraded)
             {
                 CardCmd.Upgrade(card);
@@ -41,7 +41,7 @@ public class Slingshot() : TheWarriorCard(1, CardType.Attack, CardRarity.Common,
         }
 
         //await Cmd.Wait(0.25f);
-        //await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(Owner), PileType.Hand, Owner);
+        //await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<CombatRoll>(Owner), PileType.Hand, Owner);
         
     }
 

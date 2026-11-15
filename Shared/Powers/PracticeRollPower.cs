@@ -19,7 +19,7 @@ public class PracticeRollPower : DiceTheSpirePower
         }
         for (int n = 0; n < Amount; ++n)
         {
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<RollAgain>(player), PileType.Hand, player));
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CombatState.CreateCard<CombatRoll>(player), PileType.Hand, player));
         }
     }
 }

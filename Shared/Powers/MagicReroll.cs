@@ -24,7 +24,7 @@ public class MagicRerollPower : DiceTheSpirePower
         List<CardModel> allCards = [.. Owner.Player.PlayerCombatState.AllCards];
         foreach (CardModel c in allCards)
         {
-            if (c is RollAgain)
+            if (c is CombatRoll)
             {
                 CardCmd.Upgrade(c);
             }
@@ -33,7 +33,7 @@ public class MagicRerollPower : DiceTheSpirePower
 
     public override Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
     {
-        if (card is RollAgain && creator is not null && creator == Owner.Player)
+        if (card is CombatRoll && creator is not null && creator == Owner.Player)
         {
             CardCmd.Upgrade(card);
         }

@@ -8,15 +8,16 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Warrior.Uncommon;
+namespace DiceTheSpire.Warrior.Common;
 
 
 
 
-public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Bump() : TheWarriorCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(5)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Bump)];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -30,7 +31,7 @@ public class Bump() : TheWarriorCard(0, CardType.Skill, CardRarity.Uncommon, Tar
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(2);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 
 }

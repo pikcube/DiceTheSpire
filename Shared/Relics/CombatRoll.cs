@@ -17,7 +17,7 @@
 //public class CombatRoll : TheWarriorRelic
 //{
 //    public override RelicRarity Rarity => RelicRarity.Starter;
-//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll), HoverTipFactory.FromCard<RollAgain>(true)];
+//    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Reroll), HoverTipFactory.FromCard<CombatRoll>(true)];
 //    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, ICombatState combatState)
 //    {
 //        if (Owner != player || Owner.Creature.CombatState is null || Owner.PlayerCombatState?.TurnNumber != 1)
@@ -27,7 +27,7 @@
 
 //        for (int n = 0; n < 3; ++n)
 //        {
-//            RollAgain card = combatState.CreateCard<RollAgain>(Owner);
+//            CombatRoll card = combatState.CreateCard<CombatRoll>(Owner);
 //            CardCmd.Upgrade(card);
 //            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
 //        }
