@@ -22,13 +22,13 @@ public class FrozenSwordStrike() : TheWarriorCard(1, CardType.Attack, CardRarity
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
+        await FreezePower.ApplyAsync(choiceContext, cardPlay.Target, 1, Owner.Creature, this);
+
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
-
-        await FreezePower.ApplyAsync(choiceContext, cardPlay.Target, 1, Owner.Creature, this);
 
         await NextTurnFuryPower.ApplyAsync(choiceContext, Owner.Creature, DynamicVars.Power<NextTurnFuryPower>().IntValue, 1, Owner.Creature, this);
 

@@ -14,7 +14,7 @@ public class Matchstick() : TheWarriorCard(1, CardType.Skill, CardRarity.Rare, T
 {
     public bool ShouldIgnoreFury => true;
     public bool ShouldMaintainFury => true;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(2M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(3M)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust, CardKeyword.Retain];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue), HoverTipFactory.FromCard<Burn>()];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
