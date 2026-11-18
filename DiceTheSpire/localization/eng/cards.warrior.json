@@ -181,6 +181,8 @@
   "DICETHESPIRE-NIGHTMARE_CRYSTAL.title": "Nightmare Crystal",
   "DICETHESPIRE-FIRE_CRYSTAL.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].\nCan only be played if your [gold]Hand[/gold] costs more than {Energy:diceIcons()}.",
   "DICETHESPIRE-FIRE_CRYSTAL.title": "Fire Crystal",
+  "DICETHESPIRE-FLAMING_SWORD.description": "Gain {ScalingStrengthPower:diff()} [gold]Strength[/gold].\nIncrease this amount by {IfUpgraded:show:4|3}.",
+  "DICETHESPIRE-FLAMING_SWORD.title": "Flaming Sword",
   "DICETHESPIRE-HOLLOW_CRYSTAL.description": "Deal {Damage:diff()} damage for each \"Crystal\" cards in [gold]Hand[/gold].\n(Currently {HitCount:diff()} {HitCount:plural:time|times})",
   "DICETHESPIRE-HOLLOW_CRYSTAL.title": "Hollow Crystal",
   "DICETHESPIRE-ROUNDHOUSE_KICK.description": "Deal {Damage:diff()} damage to ALL enemies {Repeat:diff()} times.\nMove this card to your [gold]Discard Pile[/gold], whenever you [gold]Discard[/gold] a card.",
