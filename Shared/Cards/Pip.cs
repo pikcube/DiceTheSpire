@@ -9,6 +9,8 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Powers;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Cards;
 
@@ -61,6 +63,11 @@ public class Pip : DiceTheSpireCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        decimal poison = DiceyHooks.OnModifyPipPoison(cardPlay.Player.RunState, cardPlay.Player.Creature.CombatState, 0, this);
+        if (poison > 0)
+        {
+            await PoisonPower.ApplyAsync(choiceContext, CombatState?.HittableEnemies ?? [], poison, Owner.Creature, this);
+        }
         await DiceyHooks.OnModifyPipOnPlayAsync(cardPlay.Player.RunState, cardPlay.Player.Creature.CombatState, choiceContext, cardPlay, this);
     }
 

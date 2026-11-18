@@ -12,11 +12,20 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Runs;
+using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Utility;
 
 public static class DiceyHooks
 {
+    internal static decimal OnModifyPipPoison(IRunState runState, ICombatState? combatState, decimal currentPoison,
+        Pip pip)
+    {
+        return runState.IterateHookListeners(combatState)
+            .OfType<IModifyPipOnPlayListener>()
+            .Aggregate(currentPoison, (current, listener) => listener.ModifyPoisonAppliedByPip(pip, current));
+    }
+
     internal static async Task OnModifyPipOnPlayAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip)
     {
         foreach (IModifyPipOnPlayListener listener in runState.IterateHookListeners(combatState)
@@ -27,10 +36,23 @@ public static class DiceyHooks
     }
     internal static IEnumerable<string> ModifyPipDescription(IRunState runState, ICombatState? combatState, Pip pip)
     {
-        return runState.IterateHookListeners(combatState)
-            .OfType<IModifyPipOnPlayListener>()
-            .Where(listener => listener.ShouldModify(pip))
-            .Select(listener => (listener.PipDescription.GetFormattedText()));
+        decimal poisonAmount = OnModifyPipPoison(runState, combatState, 0, pip);
+        if (poisonAmount > 0)
+        {
+            LocString poisonString = new LocString("cards", "DICETHESPIRE-PIP.poisonDescription").WithDynamicVars(pip.DynamicVars);
+            poisonString.Add("Amount", poisonAmount);
+            yield return poisonString.GetFormattedText();
+        }
+
+        foreach (string description in runState.IterateHookListeners(combatState)
+                     .OfType<IModifyPipOnPlayListener>()
+                     .Where(listener => listener.ShouldModify(pip))
+                     .Select(listener => listener.PipDescription?.GetFormattedText())
+                     .Where(s => !string.IsNullOrEmpty(s))
+                     .OfType<string>())
+        {
+            yield return description;
+        }
     }
 
     internal static IEnumerable<IHoverTip> ModifyPipHoverTips(IRunState runState, ICombatState? combatState, Pip pip)

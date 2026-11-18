@@ -10,14 +10,14 @@ namespace DiceTheSpire.Inventor.Uncommon;
 
 public class SixShooter() : TheInventorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, DamageProps.card), new("Hits", 6)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, DamageProps.card), new HitCountVar(6)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .WithHitCount(DynamicVars["Hits"].IntValue)
+            .WithHitCount(DynamicVars.HitCount.IntValue)
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithValueProp(DynamicVars.Damage.Props)

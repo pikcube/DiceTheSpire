@@ -42,4 +42,9 @@ public class TinyTrebuchet : TheThiefRelic, IModifyPipOnPlayListener
     }
 
     public bool ShouldModify(Pip pip) => pip.Owner == Owner;
+
+    public decimal ModifyPoisonAppliedByPip(Pip pip, decimal currentPoison)
+    {
+        return currentPoison;
+    }
 }

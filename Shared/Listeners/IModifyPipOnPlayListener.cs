@@ -19,12 +19,12 @@ public interface IModifyPipOnPlayListener
     /// <summary>
     /// Additional text to describe how the Pip's OnPlay method changes when we modify it.
     /// </summary>
-    public LocString PipDescription { get; }
+    public LocString? PipDescription { get; }
 
     /// <summary>
     /// Additional HoverTips for Pips that we modify.
     /// </summary>
-    public IEnumerable<IHoverTip> PipHoverTips { get; }
+    public IEnumerable<IHoverTip> PipHoverTips { get; } 
 
     /// <summary>
     /// Executed when a Pip is played and ShouldModify returns true.
@@ -33,4 +33,6 @@ public interface IModifyPipOnPlayListener
     /// <param name="cardPlay">The current cardplay.</param>
     /// <param name="pip">The pip being played.</param>
     public Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip);
+
+    public decimal ModifyPoisonAppliedByPip(Pip pip, decimal currentPoison);
 }

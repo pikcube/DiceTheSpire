@@ -39,4 +39,9 @@ public class WreckingBallPower : DiceTheSpirePower, IModifyPipOnPlayListener
         }
         await CreatureCmd.Damage(choiceContext, CombatState.Enemies, Amount, ValueProp.Unpowered, Owner, cardPlay.Card, cardPlay);
     }
+
+    public decimal ModifyPoisonAppliedByPip(Pip pip, decimal currentPoison)
+    {
+        return currentPoison;
+    }
 }

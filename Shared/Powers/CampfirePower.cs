@@ -55,4 +55,9 @@ public class CampfirePower : DiceTheSpirePower, IModifyPipOnPlayListener
 
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, Amount, Owner, cardPlay.Card);
     }
+
+    public decimal ModifyPoisonAppliedByPip(Pip pip, decimal currentPoison)
+    {
+        return currentPoison;
+    }
 }
