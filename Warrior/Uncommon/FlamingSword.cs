@@ -1,21 +1,16 @@
-﻿using BaseLib.Extensions;
-using HarmonyLib;
-using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
-using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
 public class FlamingSword() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    private int TimesPlayed { get; set; } = 0;
+    private int TimesPlayed { get; set; }
 
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedVar("ScalingStrengthPower", 2, Bonus)];
@@ -40,14 +35,4 @@ public class FlamingSword() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncom
 
         TimesPlayed++;
     }
-
-
-
-    protected override void OnUpgrade()
-    {
-        base.OnUpgrade();
-        //DynamicVars.Power<StrengthPower>().UpgradeValueBy(1);
-    }
-
-
 }
