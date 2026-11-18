@@ -160,8 +160,6 @@
   "DICETHESPIRE-TETRAPHOBIA.title": "Tetraphobia",
   "DICETHESPIRE-TOXIC_CLAW.description": "Deal {Damage:diff()} damage.\nApply {PoisonPower:diff()} [gold]Poison[/gold].",
   "DICETHESPIRE-TOXIC_CLAW.title": "Toxic Claw",
-  "DICETHESPIRE-TOXIC_OOZE.description": "Deal {Damage:diff()} damage.\nApply {PoisonPower:diff()} [gold]Poison[/gold].\nWhen drawn, add a copy of this card to your [gold]Hand[/gold].",
-  "DICETHESPIRE-TOXIC_OOZE.title": "Toxic Ooze",
   "DICETHESPIRE-TRANSFORMER.description": "Deal {Damage:diff()} damage.\n[gold]Transform[/gold] 1 card into a copy of this card.",
   "DICETHESPIRE-TRANSFORMER.title": "Transformer",
   "DICETHESPIRE-UNDERHANDED_STRIKE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each [gold]Pip[/gold] in your [gold]Exhaust Pile[/gold].",
