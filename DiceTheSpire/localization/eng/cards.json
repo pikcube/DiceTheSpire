@@ -1,6 +1,7 @@
 {
   "DICETHESPIRE-PIP.description": "{PipDescription.StringValue}",
   "DICETHESPIRE-PIP.title": "Pip",
+  "DICETHESPIRE-PIP.poisonDescription": "Apply {Amount} [gold]Poison[/gold] to all enemies.",
   "DICETHESPIRE-COMBAT_ROLL.description": "[gold]Reroll[/gold] 1 card.",
   "DICETHESPIRE-COMBAT_ROLL.title": "Combat Roll",
   "DICETHESPIRE-FLIP_AGAIN.description": "[gold]Flip[/gold] 1 card.",

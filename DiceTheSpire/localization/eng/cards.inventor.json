@@ -157,7 +157,7 @@
   "DICETHESPIRE-SHOVEL.title": "Shovel",
   "DICETHESPIRE-SILVER_DAGGER.description": "Deal {Damage:diff()} damage.\nApply {DebuffCount:diff()} random debuffs.",
   "DICETHESPIRE-SILVER_DAGGER.title": "Silver Dagger Strike",
-  "DICETHESPIRE-SIX_SHOOTER.description": "Deal {Damage:diff()} damage {Hits:diff()} times.",
+  "DICETHESPIRE-SIX_SHOOTER.description": "Deal {Damage:diff()} damage {HitCount:diff()} times.",
   "DICETHESPIRE-SIX_SHOOTER.title": "Six Shooter",
   "DICETHESPIRE-SLEDGE_HAMMER.description": "Deal {Damage:diff()} damage.\n[gold]Shock[/gold] a card in your [gold]Draw Pile[/gold] or [gold]Discard Pile[/gold].",
   "DICETHESPIRE-SLEDGE_HAMMER.title": "Sledge Hammer",

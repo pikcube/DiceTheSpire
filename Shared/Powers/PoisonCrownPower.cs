@@ -9,7 +9,6 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Powers;
 
@@ -20,15 +19,7 @@ public class PoisonCrownPower : DiceTheSpirePower, IModifyPipOnPlayListener
     public override PowerStackType StackType => PowerStackType.Counter;
 
 
-    public LocString PipDescription
-    {
-        get
-        {
-            LocString l = new LocString("powers", Id.Entry + ".pipDescription").WithDynamicVars(DynamicVars);
-            l.Add("Amount", Amount);
-            return l;
-        }
-    }
+    public LocString? PipDescription => null;
 
     public IEnumerable<IHoverTip> PipHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
@@ -46,14 +37,19 @@ public class PoisonCrownPower : DiceTheSpirePower, IModifyPipOnPlayListener
         }
     }
 
-    public async Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip)
+    public Task ModifyPipOnPlayAsync(PlayerChoiceContext choiceContext, CardPlay cardPlay, Pip pip)
+    {
+        return Task.CompletedTask;
+    }
+
+    public decimal ModifyPoisonAppliedByPip(Pip pip, decimal currentPoison)
     {
         if (!ShouldModify(pip))
         {
-            return;
+            return currentPoison;
         }
 
-        await PowerCmd.Apply<PoisonPower>(choiceContext, CombatState.Enemies, Amount, Owner, cardPlay.Card);
+        return currentPoison + Amount;
     }
 
     public bool ShouldModify(Pip pip) => pip.Owner == Owner.Player;
