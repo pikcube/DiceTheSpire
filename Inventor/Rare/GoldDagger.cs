@@ -1,18 +1,30 @@
 ﻿using DiceTheSpire.Inventor.Gadgets;
 using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
+using Pikcube.Common.Code.Utility;
 
 namespace DiceTheSpire.Inventor.Rare;
 
-public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IScrapCard
+public class GoldDagger() : TheInventorCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy), IScrapCard, IModifyCardIsAllowedListener
 {
+    public bool IsAllowed(IRunState runState)
+    {
+        return !DiceyHelperFunctions.IsLateInAct3(runState);
+    }
+
     public override string GetScrapId => nameof(Harvest);
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, DamageProps.card)];
     public override IEnumerable<CardTag> Tags => [CardTag.Strike];
+
+    public override bool CanBeGeneratedInCombat => false;
+
+    public override bool IsAllowedInBlitz => false;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
