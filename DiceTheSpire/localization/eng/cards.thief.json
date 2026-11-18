@@ -95,7 +95,7 @@
   "DICETHESPIRE-MARMALADE.title": "Marmalade",
   "DICETHESPIRE-MASTER_KEY.description": "Discard {Cards:diff()} cards.\nDraw {Cards:diff()} cards.\nAdd {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-MASTER_KEY.title": "Master Key",
-  "DICETHESPIRE-MIDNIGHT_CHARM.description": "The effects of your cost [gold]X[/gold] cards are increased by {Xcost:diff()}.",
+  "DICETHESPIRE-MIDNIGHT_CHARM.description": "The effects of your cost X cards are increased by {Xcost:diff()}.",
   "DICETHESPIRE-MIDNIGHT_CHARM.title": "Midnight Charm",
   "DICETHESPIRE-MOOD_CHANGE.description": "Gain {Block:diff()} [gold]Block[/gold].\nSwap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-MOOD_CHANGE.title": "Mood Change",
