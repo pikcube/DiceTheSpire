@@ -133,7 +133,7 @@
   "DICETHESPIRE-READY_OR_NOT.title": "Ready Or Not",
   "DICETHESPIRE-ROLL_THE_BONES.description": "[gold]Count:[/gold] {BaseCount}\n[gold]Summon[/gold] {Summon:diff()}.\nApply {DoomPower:diff()} [gold]Doom[/gold].",
   "DICETHESPIRE-ROLL_THE_BONES.title": "Roll The Bones",
-  "DICETHESPIRE-ROSEPETAL_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold] twice.",
+  "DICETHESPIRE-ROSEPETAL_SHIELD.description": "",
   "DICETHESPIRE-ROSEPETAL_SHIELD.title": "Rosepetal Shield",
   "DICETHESPIRE-SEIZE.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nEnemy loses {StrengthDownPower:diff()} [gold]Strength[/gold].",
   "DICETHESPIRE-SEIZE.title": "Seize",
@@ -177,5 +177,7 @@
   "DICETHESPIRE-WAKIZASHI.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.",
   "DICETHESPIRE-WAKIZASHI.title": "Wakizashi",
   "DICETHESPIRE-WRECKING_BALL.description": "Deal {Damage:diff()} damage.\nAdd random [gold]Countdown[/gold] from your [gold]Draw Pile[/gold] to your [gold]Hand[/gold].",
-  "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball"
+  "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball",
+  "DICETHESPIRE-SQUARE_PAIR.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times.",
+  "DICETHESPIRE-SQUARE_PAIR.title": "Square Pair"
 }
