@@ -175,5 +175,7 @@
   "DICETHESPIRE-WRECKING_BALL.description": "Deal {Damage:diff()} damage.\nAdd random [gold]Countdown[/gold] from your [gold]Draw Pile[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball",
   "DICETHESPIRE-SQUARE_PAIR.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times.",
-  "DICETHESPIRE-SQUARE_PAIR.title": "Square Pair"
+  "DICETHESPIRE-SQUARE_PAIR.title": "Square Pair",
+  "DICETHESPIRE-SLIMEPICK.description": "Add {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-SLIMEPICK.title": "Slimepick"
 }
