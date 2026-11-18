@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2r1lpdiujklk"
-path="res://.godot/imported/gadget_power.png-480c6af7c4fa42159ebf853fcbb3aa36.ctex"
+uid="uid://b4ixhgo21e8hd"
+path="res://.godot/imported/square_pair.png-a98162437b48679c930117bb99a24c90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/powers/big/gadget_power.png"
-dest_files=["res://.godot/imported/gadget_power.png-480c6af7c4fa42159ebf853fcbb3aa36.ctex"]
+source_file="res://DiceTheSpire/images/card_portraits/big/square_pair.png"
+dest_files=["res://.godot/imported/square_pair.png-a98162437b48679c930117bb99a24c90.ctex"]
 
 [params]
 

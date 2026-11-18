@@ -35,8 +35,6 @@
   "DICETHESPIRE-BLIGHT.title": "Blight",
   "DICETHESPIRE-BOUNCE.description": "[gold]Count:[/gold] {BaseCount}\nThe first card you play each turn is returned to your [gold]Hand[/gold].",
   "DICETHESPIRE-BOUNCE.title": "Bounce",
-  "DICETHESPIRE-BROCCOLI.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nGain {ThornsPower:diff()} [gold]Thorns[/gold].",
-  "DICETHESPIRE-BROCCOLI.title": "Broccoli",
   "DICETHESPIRE-BROKEN_MIRROR.description": "Gain {Energy:diceIcons()} at the start of each turn.\nIncrease this card's cost by 1.\nAt the start of next turn, [gold]Curse[/gold] yourself.",
   "DICETHESPIRE-BROKEN_MIRROR.title": "Broken Mirror",
   "DICETHESPIRE-CAMOUFLAGE.description": "[gold]Count:[/gold] {BaseCount}\nGain {ReducePower:diff()} [gold]Reduce[/gold].",
@@ -99,7 +97,7 @@
   "DICETHESPIRE-MASTER_KEY.title": "Master Key",
   "DICETHESPIRE-MIDNIGHT_CHARM.description": "The effects of your cost [gold]X[/gold] cards are increased by {Xcost:diff()}.",
   "DICETHESPIRE-MIDNIGHT_CHARM.title": "Midnight Charm",
-  "DICETHESPIRE-MOOD_CHANGE.description": "Swap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
+  "DICETHESPIRE-MOOD_CHANGE.description": "Gain {Block:diff()} [gold]Block[/gold].\nSwap your [gold]Strength[/gold] and [gold]Dexterity[/gold].",
   "DICETHESPIRE-MOOD_CHANGE.title": "Mood Change",
   "DICETHESPIRE-OVERWHELM.description": "When you play an Attack, gain {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "DICETHESPIRE-OVERWHELM.title": "Overwhelm",
@@ -133,7 +131,7 @@
   "DICETHESPIRE-READY_OR_NOT.title": "Ready Or Not",
   "DICETHESPIRE-ROLL_THE_BONES.description": "[gold]Count:[/gold] {BaseCount}\n[gold]Summon[/gold] {Summon:diff()}.\nApply {DoomPower:diff()} [gold]Doom[/gold].",
   "DICETHESPIRE-ROLL_THE_BONES.title": "Roll The Bones",
-  "DICETHESPIRE-ROSEPETAL_SHIELD.description": "Gain {Block:diff()} [gold]Block[/gold] twice.",
+  "DICETHESPIRE-ROSEPETAL_SHIELD.description": "",
   "DICETHESPIRE-ROSEPETAL_SHIELD.title": "Rosepetal Shield",
   "DICETHESPIRE-SEIZE.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nEnemy loses {StrengthDownPower:diff()} [gold]Strength[/gold].",
   "DICETHESPIRE-SEIZE.title": "Seize",
@@ -177,5 +175,7 @@
   "DICETHESPIRE-WAKIZASHI.description": "[gold]Count:[/gold] {BaseCount}\nDeal {Damage:diff()} damage.\nDraw {Cards:diff()} cards.",
   "DICETHESPIRE-WAKIZASHI.title": "Wakizashi",
   "DICETHESPIRE-WRECKING_BALL.description": "Deal {Damage:diff()} damage.\nAdd random [gold]Countdown[/gold] from your [gold]Draw Pile[/gold] to your [gold]Hand[/gold].",
-  "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball"
+  "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball",
+  "DICETHESPIRE-SQUARE_PAIR.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times.",
+  "DICETHESPIRE-SQUARE_PAIR.title": "Square Pair"
 }

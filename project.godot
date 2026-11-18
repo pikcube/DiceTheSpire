@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="DiceTheSpire"
+run/main_scene="uid://6ycnf2pik0yw"
 config/features=PackedStringArray("4.5", "C#", "Mobile")
 config/icon="res://DiceTheSpire/mod_image.png"
 

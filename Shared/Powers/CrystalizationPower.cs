@@ -1,14 +1,10 @@
-﻿using DiceTheSpire.Shared.Cards;
-using DiceTheSpire.Shared.Commands;
+﻿using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Utility;
-using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using Newtonsoft.Json.Linq;
 
 namespace DiceTheSpire.Shared.Powers;
 public class CrystalizationPower : DiceTheSpirePower

@@ -2,12 +2,16 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Thief.Uncommon;
 
 public class MoodChange() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3, ValueProp.Move)];
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.FromPower<DexterityPower>()
@@ -20,8 +24,10 @@ public class MoodChange() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon,
             return;
         }
 
-        int strength = Owner.Creature.GetPower<StrengthPower>()?.Amount ?? 0;
-        int dexterity = Owner.Creature.GetPower<DexterityPower>()?.Amount ?? 0;
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+
+        var strength = Owner.Creature.GetPower<StrengthPower>()?.Amount ?? 0;
+        var dexterity = Owner.Creature.GetPower<DexterityPower>()?.Amount ?? 0;
 
         await PowerCmd.Remove<StrengthPower>(Owner.Creature);
         await PowerCmd.Remove<DexterityPower>(Owner.Creature);
@@ -32,6 +38,6 @@ public class MoodChange() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon,
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 }
