@@ -131,7 +131,7 @@
   "DICETHESPIRE-READY_OR_NOT.title": "Ready Or Not",
   "DICETHESPIRE-ROLL_THE_BONES.description": "[gold]Count:[/gold] {BaseCount}\n[gold]Summon[/gold] {Summon:diff()}.\nApply {DoomPower:diff()} [gold]Doom[/gold].",
   "DICETHESPIRE-ROLL_THE_BONES.title": "Roll The Bones",
-  "DICETHESPIRE-ROSEPETAL_SHIELD.description": "",
+  "DICETHESPIRE-ROSEPETAL_SHIELD.description": "[gold]Count:[/gold] {BaseCount}\nGain {Block:diff()} [gold]Block[/gold] X times.",
   "DICETHESPIRE-ROSEPETAL_SHIELD.title": "Rosepetal Shield",
   "DICETHESPIRE-SEIZE.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold].\nEnemy loses {StrengthDownPower:diff()} [gold]Strength[/gold].",
   "DICETHESPIRE-SEIZE.title": "Seize",
