@@ -1,6 +1,8 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
+using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,10 +12,12 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class BattleCry() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
+public class BattleCry() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), IFuryModifier
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(8M), new PowerVar<VulnerablePower>(2), .. RangeVars.Make(0, 2)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
+    public bool ShouldIgnoreFury => true;
+    public bool ShouldMaintainFury => true;
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FuryPower>(1M), new PowerVar<VulnerablePower>(2), .. RangeVars.Make(0, 2)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (RunState is null || CombatState is null)
@@ -21,11 +25,10 @@ public class BattleCry() : TheWarriorCard(3, CardType.Skill, CardRarity.Uncommon
             return;
         }
         await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState.Enemies, DynamicVars.Vulnerable.IntValue, Owner.Creature, cardPlay.Card);
-        await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, cardPlay.Card);
+        await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, DynamicVars.Power<FuryPower>().IntValue, Owner.Creature, cardPlay.Card);
     }
     protected override void OnUpgrade()
     {
-        //DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
         //DynamicVars.Vulnerable.UpgradeValueBy(1);
         DynamicVars.MaxRange.UpgradeValueBy(-2);
     }

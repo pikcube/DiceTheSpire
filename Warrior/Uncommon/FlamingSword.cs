@@ -16,9 +16,8 @@ namespace DiceTheSpire.Warrior.Uncommon;
 public class FlamingSword() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     private int TimesPlayed { get; set; } = 0;
-
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [.. MakeCalculatedVar("ScalingStrengthPower", 2, Bonus)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>()];
 
     private static decimal Bonus(CardModel card, Creature? arg2)
     {
@@ -30,9 +29,9 @@ public class FlamingSword() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncom
 
         if (card.IsUpgraded)
         {
-            return 4 * fs.TimesPlayed;
+            return 3 * fs.TimesPlayed;
         }
-        return 3 * fs.TimesPlayed;
+        return 2 * fs.TimesPlayed;
     }
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
