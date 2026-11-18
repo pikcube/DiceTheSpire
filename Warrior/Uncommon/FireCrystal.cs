@@ -1,5 +1,6 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Shared.Interfaces;
+using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,9 +11,8 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace DiceTheSpire.Warrior.Uncommon;
 public class FireCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
-    //public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(6), new PowerVar<VigorPower>(8M)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(6), new PowerVar<FuryPower>(2M)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -22,7 +22,7 @@ public class FireCrystal() : TheWarriorCard(1, CardType.Skill, CardRarity.Uncomm
         }
         if (IsPlayable)
         {
-            await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars.Power<VigorPower>().IntValue, Owner.Creature, this);
+            await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, DynamicVars.Power<FuryPower>().IntValue, Owner.Creature, this);
         }
     }
     protected override bool IsDiceyPlayable => Owner.PlayerCombatState?.Hand.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) + Owner.PlayerCombatState?.PlayPile.Cards.Sum(c => c.EnergyCost.GetAmountToSpend()) >= DynamicVars.Energy.IntValue;

@@ -1,5 +1,7 @@
 ﻿using DiceTheSpire.Shared.Commands;
 using DiceTheSpire.Shared.Utility;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -26,21 +28,23 @@ public class CrystalizationPower : DiceTheSpirePower
 
     public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
     {
-        if (fromHandDraw != true)
+        if (!fromHandDraw)
         {
             return;
         }
 
-        CrystalizeRerollsLeftThisTurn = Amount;
-
-        for (int n = 0; n < CrystalizeRerollsLeftThisTurn; ++n)
+        if (CrystalizeRerollsLeftThisTurn > 0)
         {
             await RerollCmd.RerollAsync(choiceContext, card, RerollDuration.UntilEndOfTurnOrPlayed);
+            --CrystalizeRerollsLeftThisTurn;
         }
     }
 
-    //public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
-    //{
-    //    CrystalizeRerollsLeftThisTurn = Amount;
-    //}
+    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
+    {
+        CrystalizeRerollsLeftThisTurn = Amount;
+        return Task.CompletedTask;
+    }
 }
