@@ -176,6 +176,6 @@
   "DICETHESPIRE-WRECKING_BALL.title": "Wrecking Ball",
   "DICETHESPIRE-SQUARE_PAIR.description": "Gain {Block:diff()} [gold]Block[/gold] {Repeat:diff()} times.",
   "DICETHESPIRE-SQUARE_PAIR.title": "Square Pair",
-  "DICETHESPIRE-SLIMEPICK.description": "Add {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].",
+  "DICETHESPIRE-SLIMEPICK.description": "Add {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].\nThey apply {PoisonPower:diff()} [gold]Poison[/gold] to ALL enemies.",
   "DICETHESPIRE-SLIMEPICK.title": "Slimepick"
 }
