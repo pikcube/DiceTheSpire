@@ -13,23 +13,24 @@ public class PoisonNeedle() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommo
     protected override bool HasEnergyCostX => true;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PoisonPower>()];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PoisonPower>(6)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         var xCost = EnergyCost.CapturedXValue;
-        if (IsUpgraded)
-        {
-            ++xCost;
-        }
-
+        
         for (var i = 0; i < xCost; ++i)
         {
             await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue,
                 Owner.Creature, this);
             await Cmd.Wait(0.1f);
         }
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Poison.UpgradeValueBy(2);
     }
 }

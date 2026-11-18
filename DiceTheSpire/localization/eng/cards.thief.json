@@ -115,7 +115,7 @@
   "DICETHESPIRE-POCKET_KNIFE.title": "Pocket Knife",
   "DICETHESPIRE-POISON_CROWN.description": "[gold]Pips[/gold] now apply {PoisonPower:diff()} [gold]Poison[/gold] to All enemies.",
   "DICETHESPIRE-POISON_CROWN.title": "Poison Crown",
-  "DICETHESPIRE-POISON_NEEDLE.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold] X{IfUpgraded:show:+1|} times.",
+  "DICETHESPIRE-POISON_NEEDLE.description": "Apply {PoisonPower:diff()} [gold]Poison[/gold] X times.",
   "DICETHESPIRE-POISON_NEEDLE.title": "Poison Needle",
   "DICETHESPIRE-POISON_PARADISE.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you are attacked this turn, apply {PoisonPower:diff()} [gold]Poison[/gold] to the attacker.",
   "DICETHESPIRE-POISON_PARADISE.title": "Poison Paradise",
