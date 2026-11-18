@@ -15,7 +15,7 @@
   "DICETHESPIRE-BEAR_HUG.title": "Bear Hug",
   "DICETHESPIRE-BEAR_MAUL.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for each other card in your [gold]Hand[/gold].",
   "DICETHESPIRE-BEAR_MAUL.title": "Bear Maul",
-  "DICETHESPIRE-BEAR_ROAR.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "DICETHESPIRE-BEAR_ROAR.description": "[gold]Count:[/gold] {BaseCount}\nGain {DexterityPower:diff()} [gold]Dexterity[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
   "DICETHESPIRE-BEAR_ROAR.title": "Bear Roar",
   "DICETHESPIRE-BEAR_SWIPE.description": "Deal {Damage:diff()} damage.\nIf this is the first Attack you play this turn, gain {Energy:diceIcons()} and draw {Cards:diff()} card.",
   "DICETHESPIRE-BEAR_SWIPE.title": "Bear Swipe",
