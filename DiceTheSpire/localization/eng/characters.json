@@ -11,6 +11,7 @@
   "DICETHESPIRE-THE_THIEF.pronounObject": "him",
   "DICETHESPIRE-THE_THIEF.pronounPossessive": "his",
   "DICETHESPIRE-THE_THIEF.pronounSubject": "he",
+  "DICETHESPIRE-THE_THIEF.shortTitle": "Thief",
   "DICETHESPIRE-THE_THIEF.title": "The Thief",
   "DICETHESPIRE-THE_THIEF.titleObject": "The Thief",
 
@@ -26,6 +27,7 @@
   "DICETHESPIRE-THE_WARRIOR.pronounObject": "him",
   "DICETHESPIRE-THE_WARRIOR.pronounPossessive": "his",
   "DICETHESPIRE-THE_WARRIOR.pronounSubject": "he",
+  "DICETHESPIRE-THE_WARRIOR.shortTitle": "Warrior",
   "DICETHESPIRE-THE_WARRIOR.title": "The Warrior",
   "DICETHESPIRE-THE_WARRIOR.titleObject": "The Warrior"
 }

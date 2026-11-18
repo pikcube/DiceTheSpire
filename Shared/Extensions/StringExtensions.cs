@@ -32,8 +32,8 @@ public static class StringExtensions
 
         public string BigPowerImagePath()
         {
-            path = Path.Join(MainFile.ResPath, "images", "powers", "big", path);
-            return ResourceLoader.Exists(path) ? path : Path.Join(MainFile.ResPath, "images", "powers", "big", "power.png");
+            string fullPath = Path.Join(MainFile.ResPath, "images", "powers", "big", path);
+            return ResourceLoader.Exists(fullPath) ? fullPath : path.PowerImagePath();
         }
 
         public string RelicImagePath()
