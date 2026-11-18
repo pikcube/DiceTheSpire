@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Runs;
 using Pikcube.Common.Code.Extensions;
 
@@ -57,10 +58,19 @@ public static class DiceyHooks
 
     internal static IEnumerable<IHoverTip> ModifyPipHoverTips(IRunState runState, ICombatState? combatState, Pip pip)
     {
-        return runState.IterateHookListeners(combatState)
-            .OfType<IModifyPipOnPlayListener>()
-            .Where(listener => listener.ShouldModify(pip))
-            .SelectMany(listener => listener.PipHoverTips);
+        decimal poisonAmount = OnModifyPipPoison(runState, combatState, 0, pip);
+        if (poisonAmount > 0)
+        {
+            yield return HoverTipFactory.FromPower<PoisonPower>((int)poisonAmount);
+        }
+
+        foreach (IHoverTip tip in runState.IterateHookListeners(combatState)
+                     .OfType<IModifyPipOnPlayListener>()
+                     .Where(listener => listener.ShouldModify(pip))
+                     .SelectMany(listener => listener.PipHoverTips))
+        {
+            yield return tip;
+        }
     }
 
     internal static async Task OnAfterBumpAsync(IRunState runState, ICombatState? combatState, PlayerChoiceContext choiceContext, CardModel card, CardModel? newCard)
