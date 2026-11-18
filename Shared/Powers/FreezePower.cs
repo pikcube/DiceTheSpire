@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Multiplayer;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
@@ -44,9 +45,14 @@ public class FreezePower : DiceTheSpirePower
         }
     }
 
-    public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side,
-        IEnumerable<Creature> participants)
+    //public override Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    //{
+    //    return Owner.Side == side ? PowerCmd.Remove(this) : Task.CompletedTask;
+    //}
+
+    // We're doing this stupid nonsense because Turret Operator is a bitch.
+    public override Task AfterSideTurnStartLate(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
-        return Owner.Side == side ? PowerCmd.Remove(this) : Task.CompletedTask;
+        return Owner.Side != side ? PowerCmd.Remove(this) : Task.CompletedTask;
     }
 }
