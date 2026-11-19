@@ -161,7 +161,7 @@
   "DICETHESPIRE-STOLEN_WEAPON.title": "Stolen Weapon",
   "DICETHESPIRE-STRIKE_THIEF.description": "Deal {Damage:diff()} damage.",
   "DICETHESPIRE-STRIKE_THIEF.title": "Strike",
-  "DICETHESPIRE-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {Repeat:diff()} times.|.}",
+  "DICETHESPIRE-TETRAPHOBIA.description": "Deal {Damage:diff()} damage{IfUpgraded:show: {HitCount:diff()} times.|.}",
   "DICETHESPIRE-TETRAPHOBIA.title": "Tetraphobia",
   "DICETHESPIRE-TOXIC_CLAW.description": "Deal {Damage:diff()} damage.\nApply {PoisonPower:diff()} [gold]Poison[/gold].",
   "DICETHESPIRE-TOXIC_CLAW.title": "Toxic Claw",
