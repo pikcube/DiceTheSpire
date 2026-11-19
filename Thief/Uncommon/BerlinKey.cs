@@ -8,6 +8,8 @@ namespace DiceTheSpire.Thief.Uncommon;
 
 public class BerlinKey() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState is null)
