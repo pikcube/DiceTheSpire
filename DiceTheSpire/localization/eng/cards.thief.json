@@ -45,7 +45,7 @@
   "DICETHESPIRE-CARROTS.title": "Carrots",
   "DICETHESPIRE-CHISEL.description": "Reduce the cost of a card in your [gold]Hand[/gold] by 1 this turn.\nAdd a [gold]Pip[/gold] to your [gold]Hand[/gold].",
   "DICETHESPIRE-CHISEL.title": "Chisel",
-  "DICETHESPIRE-CLOAK.description": "Add {Cards:diff()} [gold]{Cards:plural:Pip|Pips}[/gold] to your [gold]Hand[/gold].\nGain {Block:diff()} [gold]Block[/gold] for each [gold]Pip[/gold] in your [gold]Hand[/gold].",
+  "DICETHESPIRE-CLOAK.description": "Gain {Block:diff()} [gold]Block[/gold].\nALL enemies lose {StrengthPower:diff()} [gold]Strength[/gold] this turn.",
   "DICETHESPIRE-CLOAK.title": "Cloak",
   "DICETHESPIRE-COUNTVALANCHE.description": "[gold]Count:[/gold] {BaseCount}.\nDeal {Damage:diff()} damage X times.",
   "DICETHESPIRE-COUNTVALANCHE.title": "Countvalanche",
