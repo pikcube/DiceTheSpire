@@ -27,7 +27,7 @@ public class LightningKickQuest : WorkoutQuestCard
     public override async Task AfterCombatVictory(CombatRoom room)
     {
         --CombatsRemaining;
-        if (CombatsRemaining > 0)
+        if (CombatsRemaining <= 0)
         {
             await OnWorkoutCompleteAsync();
         }

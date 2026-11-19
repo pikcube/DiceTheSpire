@@ -6,6 +6,7 @@ using DiceTheSpire.Shared.Powers;
 using DiceTheSpire.Shared.Unions;
 using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
+using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -26,6 +27,14 @@ namespace DiceTheSpire.Shared.Utility;
 
 public static class DiceyHelperFunctions
 {
+    [HarmonyPatch(typeof(RelicModel), "IsLateInAct3")]
+    [HarmonyReversePatch]
+    public static bool IsLateInAct3(IRunState runState)
+    {
+        _ = runState;
+        return false;
+    }
+
     public static async Task ApplyRandomDebuffAsync(PlayerChoiceContext choiceContext, IRunState runState, Participant target, Participant? applier, CardModel? cardSource, bool silent = false)
     {
         PowerModel power;
