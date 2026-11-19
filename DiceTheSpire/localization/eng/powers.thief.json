@@ -80,6 +80,8 @@
   "DICETHESPIRE-SKELETON_KEY_POWER.title": "Skeleton Key",
   "DICETHESPIRE-HONEY_POWER.description": "The effect of the next cost [gold]X[/gold] card you play is increased by 1",
   "DICETHESPIRE-HONEY_POWER.smartDescription": "The effect of the next cost [gold]X[/gold] card you play is increased by {Amount}",
-  "DICETHESPIRE-HONEY_POWER.title": "Honey"
-
+  "DICETHESPIRE-HONEY_POWER.title": "Honey",
+  "DICETHESPIRE-CAMOUFLAGE_POWER.description": "When you play an off-class card, gain 3 [gold]Block[/gold].",
+  "DICETHESPIRE-CAMOUFLAGE_POWER.smartDescription": "When you play an off-class card, gain {Amount} [gold]Block[/gold].",
+  "DICETHESPIRE-CAMOUFLAGE_POWER.title": "Camouflage"
 }
