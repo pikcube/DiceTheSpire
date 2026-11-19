@@ -1,4 +1,5 @@
-﻿using DiceTheSpire.Shared.Enchantments;
+﻿using DiceTheSpire.Shared.Cards;
+using DiceTheSpire.Shared.Enchantments;
 using DiceTheSpire.Thief.Token;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +16,7 @@ public class Autotune() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, T
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromCard<Starpick>(IsUpgraded), HoverTipFactory.FromCard<RollTheBones>(IsUpgraded),
-        HoverTipFactory.FromCard<CrossedWire>(IsUpgraded), ..HoverTipFactory.FromEnchantment<Stellar>(),
+        HoverTipFactory.FromCard<CrossedWire>(IsUpgraded),
         HoverTipFactory.Static(StaticHoverTip.SummonStatic), HoverTipFactory.FromPower<DoomPower>(),
         HoverTipFactory.Static(StaticHoverTip.Channeling), HoverTipFactory.FromOrb<PlasmaOrb>()
     ];
