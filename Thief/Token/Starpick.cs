@@ -1,6 +1,5 @@
 ﻿using BaseLib.Utils;
 using DiceTheSpire.Shared.Cards;
-using DiceTheSpire.Shared.Enchantments;
 using DiceTheSpire.Shared.Listeners;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
