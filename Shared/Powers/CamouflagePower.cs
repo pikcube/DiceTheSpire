@@ -13,7 +13,7 @@ public class CamouflagePower : DiceTheSpirePower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner.Player || Owner.Player.Character.CardPool.AllCards.Contains(cardPlay.Card))
+        if (cardPlay.Card.Owner != Owner.Player || Owner.Player.Character.CardPool.AllCardIds.Contains(cardPlay.Card.Id))
         {
             return;
         }
