@@ -11,8 +11,8 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class FireBreath() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WarriorFireBreathPower>(6M), new PowerVar<FuryPower>(1M), new PowerVar<VigorPower>(4M)];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue), HoverTipFactory.FromPower<VigorPower>(DynamicVars.Power<VigorPower>().IntValue)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WarriorFireBreathPower>(2M), new PowerVar<FuryPower>(1M)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>(DynamicVars.Power<WarriorFireBreathPower>().IntValue), HoverTipFactory.FromPower<FuryPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -21,7 +21,6 @@ public class FireBreath() : TheWarriorCard(2, CardType.Power, CardRarity.Uncommo
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<WarriorFireBreathPower>().UpgradeValueBy(2);
-        DynamicVars.Power<VigorPower>().UpgradeValueBy(2);
+        DynamicVars.Power<WarriorFireBreathPower>().UpgradeValueBy(1);
     }
 }

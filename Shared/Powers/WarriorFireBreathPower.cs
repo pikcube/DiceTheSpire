@@ -17,6 +17,6 @@ public class WarriorFireBreathPower : DiceTheSpirePower
         {
             return;
         }
-        await PowerCmd.Apply<VigorPower>(choiceContext, Owner, Amount, Applier, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, Amount, Applier, null);
     }
 }

@@ -149,7 +149,7 @@
   "DICETHESPIRE-BASS_DROP.title": "Bass Drop",
   "DICETHESPIRE-FROZEN_SWORD_STRIKE.description": "[gold]Freeze[/gold] the enemy.\nDeal {Damage:diff()} damage.\nNext turn, gain {NextTurnFuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-FROZEN_SWORD_STRIKE.title": "Frozen Sword Strike",
-  "DICETHESPIRE-FIRE_BREATH.description": "Whenever you gain [gold]Fury[/gold], gain {WarriorFireBreathPower:diff()} [gold]Vigor[/gold].",
+  "DICETHESPIRE-FIRE_BREATH.description": "Whenever you gain [gold]Fury[/gold], gain {WarriorFireBreathPower:diff()} [gold]Stregnth[/gold].",
   "DICETHESPIRE-FIRE_BREATH.title": "Fire Breath",
   "DICETHESPIRE-ICE_BREATH.description": "Whenever you end your\nturn with [gold]Fury[/gold],\ngain {WarriorIceBreathPower:diff()} [gold]Block[/gold].",
   "DICETHESPIRE-ICE_BREATH.title": "Ice Breath",
