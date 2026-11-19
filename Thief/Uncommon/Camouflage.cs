@@ -6,9 +6,9 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace DiceTheSpire.Thief.Rare;
+namespace DiceTheSpire.Thief.Uncommon;
 
-public class Camouflage() : TheThiefCard(0, CardType.Power, CardRarity.Rare, TargetType.Self), ICountdown
+public class Camouflage() : TheThiefCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICountdown
 {
     public int BaseCount
     {

@@ -5,9 +5,9 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace DiceTheSpire.Thief.Uncommon;
+namespace DiceTheSpire.Thief.Rare;
 
-public class Bearpick() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Bearpick() : TheThiefCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromCard<Pip>()];
