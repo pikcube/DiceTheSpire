@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://21pk0ipnc2v0"
-path="res://.godot/imported/toasted_marshmalllow_outline.png-8a49999a08663b937038c4ec4b4ba137.ctex"
+uid="uid://beomvc8bygwd"
+path="res://.godot/imported/toasted_marshmallow_outline.png-27b08f35d528ea7bdc472e37b107da14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DiceTheSpire/images/relics/toasted_marshmalllow_outline.png"
-dest_files=["res://.godot/imported/toasted_marshmalllow_outline.png-8a49999a08663b937038c4ec4b4ba137.ctex"]
+source_file="res://DiceTheSpire/images/relics/toasted_marshmallow_outline.png"
+dest_files=["res://.godot/imported/toasted_marshmallow_outline.png-27b08f35d528ea7bdc472e37b107da14.ctex"]
 
 [params]
 
