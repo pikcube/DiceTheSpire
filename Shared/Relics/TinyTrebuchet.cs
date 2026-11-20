@@ -14,7 +14,7 @@ namespace DiceTheSpire.Shared.Relics;
 
 public class TinyTrebuchet : TheThiefRelic, IModifyPipOnPlayListener
 {
-    public override RelicRarity Rarity => RelicRarity.Uncommon;
+    public override RelicRarity Rarity => RelicRarity.Common;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4, ValueProp.Move)];
 
