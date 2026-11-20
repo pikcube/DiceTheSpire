@@ -21,7 +21,7 @@ public class Chisel() : TheThiefCard(1, CardType.Skill, CardRarity.Common, Targe
             return;
         }
         CardSelectorPrefs prefs = new(DiceySelection.ToModifyCost, 1);
-        CardModel? original = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
+        CardModel? original = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, c => c.EnergyCost.GetResolved() > 0 && !c.EnergyCost.CostsX, this)).FirstOrDefault();
         if (original == null)
         {
             return;
