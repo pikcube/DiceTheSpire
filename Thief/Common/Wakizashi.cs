@@ -17,7 +17,7 @@ public class Wakizashi() : TheThiefCard(1, CardType.Attack, CardRarity.Common, T
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay).Targeting(cardPlay.Target)
             .Execute(choiceContext);
-        await CardPileCmd.Draw(choiceContext, Owner);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 
     protected override void OnUpgrade()
