@@ -1,4 +1,6 @@
 {
   "DICETHESPIRE-POCKET_DICE.description": "Add {Cards:diff()} [gold]Pips[/gold] to your [gold]Hand[/gold].",
-  "DICETHESPIRE-POCKET_DICE.title": "Pocket Dice"
+  "DICETHESPIRE-POCKET_DICE.title": "Pocket Dice",
+  "DICETHESPIRE-PRISMATIC_POTION.description": "Choose 1 of 3 random cards of any color to add into your [gold]Hand[/gold]. It's free to play this turn.",
+  "DICETHESPIRE-PRISMATIC_POTION.title": "Prismatic Potion"
 }
