@@ -9,7 +9,7 @@ namespace DiceTheSpire.Thief.Uncommon;
 
 public class Marmalade() :TheThiefCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<MarmaladePower>(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<MarmaladePower>(3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

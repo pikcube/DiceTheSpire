@@ -9,7 +9,7 @@ namespace DiceTheSpire.Thief.Rare;
 
 public class DaggerStrike() : TheThiefCard(0, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9M, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Move)];
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, ShockModel.Shock];
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
     protected override bool HasEnergyCostX => true;
@@ -23,6 +23,6 @@ public class DaggerStrike() : TheThiefCard(0, CardType.Attack, CardRarity.Rare, 
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Damage.UpgradeValueBy(2);
     }
 }
