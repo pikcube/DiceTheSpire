@@ -20,7 +20,7 @@ public class SquarePair() : TheThiefCard(2, CardType.Skill, CardRarity.Common, T
             return;
         }
 
-        for (var i = 0; i < DynamicVars.Repeat.BaseValue; i++)
+        for (int i = 0; i < DynamicVars.Repeat.BaseValue; i++)
         {
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         }

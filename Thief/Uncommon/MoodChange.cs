@@ -26,8 +26,8 @@ public class MoodChange() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommon,
 
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
 
-        var strength = Owner.Creature.GetPower<StrengthPower>()?.Amount ?? 0;
-        var dexterity = Owner.Creature.GetPower<DexterityPower>()?.Amount ?? 0;
+        int strength = Owner.Creature.GetPower<StrengthPower>()?.Amount ?? 0;
+        int dexterity = Owner.Creature.GetPower<DexterityPower>()?.Amount ?? 0;
 
         await PowerCmd.Remove<StrengthPower>(Owner.Creature);
         await PowerCmd.Remove<DexterityPower>(Owner.Creature);

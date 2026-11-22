@@ -16,7 +16,7 @@ public class HoneyPower : DiceTheSpirePower
             return originalValue;
         }
 
-        var newValue = originalValue + Amount;
+        int newValue = originalValue + Amount;
         PowerCmd.Remove(this);
         return newValue;
     }

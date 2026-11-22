@@ -26,7 +26,7 @@ public class Blender() : TheThiefCard(1, CardType.Skill, CardRarity.Uncommon, Ta
             return;
         }
 
-        var cost = card.EnergyCost.CostsX ? Owner.PlayerCombatState.Energy : card.EnergyCost.Canonical;
+        int cost = card.EnergyCost.CostsX ? Owner.PlayerCombatState.Energy : card.EnergyCost.Canonical;
 
         await card.ExhaustAsync(choiceContext);
         await Pip.CreateInHandAsync(Owner, cost, CombatState);

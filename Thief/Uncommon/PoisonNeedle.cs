@@ -19,9 +19,9 @@ public class PoisonNeedle() : TheThiefCard(0, CardType.Skill, CardRarity.Uncommo
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
-        var xCost = EnergyCost.CapturedXValue;
+        int xCost = EnergyCost.CapturedXValue;
         
-        for (var i = 0; i < xCost; ++i)
+        for (int i = 0; i < xCost; ++i)
         {
             await PowerCmd.Apply<PoisonPower>(choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue,
                 Owner.Creature, this);

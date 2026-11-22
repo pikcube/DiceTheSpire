@@ -20,7 +20,7 @@ public class RosepetalShield() : TheThiefCard(1, CardType.Skill, CardRarity.Rare
             return;
         }
 
-        for (var i = 0; i < CountValue; i++)
+        for (int i = 0; i < CountValue; i++)
         {
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         }

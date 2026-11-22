@@ -13,7 +13,7 @@ public class BearMaul() : TheThiefCard(0, CardType.Attack, CardRarity.Uncommon, 
         new CalculationBaseVar(2), new ExtraDamageVar(2),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((c, _) =>
         {
-            var count = PileType.Hand.GetPile(c.Owner).Cards.Count;
+            int count = PileType.Hand.GetPile(c.Owner).Cards.Count;
             return c.Pile is not { Type: PileType.Hand } ? count : count - 1;
         })
     ];
