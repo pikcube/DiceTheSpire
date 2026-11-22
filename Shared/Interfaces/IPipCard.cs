@@ -43,7 +43,7 @@ public static class PipCard
         }
     }
 
-    private static string EnergyDiceconPath(string resPath, params ReadOnlySpan<string?> path)
+    public static string EnergyDiceconPath(string resPath, params ReadOnlySpan<string?> path)
     {
         return Path.Join([resPath, "images", "charui", "Energy", .. path]);
     }

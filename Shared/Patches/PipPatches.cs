@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Reflection;
+using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Interfaces;
 using Godot;
 using HarmonyLib;
@@ -15,13 +16,6 @@ namespace DiceTheSpire.Shared.Patches;
 [HarmonyPatch(typeof(NCard), "UpdateEnergyCostVisuals")]
 public static class PipPatches
 {
-    public static LabelSettings CountdownLabelSettings => new()
-    {
-        Font = ResourceLoader.Load<FontFile>($"{MainFile.ResPath}/fonts/Pangolin.ttf"),
-        FontColor = new Color(0, 0, 0),
-        OutlineColor = new Color(0, 0, 0, 0),
-        ShadowColor = new Color(0, 0, 0, 0),
-    };
 
     public static void Prefix(MegaLabel ____energyLabel)
     {
@@ -67,6 +61,43 @@ public static class PipPatches
 
 
         ____energyIcon.Texture = c.GetPips(withModifiers, ____pretendCardCanBePlayed);
+    }
+}
+
+[HarmonyPatch(typeof(NCard), "UpdateStarCostVisuals")]
+public static class StarReplacementPatches
+{
+    public static Texture2D? CachedStars { get; set; } = null;
+    public static LabelSettings CountdownLabelSettings => new()
+    {
+        Font = ResourceLoader.Load<FontFile>($"{MainFile.ResPath}/fonts/Pangolin.ttf"),
+        FontColor = new Color(0, 0, 0),
+        OutlineColor = new Color(0, 0, 0, 0),
+        ShadowColor = new Color(0, 0, 0, 0),
+    };
+
+    public static void Postfix(NCard __instance, MegaLabel ____starLabel, TextureRect ____starIcon)
+    {
+        CachedStars ??= ____starIcon.Texture;
+
+        ____starLabel.LabelSettings = null;
+        ____starIcon.Texture = CachedStars;
+
+        if (__instance.Model is not ICountdown c)
+        {
+            return;
+        }
+
+        if (__instance.Model?.CanonicalStarCost >= 0)
+        {
+            return;
+        }
+
+        ____starIcon.Visible = true;
+        ____starLabel.LabelSettings = CountdownLabelSettings;
+        ____starLabel.SetTextAutoSize(c.GetCountString());
+
+        ____starIcon.Texture = ResourceLoader.Load<Texture2D>(PipCard.EnergyDiceconPath(MainFile.ResPath, $"ui_dice_dice0.png"));
     }
 }
 

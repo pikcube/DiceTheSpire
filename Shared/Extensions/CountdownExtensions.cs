@@ -18,6 +18,11 @@ public static class CountdownExtensions
 
         public int Count => instance.GetCount(true);
 
+        public string GetCountString()
+        {
+            return instance.HasCountdownCostX ? "X" : instance.BaseCount.ToString();
+        }
+
         public int GetCount(bool includeGlobal)
         {
             if (instance.HasCountdownCostX)
