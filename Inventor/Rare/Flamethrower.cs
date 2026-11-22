@@ -18,7 +18,7 @@ public class Flamethrower() : TheInventorCard(2, CardType.Attack, CardRarity.Rar
     public override string GetScrapId => nameof(Blowtorch);
     public const string Judge = "JudgeVar";
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain, CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12, DamageProps.card), new(Judge, 12)];
 

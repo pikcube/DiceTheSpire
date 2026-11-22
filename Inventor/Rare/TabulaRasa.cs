@@ -13,7 +13,7 @@ public class TabulaRasa() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ShockModel.Shock];
     protected override IEnumerable<IHoverTip> ExtraInventorHoverTips => [HoverTipFactory.FromKeyword(ShockModel.Shock)];
 
     protected override bool HasEnergyCostX => true;
@@ -24,19 +24,18 @@ public class TabulaRasa() : TheInventorCard(-1, CardType.Skill, CardRarity.Rare,
     {
         int drawNum = cardPlay.Card.ResolveEnergyXValue();
         IReadOnlyList<CardModel> cardsInHand = PileType.Hand.GetPile(Owner).Cards;
-        int energyGain = cardsInHand.Count;
         foreach (CardModel card in cardsInHand.ToArray())
         {
             await ShockModel.ShockCardAsync(choiceContext, card);
+            await PlayerCmd.GainEnergy(card.EnergyCost.GetAmountToSpend(), Owner);
         }
-
+        
         await CardPileCmd.Draw(choiceContext, drawNum, Owner);
-        await PlayerCmd.GainEnergy(energyGain, Owner);
+        
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
-        AddKeyword(ShockModel.Shock);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }
