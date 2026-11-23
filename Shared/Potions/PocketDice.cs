@@ -1,10 +1,7 @@
 ﻿using DiceTheSpire.Shared.Cards;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Potions;
-using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -21,7 +18,7 @@ public class PocketDice : TheThiefPotion
 
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        if (target?.Player is null || target?.CombatState is null)
+        if (target?.Player is null || target.CombatState is null)
         {
             return;
         }

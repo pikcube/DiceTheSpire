@@ -5,10 +5,8 @@ using DiceTheSpire.Thief;
 using DiceTheSpire.Warrior;
 using Godot;
 using HarmonyLib;
-using MegaCrit.Sts2.addons.mega_text;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
-using MegaCrit.Sts2.Core.Nodes.Cards;
 using Pikcube.Common.Code.Utility;
 using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 

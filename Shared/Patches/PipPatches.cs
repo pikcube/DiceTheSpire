@@ -67,8 +67,8 @@ public static class PipPatches
 [HarmonyPatch(typeof(NCard), "UpdateStarCostVisuals")]
 public static class StarReplacementPatches
 {
-    public static Texture2D? CachedStars { get; set; } = null;
-    public static LabelSettings CountdownLabelSettings => new()
+    private static Texture2D? CachedStars { get; set; }
+    private static LabelSettings CountdownLabelSettings => new()
     {
         Font = ResourceLoader.Load<FontFile>($"{MainFile.ResPath}/fonts/Pangolin.ttf"),
         FontColor = new Color(0, 0, 0),
