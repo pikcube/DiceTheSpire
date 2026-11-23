@@ -345,8 +345,9 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
     {
         return choice switch
         {
-            TheBomb => nameof(BigBomb), //It's called The Bomb, obviously it should give you a bigger bomb
-            ByrdSwoop => nameof(ByrdNuggets), //Only gadget that is exclusive to an off class card, and it's for a dumb joke
+            TheBomb => nameof(BigBomb), //It's called The Bomb, obviously it should give you a bigger bomb.
+            ByrdSwoop => nameof(ByrdNuggets), //I don't want killing the Byrd to be optimal, so you get 1 entire extra Max HP for scrapping it.
+            GodByrd => nameof(Armageddon), //Good news, enemies have 1 HP next combat. Bad news, so do you.
             _ => null
         };
     }
