@@ -30,7 +30,7 @@ public class NoCombatRewardsPatch
         foreach (Player p in RunManager.Instance.PrivatePropertyWrapper<RunManager, RunState>("State").Value?.Players ?? [])
         {
             if (p.Character is not TheInventor ||
-                RewardSetOfferPatches.IsEndOfRun(p.RunState, room) ||
+                RewardSetOfferMoveNextPatches.IsEndOfRun(p.RunState, room) ||
                 ScrapManager.GadgetIsFromThisFloor(p) ||
                 ScrapManager.DebugMode == ScrapManager.ScrapDebugMode.Off)
             {

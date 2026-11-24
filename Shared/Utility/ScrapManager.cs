@@ -95,12 +95,6 @@ public class ScrapManager() : CustomSingletonModel(HookType.Run), IRunInitialize
         await Task.WhenAll(tasks);
     }
 
-    public static async Task DoScrapForThenOfferAsync(RewardsSet rewardsSet)
-    {
-        await DoScrapForAsync(rewardsSet.Player, rewardsSet.Rewards);
-        await RewardSetOfferPatches.OfferRewardAfterScrapAsync(rewardsSet);
-    }
-
     public static async Task DoScrapForAsync(Player p, List<Reward>? rewards)
     {
         ArgumentNullException.ThrowIfNull(NMapScreen.Instance);
