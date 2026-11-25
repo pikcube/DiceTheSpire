@@ -35,6 +35,7 @@ public class Javelin() : TheWarriorCard(3, CardType.Skill, CardRarity.Rare, Targ
     protected override void OnUpgrade()
     {
         DynamicVars.MinRange.UpgradeValueBy(-3);
+        //DynamicVars.MaxRange.UpgradeValueBy(-1);
     }
 
     protected override void AfterCloned()

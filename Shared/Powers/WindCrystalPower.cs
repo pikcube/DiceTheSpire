@@ -1,5 +1,6 @@
 ﻿using DiceTheSpire.Shared.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -10,12 +11,14 @@ public class WindCrystalPower : DiceTheSpirePower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (cardPlay.Card.Type != CardType.Power || Owner.Player is null)
+        if (Owner.Player is null || Owner.Player != player)
         {
             return;
         }
+
         await DodgeCmd.DodgeAsync(choiceContext, Owner.Player, Amount, this);
     }
 }

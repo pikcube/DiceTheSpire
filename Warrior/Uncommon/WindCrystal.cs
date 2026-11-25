@@ -12,7 +12,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class WindCrystal() : TheWarriorCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self), ICrystalCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WindCrystalPower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WindCrystalPower>(3M)];
     //PowerVar<SuperSetDrawPower>(1M);
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

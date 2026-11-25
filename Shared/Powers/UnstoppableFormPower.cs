@@ -1,7 +1,10 @@
 ﻿using DiceTheSpire.Shared.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 
 namespace DiceTheSpire.Shared.Powers;
 
@@ -13,13 +16,8 @@ public class UnstoppableFormPower : DiceTheSpirePower
     public override PowerStackType StackType => PowerStackType.Counter;
 
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player) 
+    public override int ModifyAttackHitCount(AttackCommand attack, int hitCount)
     {
-        if (Owner.Player is null || Owner.Player != player)
-        {
-            return;
-        }
-
-        await DodgeCmd.DodgeAsync(choiceContext, Owner.Player, Amount, this);
+        return hitCount <= 1 || !(attack.ModelSource is CardModel modelSource) || modelSource.Type != CardType.Attack || modelSource.Owner.Creature != Owner ? hitCount : hitCount + Amount;
     }
 }
