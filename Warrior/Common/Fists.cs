@@ -11,7 +11,7 @@ public class Fists() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Tar
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(1M, DamageProps.card),
-        new RepeatVar(4)
+        new HitCountVar(4)
     ];
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -22,12 +22,12 @@ public class Fists() : TheWarriorCard(1, CardType.Attack, CardRarity.Common, Tar
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
-            .WithHitCount(DynamicVars.Repeat.IntValue)
+            .WithHitCount(DynamicVars.HitCount.IntValue)
             .Execute(choiceContext);
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        DynamicVars.HitCount.UpgradeValueBy(1);
     }
 
 }

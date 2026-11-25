@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 public class LightningKick() : WorkoutCard(2, CardType.Attack, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1M, DamageProps.card), new RepeatVar(8)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1M, DamageProps.card), new HitCountVar(8)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -21,7 +21,7 @@ public class LightningKick() : WorkoutCard(2, CardType.Attack, TargetType.AnyEne
 
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
-        .WithHitCount(DynamicVars.Repeat.IntValue)
+        .WithHitCount(DynamicVars.HitCount.IntValue)
         .FromCard(this, cardPlay)
         .Targeting(cardPlay.Target)
         .WithHitFx(VfxCmd.slashPath)
@@ -31,7 +31,7 @@ public class LightningKick() : WorkoutCard(2, CardType.Attack, TargetType.AnyEne
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(2);
+        DynamicVars.HitCount.UpgradeValueBy(2);
     }
 
 }

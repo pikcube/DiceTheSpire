@@ -10,7 +10,7 @@ namespace DiceTheSpire.Warrior.Rare;
 
 public class RoundhouseKick() : TheWarriorCard(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new RepeatVar(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(8M, DamageProps.card), new HitCountVar(3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -20,7 +20,7 @@ public class RoundhouseKick() : TheWarriorCard(2, CardType.Attack, CardRarity.Ra
         }
 
         await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
-            .WithHitCount(DynamicVars.Repeat.IntValue)
+            .WithHitCount(DynamicVars.HitCount.IntValue)
             .FromCard(this, cardPlay)
             .TargetingAllOpponents(CombatState)
             .WithValueProp(DynamicVars.Damage.Props)

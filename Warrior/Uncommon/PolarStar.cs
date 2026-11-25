@@ -8,7 +8,7 @@ namespace DiceTheSpire.Warrior.Uncommon;
 
 public class PolarStar() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, DamageProps.card), new RepeatVar(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(12M, DamageProps.card), new HitCountVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -24,7 +24,7 @@ public class PolarStar() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommo
         if (IsPlayable)
         {
             await DamageCmd.Attack(DynamicVars.Damage.EnchantedValue)
-           .WithHitCount(DynamicVars.Repeat.IntValue)
+           .WithHitCount(DynamicVars.HitCount.IntValue)
            .FromCard(this, cardPlay)
            .Targeting(cardPlay.Target)
            .WithHitFx(VfxCmd.slashPath)

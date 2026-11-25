@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace DiceTheSpire.Warrior.WorkoutRewards;
 
-public class StrengthTraining() : WorkoutCard(3, CardType.Power, TargetType.Self)
+public class StrengthTraining() : WorkoutCard(2, CardType.Power, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(3M), new PowerVar<DexterityPower>(3M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<StrengthPower>(), HoverTipFactory.FromPower<DexterityPower>()];

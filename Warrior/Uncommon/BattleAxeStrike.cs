@@ -9,11 +9,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace DiceTheSpire.Warrior.Uncommon;
 
-public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class BattleAxeStrike() : TheWarriorCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(2), new DamageVar(8, DamageProps.card), new RepeatVar(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3), new DamageVar(10, DamageProps.card), new RepeatVar(2)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(BetterStaticHoverTips.Dodge)];
 
 
@@ -36,8 +36,8 @@ public class BattleAxeStrike() : TheWarriorCard(1, CardType.Attack, CardRarity.U
     }
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(1);
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Repeat.UpgradeValueBy(1);
+        //DynamicVars.Damage.UpgradeValueBy(2);
     }
 
 }

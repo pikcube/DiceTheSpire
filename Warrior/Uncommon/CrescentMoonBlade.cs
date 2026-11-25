@@ -27,13 +27,15 @@ public class CrescentMoonBlade() : TheWarriorCard(-1, CardType.Attack, CardRarit
 
         //if (CombatState?.RoundNumber % 2 == 0 != IsUpgraded)
         //{
-            for (int n = 0; n < xValue; ++n)
-            {
+            //for (int n = 0; n < xValue; ++n)
+            if(xValue > 0)
+            { 
                 ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
                 await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
                     .FromCard(this, cardPlay)
                     .Targeting(cardPlay.Target)
+                    .WithHitCount(xValue)
                     .WithHitFx(VfxCmd.slashPath)
                     .Execute(choiceContext);
             }

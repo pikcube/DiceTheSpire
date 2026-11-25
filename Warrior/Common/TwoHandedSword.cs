@@ -21,8 +21,7 @@ public class TwoHandedSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Co
     [
         new DamageVar(8M, DamageProps.card),
         new PowerVar<FuryPower>(2M),
-        new RepeatVar(2),
-        .. RangeVars.Make(1, 3)
+        new HitCountVar(2)
     ];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FuryPower>(DynamicVars.Power<FuryPower>().IntValue)];
 
@@ -36,7 +35,7 @@ public class TwoHandedSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Co
             .FromCard(this, cardPlay)
             .Targeting(cardPlay.Target)
             .WithHitFx(VfxCmd.slashPath)
-            .WithHitCount(DynamicVars.Repeat.IntValue)
+            .WithHitCount(DynamicVars.HitCount.IntValue)
             .Execute(choiceContext);
 
         await PowerCmd.Apply<FuryPower>(choiceContext, Owner.Creature, DynamicVars.Power<FuryPower>().IntValue, Owner.Creature, this);
@@ -45,8 +44,6 @@ public class TwoHandedSword() : TheWarriorCard(3, CardType.Attack, CardRarity.Co
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.MinRange.UpgradeValueBy(-1);
-        DynamicVars.MaxRange.UpgradeValueBy(-1);
     }
 
 }
