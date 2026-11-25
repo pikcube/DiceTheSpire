@@ -8,41 +8,32 @@ using MegaCrit.Sts2.Core.Runs;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using BaseLib.Extensions;
+using TempoLib.TempoLibCode;
 
 namespace DiceTheSpire.Shared.Patches;
 
-[HarmonyPatch(typeof(RewardsSet), nameof(RewardsSet.Offer))]
+[TempoPatch(typeof(RewardsSet), nameof(RewardsSet.Offer))]
 public static class RewardSetOfferPatches
 {
-    //public static bool OldPrefix(RewardsSet __instance, ref Task __result)
-    //{
-    //    if (__instance.Player.Character is not TheInventor ||
-    //        __instance.Player.RunState.CurrentRoom is not CombatRoom cr ||
-    //        IsEndOfRun(__instance.Player.RunState, cr) ||
-    //        ScrapManager.GadgetIsFromThisFloor(__instance.Player)||
-    //        ScrapManager.DebugMode == ScrapManager.ScrapDebugMode.Off)
-    //    {
-    //        return true;
-    //    }
+    [TempoPrefixAsync]
+    public static async Task BeforeRewardsAsync(RewardsSet __instance)
+    {
+        if (__instance.Player.Character is not TheInventor ||
+            __instance.Player.RunState.CurrentRoom is not CombatRoom cr ||
+            RewardSetOfferMoveNextPatches.IsEndOfRun(__instance.Player.RunState, cr) ||
+            ScrapManager.GadgetIsFromThisFloor(__instance.Player)||
+            ScrapManager.DebugMode == ScrapManager.ScrapDebugMode.Off)
+        {
+            return;
+        }
 
-    //    __result = DoScrapForThenOfferAsync(__instance);
-    //    return false;
-    //}
-
-    //public static async Task DoScrapForThenOfferAsync(RewardsSet rewardsSet)
-    //{
-    //    await ScrapManager.DoScrapForAsync(rewardsSet.Player, rewardsSet.Rewards);
-    //    await OfferRewardAfterScrapAsync(rewardsSet);
-    //}
-
-    //[HarmonyReversePatch]
-    //[HarmonyPatch(typeof(RewardsSet), nameof(RewardsSet.Offer))]
-    //public static Task OfferRewardAfterScrapAsync(object instance)
-    //{
-    //    _ = instance;
-    //    return Task.CompletedTask;
-    //}
+        await ScrapManager.DoScrapForAsync(__instance.Player, __instance.Rewards);
+    }
 }
+
+
+
+
 
 [HarmonyPatch]
 public static class RewardSetOfferMoveNextPatches

@@ -96,6 +96,12 @@
 	<ItemGroup>
 	  <None Include="Workout Quests Plan.txt" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="TempoLib">
+	    <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2\mods\TempoLib\TempoLib.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 	
 	<Target Name="CheckDependencyPaths">
 		<Error Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')" />
