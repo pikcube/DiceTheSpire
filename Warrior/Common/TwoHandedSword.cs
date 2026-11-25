@@ -1,6 +1,4 @@
 ﻿using BaseLib.Extensions;
-using DiceTheSpire.Shared.DynamicVars;
-using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Interfaces;
 using DiceTheSpire.Shared.Powers;
 using MegaCrit.Sts2.Core.Commands;
