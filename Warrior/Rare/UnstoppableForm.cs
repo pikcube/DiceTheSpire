@@ -1,11 +1,9 @@
 ﻿using BaseLib.Extensions;
 using DiceTheSpire.Shared.DynamicVars;
 using DiceTheSpire.Shared.Powers;
-using DiceTheSpire.Shared.Utility;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using DiceTheSpire.Shared.Extensions;
 

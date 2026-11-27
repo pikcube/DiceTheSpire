@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Patches.Content;
+using BaseLib.Utils;
 using DiceTheSpire.Shared.Extensions;
 using DiceTheSpire.Shared.Utility;
 using JetBrains.Annotations;
@@ -8,27 +9,19 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Rooms;
 using Pikcube.Common.Code.Extensions;
 
 namespace DiceTheSpire.Shared.Keywords;
 
 public class ShockModel() : CustomSingletonModel(HookType.Combat)
 {
-    private static List<CardModel> ShouldShockList { get; } = [];
+    private static readonly SpireField<CardModel, bool> ShockOnPlaySpireField = new(() => false);
 
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After), UsedImplicitly]
     public static CardKeyword Shock = 0;
 
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before), UsedImplicitly]
     public static CardKeyword Shocked = 0;
-
-    /// <inheritdoc />
-    public override Task BeforeRoomEntered(AbstractRoom room)
-    {
-        ShouldShockList.Clear();
-        return Task.CompletedTask;
-    }
 
     public override CardLocation ModifyCardPlayResultLocation(CardModel card, bool isAutoPlay, ResourceInfo resources,
         CardLocation cardLocation)
@@ -69,19 +62,12 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
 
     internal static bool ShouldShock<T>(T instance) where T : CardModel
     {
-        return !instance.ExhaustOnNextPlay && ShouldShockList.Any(c => c == instance);
+        return !instance.ExhaustOnNextPlay && ShockOnPlaySpireField.Get(instance);
     }
 
     internal static void SetShouldShock<T>(T instance, bool value) where T : CardModel
     {
-        if (value)
-        {
-            ShouldShockList.Add(instance);
-        }
-        else
-        {
-            ShouldShockList.Remove(instance);
-        }
+        ShockOnPlaySpireField.Set(instance, value);
     }
 
     public override Task AfterCardChangedPiles(CardModel card, PileType oldPileType, AbstractModel? clonedBy)
@@ -111,27 +97,6 @@ public class ShockModel() : CustomSingletonModel(HookType.Combat)
             tasks.Add(Cmd.Wait(0.15f));
         }
         await Task.WhenAll(tasks);
-    }
-
-    public static async Task ShockAndReplaceAsync(PlayerChoiceContext choiceContext, Player player, CardModel[] cardsToShock, int amountToDraw, bool skipVisuals = false)
-    {
-        foreach (CardModel card in cardsToShock)
-        {
-            await card.ExhaustAsync(choiceContext, false, skipVisuals);
-            card.AddPurpleKeyword(Shocked);
-        }
-
-        await CardPileCmd.Draw(choiceContext, amountToDraw, player);
-
-        foreach (CardModel card in cardsToShock)
-        {
-            await DiceyHooks.OnShockAsync(player.RunState, player.Creature.CombatState, choiceContext, card);
-        }
-    }
-
-    public static IReadOnlyList<CardModel> ShockedCards(Player owner, Predicate<CardModel> filter)
-    {
-        return [.. PileType.Exhaust.GetPile(owner).Cards.Where(card => card.Keywords.Contains(Shocked) && filter(card))];
     }
 
     public static async Task UnshockCardAsync(CardModel card, PileType destination = PileType.Hand)
