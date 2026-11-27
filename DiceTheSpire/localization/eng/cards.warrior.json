@@ -201,7 +201,7 @@
   "DICETHESPIRE-SOMERSAULT.title": "Somersault",
   "DICETHESPIRE-REST_DAY.description": "Gain {BlockNextTurnPower:diff()} [gold]Block[/gold] next turn.",
   "DICETHESPIRE-REST_DAY.title": "Rest Day",
-  "DICETHESPIRE-DUMBBELL.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold].",
+  "DICETHESPIRE-DUMBBELL.description": "Gain {Energy:diceIcons()} next turn.",
   "DICETHESPIRE-DUMBBELL.title": "Dumbbell",
   "DICETHESPIRE-BREATHING_EXERCISES.description": "Gain {FuryPower:diff()} [gold]Fury[/gold].",
   "DICETHESPIRE-BREATHING_EXERCISES.title": "Breathing Exercises",
