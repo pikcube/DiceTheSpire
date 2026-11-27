@@ -139,12 +139,5 @@
   "DICETHESPIRE-BUMP_SHIELD_POWER.title": "Bump Shield",
   "DICETHESPIRE-CRYSTALIZATION_POWER.description": "Draw extra cards each turn.\n[gold]Reroll[/gold] them.",
   "DICETHESPIRE-CRYSTALIZATION_POWER.smartDescription": "Draw {Amount} cards at the start of each turn,\n[gold]Reroll[/gold] the first {Amount} cards drawn.",
-  "DICETHESPIRE-CRYSTALIZATION_POWER.title": "Crystalize",
-
-
-
-  "DICETHESPIRE-PICNIC_BASKET_POWER.description": "PLACEHOLDER",
-  "DICETHESPIRE-PICNIC_BASKET_POWER.smartDescription": "PLACEHOLDER",
-  "DICETHESPIRE-PICNIC_BASKET_POWER.title": "PicnicBasketPower"
-
+  "DICETHESPIRE-CRYSTALIZATION_POWER.title": "Crystalize"
 }
